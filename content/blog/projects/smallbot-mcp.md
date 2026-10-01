@@ -26,3 +26,9 @@ This is a tool built on the MCP (Model Context Protocol) so it can talk to Claud
 ![Smallbot — a helpful assistant for creating Smallweb applications](https://res.cloudinary.com/ejf/image/upload/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png)
 
 ![Smallbot generating a Smallweb app](https://res.cloudinary.com/ejf/image/upload/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png)
+
+## smallweb-starter
+
+![The starter running locally — a live HTTP request returning JSON, with rate-limiting and cache-control headers from the Hono middleware](https://res.cloudinary.com/ejf/image/upload/v1789191272/projects/smallweb-starter/landing.png)
+
+[smallweb-starter](/projects/smallweb-starter) is a lightweight application starter for Smallweb, in TypeScript on Deno. It ships Hono middleware for rate-limiting and cache-control headers.

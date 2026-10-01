@@ -24,21 +24,28 @@ spacepunk-logi, scrapworld, amen-slicer, splats, ejfox-genome, towntuner
 - **vulpes-system** — DONE. Absorbs vulpes-theme-lab, vulpes-rss,
   vulpes-browser, vulpesvg (those stay draft). Links the published
   vulpes-nvim, vulpes-devices, cyberdeck-saver, which keep their own pages.
-- Proposed, not built yet:
-  - **Terminal Tools** — ascii_webcam, cli-ai-chat, cli-ching, cli-conway,
-    cli-delta-dojo, cli-ascii-3d, git-status-dash, github-sloth, tmux-link-grab,
-    music-cli, ps5-tmux, showtouch, talon-sketchybar, robots. One GIF + two
-    sentences each, no voice pass.
-  - **Flipper Zero Apps** — flipper-space-calculators, spectrum-synth, badusb-remote-desktop.
-  - **Hand-tracking & gesture** (into creative-interfaces) — hand-midi-controller,
-    handtrack-websockets, opencv-midi-controller, opencv-talk-typography, glasses-hud.
-  - **Semantic maps** (into obsidian-analysis) — criterion-embedding-viz,
+- **terminal-tools** — DONE (2026-09-30). One image + two sentences per tool for
+  ascii_webcam, cli-ai-chat, cli-ching, cli-conway, cli-delta-dojo, cli-ascii-3d,
+  git-status-dash, github-sloth, tmux-link-grab, music-cli, ps5-tmux,
+  talon-sketchybar, robots (all stay draft; linked to GitHub) and showtouch
+  (stays published; linked to /projects/showtouch). No voice pass.
+- **flipper-zero-apps** — DONE. flipper-space-calculators (published, linked),
+  spectrum-synth (draft, no repo url, unlinked), badusb-remote-desktop (draft,
+  linked to GitHub). Links the standalone flipper-generative-art.
+- Folds — DONE, each appended as a new section; existing copy untouched:
+  - **Hand-tracking & gesture** → creative-interfaces: hand-midi-controller,
+    handtrack-websockets, opencv-midi-controller, opencv-talk-typography (Speech
+    Echoes), glasses-hud.
+  - **More semantic maps** → obsidian-analysis: criterion-embedding-viz,
     reddit-embeddings, code-network-gen.
-  - **Scrapbook** (into scrapbook-core) — scrapbook-cli, scrapscroller,
-    arena-cards, retroscope, photos.
-  - **Smallweb** (into smallbot-mcp) — smallweb-starter.
-  - Smaller merges: moto-gpx → motorcycle-viz; sentrysearch + transcript-video →
-    clipgoblin; metro-savefile-doctor → subway-builder; coachartie-showcase → coach-artie.
+  - **The scrapbook family** → scrapbook-core: scrapbook-cli, scrapscroller,
+    arena-cards, retroscope, photos. Its two dead `/projects/scrapbook-cli` and
+    `/projects/scrapscroller` links now point at the in-page anchors.
+  - smallweb-starter → smallbot-mcp (published, linked); moto-gpx →
+    motorcycle-viz; sentrysearch + transcript-video → clipgoblin;
+    metro-savefile-doctor → subway-builder; coachartie-showcase → coach-artie.
+- Member pages folded above stay `draft: true` (or published, where they already
+  were) — don't undraft them; the umbrella is their public home.
 
 ## Cut — stay `draft: true`, never interview EJ about these
 

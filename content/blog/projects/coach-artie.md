@@ -34,3 +34,9 @@ Explores AI consciousness emergence through memory patterns with scientific rigo
 ### Related Content
 - [The AI-Human Creative Loop: My 2025 Working Process](https://youtube.com/@ejfox) - How AI assistants integrate into continuous creative workflows
 - [AI Is Our Newest Drug](https://youtube.com/@ejfox) - Philosophical exploration of AI as psychoactive technology
+
+## The showcase site
+
+![Meet Coach Artie — the showcase landing](https://res.cloudinary.com/ejf/image/upload/projects/coachartie-showcase/hero.png)
+
+[The Coach Artie showcase](https://github.com/ejfox/coachartie_showcase) is a one-page editorial site in big serif display type on black, walking through what the agent does: adapts to its environment, remembers what matters, stays cost-conscious, writes its own release notes. It lays out 28 capabilities like a magazine feature.

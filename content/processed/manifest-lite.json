@@ -4715,7 +4715,27 @@
     "tags": [
       "tools"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Related video tools",
+        "slug": "related-video-tools",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Sentry Search",
+            "slug": "sentry-search",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Transcript Video",
+            "slug": "transcript-video",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "Clipgoblin",
       "date": "2026-04-29T05:00:00.000Z",
@@ -4729,17 +4749,39 @@
       "tags": [
         "tools"
       ],
-      "words": 169,
-      "images": 3,
+      "words": 276,
+      "images": 5,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 5,
+        "cloudinary": 5,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 1,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Related video tools",
+          "slug": "related-video-tools",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Sentry Search",
+              "slug": "sentry-search",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Transcript Video",
+              "slug": "transcript-video",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "slug": "projects/clipgoblin"
     }
@@ -4824,6 +4866,12 @@
             "children": []
           }
         ]
+      },
+      {
+        "text": "The showcase site",
+        "slug": "the-showcase-site",
+        "level": "h2",
+        "children": []
       }
     ],
     "metadata": {
@@ -4851,17 +4899,17 @@
         "nodejs"
       ],
       "about": "[[project-notes/coach-artie]]",
-      "words": 127,
-      "images": 1,
+      "words": 182,
+      "images": 2,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
       "links": 4,
       "codeBlocks": 0,
       "headers": {
-        "h2": 3
+        "h2": 4
       },
       "toc": [
         {
@@ -4888,6 +4936,12 @@
               "children": []
             }
           ]
+        },
+        {
+          "text": "The showcase site",
+          "slug": "the-showcase-site",
+          "level": "h2",
+          "children": []
         }
       ],
       "type": "post",
@@ -5057,6 +5111,43 @@
         "slug": "projects",
         "level": "h2",
         "children": []
+      },
+      {
+        "text": "Hand-tracking & gesture",
+        "slug": "hand-tracking--gesture",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Hand MIDI Controller",
+            "slug": "hand-midi-controller",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Handtrack WebSockets",
+            "slug": "handtrack-websockets",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "OpenCV MIDI Controller",
+            "slug": "opencv-midi-controller",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Speech Echoes",
+            "slug": "speech-echoes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Glasses HUD",
+            "slug": "glasses-hud",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
     "metadata": {
@@ -5079,17 +5170,17 @@
         "creativity",
         "interfaces"
       ],
-      "words": 503,
-      "images": 2,
+      "words": 702,
+      "images": 6,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 6,
+        "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 8,
+      "links": 10,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 2
       },
       "toc": [
         {
@@ -5097,6 +5188,43 @@
           "slug": "projects",
           "level": "h2",
           "children": []
+        },
+        {
+          "text": "Hand-tracking & gesture",
+          "slug": "hand-tracking--gesture",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Hand MIDI Controller",
+              "slug": "hand-midi-controller",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Handtrack WebSockets",
+              "slug": "handtrack-websockets",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "OpenCV MIDI Controller",
+              "slug": "opencv-midi-controller",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Speech Echoes",
+              "slug": "speech-echoes",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Glasses HUD",
+              "slug": "glasses-hud",
+              "level": "h3",
+              "children": []
+            }
+          ]
         }
       ],
       "type": "post",
@@ -5294,6 +5422,93 @@
     }
   },
   {
+    "slug": "projects/flipper-zero-apps",
+    "title": "Flipper Zero Apps",
+    "date": "2026-09-30T04:00:00.000Z",
+    "type": "post",
+    "draft": false,
+    "tags": [
+      "flipper",
+      "hardware",
+      "device"
+    ],
+    "toc": [
+      {
+        "text": "Flipper Space Calculators",
+        "slug": "flipper-space-calculators",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Spectrum Synth",
+        "slug": "spectrum-synth",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "BadUSB Remote Desktop",
+        "slug": "badusb-remote-desktop",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Flipper Zero Apps",
+      "date": "2026-09-30T04:00:00.000Z",
+      "category": "Hardware",
+      "featured": false,
+      "draft": false,
+      "tech": [
+        "Flipper Zero",
+        "C",
+        "Embedded",
+        "ESP32-S2",
+        "DuckyScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "flipper",
+        "hardware",
+        "device"
+      ],
+      "words": 252,
+      "images": 4,
+      "imageDetails": {
+        "total": 4,
+        "cloudinary": 4,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "Flipper Space Calculators",
+          "slug": "flipper-space-calculators",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Spectrum Synth",
+          "slug": "spectrum-synth",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "BadUSB Remote Desktop",
+          "slug": "badusb-remote-desktop",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "slug": "projects/flipper-zero-apps"
+    }
+  },
+  {
     "slug": "projects/gem-viz",
     "title": "Global Energy Ownership Tracker",
     "date": "2026-05-01T04:00:00.000Z",
@@ -5395,7 +5610,14 @@
       "art",
       "video"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Mapping the rides",
+        "slug": "mapping-the-rides",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "Motorcycle Meta-Visualizations",
       "date": "2026-05-01T04:00:00.000Z",
@@ -5417,17 +5639,26 @@
         "art",
         "video"
       ],
-      "words": 470,
-      "images": 10,
+      "words": 525,
+      "images": 11,
       "imageDetails": {
-        "total": 10,
-        "cloudinary": 10,
+        "total": 11,
+        "cloudinary": 11,
         "withDimensions": 0
       },
-      "links": 0,
+      "links": 1,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Mapping the rides",
+          "slug": "mapping-the-rides",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "slug": "projects/motorcycle-viz"
     }
@@ -5580,7 +5811,33 @@
       "visualization",
       "ai"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "More semantic maps",
+        "slug": "more-semantic-maps",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Criterion Embeddings",
+            "slug": "criterion-embeddings",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "r/dataisbeautiful, Embedded",
+            "slug": "rdataisbeautiful-embedded",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "code-network-gen",
+            "slug": "code-network-gen",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "Obsidian Analysis",
       "date": "2024-06-01T04:00:00.000Z",
@@ -5600,17 +5857,45 @@
         "visualization",
         "ai"
       ],
-      "words": 200,
-      "images": 2,
+      "words": 362,
+      "images": 5,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 5,
+        "cloudinary": 4,
         "withDimensions": 0
       },
       "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "More semantic maps",
+          "slug": "more-semantic-maps",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Criterion Embeddings",
+              "slug": "criterion-embeddings",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "r/dataisbeautiful, Embedded",
+              "slug": "rdataisbeautiful-embedded",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "code-network-gen",
+              "slug": "code-network-gen",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "slug": "projects/obsidian-analysis"
     }
@@ -5865,7 +6150,45 @@
     "tags": [
       "tools"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The scrapbook family",
+        "slug": "the-scrapbook-family",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Scrapbook CLI",
+            "slug": "scrapbook-cli",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scrapscroller",
+            "slug": "scrapscroller",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Arena Cards",
+            "slug": "arena-cards",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Retroscope",
+            "slug": "retroscope",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Photos",
+            "slug": "photos",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "Scrapbook Core",
       "date": "2026-05-05T05:00:00.000Z",
@@ -5880,17 +6203,57 @@
       "tags": [
         "tools"
       ],
-      "words": 376,
-      "images": 2,
+      "words": 581,
+      "images": 7,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 7,
+        "cloudinary": 7,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 7,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "The scrapbook family",
+          "slug": "the-scrapbook-family",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Scrapbook CLI",
+              "slug": "scrapbook-cli",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Scrapscroller",
+              "slug": "scrapscroller",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Arena Cards",
+              "slug": "arena-cards",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Retroscope",
+              "slug": "retroscope",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Photos",
+              "slug": "photos",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "slug": "projects/scrapbook-core"
     }
@@ -5955,6 +6318,12 @@
         "slug": "smallbot-mcp",
         "level": "h2",
         "children": []
+      },
+      {
+        "text": "smallweb-starter",
+        "slug": "smallweb-starter",
+        "level": "h2",
+        "children": []
       }
     ],
     "metadata": {
@@ -5976,22 +6345,28 @@
         "ai",
         "web"
       ],
-      "words": 159,
-      "images": 2,
+      "words": 201,
+      "images": 3,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 3,
+        "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 5,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 2
       },
       "toc": [
         {
           "text": "Smallbot MCP",
           "slug": "smallbot-mcp",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "smallweb-starter",
+          "slug": "smallweb-starter",
           "level": "h2",
           "children": []
         }
@@ -6053,7 +6428,14 @@
       "transit",
       "dataviz"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Metro Savefile Doctor",
+        "slug": "metro-savefile-doctor",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "Subway Builder",
       "date": "2026-05-01T04:00:00.000Z",
@@ -6074,19 +6456,290 @@
         "transit",
         "dataviz"
       ],
-      "words": 255,
-      "images": 10,
+      "words": 311,
+      "images": 11,
       "imageDetails": {
-        "total": 10,
-        "cloudinary": 10,
+        "total": 11,
+        "cloudinary": 11,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Metro Savefile Doctor",
+          "slug": "metro-savefile-doctor",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "slug": "projects/subway-builder"
+    }
+  },
+  {
+    "slug": "projects/terminal-tools",
+    "title": "Terminal Tools",
+    "date": "2026-09-30T04:00:00.000Z",
+    "type": "post",
+    "draft": false,
+    "tags": [
+      "cli",
+      "terminal",
+      "tools"
+    ],
+    "toc": [
+      {
+        "text": "Utilities",
+        "slug": "utilities",
+        "level": "h2",
+        "children": [
+          {
+            "text": "git-status-dash",
+            "slug": "git-status-dash",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "GitHub Sloth",
+            "slug": "github-sloth",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "tmux-link-grab",
+            "slug": "tmux-link-grab",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Music CLI",
+            "slug": "music-cli",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Robots",
+            "slug": "robots",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Input and display",
+        "slug": "input-and-display",
+        "level": "h2",
+        "children": [
+          {
+            "text": "PS5 Tmux",
+            "slug": "ps5-tmux",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Talon Sketchybar",
+            "slug": "talon-sketchybar",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "showtouch",
+            "slug": "showtouch",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "ascii_webcam",
+            "slug": "ascii_webcam",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Games and toys",
+        "slug": "games-and-toys",
+        "level": "h2",
+        "children": [
+          {
+            "text": "CLI Ching",
+            "slug": "cli-ching",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "CLI Conway",
+            "slug": "cli-conway",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "CLI Delta Dojo",
+            "slug": "cli-delta-dojo",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "CLI Ascii 3D",
+            "slug": "cli-ascii-3d",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "CLI AI Chat",
+            "slug": "cli-ai-chat",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "title": "Terminal Tools",
+      "date": "2026-09-30T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "draft": false,
+      "tech": [
+        "Rust",
+        "Go",
+        "Python",
+        "Node.js",
+        "Shell",
+        "tmux"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "cli",
+        "terminal",
+        "tools"
+      ],
+      "words": 546,
+      "images": 14,
+      "imageDetails": {
+        "total": 14,
+        "cloudinary": 14,
+        "withDimensions": 0
+      },
+      "links": 14,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "Utilities",
+          "slug": "utilities",
+          "level": "h2",
+          "children": [
+            {
+              "text": "git-status-dash",
+              "slug": "git-status-dash",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "GitHub Sloth",
+              "slug": "github-sloth",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "tmux-link-grab",
+              "slug": "tmux-link-grab",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Music CLI",
+              "slug": "music-cli",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Robots",
+              "slug": "robots",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Input and display",
+          "slug": "input-and-display",
+          "level": "h2",
+          "children": [
+            {
+              "text": "PS5 Tmux",
+              "slug": "ps5-tmux",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Talon Sketchybar",
+              "slug": "talon-sketchybar",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "showtouch",
+              "slug": "showtouch",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "ascii_webcam",
+              "slug": "ascii_webcam",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Games and toys",
+          "slug": "games-and-toys",
+          "level": "h2",
+          "children": [
+            {
+              "text": "CLI Ching",
+              "slug": "cli-ching",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "CLI Conway",
+              "slug": "cli-conway",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "CLI Delta Dojo",
+              "slug": "cli-delta-dojo",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "CLI Ascii 3D",
+              "slug": "cli-ascii-3d",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "CLI AI Chat",
+              "slug": "cli-ai-chat",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "slug": "projects/terminal-tools"
     }
   },
   {

@@ -32,3 +32,33 @@ That one's on video too: [Coding While I Do The Dishes](https://www.youtube.com/
 ![Dithered generative noise pattern from flipper-generative-art, rendered for the Flipper Zero display](https://res.cloudinary.com/ejf/image/upload/v1785421904/projects/creative-interfaces/flipper-dither-noise.png)
 
 ![Floyd-Steinberg dithered gradient field from flipper-generative-art](https://res.cloudinary.com/ejf/image/upload/v1785421834/projects/creative-interfaces/flipper-dither-field.png)
+
+## Hand-tracking & gesture
+
+### Hand MIDI Controller
+
+![Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC](https://res.cloudinary.com/ejf/image/upload/projects/hand-midi-controller/diagram.png)
+
+[Hand MIDI Controller](https://github.com/ejfox/hand-midi-controller) is a real-time hand-tracking MIDI controller built on MediaPipe and OpenCV, turning hand movements into MIDI control signals for music production, VJing, and performance. It includes TouchDesigner integration.
+
+### Handtrack WebSockets
+
+[Handtrack WebSockets](https://github.com/ejfox/handtrack-websockets) does real-time 3D hand tracking with MediaPipe, OpenCV, and FastAPI, streaming hand position and rotation over WebSockets. It includes a cyberpunk visualization layer that renders the tracked hand.
+
+### OpenCV MIDI Controller
+
+![OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC](https://res.cloudinary.com/ejf/image/upload/projects/opencv-midi-controller/diagram.png)
+
+[OpenCV MIDI Controller](https://github.com/ejfox/opencv-midi-controller) is an experiment in sending MIDI signals based on OpenCV object detection.
+
+### Speech Echoes
+
+![Live speech rendered as decaying typographic echoes](https://res.cloudinary.com/ejf/image/upload/projects/opencv-talk-typography/echo-1.png)
+
+Speech Echoes is a Vue app that captures live speech and renders it as decaying typographic "echoes," with a font and weight captured per utterance. It's built with p5, MediaPipe, and d3-force.
+
+### Glasses HUD
+
+![The two lenses you compose a HUD across](https://res.cloudinary.com/ejf/image/upload/projects/glasses-hud/lenses.png)
+
+[Glasses HUD](https://ejfox.github.io/glasses-hud/) is a tool for quickly prototyping AR lens visualizations and HUDs. Drag data widgets onto the left and right lenses to compose a heads-up display from live bio, motion, location, environment, and device signals.

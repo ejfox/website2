@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-10-01T01:23:50.932Z",
+  "timestamp": "2026-10-01T01:28:05.477Z",
   "summary": {
-    "filesScanned": 392,
-    "internalLinks": 91,
-    "dead": 19,
-    "affectedPosts": 13,
+    "filesScanned": 394,
+    "internalLinks": 93,
+    "dead": 17,
+    "affectedPosts": 12,
     "withSuggestion": 0
   },
   "dead": [
@@ -118,20 +118,6 @@
       "line": 40,
       "target": "blog/2022/2022-prototyping-toolkit",
       "href": "/blog/2022/2022-prototyping-toolkit",
-      "suggestion": null
-    },
-    {
-      "source": "projects/scrapbook-core.md",
-      "line": 18,
-      "target": "/projects/scrapbook-cli",
-      "href": "/projects/scrapbook-cli",
-      "suggestion": null
-    },
-    {
-      "source": "projects/scrapbook-core.md",
-      "line": 18,
-      "target": "/projects/scrapscroller",
-      "href": "/projects/scrapscroller",
       "suggestion": null
     },
     {

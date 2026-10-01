@@ -19,3 +19,17 @@ clipgoblin came out of a real editing problem. I was buried in a corpus of long 
 Under the hood it shells out to Whisper for word-level transcription, then generates concept-tagged FCPXML markers from the resulting `words.json` — so each marker lands on the exact word, not a rough guess. It's the difference between an archive you dread opening and one you can move through at the speed of thought.
 
 ![Resolving and shelling out to whisper for word-level transcription](https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/code.png)
+
+## Related video tools
+
+### Sentry Search
+
+![sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands](https://res.cloudinary.com/ejf/image/upload/v1785421788/projects/sentrysearch/cli-help.png)
+
+Sentry Search is semantic search over video footage: type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline. Its CLI covers indexing, search, image search, highlights, and stats.
+
+### Transcript Video
+
+![Synced transcript with concept color-tagging — a word appears in Archivo Black timed to speech, with tagged terms highlighted and a QR provenance code](https://res.cloudinary.com/ejf/image/upload/v1789191612/projects/transcript-video/landing.png)
+
+[Transcript Video](https://github.com/ejfox/transcript-video) generates 1080p synced transcript videos from audio, with word-level timing and concept color-tagging. It includes audio-reactive visualizations: a spectrogram, oscilloscopes, and a Lissajous phase scope.

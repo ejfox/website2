@@ -39,3 +39,9 @@ It's also a success story for [Room 302 Studio](https://room302.studio) — Coli
 ![Achievements: 2 of 9 unlocked — Track Builder and First Station](https://res.cloudinary.com/ejf/image/upload/v1757555519/screenshot_2025-09-10_at_9.51.45_PM.png)
 
 ![The transit-operations event log — the simulation keeps receipts](https://res.cloudinary.com/ejf/image/upload/v1759077479/screenshot_2025-09-28_at_12.37.44_PM.png)
+
+## Metro Savefile Doctor
+
+![Metro Savefile Doctor — current game analysis](https://res.cloudinary.com/ejf/image/upload/projects/metro-savefile-doctor/ui-1.png)
+
+[Metro Savefile Doctor](https://github.com/ejfox/metro-savefile-doctor) is a TUI (and cross-platform Tauri desktop app) for editing Subway Builder save files, in both JSON and `.metro` binary formats, with auto-backup. It edits money, game time, train count, and ticket price through an interactive terminal interface with a crackintro aesthetic.
