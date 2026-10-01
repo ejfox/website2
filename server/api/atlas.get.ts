@@ -21,16 +21,21 @@ const readJson = async (path: string) => {
   }
 }
 
-// Minimal CSV parsing: handles quoted fields with commas, which the notes column uses
+// Minimal CSV parsing: quoted fields (with commas and "" escapes), and
+// either \n or \r\n line endings
 const parseCsv = (text: string) => {
   const rows: string[][] = []
-  for (const line of text.split('\n')) {
+  for (const line of text.split(/\r?\n/)) {
     if (!line.trim()) continue
     const cells: string[] = []
     let cur = ''
     let quoted = false
-    for (const ch of line) {
-      if (ch === '"') quoted = !quoted
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i]
+      if (ch === '"' && quoted && line[i + 1] === '"') {
+        cur += '"'
+        i++
+      } else if (ch === '"') quoted = !quoted
       else if (ch === ',' && !quoted) {
         cells.push(cur)
         cur = ''
@@ -41,7 +46,7 @@ const parseCsv = (text: string) => {
   }
   const [header = [], ...body] = rows
   return body.map((r) =>
-    Object.fromEntries(header.map((h, i) => [h, r[i] ?? '']))
+    Object.fromEntries(header.map((h, i) => [h.trim(), r[i] ?? '']))
   )
 }
 
@@ -63,8 +68,12 @@ export default defineEventHandler(async (event) => {
         properties: {
           name: r.Name,
           freq: r.Frequency,
+          duplex: r.Duplex,
+          offset: r.Offset,
           tone: r.Tone,
+          mode: r.Mode,
           notes: r.Notes,
+          source: r.Source,
         },
       }))
   } catch {

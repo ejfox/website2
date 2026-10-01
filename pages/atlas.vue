@@ -123,6 +123,23 @@ const escapeHtml = (s: string) =>
       ]!
   )
 
+// Popup body for a repeater: the numbers you'd program a radio with, then
+// the note and where the listing came from
+const repeaterHtml = (p: Record<string, string>) => {
+  const prog = [
+    `${p.freq} MHz`,
+    p.duplex && p.offset ? `${p.duplex}${p.offset}` : '',
+    p.tone ? `PL ${p.tone}` : '',
+    p.mode && p.mode !== 'FM' ? p.mode : '',
+  ]
+    .filter(Boolean)
+    .join(' · ')
+  const src = p.source
+    ? `<br><a href="${escapeHtml(p.source)}" target="_blank" rel="noopener">source</a>`
+    : ''
+  return `${escapeHtml(prog)}${p.notes ? `<br>${escapeHtml(p.notes)}` : ''}${src}`
+}
+
 const applyVisibility = () => {
   if (!map) return
   for (const l of LAYERS)
@@ -350,6 +367,7 @@ onMounted(async () => {
         id: 'repeater-labels',
         type: 'symbol',
         source: 'repeaters',
+        minzoom: 10,
         layout: {
           'text-field': ['concat', ['get', 'name'], '\n', ['get', 'freq']],
           'text-size': 11,
@@ -386,7 +404,7 @@ onMounted(async () => {
             id === 'rides'
               ? `<a href="/rides/${escapeHtml(p.slug)}">ride →</a>`
               : id === 'repeaters'
-                ? `${escapeHtml(p.freq)} MHz${p.notes ? `<br>${escapeHtml(p.notes)}` : ''}`
+                ? repeaterHtml(p)
                 : escapeHtml(p.cat)
           new maplibregl.Popup({ closeButton: false, className: 'atlas-popup' })
             .setLngLat(e.lngLat)
@@ -426,7 +444,8 @@ onBeforeUnmount(() => map?.remove())
       <p v-if="error" class="error">{{ error }}</p>
       <p class="fine">
         Points: OpenStreetMap (snapshot). Rides: published only,
-        privacy-trimmed. Repeaters: hand-kept list, verify before relying on it
+        privacy-trimmed. Repeaters: club and ARRL ARES listings with approximate
+        sites, so verify before you key up
       </p>
     </aside>
   </div>
