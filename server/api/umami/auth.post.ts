@@ -5,10 +5,9 @@
  * @returns Authentication token for Umami API access
  */
 import { fetchWithTimeout } from '~/server/utils/fetch'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-
   try {
     const response = await fetchWithTimeout(
       'https://umami.tools.ejfox.com/api/auth/login',
@@ -18,8 +17,8 @@ export default defineEventHandler(async () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: config.UMAMI_USERNAME,
-          password: config.UMAMI_PASSWORD,
+          username: serverEnv('UMAMI_USERNAME'),
+          password: serverEnv('UMAMI_PASSWORD'),
         }),
       },
       5000 // 5 second timeout

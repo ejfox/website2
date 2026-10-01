@@ -2,6 +2,7 @@ import { defineEventHandler } from 'h3'
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { escapeXml, cdata } from '~/server/utils/xml'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 // GraphQL response types
 interface GistFile {
@@ -92,8 +93,8 @@ export default defineEventHandler(async (event): Promise<string> => {
       `public, max-age=${CACHE_DURATION}`
     )
 
-    const config = useRuntimeConfig()
-    const token = config.githubToken || config.GITHUB_TOKEN
+    const token =
+      serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
 
     if (!token) {
       throw new Error('GitHub token not configured')

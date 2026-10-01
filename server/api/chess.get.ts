@@ -5,6 +5,7 @@
  * @returns ChessStats with current/best ratings, games played, win rates, puzzle stats, and recent game results
  */
 import { defineEventHandler, createError } from 'h3'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 interface ChessGameResult {
   id: string
@@ -104,8 +105,7 @@ interface ChessStats {
 }
 
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-  const username = config.CHESS_USERNAME
+  const username = serverEnv('CHESS_USERNAME')
 
   if (!username) {
     throw createError({
