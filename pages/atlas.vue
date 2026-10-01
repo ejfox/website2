@@ -161,6 +161,7 @@ onMounted(async () => {
       customAttribution: '© OpenStreetMap contributors',
     },
   })
+  if (import.meta.dev) (window as unknown as { __atlas: maplibregl.Map }).__atlas = map
   map.addControl(
     new maplibregl.NavigationControl({ visualizePitch: false }),
     'top-right'
@@ -248,7 +249,7 @@ onMounted(async () => {
       },
       paint: {
         'text-color': VULPES.teal,
-        'text-opacity': 0.55,
+        'text-opacity': 0.8,
         'text-halo-color': VULPES.ground,
         'text-halo-width': 1,
       },
