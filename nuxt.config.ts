@@ -271,6 +271,8 @@ export default defineNuxtConfig({
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.
       '/ff': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // The Hour (/live): hidden until EJ announces the show
+      '/live': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // Kitchen Sink (/kitchen-sink) — private in-house component browser.
       // Hidden like /ff: noindex header + in-page meta, not in nav or sitemap.
       // ssr:false — it's a pure client-side dev tool that dynamically renders
