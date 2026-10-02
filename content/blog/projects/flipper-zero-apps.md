@@ -3,7 +3,7 @@ title: "Flipper Zero Apps"
 date: 2026-09-30T00:00:00-04:00
 category: "Hardware"
 featured: false
-draft: false
+draft: true
 tech: ["Flipper Zero", "C", "Embedded", "ESP32-S2", "DuckyScript"]
 state: deployed
 ai-involvement: ai-assisted

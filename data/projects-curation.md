@@ -29,9 +29,10 @@ spacepunk-logi, scrapworld, amen-slicer, splats, ejfox-genome, towntuner
   git-status-dash, github-sloth, tmux-link-grab, music-cli, ps5-tmux,
   talon-sketchybar, robots (all stay draft; linked to GitHub) and showtouch
   (stays published; linked to /projects/showtouch). No voice pass.
-- **flipper-zero-apps** — DONE. flipper-space-calculators (published, linked),
-  spectrum-synth (draft, no repo url, unlinked), badusb-remote-desktop (draft,
-  linked to GitHub). Links the standalone flipper-generative-art.
+- **flipper-zero-tools** — EJ's own page (2026-10-01, laptop), now a flagship.
+  Merges flipper-space-calculators + flipper-generative-art (both source files
+  removed). Supersedes the flipper-zero-apps umbrella, which is back to draft
+  (it linked to the deleted pages). badusb-remote-desktop is published standalone.
 - Folds — DONE, each appended as a new section; existing copy untouched:
   - **Hand-tracking & gesture** → creative-interfaces: hand-midi-controller,
     handtrack-websockets, opencv-midi-controller, opencv-talk-typography (Speech
