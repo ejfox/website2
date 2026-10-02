@@ -77,6 +77,24 @@ const tile = (src, width) =>
 
 // Precomputed server-side by /api/projects?slim=1.
 const firstImage = computed(() => props.project.images?.[0] || '')
+
+// When a project has more than one image, show a fanned photo-stack instead
+// of a flat single thumbnail — a quiet visual hint there's more to see.
+// Capped at 3 layers so the stack reads as "a pile", not a mess.
+const stackImages = computed(() => (props.project.images || []).slice(0, 3))
+const isStack = computed(() => stackImages.value.length > 1)
+
+// Back-to-front offsets for the stacked layers. Index 0 is the front (cover)
+// image and stays flat; each layer behind it rotates/shifts a bit further so
+// it peeks out from behind, like a dropped pile of prints.
+const stackLayerStyle = (index) => {
+  if (index === 0) return { zIndex: 30 }
+  const dir = index % 2 === 0 ? 1 : -1
+  return {
+    zIndex: 30 - index,
+    transform: `translate(${dir * index * 5}px, ${index * 7}px) rotate(${dir * (3 + index * 2)}deg)`,
+  }
+}
 </script>
 
 <template>
@@ -86,9 +104,31 @@ const firstImage = computed(() => props.project.images?.[0] || '')
     :id="projectSlug"
     class="archive-card group relative block text-zinc-900 dark:text-zinc-100 scroll-mt-24"
   >
-    <div class="relative overflow-hidden rounded bg-raised mb-2 aspect-[3/2]">
+    <div
+      class="relative mb-2 aspect-[3/2]"
+      :class="isStack ? 'overflow-visible' : 'overflow-hidden rounded bg-raised'"
+    >
+      <template v-if="isStack">
+        <div
+          v-for="(img, i) in stackImages"
+          :key="img"
+          class="absolute inset-0 overflow-hidden rounded bg-raised ring-1 ring-black/10 dark:ring-white/10 shadow-md transition-transform duration-300"
+          :style="stackLayerStyle(i)"
+        >
+          <img
+            :src="tile(img, 600)"
+            :alt="`${projectTitle} screenshot ${i + 1}`"
+            width="600"
+            height="400"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+            :class="i === 0 ? 'group-hover:scale-[1.03] transition-transform duration-300' : ''"
+          />
+        </div>
+      </template>
       <img
-        v-if="firstImage"
+        v-else-if="firstImage"
         :src="tile(firstImage, 600)"
         :srcset="`${tile(firstImage, 400)} 400w, ${tile(firstImage, 800)} 800w`"
         sizes="(min-width: 1280px) 400px, (min-width: 640px) 33vw, 50vw"
