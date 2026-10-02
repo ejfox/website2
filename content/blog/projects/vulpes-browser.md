@@ -3,7 +3,7 @@ title: "Vulpes Browser"
 date: 2026-01-20T00:00:00-05:00
 category: "Tools"
 featured: false
-draft: true
+draft: false
 url: https://github.com/ejfox/vulpes-browser
 tech: ["Swift"]
 state: deployed
@@ -12,9 +12,13 @@ tags:
   - tools
 ---
 
-<!-- TODO (EJ): add your voice + an image. Capture: macOS app screenshot. Draft until imaged. -->
-
 Minimalist web browser. Zig + Swift + Metal — rendered entirely on the GPU, with particle effects, link glow, and a two-pass bloom.
+
+I really wanted to experiment with creating a browser but making every choice myself, centered around how I use and consume the internet — from first principles, aided by a super-intelligent robot. What would a new browser made today, with speed and performance as a central tenet, look like?
+
+All these — Zig, Swift, Metal — are barebones, non-web tech that's performant, and they interest me.
+
+It's an experiment I need to come back to.
 
 ![The vulpes browser rendering ejfox.com](https://res.cloudinary.com/ejf/image/upload/projects/vulpes/browser.png)
 

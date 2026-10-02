@@ -25,6 +25,7 @@ const FLAGSHIP_ORDER = [
   'vulpes-system',
   'ccrb-clusters',
   'pixel-canvas',
+  'flipper-zero-tools',
   'gem-viz',
   'paramilitary-leaks',
   'nbc-big-board',
