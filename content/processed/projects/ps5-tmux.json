@@ -1,0 +1,32 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"PS5 Tmux running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ps5-tmux/terminal.png\" alt=\"PS5 Tmux running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/ps5-tmux/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/ps5-tmux/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ps5-tmux/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/ps5-tmux/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"PS5 Tmux running in a vulpes-themed terminal\" width=\"2560\" height=\"1708\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"2560×1708\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">PS5 Tmux running in a vulpes-themed terminal</figcaption></figure>\nControl tmux through your ps5 dualsense controller.<p class=\"\"></p>\n<p class=\"\">you know that feeling when you're deep in a coding session at 2am, your back is screaming from hunching over your desk, but you can't stop because you're in the zone? what if i told you there's a way to migrate to your couch, lean back like a champion, and navigate tmux with the same controller you use to pwn noobs in call of duty?</p>",
+  "title": "PS5 Tmux",
+  "metadata": {
+    "title": "PS5 Tmux",
+    "date": "2025-08-13T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/ps5-tmux",
+    "tech": [
+      "JavaScript",
+      "Shell"
+    ],
+    "tags": [
+      "tools"
+    ],
+    "words": 104,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

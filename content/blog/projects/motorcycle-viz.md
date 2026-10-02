@@ -1,9 +1,8 @@
 ---
 title: "Motorcycle Meta-Visualizations"
-draft: true
 date: 2026-05-01T00:00:00-04:00
-category: "Art"
 featured: true
+category: "Art"
 url: https://github.com/ejfox/motorcycle-viz
 tech: ["FFmpeg", "Python", "Generative Art", "Data Visualization"]
 state: doing
@@ -50,3 +49,9 @@ By the end of those first few years I had gigabytes and gigabytes of it, and I g
 So what did it all add up to? Honestly, not much you could point at. The specific moments I'd gone looking for — the train and the helicopter, the good light — washed out in the averaging. What was left was just the general shape and colors of the Hudson Valley and its roads. Unremarkable, but with a kind of haunting beauty to it. A consistency.
 
 The real blessing turned out to be in what *isn't* there. Across all of it — every gig of footage, every year — no accident, nothing terrible ever happened. The insurance I started rolling never had to pay out. That's the thing the average quietly confirms.
+
+## Mapping the rides
+
+![A 56-mile Hudson Valley loop mapped from a Garmin file](https://res.cloudinary.com/ejf/image/upload/projects/moto-gpx/map.png)
+
+[Moto GPX](https://ejfox.github.io/moto-gpx/) dumps a folder of GPX tracks into map-ready GeoJSON split by day, hour, or stage, and can merge photos and videos in via exiftool. It also generates elevation and speed profiles, with the day's peak and top-speed moment marked.

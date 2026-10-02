@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-09-17T23:42:50.185Z",
+  "timestamp": "2026-10-02T17:04:25.536Z",
   "summary": {
-    "filesScanned": 368,
-    "internalLinks": 89,
-    "dead": 20,
-    "affectedPosts": 14,
+    "filesScanned": 394,
+    "internalLinks": 96,
+    "dead": 19,
+    "affectedPosts": 13,
     "withSuggestion": 0
   },
   "dead": [
@@ -121,24 +121,17 @@
       "suggestion": null
     },
     {
-      "source": "2025/hidden-networks-of-warmth.md",
-      "line": 90,
-      "target": "home/14pinest",
-      "href": "/blog/home/14pinest",
+      "source": "projects/flipper-zero-apps.md",
+      "line": 16,
+      "target": "/projects/flipper-generative-art",
+      "href": "/projects/flipper-generative-art",
       "suggestion": null
     },
     {
-      "source": "projects/scrapbook-core.md",
-      "line": 18,
-      "target": "/projects/scrapbook-cli",
-      "href": "/projects/scrapbook-cli",
-      "suggestion": null
-    },
-    {
-      "source": "projects/scrapbook-core.md",
-      "line": 18,
-      "target": "/projects/scrapscroller",
-      "href": "/projects/scrapscroller",
+      "source": "projects/flipper-zero-apps.md",
+      "line": 22,
+      "target": "/projects/flipper-space-calculators",
+      "href": "/projects/flipper-space-calculators",
       "suggestion": null
     },
     {

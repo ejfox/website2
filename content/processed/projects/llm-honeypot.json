@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"LLM Honeypot — the honeypot trapping crawlers, logged in a vulpes terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/llm-honeypot/terminal.png\" alt=\"LLM Honeypot — the honeypot trapping crawlers, logged in a vulpes terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/llm-honeypot/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/llm-honeypot/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/llm-honeypot/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/llm-honeypot/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"LLM Honeypot — the honeypot trapping crawlers, logged in a vulpes terminal\" width=\"1794\" height=\"547\" style=\"--splay-rot:-2.49deg;\" data-dimensions=\"1794×547\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">LLM Honeypot — the honeypot trapping crawlers, logged in a vulpes terminal</figcaption></figure>\na little experiment made as a mothtrap for unsuspecting llms scraping the web. lets see what we catch! 🦋.<p class=\"\"></p>\n<p class=\"\">A defensive security honeypot that only allows robots - the inverse of \"prove you are human\".</p>",
+  "title": "LLM Honeypot",
+  "metadata": {
+    "title": "LLM Honeypot",
+    "date": "2025-08-02T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/llm-honeypot",
+    "tech": [
+      "HTML",
+      "JavaScript"
+    ],
+    "tags": [
+      "bot-detection",
+      "experiment",
+      "honeypot",
+      "security-research"
+    ],
+    "words": 72,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

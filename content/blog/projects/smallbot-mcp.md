@@ -13,16 +13,20 @@ tags:
   - web
 ---
 
-## Smallbot MCP
+[Smallweb](https://www.smallweb.run) is a unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.
 
-[Smallweb](https://www.smallweb.run) is a really unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.
+Nowadays when I have an idea for a website I just want it to exist, without spending three hours setting up a build pipeline and configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes "make me a site about [northeastern trees](https://youtube.com/shorts/i6IZSkmqNSo)" and actually builds the thing.
 
-Nowadays when I have an idea for a website and I just want it to exist, without spending three hours setting up a build pipeline configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes "make me a site about [northeastern trees](https://youtube.com/shorts/i6IZSkmqNSo)" and actually builds the thing.
-
-I made a [video with the creator of Smallweb](https://www.youtube.com/watch?v=thIt-JXYbco) about how easy it is to get setup, and I love how much the project embodies [indieweb philosophies](https://www.are.na/ej-fox/neo-internet-philosophy)
+I made a [video with the creator of Smallweb](https://www.youtube.com/watch?v=thIt-JXYbco) about how easy it is to get set up, and I love how much the project embodies [indieweb philosophies](https://www.are.na/ej-fox/neo-internet-philosophy)
 
 This is a tool built on the MCP (Model Context Protocol) so it can talk to Claude and other AI assistants and give them the tools and documentation to make little Smallweb sites easily, on-the-fly.
 
 ![Smallbot — a helpful assistant for creating Smallweb applications](https://res.cloudinary.com/ejf/image/upload/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png)
 
 ![Smallbot generating a Smallweb app](https://res.cloudinary.com/ejf/image/upload/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png)
+
+## smallweb-starter
+
+![The starter running locally — a live HTTP request returning JSON, with rate-limiting and cache-control headers from the Hono middleware](https://res.cloudinary.com/ejf/image/upload/v1789191272/projects/smallweb-starter/landing.png)
+
+[smallweb-starter](https://github.com/ejfox/smallweb-starter) is a lightweight application starter for Smallweb, in TypeScript on Deno. It ships Hono middleware for rate-limiting and cache-control headers.

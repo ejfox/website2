@@ -140,10 +140,20 @@ export function remarkPredictionRef() {
       if (node.name !== 'prediction') return
       const id = node.attributes?.id
       if (!id) return
-      targets.push({ node, id, display: isBlock ? 'block' : 'inline' })
+      // A containerDirective (`:::prediction`) parses its fenced body into
+      // children which we replace wholesale — flag it so authored body content
+      // isn't silently thrown away unnoticed.
+      const hadBody =
+        node.type === 'containerDirective' && (node.children?.length || 0) > 0
+      targets.push({ node, id, display: isBlock ? 'block' : 'inline', hadBody })
     })
 
-    for (const { node, id, display } of targets) {
+    for (const { node, id, display, hadBody } of targets) {
+      if (hadBody) {
+        console.warn(
+          `[remarkPredictionRef] ignoring body of container :::prediction{${id}} — use the leaf form ::prediction{id="${id}"} (in ${file?.path || 'unknown'})`
+        )
+      }
       const data = await loadPrediction(id)
       if (!data) {
         console.warn(

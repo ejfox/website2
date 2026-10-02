@@ -15,7 +15,6 @@ const { data: indexContent } = await useAsyncData('index-content', () =>
   getPostBySlug('index')
 )
 
-// Check if there's a blog post published today
 const { data: todaysPost } = await useAsyncData('todays-post', async () => {
   const posts = await getAllPosts()
   const today = new Date().toISOString().split('T')[0]
@@ -23,14 +22,12 @@ const { data: todaysPost } = await useAsyncData('todays-post', async () => {
   return post || null
 })
 
-// Weekly creative pulse: words written + GitHub activity
 const { data: weeklyPulse } = await useAsyncData('weekly-pulse', async () => {
   const now = new Date()
   const startOfWeek = new Date(now)
   startOfWeek.setDate(now.getDate() - now.getDay())
   startOfWeek.setHours(0, 0, 0, 0)
 
-  // Blog words this week from manifest
   const posts = await getAllPosts()
   const postsThisWeek = posts.filter((p) => {
     if (!p.date) return false
@@ -41,7 +38,6 @@ const { data: weeklyPulse } = await useAsyncData('weekly-pulse', async () => {
     0
   )
 
-  // GitHub activity this week
   let commits = 0
   let projectNames = []
   try {
@@ -71,7 +67,6 @@ onMounted(() => {
   })
 })
 
-// SEO
 const title = 'EJ Fox — data viz, investigations & weird web experiments'
 const description =
   "I'm a data viz engineer and journalist — I build interactive stories, newsroom tools, and the occasional climate dashboard, mostly through room302.studio"

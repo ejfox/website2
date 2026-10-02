@@ -21,7 +21,6 @@ import { transformerCopyButton } from '@rehype-pretty/transformers'
 import * as shiki from 'shiki'
 
 import {
-  remarkAi2htmlEmbed,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
@@ -47,11 +46,10 @@ const highlighter = await shiki.createHighlighter({
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
-  .use(remarkExtractToc)
   .use(remarkObsidianSupport)
+  .use(remarkExtractToc)
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
-  .use(remarkAi2htmlEmbed)
   .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)

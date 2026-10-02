@@ -16,6 +16,8 @@ tags:
 
 <!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->
 
+
+![CLI Delta Dojo running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-delta-dojo/terminal.png)
 A terminal reflex game for training your eye to spot differences: two values flash up, you call them *Different* or *Same* as fast as you can — and the system is watching the clock.
 
 ![CLI Delta Dojo title screen](https://res.cloudinary.com/ejf/image/upload/projects/cli-delta-dojo/title.png)

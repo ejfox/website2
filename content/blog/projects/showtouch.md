@@ -13,9 +13,9 @@ tags:
   - programming
 ---
 
-For presentations and livestreaming: show every key you press as large ASCII art on screen, so an audience can follow along.
+For presentations and livestreaming: show every key you press as large ASCII art on screen, so an audience can follow along
 
-This was a fun "can robots make TUIs?" experiment. Answer: they can, and it's fun. The idea was to have it open in a tmux pane while I work — especially vim stuff, where people wanna know your shortcuts — but I clearly don't use it; I have like 250 GitHub repos now. The question got answered, and that was the point.
+This was a fun "can robots make TUIs?" experiment. Answer: they can, and it's fun. The idea was to have it open in a tmux pane while I work — especially vim stuff, where people wanna know your shortcuts. The question got answered, and that was the point.
 
 ![How it works — pynput captures keys, pyfiglet renders them as centered ASCII art](https://res.cloudinary.com/ejf/image/upload/projects/showtouch/code.png)
 

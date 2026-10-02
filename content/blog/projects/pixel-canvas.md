@@ -26,7 +26,7 @@ It's an ESP32-S3-BOX-3B running a little Arduino REST API, driven by a bash CLI 
 
 The whole thing is the opposite of a notification feed. Nothing on it is urgent, nothing is trying to pull me back in. It's ambient — you glance at it the way you glance out a window, and mostly you just let it cycle in the corner of your eye while you work.
 
-That's the part I actually care about. I've been tracking myself for years across a dozen systems, and the usual pitch for all that data is optimization: quantify yourself, find the inefficiency, grind it down. I've never been interested in that. I wanted to turn the panopticon inward and just *look* — not "how do I do more," but "what does a day of mine actually look like when it's reflected back and I'm not the one narrating it"
+That's the part I actually care about. I've been tracking myself for years across a dozen systems, and the usual pitch for all that data is optimization: quantify yourself, find the inefficiency, grind it down. I've never been interested in that. I wanted to turn the panopticon inward and just *look* — not "how do I do more," but "what does a day of mine actually look like when it's reflected back and I'm not the one narrating it?"
 
 ![A random gear card](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/gear.png)
 

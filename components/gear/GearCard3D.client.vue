@@ -170,12 +170,15 @@ const buyUrl = computed(() => {
 })
 
 // Internal/URL fields are surfaced via the buy button, photo, or 3D viewer —
-// don't repeat them in the raw details table.
+// don't repeat them in the raw details table. Notes already leads the card as
+// its own callout; repeating it here just staircases a wall of text.
 const HIDDEN_DETAIL_KEYS = new Set([
   'slug',
   'Amazon_URL',
   'Photo_URL',
   'Scan_3D_URL',
+  'Notes',
+  'Name',
 ])
 
 const itemDetails = computed(() => {
@@ -187,12 +190,23 @@ const itemDetails = computed(() => {
   )
 })
 
+// CSV headers are SNAKE_or camelCase (Weight_oz, Last_Used, ParentContainer).
+// Split on both so the label reads as words; the template uppercases it.
 const humanize = (key) =>
   key
-    .replace(/([A-Z])/g, ' $1')
+    .replace(/_/g, ' ')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/[()]/g, '')
-    .replace(/^\w/, (c) => c.toUpperCase())
+    .replace(/\s+/g, ' ')
     .trim()
+
+// A few values are delimiter-packed (Tags: "a;b;c"). Space them so they wrap
+// as a readable list instead of one unbroken run.
+const formatDetailValue = (key, value) => {
+  const v = String(value)
+  if (key === 'Tags') return v.split(/[;,]/).filter(Boolean).join(' · ')
+  return v
+}
 </script>
 
 <template>
@@ -283,15 +297,13 @@ const humanize = (key) =>
     <div class="details-section">
       <h3 class="label-tracked-md">Item Details</h3>
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-10 gap-y-2 text-xs"
+        class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-10 gap-y-0"
       >
-        <div
-          v-for="(value, key) in itemDetails"
-          :key="key"
-          class="row-bordered"
-        >
+        <div v-for="(value, key) in itemDetails" :key="key" class="detail-row">
           <span class="detail-key">{{ humanize(key) }}</span>
-          <span class="detail-val" :title="value">{{ value || '—' }}</span>
+          <span class="detail-val" :title="value">
+            {{ formatDetailValue(key, value) || '—' }}
+          </span>
         </div>
       </div>
     </div>
@@ -335,12 +347,12 @@ const humanize = (key) =>
   @apply mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8;
 }
 .detail-key {
-  @apply flex-shrink-0 uppercase tracking-widest;
-  @apply text-zinc-600 dark:text-zinc-400;
+  @apply flex-none w-28 uppercase tracking-wider text-3xs leading-5;
+  @apply text-zinc-500 dark:text-zinc-500;
 }
 .detail-val {
-  @apply font-mono text-right ml-2 min-w-0 break-words;
-  @apply text-zinc-900 dark:text-zinc-100;
+  @apply flex-1 min-w-0 text-left font-mono text-xs leading-5 break-words;
+  @apply text-zinc-800 dark:text-zinc-200;
 }
 
 /* Missing utility classes used in template */
@@ -359,8 +371,8 @@ const humanize = (key) =>
   @apply font-mono text-xs uppercase tracking-wider mb-3;
   @apply text-zinc-500 dark:text-zinc-400;
 }
-.row-bordered {
-  @apply flex justify-between items-baseline py-1;
+.detail-row {
+  @apply flex items-baseline gap-3 py-2;
   @apply border-b border-zinc-100 dark:border-zinc-800;
 }
 </style>

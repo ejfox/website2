@@ -66,6 +66,15 @@ export default defineNuxtPlugin((nuxtApp) => {
               v.poster = v.dataset.poster
               delete v.dataset.poster
             }
+            // Warm the buffer one viewport ahead of arrival, decoupled from
+            // the poster swap. preload="none" meant playback only STARTED
+            // downloading once the row was already on screen — a visible
+            // gray-box → pop lag. Kick a metadata+data fetch now so the clip
+            // is ready to play the instant the play observer fires.
+            if (v.preload !== 'auto' && !v.dataset.userPaused) {
+              v.preload = 'auto'
+              v.load()
+            }
             posterObserver.unobserve(v)
           }
         },

@@ -1,7 +1,7 @@
 ---
 title: "Metro Savefile Doctor"
 date: 2025-12-01
-category: "Art"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/metro-savefile-doctor

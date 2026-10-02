@@ -5,7 +5,6 @@ const CommitHeatmap = defineAsyncComponent(
   () => import('~/components/github/CommitHeatmap.client.vue')
 )
 
-// Lightweight list + derived activity (year × week buckets)
 const { data: reposData } = await useFetch('/api/github-repos-list')
 const { data: activityData } = await useFetch('/api/github/activity')
 
@@ -20,7 +19,6 @@ const activity = computed(
     }
 )
 
-// Filter / sort state
 const searchQuery = ref('')
 const selectedLanguage = ref('all')
 const selectedYear = ref(null)
@@ -73,7 +71,6 @@ const filteredRepos = computed(() => {
   })
 })
 
-// Stats
 const totalStars = computed(() =>
   repos.value.reduce((sum, r) => sum + r.stats.stars, 0)
 )
@@ -108,7 +105,6 @@ usePageSeo({
   <div
     class="max-w-screen-xl mx-auto px-4 md:px-8 xl:px-16 pt-6 pb-12 space-y-8"
   >
-    <!-- Title -->
     <header class="flex items-baseline justify-between">
       <h1
         class="font-serif text-3xl md:text-4xl text-zinc-900 dark:text-zinc-100"
@@ -152,7 +148,6 @@ usePageSeo({
       </div>
     </dl>
 
-    <!-- Hero heatmap -->
     <ClientOnly>
       <CommitHeatmap
         :years="activity.years"
@@ -163,7 +158,6 @@ usePageSeo({
       />
     </ClientOnly>
 
-    <!-- Filter bar -->
     <div
       class="flex flex-wrap items-baseline gap-x-4 gap-y-2 font-mono text-xs"
     >
@@ -197,7 +191,6 @@ usePageSeo({
       </span>
     </div>
 
-    <!-- Listing -->
     <div class="space-y-0">
       <GithubRepoCard
         v-for="repo in filteredRepos"

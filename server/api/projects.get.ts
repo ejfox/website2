@@ -8,7 +8,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
-import { isScheduled } from '~/utils/postFilters'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 // ?slim=1 card shape for the /projects index: everything the cards and header
 // stats need, WITHOUT the full html (which was ~470KB across ~100 projects and
@@ -79,8 +79,7 @@ async function loadDevDraftProjects(
       const full = JSON.parse(
         await readFile(resolve(projectsDir, file), 'utf8')
       )
-      const m = full.metadata || {}
-      if (m.hidden || m.unlisted || m.password || m.passwordHash) continue
+      if (isHiddenFromListings(full, { ignoreDraft: true })) continue
       if (isScheduled(full)) continue
       out.push({
         slug,
@@ -108,26 +107,13 @@ export default defineEventHandler(async (event) => {
 
     // Filter for project posts, excluding drafts, hidden, unlisted, password-protected, and those starting with !
     const projectPosts = manifest.filter((post: ManifestPost) => {
-      const metadata = post.metadata as Record<string, unknown>
-      const isDraft = post.draft || metadata?.draft
-      const isHidden = post.hidden || metadata?.hidden
-      const isUnlisted = post.unlisted || metadata?.unlisted
-      const hasPassword = !!(
-        post.password ||
-        post.passwordHash ||
-        metadata?.password ||
-        metadata?.passwordHash
-      )
       // Show drafts on the local dev server so works-in-progress are
       // previewable; production still hides them.
       const allowDrafts = import.meta.dev
       return (
         post.slug?.startsWith('projects/') &&
         !post.slug.includes('/!') &&
-        (allowDrafts || !isDraft) &&
-        !isHidden &&
-        !isUnlisted &&
-        !hasPassword &&
+        !isHiddenFromListings(post, { ignoreDraft: allowDrafts }) &&
         !isScheduled(post)
       )
     })

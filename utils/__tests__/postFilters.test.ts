@@ -57,6 +57,19 @@ describe('isHiddenFromListings', () => {
       false
     )
   })
+
+  it('ignoreDraft: true lets a draft through (dev preview) but not other flags', () => {
+    expect(
+      isHiddenFromListings(manifestEntry({ draft: true }), {
+        ignoreDraft: true,
+      })
+    ).toBe(false)
+    expect(
+      isHiddenFromListings(manifestEntry({ unlisted: true }), {
+        ignoreDraft: true,
+      })
+    ).toBe(true)
+  })
 })
 
 describe('isValidPost', () => {

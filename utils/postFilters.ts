@@ -68,14 +68,17 @@ export function isScheduled(post: Post, now: number = Date.now()): boolean {
  * filter written as `!p.unlisted` against a manifest entry is a permanent
  * no-op on `undefined`. `/api/agent/timeline` shipped exactly that bug.
  */
-export function isHiddenFromListings(post: Post): boolean {
+export function isHiddenFromListings(
+  post: Post,
+  { ignoreDraft = false }: { ignoreDraft?: boolean } = {}
+): boolean {
   const both = (key: string) =>
     Boolean(
       (post as Record<string, unknown>)?.[key] ??
       (post?.metadata as Record<string, unknown> | undefined)?.[key]
     )
   return (
-    both('draft') ||
+    (!ignoreDraft && both('draft')) ||
     both('hidden') ||
     both('unlisted') ||
     both('password') ||

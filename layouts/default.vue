@@ -3,6 +3,7 @@ import { getPrimaryNav } from '~/utils/navigation'
 
 const route = useRoute()
 const primaryNav = getPrimaryNav()
+const isDev = import.meta.dev
 
 const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
@@ -135,6 +136,7 @@ const linkClasses =
 
     <UiFooter />
     <UiWebVitalsReporter />
+    <DevChangedRoutesHud v-if="isDev" />
   </div>
 </template>
 

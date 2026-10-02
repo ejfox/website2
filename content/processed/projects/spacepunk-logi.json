@@ -1,13 +1,13 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft. -->\n<p class=\"\">A server-authoritative space-trading RPG with LLM-driven NPCs: emergent narrative, a gossip network that spreads rumors between characters, and a persistent economy across seven stations.</p>\n<figure role=\"figure\" aria-label=\"Spacepunk NPC portrait\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spacepunk/npc-6.png\" alt=\"Spacepunk NPC portrait\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/spacepunk/npc-6.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/spacepunk/npc-6.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spacepunk/npc-6.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/spacepunk/npc-6.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Spacepunk NPC portrait\" width=\"1024\" height=\"1024\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1024×1024\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Spacepunk NPC portrait</figcaption>\n</figure>",
+  "html": "<p class=\"\">Spacepunk started as a joke about enterprise software: a space-trucking game where the real enemy isn't pirates, it's the corporate nightmare of interstellar logistics. You run your hauls through deliberately terrible software — forms within forms, loading spinners that lie, error messages that blame you. The frustration is the mechanic.</p>\n<p class=\"\">But what I actually got pulled into is bigger than the joke. It's kinda more about using LLMs to generate an entire world of interactions — an economy, relationships, lifetimes, characters who go on existing whether you're watching or not. It's server-authoritative and persistent, with a gossip network that spreads rumors between NPCs across seven stations. The dream is a place that runs itself.</p>\n<figure role=\"figure\" aria-label=\"Spacepunk NPC portrait\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spacepunk/npc-6.png\" alt=\"Spacepunk NPC portrait\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/spacepunk/npc-6.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/spacepunk/npc-6.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spacepunk/npc-6.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/spacepunk/npc-6.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Spacepunk NPC portrait\" width=\"1024\" height=\"1024\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1024×1024\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Spacepunk NPC portrait</figcaption>\n</figure>\n<p class=\"\">I'll be honest about where it actually is. Right now it's a lot of stats and not a lot of simulated life yet — you can watch the machinery run, the economy ticking, the relationships sitting there as numbers, but the thing I'm really chasing, the moment a world feels alive on its own, hasn't quite happened. That's the hard part, and it's the part I actually care about.</p>",
   "title": "Spacepunk",
   "metadata": {
     "title": "Spacepunk",
-    "date": "2026-03-01T05:00:00.000Z",
-    "category": "Art",
-    "featured": false,
     "draft": true,
+    "date": "2026-03-01T05:00:00.000Z",
+    "category": "Games",
+    "featured": false,
     "tech": [
       "JavaScript",
       "LLM",
@@ -21,7 +21,7 @@
       "ai",
       "simulation"
     ],
-    "words": 39,
+    "words": 188,
     "images": 1,
     "imageDetails": {
       "total": 1,

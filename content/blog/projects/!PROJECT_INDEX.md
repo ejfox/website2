@@ -1,5 +1,6 @@
 ---
 date: 2025-08-19T17:21:35-04:00
+draft: true
 modified: 2025-08-29T13:55:03-04:00
 tags:
   - projects
@@ -280,7 +281,6 @@ election-helpers is a lightweight JavaScript utility library that makes it easie
 - **[ui-brand-pattern](./ui-brand-pattern)** - This is a Next.js project bootstrapped with create-next-app. *(4/30/2025)*
 - **[ui-brand-pattern_2SHARE](./ui-brand-pattern_2SHARE)** - This is a Next.js project bootstrapped with create-next-app. *(4/29/2025)*
 - **[vulpes-spotify-mcp](./vulpes-spotify-mcp)** - A Model Context Protocol (MCP) server that enables AI assistants like Claude to interact with Spotify, allowing them to search for and play tracks. *(3/22/2025)*
-- **[cavapalooza](./cavapalooza)** - Central organizing space for our annual summer gathering and year-round shenanigans! Built with Nuxt 3 + Supabase. *(3/3/2025)*
 - **[issuebuilder](./issuebuilder)** - npx room302-template *(2/27/2025)*
 - **[handtrack-websockets](./handtrack-websockets)** - Real-time hand tracking over WebSockets using MediaPipe, OpenCV, and FastAPI. Track hand position and rotation in 3D space with a cyberpunk visualization layer. *(2/25/2025)*
 - **[nuxt-template](./nuxt-template)** - npx room302-template *(2/25/2025)*

@@ -417,7 +417,6 @@ usePageSeo({
               stroke-width="0.5"
               stroke-dasharray="2,2"
             />
-            <!-- Calibration points -->
             <circle
               v-for="bucket in calibration.calibration"
               :key="bucket.label"

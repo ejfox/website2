@@ -1,0 +1,32 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hand-midi-controller/diagram.png\" alt=\"Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/hand-midi-controller/diagram.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/hand-midi-controller/diagram.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hand-midi-controller/diagram.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/hand-midi-controller/diagram.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC\" width=\"1956\" height=\"1306\" style=\"--splay-rot:2.54deg;\" data-dimensions=\"1956×1306\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC</figcaption></figure>\nProfessional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech.<p class=\"\"></p>\n<p class=\"\">A high-performance, real-time hand tracking MIDI controller using MediaPipe and OpenCV. Transform your hand movements into MIDI control signals for music production, VJing, and creative performances.</p>",
+  "title": "Hand MIDI Controller",
+  "metadata": {
+    "title": "Hand MIDI Controller",
+    "date": "2025-07-26T05:00:00.000Z",
+    "category": "Hardware",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/hand-midi-controller",
+    "tech": [
+      "Python",
+      "Shell"
+    ],
+    "tags": [
+      "hardware"
+    ],
+    "words": 75,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

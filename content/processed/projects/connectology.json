@@ -6,7 +6,7 @@
     "title": "Connectology",
     "date": "2026-03-01T00:00:00.000Z",
     "category": "Dataviz",
-    "featured": true,
+    "featured": false,
     "url": "https://connectology.room302.studio/",
     "tech": [
       "Nuxt 3",
@@ -25,14 +25,14 @@
       "web"
     ],
     "about": "[[project-notes/connectology]]",
-    "words": 336,
+    "words": 334,
     "images": 3,
     "imageDetails": {
       "total": 3,
       "cloudinary": 3,
       "withDimensions": 0
     },
-    "links": 4,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

@@ -13,10 +13,8 @@ useSeoMeta({
   description: 'My flashcard deck — study along if you want',
 })
 
-// Fetch decks
 const { data: decks, error } = await useFetch<Deck[]>('/api/flashcards')
 
-// Group by course
 const courseGroups = computed(() => {
   if (!decks.value) return []
   const groups: Record<string, Deck[]> = {}
@@ -27,7 +25,6 @@ const courseGroups = computed(() => {
   return Object.entries(groups)
 })
 
-// Total stats
 const totalCards = computed(() => {
   if (!decks.value) return 0
   return decks.value.reduce((sum, d) => sum + d.cardCount, 0)
@@ -35,7 +32,6 @@ const totalCards = computed(() => {
 
 const totalDecks = computed(() => decks.value?.length ?? 0)
 
-// Expand/collapse decks
 const expandedDecks = ref<Set<string>>(new Set())
 
 const toggleDeck = (id: string) => {
@@ -52,7 +48,6 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
 
 <template>
   <div class="min-h-screen">
-    <!-- Header -->
     <header class="border-b border-zinc-800/50">
       <div class="max-w-screen-xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div
@@ -74,7 +69,6 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
             </p>
           </div>
 
-          <!-- Study all button -->
           <NuxtLink
             to="/flashcards/study"
             class="inline-flex items-center justify-center gap-2 px-6 py-1 bg-zinc-100 hover:bg-white text-zinc-900 rounded-lg font-medium text-sm transition-colors"
@@ -86,21 +80,18 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
       </div>
     </header>
 
-    <!-- Error state -->
     <div v-if="error" class="max-w-screen-xl mx-auto px-4 py-12">
       <div class="text-red-400 font-mono text-sm">
         Failed to load flashcards: {{ error.message }}
       </div>
     </div>
 
-    <!-- Course groups -->
     <main v-else class="max-w-screen-xl mx-auto px-4 md:px-6 py-8 md:py-12">
       <div
         v-for="[course, courseDecks] in courseGroups"
         :key="course"
         class="mb-12"
       >
-        <!-- Course header -->
         <div class="flex items-baseline gap-4 mb-6">
           <h2 class="text-xl font-light text-zinc-100">{{ course }}</h2>
           <span class="font-mono text-xs text-zinc-600 tabular-nums">
@@ -109,10 +100,8 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
           </span>
         </div>
 
-        <!-- Deck list -->
         <div class="space-y-2">
           <div v-for="deck in courseDecks" :key="deck.id" class="deck-item">
-            <!-- Deck header row -->
             <div class="deck-header" @click="toggleDeck(deck.id)">
               <div class="flex items-center gap-3">
                 <span
@@ -133,7 +122,6 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
               </NuxtLink>
             </div>
 
-            <!-- Expanded cards preview -->
             <div v-if="isExpanded(deck.id)" class="deck-cards">
               <div
                 v-for="(card, i) in deck.cards.slice(0, 10)"

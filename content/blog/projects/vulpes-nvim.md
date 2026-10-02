@@ -11,9 +11,7 @@ tags:
   - tools
 ---
 
-I believe that if I spend so much time looking at and thinking about my computer, I want to have full control over the fonts and colors I look at — to make it cinematic, aesthetic, "me," and different. And it's so dope that when I go to coffee shops (true story), people stop me and say "that setup looks sick, can I give you my card in case I need a dev?"
-
-The theme itself: a cyberpunk neon colorscheme for Neovim — signature vulpes pink, teal comments, dark and light variants, and monthly color rotations. Ships with matching themes for the rest of the terminal: wezterm, kitty, ghostty, alacritty, tmux, lazygit, bat, and fzf.
+A cyberpunk neon colorscheme for Neovim — signature vulpes pink, teal comments, dark and light variants, and monthly color rotations. Ships with matching themes for the rest of the terminal: wezterm, kitty, ghostty, alacritty, tmux, lazygit, bat, and fzf. It's the seed of the whole [Vulpes](/projects/vulpes-system) look.
 
 ![The vulpes colorscheme rendering its own palette file in Neovim](https://res.cloudinary.com/ejf/image/upload/projects/vulpes-nvim/editor.png)
 

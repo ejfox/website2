@@ -16,9 +16,13 @@ tags:
 <!-- EJ 2026-07-30: "I thought it would be a cool utility to convey an art video
      I make later or something, to have ready." — infrastructure awaiting its
      artwork; revisit when a piece exists.
-     TODO (EJ): add your voice. These shots are captured from the running app; the
-     DREAM hero is still a real photo of phones laid in a row playing one piece —
-     grab that whenever you can and drop it on top. Draft until then. -->
+     EJ 2026-10-02: "This was a fun little art project but I'm not sure I ever
+     got it working to the point I could demo / take videos / photos in a way
+     that would make a good post..." — parked, not demo-ready yet.
+     TODO (EJ): add your voice once it's demo-ready. These shots are captured
+     from the running app; the DREAM hero is still a real photo of phones laid
+     in a row playing one piece — grab that whenever you can and drop it on
+     top. Draft until then. -->
 
 Lay your phones in a row, all press-and-hold together, and a single composition plays across every screen in sync — each phone showing its slice of a wider piece. A browser-based collaborative video toy for 2–8 phones. It only works when you're together.
 

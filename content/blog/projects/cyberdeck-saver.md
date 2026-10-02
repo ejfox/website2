@@ -1,6 +1,5 @@
 ---
 title: "cyberdeck-saver"
-draft: true
 date: 2026-04-20T00:00:00-04:00
 category: "Tools"
 featured: false
@@ -20,6 +19,6 @@ The rule behind it is one line from the README — *no fake data; every byte on 
 
 ![The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances](https://res.cloudinary.com/ejf/image/upload/projects/cyberdeck-saver/streams.png)
 
-Every panel is config-driven, the grid auto-scales to however many you switch on, and they share a single process-wide cache so twenty-five live feeds never hammer a source. The result is the whole world you actually pay attention to — the sky, the ground, the orbit, and your own life — rendered as the thing your Mac shows when you walk away from it.
+Every panel is config-driven, the grid auto-scales to however many you switch on, and they share a single process-wide cache so twenty-five live feeds never hammer a source.
 
 ![The Metal fragment shader behind the screensaver's CRT look](https://res.cloudinary.com/ejf/image/upload/projects/cyberdeck-saver/code.png)

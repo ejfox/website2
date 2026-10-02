@@ -6,6 +6,8 @@
  *   every project page, each self-canonicalizing, with the sitemap formerly
  *   promoting the wrong twin. One canonical home: /projects/<slug>.
  */
+import { sendRedirect } from 'h3'
+
 export default defineEventHandler((event) => {
   const path = event.path || ''
   if (!path.startsWith('/blog/projects/')) return

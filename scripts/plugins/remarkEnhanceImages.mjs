@@ -119,7 +119,15 @@ const enhanceImageUrl = (url) => {
   if (!url.includes('res.cloudinary.com/')) return url
   url = url.replace(/^http:\/\//i, 'https://')
   const base = url.split('/upload/')[0] + '/upload/'
-  const pathPart = url.split('/upload/')[1]
+  // Strip any transform segments already present so re-processing an
+  // already-sized URL doesn't stack transforms
+  // (…/upload/c_scale,w_1280/c_scale,w_1280/foo.jpg). Mirrors
+  // extractCloudinaryInfo / buildVideoHtml, which already do this.
+  const tailParts = url.split('/upload/')[1].split('/')
+  while (tailParts.length > 1 && isTransformSegment(tailParts[0])) {
+    tailParts.shift()
+  }
+  const pathPart = tailParts.join('/')
 
   const widthMatch = url.match(/w_(\d+)/)
   const heightMatch = url.match(/h_(\d+)/)
@@ -165,7 +173,11 @@ async function saveCache(cache) {
 // ---------------------------------------------------------------------------
 
 function isTransformSegment(segment) {
-  return segment.includes(',') || /^[cwhfqget]_[^/]+/.test(segment)
+  // A Cloudinary transform segment is a comma-joined list of `key_value`
+  // params (c_scale, w_1280, f_auto, q_auto:good, e_blur, so_0…). Require
+  // EVERY comma-part to look like a param, so a real filename that happens to
+  // contain a comma ("before,after.jpg") isn't misclassified as a transform.
+  return segment.split(',').every((p) => /^[a-z]+_/i.test(p))
 }
 
 function extractCloudinaryInfo(url) {
@@ -330,8 +342,10 @@ async function fetchCloudinaryMeta(url, cache) {
     }
 
     if (!meta || (!hasMeaningfulMeta(meta) && !meta.lqip)) return cached || null
+    // Update the in-memory cache only. These fetches run concurrently under
+    // Promise.all, so writing the whole cache file here would race/truncate;
+    // the single saveCache() after the visit loop persists everything once.
     cache[url] = meta
-    await saveCache(cache)
     return meta
   } catch {
     return cached || null
@@ -400,9 +414,14 @@ export function remarkEnhanceImages() {
         node.data.hProperties.loading = 'lazy'
         node.data.hProperties.decoding = 'async'
 
+        // enhanceImageUrl returns a plain string for non-Cloudinary URLs and an
+        // object {src,srcset,sizes,width,height} for Cloudinary ones. Branch on
+        // the type explicitly rather than on `enhanced !== node.url` identity,
+        // which is fragile (a URL-normalizing refactor upstream would break it).
         const enhanced = enhanceImageUrl(node.url)
+        const isEnhanced = typeof enhanced === 'object' && enhanced !== null
         const originalUrl = node.url
-        if (enhanced !== node.url) {
+        if (isEnhanced) {
           node.data.hProperties.srcset = enhanced.srcset
           node.data.hProperties.sizes = enhanced.sizes
           node.url = enhanced.src
@@ -441,7 +460,7 @@ export function remarkEnhanceImages() {
           if (cloudMeta.height) node.data.hProperties.height = cloudMeta.height
         }
 
-        if (enhanced !== originalUrl) {
+        if (isEnhanced) {
           const classes = ['img-full', 'my-8', 'rounded-sm', 'img-splay']
 
           const { rotation } = splayTransform(originalUrl)
@@ -476,20 +495,27 @@ export function remarkEnhanceImages() {
         // -----------------------------------------------------------------
         if (
           !isJunkAlt(resolvedAlt) &&
-          enhanced !== originalUrl &&
+          isEnhanced &&
           parent &&
           index !== undefined
         ) {
+          // Escape the alt text before it goes into raw html nodes — with
+          // allowDangerousHtml on, an alt containing `<`, `&`, or `"` (from
+          // author markdown OR Cloudinary metadata) would otherwise break the
+          // markup or inject. The video path already escapes; this branch was
+          // the inconsistent one.
+          const safeCaption = escapeAttr(resolvedAlt)
+
           // Create a figcaption node
           const figcaption = {
             type: 'html',
-            value: `<figcaption>${resolvedAlt}</figcaption>`,
+            value: `<figcaption>${safeCaption}</figcaption>`,
           }
 
           // Wrap the image node in a figure
           const figure = {
             type: 'html',
-            value: `<figure role="figure" aria-label="${resolvedAlt.replace(/"/g, '&quot;')}">`,
+            value: `<figure role="figure" aria-label="${safeCaption}">`,
           }
           const figureClose = {
             type: 'html',
@@ -519,15 +545,22 @@ export function remarkEnhanceImages() {
             }
           }
 
-          // Replace the image node with figure > img + figcaption
-          parent.children.splice(
-            index,
-            1,
-            figure,
-            node,
-            figcaption,
-            figureClose
-          )
+          // Replace the image node with figure > img + figcaption. Recompute
+          // the position at splice time (indexOf) rather than trusting the
+          // captured `index`: these callbacks run concurrently under
+          // Promise.all, so a sibling image in the same paragraph may have
+          // already spliced and shifted positions.
+          const liveIndex = parent.children.indexOf(node)
+          if (liveIndex !== -1) {
+            parent.children.splice(
+              liveIndex,
+              1,
+              figure,
+              node,
+              figcaption,
+              figureClose
+            )
+          }
         }
       })
     )

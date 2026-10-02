@@ -1,10 +1,10 @@
 ---
-title: "Subway Builder"
+title: 'Subway Builder'
 date: 2026-05-01T00:00:00-04:00
-category: "Art"
-featured: false
+category: 'Games'
+featured: true
 url: https://github.com/ejfox/subway-builder-mods
-tech: ["JavaScript", "Simulation", "Transit", "Game Modding"]
+tech: ['JavaScript', 'Simulation', 'Transit', 'Game Modding']
 state: evolved
 ai-involvement: ai-assisted
 tags:
@@ -14,9 +14,7 @@ tags:
   - dataviz
 ---
 
-<!-- Role clarified 2026-07-30: Colin's project, EJ is a dev on it. -->
-
-Subway Builder is Colin's game — I'm one of the devs on it. The mission, as I see it: hyperstitioning public transit into every American city. It's like Ender's Game for transit — using realistic data to let train-people SHOW their elected leaders what is and is not possible, via realistic simulations.
+The mission, as I see it: hyperstitioning public transit into every American city. Subway Builder is a game created by Colin Miller, a member of Room 302 Studio, in 2025 — a sort of Ender's Game for transit, using realistic simulations to let train-people SHOW their elected leaders what is and is not possible.
 
 The game itself: a transit simulation (an Electron build) — design train types with realistic acceleration, capacity, and cost parameters, lay networks over real-world geography, and analyze the demand you create. It launched on Steam in July 2026. My corner of it: code contributions, Steam release infrastructure, and spin-offs like `subway-builder-mods` and a Pico-8 demake.
 
@@ -41,3 +39,9 @@ It's also a success story for [Room 302 Studio](https://room302.studio) — Coli
 ![Achievements: 2 of 9 unlocked — Track Builder and First Station](https://res.cloudinary.com/ejf/image/upload/v1757555519/screenshot_2025-09-10_at_9.51.45_PM.png)
 
 ![The transit-operations event log — the simulation keeps receipts](https://res.cloudinary.com/ejf/image/upload/v1759077479/screenshot_2025-09-28_at_12.37.44_PM.png)
+
+## Metro Savefile Doctor
+
+![Metro Savefile Doctor — current game analysis](https://res.cloudinary.com/ejf/image/upload/projects/metro-savefile-doctor/ui-1.png)
+
+[Metro Savefile Doctor](https://github.com/ejfox/metro-savefile-doctor) is a TUI (and cross-platform Tauri desktop app) for editing Subway Builder save files, in both JSON and `.metro` binary formats, with auto-backup. It edits money, game time, train count, and ticket price through an interactive terminal interface with a crackintro aesthetic.

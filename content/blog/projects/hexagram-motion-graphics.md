@@ -2,9 +2,10 @@
 title: "I Ching Motion Graphics"
 date: 2026-05-01T00:00:00-04:00
 category: "Art"
-featured: true
+featured: false
 tech: ["Python", "Manim", "Motion Graphics"]
 state: deployed
+draft: true
 ai-involvement: ai-assisted
 tags:
   - art

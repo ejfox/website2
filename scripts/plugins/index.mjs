@@ -8,7 +8,6 @@
 export { remarkEnhanceLinks } from './remarkEnhanceLinks.mjs'
 export { remarkObsidianSupport } from './remarkObsidianSupport.mjs'
 export { remarkExtractToc } from './remarkExtractToc.mjs'
-export { remarkAi2htmlEmbed } from './remarkAi2htmlEmbed.mjs'
 export { remarkPredictionRef } from './remarkPredictionRef.mjs'
 export { remarkEnhanceImages } from './remarkEnhanceImages.mjs'
 export { remarkGearCard } from './remarkGearCard.mjs'
@@ -23,7 +22,6 @@ export const DEFAULT_PLUGINS = [
   'remarkEnhanceLinks',
   'remarkObsidianSupport',
   'remarkExtractToc',
-  'remarkAi2htmlEmbed',
   'remarkEnhanceImages',
   'rehypeAddClassToParagraphs',
 ]

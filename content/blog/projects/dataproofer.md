@@ -5,7 +5,7 @@ category: "Journalism"
 modified: 2025-08-26T15:53:33-04:00
 url: https://github.com/dataproofer/Dataproofer
 tech: ["JavaScript", "Electron", "Data Quality", "CSV"]
-featured: true
+featured: false
 state: deployed
 ai-involvement: human-only
 context: collaborative
@@ -16,7 +16,7 @@ tags:
   - journalism
 ---
 
-Along with Gerald Rich and the Vocativ data team, I received a [Knight Prototype Fund](https://knightfoundation.org/articles/20-ideas-receive-support-knight-prototype-fund-media-and-information-projects/) grant to create [Dataproofer](https://github.com/dataproofer/Dataproofer) - an open source tool to check data for reliability, missing data, and outliers. Built as an Electron desktop app for journalists.
+Along with Gerald Rich and the Vocativ data team, I received a [Knight Prototype Fund](https://knightfoundation.org/articles/20-ideas-receive-support-knight-prototype-fund-media-and-information-projects/) grant to create [Dataproofer](https://github.com/dataproofer/Dataproofer) — an open source tool to check data for reliability, missing data, and outliers. Built as an Electron desktop app for journalists.
 
 ![Scrolling dataproofer.org — the pitch, downloads for every platform, and the Knight Foundation / Vocativ credits](https://res.cloudinary.com/ejf/video/upload/projects/dataproofer/site-scroll.mp4)
 

@@ -1,6 +1,5 @@
 ---
 title: "paperclip"
-draft: true
 date: 2025-11-01T00:00:00-05:00
 category: "Apps"
 featured: false

@@ -72,7 +72,6 @@ Terminal tools: skip "booting" — write a VHS tape (`brew install vhs`) and get
 ## Apps & Civic (11)
 
 - [ ] **renttoejfox** (1 img, 0 vid) — needs: 2 more screenshots, 1 short video/gif
-- [ ] **cavapalooza** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/cavapalooza
 - [x] **coachartie-showcase** (2 img, 1 vid) — DONE 2026-09-10: showcase-scroll.mp4 (stop-motion scroll of coachartiebot.com — 3D desk scene into big-serif capability sections)
 - [ ] **fixcentralhudson** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/fixcentralhudson
 - [x] **mapping-ice** (2 img, 1 vid) — DONE 2026-09-10: site-scroll.mp4 (stop-motion scroll of ejfox.github.io/mapping-ice — stat tiles, facility records, charts, sources ledger)

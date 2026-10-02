@@ -123,7 +123,9 @@ async function ensureChrome(size = '1440,900', webgl = false) {
       `--remote-debugging-port=${PORT}`,
       `--user-data-dir=/tmp/capture-chrome-${PORT}`,
       `--window-size=${size.replace('x', ',')}`,
-      ...(webgl ? ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] : []),
+      ...(webgl
+        ? ['--use-angle=swiftshader', '--enable-unsafe-swiftshader']
+        : []),
       '--hide-scrollbars',
       '--no-first-run',
       '--no-default-browser-check',
@@ -397,7 +399,10 @@ async function recordStopMotion(cdp, out, secs, flags) {
       format: 'jpeg',
       quality: 85,
     })
-    writeFileSync(join(dir, `f${String(k).padStart(5, '0')}.jpg`), Buffer.from(s.data, 'base64'))
+    writeFileSync(
+      join(dir, `f${String(k).padStart(5, '0')}.jpg`),
+      Buffer.from(s.data, 'base64')
+    )
     if (k > 0 && k % 90 === 0) console.log(`  frame ${k}/${N}`)
   }
   cdp.close()
@@ -405,10 +410,22 @@ async function recordStopMotion(cdp, out, secs, flags) {
   const r = spawnSync(
     'ffmpeg',
     [
-      '-y', '-framerate', String(fps), '-i', join(dir, 'f%05d.jpg'),
-      '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2',
-      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '23',
-      '-movflags', '+faststart', '-an',
+      '-y',
+      '-framerate',
+      String(fps),
+      '-i',
+      join(dir, 'f%05d.jpg'),
+      '-vf',
+      'scale=trunc(iw/2)*2:trunc(ih/2)*2',
+      '-c:v',
+      'libx264',
+      '-pix_fmt',
+      'yuv420p',
+      '-crf',
+      '23',
+      '-movflags',
+      '+faststart',
+      '-an',
       out,
     ],
     { stdio: ['ignore', 'ignore', 'inherit'] }
@@ -463,7 +480,10 @@ async function cmdRecord({ pos, flags }) {
     // Ack FIRST: Chrome won't send the next frame until it hears back, so any
     // work before the ack (like sync PNG writes) directly caps the frame rate.
     cdp.send('Page.screencastFrameAck', { sessionId: p.sessionId })
-    frames.push({ buf: Buffer.from(p.data, 'base64'), ts: p.metadata.timestamp })
+    frames.push({
+      buf: Buffer.from(p.data, 'base64'),
+      ts: p.metadata.timestamp,
+    })
   })
   await cdp.send('Page.startScreencast', {
     format: 'jpeg',
@@ -501,7 +521,9 @@ async function cmdRecord({ pos, flags }) {
         : 0.1
     concat.push(`duration ${d.toFixed(4)}`)
   }
-  concat.push(`file '${join(dir, `f${String(frames.length - 1).padStart(5, '0')}.jpg`)}'`)
+  concat.push(
+    `file '${join(dir, `f${String(frames.length - 1).padStart(5, '0')}.jpg`)}'`
+  )
   const listPath = join(dir, 'list.txt')
   writeFileSync(listPath, concat.join('\n'))
   const { spawnSync } = await import('node:child_process')
@@ -680,9 +702,9 @@ async function cmdTui({ pos, flags }) {
     selection: '#6b1a3d',
     black: '#0d0d0d',
     red: '#ff001e',
-    green: '#b4d455',  // git_add chartreuse — success reads green, not white
+    green: '#b4d455', // git_add chartreuse — success reads green, not white
     yellow: '#ffaa00',
-    blue: '#00d5b4',   // VFD teal (palette `type`) — real contrast for CLI output
+    blue: '#00d5b4', // VFD teal (palette `type`) — real contrast for CLI output
     magenta: '#ff24ab',
     cyan: '#6eedf7',
     white: '#f2cfdf',
@@ -693,7 +715,7 @@ async function cmdTui({ pos, flags }) {
     brightBlue: '#a0f7fc',
     brightMagenta: '#ff40c7',
     brightCyan: '#a0f7fc',
-    brightWhite: '#ffffff'
+    brightWhite: '#ffffff',
   }
   const themeName = typeof flags.theme === 'string' ? flags.theme : 'vulpes'
   const theme =
