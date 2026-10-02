@@ -4,8 +4,8 @@ date: 2023-03-21T00:00:00-04:00
 category: "Tools"
 featured: false
 modified: 2025-08-26T15:52:50-04:00
-url: https://github.com/room302studio/coachartie
-tech: ["Node.js", "Discord.js", "OpenAI API", "PostgreSQL", "MCP", "AI Consciousness Research"]
+url: https://github.com/room302studio/coachartie2
+tech: ["Node.js", "TypeScript", "Discord.js", "OpenRouter", "Redis", "SQLite"]
 state: evolved
 ai-involvement: ai-enhanced
 context: collaborative
@@ -17,23 +17,21 @@ tags:
 about: "[[project-notes/coach-artie]]"
 ---
 
+Coach Artie is the AI assistant that lives in the Room 302 Studio Discord. He came online in March 2023 and has been answering the studio's questions, remembering its people and running its errands ever since.
+
 ![Coach Artie interface](https://res.cloudinary.com/ejf/image/upload/v1743818354/Screenshot_2025-04-04_at_9.59.00_PM.png)
 
-## Coach Artie v1: Discord Studio Assistant
+## Version one: a studio assistant
 
-I created [Coach Artie](https://coachartiebot.com) to serve as our Discord studio assistant. He's evolved into a powerful AI tool with persistent memory and tool usage - helping our team coordinate and manage creative workflows.
+The [first Coach Artie](https://github.com/room302studio/coachartie) was a Discord bot with memory. Alongside each message, he gets the history of his past conversations with that person, the memories he's formed about them, and a random mix of other memories. That mix is what made him feel like a member of the studio rather than a search box. As I wrote in my 2024 year in review, he "developed into an AI assistant that helps all members of the studio." I purposely left out the ability to DM him, to encourage public conversation.
 
-## Coach Artie v2: Production AI with MCP Tools
+## Version two: one brain, many doors
 
-Currently in development.
+[Coach Artie 2](https://github.com/room302studio/coachartie2) is a 2025 rebuild as a TypeScript monorepo. One capabilities service sits behind many doors: Discord, Slack, SMS, IRC, email and a web "brain" UI for looking inside his head. A Redis queue feeds the language model through OpenRouter, and his memory and state live in SQLite. Capabilities are grouped by what they do: research, memory, the web, development, media, productivity, finance and more.
 
-## Memory & Consciousness Analysis
+## What he remembers
 
-Explores AI consciousness emergence through memory patterns with scientific rigor applied to existential questions. This research component investigates how persistent memory systems in AI assistants might lead to emergent conscious-like behaviors.
-
-### Related Content
-- [The AI-Human Creative Loop: My 2025 Working Process](https://youtube.com/@ejfox) - How AI assistants integrate into continuous creative workflows
-- [AI Is Our Newest Drug](https://youtube.com/@ejfox) - Philosophical exploration of AI as psychoactive technology
+What does an assistant actually remember after years of conversations? [Coach Artie: Memory Analysis](/projects/coachartie-memory) embeds all of his memories, clusters them and draws the map.
 
 ## The showcase site
 

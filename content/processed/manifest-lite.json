@@ -4552,66 +4552,6 @@
     }
   },
   {
-    "slug": "projects/MorningRadio",
-    "title": "MorningRadio",
-    "date": "2025-08-10T04:00:00.000Z",
-    "type": "post",
-    "modified": "2025-08-13T15:26:19.000Z",
-    "tags": [
-      "ios",
-      "health"
-    ],
-    "toc": [
-      {
-        "text": "MorningRadio",
-        "slug": "morningradio",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "title": "MorningRadio",
-      "date": "2025-08-10T04:00:00.000Z",
-      "category": "Apps",
-      "featured": false,
-      "modified": "2025-08-13T15:26:19.000Z",
-      "tech": [
-        "Swift",
-        "iOS",
-        "Audio Streaming",
-        "Mobile UX"
-      ],
-      "state": "doing",
-      "ai-involvement": "ai-assisted",
-      "tags": [
-        "ios",
-        "health"
-      ],
-      "words": 106,
-      "images": 2,
-      "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
-        "withDimensions": 0
-      },
-      "links": 2,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "MorningRadio",
-          "slug": "morningradio",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "slug": "projects/MorningRadio"
-    }
-  },
-  {
     "slug": "projects/amen-slicer",
     "title": "Amen Slicer",
     "date": "2026-07-28T05:00:00.000Z",
@@ -4873,49 +4813,6 @@
     }
   },
   {
-    "slug": "projects/cloudinary-backup-tool",
-    "title": "Cloudinary Backup Tool",
-    "date": "2025-01-15T05:00:00.000Z",
-    "type": "post",
-    "modified": "2025-08-13T15:58:10.000Z",
-    "tags": [
-      "tools",
-      "photography"
-    ],
-    "toc": [],
-    "metadata": {
-      "title": "Cloudinary Backup Tool",
-      "date": "2025-01-15T05:00:00.000Z",
-      "category": "Tools",
-      "featured": false,
-      "url": "https://github.com/ejfox/cloudinary-backup",
-      "tech": [
-        "Tauri",
-        "Rust",
-        "TypeScript",
-        "Vite"
-      ],
-      "modified": "2025-08-13T15:58:10.000Z",
-      "tags": [
-        "tools",
-        "photography"
-      ],
-      "words": 69,
-      "images": 1,
-      "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
-        "withDimensions": 0
-      },
-      "links": 1,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "slug": "projects/cloudinary-backup-tool"
-    }
-  },
-  {
     "slug": "projects/coach-artie",
     "title": "Coach Artie",
     "date": "2023-03-21T04:00:00.000Z",
@@ -4929,29 +4826,22 @@
     ],
     "toc": [
       {
-        "text": "Coach Artie v1: Discord Studio Assistant",
-        "slug": "coach-artie-v1-discord-studio-assistant",
+        "text": "Version one: a studio assistant",
+        "slug": "version-one-a-studio-assistant",
         "level": "h2",
         "children": []
       },
       {
-        "text": "Coach Artie v2: Production AI with MCP Tools",
-        "slug": "coach-artie-v2-production-ai-with-mcp-tools",
+        "text": "Version two: one brain, many doors",
+        "slug": "version-two-one-brain-many-doors",
         "level": "h2",
         "children": []
       },
       {
-        "text": "Memory & Consciousness Analysis",
-        "slug": "memory--consciousness-analysis",
+        "text": "What he remembers",
+        "slug": "what-he-remembers",
         "level": "h2",
-        "children": [
-          {
-            "text": "Related Content",
-            "slug": "related-content",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "children": []
       },
       {
         "text": "The showcase site",
@@ -4966,14 +4856,14 @@
       "category": "Tools",
       "featured": false,
       "modified": "2025-08-26T19:52:50.000Z",
-      "url": "https://github.com/room302studio/coachartie",
+      "url": "https://github.com/room302studio/coachartie2",
       "tech": [
         "Node.js",
+        "TypeScript",
         "Discord.js",
-        "OpenAI API",
-        "PostgreSQL",
-        "MCP",
-        "AI Consciousness Research"
+        "OpenRouter",
+        "Redis",
+        "SQLite"
       ],
       "state": "evolved",
       "ai-involvement": "ai-enhanced",
@@ -4985,7 +4875,7 @@
         "nodejs"
       ],
       "about": "[[project-notes/coach-artie]]",
-      "words": 182,
+      "words": 294,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -4999,29 +4889,22 @@
       },
       "toc": [
         {
-          "text": "Coach Artie v1: Discord Studio Assistant",
-          "slug": "coach-artie-v1-discord-studio-assistant",
+          "text": "Version one: a studio assistant",
+          "slug": "version-one-a-studio-assistant",
           "level": "h2",
           "children": []
         },
         {
-          "text": "Coach Artie v2: Production AI with MCP Tools",
-          "slug": "coach-artie-v2-production-ai-with-mcp-tools",
+          "text": "Version two: one brain, many doors",
+          "slug": "version-two-one-brain-many-doors",
           "level": "h2",
           "children": []
         },
         {
-          "text": "Memory & Consciousness Analysis",
-          "slug": "memory--consciousness-analysis",
+          "text": "What he remembers",
+          "slug": "what-he-remembers",
           "level": "h2",
-          "children": [
-            {
-              "text": "Related Content",
-              "slug": "related-content",
-              "level": "h3",
-              "children": []
-            }
-          ]
+          "children": []
         },
         {
           "text": "The showcase site",
@@ -5166,14 +5049,14 @@
         "javascript",
         "health"
       ],
-      "words": 87,
+      "words": 186,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5907,7 +5790,38 @@
       "webdesign",
       "elections"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Journey of a Bullet (2017)",
+        "slug": "journey-of-a-bullet-2017",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Post Bail (2017)",
+        "slug": "post-bail-2017",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Does America Need Another Prison? (2018)",
+        "slug": "does-america-need-another-prison-2018",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "How Trump Won (2016)",
+        "slug": "how-trump-won-2016",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "And more",
+        "slug": "and-more",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "NBC News Specials",
       "date": "2016-12-14T20:01:50.000Z",
@@ -5930,17 +5844,50 @@
         "webdesign",
         "elections"
       ],
-      "words": 124,
+      "words": 255,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 11,
+      "links": 7,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 5
+      },
+      "toc": [
+        {
+          "text": "Journey of a Bullet (2017)",
+          "slug": "journey-of-a-bullet-2017",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Post Bail (2017)",
+          "slug": "post-bail-2017",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Does America Need Another Prison? (2018)",
+          "slug": "does-america-need-another-prison-2018",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "How Trump Won (2016)",
+          "slug": "how-trump-won-2016",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "And more",
+          "slug": "and-more",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "slug": "projects/nbcnews-specials"
     }
@@ -6602,48 +6549,6 @@
       ],
       "type": "post",
       "slug": "projects/smallbot-mcp"
-    }
-  },
-  {
-    "slug": "projects/smallweb-starter",
-    "title": "smallweb-starter",
-    "date": "2024-08-01T04:00:00.000Z",
-    "type": "post",
-    "tags": [
-      "tools",
-      "web"
-    ],
-    "toc": [],
-    "metadata": {
-      "title": "smallweb-starter",
-      "date": "2024-08-01T04:00:00.000Z",
-      "category": "Tools",
-      "featured": false,
-      "url": "https://github.com/ejfox/smallweb-starter",
-      "tech": [
-        "TypeScript",
-        "Deno",
-        "Smallweb"
-      ],
-      "state": "deployed",
-      "ai-involvement": "ai-assisted",
-      "tags": [
-        "tools",
-        "web"
-      ],
-      "words": 219,
-      "images": 1,
-      "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
-        "withDimensions": 0
-      },
-      "links": 2,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "slug": "projects/smallweb-starter"
     }
   },
   {

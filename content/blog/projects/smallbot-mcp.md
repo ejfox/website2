@@ -31,4 +31,4 @@ This is a tool built on the MCP (Model Context Protocol) so it can talk to Claud
 
 ![The starter running locally — a live HTTP request returning JSON, with rate-limiting and cache-control headers from the Hono middleware](https://res.cloudinary.com/ejf/image/upload/v1789191272/projects/smallweb-starter/landing.png)
 
-[smallweb-starter](/projects/smallweb-starter) is a lightweight application starter for Smallweb, in TypeScript on Deno. It ships Hono middleware for rate-limiting and cache-control headers.
+[smallweb-starter](https://github.com/ejfox/smallweb-starter) is a lightweight application starter for Smallweb, in TypeScript on Deno. It ships Hono middleware for rate-limiting and cache-control headers.

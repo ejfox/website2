@@ -4,6 +4,7 @@
   "title": "smallweb-starter",
   "metadata": {
     "title": "smallweb-starter",
+    "draft": true,
     "date": "2024-08-01T04:00:00.000Z",
     "category": "Tools",
     "featured": false,
@@ -19,14 +20,14 @@
       "tools",
       "web"
     ],
-    "words": 219,
+    "words": 217,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 2,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

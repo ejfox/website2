@@ -1,5 +1,6 @@
 ---
 title: "smallweb-starter"
+draft: true
 date: 2024-08-01T00:00:00-04:00
 category: "Tools"
 featured: false

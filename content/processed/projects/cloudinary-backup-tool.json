@@ -4,6 +4,7 @@
   "title": "Cloudinary Backup Tool",
   "metadata": {
     "title": "Cloudinary Backup Tool",
+    "draft": true,
     "date": "2025-01-15T05:00:00.000Z",
     "category": "Tools",
     "featured": false,
@@ -19,14 +20,14 @@
       "tools",
       "photography"
     ],
-    "words": 69,
+    "words": 67,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
