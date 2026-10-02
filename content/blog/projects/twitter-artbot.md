@@ -14,7 +14,7 @@ tags:
 
 My first generative art bot — [@417am1975](https://x.com/417am1975), running since 2017. It picks a random art script, renders a piece with node-canvas, and tweets it, on the hour, on its own.
 
-And boy did he make some dope shit. It came from node-canvas tick-generations.
+And boy did he make some dope shit. Each piece came from a simulation run on a node-canvas tick after tick, changing the image pixel by pixel, which in my mind is similar to how an artist manipulates a canvas. It's different from generating an image once, because you can build, augment and layer in interesting ways.
 
 I like it as an artifact of how I was using the robots to make art before AI, and how that changes my perspective on things as a computer-aided artist.
 
