@@ -5583,6 +5583,161 @@
     }
   },
   {
+    "slug": "projects/long-lead",
+    "title": "Long Lead",
+    "date": "2021-11-18T05:00:00.000Z",
+    "type": "post",
+    "draft": false,
+    "tags": [
+      "data",
+      "dataviz",
+      "journalism",
+      "investigations"
+    ],
+    "toc": [
+      {
+        "text": "The Depths She'll Reach",
+        "slug": "the-depths-shell-reach",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Querdenken: COVID Misinformation or Freedom Movement?",
+        "slug": "querdenken-covid-misinformation-or-freedom-movement",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Long Lead",
+      "date": "2021-11-18T05:00:00.000Z",
+      "category": "Journalism",
+      "featured": false,
+      "draft": false,
+      "client": "Long Lead",
+      "tech": [
+        "Scrollytelling",
+        "Data Visualization",
+        "Network Analysis"
+      ],
+      "state": "deployed",
+      "ai-involvement": "human-only",
+      "context": "client",
+      "tags": [
+        "data",
+        "dataviz",
+        "journalism",
+        "investigations"
+      ],
+      "words": 144,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "The Depths She'll Reach",
+          "slug": "the-depths-shell-reach",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Querdenken: COVID Misinformation or Freedom Movement?",
+          "slug": "querdenken-covid-misinformation-or-freedom-movement",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "slug": "projects/long-lead"
+    }
+  },
+  {
+    "slug": "projects/margin-maps",
+    "title": "The Margin",
+    "date": "2022-09-21T04:00:00.000Z",
+    "type": "post",
+    "draft": false,
+    "tags": [
+      "maps",
+      "dataviz",
+      "journalism",
+      "interactive"
+    ],
+    "toc": [
+      {
+        "text": "We Glow in the Dark",
+        "slug": "we-glow-in-the-dark",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Opening the Gateway",
+        "slug": "opening-the-gateway",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "The Margin",
+      "date": "2022-09-21T04:00:00.000Z",
+      "category": "Journalism",
+      "featured": false,
+      "draft": false,
+      "client": "The Margin",
+      "tech": [
+        "Mapping",
+        "Satellite Imagery",
+        "Scrollytelling",
+        "Data Visualization"
+      ],
+      "state": "deployed",
+      "ai-involvement": "human-only",
+      "context": "client",
+      "tags": [
+        "maps",
+        "dataviz",
+        "journalism",
+        "interactive"
+      ],
+      "words": 143,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "We Glow in the Dark",
+          "slug": "we-glow-in-the-dark",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Opening the Gateway",
+          "slug": "opening-the-gateway",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "slug": "projects/margin-maps"
+    }
+  },
+  {
     "slug": "projects/motorcycle-pico8",
     "title": "Motorcycle.p8",
     "date": "2023-07-02T00:00:00.000Z",
@@ -5788,6 +5943,53 @@
       "toc": [],
       "type": "post",
       "slug": "projects/nbcnews-specials"
+    }
+  },
+  {
+    "slug": "projects/newswell",
+    "title": "Newswell Studio",
+    "date": "2025-10-01T00:00:00.000Z",
+    "type": "post",
+    "draft": false,
+    "tags": [
+      "tools",
+      "journalism",
+      "dataviz"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Newswell Studio",
+      "date": "2025-10-01T00:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "draft": false,
+      "tech": [
+        "Nuxt 4",
+        "Vue",
+        "WordPress",
+        "PHP",
+        "GPT-4"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools",
+        "journalism",
+        "dataviz"
+      ],
+      "words": 130,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/newswell"
     }
   },
   {

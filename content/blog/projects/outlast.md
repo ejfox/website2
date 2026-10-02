@@ -5,7 +5,7 @@ category: "Dataviz"
 featured: false
 draft: true
 url: https://outlastmap.com
-tech: ["Vue"]
+tech: ["Nuxt 3", "DuckDB-WASM", "deck.gl", "MapLibre"]
 state: deployed
 ai-involvement: ai-assisted
 context: client
@@ -13,13 +13,14 @@ tags:
   - tools
 ---
 
-<!-- TODO (EJ): add your voice. Live at outlastmap.com (2026-07-30). Client work
-     w/ Outlast (Eric Markowitz) — confirm credit/what's public. The May 2026
-     screenshots catalog (~/screenshots/catalogs/2026-05-b.md) has trip-planner
-     hero shots from 05-29 worth adding. Draft until ready. -->
+<!-- HOLD (2026-10-02): outlastmap.com is a login-gated internal client preview
+     ("Credentials shared separately"); the book is due 2027. Copy below is verified
+     against the repo — publish only once EJ/Eric say the site is public. -->
 
-Companion website for the book Outlast — a curated database and map of businesses that have been operating for 100+ years (Zildjian, founded 1623, has a page), with a trip planner that builds multi-day itineraries around visiting the survivors. Nuxt 3 + DuckDB-WASM.
+The companion website for Eric Markowitz's book *Outlast*: a map and database of nearly 2,000 businesses that have been operating for 100 years or more. The oldest, the Japanese temple builder Kongō Gumi, traces back to the year 578; Zildjian has been making cymbals since 1623.
+
+The front page is a spinning globe with every business plotted. You can browse by country, founding year and ownership, or explore a semantic map that clusters businesses by what they do. Each business has its own page with related and nearby survivors, and a trip planner builds multi-day itineraries around visiting them. The whole dataset is queried right in the browser with DuckDB-WASM.
 
 ![Outlast — businesses operating for 100+ years](https://res.cloudinary.com/ejf/image/upload/projects/outlast/landing.png)
 
-![The deck.gl globe and the typed data model behind the map](https://res.cloudinary.com/ejf/image/upload/projects/outlast/code.png)
+[Visit outlastmap.com →](https://outlastmap.com)

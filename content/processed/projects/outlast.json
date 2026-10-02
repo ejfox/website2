@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice. Live at outlastmap.com (2026-07-30). Client work\n     w/ Outlast (Eric Markowitz) — confirm credit/what's public. The May 2026\n     screenshots catalog (~/screenshots/catalogs/2026-05-b.md) has trip-planner\n     hero shots from 05-29 worth adding. Draft until ready. -->\n<p class=\"\">Companion website for the book Outlast — a curated database and map of businesses that have been operating for 100+ years (Zildjian, founded 1623, has a page), with a trip planner that builds multi-day itineraries around visiting the survivors. Nuxt 3 + DuckDB-WASM.</p>\n<figure role=\"figure\" aria-label=\"Outlast — businesses operating for 100+ years\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/landing.png\" alt=\"Outlast — businesses operating for 100+ years\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/outlast/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/outlast/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/outlast/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Outlast — businesses operating for 100+ years\" width=\"1440\" height=\"829\" style=\"--splay-rot:-1.07deg;\" data-dimensions=\"1440×829\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Outlast — businesses operating for 100+ years</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The deck.gl globe and the typed data model behind the map\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/code.png\" alt=\"The deck.gl globe and the typed data model behind the map\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/outlast/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/outlast/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/outlast/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The deck.gl globe and the typed data model behind the map\" width=\"1400\" height=\"900\" style=\"--splay-rot:1.47deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The deck.gl globe and the typed data model behind the map</figcaption>\n</figure>",
+  "html": "<!-- HOLD (2026-10-02): outlastmap.com is a login-gated internal client preview\n     (\"Credentials shared separately\"); the book is due 2027. Copy below is verified\n     against the repo — publish only once EJ/Eric say the site is public. -->\n<p class=\"\">The companion website for Eric Markowitz's book <em class=\"\">Outlast</em>: a map and database of nearly 2,000 businesses that have been operating for 100 years or more. The oldest, the Japanese temple builder Kongō Gumi, traces back to the year 578; Zildjian has been making cymbals since 1623.</p>\n<p class=\"\">The front page is a spinning globe with every business plotted. You can browse by country, founding year and ownership, or explore a semantic map that clusters businesses by what they do. Each business has its own page with related and nearby survivors, and a trip planner builds multi-day itineraries around visiting them. The whole dataset is queried right in the browser with DuckDB-WASM.</p>\n<figure role=\"figure\" aria-label=\"Outlast — businesses operating for 100+ years\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/landing.png\" alt=\"Outlast — businesses operating for 100+ years\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/outlast/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/outlast/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/outlast/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Outlast — businesses operating for 100+ years\" width=\"1440\" height=\"829\" style=\"--splay-rot:-1.07deg;\" data-dimensions=\"1440×829\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Outlast — businesses operating for 100+ years</figcaption>\n</figure>\n<p class=\"\"><a href=\"https://outlastmap.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://outlastmap.com\">Visit outlastmap.com →</a></p>",
   "title": "Outlast",
   "metadata": {
     "title": "Outlast",
@@ -10,7 +10,10 @@
     "draft": true,
     "url": "https://outlastmap.com",
     "tech": [
-      "Vue"
+      "Nuxt 3",
+      "DuckDB-WASM",
+      "deck.gl",
+      "MapLibre"
     ],
     "state": "deployed",
     "ai-involvement": "ai-assisted",
@@ -18,14 +21,14 @@
     "tags": [
       "tools"
     ],
-    "words": 101,
-    "images": 2,
+    "words": 156,
+    "images": 1,
     "imageDetails": {
-      "total": 2,
-      "cloudinary": 2,
+      "total": 1,
+      "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 2,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
