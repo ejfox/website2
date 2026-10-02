@@ -1,0 +1,162 @@
+{
+  "title": "Upstate and Down",
+  "note": "Chapters follow EJ Fox's book notes on the Hudson Valley and New York City. Body text is editorial connective tissue; quotes are verbatim from his published writing on ejfox.com.",
+  "chapters": [
+    {
+      "id": "gravity",
+      "title": "The gravity of the city",
+      "place": "Grand Central Terminal",
+      "camera": {
+        "center": [
+          -73.9772,
+          40.7528
+        ],
+        "zoom": 13.5,
+        "pitch": 45,
+        "bearing": 30
+      },
+      "body": "Every trip up the Hudson Line starts under the same vaulted ceiling. For two centuries the valley has defined itself against the pull of the city, and the city has kept sending people north to dream about leaving. Grand Central, opened in 1913, is where that traffic begins.",
+      "quote": "Growing up, New York City rightfully had the strongest center of gravity and I found myself spending a lot of time at various MTA and NJT stations, learning the times when the trains run express",
+      "source": "content/blog/2025/hidden-networks-of-warmth.md",
+      "url": "https://ejfox.com/blog/2025/hidden-networks-of-warmth",
+      "layers": [
+        "trains",
+        "notes-history"
+      ]
+    },
+    {
+      "id": "threshold",
+      "title": "The threshold",
+      "place": "Spuyten Duyvil",
+      "camera": {
+        "center": [
+          -73.9228,
+          40.8796
+        ],
+        "zoom": 13,
+        "pitch": 55,
+        "bearing": 0
+      },
+      "body": "At the northern tip of Manhattan the train leaves the tunnel and the river appears all at once. The Dutch named this spot for the churning water where the Harlem River meets the Hudson. It is also a curve with a history: wrecks here in 1882 and again in 2013.",
+      "quote": "the Hudson River runs north-south, so you always have a natural reference point",
+      "source": "content/blog/2025/using-radios.md",
+      "url": "https://ejfox.com/blog/2025/using-radios",
+      "layers": [
+        "trains",
+        "tides",
+        "notes-history"
+      ]
+    },
+    {
+      "id": "rediscovery",
+      "title": "Here the whole time",
+      "place": "Perkins Memorial Tower, Bear Mountain",
+      "camera": {
+        "center": [
+          -74.0068,
+          41.3115
+        ],
+        "zoom": 12.5,
+        "pitch": 70,
+        "bearing": 20
+      },
+      "body": "Route 9D hugs the east bank through the Highlands, and Perkins Memorial Drive switchbacks to the top of Bear Mountain across the river. A pandemic-era motorcycle turned these roads into a reintroduction to the valley. Every generation, from the Hudson River School painters on, has had its own version of this discovery.",
+      "quote": "zipping up and down 9D and up and around Bear Mountain to Perkins Lookout I thought to myself “holy shit, this was here the whole time?”",
+      "source": "content/blog/2025/hidden-networks-of-warmth.md",
+      "url": "https://ejfox.com/blog/2025/hidden-networks-of-warmth",
+      "layers": [
+        "notes-roads",
+        "rides",
+        "trailheads"
+      ]
+    },
+    {
+      "id": "storm-king",
+      "title": "The mountain that won",
+      "place": "Storm King Mountain",
+      "camera": {
+        "center": [
+          -73.995,
+          41.428
+        ],
+        "zoom": 12.5,
+        "pitch": 65,
+        "bearing": 160
+      },
+      "body": "Storm King and Breakneck Ridge form the gate where the Hudson cuts through the Appalachians. The Storm King Highway was blasted into its cliffs in the 1920s. In 1962 Con Edison proposed a power plant inside the mountain, and the 18-year fight that followed helped invent modern environmental law.",
+      "quote": "When you look at a map at you see a mountain with curvy roads, you can almost guarantee a fun ride where you can bend into the turns and shift into the perfect gear",
+      "source": "content/blog/2025/hidden-networks-of-warmth.md",
+      "url": "https://ejfox.com/blog/2025/hidden-networks-of-warmth",
+      "layers": [
+        "notes-roads",
+        "notes-history"
+      ]
+    },
+    {
+      "id": "radio-net",
+      "title": "Hidden networks of warmth",
+      "place": "Mount Beacon",
+      "camera": {
+        "center": [
+          -73.9451,
+          41.4884
+        ],
+        "zoom": 10.5,
+        "pitch": 55,
+        "bearing": 300
+      },
+      "body": "The 146.970 MHz repeater on Mount Beacon carries a morning net of amateur radio operators checking in from across the mid-Hudson. The shaded area is where a handheld radio can reach it. Below the summit are the ruins of an incline railway that once hauled tourists up the same slope.",
+      "quote": "I love knowing that hidden on radio waves that permeate this valley, there’s a group of people talking about their breakfast and practicing passing messages",
+      "source": "content/blog/2025/hidden-networks-of-warmth.md",
+      "url": "https://ejfox.com/blog/2025/hidden-networks-of-warmth",
+      "layers": [
+        "repeaters",
+        "coverage-beacon"
+      ]
+    },
+    {
+      "id": "main-street",
+      "title": "Who owns Main Street",
+      "place": "Main Street, Beacon",
+      "camera": {
+        "center": [
+          -73.9686,
+          41.5043
+        ],
+        "zoom": 14.5,
+        "pitch": 50,
+        "bearing": 100
+      },
+      "body": "Beacon was once a hat-making town; its largest employer was a Nabisco box-printing plant that closed in 1999. Dia opened a museum in the plant in 2003, and the town's Main Street changed around it. Pete Seeger's sloop Clearwater sailed from the riverfront at the foot of the hill.",
+      "quote": "There are already tons of guides to the Hudson Valley, but they are very tourist centric, designed for people driving up from the city or in from Connecticut",
+      "source": "content/blog/week-notes/2024-02.md",
+      "url": "https://ejfox.com/blog/week-notes/2024-02",
+      "layers": [
+        "notes-history",
+        "trains"
+      ]
+    },
+    {
+      "id": "drowned",
+      "title": "The drowned towns",
+      "place": "Ashokan Reservoir",
+      "camera": {
+        "center": [
+          -74.2,
+          41.95
+        ],
+        "zoom": 11,
+        "pitch": 50,
+        "bearing": 290
+      },
+      "body": "The city's thirst reached into the Catskills. The Ashokan Reservoir, finished in 1915, displaced about 2,000 people and moved whole hamlets uphill or erased them. Later dams at Neversink, Pepacton and Cannonsville drowned more towns, and their water still runs south by gravity to the taps in Manhattan.",
+      "quote": "the small hidden local networks that exist all around us if we know where to look",
+      "source": "content/blog/2025/hidden-networks-of-warmth.md",
+      "url": "https://ejfox.com/blog/2025/hidden-networks-of-warmth",
+      "layers": [
+        "notes-drowned",
+        "water"
+      ]
+    }
+  ]
+}

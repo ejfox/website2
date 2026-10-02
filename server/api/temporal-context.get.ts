@@ -10,6 +10,7 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
 import { createClient } from '@supabase/supabase-js'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 const WINDOW_DAYS = 30 // ±30 days from the target date
 
@@ -139,9 +140,10 @@ export default defineEventHandler(async (event) => {
 
   // --- Scraps: bookmarks/clippings saved around this time ---
   try {
-    const config = useRuntimeConfig()
-    if (config.SUPABASE_URL && config.SUPABASE_KEY) {
-      const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
+    const supabaseUrl = serverEnv('SUPABASE_URL')
+    const supabaseKey = serverEnv('SUPABASE_KEY')
+    if (supabaseUrl && supabaseKey) {
+      const supabase = createClient(supabaseUrl, supabaseKey)
       const windowStart = new Date(
         targetDate.getTime() - WINDOW_DAYS * 86400000
       ).toISOString()

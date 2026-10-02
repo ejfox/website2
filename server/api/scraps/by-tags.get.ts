@@ -5,6 +5,7 @@
  */
 import { defineEventHandler, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 // AI summarizer sometimes overwrites the title field with a summary prefix
 const AI_TITLE_PREFIXES = [
@@ -52,11 +53,12 @@ export default defineEventHandler(async (event) => {
     .filter(Boolean)
   if (!tagList.length) return []
 
-  const config = useRuntimeConfig()
-  if (!config.SUPABASE_URL || !config.SUPABASE_KEY) return []
+  const supabaseUrl = serverEnv('SUPABASE_URL')
+  const supabaseKey = serverEnv('SUPABASE_KEY')
+  if (!supabaseUrl || !supabaseKey) return []
 
   try {
-    const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
+    const supabase = createClient(supabaseUrl, supabaseKey)
 
     // Fetch recent scraps and filter server-side for tag overlap
     // Supabase array operators can be inconsistent across column types

@@ -1,0 +1,248 @@
+{
+  "generated": "2026-10-01T17:22:16.018Z",
+  "caveat": "Terrain line-of-sight only, not an RF propagation model: no foliage, buildings, knife-edge diffraction, ducting, real antenna patterns or ERP. Repeater sites are approximate (summit or tower coordinates from public listings), so treat this as a sketch of where terrain gets in the way.",
+  "assumptions": {
+    "defaultMastM": 30,
+    "handheldHeightM": 2,
+    "baseHeightM": 10,
+    "kFactor": 1.3333,
+    "maxRangeKm": 80,
+    "stepM": 60,
+    "radials": 2880,
+    "terrain": "AWS Terrarium z11 (~57 m/px at 41.8°N), bathymetry clamped to sea level",
+    "sitesApproximate": true
+  },
+  "tiers": {
+    "handheld": "clear 4/3-earth line of sight to a radio 2 m off the ground",
+    "base": "clear line of sight to an antenna 10 m up (base station or mobile mast); includes the handheld area"
+  },
+  "bounds": {
+    "west": -75.6,
+    "south": 40.7,
+    "east": -72.6,
+    "north": 42.9
+  },
+  "coordinates": [
+    [
+      -75.6,
+      42.9
+    ],
+    [
+      -72.6,
+      42.9
+    ],
+    [
+      -72.6,
+      40.7
+    ],
+    [
+      -75.6,
+      40.7
+    ]
+  ],
+  "size": [
+    1400,
+    1377
+  ],
+  "combined": {
+    "image": "combined.png",
+    "handheldPct": 12.5,
+    "basePct": 16.6
+  },
+  "repeaters": [
+    {
+      "id": "146-970-mt-beacon",
+      "name": "N2FZC Mt. Beacon ARC",
+      "location": "Mt. Beacon",
+      "freq": "146.970",
+      "duplex": "-",
+      "offset": "0.6",
+      "tone": "100.0",
+      "role": [
+        "Dutchess ARES/RACES secondary + Dutchess primary SKYWARN (NWS Albany)"
+      ],
+      "site": {
+        "lat": 41.4884,
+        "lon": -73.9451,
+        "basis": "Beacon Mountain summit (Wikipedia)",
+        "sources": [
+          "https://wr2abb.org/home/home/mt-beacon-amateur-radio-club-repeaters/"
+        ],
+        "groundM": 454,
+        "mastM": 30,
+        "mastKnown": false,
+        "antennaM": 484
+      },
+      "image": "146970-mt-beacon.png",
+      "handheldPct": 3.2,
+      "basePct": 4.8
+    },
+    {
+      "id": "147-045-illinois-mountain-highland",
+      "name": "N2OXV Mt. Beacon ARC",
+      "location": "Illinois Mountain, Highland",
+      "freq": "147.045",
+      "duplex": "+",
+      "offset": "0.6",
+      "tone": "100.0",
+      "role": [
+        "Dutchess ARES/RACES primary (147"
+      ],
+      "site": {
+        "lat": 41.7203,
+        "lon": -73.995,
+        "basis": "Illinois Mountain summit (Wikipedia)",
+        "sources": [
+          "https://www.hvnet.org/"
+        ],
+        "groundM": 336,
+        "mastM": 30,
+        "mastKnown": false,
+        "antennaM": 366
+      },
+      "image": "147045-illinois-mountain-highland.png",
+      "handheldPct": 3.2,
+      "basePct": 4.7
+    },
+    {
+      "id": "146-805-woodstock",
+      "name": "WA2MJM Overlook Mtn ARC",
+      "location": "Woodstock",
+      "freq": "146.805",
+      "duplex": "-",
+      "offset": "0.6",
+      "tone": "103.5",
+      "role": [
+        "OMARC primary repeater",
+        "Ulster County ARES/RACES primary + primary SKYWARN (NWS Albany)"
+      ],
+      "site": {
+        "lat": 42.0765,
+        "lon": -74.1072,
+        "basis": "Overlook Mountain (RepeaterBook site + coords)",
+        "sources": [
+          "https://www.repeaterbook.com/repeaters/details.php?state_id=36&ID=11855"
+        ],
+        "groundM": 799,
+        "mastM": 30,
+        "mastKnown": false,
+        "antennaM": 829
+      },
+      "image": "146805-woodstock.png",
+      "handheldPct": 3.3,
+      "basePct": 4.4
+    },
+    {
+      "id": "147-105-schunnemunk-mountain",
+      "name": "KC2OUR Orange County ARES/RACES",
+      "location": "Schunnemunk Mountain",
+      "freq": "147.105",
+      "duplex": "+",
+      "offset": "0.6",
+      "tone": "114.8",
+      "role": [
+        "OC ARES/RACES primary (linked system, EchoLink KC2OUR-R) + primary SKYWARN (NWS Upton)"
+      ],
+      "site": {
+        "lat": 41.3918,
+        "lon": -74.1163,
+        "basis": "Schunemunk Mountain summit (Wikipedia)",
+        "sources": [
+          "http://eny.arrl.org/ARES/FILES/Orange.htm"
+        ],
+        "groundM": 508,
+        "mastM": 30,
+        "mastKnown": false,
+        "antennaM": 538
+      },
+      "image": "147105-schunnemunk-mountain.png",
+      "handheldPct": 3.7,
+      "basePct": 5.4
+    },
+    {
+      "id": "145-130-mt-ninham-carmel",
+      "name": "K2PUT PEARL",
+      "location": "Mt. Ninham, Carmel",
+      "freq": "145.130",
+      "duplex": "-",
+      "offset": "0.6",
+      "tone": "136.5",
+      "role": [
+        "Putnam ARES primary + primary SKYWARN (NWS Upton)"
+      ],
+      "site": {
+        "lat": 41.4615,
+        "lon": -73.7252,
+        "basis": "Ninham Mountain fire tower (OSM)",
+        "sources": [
+          "http://www.k2put.org/pearl-repeaters"
+        ],
+        "groundM": 384,
+        "mastM": 30,
+        "mastKnown": false,
+        "antennaM": 414
+      },
+      "image": "145130-mt-ninham-carmel.png",
+      "handheldPct": 1.4,
+      "basePct": 2.2
+    },
+    {
+      "id": "147-060-valhalla",
+      "name": "WB2ZII WECA",
+      "location": "Valhalla",
+      "freq": "147.060",
+      "duplex": "+",
+      "offset": "0.6",
+      "tone": "114.8",
+      "role": [
+        "Westchester ARES/RACES primary + primary SKYWARN (NWS Upton)"
+      ],
+      "site": {
+        "lat": 41.080464,
+        "lon": -73.778207,
+        "basis": "Westchester County radio tower, Valhalla; antenna 470 ft AGL per WECA, coords per artscipub",
+        "sources": [
+          "https://www.weca.org/facilities/repeatertones",
+          "http://www.artscipub.com/repeaters/detail.asp?rid=26199"
+        ],
+        "groundM": 118,
+        "mastM": 143,
+        "mastKnown": true,
+        "antennaM": 261
+      },
+      "image": "147060-valhalla.png",
+      "handheldPct": 4.1,
+      "basePct": 5.9
+    }
+  ],
+  "excluded": [
+    {
+      "name": "N2EYH Mt. Beacon ARC",
+      "location": "Millbrook",
+      "freq": "146.895",
+      "reason": "site unknown: town-center coordinates only",
+      "detail": "Club page lists \"Millbrook\" only; RepeaterBook marks its coords approximate"
+    },
+    {
+      "name": "WB2RRA Rockland Repeater Assn",
+      "location": "Orangetown",
+      "freq": "147.165",
+      "reason": "site unknown: town-center coordinates only",
+      "detail": "No named tower or peak in RepeaterBook, artscipub (Nyack) or ENY ARES pages"
+    },
+    {
+      "name": "N2LEN",
+      "location": "Hudson",
+      "freq": "147.150",
+      "reason": "site unknown: town-center coordinates only",
+      "detail": "Greene ARES primary; RepeaterBook says East Windham but coordinates not known"
+    },
+    {
+      "name": "K2RVW",
+      "location": "Martindale",
+      "freq": "147.210",
+      "reason": "site unknown: town-center coordinates only",
+      "detail": "Columbia ARES primary; Martindale vs Hudson conflict, no named site"
+    }
+  ]
+}

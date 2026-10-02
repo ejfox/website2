@@ -5,6 +5,7 @@
  * @returns Time tracking data with categories, activities, and productivity summary (productive/distracting/neutral time)
  */
 import { defineEventHandler, createError } from 'h3'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 interface RescueTimeRow {
   date: string
@@ -42,13 +43,7 @@ function calculateTimeBreakdown(seconds: number): TimeBreakdown {
 }
 
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-  const token = config.RESCUETIME_TOKEN
-
-  // console.log('RescueTime config:', {
-  //   hasToken: !!token,
-  //   tokenLength: token?.length
-  // })
+  const token = serverEnv('RESCUETIME_TOKEN')
 
   if (!token) {
     throw createError({

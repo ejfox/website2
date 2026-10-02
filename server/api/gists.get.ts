@@ -6,6 +6,7 @@
  * @returns Array of Gist objects with metadata and content for single-file gists
  */
 import { defineEventHandler, createError, getQuery } from 'h3'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 interface GistFile {
   filename: string
@@ -27,14 +28,14 @@ interface Gist {
 }
 
 export default defineEventHandler(async (event): Promise<Gist[]> => {
-  const config = useRuntimeConfig()
   const query = getQuery(event)
 
   const perPage = query.per_page || 64
   const page = query.page || 1
 
   // Get token (same logic as github.get.ts)
-  let token = (config.githubToken || config.GITHUB_TOKEN) as string
+  let token =
+    serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
 
   if (token === 'your_token_here') {
     const directEnvToken = process.env.GITHUB_TOKEN

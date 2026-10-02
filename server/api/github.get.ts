@@ -5,6 +5,7 @@
  * @returns GitHubStats with user stats, contribution history, commit details, and commit type distribution
  */
 import { defineEventHandler, createError } from 'h3'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 interface GitHubStats {
   stats: {
@@ -243,17 +244,9 @@ async function checkRateLimit(token: string) {
 
 export default defineEventHandler(async (): Promise<GitHubStats> => {
   // console.log('🚀 GitHub handler called')
-  const config = useRuntimeConfig()
-
-  // Add more detailed logging
-  // console.log('Runtime config keys:', Object.keys(config))
-  // console.log('githubToken value type:', typeof config.githubToken)
-  // console.log('GITHUB_TOKEN value type:', typeof config.GITHUB_TOKEN)
-  // console.log('githubToken length:', config.githubToken?.length)
-  // console.log('GITHUB_TOKEN length:', config.GITHUB_TOKEN?.length)
-
   // Get token and handle potential whitespace issues
-  let token = (config.githubToken || config.GITHUB_TOKEN) as string
+  let token =
+    serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
 
   // Check if we have the placeholder token instead of the real one
   if (token === 'your_token_here') {
