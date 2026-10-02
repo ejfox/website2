@@ -1,5 +1,5 @@
 ---
-title: "Clipgoblin"
+title: "clipgoblin"
 date: 2026-04-29T00:00:00-05:00
 category: "Tools"
 featured: false
@@ -16,7 +16,7 @@ clipgoblin came out of a real editing problem. I was buried in a corpus of long 
 
 ![The CLI — generating concept-tagged FCPXML markers from a words.json transcript](https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/code2.png)
 
-Under the hood it shells out to Whisper for word-level transcription, then generates concept-tagged FCPXML markers from the resulting `words.json` — so each marker lands on the exact word, not a rough guess. It's the difference between an archive you dread opening and one you can move through at the speed of thought.
+Under the hood it shells out to Whisper for word-level transcription, then generates concept-tagged FCPXML markers from the resulting `words.json` — so each marker lands on the exact word, not a rough guess.
 
 ![Resolving and shelling out to whisper for word-level transcription](https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/code.png)
 

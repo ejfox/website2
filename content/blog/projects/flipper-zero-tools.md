@@ -22,7 +22,7 @@ Two small apps for the same tiny, useless-but-perfect screen: [flipper-space-cal
 
 A set of minimalist space- and physics calculators for the Flipper Zero — relativistic time dilation, space-travel figuring, and friends, all on the 128×64 screen for back-of-the-napkin astrophysics in your pocket.
 
-I think I like it because it's so useless but still utilitarian — cyberpunk and gestural. It's a tool for a time / space-traveler who doesn't exist, or maybe does, and makes a tool that he would find handy.
+I think I like it because it's so useless but still utilitarian — cyberpunk and gestural. It's a tool for a time/space-traveler who doesn't exist — or maybe does — the kind of thing he'd find handy.
 
 It's also an experiment in pushing what small Flipper apps can do, and imagining utilities that would make sense within its capabilities — using the limits as a method of inspiration. This is what came from that.
 

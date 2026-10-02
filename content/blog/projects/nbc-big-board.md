@@ -16,7 +16,7 @@ tags:
   - elections
 ---
 
-It started as a prototype I made in January — a touchscreen way to explore county-level election results — that I demoed to Adam, then to Steve, then to Marc, until it got the budget and became the real thing: the "Big Board" Steve Kornacki wields on air, live, in front of ten to nineteen million people. ([NewscastStudio wrote up a later update](https://www.newscaststudio.com/2018/11/05/nbc-big-board-update/).)
+It started as a prototype I made in January — a touchscreen way to explore county-level election results — that I demoed to Adam, then to Steve, then to Marc, until it got the budget and became the real thing: the "Big Board" Steve Kornacki wields on air, live, in front of ten to nineteen million people.
 
 Building something that gets *performed* live is the most stressful thing I've ever done — no room for error, and you hand it off to someone else on a screen you don't control. In the weeks before an election, Adam (Kornacki's producer) was texting and calling me at all hours as he did hits on Maddow and Morning Joe, and I got used to adding new scorecard filters at a moment's notice.
 
@@ -37,3 +37,5 @@ The whole story — the 1AM bacon pancakes, the Montana freeze, what I learned a
 ![Broadcast setup — the Big Board on a control-room monitor beside a waveform scope](https://res.cloudinary.com/ejf/image/upload/v1755101273/IMG_6264_ubgaak.jpg)
 
 ![Printed design studies for the on-air election graphics, spread across a desk](https://res.cloudinary.com/ejf/image/upload/v1755101285/IMG_5444_mn2u7z.jpg)
+
+[NewscastStudio wrote up a later update](https://www.newscaststudio.com/2018/11/05/nbc-big-board-update/).

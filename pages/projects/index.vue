@@ -315,7 +315,7 @@ const projectsSchema = computed(() => {
 usePageSeo({
   title: 'Projects · EJ Fox',
   description:
-    'Selected work: data visualizations, newsroom tooling, and investigative dashboards shipped via room302.studio and EJ Fox.',
+    'Instruments, investigations, and the Vulpes system — data visualization, newsroom tooling, and hardware by EJ Fox and room302.studio',
   type: 'website',
   section: 'Projects',
   tags: [

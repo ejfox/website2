@@ -19,7 +19,7 @@ tags:
 
 It's built for the digging: investigating a corporation's clean-energy claims, following investment patterns, or tracing who ultimately owns a piece of the world's energy infrastructure. The ownership chain is where a lot of the truth is.
 
-My favorite part was working with Stephen and Nadieh, finding new visual ways to explore ownership patterns this complicated and intricate. It started as an ownership chart — Stephen prototyped the forms in Observable, I turned them into Svelte components, and Nadieh brought really cool interactions and visual forms on top. That's how you get things like the ownership "flowers" that open an owner's whole portfolio at once, instead of another org chart.
+My favorite part was working with Stephen and Nadieh, finding new visual ways to explore ownership patterns this intricate. It started as an ownership chart — Stephen prototyped the forms in Observable, I turned them into Svelte components, and Nadieh brought really cool interactions and visual forms on top. That's how you get things like the ownership "flowers" that open an owner's whole portfolio at once, instead of another org chart.
 
 Built with Stephen Osserman and Anna Mowat at Global Energy Monitor, Third Bear Solutions on the data pipeline, and Nadieh Bremer on vis design.
 

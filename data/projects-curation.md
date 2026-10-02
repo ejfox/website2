@@ -66,3 +66,14 @@ accident — now `draft: true`.
 - coach-artie — thin (headers + "in development"); rewrite from the
   how-i-built-coach-artie post.
 - MorningRadio — page says it "experimented (unsuccessfully)"; unpublish or fold.
+
+## 2026-10-02 updates
+
+- EJ published tempo and vulpes-browser himself (laptop pass) — they're kept,
+  overriding the cut/fold lists above.
+- Hidden: MorningRadio, cloudinary-backup-tool, smallweb-starter.
+- Fable copy-edit pass applied (EJ: "apply all 3"): typos, tagline periods,
+  shrug lines cut, creative-interfaces robot opener + redundant list removed,
+  subway-builder leads with the mission line, vulpes-nvim no longer repeats the
+  flagship manifesto. Open questions for EJ: amen-slicer GBA vs Miyoo Mini;
+  twitter-artbot "tick-generations".

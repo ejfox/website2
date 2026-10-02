@@ -22,8 +22,6 @@ I wanted my own top-level minimalist view of all of my open work — most of my 
 
 I've been having a lot of fun lately writing minimalist TUIs I can run in tmux panes — my workspace lately is often just a full-screen terminal with different tmux panes and windows, and I really like it when the interface is just text. It lets me think about the functionality and core offerings rather than diving into padding and spacing and layout the way I do in CSS and front-end.
 
-Honestly, I haven't used it in a while — I forget I make some of this stuff, and then when I rediscover it I'm like "oh yeah, that would be useful." This is one of those cases.
-
 ![The PR rollup logic in Rust — status glyphs and age coloring](https://res.cloudinary.com/ejf/image/upload/projects/github-sloth/code.png)
 
 ![The TUI rendering — ratatui layout and styled spans for the PR list](https://res.cloudinary.com/ejf/image/upload/projects/github-sloth/code2.png)

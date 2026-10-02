@@ -16,9 +16,7 @@ Minimalist web browser. Zig + Swift + Metal — rendered entirely on the GPU, wi
 
 I really wanted to experiment with creating a browser but making every choice myself, centered around how I use and consume the internet — from first principles, aided by a super-intelligent robot. What would a new browser made today, with speed and performance as a central tenet, look like?
 
-All these — Zig, Swift, Metal — are barebones, non-web tech that's performant, and they interest me.
-
-It's an experiment I need to come back to.
+Zig, Swift, Metal: barebones, non-web, performant, and they interest me.
 
 ![The vulpes browser rendering ejfox.com](https://res.cloudinary.com/ejf/image/upload/projects/vulpes/browser.png)
 

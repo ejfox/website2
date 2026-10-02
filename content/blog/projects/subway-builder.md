@@ -14,7 +14,7 @@ tags:
   - dataviz
 ---
 
-Subway Builder is a game created by Colin Miller, a member of Room 302 studio, in 2025. The mission, as I see it: hyperstitioning public transit into every American city. It's like a sort of Ender's Game for transit — using realistic data to let train-people SHOW their elected leaders what is and is not possible, via realistic simulations.
+The mission, as I see it: hyperstitioning public transit into every American city. Subway Builder is a game created by Colin Miller, a member of Room 302 Studio, in 2025 — a sort of Ender's Game for transit, using realistic simulations to let train-people SHOW their elected leaders what is and is not possible.
 
 The game itself: a transit simulation (an Electron build) — design train types with realistic acceleration, capacity, and cost parameters, lay networks over real-world geography, and analyze the demand you create. It launched on Steam in July 2026. My corner of it: code contributions, Steam release infrastructure, and spin-offs like `subway-builder-mods` and a Pico-8 demake.
 

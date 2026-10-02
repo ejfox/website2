@@ -4622,7 +4622,7 @@
         "headless",
         "linux"
       ],
-      "words": 88,
+      "words": 80,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -4735,7 +4735,7 @@
   },
   {
     "slug": "projects/clipgoblin",
-    "title": "Clipgoblin",
+    "title": "clipgoblin",
     "date": "2026-04-29T05:00:00.000Z",
     "type": "post",
     "tags": [
@@ -4763,7 +4763,7 @@
       }
     ],
     "metadata": {
-      "title": "Clipgoblin",
+      "title": "clipgoblin",
       "date": "2026-04-29T05:00:00.000Z",
       "category": "Tools",
       "featured": false,
@@ -4775,7 +4775,7 @@
       "tags": [
         "tools"
       ],
-      "words": 276,
+      "words": 256,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -5076,12 +5076,6 @@
     ],
     "toc": [
       {
-        "text": "Projects",
-        "slug": "projects",
-        "level": "h2",
-        "children": []
-      },
-      {
         "text": "Hand-tracking & gesture",
         "slug": "hand-tracking--gesture",
         "level": "h2",
@@ -5139,25 +5133,19 @@
         "creativity",
         "interfaces"
       ],
-      "words": 702,
-      "images": 6,
+      "words": 540,
+      "images": 4,
       "imageDetails": {
-        "total": 6,
-        "cloudinary": 6,
+        "total": 4,
+        "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 10,
+      "links": 8,
       "codeBlocks": 0,
       "headers": {
-        "h2": 2
+        "h2": 1
       },
       "toc": [
-        {
-          "text": "Projects",
-          "slug": "projects",
-          "level": "h2",
-          "children": []
-        },
         {
           "text": "Hand-tracking & gesture",
           "slug": "hand-tracking--gesture",
@@ -5230,14 +5218,14 @@
         "osint",
         "design"
       ],
-      "words": 269,
+      "words": 231,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5280,14 +5268,14 @@
         "tool",
         "journalism"
       ],
-      "words": 172,
+      "words": 171,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 2,
       "codeBlocks": 1,
       "headers": {},
       "toc": [],
@@ -5344,7 +5332,7 @@
         "generative",
         "art"
       ],
-      "words": 340,
+      "words": 338,
       "images": 7,
       "imageDetails": {
         "total": 7,
@@ -5406,7 +5394,7 @@
         "energy",
         "climate"
       ],
-      "words": 356,
+      "words": 354,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -5450,7 +5438,7 @@
         "terminal",
         "git"
       ],
-      "words": 217,
+      "words": 180,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5763,14 +5751,14 @@
         "javascript",
         "elections"
       ],
-      "words": 395,
+      "words": 394,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 3,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6078,7 +6066,7 @@
   },
   {
     "slug": "projects/openrouter-census",
-    "title": "Openrouter Census",
+    "title": "OpenRouter Census",
     "date": "2025-08-21T05:00:00.000Z",
     "type": "post",
     "tags": [
@@ -6086,7 +6074,7 @@
     ],
     "toc": [],
     "metadata": {
-      "title": "Openrouter Census",
+      "title": "OpenRouter Census",
       "date": "2025-08-21T05:00:00.000Z",
       "category": "Tools",
       "featured": false,
@@ -6099,14 +6087,14 @@
       "tags": [
         "tools"
       ],
-      "words": 290,
+      "words": 285,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6238,14 +6226,14 @@
         "photography",
         "tools"
       ],
-      "words": 132,
+      "words": 119,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6294,14 +6282,14 @@
         "dataviz",
         "quantified-self"
       ],
-      "words": 532,
+      "words": 530,
       "images": 13,
       "imageDetails": {
         "total": 13,
         "cloudinary": 13,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -6463,14 +6451,14 @@
         "terminal",
         "programming"
       ],
-      "words": 108,
+      "words": 92,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6489,12 +6477,6 @@
       "web"
     ],
     "toc": [
-      {
-        "text": "Smallbot MCP",
-        "slug": "smallbot-mcp",
-        "level": "h2",
-        "children": []
-      },
       {
         "text": "smallweb-starter",
         "slug": "smallweb-starter",
@@ -6521,7 +6503,7 @@
         "ai",
         "web"
       ],
-      "words": 201,
+      "words": 198,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -6531,15 +6513,9 @@
       "links": 5,
       "codeBlocks": 0,
       "headers": {
-        "h2": 2
+        "h2": 1
       },
       "toc": [
-        {
-          "text": "Smallbot MCP",
-          "slug": "smallbot-mcp",
-          "level": "h2",
-          "children": []
-        },
         {
           "text": "smallweb-starter",
           "slug": "smallweb-starter",
@@ -6590,7 +6566,7 @@
         "transit",
         "dataviz"
       ],
-      "words": 311,
+      "words": 306,
       "images": 11,
       "imageDetails": {
         "total": 11,
@@ -6645,7 +6621,7 @@
         "app",
         "design"
       ],
-      "words": 138,
+      "words": 122,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -7011,14 +6987,14 @@
         "web",
         "experiment"
       ],
-      "words": 329,
+      "words": 318,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -7055,7 +7031,7 @@
         "bot",
         "generative"
       ],
-      "words": 141,
+      "words": 134,
       "images": 9,
       "imageDetails": {
         "total": 9,
@@ -7095,7 +7071,7 @@
       "tags": [
         "tools"
       ],
-      "words": 134,
+      "words": 118,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -7181,14 +7157,14 @@
       "tags": [
         "tools"
       ],
-      "words": 148,
+      "words": 78,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -7323,14 +7299,14 @@
       "tags": [
         "tools"
       ],
-      "words": 392,
+      "words": 387,
       "images": 5,
       "imageDetails": {
         "total": 5,
         "cloudinary": 5,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -7367,14 +7343,14 @@
         "radio",
         "hardware"
       ],
-      "words": 120,
+      "words": 118,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],

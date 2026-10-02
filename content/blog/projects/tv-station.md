@@ -26,4 +26,4 @@ What's actually playing is my own YouTube "Watch Later" list — 507 saved links
 
 I also wrote up a Pi 5 kiosk recipe so it runs full-screen on the wall TV — an actual television, tuned to my channel.
 
-The whole thing is [open source](https://github.com/ejfox/tv-station), and the point is that it's *yours*, not mine. It's one ~140-line Deno file plus a small Python recipe that eats a Watch Later export, an Obsidian or Notion vault, or a plain CSV and builds the playlist for you. Point it at your own backlog, drop it on smallweb behind any reverse proxy, and you've got your own public-access channel in an afternoon — no database to run, no state to babysit.
+The whole thing is [open source](https://github.com/ejfox/tv-station), and the point is that it's *yours*, not mine. It's one ~140-line Deno file plus a small Python recipe that eats a Watch Later export, an Obsidian or Notion vault, or a plain CSV and builds the playlist for you. Point it at your own backlog, drop it on smallweb behind any reverse proxy, and you've got your own public-access channel in an afternoon.

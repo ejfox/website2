@@ -13,13 +13,13 @@ tags:
   - design
 ---
 
-A brutalist Pomodoro timer for iPhone and Apple Watch — edge-trace progress around the screen and adaptive themes.
+A brutalist Pomodoro timer for iPhone and Apple Watch — edge-trace progress around the screen and adaptive themes
 
 I wanted a Pomodoro that showed a unit chart and had a great visual look — something to include in YouTube videos and show my friends, like a designer watch. Elegant, Swiss-feeling, smooth advancing, with some social features like rings.
 
-I haven't done it yet, but I'd love to automatically ping a robot or my VPS when a Pomo session ends, or track it in my Grafana with a quantified-self vibe, or ping my Hue lights to do a little dance.
+Next, I'd love to automatically ping a robot or my VPS when a Pomo session ends, or track it in my Grafana with a quantified-self vibe, or ping my Hue lights to do a little dance.
 
-I've used Tempo a fair bit, but there are some bugs with Rings I need to fix. I had some other folks from The Vestibule beta testing it for me on TestFlight too.
+I've used Tempo a fair bit, and some folks from The Vestibule have been beta testing it for me on TestFlight too.
 
 ![Tempo on iPhone](https://res.cloudinary.com/ejf/image/upload/v1780065003/projects/tempo/1.png)
 
