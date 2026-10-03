@@ -305,6 +305,8 @@ usePageSeo({
         </p>
         <NuxtLink
           to="/consulting"
+          data-umami-event="consulting-book"
+          data-umami-event-location="case-study-nbc"
           class="inline-block bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-5 py-1 rounded font-mono text-sm hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors"
         >
           Let's talk

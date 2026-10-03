@@ -1,3 +1,5 @@
+import { calParams, readFirstTouch } from './firstTouch'
+
 // Cal.com inline-embed loader. Isolates Cal.com's official bootstrap snippet so
 // page/component code stays readable. Client-only — touches window/document, so
 // call it from onMounted (or behind <ClientOnly>).
@@ -22,6 +24,7 @@ export function loadCalInline({ namespace, calLink, selector, config = {} }) {
   }
   // Cal.com's official embed bootstrap (vendor snippet): queues calls until
   // embed.js loads, then replays them. Left structurally intact on purpose.
+  /* eslint-disable prefer-rest-params */
   ;(function (C, A, L) {
     const p = (a, ar) => a.q.push(ar)
     const d = C.document
@@ -54,11 +57,14 @@ export function loadCalInline({ namespace, calLink, selector, config = {} }) {
         p(cal, ar)
       }
   })(window, 'https://app.cal.com/embed/embed.js', 'init')
+  /* eslint-enable prefer-rest-params */
 
   window.Cal('init', namespace, { origin: 'https://cal.com' })
   window.Cal.ns[namespace]('inline', {
     elementOrSelector: selector,
-    config,
+    // First-touch utm_* + metadata[*] (utils/firstTouch.ts) ride along to the
+    // booking and the webhook. Explicit config wins on any key clash.
+    config: { ...calParams(readFirstTouch()), ...config },
     calLink,
   })
 }

@@ -51,6 +51,8 @@ onMounted(() => {
       <a
         v-if="nextSlot"
         :href="nextSlot.bookingUrl"
+        data-umami-event="consulting-book"
+        data-umami-event-location="next-available-slot"
         target="_blank"
         class="link-blue-underline"
         :title="`Book ${nextSlot.naturalTime} - 30min chat`"

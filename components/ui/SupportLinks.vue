@@ -38,6 +38,8 @@ const containerClasses = computed(() => {
       <!-- Book a call - primary CTA -->
       <a
         href="https://cal.com/ejfox/30min"
+        data-umami-event="consulting-book"
+        data-umami-event-location="support-links"
         target="_blank"
         rel="noopener"
         class="cta-link group"

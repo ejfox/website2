@@ -378,6 +378,8 @@ useHead(() => ({
           </span>
           <NuxtLink
             to="/calendar"
+            data-umami-event="consulting-book"
+            data-umami-event-location="projects"
             class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
           >
             {{ availabilityLine.cta }}
