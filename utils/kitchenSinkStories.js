@@ -1548,6 +1548,55 @@ export const stories = {
   DebugGrid: [{ name: 'default', props: {} }],
   Footer: [{ name: 'default', props: {} }],
   NewsletterSignup: [{ name: 'default', props: {} }],
+  DispatchReceipts: [
+    {
+      name: 'full',
+      props: {
+        sources: [
+          {
+            title: 'Hudson River water-level gauge 01358000, daily means',
+            url: 'https://waterdata.usgs.gov/monitoring-location/01358000/',
+          },
+          {
+            title:
+              'NOAA Climate Data Online: Albany Intl. Airport precipitation',
+            url: 'https://www.ncei.noaa.gov/cdo-web/',
+          },
+          {
+            title: 'NYS DEC Hudson River Estuary Program annual report, 2025',
+            url: 'https://dec.ny.gov/nature/waterbodies/oceans-estuaries/hudson-river-estuary-program',
+          },
+        ],
+        claims: [
+          {
+            text: 'The gauge logged 41 days above flood stage in 2025, the most since records began in 1946.',
+            source: 'https://waterdata.usgs.gov/monitoring-location/01358000/',
+          },
+          {
+            text: 'Total spring precipitation was 18% above the 30-year normal.',
+            source: 'https://www.ncei.noaa.gov/cdo-web/',
+          },
+          {
+            text: 'The state has not updated its floodplain maps for the county since 2008.',
+            source: '',
+          },
+        ],
+        data: 'https://ejfox.com/data/dispatch/hudson-gauge-2025.csv',
+      },
+    },
+    {
+      name: 'sources only',
+      props: {
+        sources: [
+          {
+            title:
+              'Bureau of Labor Statistics, Local Area Unemployment Statistics',
+            url: 'https://www.bls.gov/lau/',
+          },
+        ],
+      },
+    },
+  ],
   // ui/SitemapLink shares base name with root SitemapLink — handled above.
   SparklineScaled: [
     {
