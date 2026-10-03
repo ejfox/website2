@@ -5,10 +5,12 @@
   endpoint, which shows its own (on-brand) confirmation page and sends a
   double-opt-in email. Nothing is stored on ejfox.com.
   @props listId?: string - listmonk list UUID (defaults to the "ejfox.com" list)
+  @props location?: string - Umami `newsletter-signup` prop (post-footer, dispatch-footer…)
 -->
 <script setup lang="ts">
-withDefaults(defineProps<{ listId?: string }>(), {
+withDefaults(defineProps<{ listId?: string; location?: string }>(), {
   listId: 'c2f33988-852d-4e8d-bb66-060afc3df187',
+  location: 'post-footer',
 })
 </script>
 
@@ -48,6 +50,8 @@ withDefaults(defineProps<{ listId?: string }>(), {
       />
       <button
         type="submit"
+        data-umami-event="newsletter-signup"
+        :data-umami-event-location="location"
         class="font-mono text-xs uppercase tracking-wider px-4 py-2 rounded bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:opacity-80 transition-opacity"
       >
         Subscribe

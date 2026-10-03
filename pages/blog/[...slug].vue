@@ -641,7 +641,7 @@ onMounted(() => {
       </div>
 
       <!-- Email signup (self-hosted listmonk; plain form, no JS) -->
-      <NewsletterSignup class="print:hidden" />
+      <NewsletterSignup location="post-footer" class="print:hidden" />
 
       <!-- Footer: Prev / Related / Next — three columns, gwerny -->
       <PostFooter

@@ -622,6 +622,64 @@ synthesize a leading `//` that was never in the input: `/..//evil.com` collapses
 to `//evil.com`, which a browser resolves off-site. If you touch this route, keep
 the output check.
 
+### `/via/<source>` — profile/bio links (2026-10-03)
+
+The generalised version, `server/routes/via/[source].get.ts`. Put
+`https://ejfox.com/via/bluesky` in the Bluesky bio. It 302s to `/`, or to
+`?to=/path`, and appends `utm_source=bluesky&utm_medium=profile`. Add
+`?m=<medium>` to override the medium (for example `m=post`) and `?c=<campaign>`
+to set `utm_campaign`. Both must be `[a-z0-9_-]`, up to 48 chars, or they are
+ignored.
+
+Allowed sources: bluesky, mastodon, x, github, youtube, linkedin, instagram,
+newsletter, discord, threads, hn. Anything else still redirects, tagged
+`utm_source=other`. It uses the same open-redirect protection as
+/from-youtube: the input is checked, then the emitted Location is checked
+again. If the output check fails, it falls back to `/?utm_…`. Keep both checks.
+
+## Umami funnel events (2026-10-03)
+
+Umami (`plugins/umami.client.js`) auto-tracks any element with
+`data-umami-event="name"` + `data-umami-event-<prop>`. Programmatic events
+live in `plugins/umami-events.client.ts`. Props carry hostnames, site paths
+and slugs only, never PII. An element already tagged with
+`data-umami-event` is skipped by the plugin, so clicks aren't double-counted.
+
+| event | where | props |
+|---|---|---|
+| `newsletter-signup` | NewsletterSignup submit button | `location` (post-footer, dispatch-footer) |
+| `dispatch-data-download` | DispatchReceipts data link | `slug` |
+| `dispatch-source-click` | DispatchReceipts sources + claim sources | `host` |
+| `dispatch-also-on` | Dispatch piece "Also on" links | `network`, `slug` |
+| `consulting-book` | booking CTAs (consulting floating/sidebar, process, projects, case-study-nbc, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
+| `nav-hire-me` | "Hire Me" nav link (`utils/navigation.ts` `umamiEvent`) | `location` (sidebar-nav, mobile-nav) |
+| `outbound` | any untagged link to another host (plugin) | `host` |
+| `contact-email` | any `mailto:` link (plugin) | (none; never the address) |
+| `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
+| `read-complete` | reader passes 85% of `.h-entry .e-content` on /blog/** and /dispatch/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch) |
+
+Umami ignores headless/bot user agents. To verify in a test, check the
+attributes and handlers, not database rows.
+
+### First-touch → Cal.com (consulting pipeline)
+
+`plugins/first-touch.client.ts` + `utils/firstTouch.ts`. On a browser's first
+page load it stores `localStorage.ej_first_touch` =
+`{source, medium, campaign, landing, ts}`, and never overwrites it.
+
+- `source` is `utm_source` if present. Otherwise it's the referrer class: x,
+  bluesky, mastodon, youtube, github, hn, search, else the bare referrer domain,
+  else `direct`. Keep these classes in step with the funnel SQL.
+- `landing` is the path only.
+
+At click time, every cal.com booking link gets `utm_source/medium/campaign`
+(Cal.com shows them on the booking) plus `metadata[utm_source|utm_medium|utm_campaign|landing]`
+(returned to `/api/webhooks/calcom` as `payload.metadata.*` and logged in
+`data/calcom-events.jsonl`). The inline embeds get the same params:
+`utils/calEmbed.ts` for /calendar and /ff, and `pages/consulting.vue`.
+Rendered HTML stays clean, because the params are added in the browser, not
+in SSR.
+
 ## Key Design Principles
 
 1. **Delete-Driven Development**: Remove complexity, don't add it

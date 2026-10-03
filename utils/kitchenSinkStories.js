@@ -1582,6 +1582,7 @@ export const stories = {
           },
         ],
         data: 'https://ejfox.com/data/dispatch/hudson-gauge-2025.csv',
+        slug: 'hudson-gauge-2025',
       },
     },
     {

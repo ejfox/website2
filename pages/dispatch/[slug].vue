@@ -159,6 +159,7 @@ useHead({
         :sources="piece.sources"
         :claims="piece.claims"
         :data="piece.data"
+        :slug="piece.slug"
       />
 
       <aside
@@ -172,6 +173,9 @@ useHead({
             :href="s.url"
             class="u-syndication text-zinc-700 dark:text-zinc-300 hover:underline"
             rel="syndication noopener"
+            data-umami-event="dispatch-also-on"
+            :data-umami-event-network="s.network.toLowerCase()"
+            :data-umami-event-slug="piece.slug"
           >
             {{ networkLabel(s.network) }}
           </a>
@@ -179,6 +183,6 @@ useHead({
       </aside>
     </article>
 
-    <NewsletterSignup class="print:hidden" />
+    <NewsletterSignup location="dispatch-footer" class="print:hidden" />
   </main>
 </template>

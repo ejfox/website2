@@ -5,6 +5,8 @@ export interface NavItem {
   icon?: string
   primary?: boolean
   mobile?: boolean
+  /** Umami event name, rendered as data-umami-event (see CLAUDE.md). */
+  umamiEvent?: string
 }
 
 export const navigationItems: NavItem[] = [
@@ -13,7 +15,12 @@ export const navigationItems: NavItem[] = [
   { label: 'Blog', href: '/blog/', primary: true },
   { label: 'Projects', href: '/projects', primary: true },
   { label: 'Photos', href: '/photos', primary: true },
-  { label: 'Hire Me', href: '/consulting', primary: true }, // 💰 Money maker
+  {
+    label: 'Hire Me',
+    href: '/consulting',
+    primary: true,
+    umamiEvent: 'nav-hire-me',
+  }, // 💰 Money maker
 ]
 
 // Filter helpers

@@ -7,6 +7,7 @@
   @props sources?: {title, url}[]
   @props claims?: {text, source}[]
   @props data?: string - URL to a CSV/JSON download
+  @props slug?: string - piece slug, sent as the Umami download event prop
 -->
 <script setup lang="ts">
 interface Source {
@@ -23,8 +24,9 @@ const props = withDefaults(
     sources?: Source[]
     claims?: Claim[]
     data?: string | null
+    slug?: string
   }>(),
-  { sources: () => [], claims: () => [], data: null }
+  { sources: () => [], claims: () => [], data: null, slug: '' }
 )
 
 const hasAny = computed(
@@ -80,6 +82,8 @@ const dataFormat = computed(() => {
             v-if="claim.source"
             :href="claim.source"
             :title="claim.source"
+            data-umami-event="dispatch-source-click"
+            :data-umami-event-host="host(claim.source)"
             class="font-mono text-3xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 whitespace-nowrap"
             rel="noopener"
           >
@@ -105,6 +109,8 @@ const dataFormat = computed(() => {
           <span class="text-sm leading-6">
             <a
               :href="source.url"
+              data-umami-event="dispatch-source-click"
+              :data-umami-event-host="host(source.url)"
               class="font-serif text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 underline-offset-2 hover:decoration-zinc-500"
               rel="noopener"
             >
@@ -126,6 +132,8 @@ const dataFormat = computed(() => {
       <h3 class="receipts-label">Data</h3>
       <a
         :href="data"
+        data-umami-event="dispatch-data-download"
+        :data-umami-event-slug="slug || undefined"
         class="inline-flex items-baseline gap-2 font-mono text-xs px-2 py-1 rounded bg-raised text-zinc-800 dark:text-zinc-200 hover:opacity-80"
         download
       >
