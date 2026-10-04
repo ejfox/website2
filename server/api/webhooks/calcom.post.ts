@@ -116,6 +116,12 @@ export default defineEventHandler(async (event) => {
     last_source: metadata.last_source as string | undefined,
     landing_page: metadata.landing_page as string | undefined,
     referrer: metadata.referrer as string | undefined,
+    // First touch from plugins/first-touch.client.ts (`ej_first_touch`),
+    // sent as metadata[utm_*] / metadata[landing] on the booking link/embed.
+    utm_source: metadata.utm_source as string | undefined,
+    utm_medium: metadata.utm_medium as string | undefined,
+    utm_campaign: metadata.utm_campaign as string | undefined,
+    landing: metadata.landing as string | undefined,
     cancellationReason:
       (metadata.cancellationReason as string | undefined) || undefined,
   }

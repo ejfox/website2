@@ -64,6 +64,10 @@ const linkClasses =
             v-if="item.href !== '/'"
             :to="item.href"
             class="text-zinc-500 dark:text-zinc-400"
+            :data-umami-event="item.umamiEvent"
+            :data-umami-event-location="
+              item.umamiEvent ? 'mobile-nav' : undefined
+            "
           >
             {{ item.label }}
           </NuxtLink>
@@ -93,7 +97,15 @@ const linkClasses =
             >
               {{ item.label }}
             </a>
-            <NuxtLink v-else :to="item.href" :class="linkClasses">
+            <NuxtLink
+              v-else
+              :to="item.href"
+              :class="linkClasses"
+              :data-umami-event="item.umamiEvent"
+              :data-umami-event-location="
+                item.umamiEvent ? 'sidebar-nav' : undefined
+              "
+            >
               {{ item.label }}
             </NuxtLink>
           </template>
