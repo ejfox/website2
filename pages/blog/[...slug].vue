@@ -6,6 +6,7 @@ import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
 import SealedPost from '~/components/blog/SealedPost.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
+import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 import { readingStats } from '~/utils/readingStats'
 import { atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
@@ -638,6 +639,9 @@ onMounted(() => {
           </a>
         </div>
       </div>
+
+      <!-- Email signup (self-hosted listmonk; plain form, no JS) -->
+      <NewsletterSignup class="print:hidden" />
 
       <!-- Footer: Prev / Related / Next — three columns, gwerny -->
       <PostFooter
