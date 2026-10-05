@@ -1,5 +1,6 @@
 {
-  "cacheVersion": "2026-05-13-gear-cards",
+  "cacheVersion": "2026-10-05-source-hash",
+  "sourceHash": "47b8445a54d3806f41d3ef3af8b9461e1e600b662684fc141d9796bdd3775c43",
   "html": "<!-- TODO (EJ): add your voice + an image. Capture: boot / on-device screenshot. Draft until imaged. -->\n<p class=\"\">Use an AI to generate text descriptions of all your screenshots in Cloudinary.</p>\n<figure role=\"figure\" aria-label=\"Retroscope running — config verification: Cloudinary initialized, all checks green, health server up\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1789191374/projects/retroscope/landing.png\" alt=\"Retroscope running — config verification: Cloudinary initialized, all checks green, health server up\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1789191374/projects/retroscope/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1789191374/projects/retroscope/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1789191374/projects/retroscope/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1789191374/projects/retroscope/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Retroscope running — config verification: Cloudinary initialized, all checks green, health server up\" width=\"1200\" height=\"800\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1200×800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Retroscope running — config verification: Cloudinary initialized, all checks green, health server up</figcaption>\n</figure>",
   "title": "Retroscope",
   "metadata": {
@@ -17,14 +18,14 @@
     "tags": [
       "tools"
     ],
-    "words": 46,
+    "words": 44,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

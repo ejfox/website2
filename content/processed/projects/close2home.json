@@ -1,5 +1,6 @@
 {
-  "cacheVersion": "2026-05-13-gear-cards",
+  "cacheVersion": "2026-10-05-source-hash",
+  "sourceHash": "ace8f20c193dc99f530df364e7062e17cb2820a1ead7112a7582058f27c1a103",
   "html": "<!-- TODO (EJ): NEEDS A HERO IMAGE — a clean screenshot of the @newsclose2home\n     timeline (not the full browser chrome). Draft until captured. -->\n<p class=\"\">A Twitter bot that takes news headlines about Syria and replaces the cities with American cities of similar size — Homs becomes Montgomery, AL; Richmond, VA stands in for a city under siege.</p>\n<p class=\"\">It's a lens-shift — seeing American place names described in the same way we do war-torn Middle Eastern cities is jarring and disorienting.</p>\n<p class=\"\">It didn't really get much response, but surfing the feed now is a really interesting historical artifact.</p>\n<p class=\"\">It strikes me as an interesting piece of internet art before I even knew what I was doing.</p>",
   "title": "Close to Home",
   "metadata": {

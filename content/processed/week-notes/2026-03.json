@@ -1,6 +1,7 @@
 {
-  "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<h2 class=\"\" id=\"2026-03\">2026-03</h2>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Screenshots auto-append to <a href=\"/blog/2026-03-raw\" class=\"internal-link text-blue-600 dark:text-blue-400\">2026 03 Raw</a> — review those for memory jogs, write here for publishing.</p>\n</blockquote>\n<h3 class=\"\" id=\"what-happened-this-week\">What happened this week</h3>\n<!-- 3-5 sentences. What would you tell a friend? -->\n<h3 class=\"\" id=\"what-i-made--shipped\">What I made / shipped</h3>\n<h3 class=\"\" id=\"what-i-learned\">What I learned</h3>\n<h3 class=\"\" id=\"-media-consumed\">📚 Media consumed</h3>\n<!-- Books, articles, movies, TV shows, podcasts -->",
+  "cacheVersion": "2026-10-05-source-hash",
+  "sourceHash": "924c7716919eee85077e2984cc3a0914f4d3f2828e5d2c5f0e3afc58dd5058ef",
+  "html": "<h2 class=\"\" id=\"2026-03\">2026-03</h2>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Screenshots auto-append to <a href=\"/tag/2026-03-raw\" class=\"internal-link text-blue-600 dark:text-blue-400\">2026 03 Raw</a> — review those for memory jogs, write here for publishing.</p>\n</blockquote>\n<h3 class=\"\" id=\"what-happened-this-week\">What happened this week</h3>\n<!-- 3-5 sentences. What would you tell a friend? -->\n<h3 class=\"\" id=\"what-i-made--shipped\">What I made / shipped</h3>\n<h3 class=\"\" id=\"what-i-learned\">What I learned</h3>\n<h3 class=\"\" id=\"-media-consumed\">📚 Media consumed</h3>\n<!-- Books, articles, movies, TV shows, podcasts -->",
   "title": "2026-03",
   "metadata": {
     "tags": [
@@ -10,7 +11,7 @@
     ],
     "date": "2026-01-12T20:06:44.000Z",
     "modified": "2026-01-17T21:36:07.000Z",
-    "words": 54,
+    "words": 53,
     "images": 0,
     "imageDetails": {
       "total": 0,

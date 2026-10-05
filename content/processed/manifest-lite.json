@@ -23,7 +23,7 @@
         "photography",
         "inspiration"
       ],
-      "words": 59,
+      "words": 57,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -119,7 +119,7 @@
         "webdesign",
         "photography"
       ],
-      "words": 1539,
+      "words": 1537,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -211,7 +211,7 @@
         "photography",
         "nature"
       ],
-      "words": 88,
+      "words": 86,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -266,7 +266,7 @@
         "travel",
         "design"
       ],
-      "words": 52,
+      "words": 50,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -413,7 +413,7 @@
         "documentary",
         "art"
       ],
-      "words": 490,
+      "words": 488,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -558,7 +558,7 @@
         "photojournalism",
         "protest"
       ],
-      "words": 81,
+      "words": 79,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -611,7 +611,7 @@
         "travel",
         "event"
       ],
-      "words": 144,
+      "words": 142,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -645,7 +645,7 @@
       "hidden": true,
       "date": "2018-06-10T14:58:10-04:00",
       "unlisted": true,
-      "words": 539,
+      "words": 537,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -731,7 +731,7 @@
         "project",
         "writing"
       ],
-      "words": 748,
+      "words": 746,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -819,14 +819,14 @@
         "climatechange",
         "protest"
       ],
-      "words": 172,
+      "words": 170,
       "images": 13,
       "imageDetails": {
         "total": 13,
         "cloudinary": 13,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h1": 1
@@ -855,7 +855,7 @@
       "date": "2019-03-24T08:00:33.000Z",
       "modified": "2024-09-23T16:13:04.000Z",
       "unlisted": true,
-      "words": 302,
+      "words": 300,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -902,7 +902,7 @@
         "tactics",
         "security"
       ],
-      "words": 130,
+      "words": 128,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -982,7 +982,7 @@
         "javascript",
         "webdesign"
       ],
-      "words": 932,
+      "words": 930,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1071,14 +1071,14 @@
         "design",
         "activism"
       ],
-      "words": 2175,
+      "words": 2173,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -1131,7 +1131,7 @@
         "drama",
         "documentary"
       ],
-      "words": 367,
+      "words": 365,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1182,7 +1182,7 @@
         "cooking",
         "process"
       ],
-      "words": 231,
+      "words": 229,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1231,7 +1231,7 @@
         "advice",
         "personal"
       ],
-      "words": 283,
+      "words": 281,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1286,7 +1286,7 @@
         "coding",
         "activism"
       ],
-      "words": 1552,
+      "words": 1550,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1339,7 +1339,7 @@
         "inspiration",
         "personal"
       ],
-      "words": 449,
+      "words": 447,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1417,7 +1417,7 @@
         "hacking",
         "osint"
       ],
-      "words": 660,
+      "words": 658,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1532,7 +1532,7 @@
         "visualization"
       ],
       "modified": "2024-09-23T16:12:59.000Z",
-      "words": 1232,
+      "words": 1230,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1616,7 +1616,7 @@
         "twitter",
         "security"
       ],
-      "words": 447,
+      "words": 445,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1736,14 +1736,14 @@
         "media",
         "research"
       ],
-      "words": 2369,
+      "words": 2367,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 73,
+      "links": 72,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -1871,7 +1871,7 @@
         "javascript",
         "audio"
       ],
-      "words": 999,
+      "words": 997,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1949,7 +1949,7 @@
         "police",
         "america"
       ],
-      "words": 602,
+      "words": 600,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2059,7 +2059,7 @@
         "visualization",
         "network"
       ],
-      "words": 3595,
+      "words": 3594,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2205,14 +2205,14 @@
         "design",
         "inspiration"
       ],
-      "words": 328,
+      "words": 326,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -2287,14 +2287,14 @@
         "coding",
         "media"
       ],
-      "words": 1582,
+      "words": 1580,
       "images": 5,
       "imageDetails": {
         "total": 5,
         "cloudinary": 5,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -2373,7 +2373,7 @@
         "experiments",
         "dj"
       ],
-      "words": 1119,
+      "words": 1118,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2484,7 +2484,7 @@
         "recipe",
         "health"
       ],
-      "words": 542,
+      "words": 540,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2634,7 +2634,7 @@
         "howto",
         "process"
       ],
-      "words": 1996,
+      "words": 1994,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2772,7 +2772,7 @@
       "tags": [
         "coding"
       ],
-      "words": 603,
+      "words": 602,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2927,14 +2927,14 @@
         "project",
         "coding"
       ],
-      "words": 2443,
+      "words": 2442,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 2
@@ -3042,7 +3042,7 @@
       "modified": "2024-06-21T14:13:59.000Z",
       "hidden": true,
       "unlisted": true,
-      "words": 1361,
+      "words": 1359,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3118,7 +3118,7 @@
         "ecology",
         "machinelearning"
       ],
-      "words": 1398,
+      "words": 1396,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3209,7 +3209,7 @@
         "climatechange",
         "youtube"
       ],
-      "words": 238,
+      "words": 236,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3284,7 +3284,7 @@
       "tags": [
         "data"
       ],
-      "words": 588,
+      "words": 586,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3399,14 +3399,14 @@
         "process",
         "markdown"
       ],
-      "words": 553,
+      "words": 551,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 2,
       "codeBlocks": 1,
       "headers": {
         "h2": 1
@@ -3478,7 +3478,7 @@
       "modified": "2024-09-23T16:12:56.000Z",
       "hidden": true,
       "unlisted": true,
-      "words": 4721,
+      "words": 4719,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3576,14 +3576,14 @@
         "howto",
         "politics"
       ],
-      "words": 2131,
+      "words": 2130,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 44,
+      "links": 32,
       "codeBlocks": 1,
       "headers": {
         "h2": 8
@@ -3731,14 +3731,14 @@
         "hackers",
         "writing"
       ],
-      "words": 4323,
+      "words": 4322,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 48,
+      "links": 46,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -3866,14 +3866,14 @@
         "process",
         "nature"
       ],
-      "words": 2104,
+      "words": 2091,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 3,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -3944,14 +3944,14 @@
       ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
-      "words": 763,
+      "words": 762,
       "images": 8,
       "imageDetails": {
         "total": 8,
         "cloudinary": 8,
         "withDimensions": 0
       },
-      "links": 8,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -4026,7 +4026,7 @@
       ],
       "date": "2025-08-28T20:05:43.000Z",
       "modified": "2025-08-28T20:12:25.000Z",
-      "words": 610,
+      "words": 609,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4144,14 +4144,14 @@
         "journalism",
         "politics"
       ],
-      "words": 725,
+      "words": 724,
       "images": 6,
       "imageDetails": {
         "total": 6,
         "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 21,
+      "links": 15,
       "codeBlocks": 5,
       "headers": {
         "h2": 2
@@ -4279,7 +4279,7 @@
         "programming",
         "personal"
       ],
-      "words": 922,
+      "words": 921,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4413,7 +4413,7 @@
       "gear": [
         "moletta-lionsteel-folding-black-knife"
       ],
-      "words": 1377,
+      "words": 1376,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4480,7 +4480,7 @@
       "date": "2026-01-25T16:20:39.000Z",
       "modified": "2026-02-01T00:51:40.000Z",
       "dek": "In which the author feels a bit overwhelmed by the news",
-      "words": 842,
+      "words": 841,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4506,7 +4506,7 @@
         "moletta-lionsteel-folding-black-knife"
       ],
       "hidden": true,
-      "words": 566,
+      "words": 564,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4536,7 +4536,7 @@
       "tags": [
         "personal"
       ],
-      "words": 117,
+      "words": 116,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4673,14 +4673,14 @@
         "journalism",
         "database"
       ],
-      "words": 395,
+      "words": 394,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5591,14 +5591,14 @@
         "art",
         "motorcycle"
       ],
-      "words": 150,
+      "words": 148,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5905,14 +5905,14 @@
       "tags": [
         "tools"
       ],
-      "words": 258,
+      "words": 256,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6136,14 +6136,14 @@
         "osint",
         "tools"
       ],
-      "words": 180,
+      "words": 178,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 8,
+      "links": 6,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -7074,14 +7074,14 @@
         "device",
         "design"
       ],
-      "words": 172,
+      "words": 170,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -7343,20 +7343,11 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "4081",
-        "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress: The House of Representatives and Senate Explained",
-        "author": "Richard A. Arenberg and Alan S. Frumin",
-        "asin": "B07JYRPJ7S",
-        "lastAnnotatedDate": "2021-02-03",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "politics",
         "america"
       ],
-      "words": 97,
+      "words": 96,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7425,22 +7416,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "6077",
-        "title": "Notes of a Native Son",
-        "author": "James Baldwin and Edward P. Jones",
-        "asin": "B007WKEN4U",
-        "lastAnnotatedDate": "2022-06-20",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "america",
         "culture",
         "writing"
       ],
-      "words": 132,
+      "words": 131,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7508,21 +7490,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "59385",
-        "title": "Calling Bullshit: The Art of Skepticism in a Data-Driven World",
-        "author": "Carl T. Bergstrom and Jevin D. West",
-        "asin": "B08191DV5T",
-        "lastAnnotatedDate": "2021-12-03",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "data",
         "research"
       ],
-      "words": 71,
+      "words": 70,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7590,21 +7563,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "32592",
-        "title": "The Fated Sky: Astrology in History",
-        "author": "Benson Bobrick",
-        "asin": "B000FCKKXA",
-        "lastAnnotatedDate": "2022-12-23",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg",
-        "highlightsCount": 13
-      },
       "tags": [
         "book",
         "history",
         "culture"
       ],
-      "words": 1055,
+      "words": 1054,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7673,22 +7637,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "62203",
-        "title": "So Sad Today: Personal Essays",
-        "author": "Melissa Broder",
-        "asin": "B011J4H1NO",
-        "lastAnnotatedDate": "2023-11-09",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/61NtEkj0wIL._SY160.jpg",
-        "highlightsCount": 13
-      },
       "tags": [
         "book",
         "writing",
         "personal",
         "health"
       ],
-      "words": 670,
+      "words": 669,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7756,21 +7711,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "28653",
-        "title": "The Pisces: A Novel",
-        "author": "Melissa Broder",
-        "asin": "B074LVLHF2",
-        "lastAnnotatedDate": "2023-04-29",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg",
-        "highlightsCount": 15
-      },
       "tags": [
         "book",
         "writing",
         "personal"
       ],
-      "words": 769,
+      "words": 768,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7837,20 +7783,11 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "62762",
-        "title": "Women: A Novel",
-        "author": "Charles Bukowski",
-        "asin": "B000W94FWS",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
-        "highlightsCount": 15
-      },
       "tags": [
         "book",
         "writing"
       ],
-      "words": 599,
+      "words": 598,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7918,21 +7855,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "37778",
-        "title": "Designing Your Life: How to Build a Well-Lived, Joyful Life",
-        "author": "Bill Burnett and Dave Evans",
-        "asin": "B01BJSRSEC",
-        "lastAnnotatedDate": "2021-01-18",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "design",
         "personal"
       ],
-      "words": 136,
+      "words": 135,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -7997,18 +7925,9 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "58173",
-        "title": "The Hero’s Journey: Joseph Campbell on His Life and Work (The Collected Works of Joseph Campbell)",
-        "author": "Joseph Campbell, Phil Cousineau, David Kudler, and Stuart L. Brown",
-        "asin": "B07K5KBWGZ",
-        "lastAnnotatedDate": "2021-07-08",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81aJChDqSfL._SY160.jpg",
-        "highlightsCount": 5
-      },
       "date": "2025-08-28T20:10:28.000Z",
       "modified": "2025-08-31T22:40:04.000Z",
-      "words": 465,
+      "words": 464,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8077,22 +7996,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "54477",
-        "title": "Patriotic Treason: John Brown and the Soul of America",
-        "author": "Evan Carton",
-        "asin": "B000JMKS7Y",
-        "lastAnnotatedDate": "2025-08-10",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91r7o60L5KL._SY160.jpg",
-        "highlightsCount": 12
-      },
       "tags": [
         "book",
         "history",
         "america",
         "activism"
       ],
-      "words": 827,
+      "words": 826,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8160,21 +8070,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "22075",
-        "title": "Overshoot: The Ecological Basis of Revolutionary Change",
-        "author": "William R. Catton",
-        "asin": "B00VVH4UGG",
-        "lastAnnotatedDate": "2023-06-22",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/51geicggF5L._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "ecology",
         "climatechange"
       ],
-      "words": 245,
+      "words": 244,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8245,15 +8146,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "8124",
-        "title": "Filterworld: How Algorithms Flattened Culture",
-        "author": "Kyle Chayka",
-        "asin": "B0C2PDRHZ9",
-        "lastAnnotatedDate": "2024-08-03",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71u+mPdn-HL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "date": "2025-08-21T18:44:39.000Z",
       "modified": "2025-08-24T23:53:43.000Z",
       "tags": [
@@ -8262,7 +8154,7 @@
         "culture",
         "algorithm"
       ],
-      "words": 168,
+      "words": 167,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8330,21 +8222,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "2199",
-        "title": "Exhalation: Stories",
-        "author": "Ted Chiang",
-        "asin": "B07GD46PQZ",
-        "lastAnnotatedDate": "2024-12-15",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "tech",
         "writing"
       ],
-      "words": 74,
+      "words": 73,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8413,22 +8296,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "44304",
-        "title": "Riot. Strike. Riot: The New Era of Uprisings",
-        "author": "Joshua Clover",
-        "asin": "B013NI8WB4",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "activism",
         "protest",
         "politics"
       ],
-      "words": 69,
+      "words": 68,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8497,22 +8371,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "52934",
-        "title": "The Fundamentals of Motorcycle Camping",
-        "author": "Tim Collins and Amanda Zito",
-        "asin": "B08HX77KVM",
-        "lastAnnotatedDate": "2021-10-30",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81BOMFlBzPL._SY160.jpg",
-        "highlightsCount": 5
-      },
       "tags": [
         "book",
         "motorcycle",
         "camping",
         "travel"
       ],
-      "words": 321,
+      "words": 320,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8581,22 +8446,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "57847",
-        "title": "Daily Rituals: How Artists Work",
-        "author": "Mason Currey",
-        "asin": "B009Y4I4OM",
-        "lastAnnotatedDate": "2022-06-20",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81T0Ky96r+L._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "art",
         "writing",
         "process"
       ],
-      "words": 171,
+      "words": 170,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8667,16 +8523,7 @@
         "data",
         "activism"
       ],
-      "kindle-sync": {
-        "bookId": "47184",
-        "title": "Data Feminism (Strong Ideas)",
-        "author": "Catherine D'Ignazio and Lauren F. Klein",
-        "asin": "B08BT3SY5N",
-        "lastAnnotatedDate": "2021-05-25",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81vmeQxjkML._SY160.jpg",
-        "highlightsCount": 5
-      },
-      "words": 244,
+      "words": 243,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8749,16 +8596,7 @@
         "meditation",
         "psychedelics"
       ],
-      "kindle-sync": {
-        "bookId": "63420",
-        "title": "Be Here Now (Enhanced Edition)",
-        "author": "Ram Dass",
-        "asin": "B005R9HK8O",
-        "lastAnnotatedDate": "2025-08-18",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81Dpy5FsblL._SY160.jpg",
-        "highlightsCount": 2
-      },
-      "words": 90,
+      "words": 89,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8828,15 +8666,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "45158",
-        "title": "Walkaway: A Novel",
-        "author": "Cory Doctorow",
-        "asin": "B01FQQ47OC",
-        "lastAnnotatedDate": "2022-06-20",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg",
-        "highlightsCount": 8
-      },
       "date": "2025-08-21T18:46:31.000Z",
       "modified": "2025-08-24T22:31:29.000Z",
       "tags": [
@@ -8844,7 +8673,7 @@
         "tech",
         "anarchism"
       ],
-      "words": 586,
+      "words": 585,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8914,15 +8743,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "43898",
-        "title": "Engineering Management for the Rest of Us",
-        "author": "Sarah Drasner",
-        "asin": "B0BGYVDX35",
-        "lastAnnotatedDate": "2024-12-15",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg",
-        "highlightsCount": 6
-      },
       "date": "2025-08-21T18:44:29.000Z",
       "modified": "2025-08-24T22:31:22.000Z",
       "tags": [
@@ -8930,7 +8750,7 @@
         "programming",
         "management"
       ],
-      "words": 305,
+      "words": 304,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -8998,21 +8818,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "3551",
-        "title": "Why Marx Was Right",
-        "author": "Terry Eagleton",
-        "asin": "B004V9IFDA",
-        "lastAnnotatedDate": "2024-01-12",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg",
-        "highlightsCount": 11
-      },
       "tags": [
         "book",
         "politics",
         "activism"
       ],
-      "words": 408,
+      "words": 407,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9080,21 +8891,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "41325",
-        "title": "How to Think Like an Anthropologist",
-        "author": "Matthew Engelke",
-        "asin": "B076ZYFFTX",
-        "lastAnnotatedDate": "2019-02-13",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81Ap3UYdbEL._SY160.jpg",
-        "highlightsCount": 12
-      },
       "tags": [
         "book",
         "culture",
         "research"
       ],
-      "words": 664,
+      "words": 663,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9163,22 +8965,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "24240",
-        "title": "American Indian Myths and Legends (The Pantheon Fairy Tale and Folklore Library)",
-        "author": "Richard Erdoes and Alfonso Ortiz",
-        "asin": "B00GEYN1CK",
-        "lastAnnotatedDate": "2021-10-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81Hq1qcjGbL._SY160.jpg",
-        "highlightsCount": 13
-      },
       "tags": [
         "book",
         "culture",
         "history",
         "america"
       ],
-      "words": 944,
+      "words": 943,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9246,21 +9039,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "50540",
-        "title": "Tools Of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class Performers",
-        "author": "Timothy Ferriss and Arnold Schwarzenegger",
-        "asin": "B01HSMRWNU",
-        "lastAnnotatedDate": "2020-11-05",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81QytMrzgdL._SY160.jpg",
-        "highlightsCount": 8
-      },
       "tags": [
         "book",
         "personal",
         "process"
       ],
-      "words": 471,
+      "words": 470,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9329,22 +9113,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "27622",
-        "title": "The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman",
-        "author": "Timothy Ferriss",
-        "asin": "B003EI2EH2",
-        "lastAnnotatedDate": "2023-10-12",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg",
-        "highlightsCount": 6
-      },
       "tags": [
         "book",
         "health",
         "exercise",
         "advice"
       ],
-      "words": 375,
+      "words": 374,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9413,22 +9188,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "12125",
-        "title": "Ultimate Price: The Value We Place on Life",
-        "author": "Howard Steven Friedman",
-        "asin": "B084WQSDD8",
-        "lastAnnotatedDate": "2021-02-07",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg",
-        "highlightsCount": 6
-      },
       "tags": [
         "book",
         "politics",
         "culture",
         "data"
       ],
-      "words": 351,
+      "words": 350,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9496,21 +9262,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "5579",
-        "title": "The Origins of Political Order: From Prehuman Times to the French Revolution",
-        "author": "Francis Fukuyama",
-        "asin": "B00457X7VI",
-        "lastAnnotatedDate": "2012-11-05",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/510bwzlQ+dL._SY160.jpg",
-        "highlightsCount": 3
-      },
       "tags": [
         "book",
         "politics",
         "history"
       ],
-      "words": 158,
+      "words": 157,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9577,20 +9334,11 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "44450",
-        "title": "On Grand Strategy",
-        "author": "John Lewis Gaddis",
-        "asin": "B073QZX7YX",
-        "lastAnnotatedDate": "2020-09-02",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg",
-        "highlightsCount": 3
-      },
       "tags": [
         "politics",
         "military"
       ],
-      "words": 249,
+      "words": 248,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9661,15 +9409,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "24436",
-        "title": "Anarchy Works (Annotated)",
-        "author": "Peter Gelderloos and Vladimir Oleynik",
-        "asin": "B018SN4HT0",
-        "lastAnnotatedDate": "2024-01-22",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/7165cK74S1L._SY160.jpg",
-        "highlightsCount": 20
-      },
       "date": "2025-08-21T18:44:50.000Z",
       "modified": "2025-08-24T22:30:27.000Z",
       "tags": [
@@ -9678,7 +9417,7 @@
         "politics",
         "activism"
       ],
-      "words": 1036,
+      "words": 1035,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9749,16 +9488,7 @@
         "tech",
         "research"
       ],
-      "kindle-sync": {
-        "bookId": "43213",
-        "title": "The Idea Factory: Bell Labs and the Great Age of American Innovation",
-        "author": "Jon Gertner",
-        "asin": "B005GSZIWG",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81H1fcNpImL._SY160.jpg",
-        "highlightsCount": 16
-      },
-      "words": 682,
+      "words": 681,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9828,15 +9558,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "54227",
-        "title": "Triumph of the City: How Our Greatest Invention Makes Us Richer, Smarter, Greener, Healthier, and Happier",
-        "author": "Edward Glaeser",
-        "asin": "B0049U4HTW",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "culture",
@@ -9844,7 +9565,7 @@
       ],
       "date": "2025-08-31T15:09:37.000Z",
       "modified": "2025-09-23T12:04:35.000Z",
-      "words": 80,
+      "words": 79,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9910,19 +9631,10 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "28232",
-        "title": "Israel: A Concise History of a Nation Reborn",
-        "author": "Daniel Gordis",
-        "asin": "B01B19O4FA",
-        "lastAnnotatedDate": "2019-02-15",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91+4ktlXqlL._SY160.jpg",
-        "highlightsCount": 5
-      },
       "tags": [
         "politics"
       ],
-      "words": 432,
+      "words": 431,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9990,21 +9702,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "14102",
-        "title": "Direct Action: An Ethnography",
-        "author": "David Graeber",
-        "asin": "B0051QH31W",
-        "lastAnnotatedDate": "2025-04-07",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/51CLzpOuyHL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "activism",
         "protest"
       ],
-      "words": 85,
+      "words": 84,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10072,21 +9775,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "56373",
-        "title": "The Utopia of Rules: On Technology, Stupidity, and the Secret Joys of Bureaucracy",
-        "author": "David Graeber",
-        "asin": "B00MKZ0QZ2",
-        "lastAnnotatedDate": "2024-06-10",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/8160beMcnzL._SY160.jpg",
-        "highlightsCount": 3
-      },
       "tags": [
         "book",
         "politics",
         "anarchism"
       ],
-      "words": 138,
+      "words": 137,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10155,22 +9849,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "2409",
-        "title": "No Place to Hide: Edward Snowden, the NSA, and the U.S. Surveillance State",
-        "author": "Glenn Greenwald",
-        "asin": "B00E0CZX0G",
-        "lastAnnotatedDate": "2015-02-28",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/717C3YRXF9L._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "security",
         "politics",
         "activism"
       ],
-      "words": 94,
+      "words": 93,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10239,22 +9924,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "57250",
-        "title": "Savage Ecology: War and Geopolitics at the End of the World",
-        "author": "Jairus Victor Grove",
-        "asin": "B07V5V2P1V",
-        "lastAnnotatedDate": "2025-01-09",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg",
-        "highlightsCount": 16
-      },
       "tags": [
         "book",
         "ecology",
         "politics",
         "military"
       ],
-      "words": 931,
+      "words": 930,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10322,21 +9998,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "30475",
-        "title": "The Dispossessed (Hainish Cycle)",
-        "author": "Ursula K. Le Guin and Karen Joy Fowler",
-        "asin": "B000FC11GA",
-        "lastAnnotatedDate": "2024-02-23",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "anarchism",
         "politics"
       ],
-      "words": 59,
+      "words": 58,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10407,16 +10074,7 @@
         "book",
         "meditation"
       ],
-      "kindle-sync": {
-        "bookId": "18161",
-        "title": "Lao Tzu: Tao Te Ching: A Book about the Way and the Power of the Way",
-        "author": "Ursula K. Le Guin",
-        "asin": "B007V3FMDY",
-        "lastAnnotatedDate": "2023-08-30",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81BeTEE0RRL._SY160.jpg",
-        "highlightsCount": 24
-      },
-      "words": 920,
+      "words": 919,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10486,15 +10144,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "58932",
-        "title": "Kids These Days: Human Capital and the Making of Millennials",
-        "author": "Malcolm Harris",
-        "asin": "B06XFTVQFK",
-        "lastAnnotatedDate": "2019-05-28",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg",
-        "highlightsCount": 38
-      },
       "date": "2025-08-21T18:48:47.000Z",
       "modified": "2025-08-24T23:53:55.000Z",
       "tags": [
@@ -10502,7 +10151,7 @@
         "culture",
         "politics"
       ],
-      "words": 2916,
+      "words": 2915,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10570,21 +10219,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "14217",
-        "title": "The Last Magazine: A Novel",
-        "author": "Michael Hastings",
-        "asin": "B00G3L7TRM",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
-        "highlightsCount": 6
-      },
       "tags": [
         "book",
         "journalism",
         "writing"
       ],
-      "words": 304,
+      "words": 303,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10652,21 +10292,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "27992",
-        "title": "After the Prophet: The Epic Story of the Shia-Sunni Split in Islam",
-        "author": "Lesley Hazleton",
-        "asin": "B002NXOR6A",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/7132c2DnXDL._SY160.jpg",
-        "highlightsCount": 3
-      },
       "tags": [
         "book",
         "history",
         "culture"
       ],
-      "words": 129,
+      "words": 128,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10734,21 +10365,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "19692",
-        "title": "Blue Highways: A Journey into America",
-        "author": "William Least Heat-Moon",
-        "asin": "B006BAW16O",
-        "lastAnnotatedDate": "2017-01-19",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "travel",
         "america"
       ],
-      "words": 141,
+      "words": 140,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10817,22 +10439,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "6757",
-        "title": "The New York Nobody Knows: Walking 6,000 Miles in the City",
-        "author": "William B. Helmreich",
-        "asin": "B00F8MIIP4",
-        "lastAnnotatedDate": "2019-08-25",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg",
-        "highlightsCount": 8
-      },
       "tags": [
         "book",
         "nyc",
         "culture",
         "travel"
       ],
-      "words": 610,
+      "words": 609,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10902,15 +10515,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "24960",
-        "title": "America on Fire: The Untold History of Police Violence and Black Rebellion Since the 1960s",
-        "author": "Elizabeth Hinton",
-        "asin": "B08L6ZNW43",
-        "lastAnnotatedDate": "2021-06-22",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "america",
@@ -10918,7 +10522,7 @@
         "activism",
         "history"
       ],
-      "words": 215,
+      "words": 214,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -10987,22 +10591,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "41806",
-        "title": "A Potter's Workbook",
-        "author": "Clary Illian and Charles Metzger",
-        "asin": "B008XOF5K0",
-        "lastAnnotatedDate": "2023-10-12",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/715LUhvNn+L._SY160.jpg",
-        "highlightsCount": 3
-      },
       "tags": [
         "book",
         "pottery",
         "art",
         "technique"
       ],
-      "words": 195,
+      "words": 194,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11070,21 +10665,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "62764",
-        "title": "Company Of One: Why Staying Small Is the Next Big Thing for Business",
-        "author": "Paul Jarvis",
-        "asin": "B078962RHQ",
-        "lastAnnotatedDate": "2022-06-20",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81lvvv4hK1L._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "advice",
         "personal"
       ],
-      "words": 201,
+      "words": 200,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11152,21 +10738,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "46201",
-        "title": "The Joy of Less, A Minimalist Living Guide: How to Declutter, Organize, and Simplify Your Life",
-        "author": "Francine Jay",
-        "asin": "B003UNJX4S",
-        "lastAnnotatedDate": "2012-10-08",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81RtzVXh7zL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "personal",
         "design"
       ],
-      "words": 112,
+      "words": 111,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11239,18 +10816,9 @@
         "book",
         "meditation"
       ],
-      "kindle-sync": {
-        "bookId": "56397",
-        "title": "The I Ching or Book of Changes (Bollingen Series 170)",
-        "author": "C. G. Jung, Richard Wilhelm, Hellmut Wilhelm, and Cary F. Baynes",
-        "asin": "B004S6QSYO",
-        "lastAnnotatedDate": "2025-07-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/51fzxLryJTL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "date": "2025-08-21T18:44:04.000Z",
       "modified": "2025-08-24T22:30:58.000Z",
-      "words": 619,
+      "words": 618,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11318,21 +10886,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "61196",
-        "title": "Ideas in Food: Great Recipes and Why They Work: A Cookbook",
-        "author": "Aki Kamozawa and Alexander H. Talbot",
-        "asin": "B003F3PL9E",
-        "lastAnnotatedDate": "2014-06-25",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/415O5V-pUQL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "cooking",
         "technique"
       ],
-      "words": 124,
+      "words": 123,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11401,22 +10960,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "58479",
-        "title": "Kasher in the Rye: The True Tale of a White Boy from Oakland Who Became a Drug Addict, Criminal, Mental Patient, and Then Turned 16",
-        "author": "Moshe Kasher",
-        "asin": "B004RCNGSA",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81aNsuBcfjL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "oakland",
         "personal",
         "writing"
       ],
-      "words": 103,
+      "words": 102,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11485,22 +11035,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "55623",
-        "title": "Film Directing Shot by Shot: Visualizing from Concept to Screen (Michael Wiese Productions)",
-        "author": "Steven Katz",
-        "asin": "B00570IROE",
-        "lastAnnotatedDate": "2021-01-16",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91MzBwRDhBL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "video",
         "art",
         "technique"
       ],
-      "words": 63,
+      "words": 62,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11568,21 +11109,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "62701",
-        "title": "Antkind: A Novel",
-        "author": "Charlie Kaufman",
-        "asin": "B07Y7J61HZ",
-        "lastAnnotatedDate": "2021-10-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91vf8KVztsS._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "writing",
         "art"
       ],
-      "words": 414,
+      "words": 413,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11650,21 +11182,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "54060",
-        "title": "She Comes First: The Thinking Man's Guide to Pleasuring a Woman (Kerner)",
-        "author": "Ian Kerner",
-        "asin": "B000FC1PRK",
-        "lastAnnotatedDate": "2022-01-13",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81VT7iM7WzL._SY160.jpg",
-        "highlightsCount": 5
-      },
       "tags": [
         "book",
         "health",
         "personal"
       ],
-      "words": 281,
+      "words": 280,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11732,21 +11255,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "29974",
-        "title": "Mastermind: How to Think Like Sherlock Holmes",
-        "author": "Maria Konnikova",
-        "asin": "B008EKOSXS",
-        "lastAnnotatedDate": "2022-12-06",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71RyhJW-UwL._SY160.jpg",
-        "highlightsCount": 3
-      },
       "tags": [
         "book",
         "advice",
         "process"
       ],
-      "words": 134,
+      "words": 133,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11814,21 +11328,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "60606",
-        "title": "Theory of Fun for Game Design",
-        "author": "Raph Koster",
-        "asin": "B00GK5SRFY",
-        "lastAnnotatedDate": "2017-08-04",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "games",
         "design"
       ],
-      "words": 94,
+      "words": 93,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11896,21 +11401,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "16215",
-        "title": "Telling True Stories: A Nonfiction Writers' Guide from the Nieman Foundation at Harvard University",
-        "author": "Mark Kramer and Wendy Call",
-        "asin": "B000SEH1KK",
-        "lastAnnotatedDate": "2020-09-02",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91i1oLvTQGL._SY160.jpg",
-        "highlightsCount": 7
-      },
       "tags": [
         "book",
         "journalism",
         "writing"
       ],
-      "words": 291,
+      "words": 290,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -11978,21 +11474,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "54474",
-        "title": "Women's Anatomy of Arousal: Secret Maps to Buried Pleasure",
-        "author": "Sheri Winston CNM. RN. BSN. LMT",
-        "asin": "B075DT1N3C",
-        "lastAnnotatedDate": "2023-08-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/61ClyX8734L._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "health",
         "personal"
       ],
-      "words": 73,
+      "words": 72,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12061,22 +11548,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "64404",
-        "title": "How to Do the Work: Recognize Your Patterns, Heal from Your Past, and Create Your Self",
-        "author": "Nicole LePera",
-        "asin": "B089SZ9JKW",
-        "lastAnnotatedDate": "2023-10-18",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/819-DBs0KBL._SY160.jpg",
-        "highlightsCount": 17
-      },
       "tags": [
         "book",
         "health",
         "personal",
         "meditation"
       ],
-      "words": 868,
+      "words": 867,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12149,16 +11627,7 @@
         "tech",
         "internet"
       ],
-      "kindle-sync": {
-        "bookId": "29818",
-        "title": "In the Plex: How Google Thinks, Works, and Shapes Our Lives",
-        "author": "Steven Levy",
-        "asin": "B003UYUP6M",
-        "lastAnnotatedDate": "2016-02-15",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71jXlTkXDxL._SY160.jpg",
-        "highlightsCount": 1
-      },
-      "words": 66,
+      "words": 65,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12231,16 +11700,7 @@
         "nature",
         "health"
       ],
-      "kindle-sync": {
-        "bookId": "33471",
-        "title": "Forest Bathing: How Trees Can Help You Find Health and Happiness",
-        "author": "Dr Qing  Li",
-        "asin": "B077CQKQRR",
-        "lastAnnotatedDate": "2022-01-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91+LiTVgwmL._SY160.jpg",
-        "highlightsCount": 2
-      },
-      "words": 204,
+      "words": 203,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12308,21 +11768,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "8003",
-        "title": "Abolish Silicon Valley: How to Liberate Technology from Capitalism",
-        "author": "Wendy Liu",
-        "asin": "B07V9B4MC9",
-        "lastAnnotatedDate": "2021-02-04",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91q4pnxxDiL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "tech",
         "politics"
       ],
-      "words": 207,
+      "words": 206,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12395,18 +11846,9 @@
         "tech",
         "culture"
       ],
-      "kindle-sync": {
-        "bookId": "43912",
-        "title": "What the Dormouse Said: How the Sixties Counterculture Shaped the Personal Computer Industry",
-        "author": "John Markoff",
-        "asin": "B000OCXFYM",
-        "lastAnnotatedDate": "2021-02-23",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91GbAowsg4L._SY160.jpg",
-        "highlightsCount": 4
-      },
       "date": "2025-08-21T18:47:22.000Z",
       "modified": "2025-08-24T23:54:42.000Z",
-      "words": 217,
+      "words": 216,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12474,21 +11916,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "52163",
-        "title": "Thinking in Systems: International Bestseller",
-        "author": "Donella H. Meadows and Diana Wright",
-        "asin": "B005VSRFEA",
-        "lastAnnotatedDate": "2023-08-26",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71aQ+TLBi-L._SY160.jpg",
-        "highlightsCount": 5
-      },
       "tags": [
         "book",
         "systemsthinking",
         "design"
       ],
-      "words": 289,
+      "words": 288,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12561,16 +11994,7 @@
         "security",
         "culture"
       ],
-      "kindle-sync": {
-        "bookId": "25545",
-        "title": "Cult of the Dead Cow: How the Original Hacking Supergroup Might Just Save the World",
-        "author": "Joseph Menn",
-        "asin": "B07J54F9KR",
-        "lastAnnotatedDate": "2019-07-08",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/712GDD7YdOL._SY160.jpg",
-        "highlightsCount": 34
-      },
-      "words": 1964,
+      "words": 1963,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12641,15 +12065,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "38803",
-        "title": "On Trails: An Exploration",
-        "author": "Robert Moor",
-        "asin": "B0176M3ZG0",
-        "lastAnnotatedDate": "2025-03-24",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71QTTsXaDdL._SY160.jpg",
-        "highlightsCount": 25
-      },
       "date": "2025-08-21T18:44:13.000Z",
       "modified": "2025-08-24T23:58:28.000Z",
       "tags": [
@@ -12658,7 +12073,7 @@
         "travel",
         "history"
       ],
-      "words": 2009,
+      "words": 2008,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12729,16 +12144,7 @@
         "book",
         "nature"
       ],
-      "kindle-sync": {
-        "bookId": "46780",
-        "title": "The Green Witch: Your Complete Guide to the Natural Magic of Herbs, Flowers, Essential Oils, and More (Green Witch Witchcraft Series)",
-        "author": "Arin Murphy-Hiscock",
-        "asin": "B071XSVBQC",
-        "lastAnnotatedDate": "2021-01-28",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81zQX2hGCPL._SY160.jpg",
-        "highlightsCount": 9
-      },
-      "words": 694,
+      "words": 693,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12811,16 +12217,7 @@
         "design",
         "ux"
       ],
-      "kindle-sync": {
-        "bookId": "59972",
-        "title": "Emotional Design: Why We Love (or Hate) Everyday Things",
-        "author": "Donald A. Norman",
-        "asin": "B005GKIYD4",
-        "lastAnnotatedDate": "2012-10-16",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71lsCWwYwKL._SY160.jpg",
-        "highlightsCount": 1
-      },
-      "words": 58,
+      "words": 57,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12891,16 +12288,7 @@
         "book",
         "personal"
       ],
-      "kindle-sync": {
-        "bookId": "4715",
-        "title": "Existential Kink: Unmask Your Shadow and Embrace Your Power (A method for getting what you want by getting off on what you don't)",
-        "author": "Carolyn Elliott PhD",
-        "asin": "B07XMG4BWN",
-        "lastAnnotatedDate": "2025-02-07",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71AFYYftsML._SY160.jpg",
-        "highlightsCount": 17
-      },
-      "words": 840,
+      "words": 839,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -12968,21 +12356,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "49395",
-        "title": "Just One Thing: Developing a Buddha Brain One Simple Practice at a Time",
-        "author": "Rick Hanson PhD",
-        "asin": "B005LQ6UNO",
-        "lastAnnotatedDate": "2012-10-25",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "meditation",
         "health"
       ],
-      "words": 132,
+      "words": 131,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13057,16 +12436,7 @@
         "meditation",
         "philosophy"
       ],
-      "kindle-sync": {
-        "bookId": "54365",
-        "title": "Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values",
-        "author": "Robert M. Pirsig",
-        "asin": "B0026772N8",
-        "lastAnnotatedDate": "2021-02-03",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71VF4LAK2ZL._SY160.jpg",
-        "highlightsCount": 8
-      },
-      "words": 291,
+      "words": 290,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13134,21 +12504,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "62220",
-        "title": "The War of Art",
-        "author": "Steven Pressfield and Shawn Coyne",
-        "asin": "B007A4SDCG",
-        "lastAnnotatedDate": "2021-01-05",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg",
-        "highlightsCount": 8
-      },
       "tags": [
         "book",
         "art",
         "advice"
       ],
-      "words": 671,
+      "words": 670,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13216,21 +12577,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "19008",
-        "title": "History's Greatest Generals: 10 Commanders Who Conquered Empires, Revolutionized Warfare, and Changed History Forever",
-        "author": "Michael Rank",
-        "asin": "B00FYRKZRM",
-        "lastAnnotatedDate": "2015-02-28",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "history",
         "military"
       ],
-      "words": 134,
+      "words": 133,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13303,16 +12655,7 @@
         "tech",
         "ai"
       ],
-      "kindle-sync": {
-        "bookId": "16297",
-        "title": "Futureproof: 9 Rules for Surviving in the Age of AI",
-        "author": "Kevin Roose",
-        "asin": "B07ZN3TDWH",
-        "lastAnnotatedDate": "2022-10-21",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71auiVlh-OL._SY160.jpg",
-        "highlightsCount": 3
-      },
-      "words": 188,
+      "words": 187,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13380,21 +12723,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "26878",
-        "title": "Eleanor & Park",
-        "author": "Rainbow Rowell",
-        "asin": "B008SAZHLQ",
-        "lastAnnotatedDate": "2014-01-19",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71u8kDfMlTL._SY160.jpg",
-        "highlightsCount": 1
-      },
       "tags": [
         "book",
         "writing",
         "personal"
       ],
-      "words": 48,
+      "words": 47,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13462,21 +12796,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "40419",
-        "title": "Hallucinations",
-        "author": "Oliver Sacks",
-        "asin": "B0082XLY6G",
-        "lastAnnotatedDate": "2020-09-02",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "health",
         "research"
       ],
-      "words": 122,
+      "words": 121,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13544,21 +12869,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "22789",
-        "title": "The Rebel's Apothecary: A Practical Guide to the Healing Magic of Cannabis, CBD, and Mushrooms",
-        "author": "Jenny Sansouci and Frank Lipman Md",
-        "asin": "B082H2P7KL",
-        "lastAnnotatedDate": "2022-06-20",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "cannabis",
         "health"
       ],
-      "words": 179,
+      "words": 178,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13626,21 +12942,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "31637",
-        "title": "Theft by Finding: Diaries (1977-2002)",
-        "author": "David Sedaris",
-        "asin": "B01LZD935U",
-        "lastAnnotatedDate": "2018-08-13",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg",
-        "highlightsCount": 5
-      },
       "tags": [
         "book",
         "writing",
         "personal"
       ],
-      "words": 332,
+      "words": 331,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13709,22 +13016,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "57443",
-        "title": "American Babylon: Race and the Struggle for Postwar Oakland (Politics and Society in Modern America Book 37)",
-        "author": "Robert O. Self",
-        "asin": "B00GYW96C6",
-        "lastAnnotatedDate": "2014-11-01",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "oakland",
         "politics",
         "history"
       ],
-      "words": 101,
+      "words": 100,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13793,22 +13091,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "12810",
-        "title": "How We Got Here: Melville Plus Nietzsche Divided by the Square Root of (Allan) Bloom Times Žižek (Squared) Equals Bannon",
-        "author": "David Shields",
-        "asin": "B0DGLSSTL3",
-        "lastAnnotatedDate": "2025-07-12",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/61RFV9THfoL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "politics",
         "culture",
         "writing"
       ],
-      "words": 87,
+      "words": 86,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13876,21 +13165,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "34315",
-        "title": "Other People: Takes & Mistakes",
-        "author": "David Shields",
-        "asin": "B01G0GD0WC",
-        "lastAnnotatedDate": "2020-12-23",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91s3oyefvYL._SY160.jpg",
-        "highlightsCount": 4
-      },
       "tags": [
         "book",
         "writing",
         "personal"
       ],
-      "words": 249,
+      "words": 248,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -13960,15 +13240,6 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "28584",
-        "title": "Reality Hunger",
-        "author": "David Shields",
-        "asin": "B0036S49D2",
-        "lastAnnotatedDate": "2024-08-30",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg",
-        "highlightsCount": 15
-      },
       "date": "2025-08-21T18:44:34.000Z",
       "modified": "2025-08-24T23:53:05.000Z",
       "tags": [
@@ -13976,7 +13247,7 @@
         "writing",
         "art"
       ],
-      "words": 609,
+      "words": 608,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14045,22 +13316,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "3371",
-        "title": "The Trouble with Men: Reflections on Sex, Love, Marriage, Porn, and Power (21st Century Essays)",
-        "author": "David Shields",
-        "asin": "B07MT424DM",
-        "lastAnnotatedDate": "2023-05-27",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg",
-        "highlightsCount": 7
-      },
       "tags": [
         "book",
         "personal",
         "culture",
         "writing"
       ],
-      "words": 287,
+      "words": 286,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14128,21 +13390,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "4772",
-        "title": "The Rise and Fall of D.O.D.O.: A Novel",
-        "author": "Neal Stephenson and Nicole Galland",
-        "asin": "B01M0HPHR6",
-        "lastAnnotatedDate": "2020-08-06",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg",
-        "highlightsCount": 7
-      },
       "tags": [
         "book",
         "writing",
         "tech"
       ],
-      "words": 395,
+      "words": 394,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14215,16 +13468,7 @@
         "writing",
         "tech"
       ],
-      "kindle-sync": {
-        "bookId": "37234",
-        "title": "Reamde: A Novel",
-        "author": "Neal Stephenson",
-        "asin": "B004XVN0WW",
-        "lastAnnotatedDate": "2019-03-31",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg",
-        "highlightsCount": 1
-      },
-      "words": 63,
+      "words": 62,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14297,16 +13541,7 @@
         "politics",
         "book"
       ],
-      "kindle-sync": {
-        "bookId": "53840",
-        "title": "ISIS: The State of Terror",
-        "author": "Jessica Stern and J. M. Berger",
-        "asin": "B00NVLS3CM",
-        "lastAnnotatedDate": "2016-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91A53gquoEL._SY160.jpg",
-        "highlightsCount": 1
-      },
-      "words": 102,
+      "words": 101,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14379,18 +13614,9 @@
         "book",
         "meditation"
       ],
-      "kindle-sync": {
-        "bookId": "56342",
-        "title": "Zen Mind, Beginner's Mind",
-        "author": "Shunryu Suzuki and David Chadwick",
-        "asin": "B004R9QFGS",
-        "lastAnnotatedDate": "2016-07-28",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg",
-        "highlightsCount": 24
-      },
       "date": "2025-08-21T18:55:24.000Z",
       "modified": "2025-08-24T22:30:46.000Z",
-      "words": 1017,
+      "words": 1016,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14463,16 +13689,7 @@
         "america",
         "book"
       ],
-      "kindle-sync": {
-        "bookId": "2923",
-        "title": "The Divide: American Injustice in the Age of the Wealth Gap",
-        "author": "Matt Taibbi and Molly Crabapple",
-        "asin": "B00EBRUB02",
-        "lastAnnotatedDate": "2019-04-11",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg",
-        "highlightsCount": 11
-      },
-      "words": 608,
+      "words": 607,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14541,22 +13758,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "51864",
-        "title": "Darkest America: Black Minstrelsy from Slavery to Hip-Hop",
-        "author": "Yuval Taylor, Jake Austen, and Mel Watkins",
-        "asin": "B007HXFLOI",
-        "lastAnnotatedDate": "2016-03-08",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
-        "highlightsCount": 6
-      },
       "tags": [
         "book",
         "history",
         "culture",
         "america"
       ],
-      "words": 250,
+      "words": 249,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14629,16 +13837,7 @@
         "culture",
         "book"
       ],
-      "kindle-sync": {
-        "bookId": "54847",
-        "title": "Hell's Angels: A Strange and Terrible Saga",
-        "author": "Hunter S. Thompson",
-        "asin": "B008IU9IVG",
-        "lastAnnotatedDate": "2022-06-20",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg",
-        "highlightsCount": 1
-      },
-      "words": 115,
+      "words": 114,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14706,21 +13905,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "35281",
-        "title": "The Education of a Photographer",
-        "author": "Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub",
-        "asin": "B0041IXRM0",
-        "lastAnnotatedDate": "2022-08-19",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/61zosjjESlL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "photography",
         "art"
       ],
-      "words": 118,
+      "words": 117,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14793,16 +13983,7 @@
         "protest",
         "book"
       ],
-      "kindle-sync": {
-        "bookId": "56548",
-        "title": "Twitter and Tear Gas: The Power and Fragility of Networked Protest",
-        "author": "Zeynep Tufekci",
-        "asin": "B06XR259MG",
-        "lastAnnotatedDate": "2020-09-02",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81BnC8AFxbL._SY160.jpg",
-        "highlightsCount": 2
-      },
-      "words": 224,
+      "words": 223,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14875,16 +14056,7 @@
         "culture",
         "book"
       ],
-      "kindle-sync": {
-        "bookId": "4098",
-        "title": "From Counterculture to Cyberculture: Stewart Brand, the Whole Earth Network, and the Rise of Digital Utopianism",
-        "author": "Fred Turner",
-        "asin": "B004BKJVYG",
-        "lastAnnotatedDate": "2016-09-23",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/71VvF78ni0L._SY160.jpg",
-        "highlightsCount": 5
-      },
-      "words": 269,
+      "words": 268,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -14955,16 +14127,7 @@
         "book",
         "meditation"
       ],
-      "kindle-sync": {
-        "bookId": "23914",
-        "title": "Tao Te Ching",
-        "author": "Lao Tzu and Robert Brookes",
-        "asin": "B009WA8ZKG",
-        "lastAnnotatedDate": "2023-06-30",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/91x+WlgMW1L._SY160.jpg",
-        "highlightsCount": 6
-      },
-      "words": 217,
+      "words": 216,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15032,21 +14195,12 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "9400",
-        "title": "The Head Trip: Adventures on the Wheel of Consciousness",
-        "author": "Jeff Warren",
-        "asin": "B000W917RY",
-        "lastAnnotatedDate": "2023-07-02",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg",
-        "highlightsCount": 2
-      },
       "tags": [
         "book",
         "meditation",
         "health"
       ],
-      "words": 149,
+      "words": 148,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15115,22 +14269,13 @@
       }
     ],
     "metadata": {
-      "kindle-sync": {
-        "bookId": "21088",
-        "title": "The Dead Emcee Scrolls: The Lost Teachings of Hip-Hop",
-        "author": "Saul Williams",
-        "asin": "B000FCKROM",
-        "lastAnnotatedDate": "2021-08-16",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/81aJ6OQP8KL._SY160.jpg",
-        "highlightsCount": 9
-      },
       "tags": [
         "book",
         "music",
         "writing",
         "culture"
       ],
-      "words": 295,
+      "words": 294,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15201,16 +14346,7 @@
         "dataviz",
         "data"
       ],
-      "kindle-sync": {
-        "bookId": "431",
-        "title": "Visualize This: The FlowingData Guide to Design, Visualization, and Statistics",
-        "author": "Nathan Yau",
-        "asin": "B005CCT19M",
-        "lastAnnotatedDate": "2011-07-24",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg",
-        "highlightsCount": 2
-      },
-      "words": 123,
+      "words": 122,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15283,16 +14419,7 @@
         "politics",
         "book"
       ],
-      "kindle-sync": {
-        "bookId": "40211",
-        "title": "Silicon Values: The Future of Free Speech Under Surveillance Capitalism",
-        "author": "Jillian C. York",
-        "asin": "B089S6JCYN",
-        "lastAnnotatedDate": "2022-12-01",
-        "bookImageUrl": "https://m.media-amazon.com/images/I/616o1iZ2KFL._SY160.jpg",
-        "highlightsCount": 1
-      },
-      "words": 57,
+      "words": 56,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15410,7 +14537,7 @@
       "date": "2023-12-11T21:22:43.000Z",
       "modified": "2025-08-28T19:08:24.000Z",
       "dek": "In which the author concludes a successful client project, compiles documentation for informed AI context, evaluates command-running capabilities, plans an EXIF photo printer tool, experiments with Tres JS, and treats wood panels for gouache painting.",
-      "words": 567,
+      "words": 564,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15552,7 +14679,7 @@
       "date": "2023-12-20T19:06:08.000Z",
       "modified": "2024-10-14T23:53:31.000Z",
       "dek": "In which the author collaborates on a website redesign, crafts AI-generated cyberpunk fanfiction, and successfully scrapes their YouTube 'Watch Later' playlist for future use.",
-      "words": 428,
+      "words": 426,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15672,7 +14799,7 @@
       "date": "2023-12-25T20:57:53.000Z",
       "modified": "2024-10-14T23:53:27.000Z",
       "dek": "In which the author reflects on a festive Christmas with family, experiments with browser-based ML workflows, and creates a quirky Sonic Pi Christmas medley.",
-      "words": 137,
+      "words": 136,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -15831,14 +14958,14 @@
       "date": "2024-01-01T05:00:00.000Z",
       "modified": "2024-12-31T21:07:10.000Z",
       "dek": "In which the author undertakes various personal and professional pursuits, from creating a photography website and scripting screenshot uploads to exploring new creative outlets and engaging in community initiatives.",
-      "words": 845,
+      "words": 843,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 2,
       "codeBlocks": 1,
       "headers": {
         "h2": 7
@@ -16017,14 +15144,14 @@
       "date": "2024-01-08T05:00:00.000Z",
       "modified": "2024-10-14T23:52:43.000Z",
       "dek": "In which the author navigates the complexities of balancing project management, coding challenges, and personal AI development while exploring new ways to showcase the Hudson Valley and enhance personal organization.",
-      "words": 904,
+      "words": 900,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -16182,14 +15309,14 @@
       "date": "2024-01-15T05:00:00.000Z",
       "modified": "2024-10-14T23:52:28.000Z",
       "dek": "In which the author immerses themselves in learning about warfare footage and military equipment, experimenting with 3D graphics libraries, and preparing a first aid kit for motorcycle travel.",
-      "words": 366,
+      "words": 364,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h2": 4
@@ -16312,7 +15439,7 @@
       "date": "2024-01-22T05:00:00.000Z",
       "modified": "2024-10-14T23:52:12.000Z",
       "dek": "In which the author engages in interviews about glitch tokens and conducts a livestream on Coach Artie, showcasing a week filled with research and creativity.",
-      "words": 110,
+      "words": 108,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -16385,7 +15512,7 @@
       "date": "2024-02-19T05:00:00.000Z",
       "modified": "2024-10-14T23:52:00.000Z",
       "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
-      "words": 27,
+      "words": 25,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -16464,7 +15591,7 @@
       "date": "2024-04-08T05:00:00.000Z",
       "modified": "2024-10-14T23:51:56.000Z",
       "dek": "In which the author braves a snowstorm on their motorcycle, enjoys watercolor painting with friends, indulges in a Lindsay Lohan movie night, and charts plans for automated text descriptions of screenshots and improved asset management in Obsidian.",
-      "words": 279,
+      "words": 277,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -16568,7 +15695,7 @@
       "date": "2024-04-29T05:00:00.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
       "dek": "In which the author meticulously crafts a cyberpunk visual aesthetic and explores the Hudson Valley through digital elevation models and contour maps.",
-      "words": 162,
+      "words": 160,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -16696,7 +15823,7 @@
       "modified": "2024-10-14T23:51:50.000Z",
       "date": "2024-05-06T05:00:00.000Z",
       "dek": "In which the author diligently works on multiple projects, explores new creative techniques, achieves technical accomplishments, and focuses on personal well-being and future goals.",
-      "words": 375,
+      "words": 373,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -16845,14 +15972,14 @@
       "modified": "2024-10-14T23:51:41.000Z",
       "date": "2024-05-13T05:00:00.000Z",
       "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
-      "words": 271,
+      "words": 270,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -17013,14 +16140,14 @@
       "modified": "2024-10-14T23:51:32.000Z",
       "date": "2024-05-20T05:00:00.000Z",
       "dek": "In which the author contemplates a potential move, works on creative projects, achieves technical milestones, delves into video transcription methods, enjoys entertainment, focuses on personal health, and sets goals for the future.",
-      "words": 311,
+      "words": 310,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 2,
       "codeBlocks": 4,
       "headers": {
         "h2": 7
@@ -17201,14 +16328,14 @@
       "modified": "2024-10-14T23:51:10.000Z",
       "date": "2024-05-27T05:00:00.000Z",
       "dek": "In which the author explores the realms of memory and creativity through scrapbooking, pottery-making, and technical innovations, culminating in a showcase of projects and a foray into pricing models.",
-      "words": 550,
+      "words": 548,
       "images": 5,
       "imageDetails": {
         "total": 5,
         "cloudinary": 5,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h2": 5
@@ -17322,14 +16449,14 @@
       "modified": "2024-10-14T23:50:54.000Z",
       "date": "2024-06-03T16:56:06.000Z",
       "dek": "In which the author explores technology, political analysis, and personal productivity during a busy week of client work before a summer break.",
-      "words": 492,
+      "words": 490,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 12,
+      "links": 0,
       "codeBlocks": 1,
       "headers": {
         "h2": 2
@@ -17436,14 +16563,14 @@
       "modified": "2024-10-14T23:50:34.000Z",
       "date": "2024-06-10T21:39:36.000Z",
       "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
-      "words": 277,
+      "words": 275,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 7
@@ -17538,14 +16665,14 @@
       "modified": "2024-10-14T23:50:25.000Z",
       "date": "2024-06-25T01:39:23.000Z",
       "dek": "In which the author recounts a delightful week spent camping at Lake George in the company of friends and family, capturing cherished moments through picturesque snapshots and videos.",
-      "words": 118,
+      "words": 116,
       "images": 6,
       "imageDetails": {
         "total": 6,
         "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -17582,14 +16709,14 @@
       ],
       "modified": "2024-07-08T16:35:06.000Z",
       "date": "2024-07-01T06:37:01.000Z",
-      "words": 171,
+      "words": 169,
       "images": 11,
       "imageDetails": {
         "total": 11,
         "cloudinary": 11,
         "withDimensions": 0
       },
-      "links": 11,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -17660,14 +16787,14 @@
       ],
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-07-08T16:35:05.000Z",
-      "words": 166,
+      "words": 164,
       "images": 7,
       "imageDetails": {
         "total": 7,
         "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 7
@@ -17821,14 +16948,14 @@
       "modified": "2024-10-14T23:50:20.000Z",
       "date": "2024-07-17T14:53:14.000Z",
       "dek": "In which the author embarked on a week of creative endeavors in music, projects in coding, and personal growth while house-sitting and planning for the future.",
-      "words": 575,
+      "words": 573,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 14,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {
         "h2": 7
@@ -17929,14 +17056,14 @@
         "visualization",
         "photography"
       ],
-      "words": 166,
+      "words": 164,
       "images": 9,
       "imageDetails": {
         "total": 9,
         "cloudinary": 9,
         "withDimensions": 0
       },
-      "links": 9,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -18000,14 +17127,14 @@
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-07-30T18:56:51.000Z",
       "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
-      "words": 904,
+      "words": 902,
       "images": 19,
       "imageDetails": {
         "total": 19,
         "cloudinary": 18,
         "withDimensions": 0
       },
-      "links": 22,
+      "links": 3,
       "codeBlocks": 1,
       "headers": {
         "h2": 3
@@ -18071,8 +17198,8 @@
         "level": "h2",
         "children": [
           {
-            "text": "Draft Assistant",
-            "slug": "draft-assistant",
+            "text": "Draft Assistant cli-content",
+            "slug": "draft-assistant-cli-content",
             "level": "h3",
             "children": []
           },
@@ -18103,7 +17230,7 @@
       "modified": "2024-10-14T23:49:22.000Z",
       "date": "2024-08-05T13:13:52.000Z",
       "dek": "In which the author creates a mystical CLI tool, delves into turning bookmarks into a knowledge graph, and sets forth on a journey towards personal growth and community engagement.",
-      "words": 89,
+      "words": 88,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -18128,8 +17255,8 @@
           "level": "h2",
           "children": [
             {
-              "text": "Draft Assistant",
-              "slug": "draft-assistant",
+              "text": "Draft Assistant cli-content",
+              "slug": "draft-assistant-cli-content",
               "level": "h3",
               "children": []
             },
@@ -18223,7 +17350,7 @@
       "modified": "2024-10-14T23:49:12.000Z",
       "date": "2024-08-20T15:12:56.000Z",
       "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
-      "words": 259,
+      "words": 258,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -18314,14 +17441,14 @@
       ],
       "modified": "2024-10-01T22:55:12.000Z",
       "date": "2024-09-03T17:03:11.000Z",
-      "words": 314,
+      "words": 312,
       "images": 21,
       "imageDetails": {
         "total": 21,
         "cloudinary": 20,
         "withDimensions": 0
       },
-      "links": 21,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -18371,14 +17498,14 @@
       ],
       "modified": "2024-09-23T13:52:21.000Z",
       "date": "2024-09-09T14:55:30.000Z",
-      "words": 560,
+      "words": 558,
       "images": 27,
       "imageDetails": {
         "total": 27,
         "cloudinary": 26,
         "withDimensions": 0
       },
-      "links": 27,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -18463,14 +17590,14 @@
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-09-16T12:51:03.000Z",
       "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
-      "words": 565,
+      "words": 564,
       "images": 9,
       "imageDetails": {
         "total": 9,
         "cloudinary": 9,
         "withDimensions": 0
       },
-      "links": 11,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {
         "h2": 2
@@ -18671,7 +17798,7 @@
       ],
       "modified": "2024-10-18T01:35:31.000Z",
       "date": "2024-10-14T22:55:47.000Z",
-      "words": 415,
+      "words": 414,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -18814,7 +17941,7 @@
       ],
       "modified": "2024-10-29T18:22:08.000Z",
       "date": "2024-10-28T15:50:44.000Z",
-      "words": 229,
+      "words": 228,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -18951,7 +18078,7 @@
       ],
       "modified": "2024-11-05T16:37:55.000Z",
       "date": "2024-11-04T05:00:00.000Z",
-      "words": 92,
+      "words": 91,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -19088,7 +18215,7 @@
       ],
       "modified": "2024-11-17T00:04:13.000Z",
       "date": "2024-11-11T05:00:00.000Z",
-      "words": 106,
+      "words": 105,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -19232,7 +18359,7 @@
         "cloudinary": 7,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -19332,14 +18459,14 @@
       ],
       "modified": "2025-09-12T13:12:56.000Z",
       "date": "2024-11-25T13:58:52.000Z",
-      "words": 344,
+      "words": 343,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h2": 2
@@ -19409,14 +18536,14 @@
       ],
       "date": "2024-12-02T15:03:56.000Z",
       "modified": "2024-12-09T15:00:45.000Z",
-      "words": 565,
+      "words": 564,
       "images": 14,
       "imageDetails": {
         "total": 14,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 18,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -19486,14 +18613,14 @@
       ],
       "date": "2024-12-09T15:00:45.000Z",
       "modified": "2024-12-23T22:23:28.000Z",
-      "words": 584,
+      "words": 583,
       "images": 29,
       "imageDetails": {
         "total": 29,
         "cloudinary": 29,
         "withDimensions": 0
       },
-      "links": 29,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -19539,14 +18666,14 @@
       "tags": [
         "development"
       ],
-      "words": 390,
+      "words": 388,
       "images": 19,
       "imageDetails": {
         "total": 19,
         "cloudinary": 18,
         "withDimensions": 0
       },
-      "links": 19,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -19594,14 +18721,14 @@
       ],
       "date": "2025-01-01T15:28:29.000Z",
       "modified": "2025-01-05T00:07:17.000Z",
-      "words": 80,
+      "words": 79,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -19677,14 +18804,14 @@
         "reflections",
         "progress"
       ],
-      "words": 226,
+      "words": 224,
       "images": 11,
       "imageDetails": {
         "total": 11,
         "cloudinary": 11,
         "withDimensions": 0
       },
-      "links": 11,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -19783,7 +18910,7 @@
       ],
       "modified": "2025-06-18T14:40:59.000Z",
       "date": "2025-01-15T20:49:04.000Z",
-      "words": 50,
+      "words": 48,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -19861,14 +18988,14 @@
         "development",
         "personal"
       ],
-      "words": 177,
+      "words": 175,
       "images": 9,
       "imageDetails": {
         "total": 9,
         "cloudinary": 9,
         "withDimensions": 0
       },
-      "links": 9,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -19894,14 +19021,14 @@
         "development",
         "personal"
       ],
-      "words": 317,
+      "words": 315,
       "images": 15,
       "imageDetails": {
         "total": 15,
         "cloudinary": 14,
         "withDimensions": 0
       },
-      "links": 15,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -19949,14 +19076,14 @@
       ],
       "date": "2025-02-03T17:34:45.000Z",
       "modified": "2025-02-15T15:24:38.000Z",
-      "words": 244,
+      "words": 243,
       "images": 10,
       "imageDetails": {
         "total": 10,
         "cloudinary": 10,
         "withDimensions": 0
       },
-      "links": 10,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20010,14 +19137,14 @@
         "programming",
         "personal"
       ],
-      "words": 952,
+      "words": 951,
       "images": 16,
       "imageDetails": {
         "total": 16,
         "cloudinary": 16,
         "withDimensions": 0
       },
-      "links": 17,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20065,14 +19192,14 @@
       ],
       "date": "2025-02-17T22:29:35.000Z",
       "modified": "2025-02-27T14:47:30.000Z",
-      "words": 893,
+      "words": 892,
       "images": 25,
       "imageDetails": {
         "total": 25,
         "cloudinary": 25,
         "withDimensions": 0
       },
-      "links": 25,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20118,14 +19245,14 @@
       "tags": [
         "development"
       ],
-      "words": 348,
+      "words": 346,
       "images": 16,
       "imageDetails": {
         "total": 16,
         "cloudinary": 16,
         "withDimensions": 0
       },
-      "links": 16,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20173,14 +19300,14 @@
       ],
       "date": "2025-03-03T17:35:18.000Z",
       "modified": "2025-03-12T01:44:37.000Z",
-      "words": 887,
+      "words": 886,
       "images": 45,
       "imageDetails": {
         "total": 45,
         "cloudinary": 45,
         "withDimensions": 0
       },
-      "links": 45,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 2
@@ -20235,14 +19362,14 @@
         "development",
         "personal"
       ],
-      "words": 287,
+      "words": 285,
       "images": 10,
       "imageDetails": {
         "total": 10,
         "cloudinary": 8,
         "withDimensions": 0
       },
-      "links": 10,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20299,14 +19426,14 @@
         "reflections",
         "progress"
       ],
-      "words": 161,
+      "words": 159,
       "images": 6,
       "imageDetails": {
         "total": 6,
         "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20376,14 +19503,14 @@
       ],
       "date": "2025-03-24T07:54:19.000Z",
       "modified": "2025-04-02T04:12:52.000Z",
-      "words": 358,
+      "words": 357,
       "images": 15,
       "imageDetails": {
         "total": 15,
         "cloudinary": 15,
         "withDimensions": 0
       },
-      "links": 15,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20431,14 +19558,14 @@
         "development",
         "personal"
       ],
-      "words": 331,
+      "words": 329,
       "images": 18,
       "imageDetails": {
         "total": 18,
         "cloudinary": 18,
         "withDimensions": 0
       },
-      "links": 18,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20486,14 +19613,14 @@
       ],
       "date": "2025-04-07T04:27:52.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
-      "words": 407,
+      "words": 406,
       "images": 19,
       "imageDetails": {
         "total": 19,
         "cloudinary": 19,
         "withDimensions": 0
       },
-      "links": 19,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20539,14 +19666,14 @@
       "tags": [
         "development"
       ],
-      "words": 352,
+      "words": 351,
       "images": 16,
       "imageDetails": {
         "total": 16,
         "cloudinary": 16,
         "withDimensions": 0
       },
-      "links": 16,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20594,14 +19721,14 @@
       ],
       "date": "2025-04-21T20:22:04.000Z",
       "modified": "2025-05-03T00:41:05.000Z",
-      "words": 248,
+      "words": 247,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 12,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20649,14 +19776,14 @@
         "development",
         "personal"
       ],
-      "words": 186,
+      "words": 184,
       "images": 7,
       "imageDetails": {
         "total": 7,
         "cloudinary": 7,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20704,14 +19831,14 @@
       ],
       "date": "2025-05-05T23:55:46.000Z",
       "modified": "2025-06-10T22:34:44.000Z",
-      "words": 80,
+      "words": 79,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20759,14 +19886,14 @@
         "development",
         "personal"
       ],
-      "words": 316,
+      "words": 314,
       "images": 16,
       "imageDetails": {
         "total": 16,
         "cloudinary": 16,
         "withDimensions": 0
       },
-      "links": 16,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20792,14 +19919,14 @@
         "development",
         "personal"
       ],
-      "words": 87,
+      "words": 85,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20825,14 +19952,14 @@
         "development",
         "screenshots"
       ],
-      "words": 254,
+      "words": 252,
       "images": 13,
       "imageDetails": {
         "total": 13,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20858,14 +19985,14 @@
         "development",
         "screenshots"
       ],
-      "words": 272,
+      "words": 270,
       "images": 14,
       "imageDetails": {
         "total": 14,
         "cloudinary": 14,
         "withDimensions": 0
       },
-      "links": 14,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -20913,14 +20040,14 @@
       ],
       "date": "2025-06-09T18:20:48.000Z",
       "modified": "2025-06-17T18:01:34.000Z",
-      "words": 671,
+      "words": 670,
       "images": 27,
       "imageDetails": {
         "total": 27,
         "cloudinary": 26,
         "withDimensions": 0
       },
-      "links": 27,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -20990,14 +20117,14 @@
       ],
       "date": "2025-06-17T15:30:58.000Z",
       "modified": "2025-06-29T19:00:04.000Z",
-      "words": 309,
+      "words": 308,
       "images": 13,
       "imageDetails": {
         "total": 13,
         "cloudinary": 13,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -21067,14 +20194,14 @@
       ],
       "date": "2025-06-23T14:33:22.000Z",
       "modified": "2025-07-01T12:48:27.000Z",
-      "words": 287,
+      "words": 286,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 12,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -21144,7 +20271,7 @@
       ],
       "date": "2025-07-01T03:33:33.000Z",
       "modified": "2025-07-02T14:38:27.000Z",
-      "words": 57,
+      "words": 56,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -21310,14 +20437,14 @@
       ],
       "date": "2025-08-05T21:46:56.000Z",
       "modified": "2025-08-12T15:05:25.000Z",
-      "words": 188,
+      "words": 187,
       "images": 8,
       "imageDetails": {
         "total": 8,
         "cloudinary": 8,
         "withDimensions": 0
       },
-      "links": 8,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -21387,14 +20514,14 @@
       ],
       "date": "2025-08-11T12:28:42.000Z",
       "modified": "2025-10-30T17:32:51.000Z",
-      "words": 685,
+      "words": 684,
       "images": 30,
       "imageDetails": {
         "total": 30,
         "cloudinary": 28,
         "withDimensions": 0
       },
-      "links": 30,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -21464,14 +20591,14 @@
       ],
       "date": "2025-08-18T22:58:25.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
-      "words": 313,
+      "words": 312,
       "images": 14,
       "imageDetails": {
         "total": 14,
         "cloudinary": 14,
         "withDimensions": 0
       },
-      "links": 14,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -21519,14 +20646,14 @@
         "development",
         "personal"
       ],
-      "words": 539,
+      "words": 537,
       "images": 27,
       "imageDetails": {
         "total": 27,
         "cloudinary": 27,
         "withDimensions": 0
       },
-      "links": 27,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21544,14 +20671,14 @@
     "metadata": {
       "date": "2025-09-01T13:58:07.000Z",
       "modified": "2025-09-24T05:30:29.000Z",
-      "words": 473,
+      "words": 472,
       "images": 25,
       "imageDetails": {
         "total": 25,
         "cloudinary": 24,
         "withDimensions": 0
       },
-      "links": 25,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21565,14 +20692,14 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 1192,
+      "words": 1190,
       "images": 59,
       "imageDetails": {
         "total": 59,
         "cloudinary": 57,
         "withDimensions": 0
       },
-      "links": 59,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21586,14 +20713,14 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 552,
+      "words": 550,
       "images": 25,
       "imageDetails": {
         "total": 25,
         "cloudinary": 24,
         "withDimensions": 0
       },
-      "links": 25,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21611,14 +20738,14 @@
     "metadata": {
       "date": "2025-09-22T16:32:39.000Z",
       "modified": "2025-10-01T22:11:59.000Z",
-      "words": 1646,
+      "words": 1644,
       "images": 83,
       "imageDetails": {
         "total": 83,
         "cloudinary": 82,
         "withDimensions": 0
       },
-      "links": 83,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21636,14 +20763,14 @@
     "metadata": {
       "date": "2025-09-29T16:13:44.000Z",
       "modified": "2025-10-04T19:25:00.000Z",
-      "words": 1476,
-      "images": 86,
+      "words": 1460,
+      "images": 85,
       "imageDetails": {
-        "total": 86,
-        "cloudinary": 58,
+        "total": 85,
+        "cloudinary": 57,
         "withDimensions": 0
       },
-      "links": 86,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21657,14 +20784,14 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 472,
+      "words": 470,
       "images": 47,
       "imageDetails": {
         "total": 47,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 47,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21678,14 +20805,14 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 122,
+      "words": 120,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 12,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21699,14 +20826,14 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 242,
+      "words": 240,
       "images": 24,
       "imageDetails": {
         "total": 24,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 24,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21750,14 +20877,14 @@
         "reflections",
         "progress"
       ],
-      "words": 143,
+      "words": 142,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 12,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h1": 1
@@ -21797,14 +20924,14 @@
     "metadata": {
       "date": "2025-11-03T19:00:47.000Z",
       "modified": "2025-11-18T22:00:32.000Z",
-      "words": 413,
+      "words": 411,
       "images": 41,
       "imageDetails": {
         "total": 41,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 41,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21822,14 +20949,14 @@
     "metadata": {
       "date": "2025-11-11T01:03:38.000Z",
       "modified": "2025-11-16T16:34:03.000Z",
-      "words": 531,
+      "words": 530,
       "images": 53,
       "imageDetails": {
         "total": 53,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 53,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21847,14 +20974,14 @@
     "metadata": {
       "date": "2025-11-17T19:15:44.000Z",
       "modified": "2025-11-19T17:18:00.000Z",
-      "words": 272,
+      "words": 270,
       "images": 27,
       "imageDetails": {
         "total": 27,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 27,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21872,14 +20999,14 @@
     "metadata": {
       "date": "2025-11-24T15:43:07.000Z",
       "modified": "2025-11-27T18:03:00.000Z",
-      "words": 282,
+      "words": 280,
       "images": 28,
       "imageDetails": {
         "total": 28,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 28,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -21939,7 +21066,7 @@
       ],
       "date": "2025-12-24T18:09:38.000Z",
       "modified": "2025-12-24T18:09:38.000Z",
-      "words": 54,
+      "words": 53,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -22058,7 +21185,7 @@
       ],
       "date": "2026-01-03T05:50:16.000Z",
       "modified": "2026-01-03T18:04:16.000Z",
-      "words": 538,
+      "words": 537,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -22173,7 +21300,7 @@
         "reflections",
         "progress"
       ],
-      "words": 212,
+      "words": 211,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -22274,7 +21401,7 @@
       ],
       "date": "2026-01-12T20:06:44.000Z",
       "modified": "2026-01-17T21:36:07.000Z",
-      "words": 54,
+      "words": 53,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -22375,7 +21502,7 @@
       ],
       "date": "2026-05-18T14:00:00.000Z",
       "modified": "2026-05-18T14:00:00.000Z",
-      "words": 588,
+      "words": 587,
       "images": 0,
       "imageDetails": {
         "total": 0,
