@@ -871,7 +871,7 @@ if (import.meta.client) {
         />
       </div>
       <template #fallback>
-        <div class="absolute inset-0 bg-zinc-950" />
+        <div class="absolute inset-0 bg-zinc-950 dark:bg-black" />
       </template>
     </ClientOnly>
 

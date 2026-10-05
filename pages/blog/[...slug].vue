@@ -540,7 +540,7 @@ onMounted(() => {
          so it lives as a sibling of the navs in the layout grid, not buried
          inside this page. Sticky behavior is on the layout slot itself. -->
     <Teleport v-if="post && !post.redirect" to="#layout-bar">
-      <div class="bg-zinc-900/90 backdrop-blur-sm">
+      <div class="bg-zinc-900/90 dark:bg-black/90 backdrop-blur-sm">
         <PostMetadataBar
           :date="post?.metadata?.date || post?.date"
           :stats="readingStatsData"
@@ -1125,7 +1125,7 @@ onMounted(() => {
 
 @media (prefers-color-scheme: dark) {
   .draft-banner {
-    background: #18181b;
+    background: #000;
     border-bottom-color: #27272a;
   }
 }

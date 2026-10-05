@@ -549,12 +549,17 @@ as visible boxes).
 
 | token | light | dark | use |
 |---|---|---|---|
-| `bg-page` | `#fff` | `#0a0a0a` | body / backdrop |
-| `bg-sunken` | `#fff` | `#09090b` (zinc-950) | recessed wells, code blocks |
-| `bg-surface` | `#fff` | `#18181b` (zinc-900) | **content shell, sticky headers** |
-| `bg-raised` | zinc-100 | `#27272a` (zinc-800) | cards, badges, hovers |
+| `bg-page` | `#fff` | `#000` | body / backdrop |
+| `bg-sunken` | `#fff` | `#000` | recessed wells, code blocks |
+| `bg-surface` | `#fff` | `#000` | **content shell, sticky headers** |
+| `bg-raised` | zinc-100 | `#000` | cards, badges, hovers |
 
-Dark elevation by lightness: `sunken(9) < page(10) < surface(24) < raised(39)`.
+**OLED black (2026-10-05):** EJ chose all-black everywhere in dark mode — every
+layer is `#000`; separate things with borders, not fills. (Previously an
+elevation ladder: page #0a0a0a, sunken zinc-950, surface zinc-900, raised
+zinc-800.) Hardcoded dark backgrounds were swept to black too; deliberately
+left: inverted tooltips (dark in light mode), the flashcards app's card UI,
+the dev HUD, and `dark:bg-zinc-800/NN` hover/selection tints.
 Light mode is intentionally flat (only `raised` is tinted) — the hierarchy is a
 dark-mode feature, matching the dark-first design.
 
