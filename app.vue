@@ -34,7 +34,7 @@ const structuredPerson = computed(() => ({
     'Newsroom tooling',
   ],
   sameAs: [
-    'https://twitter.com/mrejfox',
+    'https://mastodon.social/@ejfox',
     'https://github.com/ejfox',
     'https://linkedin.com/in/ejfox',
     'https://room302.studio',

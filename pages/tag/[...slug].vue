@@ -10,9 +10,9 @@ const tag = computed(() => {
 const { data: allPosts, pending: postsPending } =
   await useFetch('/api/manifest')
 
-// Fetch scraps
+// Fetch scraps (slim cached list — /api/scraps is full rows, ~3.5MB)
 const { data: allScraps, pending: scrapsPending } =
-  await useFetch('/api/scraps')
+  await useFetch('/api/scraps/graph')
 
 const pending = computed(() => postsPending.value || scrapsPending.value)
 

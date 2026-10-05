@@ -5,7 +5,17 @@ const {
   pending: statsPending,
   error: statsError,
 } = await useFetch('/api/stats')
-const { data: reading, error: readingError } = await useFetch('/api/reading')
+// Only the kindle-sync fields are used below; the transform runs before
+// serialization, so the ~550KB of book HTML never ships in the payload
+const { data: reading, error: readingError } = await useFetch('/api/reading', {
+  transform: (books) =>
+    books
+      .filter((b) => b.metadata?.['kindle-sync']?.lastAnnotatedDate)
+      .map((b) => ({
+        slug: b.slug,
+        metadata: { 'kindle-sync': b.metadata['kindle-sync'] },
+      })),
+})
 const { data: predictions, error: predictionsError } =
   await useFetch('/api/predictions')
 
