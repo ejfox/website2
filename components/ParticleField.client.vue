@@ -2,17 +2,20 @@
 /**
  * ParticleField — a very sparse 3D field of single-pixel particles that the
  * page sits inside. Depth z ∈ [0,1] (0 = far, 1 = near) drives everything:
- * brightness, scroll parallax, and how hard impulses shove a particle. The
- * page itself is a plane at PAGE_DEPTH — particles behind it draw on the
- * `under` canvas (beneath content), the few in front draw on `over`.
+ * brightness and how hard any push moves a particle. The page itself is a
+ * plane at PAGE_DEPTH — particles behind it draw on the `under` canvas
+ * (beneath content), the ones in front draw on `over`.
  *
- * Impulses: clicking a link/button bursts outward from the pointer; a route
- * change sends a gust that sweeps top→bottom. Velocity decays exponentially,
- * so pushed particles glide and settle where they land.
+ * At rest the field is still. It only moves when pushed: scrolling feeds
+ * velocity in with the scroll (so it carries on briefly after you stop),
+ * any mousedown briefly draws the whole field toward that point (a gravity
+ * well that swells and releases), and a route change
+ * sends one coherent upward gust sweeping top→bottom. Velocity decays
+ * exponentially, so everything glides and settles where it lands.
  *
- * Cheap by construction: Canvas 2D, ~60 points, dirty-pixel clears (no
- * full-canvas clear), paused while the tab is hidden, one static frame
- * under prefers-reduced-motion.
+ * Cheap by construction: Canvas 2D, ~60 points, only pixels that changed are
+ * redrawn (nothing at rest), paused while the tab is hidden, one static
+ * frame under prefers-reduced-motion.
  */
 import {
   useDocumentVisibility,
@@ -25,14 +28,13 @@ import {
 
 // ── tuning ───────────────────────────────────────────────────────────────────
 const AREA_PER_PARTICLE = 24000 // px² of viewport per particle — VERY sparse
-const PAGE_DEPTH = 0.86 // z above this draws over the content
+const PAGE_DEPTH = 0.72 // z above this draws over the content (~20% of them)
 const PIXEL = 1 // CSS px per particle
 const DAMPING = 0.955 // per-frame velocity decay (glide length)
-const JIGGLE = 0.035 // brownian kick per frame
-const DRIFT = 0.06 // ambient drift speed (px/frame at z=1)
-const PARALLAX = 0.08 // scroll parallax at z=1 — barely-there depth cue
-const CLICK_FORCE = 9
-const CLICK_RADIUS = 360
+const SCROLL_INERTIA = 0.004 // scroll px → particle velocity at z=1
+const REST = 0.01 // below this speed a particle snaps to still
+const PULL_FORCE = 0.28 // peak attraction, px/frame² at z=1
+const PULL_MS = 520 // how long the well holds before releasing
 const GUST_FORCE = 6
 const GUST_SWEEP_MS = 420 // time for the route-change gust to cross the screen
 
@@ -47,6 +49,7 @@ let particles = []
 let ctxUnder = null
 let ctxOver = null
 let lastScrollY = 0
+let well = null // { x, y, start } of the latest mousedown
 
 const rand = (a, b) => a + Math.random() * (b - a)
 
@@ -55,15 +58,12 @@ function spawn(w, h) {
   particles = Array.from({ length: count }, () => {
     // Bias toward far: most of the field sits behind the page
     const z = Math.pow(Math.random(), 1.6)
-    const angle = rand(0, Math.PI * 2)
     return {
       x: rand(0, w),
       y: rand(0, h),
       z,
       vx: 0,
       vy: 0,
-      dx: Math.cos(angle) * DRIFT * (0.3 + z),
-      dy: Math.sin(angle) * DRIFT * (0.3 + z),
       gustAt: 0,
       gx: 0,
       gy: 0,
@@ -87,7 +87,7 @@ function resize() {
   ctxUnder = setupCanvas(under.value)
   ctxOver = setupCanvas(over.value)
   spawn(width.value, height.value)
-  draw()
+  draw(true)
 }
 
 const wrap = (v, max) => ((v % max) + max) % max
@@ -99,30 +99,53 @@ function step(now) {
   const scrollDelta = scrollY - lastScrollY
   lastScrollY = scrollY
 
+  // Gravity well: swells then releases (sin envelope), nearer = stronger
+  let pull = 0
+  if (well) {
+    const t = (now - well.start) / PULL_MS
+    if (t >= 1) well = null
+    else pull = PULL_FORCE * Math.sin(Math.PI * t)
+  }
+
   for (const p of particles) {
+    if (pull) {
+      const dx = well.x - p.x
+      const dy = well.y - p.y
+      const dist = Math.hypot(dx, dy) || 1
+      // Ease off close in so nothing slingshots through the point
+      const f = pull * (0.2 + p.z) * Math.min(1, dist / 120)
+      p.vx += (dx / dist) * f
+      p.vy += (dy / dist) * f
+    }
     if (p.gustAt && now >= p.gustAt) {
       p.vx += p.gx
       p.vy += p.gy
       p.gustAt = 0
     }
-    p.vx = (p.vx + (Math.random() - 0.5) * JIGGLE) * DAMPING
-    p.vy = (p.vy + (Math.random() - 0.5) * JIGGLE) * DAMPING
-    p.x = wrap(p.x + p.vx + p.dx, w)
-    p.y = wrap(p.y + p.vy + p.dy - scrollDelta * PARALLAX * p.z, h)
+    // Scroll pushes the field along with the page; damping gives it inertia
+    p.vy -= scrollDelta * SCROLL_INERTIA * p.z
+    p.vx *= DAMPING
+    p.vy *= DAMPING
+    if (Math.abs(p.vx) < REST) p.vx = 0
+    if (Math.abs(p.vy) < REST) p.vy = 0
+    if (!p.vx && !p.vy) continue
+    p.x = wrap(p.x + p.vx, w)
+    p.y = wrap(p.y + p.vy, h)
   }
 }
 
-function draw() {
+function draw(force = false) {
   if (!ctxUnder || !ctxOver) return
   const rgb = isDark.value ? '244,244,245' : '24,24,27'
 
   for (const p of particles) {
-    const ctx = p.z > PAGE_DEPTH ? ctxOver : ctxUnder
-    if (p.px >= 0) ctx.clearRect(p.px, p.py, PIXEL, PIXEL)
     const px = Math.round(p.x)
     const py = Math.round(p.y)
-    // Near = brighter; over-the-page particles stay faint so text wins
-    const alpha = p.z > PAGE_DEPTH ? 0.55 : 0.12 + p.z * 0.5
+    if (!force && px === p.px && py === p.py) continue // still: no redraw
+    const ctx = p.z > PAGE_DEPTH ? ctxOver : ctxUnder
+    if (p.px >= 0) ctx.clearRect(p.px, p.py, PIXEL, PIXEL)
+    // Near = brighter
+    const alpha = p.z > PAGE_DEPTH ? 0.7 : 0.12 + p.z * 0.5
     ctx.fillStyle = `rgba(${rgb},${alpha})`
     ctx.fillRect(px, py, PIXEL, PIXEL)
     p.px = px
@@ -144,39 +167,21 @@ function syncRunning() {
 }
 
 // ── impulses ─────────────────────────────────────────────────────────────────
-function burst(cx, cy) {
-  for (const p of particles) {
-    const dx = p.x - cx
-    const dy = p.y - cy
-    const dist = Math.hypot(dx, dy) || 1
-    if (dist > CLICK_RADIUS) continue
-    const falloff = (1 - dist / CLICK_RADIUS) ** 2
-    const f = CLICK_FORCE * falloff * (0.25 + p.z)
-    p.vx += (dx / dist) * f
-    p.vy += (dy / dist) * f
-  }
-}
-
 function gust() {
   const now = performance.now()
   const h = height.value || 1
-  // One shared heading per navigation, slightly curled per particle
-  const heading = rand(-Math.PI * 0.75, -Math.PI * 0.25) // mostly upward
+  // Coherent: the whole field lifts upward together, nearer = further
   for (const p of particles) {
-    const a = heading + rand(-0.5, 0.5)
-    const f = GUST_FORCE * (0.2 + p.z) * rand(0.6, 1)
     p.gustAt = now + (p.y / h) * GUST_SWEEP_MS
-    p.gx = Math.cos(a) * f
-    p.gy = Math.sin(a) * f
+    p.gx = 0
+    p.gy = -GUST_FORCE * (0.2 + p.z)
   }
 }
 
 useEventListener(
   'pointerdown',
   (e) => {
-    if (e.target?.closest?.('a, button, [role="button"]')) {
-      burst(e.clientX, e.clientY)
-    }
+    well = { x: e.clientX, y: e.clientY, start: performance.now() }
   },
   { passive: true }
 )
@@ -194,7 +199,7 @@ onMounted(async () => {
   lastScrollY = window.scrollY
   resize()
   watch([width, height], resize)
-  watch(isDark, draw)
+  watch(isDark, () => draw(true))
   watch([reducedMotion, visibility], syncRunning, { immediate: true })
 })
 </script>
