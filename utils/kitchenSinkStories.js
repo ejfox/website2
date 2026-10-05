@@ -543,6 +543,15 @@ export const stories = {
       },
     },
     {
+      name: 'edited later (history link)',
+      props: {
+        date: '2025-11-02',
+        modified: '2026-01-14',
+        slug: 'the-kitchen-sink',
+        stats: { readingTime: 12, words: 2400, images: 6, links: 18 },
+      },
+    },
+    {
       name: 'with atproto record',
       props: {
         date: '2025-11-02',

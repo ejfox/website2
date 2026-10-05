@@ -2,10 +2,11 @@
 # https://securitytxt.org/
 
 Contact: mailto:ejfox@ejfox.com
-Expires: 2026-12-31T23:59:59.000Z
+Expires: 2027-09-30T23:59:59.000Z
+Encryption: https://ejfox.com/pgp.txt
 Preferred-Languages: en
 Canonical: https://ejfox.com/.well-known/security.txt
 
-# PGP key available at:
-# https://ejfox.com/pgp.txt
-# https://keybase.io/ejfox
+# PGP fingerprint: 5D30 A33E 08E3 5B89 15B4 C7E2 E207 8E65 3FE3 89CD
+# Also via WKD (gpg --locate-keys ejfox@ejfox.com) and https://keybase.io/ejfox
+# Journalism tips (not security reports): https://ejfox.com/tips

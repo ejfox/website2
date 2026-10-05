@@ -260,6 +260,7 @@ const publishedDateISO = computed(() => {
 const modifiedDateISO = computed(() => {
   const d =
     post.value?.metadata?.lastUpdated ||
+    post.value?.metadata?.modified ||
     post.value?.metadata?.date ||
     post.value?.date
   if (!d) return undefined
@@ -543,6 +544,7 @@ onMounted(() => {
       <div class="bg-zinc-900/90 backdrop-blur-sm">
         <PostMetadataBar
           :date="post?.metadata?.date || post?.date"
+          :modified="post?.metadata?.modified"
           :stats="readingStatsData"
           :slug="route.params.slug.join('/')"
           :atproto-url="atprotoUrl"

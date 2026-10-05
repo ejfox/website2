@@ -342,6 +342,13 @@ export default defineNuxtConfig({
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // public/README.md (asset provenance notes) serves at /README.md — noindex it.
       '/README.md': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // Web Key Directory (WKD) for ejfox@ejfox.com: public/.well-known/openpgpkey/.
+      // Mail clients and `gpg --locate-keys` fetch it; browser-based clients
+      // (e.g. Mailvelope, Keyoxide) need CORS. The key file has no extension, so
+      // Nitro serves it as a binary blob, which is what WKD expects.
+      '/.well-known/openpgpkey/**': {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+      },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },

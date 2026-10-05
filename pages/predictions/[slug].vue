@@ -31,6 +31,8 @@ interface PredictionResponse {
     confidence: number
     status?: string
   }>
+  /** Public commit that recorded the prediction. Committed, not signed. */
+  gitCommit?: string
 }
 
 const route = useRoute()
@@ -92,7 +94,7 @@ usePageSeo({
   title: computed(() => prediction.value?.statement || 'Prediction'),
   description: computed(() => {
     const p = prediction.value
-    if (!p) return 'Cryptographically verified prediction.'
+    if (!p) return 'Timestamped prediction, committed to a public repo.'
     return `${p.confidence}% · ${p.statement}`
   }),
   type: 'article',
@@ -148,6 +150,26 @@ usePageSeo({
           }}
         </span>
         <span v-if="deadline">· {{ deadline }}</span>
+      </div>
+
+      <!-- Provenance: only what a reader can check. The public commit shows
+           when this was recorded. "Signed" waits for a real signature (TODO:
+           EJ's signing subkey); the stored hash waits for a reproducible
+           recipe. -->
+
+      <div
+        v-if="prediction.gitCommit"
+        class="font-mono text-xs text-zinc-500 flex flex-wrap gap-x-2 mt-1"
+      >
+        <a
+          :href="`https://github.com/ejfox/website2/commit/${prediction.gitCommit}`"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="The public commit that recorded this prediction"
+          class="hover:underline"
+        >
+          recorded in commit {{ prediction.gitCommit.slice(0, 7) }} ↗
+        </a>
       </div>
     </header>
 

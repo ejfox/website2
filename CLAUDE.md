@@ -8,7 +8,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 
 - Runs under **pm2** on the VPS (process name `website2`, port 3006). Docker was retired 2026-05-06 — see "Deployment" section below.
 - Dynamic tags system with journalist pyramid ordering
-- Cryptographic predictions system with PGP signing
+- Predictions system: timestamped + git-committed (NOT PGP-signed yet; see Predictions below)
 - Multi-source API aggregation for personal stats
 - Clean root directory (delete-driven cleanup completed)
 
@@ -31,6 +31,11 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 2. **Predictions System**
    - CLI tool `yarn predict` for personal predictions
      - SHA-256 hashing + Git commits for verification
+     - **Reality check (2026-10-05):** the git commit is the only checkable proof.
+       0 of 15 stored hashes reproduce (predict-pro.mjs hashes a gray-matter
+       re-serialization that drifts), and `signed:` is a timestamp, not a PGP
+       signature. The API exposes `gitCommit` only; don't call predictions
+       "signed" or "cryptographically verified" until both are fixed.
      - Storage: `content/predictions/` as Markdown with YAML frontmatter
    - Calibration tracking: `yarn calibrate` generates Brier scores + calibration curves
    - Simple pipeline: make prediction → wait → resolve → track accuracy
@@ -280,7 +285,7 @@ ssh vps 'pm2 reload website2'
 - **Content Pipeline**: Obsidian → JSON processing working smoothly
 - **Runtime**: pm2 on VPS (formerly docker; retired 2026-05-06)
 - **Dynamic Tags**: Journalist pyramid ordering operational
-- **Predictions**: Cryptographic verification system functional
+- **Predictions**: Git-committed + calibration working; hash reproducibility and PGP signing NOT done
 - **Root Folder**: Professional, no build artifacts or test debris
 - **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
 - **Typography**: Vault Alarm (display/headings) + Georgia serif (body) + mono (data); tokenized scale (see Typography System)
