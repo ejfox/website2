@@ -4576,7 +4576,7 @@
       "tags": [
         "hardware"
       ],
-      "words": 184,
+      "words": 186,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -4635,51 +4635,6 @@
       "toc": [],
       "type": "post",
       "slug": "projects/badusb-remote-desktop"
-    }
-  },
-  {
-    "slug": "projects/butt-math",
-    "title": "Butt Math",
-    "date": "2026-05-01T00:00:00.000Z",
-    "type": "post",
-    "tags": [
-      "art",
-      "generative",
-      "web"
-    ],
-    "toc": [],
-    "metadata": {
-      "title": "Butt Math",
-      "date": "2026-05-01T00:00:00.000Z",
-      "category": "Art",
-      "featured": false,
-      "tech": [
-        "SVG",
-        "Nuxt",
-        "Vue",
-        "D3",
-        "flubber"
-      ],
-      "state": "deployed",
-      "ai-involvement": "ai-assisted",
-      "tags": [
-        "art",
-        "generative",
-        "web"
-      ],
-      "words": 569,
-      "images": 3,
-      "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
-        "withDimensions": 0
-      },
-      "links": 3,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "slug": "projects/butt-math"
     }
   },
   {
@@ -7031,7 +6986,7 @@
         "bot",
         "generative"
       ],
-      "words": 178,
+      "words": 141,
       "images": 9,
       "imageDetails": {
         "total": 9,

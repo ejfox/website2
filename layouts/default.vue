@@ -27,9 +27,12 @@ const linkClasses =
        pinned to the viewport bottom on short pages, and #app-container is
        natural-height (no min-h / no flex-1) so short posts don't get a void
        above the footer — the leftover space falls below it as background. -->
+  <!-- `isolate` makes this root a stacking context so ParticleField's
+       z-index:-1 layer paints above bg-surface but beneath all content -->
   <div
-    class="w-full min-h-screen flex flex-col bg-surface text-zinc-900 dark:text-zinc-100"
+    class="w-full min-h-screen flex flex-col isolate bg-surface text-zinc-900 dark:text-zinc-100"
   >
+    <ParticleField />
     <div
       id="app-container"
       :class="['w-full min-w-0', isStatsSimple ? '' : 'layout-grid']"
@@ -64,6 +67,10 @@ const linkClasses =
             v-if="item.href !== '/'"
             :to="item.href"
             class="text-zinc-500 dark:text-zinc-400"
+            :data-umami-event="item.umamiEvent"
+            :data-umami-event-location="
+              item.umamiEvent ? 'mobile-nav' : undefined
+            "
           >
             {{ item.label }}
           </NuxtLink>
@@ -93,7 +100,15 @@ const linkClasses =
             >
               {{ item.label }}
             </a>
-            <NuxtLink v-else :to="item.href" :class="linkClasses">
+            <NuxtLink
+              v-else
+              :to="item.href"
+              :class="linkClasses"
+              :data-umami-event="item.umamiEvent"
+              :data-umami-event-location="
+                item.umamiEvent ? 'sidebar-nav' : undefined
+              "
+            >
               {{ item.label }}
             </NuxtLink>
           </template>

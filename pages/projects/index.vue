@@ -341,6 +341,35 @@ useHead(() => ({
     },
   ],
 }))
+
+// Keep your place across project visits. Browser back already restores via
+// savedPosition, but "← Back to Projects" and the nav link are fresh
+// navigations that land at the top. So: remember scrollY on leave, and when
+// arriving from a /projects/<slug> page by ANY route, opt out of Nuxt's
+// scroll-to-top and restore it ourselves. Arriving from elsewhere = top.
+// (definePageMeta is hoisted out of setup, so it can't share helpers.)
+definePageMeta({
+  scrollToTop: (to, from) => !from.path.startsWith('/projects/'),
+  middleware: (to, from) => {
+    useState('projects-from').value = from.path
+  },
+})
+
+const savedScroll = useState('projects-scroll', () => 0)
+const cameFrom = useState('projects-from')
+onBeforeRouteLeave(() => {
+  savedScroll.value = window.scrollY
+})
+
+onMounted(async () => {
+  if (!cameFrom.value?.startsWith('/projects/')) return
+  // Nuxt won't scroll for us on this path — always land somewhere deliberate,
+  // even with no saved spot (deep-linked project → "Back to Projects")
+  await nextTick()
+  requestAnimationFrame(() =>
+    window.scrollTo({ top: savedScroll.value || 0, behavior: 'instant' })
+  )
+})
 </script>
 
 <template>
@@ -371,6 +400,8 @@ useHead(() => ({
           </span>
           <NuxtLink
             to="/calendar"
+            data-umami-event="consulting-book"
+            data-umami-event-location="projects"
             class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
           >
             {{ availabilityLine.cta }}

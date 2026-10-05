@@ -5,6 +5,7 @@
  * @params url: string - URL to fetch Open Graph data from
  * @returns OGData object with title, description, image, siteName, favicon, author, and published date
  */
+import { decodeEntities } from '~/server/utils/decodeEntities'
 
 interface OGData {
   url: string
@@ -170,13 +171,7 @@ export default defineEventHandler(async (event) => {
       for (const pattern of patterns) {
         const match = html.match(pattern)
         if (match) {
-          // Decode HTML entities
-          ogData[key as keyof OGData] = match[1]
-            .replace(/&amp;/g, '&')
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .replace(/&quot;/g, '"')
-            .replace(/&#39;/g, "'")
+          ogData[key as keyof OGData] = decodeEntities(match[1]).trim()
           break
         }
       }

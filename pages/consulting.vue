@@ -7,6 +7,7 @@ import {
   useWindowScroll,
   useWindowSize,
 } from '@vueuse/core'
+import { calParams, readFirstTouch } from '~/utils/firstTouch'
 
 // ============================================
 // VIDEO BACKGROUND CONFIG - TWEAK THESE
@@ -203,6 +204,8 @@ function initCalEmbed() {
     elementOrSelector: '#cal-inline-embed',
     calLink: 'ejfox/30min?duration=60',
     layout: 'month_view',
+    // First-touch utm_* + metadata[*] → booking + webhook (utils/firstTouch.ts)
+    config: calParams(readFirstTouch()),
   })
 
   setTimeout(() => {
@@ -601,7 +604,13 @@ usePageSeo({
 
     <!-- Floating CTA - visible between hero and booking section -->
     <Transition name="cta-fade">
-      <a v-if="scrollY > 600 && !bookVisible" href="#book" class="floating-cta">
+      <a
+        v-if="scrollY > 600 && !bookVisible"
+        href="#book"
+        class="floating-cta"
+        data-umami-event="consulting-book"
+        data-umami-event-location="consulting-floating"
+      >
         <span class="floating-cta-text">Book a call</span>
         <span class="floating-cta-sub">60 min &middot; Free</span>
       </a>
@@ -678,7 +687,14 @@ usePageSeo({
           </p>
 
           <!-- CTA -->
-          <a href="#cal-inline-embed" class="sidebar-cta">Book a Call</a>
+          <a
+            href="#cal-inline-embed"
+            class="sidebar-cta"
+            data-umami-event="consulting-book"
+            data-umami-event-location="consulting-sidebar"
+          >
+            Book a Call
+          </a>
           <p class="sidebar-cta-note">60 min · Free</p>
         </div>
       </Teleport>

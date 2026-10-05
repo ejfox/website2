@@ -85,6 +85,17 @@ export default defineNuxtConfig({
           crossorigin: '',
         },
         { rel: 'dns-prefetch', href: 'https://res.cloudinary.com' },
+        // Preload the display font (both faces are ~8-10KB). Without it the
+        // browser discovers Vault Alarm only after parsing CSS, paints headings
+        // in the fallback, then swaps — re-wrapping big titles (3->4 lines on
+        // long blog headlines) on first visit.
+        ...['Regular', 'Sharp'].map((face) => ({
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: `/fonts/VaultAlarm-${face}.woff2`,
+          crossorigin: '',
+        })),
         // Cloudflare beacon preconnect removed — let it load after LCP
         // IndieAuth authorization endpoint
         { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },

@@ -4,6 +4,7 @@
   "title": "Butt Math",
   "metadata": {
     "title": "Butt Math",
+    "draft": true,
     "date": "2026-05-01T00:00:00.000Z",
     "category": "Art",
     "featured": false,
@@ -21,14 +22,14 @@
       "generative",
       "web"
     ],
-    "words": 569,
+    "words": 567,
     "images": 3,
     "imageDetails": {
       "total": 3,
       "cloudinary": 3,
       "withDimensions": 0
     },
-    "links": 3,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

@@ -1,5 +1,6 @@
 import { defineEventHandler, setHeader, type H3Event } from 'h3'
 import { isScheduled } from '~/utils/postFilters'
+import { listDispatches } from '~/server/utils/dispatch'
 
 // Nuxt auto-imports $fetch at runtime
 declare const $fetch: typeof globalThis.fetch
@@ -53,6 +54,7 @@ export default defineEventHandler(async (event: H3Event) => {
     { url: '/gear', priority: '0.7', changefreq: 'weekly' },
     { url: '/stats', priority: '0.6', changefreq: 'daily' },
     { url: '/predictions', priority: '0.7', changefreq: 'weekly' },
+    { url: '/dispatch', priority: '0.8', changefreq: 'daily' },
     { url: '/gists', priority: '0.6', changefreq: 'weekly' },
     { url: '/scraps', priority: '0.5', changefreq: 'weekly' },
     { url: '/now', priority: '0.8', changefreq: 'weekly' },
@@ -172,6 +174,30 @@ export default defineEventHandler(async (event: H3Event) => {
     }
   } catch (error) {
     console.warn('Could not load predictions for sitemap:', error)
+  }
+
+  // Add Dispatch pieces — public only (listDispatches without preview drops
+  // draft/unlisted/password/scheduled), regardless of dev/prod.
+  try {
+    const pieces = await listDispatches({ preview: false })
+    for (const piece of pieces) {
+      sitemap += `  <url>
+    <loc>${escapeXml(`${baseUrl}/dispatch/${piece.slug}`)}</loc>
+    <lastmod>${piece.date || now}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+`
+      if (piece.image) {
+        sitemap += `    <image:image>
+      <image:loc>${escapeXml(piece.image)}</image:loc>
+    </image:image>
+`
+      }
+      sitemap += `  </url>
+`
+    }
+  } catch (error) {
+    console.warn('Could not load dispatch pieces for sitemap:', error)
   }
 
   sitemap += `</urlset>`
