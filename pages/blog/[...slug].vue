@@ -1054,6 +1054,7 @@ onMounted(() => {
 /* Each character holds its space; opacity reveals it */
 .post-title-hero .typing-char {
   display: inline;
+  position: relative; /* anchor for the cursor + typo overlays */
   opacity: 0;
   transition: opacity 0.06s ease-out;
 }
@@ -1062,14 +1063,27 @@ onMounted(() => {
   opacity: 1;
 }
 
+/* Overlays only — zero layout width, so typing can't re-balance the title */
+.post-title-hero .typing-char.typo {
+  -webkit-text-fill-color: transparent;
+}
+
+.post-title-hero .typing-char.typo::after {
+  content: attr(data-typo);
+  position: absolute;
+  left: 0;
+  -webkit-text-fill-color: currentColor;
+}
+
 .post-title-hero .cursor {
-  display: inline-block;
+  position: absolute;
+  left: 100%;
+  bottom: 0.1em;
   width: 3px;
   height: 0.85em;
   margin-left: 1px;
   background-color: currentColor;
   animation: blink 0.5s ease-in-out infinite;
-  vertical-align: baseline;
   opacity: 0.85;
 }
 

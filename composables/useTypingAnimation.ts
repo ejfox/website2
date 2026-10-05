@@ -3,6 +3,12 @@
  * @description Typewriter effect for text with no layout shift
  * All characters are always rendered (holding their space),
  * animation reveals them via opacity transitions.
+ *
+ * Nothing the animation adds may change the text's width: titles use
+ * text-balance, so even a few px re-balances the line breaks — at text-8xl
+ * that flipped headlines between 3 and 4 lines (105px jumps). The cursor and
+ * typo glyphs are therefore absolutely-positioned overlays (see the
+ * .post-title-hero styles), never inline content.
  */
 
 import { type Ref, type ComputedRef, computed, reactive, unref } from 'vue'
@@ -43,12 +49,13 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
 
         // Before animation: all visible. During: reveal one by one
         const isVisible = !state.hasStarted || i < state.typedCount
-        const isCursorPos = showCursor && i === state.typedCount
+        // Cursor rides on the last TYPED char (visible), overlaid after it
+        const isCursorPos = showCursor && i === state.typedCount - 1
         const cursor = isCursorPos ? '<span class="cursor"></span>' : ''
 
-        // Show typo character if we're at the error position
+        // Typo: keep the real glyph for layout, overlay the wrong one
         if (state.errorChar && i === state.typedCount - 1) {
-          return `<span class="typing-char typed">${escapeHtml(state.errorChar)}${cursor}</span>`
+          return `<span class="typing-char typed typo" data-typo="${escapeHtml(state.errorChar)}">${escapeHtml(char)}${cursor}</span>`
         }
 
         // Character always takes up space; opacity reveals it
