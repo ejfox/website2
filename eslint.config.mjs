@@ -47,6 +47,8 @@ export default createConfigForNuxt({
         onNuxtReady: 'readonly',
         resolveComponent: 'readonly',
         useRouter: 'readonly',
+        useState: 'readonly',
+        onBeforeRouteLeave: 'readonly',
         useRoute: 'readonly',
         useHead: 'readonly',
         useSeoMeta: 'readonly',
