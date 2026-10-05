@@ -1,26 +1,46 @@
 name: Send Webmentions
 
+# After every SUCCESSFUL production deploy, so it acts on what's actually
+# live — not on a path filter over committed JSON (which markdown-only
+# commits from Dispatch never touch) plus a `sleep 60` guess.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'content/processed/**/*.json'
+  workflow_run:
+    workflows: ['Deploy to VPS']
+    types: [completed]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
 
 jobs:
   webmentions:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+    # Use the processed content the deploy built (see deploy.yml)
+    - name: Use deployed processed content
+      if: github.event_name == 'workflow_run'
+      run: rm -rf content/processed
+
+    - name: Download deployed processed content
+      if: github.event_name == 'workflow_run'
+      uses: actions/download-artifact@v4
+      with:
+        name: processed-content
+        path: content/processed
+        run-id: ${{ github.event.workflow_run.id }}
+        github-token: ${{ github.token }}
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-
-    - name: Wait for deploy
-      run: sleep 60
 
     - name: Restore webmentions cache
       uses: actions/cache@v4

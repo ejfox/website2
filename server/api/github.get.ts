@@ -4,7 +4,7 @@
  * @endpoint GET /api/github
  * @returns GitHubStats with user stats, contribution history, commit details, and commit type distribution
  */
-import { defineEventHandler, createError } from 'h3'
+import { createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
 
 interface GitHubStats {
@@ -242,184 +242,195 @@ async function checkRateLimit(token: string) {
   }
 }
 
-export default defineEventHandler(async (): Promise<GitHubStats> => {
-  // console.log('🚀 GitHub handler called')
-  // Get token and handle potential whitespace issues
-  let token =
-    serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
+// Cached: the live fetch takes 3-5s, and / (SSR since scheduled posts went
+// request-time) calls it on every render. swr serves the last good copy while
+// refreshing in the background. Errors throw, so failures aren't cached.
+export default defineCachedEventHandler(
+  async (): Promise<GitHubStats> => {
+    // console.log('🚀 GitHub handler called')
+    // Get token and handle potential whitespace issues
+    let token =
+      serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
 
-  // Check if we have the placeholder token instead of the real one
-  if (token === 'your_token_here') {
-    console.warn(
-      '⚠️ Detected placeholder token - this suggests .env is not being loaded correctly'
-    )
-    // Log all available environment variables for debugging (excluding values)
-    // console.log('Available env vars:', Object.keys(process.env))
-    // Try loading directly from process.env as a fallback
-    const directEnvToken = process.env.GITHUB_TOKEN
-    if (directEnvToken && directEnvToken !== 'your_token_here') {
-      // console.log('Found token directly in process.env, using that instead')
-      token = directEnvToken
-    }
-  }
-
-  // Very important: Check if there are any whitespace issues with the token
-  if (token) {
-    const trimmedToken = token.trim()
-    if (trimmedToken !== token) {
-      console.warn('⚠️ GitHub token contains whitespace! Trimming...')
-      token = trimmedToken
+    // Check if we have the placeholder token instead of the real one
+    if (token === 'your_token_here') {
+      console.warn(
+        '⚠️ Detected placeholder token - this suggests .env is not being loaded correctly'
+      )
+      // Log all available environment variables for debugging (excluding values)
+      // console.log('Available env vars:', Object.keys(process.env))
+      // Try loading directly from process.env as a fallback
+      const directEnvToken = process.env.GITHUB_TOKEN
+      if (directEnvToken && directEnvToken !== 'your_token_here') {
+        // console.log('Found token directly in process.env, using that instead')
+        token = directEnvToken
+      }
     }
 
-    // Check if token has the correct prefix
-    if (!token.startsWith('ghp_')) {
-      console.warn('⚠️ GitHub token does not start with expected prefix "ghp_"')
+    // Very important: Check if there are any whitespace issues with the token
+    if (token) {
+      const trimmedToken = token.trim()
+      if (trimmedToken !== token) {
+        console.warn('⚠️ GitHub token contains whitespace! Trimming...')
+        token = trimmedToken
+      }
+
+      // Check if token has the correct prefix
+      if (!token.startsWith('ghp_')) {
+        console.warn(
+          '⚠️ GitHub token does not start with expected prefix "ghp_"'
+        )
+      }
     }
-  }
 
-  // console.log('🔑 GitHub token available:', !!token)
-  // console.log('🔑 GitHub token length:', token?.length)
-  // console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
+    // console.log('🔑 GitHub token available:', !!token)
+    // console.log('🔑 GitHub token length:', token?.length)
+    // console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
 
-  if (!token) {
-    console.error('❌ No GitHub token found!')
-    throw createError({
-      statusCode: 500,
-      message: 'GitHub token not configured',
-    })
-  }
-
-  try {
-    await checkRateLimit(token)
-    // console.log('✅ Rate limit check passed')
-
-    const today = new Date()
-    const lastMonth = new Date(today)
-    lastMonth.setDate(lastMonth.getDate() - 30)
-
-    const results = await Promise.allSettled([
-      fetchUserStats(token),
-      fetchContributions(token, lastMonth.toISOString(), today.toISOString()),
-    ])
-
-    const userStats =
-      results[0].status === 'fulfilled' ? results[0].value : null
-    const contributions =
-      results[1].status === 'fulfilled' ? results[1].value : null
-
-    // console.log('📊 GitHub API responses:', {
-    //   userStats: !!userStats,
-    //   contributions: !!contributions
-    // })
-
-    if (!userStats?.viewer || !contributions?.viewer) {
+    if (!token) {
+      console.error('❌ No GitHub token found!')
       throw createError({
         statusCode: 500,
-        message: 'Invalid response from GitHub API',
+        message: 'GitHub token not configured',
       })
     }
 
-    const contributionCollection = contributions.viewer.contributionsCollection
-    type ContribRepos =
-      typeof contributionCollection.commitContributionsByRepository
-    type RepoContribution = ContribRepos[number] & {
-      repository: { isPrivate?: boolean }
-    }
-    const repoList = contributionCollection.commitContributionsByRepository
-    const commits = (repoList as RepoContribution[])
-      .filter((repo) => !repo.repository.isPrivate)
-      .flatMap((repo) => {
-        const branch = repo.repository.defaultBranchRef
-        const nodes = branch?.target?.history?.nodes
-        if (!nodes) {
-          return []
-        }
+    try {
+      await checkRateLimit(token)
+      // console.log('✅ Rate limit check passed')
 
-        return repo.repository.defaultBranchRef.target.history.nodes
-          .filter((commit) => commit)
-          .map((commit) => {
-            const message = commit.message || ''
-            const types =
-              'feat|fix|docs|style|refactor|test|chore|' +
-              'build|ci|perf|revert|blog|scaffold'
-            const match = message.match(new RegExp(`^(${types})(\\(.+?\\))?:`))
+      const today = new Date()
+      const lastMonth = new Date(today)
+      lastMonth.setDate(lastMonth.getDate() - 30)
 
-            return {
-              repository: {
-                name: repo.repository.name,
-                url: repo.repository.url,
-              },
-              message,
-              occurredAt: commit.committedDate,
-              url: commit.url,
-              type: match?.[1] || 'other',
-            }
-          })
-      })
-      .filter(Boolean)
+      const results = await Promise.allSettled([
+        fetchUserStats(token),
+        fetchContributions(token, lastMonth.toISOString(), today.toISOString()),
+      ])
 
-    const typeCount = commits.reduce(
-      (acc, commit) => {
-        acc[commit.type] = (acc[commit.type] || 0) + 1
-        return acc
-      },
-      {} as Record<string, number>
-    )
+      const userStats =
+        results[0].status === 'fulfilled' ? results[0].value : null
+      const contributions =
+        results[1].status === 'fulfilled' ? results[1].value : null
 
-    const total = Object.values(typeCount).reduce(
-      (sum, count) => sum + count,
-      0
-    )
-    const commitTypes = Object.entries(typeCount)
-      .map(([type, count]) => ({
-        type,
-        count,
-        percentage: (count / total) * 100,
-      }))
-      .sort((a, b) => b.count - a.count)
+      // console.log('📊 GitHub API responses:', {
+      //   userStats: !!userStats,
+      //   contributions: !!contributions
+      // })
 
-    // console.log('GitHub API Response:', {
-    //   userStats,
-    //   contributions,
-    //   commits,
-    //   commitTypes
-    // })
+      if (!userStats?.viewer || !contributions?.viewer) {
+        throw createError({
+          statusCode: 500,
+          message: 'Invalid response from GitHub API',
+        })
+      }
 
-    const baseStats: GitHubStats = {
-      stats: {
-        totalRepos: userStats.viewer.repositories.totalCount || 0,
-        totalContributions:
-          contributions.viewer.contributionsCollection
-            .totalCommitContributions || 0,
-        followers: userStats.viewer.followers.totalCount || 0,
-        following: userStats.viewer.following.totalCount || 0,
-      },
-      contributions: [],
-      dates: [],
-      detail: {
-        commits: commits || [],
-        commitTypes: commitTypes || [],
-      },
-    }
+      const contributionCollection =
+        contributions.viewer.contributionsCollection
+      type ContribRepos =
+        typeof contributionCollection.commitContributionsByRepository
+      type RepoContribution = ContribRepos[number] & {
+        repository: { isPrivate?: boolean }
+      }
+      const repoList = contributionCollection.commitContributionsByRepository
+      const commits = (repoList as RepoContribution[])
+        .filter((repo) => !repo.repository.isPrivate)
+        .flatMap((repo) => {
+          const branch = repo.repository.defaultBranchRef
+          const nodes = branch?.target?.history?.nodes
+          if (!nodes) {
+            return []
+          }
 
-    return baseStats
-  } catch (error) {
-    const gitHubError = error as GitHubError
-    console.error('GitHub API Error:', gitHubError)
+          return repo.repository.defaultBranchRef.target.history.nodes
+            .filter((commit) => commit)
+            .map((commit) => {
+              const message = commit.message || ''
+              const types =
+                'feat|fix|docs|style|refactor|test|chore|' +
+                'build|ci|perf|revert|blog|scaffold'
+              const match = message.match(
+                new RegExp(`^(${types})(\\(.+?\\))?:`)
+              )
 
-    // Add specific guidance for 401 Unauthorized errors
-    if (gitHubError.statusCode === 401) {
-      console.error(
-        'GitHub token invalid or expired. Regenerate with scopes: repo, read:user, user:email.'
+              return {
+                repository: {
+                  name: repo.repository.name,
+                  url: repo.repository.url,
+                },
+                message,
+                occurredAt: commit.committedDate,
+                url: commit.url,
+                type: match?.[1] || 'other',
+              }
+            })
+        })
+        .filter(Boolean)
+
+      const typeCount = commits.reduce(
+        (acc, commit) => {
+          acc[commit.type] = (acc[commit.type] || 0) + 1
+          return acc
+        },
+        {} as Record<string, number>
       )
-    }
 
-    throw createError({
-      statusCode: gitHubError.statusCode || 500,
-      statusMessage:
-        gitHubError.response?.errors?.[0]?.message ||
-        gitHubError.message ||
-        'Failed to fetch GitHub data',
-    })
-  }
-})
+      const total = Object.values(typeCount).reduce(
+        (sum, count) => sum + count,
+        0
+      )
+      const commitTypes = Object.entries(typeCount)
+        .map(([type, count]) => ({
+          type,
+          count,
+          percentage: (count / total) * 100,
+        }))
+        .sort((a, b) => b.count - a.count)
+
+      // console.log('GitHub API Response:', {
+      //   userStats,
+      //   contributions,
+      //   commits,
+      //   commitTypes
+      // })
+
+      const baseStats: GitHubStats = {
+        stats: {
+          totalRepos: userStats.viewer.repositories.totalCount || 0,
+          totalContributions:
+            contributions.viewer.contributionsCollection
+              .totalCommitContributions || 0,
+          followers: userStats.viewer.followers.totalCount || 0,
+          following: userStats.viewer.following.totalCount || 0,
+        },
+        contributions: [],
+        dates: [],
+        detail: {
+          commits: commits || [],
+          commitTypes: commitTypes || [],
+        },
+      }
+
+      return baseStats
+    } catch (error) {
+      const gitHubError = error as GitHubError
+      console.error('GitHub API Error:', gitHubError)
+
+      // Add specific guidance for 401 Unauthorized errors
+      if (gitHubError.statusCode === 401) {
+        console.error(
+          'GitHub token invalid or expired. Regenerate with scopes: repo, read:user, user:email.'
+        )
+      }
+
+      throw createError({
+        statusCode: gitHubError.statusCode || 500,
+        statusMessage:
+          gitHubError.response?.errors?.[0]?.message ||
+          gitHubError.message ||
+          'Failed to fetch GitHub data',
+      })
+    }
+  },
+  { maxAge: 600, swr: true }
+)

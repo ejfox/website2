@@ -5,17 +5,20 @@ import { watchContentAndReload } from './scripts/dev/content-watch.mjs'
 const isDev = process.env.NODE_ENV !== 'production'
 
 // Shared Cache-Control values (referenced in nitro.routeRules below)
-const CACHE_PRERENDER = 'public, max-age=3600, s-maxage=86400'
+// max-age=0: browsers revalidate (cheap 304s) instead of holding a page for
+// an hour — an unpublished/edited post used to linger in browser caches.
+// Cloudflare doesn't cache HTML here (cf-cache-status: DYNAMIC), so s-maxage
+// is only a hint for any future edge caching.
+const CACHE_PRERENDER =
+  'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400'
 const CACHE_DYNAMIC =
   'public, max-age=60, s-maxage=300, stale-while-revalidate=600'
 const CACHE_IMMUTABLE = 'public, max-age=31536000, immutable'
 
 // Routes prerendered at build time — all share the same long cache.
+// NOT /, /blog, /projects: listings render per request (see LIVE_LISTINGS).
 const PRERENDERED_ROUTES = [
-  '/',
-  '/blog',
   '/blog/**',
-  '/projects',
   '/gear',
   '/now',
   '/sitemap',
@@ -25,6 +28,12 @@ const PRERENDERED_ROUTES = [
   '/predictions',
   '/predictions/**',
 ]
+// Listings are SSR so a scheduled post appears the moment its publishAt
+// passes — isScheduled() gates at request time. Prerendered, they froze at
+// build time and a scheduled post stayed unlisted until someone redeployed.
+// /blog needs prerender:false explicitly, or the /blog/** rule matches it.
+const LIVE_LISTINGS = ['/', '/blog', '/projects']
+
 const prerenderRules = Object.fromEntries(
   PRERENDERED_ROUTES.map((route) => [
     route,
@@ -341,6 +350,12 @@ export default defineNuxtConfig({
       ...(process.env.NODE_ENV === 'production' && {
         // Prerendered pages (see PRERENDERED_ROUTES) — long cache
         ...prerenderRules,
+        ...Object.fromEntries(
+          LIVE_LISTINGS.map((route) => [
+            route,
+            { prerender: false, headers: { 'Cache-Control': CACHE_DYNAMIC } },
+          ])
+        ),
         // Dynamic pages — SSR with edge caching
         '/calendar': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
         '/stats': { headers: { 'Cache-Control': CACHE_DYNAMIC } },

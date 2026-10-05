@@ -9,7 +9,7 @@
  */
 
 // Markdown → HTML Processing Pipeline
-import { promises as fs, existsSync, statSync } from 'node:fs'
+import { promises as fs, existsSync, readFileSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import path from 'node:path'
 import { unified } from 'unified'
@@ -55,7 +55,7 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
-const CACHE_VERSION = '2026-05-13-gear-cards'
+const CACHE_VERSION = '2026-10-05-source-hash'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
@@ -185,19 +185,27 @@ async function fixLinkInSourceFile(link, source, contentDir) {
   }
 }
 
+/** sha256 of a source file's exact bytes (as read: utf8 incl. frontmatter) */
+const hashSource = (content) =>
+  createHash('sha256').update(content).digest('hex')
+
 /**
- * Check if a file should use cache based on modification times
- * @returns {'cache' | 'process'} whether to use cache or process the file
+ * Is the processed JSON a valid cache of this source?
+ *
+ * Keyed on a content hash, NOT mtimes. mtimes are meaningless on a fresh
+ * clone: every committed JSON looks newer than its source, so CI reused stale
+ * output — `draft: true` on a post deployed green while the post stayed live.
+ * A hash is right everywhere: fresh clone, CI, or a laptop.
+ * @returns {'cache' | 'process'}
  */
 function getFileCacheStatus(filePath, outputPath) {
-  if (!existsSync(outputPath)) {
-    return 'process'
-  }
-
+  if (!existsSync(outputPath)) return 'process'
   try {
-    const sourceStats = statSync(filePath)
-    const outputStats = statSync(outputPath)
-    return outputStats.mtime > sourceStats.mtime ? 'cache' : 'process'
+    const cached = JSON.parse(readFileSync(outputPath, 'utf-8'))
+    const fresh =
+      cached?.cacheVersion === CACHE_VERSION &&
+      cached?.sourceHash === hashSource(readFileSync(filePath, 'utf8'))
+    return fresh ? 'cache' : 'process'
   } catch {
     return 'process'
   }
@@ -229,6 +237,10 @@ async function writeProcessedResult(result, outputPath) {
     // (The manifest still excludes all drafts, so production never lists them.)
     // Other draft content stays unwritten — drafts can hold private material.
     if (!outputPath.includes('/projects/')) {
+      // And DELETE any JSON left from before it was drafted — skipping the
+      // write isn't enough. Stale pre-draft JSON (no draft flag) kept 14
+      // drafted posts readable via /api/posts/<slug>, one as a live page.
+      await fs.rm(outputPath, { force: true })
       return
     }
   }
@@ -407,6 +419,7 @@ async function processMarkdown(content, filePath) {
 
     return {
       cacheVersion: CACHE_VERSION,
+      sourceHash: hashSource(content),
       html,
       title: extractedTitle,
       metadata: {

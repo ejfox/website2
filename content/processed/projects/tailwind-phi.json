@@ -1,5 +1,6 @@
 {
-  "cacheVersion": "2026-05-13-gear-cards",
+  "cacheVersion": "2026-10-05-source-hash",
+  "sourceHash": "f48c34522513c7e6152824135168262b97191e9bb581cc18a26dfab228e62537",
   "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A set of Φ-powered Tailwind classes — spacing and sizing scaled by the golden ratio instead of an arbitrary step scale.</p>\n<figure role=\"figure\" aria-label=\"Panning the golden-ratio scale — every phi utility with live previews\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/projects/tailwind-phi/demo.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/projects/tailwind-phi/demo.mp4\" aria-label=\"Panning the golden-ratio scale — every phi utility with live previews\"></video><figcaption class=\"\">Panning the golden-ratio scale — every phi utility with live previews</figcaption></figure>",
   "title": "Tailwind Φ",
   "metadata": {
@@ -21,14 +22,14 @@
       "css",
       "tool"
     ],
-    "words": 47,
+    "words": 45,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

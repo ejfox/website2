@@ -27,7 +27,7 @@ import {
 } from '@vueuse/core'
 
 // ── tuning ───────────────────────────────────────────────────────────────────
-const AREA_PER_PARTICLE = 24000 // px² of viewport per particle — VERY sparse
+const AREA_PER_PARTICLE = 48000 // px² of viewport per particle — VERY sparse
 const PAGE_DEPTH = 0.72 // z above this draws over the content (~20% of them)
 const PIXEL = 1 // CSS px per particle
 const DAMPING = 0.955 // per-frame velocity decay (glide length)

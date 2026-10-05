@@ -43,6 +43,16 @@ jobs:
     - name: Process markdown
       run: yarn blog:process
 
+    # The exact content this deploy ships. send-webmentions + mirror-atproto
+    # run after a successful deploy and read THIS, not the checkout's
+    # committed JSON (stale for markdown-only commits, e.g. from Dispatch).
+    - name: Upload processed content
+      uses: actions/upload-artifact@v4
+      with:
+        name: processed-content
+        path: content/processed
+        retention-days: 7
+
     - name: Build (node-server preset)
       run: NITRO_PRESET=node-server yarn build
       env:
@@ -55,7 +65,11 @@ jobs:
           exit 1
         fi
         echo "Build OK: $(du -sh .output | cut -f1)"
-        tar czf website2-output.tar.gz .output
+        # Ship the processed content CI just generated. The server reads
+        # content/processed relative to its cwd (the VPS git checkout), so
+        # without this, prod served whatever JSON happened to be committed —
+        # a markdown-only edit deployed green and changed nothing.
+        tar czf website2-output.tar.gz .output content/processed
 
     - name: Upload build to VPS
       uses: appleboy/scp-action@v0.1.7
@@ -80,10 +94,13 @@ jobs:
 
           cd /data2/website2
 
-          # Capture before/after commits
+          # Capture before/after commits. Check out the EXACT commit this run
+          # built — not origin/main, which a queued later merge may have moved.
+          BUILT_SHA="${{ github.sha }}"
+          PREV_SHA=$(git rev-parse HEAD)
           PREV_COMMIT=$(git rev-parse --short HEAD)
           git fetch origin main
-          git reset --hard origin/main
+          git reset --hard "$BUILT_SHA"
           NEW_COMMIT=$(git rev-parse --short HEAD)
 
           # Get commit info for alert
@@ -98,34 +115,73 @@ jobs:
           # must leave the running site untouched, not headless. (Root cause of the
           # 2026-09-14 outage: rm -rf .output ran before a failed extract → the box
           # had no .output/server/index.mjs at the next pm2 restart → 502.)
-          rm -rf .output.staging
-          mkdir .output.staging
-          # tarball contains a top-level ".output/" dir; strip it into staging
-          tar xzf /tmp/website2-output.tar.gz -C .output.staging --strip-components=1
+          rm -rf .deploy.staging
+          mkdir .deploy.staging
+          # tarball holds .output/ and content/processed/
+          tar xzf /tmp/website2-output.tar.gz -C .deploy.staging
           rm -f /tmp/website2-output.tar.gz
 
-          # Verify the STAGED build before touching the live one
-          if [ ! -f .output.staging/server/index.mjs ]; then
-            echo "ERROR: staged .output/server/index.mjs not found — keeping live build!"
-            rm -rf .output.staging
+          # Verify the STAGED build + content before touching the live ones
+          if [ ! -f .deploy.staging/.output/server/index.mjs ] || \
+             [ ! -f .deploy.staging/content/processed/manifest-lite.json ]; then
+            echo "ERROR: staged build or manifest missing — keeping live build!"
+            rm -rf .deploy.staging
+            git reset --hard "$PREV_SHA"
             ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — bad transfer, live site untouched"
             exit 1
           fi
 
-          # Swap: keep the previous build as .output.old for one-command rollback
+          # Snapshot current processed content for rollback, then lay CI's
+          # over the checkout. private/ (sealed envelopes) stays git's: a
+          # processing bug must never be able to delete one.
+          rm -rf .processed.old
+          cp -a content/processed .processed.old
+          rsync -a --delete --exclude 'private/' \
+            .deploy.staging/content/processed/ content/processed/
+
+          # Swap: keep the previous build as .output.old for rollback
           rm -rf .output.old
           [ -d .output ] && mv .output .output.old
-          mv .output.staging .output
+          mv .deploy.staging/.output .output
+          rm -rf .deploy.staging
 
           # Graceful reload via pm2
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           pm2 reload website2
 
-          # Wait for healthy
-          sleep 5
+          # Verify the NEW build is what's serving: healthcheck must return
+          # 200 (manifest ok) AND report the commit we built. Anything else
+          # rolls back automatically — a green run means the site works.
           HEALTH="❌"
-          curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1 && HEALTH="✅"
+          for i in $(seq 1 15); do
+            sleep 2
+            BODY=$(curl -sf http://localhost:3006/api/healthcheck 2>/dev/null || true)
+            SERVING=$(echo "$BODY" | grep -o '"commit":"[^"]*"' | cut -d'"' -f4)
+            if [ -n "$SERVING" ] && [ "${BUILT_SHA#$SERVING}" != "$BUILT_SHA" ] && \
+               echo "$BODY" | grep -q '"manifest":"ok"'; then
+              HEALTH="✅"
+              break
+            fi
+          done
+
+          if [ "$HEALTH" != "✅" ]; then
+            echo "ERROR: new build not healthy (serving: ${SERVING:-nothing}) — rolling back"
+            rm -rf .output.failed
+            mv .output .output.failed
+            mv .output.old .output
+            git reset --hard "$PREV_SHA"
+            rsync -a --delete --exclude 'private/' .processed.old/ content/processed/
+            pm2 reload website2
+            ALERT_FORCE=1 $ALERT website error "**❌ Deploy ROLLED BACK** \`${NEW_COMMIT}\` failed its health check (serving: ${SERVING:-nothing}). Back on \`${PREV_COMMIT}\`. Failed build kept at .output.failed"
+            exit 1
+          fi
+
+          # Warm the SSR listings (and /api/github's cache) so the first real
+          # visitor after a restart doesn't pay the ~2.5s cold render.
+          for p in / /blog /projects; do
+            curl -s -o /dev/null "http://localhost:3006$p" || true
+          done
 
           # Process stats
           PROCESS_MEM=$(pm2 info website2 2>/dev/null | grep -i memory | head -1 | awk '{print $NF}' || echo "?")
@@ -142,3 +198,19 @@ jobs:
           **Built on GH runner** | **total:${DEPLOY_TIME}s**"
 
           ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"
+
+    # The VPS step already proved localhost serves the new commit (or rolled
+    # back and failed). This proves the public path — tunnel + Cloudflare —
+    # serves it too, so a green run means ejfox.com itself is updated.
+    - name: Verify public site serves this commit
+      run: |
+        for i in $(seq 1 10); do
+          SERVING=$(curl -sf "https://ejfox.com/api/healthcheck?v=${GITHUB_SHA}" | grep -o '"commit":"[^"]*"' | cut -d'"' -f4 || true)
+          if [ -n "$SERVING" ] && [ "${GITHUB_SHA#$SERVING}" != "$GITHUB_SHA" ]; then
+            echo "✅ ejfox.com serving ${SERVING}"
+            exit 0
+          fi
+          sleep 3
+        done
+        echo "❌ ejfox.com is serving '${SERVING:-nothing}', expected ${GITHUB_SHA:0:8}"
+        exit 1
