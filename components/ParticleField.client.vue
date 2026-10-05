@@ -30,7 +30,7 @@ const PIXEL = 1 // CSS px per particle
 const DAMPING = 0.955 // per-frame velocity decay (glide length)
 const JIGGLE = 0.035 // brownian kick per frame
 const DRIFT = 0.06 // ambient drift speed (px/frame at z=1)
-const PARALLAX = 0.45 // scroll parallax at z=1
+const PARALLAX = 0.08 // scroll parallax at z=1 — barely-there depth cue
 const CLICK_FORCE = 9
 const CLICK_RADIUS = 360
 const GUST_FORCE = 6
