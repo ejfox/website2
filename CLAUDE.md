@@ -152,11 +152,33 @@ yarn build
 Production runs under **pm2** as `website2` on the VPS (`ssh vps`), listening on `localhost:3006`.
 Cloudflare Tunnel `tools-tunnel` routes `ejfox.com` → `localhost:3006`.
 
-**GitHub Actions** (`.github/workflows/deploy.yml`) handles automated deploys on push to `main`:
-1. Builds on the GH runner (not the VPS — the VPS has a Nitro build bug)
-2. Packages `.output/` as tarball
+**GitHub Actions** (`.github/workflows/deploy.yml`) handles automated deploys on push to `main`.
+A commit to main is the ONLY human step — a green run means ejfox.com serves it:
+1. Processes markdown + builds on the GH runner (not the VPS — Nitro build bug)
+2. Packages `.output/` **and `content/processed/`** as one tarball
 3. Uploads via `appleboy/scp-action`
-4. SSHs in to extract, reload pm2, health check, send Discord alert
+4. On the VPS: checks out the EXACT built SHA, lays CI's `content/processed`
+   over the checkout (`private/` excluded — sealed envelopes stay git's),
+   swaps `.output`, reloads pm2
+5. Polls `/api/healthcheck` until it reports the built commit + `manifest: ok`.
+   If not within ~30s it **rolls back automatically** (`.output.old`, previous
+   SHA, `.processed.old`), alerts Discord, and fails the run
+6. Verifies the public URL (through Cloudflare) serves the commit too
+
+**Why CI's processed content is shipped:** pm2's cwd is `/data2/website2` and the
+API reads `process.cwd()/content/processed` — i.e. the VPS *git checkout*. Before
+2026-10-05 prod served whatever JSON was committed, so a markdown-only edit (a
+Dispatch publish, or `draft: true`) deployed green and changed nothing.
+
+**Processing cache is keyed on a content hash** (`sourceHash` in each JSON), not
+mtimes — mtimes are meaningless on a fresh clone. Committed JSON is now only a
+cache that keeps CI fast (a cold full reprocess is ~6 min); prod never serves it.
+Drafting a post deletes its stale JSON.
+
+Deploys are serialized (`concurrency: deploy-production`, queue not cancel).
+`send-webmentions` and `mirror-atproto` run on `workflow_run` after a
+**successful** deploy and read the `processed-content` artifact it uploaded.
+`yarn deploy` pushes and watches that commit's run to completion.
 
 ```bash
 # Automated deploy: just push to main
@@ -166,6 +188,8 @@ git push origin main    # triggers GH Actions, ~3 min end-to-end
 # NEVER `rm -rf .output && tar xzf` in one step: a truncated tarball leaves the
 # box with no .output/server/index.mjs → 502 on the next pm2 restart (this caused
 # the 2026-09-14 outage). Stage, verify, then swap; keep .output.old for rollback.
+# (The automated deploy also ships content/processed — see above. This manual
+# path ships .output only, so it serves the VPS checkout's committed JSON.)
 NITRO_PRESET=node-server yarn build
 tar czf /tmp/website2-output.tar.gz .output
 scp /tmp/website2-output.tar.gz vps:/tmp/
@@ -393,19 +417,18 @@ A post goes public at `publishAt` (frontmatter), falling back to its `date`. So
 a future `date` alone schedules a post — and `publishAt` lets the displayed date
 differ from the moment it goes live.
 
-**The post URL goes live on its own; listings need a rebuild.** Unlike a `draft`
-(whose JSON is never written), a scheduled post *is* processed into
-`content/processed/` at build time and gated at **request** time — so
-`/blog/<slug>` starts serving the moment `publishAt` passes, with no cron and no
-deploy. But `/`, `/blog` and `/projects` are in `PRERENDERED_ROUTES`
-(`nuxt.config.ts`), so those listings keep serving their build-time HTML until
-the next deploy. Plan on a rebuild (or just push something) around the publish
-time if you want the post *discoverable* immediately, not merely reachable.
+**Fully automatic — no rebuild needed.** Unlike a `draft` (whose JSON is never
+written), a scheduled post *is* processed into `content/processed/` and gated at
+**request** time, so `/blog/<slug>` serves the moment `publishAt` passes. Since
+2026-10-05 the listings `/`, `/blog` and `/projects` are SSR (`LIVE_LISTINGS` in
+`nuxt.config.ts`, not prerendered), so the post is *listed* at that moment too.
+Keep anything those pages fetch per request fast or cached — `/api/github` is
+a cached handler for exactly this reason (it takes 3–5s live).
 
-Two more delays worth knowing: `/api/photo-posts` and `/api/suggest` cache for
-an hour, and `/blog/**` carries `max-age=3600, s-maxage=86400` — so a visitor who
-hits the URL *before* publish time can cache that 404 for up to an hour, and the
-edge up to a day. Purge the CDN if that matters.
+One delay worth knowing: `/api/photo-posts` and `/api/suggest` cache for an
+hour. Page caching is not a concern: `/blog/**` is `max-age=0` (browsers
+revalidate) and Cloudflare doesn't cache HTML (`cf-cache-status: DYNAMIC`), so
+there is nothing to purge.
 
 **Timezone:** `publishAt: 2026-10-01` is parsed as **UTC midnight** — 8pm Sep 30
 Eastern, i.e. the previous evening. Unquoted date-likes are coerced to UTC by the
