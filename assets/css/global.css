@@ -284,7 +284,9 @@ p,
 }
 
 .md-pre {
-  @apply relative rounded-lg overflow-hidden shadow-sm max-w-prose mx-auto;
+  /* No max-w-prose: code reads best at the full column (and wider, see the
+     sidenote-gutter breakout below) — 65ch clipped most real code lines */
+  @apply relative rounded-lg overflow-hidden shadow-sm;
 }
 
 .md-table {
@@ -1361,8 +1363,9 @@ img[data-loading='lazy']::before {
    ======================================== */
 @media (min-width: 1280px) {
   .blog-post-content {
+    --sidenote-gutter: 240px;
     position: relative;
-    margin-right: 240px;
+    margin-right: var(--sidenote-gutter);
   }
 
   /* Bigger blog images: the 240px right margin above reserves the sidenote
@@ -1370,10 +1373,15 @@ img[data-loading='lazy']::before {
      wider than the text measure. Let figures + standalone images reclaim that
      gutter and run full-width. The <img> inside a figure stays w-full, so it
      fills the widened figure without double-counting. clear:right keeps a
-     full-width figure from colliding with a floated sidenote above it. */
+     full-width figure from colliding with a floated sidenote above it.
+     Code blocks and lone-image paragraphs (markdown wraps a bare image or
+     video in <p>) get the same breakout — long code lines were clipped at
+     the 65ch measure while the gutter sat empty. */
   .blog-post-content figure,
-  .blog-post-content > img {
-    width: calc(100% + 240px) !important;
+  .blog-post-content > img,
+  .blog-post-content > pre,
+  .blog-post-content > p:has(> img:only-child) {
+    width: calc(100% + var(--sidenote-gutter)) !important;
     max-width: none !important;
     clear: right;
   }
@@ -1402,7 +1410,7 @@ img[data-loading='lazy']::before {
 
 @media (min-width: 1536px) {
   .blog-post-content {
-    margin-right: 260px;
+    --sidenote-gutter: 260px;
   }
 
   .sidenote {
