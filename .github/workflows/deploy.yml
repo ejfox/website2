@@ -5,6 +5,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# One production deploy at a time. Back-to-back merges used to launch
+# overlapping runs racing to swap .output on the VPS. Queue, never cancel:
+# killing a run mid-extract is how a half-written .output 502s the site.
+# GitHub keeps only the newest pending run, which contains every commit.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
