@@ -42,6 +42,15 @@ export default defineEventHandler(async () => {
           related: data.related || [],
           updates: data.updates || [],
           updatedAt: data.updatedAt,
+          // Provenance that is actually checkable today: the public commit that
+          // recorded the prediction (GitHub shows its timestamp and contents).
+          // NOT exposed, deliberately:
+          // - `hash`: as of 2026-10-05, 0 of 15 stored SHA-256s reproduce from the
+          //   committed file (predict-pro.mjs hashes a gray-matter re-serialization,
+          //   which drifts). A hash nobody can reproduce isn't proof.
+          // - `signed`: only a timestamp; no PGP signature exists anywhere.
+          // TODO: a reproducible hash recipe + real signatures (EJ's signing subkey).
+          gitCommit: data.gitCommit,
         }
       })
     )

@@ -209,6 +209,9 @@ export default defineEventHandler(async (event) => {
       resolutionHtml,
       updates: data.updates || [],
       relatedPredictions,
+      // Committed, checkable on GitHub. Hash + "signed" deliberately not exposed
+      // (see predictions.get.ts). TODO: reproducible hash + real signatures.
+      gitCommit: data.gitCommit,
     }
   }
 
