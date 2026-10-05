@@ -1546,6 +1546,7 @@ export const stories = {
     },
   ],
   DebugGrid: [{ name: 'default', props: {} }],
+  ParticleField: [{ name: 'default', props: {} }],
   Footer: [{ name: 'default', props: {} }],
   NewsletterSignup: [{ name: 'default', props: {} }],
   DispatchReceipts: [

@@ -27,9 +27,12 @@ const linkClasses =
        pinned to the viewport bottom on short pages, and #app-container is
        natural-height (no min-h / no flex-1) so short posts don't get a void
        above the footer — the leftover space falls below it as background. -->
+  <!-- `isolate` makes this root a stacking context so ParticleField's
+       z-index:-1 layer paints above bg-surface but beneath all content -->
   <div
-    class="w-full min-h-screen flex flex-col bg-surface text-zinc-900 dark:text-zinc-100"
+    class="w-full min-h-screen flex flex-col isolate bg-surface text-zinc-900 dark:text-zinc-100"
   >
+    <ParticleField />
     <div
       id="app-container"
       :class="['w-full min-w-0', isStatsSimple ? '' : 'layout-grid']"
