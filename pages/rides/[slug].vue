@@ -899,7 +899,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
 
           <!-- live readout: the instrument chip -->
           <div
-            class="absolute top-4 left-4 md:top-8 md:left-8 font-mono tabular-nums bg-white/80 dark:bg-zinc-950/80 backdrop-blur border border-zinc-200 dark:border-zinc-800 px-3 py-2"
+            class="absolute top-4 left-4 md:top-8 md:left-8 font-mono tabular-nums bg-white/80 dark:bg-black/80 backdrop-blur border border-zinc-200 dark:border-zinc-800 px-3 py-2"
           >
             <div class="flex items-baseline gap-x-4 text-2xs">
               <span>
@@ -1011,7 +1011,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
           <article
             v-if="currentMoment"
             :key="currentMoment.id"
-            class="absolute bottom-24 right-4 md:right-8 w-72 md:w-80 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border border-zinc-200 dark:border-zinc-800 p-4"
+            class="absolute bottom-24 right-4 md:right-8 w-72 md:w-80 bg-white/90 dark:bg-black/90 backdrop-blur border border-zinc-200 dark:border-zinc-800 p-4"
           >
             <img
               v-if="currentMoment.photo"

@@ -254,7 +254,7 @@ watch(() => props.commits, draw)
   }
 
   .canvas-container {
-    background: #18181b;
+    background: #000;
   }
 
   .commit-tooltip {
