@@ -78,9 +78,6 @@ const buildTitle = computed(() => {
         >
           github
         </a>
-        <a href="https://twitter.com/mrejfox" rel="me" :class="navLinkClasses">
-          twitter
-        </a>
         <a
           href="https://mastodon.social/@ejfox"
           rel="me"

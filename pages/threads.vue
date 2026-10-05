@@ -40,8 +40,16 @@ const AMBIENT_AMP = 1.1
 
 // =============================================================================
 
-const { data: postsData } = await useFetch('/api/manifest', { lazy: true })
-const { data: scrapsData } = await useFetch('/api/scraps', { lazy: true })
+// Canvas-only page: fetch client-side so the graph data isn't serialized into
+// the SSR payload (that made /threads ~3.9MB of HTML)
+const { data: postsData } = await useFetch('/api/manifest', {
+  lazy: true,
+  server: false,
+})
+const { data: scrapsData } = await useFetch('/api/scraps/graph', {
+  lazy: true,
+  server: false,
+})
 
 const posts = computed(() => postsData.value || [])
 const scraps = computed(() => scrapsData.value || [])

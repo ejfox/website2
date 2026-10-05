@@ -204,12 +204,6 @@ usePageSeo({
               external
             />
             <SitemapLink
-              to="https://twitter.com/ejfox"
-              title="Twitter"
-              description="Thoughts and updates"
-              external
-            />
-            <SitemapLink
               to="https://linkedin.com/in/ejfox"
               title="LinkedIn"
               description="Professional network and experience"

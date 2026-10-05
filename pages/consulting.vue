@@ -140,14 +140,6 @@ const { data: calSlots } = useLazyFetch('/api/cal/available-slots', {
   server: false,
 })
 
-// GitHub stats for live repo count (lazy - not critical for SSR)
-const { data: stats } = useLazyFetch('/api/stats', {
-  default: () => ({ github: { stats: { totalRepos: 0 } } }),
-  server: false,
-})
-
-const githubRepos = computed(() => stats.value?.github?.stats?.totalRepos || 0)
-
 // Track when #book section is visible — hide floating CTA
 const bookSection = ref<HTMLElement | null>(null)
 const bookVisible = useElementVisibility(bookSection)
@@ -368,7 +360,7 @@ usePageSeo({
           , and companies I can't name. The common thread: people with a hard
           problem and not enough time.
         </p>
-        <div class="grid grid-cols-3 gap-6 text-center py-6 divider-y">
+        <div class="grid grid-cols-2 gap-6 text-center py-6 divider-y">
           <div>
             <p class="stat-value">10+</p>
             <p class="stat-label">industries</p>
@@ -376,10 +368,6 @@ usePageSeo({
           <div>
             <p class="stat-value">13</p>
             <p class="stat-label">years shipping</p>
-          </div>
-          <div>
-            <p class="stat-value">{{ githubRepos }}</p>
-            <p class="stat-label">public repos</p>
           </div>
         </div>
       </section>
@@ -527,32 +515,28 @@ usePageSeo({
               <p class="pricing-title">Validate</p>
               <p class="pricing-desc">Prototype you can demo · ~1 week</p>
             </div>
-            <p class="price">$6,250</p>
           </div>
           <div class="pricing-row">
             <div>
               <p class="pricing-title">Build</p>
               <p class="pricing-desc">Production-ready · ~2 weeks</p>
             </div>
-            <p class="price">$12,500</p>
           </div>
           <div class="pricing-row">
             <div>
               <p class="pricing-title">Transform</p>
               <p class="pricing-desc">End-to-end system · ~4 weeks</p>
             </div>
-            <p class="price">$25,000</p>
           </div>
           <div class="pricing-row">
             <div>
               <p class="pricing-title">Retained</p>
               <p class="pricing-desc">Ongoing access · 10&ndash;30 hrs/week</p>
             </div>
-            <p class="price-muted">Inquire</p>
           </div>
         </div>
 
-        <p class="caption">50% upfront, 50% on delivery · $175/hr</p>
+        <p class="caption">50% upfront, 50% on delivery</p>
       </section>
 
       <!-- FAQ -->
@@ -795,14 +779,6 @@ usePageSeo({
    ============================================ */
 .stat-value {
   @apply font-mono text-2xl text-zinc-900 dark:text-zinc-100;
-}
-
-.price {
-  @apply font-mono text-lg text-zinc-900 dark:text-zinc-100;
-}
-
-.price-muted {
-  @apply font-mono text-zinc-500 dark:text-zinc-400;
 }
 
 /* ============================================
