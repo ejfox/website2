@@ -60,7 +60,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   @page { size: Letter; margin: 0.5in 0.65in 0.5in 0.65in; }
   :root { --teal: #1f5a73; --rule: #8fb4c2; --ink: #2b2b2b; --muted: #5f6368; }
   * { box-sizing: border-box; }
-  body { margin: 0; color: var(--ink); font: 9.4pt/1.38 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  body { margin: 0; color: var(--ink); font: 9.3pt/1.34 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   h1 { margin: 0; color: var(--teal); font-size: 30pt; font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; }
   .top-rule { height: 4px; background: var(--rule); margin: 6px 0 22px; }
   .cols { display: grid; grid-template-columns: 1.75in 1fr; gap: 0.3in; }
