@@ -97,6 +97,10 @@ usePageSeo({
           class="font-serif prose prose-zinc dark:prose-invert max-w-none text-lg leading-8"
           v-html="indexContent.html"
         />
+        <!-- Evidence, not adjectives: third-party sources that name EJ, then
+             engagement volume per year (utils/careerRecord.js) -->
+        <HomeReceipts />
+        <HomeTimeline />
       </template>
     </div>
 
