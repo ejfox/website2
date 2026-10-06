@@ -19651,37 +19651,6 @@
     }
   },
   {
-    "slug": "week-notes/2025-16",
-    "title": "2025 16",
-    "date": "2025-04-15T16:01:39.000Z",
-    "type": "post",
-    "modified": "2025-08-28T19:08:25.000Z",
-    "tags": [
-      "development"
-    ],
-    "toc": [],
-    "metadata": {
-      "date": "2025-04-15T16:01:39.000Z",
-      "modified": "2025-08-28T19:08:25.000Z",
-      "tags": [
-        "development"
-      ],
-      "words": 351,
-      "images": 16,
-      "imageDetails": {
-        "total": 16,
-        "cloudinary": 16,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "slug": "week-notes/2025-16"
-    }
-  },
-  {
     "slug": "week-notes/2025-17",
     "title": "2025-17",
     "date": "2025-04-21T20:22:04.000Z",
