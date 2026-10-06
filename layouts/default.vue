@@ -59,9 +59,12 @@ const linkClasses =
         v-if="!isStatsSimple"
         class="layout-mobile-nav md:hidden print:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline"
       >
-        <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
-          EJ Fox
-        </NuxtLink>
+        <span class="inline-flex items-baseline gap-1">
+          <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
+            EJ Fox
+          </NuxtLink>
+          <PaperclipStatus />
+        </span>
         <template v-for="item in primaryNav" :key="item.href">
           <NuxtLink
             v-if="item.href !== '/'"
@@ -83,12 +86,15 @@ const linkClasses =
         class="layout-sidebar hidden md:flex md:flex-col w-[200px] px-3 py-4 font-mono sticky top-0 self-start max-h-screen overflow-y-auto z-50"
       >
         <div class="space-y-2">
-          <NuxtLink
-            class="text-zinc-800 dark:text-zinc-400 text-xl font-bold p-2 mb-4 block"
-            to="/"
-          >
-            EJ Fox
-          </NuxtLink>
+          <div class="flex items-baseline gap-1 p-2 mb-4">
+            <NuxtLink
+              class="text-zinc-800 dark:text-zinc-400 text-xl font-bold whitespace-nowrap"
+              to="/"
+            >
+              EJ Fox
+            </NuxtLink>
+            <PaperclipStatus show-time />
+          </div>
 
           <template v-for="item in primaryNav" :key="item.href">
             <a
