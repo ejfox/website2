@@ -478,45 +478,46 @@ onMounted(() => {
       })
       .slice(0, 8)
 
-    // Scroll reveal for content elements (headings, images, blockquotes, code)
-    const revealTargets = Array.from(
-      articleContent.value.querySelectorAll(
-        'h2, h3, h4, figure, img, blockquote, pre'
-      )
-    )
-    if (revealTargets.length) {
-      import('animejs').then(({ animate }) => {
-        const revealSeen = new WeakSet()
-        revealTargets.forEach((el) => {
-          // Only animate elements below the fold
-          if (el.getBoundingClientRect().top < window.innerHeight) return
-          const htmlEl = el
-          htmlEl.style.opacity = '0'
-          htmlEl.style.transform = 'translateY(6px)'
-
-          const obs = new IntersectionObserver(
-            ([entry]) => {
-              if (entry.isIntersecting && !revealSeen.has(el)) {
-                revealSeen.add(el)
-                obs.disconnect()
-                animate(htmlEl, {
-                  opacity: [0, 1],
-                  translateY: [6, 0],
-                  duration: 180,
-                  ease: 'outQuad',
-                  onComplete: () => {
-                    htmlEl.style.opacity = ''
-                    htmlEl.style.transform = ''
-                  },
-                })
-              }
-            },
-            { threshold: 0.01 }
+    // Scroll reveal for content elements (headings, images, blockquotes, code).
+    // The nudge uses the standalone `translate` property, NOT `transform`:
+    // splayed images carry their tilt in CSS `transform: rotate(...)`, and an
+    // inline transform would flatten them until the reveal finished — then the
+    // tilt snapped in. `translate` composes with it, so the rotation is
+    // already there when you scroll to the image.
+    const reduceMotion = window.matchMedia?.(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+    const revealTargets = reduceMotion
+      ? []
+      : Array.from(
+          articleContent.value.querySelectorAll(
+            'h2, h3, h4, figure, img, blockquote, pre'
           )
-          obs.observe(el)
-        })
-      })
-    }
+        )
+    revealTargets.forEach((el) => {
+      // Only animate elements below the fold
+      if (el.getBoundingClientRect().top < window.innerHeight) return
+      el.style.opacity = '0'
+      el.style.translate = '0 6px'
+
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return
+          obs.disconnect()
+          el.style.opacity = ''
+          el.style.translate = ''
+          el.animate(
+            [
+              { opacity: 0, translate: '0 6px' },
+              { opacity: 1, translate: '0 0' },
+            ],
+            { duration: 180, easing: 'ease-out' }
+          )
+        },
+        { threshold: 0.01 }
+      )
+      obs.observe(el)
+    })
   })
 })
 </script>
