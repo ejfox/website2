@@ -76,7 +76,7 @@ export function clean(text) {
 }
 
 /** Escape Cloudinary context delimiters (| and =) with backslashes. */
-const esc = (s) => s.replace(/([\\|=])/g, '\\$1')
+export const esc = (s) => s.replace(/([\\|=])/g, '\\$1')
 
 /**
  * Split into ≤CHUNK pieces whose concatenation is exactly `text`. Cloudinary
@@ -105,7 +105,7 @@ export function toContext(text, at) {
   return pairs.join('|')
 }
 
-async function addContext({ cloud, publicId }, context) {
+export async function addContext({ cloud, publicId }, context) {
   const { CLOUDINARY_API_KEY: key, CLOUDINARY_API_SECRET: secret } = process.env
   const ts = Math.floor(Date.now() / 1000)
   const params = { command: 'add', context, public_ids: publicId, timestamp: ts, type: 'upload' }

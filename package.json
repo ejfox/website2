@@ -49,6 +49,7 @@
     "check:sealed": "node scripts/meta/check-sealed.mjs",
     "check:images": "node scripts/meta/check-image-pii.mjs",
     "images:sync-ocr": "node scripts/meta/sync-ocr-to-cloudinary.mjs",
+    "images:unify": "node scripts/meta/unify-cloudinary-text.mjs",
     "seal:links": "node scripts/author/seal-links.mjs",
     "seal:import": "node scripts/blog/import-sealed.mjs",
     "seal": "npm run seal:import && npm run blog:process && npm run check:sealed",
