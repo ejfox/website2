@@ -18,6 +18,7 @@
  * Usage:
  *   node scripts/meta/sync-ocr-to-cloudinary.mjs           # dry run
  *   node scripts/meta/sync-ocr-to-cloudinary.mjs --write   # push
+ *   node scripts/meta/sync-ocr-to-cloudinary.mjs --write --limit 1   # try one first
  *
  * Needs CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET.
  * Already-pushed text is remembered in data/_tool-cache/ocr-cloudinary-synced.json
@@ -35,8 +36,11 @@ const SCAN = path.join(ROOT, 'data/image-pii-scan.json')
 const ALLOW = path.join(ROOT, 'data/image-pii-allow.json')
 
 const WRITE = process.argv.includes('--write')
+const limitAt = process.argv.indexOf('--limit')
+const LIMIT = limitAt === -1 ? Infinity : Number(process.argv[limitAt + 1])
 const CHUNK = 1000 // under Cloudinary's 1024-char value cap, after escaping
 const MAX_PARTS = 20
+const CHUNKING = 2 // bump when splitChunks changes
 const DELAY_MS = 150
 
 const readJson = async (f, fallback) => {
@@ -74,9 +78,28 @@ export function clean(text) {
 /** Escape Cloudinary context delimiters (| and =) with backslashes. */
 const esc = (s) => s.replace(/([\\|=])/g, '\\$1')
 
-export function toContext(text, at) {
+/**
+ * Split into ≤CHUNK pieces whose concatenation is exactly `text`. Cloudinary
+ * trims whitespace off each context value, so a piece may never start or end
+ * on whitespace — move the cut point back until both sides are non-space.
+ */
+export function splitChunks(text, size = CHUNK) {
   const chunks = []
-  for (let i = 0; i < text.length && chunks.length < MAX_PARTS; i += CHUNK) chunks.push(text.slice(i, i + CHUNK))
+  let i = 0
+  while (i < text.length && chunks.length < MAX_PARTS) {
+    let end = Math.min(i + size, text.length)
+    if (end < text.length) {
+      while (end > i + 1 && (/\s/.test(text[end]) || /\s/.test(text[end - 1]))) end--
+      if (end === i + 1) end = Math.min(i + size, text.length) // a 1000-char whitespace run: give up
+    }
+    chunks.push(text.slice(i, end))
+    i = end
+  }
+  return chunks
+}
+
+export function toContext(text, at) {
+  const chunks = splitChunks(text)
   const pairs = chunks.map((c, i) => `ocr_${i + 1}=${esc(c)}`)
   pairs.push(`ocr_parts=${chunks.length}`, `ocr_at=${at}`)
   return pairs.join('|')
@@ -125,7 +148,8 @@ async function main() {
     if (allow[url]) { skipped.allowlisted++; continue }
     const text = clean(raw)
     if (!isMeaningful(text)) { skipped.noise++; continue }
-    const hash = createHash('sha1').update(text).digest('hex').slice(0, 16)
+    // CHUNKING in the hash: a change to how text is split re-pushes everything.
+    const hash = createHash('sha1').update(`${CHUNKING}\n${text}`).digest('hex').slice(0, 16)
     if (synced[url] === hash) { skipped.unchanged++; continue }
     plan.push({ url, target, text, hash })
   }
@@ -148,7 +172,7 @@ async function main() {
 
   let ok = 0
   const failed = []
-  for (const p of plan) {
+  for (const p of plan.slice(0, LIMIT)) {
     try {
       await addContext(p.target, toContext(p.text, at))
       synced[p.url] = p.hash
