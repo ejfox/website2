@@ -42,6 +42,7 @@
     "start": "node .output/server/index.mjs",
     "clean": "rm -rf .nuxt dist .output node_modules/.cache",
     "build:prod": "NITRO_PRESET=node-server yarn build",
+    "resume:build": "node scripts/resume/build-resume.mjs",
     "deploy": "git push origin main && sleep 8 && gh run watch --exit-status $(gh run list --workflow deploy.yml --commit $(git rev-parse HEAD) --limit 1 --json databaseId -q '.[0].databaseId')",
     "capture": "node scripts/capture.mjs",
     "shoot": "node scripts/author/shoot-queue.mjs",

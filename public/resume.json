@@ -1,11 +1,13 @@
 {
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "EJ Fox",
-    "label": "Designer & Developer",
+    "label": "Design Engineer & Creative Technologist",
+    "image": "https://ejfox.com/images/me_full.png",
     "email": "ejfox@ejfox.com",
     "phone": "(260) 673-5369",
-    "website": "http://ejfox.com",
-    "summary": "Data visualization expert working at the intersection of design, journalism, and data. Experience working with a wide variety of clients and datasets to create work that makes complicated things easy to understand. Focusing on iterating quickly, building toolsets and teams, and telling important stories.",
+    "url": "https://ejfox.com",
+    "summary": "Design engineer and creative technologist who ships under pressure. I transform complex information into clear interactive visuals and have fun doing it. My work combines journalistic curiosity with an addiction to trying new things—from NBC’s election graphics to experimental embedding interfaces. I want to make things no one has seen before with smart, kind people.",
     "location": {
       "city": "Brooklyn",
       "region": "New York",
@@ -13,60 +15,232 @@
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "mrejfox",
-        "url": "http://twitter.com/mrejfox"
+        "network": "GitHub",
+        "username": "ejfox",
+        "url": "https://github.com/ejfox"
       },
       {
         "network": "LinkedIn",
+        "username": "ejfox",
         "url": "https://www.linkedin.com/in/ejfox/"
+      },
+      {
+        "network": "Projects",
+        "url": "https://ejfox.com/projects"
       }
     ]
   },
   "work": [
     {
-      "company": "NBC News",
+      "name": "Arizona State University NEWSWELL",
+      "position": "Lenfest AI Fellow",
+      "startDate": "2025-09",
+      "endDate": "2026-08",
+      "url": "https://www.lenfestinstitute.org/our-work/lenfest-ai-collaborative-and-fellowship-program/",
+      "summary": "Lenfest AI Collaborative and Fellowship Program, with support from OpenAI and Microsoft",
+      "highlights": [
+        "Built an AI-assisted tool that automates ad and content layout for hyperlocal print newspapers",
+        "Gave an Ignite talk on the work at ASU’s National Journalism + AI Accelerator (January 2026)",
+        "Demoed the tool to OpenAI, Microsoft, ProPublica and the Boston Globe at the program’s demo day"
+      ]
+    },
+    {
+      "name": "Independent Consultant",
+      "position": "Design Engineer & Creative Technologist",
+      "startDate": "2019",
+      "url": "https://ejfox.com/consulting",
+      "summary": "Select Clients: GitHub • NBC News • CBS News • Washington Post • New York Times • Carnegie Mellon • Stamen",
+      "highlights": [
+        "Specializing in tight-deadline projects that require fast iterative sprints and user testing – especially things no one has ever done before",
+        "Helped CBS News prototype their broadcast touchscreen app, analyzed newspaper front pages for the NY Times, and helped make geographic visualizations with the geniuses at Stamen for Meta",
+        "Comfortable working across design and engineering teams and with a wide array of technology stacks, adapting to everything from fresh startups to enterprise workflows",
+        "Published 50+ Observable notebooks, YouTube livestreams, and blog posts of in-progress work, experiments, and methodology - working in public at every opportunity"
+      ]
+    },
+    {
+      "name": "Room 302 Studio",
+      "position": "Founder",
+      "startDate": "2023",
+      "url": "https://room302.studio",
+      "summary": "Select Clients: The Associated Press • Wildlife Conservation Society • Earth Genome",
+      "highlights": [
+        "Founded prototyping shop focused on providing novel data visualization and analysis methods on tight deadlines",
+        "Built out LLM-powered studio manager as 'AI team member'",
+        "Transform rough ideas into polished demos clients can actually use to gain internal stakeholder support or get funding",
+        "Joined AP team as support for 2024 election coverage, delivered Webby-nominated work",
+        "Helped WCS map the story of coral reefs resisting climate change"
+      ]
+    },
+    {
+      "name": "NBC News",
       "position": "Senior Interactive Graphics Specialist",
-      "website": "http://nbcnews.com/specials",
-      "startDate": "2016-09-01",
-      "endDate": "2019-07-01",
-      "summary": "Worked across NBC News Digital and Broadcast teams to re-develop the “Big Board” application used by Chuck Todd (NBC News) and Steve Kornacki (MSNBC) to call elections on air. Helped lead the team that re-designed the app and updated it to use D3, Vue, and TopoJSON resulting in 'a newly juiced-up model of the board that can zoom in on the most obscure House districts' (NYTimes)."
+      "startDate": "2016",
+      "endDate": "2019",
+      "url": "https://www.nbcnews.com",
+      "highlights": [
+        "Rebuilt election night system praised by NYTimes as a “newly juiced-up” version of the Big Board in 2018, still used today"
+      ]
     },
     {
-      "company": "Vocativ",
+      "name": "Vocativ",
       "position": "Graphics Editor",
-      "website": "http://vocativ.com",
-      "startDate": "2014-10-01",
-      "endDate": "2016-05-01",
-      "summary": "Helped build Vocativ’s visual news team with a focus on data visualization and storytelling. Worked across the newsroom to find, create, analyze, and visualize a wide variety of datasets and stories. Created tools and processes to respond to a fast-paced news cycle with a small team."
+      "startDate": "2014",
+      "endDate": "2016",
+      "highlights": [
+        "Scaled output 20x through smart automation (5 monthly → 5 daily)",
+        "Won Knight Foundation grant for Dataproofer validation tool",
+        "Empowered reporters with self-service visualization platform, created data visualization templates, oversaw daily breaking news graphic production"
+      ]
     },
     {
-      "company": "Visual.ly",
+      "name": "GitHub",
+      "position": "Freelance",
+      "startDate": "2014",
+      "endDate": "2014",
+      "highlights": [
+        "Worked as a freelancer with the GitHub team to create “State of the Octoverse” website and visualizations"
+      ]
+    },
+    {
+      "name": "Visual.ly",
       "position": "Staff Designer",
-      "website": "http://visual.ly",
-      "startDate": "2011-03-01",
-      "endDate": "2012-03-01"
+      "startDate": "2011",
+      "endDate": "2012",
+      "highlights": [
+        "Core team building one of the first visualization-as-a-service platforms"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Subway Builder",
+      "entity": "Borough Studio",
+      "startDate": "2025",
+      "endDate": "2026",
+      "url": "https://store.steampowered.com/app/4039140/Subway_Builder/",
+      "description": "Credited developer on a transit-building game; shipped the desktop build and the Steam release (July 2026)"
+    },
+    {
+      "name": "Decision Desk HQ",
+      "startDate": "2025",
+      "endDate": "2026",
+      "description": "Engineering and design on election-results broadcast tools"
+    },
+    {
+      "name": "Global Energy Ownership Tracker",
+      "entity": "Global Energy Monitor",
+      "startDate": "2025",
+      "endDate": "2026",
+      "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker/",
+      "description": "Interactive explorer for corporate ownership of energy assets: ownership trees, embeddable cards, screener"
+    },
+    {
+      "name": "Paramilitary Leaks",
+      "startDate": "2025",
+      "url": "https://micahflee.com/step-by-step-guide-to-reading-the-leaked-militia-chats-yourself/",
+      "description": "Explorer and visualizations for a 200 GB leaked militia-chat dataset, credited in Micah Lee’s reporting"
+    },
+    {
+      "name": "NYPD misconduct network",
+      "entity": "WNYC/Gothamist",
+      "startDate": "2021",
+      "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
+      "description": "Network analysis of civilian-complaint data for an investigation into clusters of officers repeatedly accused of misconduct"
+    },
+    {
+      "name": "Climate TRACE",
+      "entity": "Earthrise Media",
+      "startDate": "2022",
+      "description": "Maps and data exploration of global emissions-asset data"
+    },
+    {
+      "name": "Ukraine grain",
+      "entity": "Earth Genome",
+      "startDate": "2022",
+      "endDate": "2023",
+      "description": "Scrollytelling data story on global food security"
+    },
+    {
+      "name": "COVIDcast",
+      "entity": "Carnegie Mellon University Delphi",
+      "startDate": "2020",
+      "url": "https://delphi.cmu.edu/about/team/",
+      "description": "Visualization prototypes for public COVID-19 indicators (contributor, Jul–Sep 2020)"
+    },
+    {
+      "name": "Election simulator",
+      "entity": "Washington Post Opinions",
+      "startDate": "2019",
+      "endDate": "2020",
+      "description": "Engineering on an interactive simulator built on David Byler’s election model"
+    },
+    {
+      "name": "Dark-money map",
+      "entity": "Mother Jones",
+      "startDate": "2012",
+      "url": "https://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money/",
+      "description": "Interactive map of the super PAC and dark-money universe (co-author)"
     }
   ],
   "skills": [
     {
+      "name": "Code",
       "keywords": [
-        "HTML",
-        "CSS",
-        "Javascript",
-        "SVG",
-        "Canvas",
+        "JavaScript",
+        "Python",
+        "Node.js",
+        "Vue",
+        "React",
+        "TypeScript",
+        "HTML/CSS",
+        "SQL"
+      ]
+    },
+    {
+      "name": "Graphics",
+      "keywords": [
         "D3",
-        "TopoJSON",
+        "Observable Plot",
+        "Three.js",
+        "WebGL",
+        "Canvas",
+        "SVG",
+        "TopoJSON"
+      ]
+    },
+    {
+      "name": "AI/ML",
+      "keywords": [
+        "LLM APIs",
+        "embedding visualization",
+        "context management",
+        "vector databases",
+        "prompt engineering",
+        "tool usage",
+        "alternative interfaces"
+      ]
+    },
+    {
+      "name": "Design & Motion",
+      "keywords": [
         "Illustrator",
         "Photoshop",
+        "Final Cut Pro",
         "After Effects",
-        "Premiere",
-        "Node",
-        "Vue",
-        "Data analysis",
-        "Information architecture",
-        "Project management"
+        "Principle",
+        "Figma",
+        "Animation (GSAP, Anime.js)"
+      ]
+    },
+    {
+      "name": "Methods",
+      "keywords": [
+        "Rapid prototyping",
+        "joy-driven development",
+        "component systems",
+        "public documentation",
+        "performance optimization",
+        "video demos"
       ]
     }
   ],
@@ -75,5 +249,9 @@
       "language": "English",
       "fluency": "Native speaker"
     }
-  ]
+  ],
+  "meta": {
+    "canonical": "https://ejfox.com/resume.json",
+    "lastModified": "2026-10-06"
+  }
 }
