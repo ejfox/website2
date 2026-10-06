@@ -661,6 +661,27 @@ and slugs only, never PII. An element already tagged with
 | `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
 | `read-complete` | reader passes 85% of `.h-entry .e-content` on /blog/** and /dispatch/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch) |
 
+**umami-plus (2026-10-06).** `plugins/umami.client.js` also loads the shared
+helper `https://umami-plus.tools.ejfox.com/umami-plus.js` (source and docs:
+`chart-desk/infra/umami-plus/`), the 3.4 tracker with `data-performance`
+(Web Vitals → Umami "Performance"), and `recorder.js` (heatmaps plus
+strict-masked session replay; sampling is set in the Umami DB, not here). The
+helper's own `outbound` / `rss-click` / `contact-email` are switched off because
+the plugin above already sends them. It adds:
+
+| event | when | props |
+|---|---|---|
+| `scroll-depth` | 25/50/75/100% of a scrollable page, once each per page view | `depth` |
+| `engaged` | 30s and 120s of *active* time (tab visible, input in the last 20s) | `seconds` |
+| `copy` | text copied (at most 10 per page) | `chars`, `code` (bool). Never the text. |
+| `download` | link to a file extension or `[download]` | `ext`, `file`, `host` |
+| `not-found` | `error.vue` rendered (`[data-not-found]`) | `path` |
+| `search` | page loaded with `?q=` / `?query=` / `?search=` / `?s=`, or a search form submitted | `q`, `via` |
+| (session data) | once per browser session, via `umami.identify` | `visitor` new/returning, `visits` bucket, `ref` class, `viewport` class, `theme` |
+
+Bump `?v=` in `plugins/umami.client.js` after changing the helper (Cloudflare
+caches it for hours).
+
 Umami ignores headless/bot user agents. To verify in a test, check the
 attributes and handlers, not database rows.
 
