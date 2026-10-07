@@ -127,12 +127,18 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
     // The webhook returns `qty` (and `avg` for rate-style metrics). There is no
     // `value` field — reading it silently yielded 0 across every trend. One extractor.
     const val = (m: MetricRecord): number => m.value ?? m.qty ?? m.avg ?? 0
+    // Calendar days are EJ's local (ET) days, not UTC: a UTC split moved every
+    // evening after 8pm ET into "tomorrow", and "today" used to be a rolling 24h.
+    const TZ = 'America/New_York'
+    const etDate = (d: Date): string =>
+      new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d)
+    const todayET = etDate(new Date())
     // Steps/exercise/distance are additive: sum every same-name row on a UTC day,
     // not .find() a single hourly sample.
     const sumOnDay = (name: string, dateStr: string): number =>
       metrics
         .filter(
-          (m: MetricRecord) => m.name === name && m.date.startsWith(dateStr)
+          (m: MetricRecord) => m.name === name && etDate(new Date(m.date)) === dateStr
         )
         .reduce((s: number, m: MetricRecord) => s + val(m), 0)
 
@@ -196,9 +202,7 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
     const dailyDistance: number[] = []
 
     for (let i = 6; i >= 0; i--) {
-      const date = new Date()
-      date.setDate(date.getDate() - i)
-      const dateStr = date.toISOString().split('T')[0]
+      const dateStr = etDate(new Date(Date.now() - i * 86400000))
       dailyDates.push(dateStr)
 
       dailySteps.push(sumOnDay('step_count', dateStr))
@@ -313,11 +317,11 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
 
     return {
       today: {
-        steps: sumMetric('step_count', 1),
-        standHours: sumMetric('apple_stand_hour', 1),
-        exerciseMinutes: sumMetric('apple_exercise_time', 1),
-        distance: sumMetric('walking_running_distance', 1),
-        calories: sumMetric('active_energy', 1),
+        steps: sumOnDay('step_count', todayET),
+        standHours: sumOnDay('apple_stand_hour', todayET),
+        exerciseMinutes: sumOnDay('apple_exercise_time', todayET),
+        distance: sumOnDay('walking_running_distance', todayET),
+        calories: sumOnDay('active_energy', todayET),
       },
       thisWeek: {
         steps: sumMetric('step_count', 7),
