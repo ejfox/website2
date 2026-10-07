@@ -338,6 +338,13 @@ export default defineNuxtConfig({
           'Cache-Control': 'no-store',
         },
       },
+      // Sponsor links (server/routes/go). Every hit must reach Umami, so no cache.
+      '/go/**': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
       '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // public/README.md (asset provenance notes) serves at /README.md — noindex it.
