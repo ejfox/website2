@@ -3,8 +3,13 @@
  * @description Fetches digital scrapbook entries from Supabase database with full metadata including tags, location, and relationships
  * @endpoint GET /api/scraps
  * @returns Array of scrap objects with content, tags, source info, geolocation, screenshots, and metadata, sorted by creation date descending
+ *
+ * Explicit columns + 1h cache, never select('*'): the scraps table carries three
+ * jsonb embedding columns (~13MB of a 17MB 500-row pull). Uncached select('*')
+ * on every /scraps and /scraps/tag/* render blew through the Supabase free-tier
+ * egress quota (5.5GB) in October 2026. Slim pull is ~3.4MB; at 1h that's
+ * ~2.5GB/month worst case. Don't shorten maxAge without redoing that math.
  */
-import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
 
@@ -33,8 +38,32 @@ interface Scrap {
   metadata: Record<string, unknown> | null
 }
 
-export default defineEventHandler(async (): Promise<Scrap[]> => {
-  try {
+const COLUMNS = [
+  'id',
+  'title',
+  'summary',
+  'url',
+  'content',
+  'created_at',
+  'updated_at',
+  'published_at',
+  'tags',
+  'concept_tags',
+  'type',
+  'source',
+  'content_type',
+  'location',
+  'latitude',
+  'longitude',
+  'screenshot_url',
+  'shared',
+  'relationships',
+  'extraction_confidence',
+  'metadata',
+].join(', ')
+
+export default defineCachedEventHandler(
+  async (): Promise<Scrap[]> => {
     const supabaseUrl = serverEnv('SUPABASE_URL')
     const supabaseKey = serverEnv('SUPABASE_KEY')
 
@@ -49,19 +78,20 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
     // Fetch recent shared scraps with a limit to prevent timeout
     const { data, error } = await supabase
       .from('scraps')
-      .select('*')
+      .select(COLUMNS)
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)
 
+    // Throw rather than return [] so a Supabase blip isn't cached for an hour
     if (error) {
       console.error('❌ Supabase query error:', error)
-      return []
+      throw createError({ statusCode: 502, message: 'Failed to fetch scraps' })
     }
 
-    // Map and clean the data, preserving all fields
-    // Cast Supabase data to expected shape - the select('*') returns the table row
-    const scraps: Scrap[] = (data || []).map((scrap) => ({
+    // Map and clean the data
+    const rows = (data || []) as unknown as Record<string, unknown>[]
+    const scraps: Scrap[] = rows.map((scrap) => ({
       id: String(scrap.id),
       title: (scrap.title as string) || null,
       summary: (scrap.summary as string) || null,
@@ -90,8 +120,6 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
     }))
 
     return scraps
-  } catch (error) {
-    console.error('❌ Error fetching scraps:', error)
-    return []
-  }
-})
+  },
+  { maxAge: 3600 }
+)
