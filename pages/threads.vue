@@ -909,7 +909,13 @@ if (import.meta.client) {
           class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
         >
           <input v-model="showPosts" type="checkbox" class="accent-white" />
-          <span :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'">
+          <span
+            :class="
+              showPosts
+                ? 'text-zinc-700 dark:text-zinc-300'
+                : 'text-zinc-400 dark:text-zinc-600'
+            "
+          >
             posts
           </span>
         </label>
@@ -963,25 +969,27 @@ if (import.meta.client) {
           <div class="space-y-1 font-mono text-3xs tabular-nums">
             <div class="flex justify-between">
               <span class="text-zinc-500">Posts</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ loadedPostCount }}/{{ filteredPostCount }}
               </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Scraps</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ loadedScrapCount }}/{{ filteredScrapCount }}
               </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Tags</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ graphData.nodes.filter((n) => n.type === 'tag').length }}
               </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Links</span>
-              <span class="text-zinc-300">{{ graphData.links.length }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ graphData.links.length }}
+              </span>
             </div>
           </div>
 
@@ -1000,7 +1008,11 @@ if (import.meta.client) {
               />
               <span
                 class="font-mono text-3xs"
-                :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'"
+                :class="
+                  showPosts
+                    ? 'text-zinc-700 dark:text-zinc-300'
+                    : 'text-zinc-400 dark:text-zinc-600'
+                "
               >
                 Posts
               </span>

@@ -816,6 +816,12 @@ body.peter-todd-takeover blockquote::before {
   display: none !important;
 }
 
+/* The global blockquote rule forces near-black (!important) in light mode,
+   which vanished on this always-dark page — pull quotes included */
+body.peter-todd-takeover blockquote {
+  color: var(--pt-text) !important;
+}
+
 /* Kill the pull quote blockquote ::before too */
 body.peter-todd-takeover .pull-quote-section blockquote::before {
   content: none !important;

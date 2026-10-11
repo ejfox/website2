@@ -162,7 +162,9 @@ function pathFor(r: ApiRoute) {
               </span>
               <span class="text-zinc-500">{{ r.deps }}</span>
               <span :class="healthClass[r.health]">{{ r.health }}</span>
-              <span v-if="r.note" class="text-amber-500/80">{{ r.note }}</span>
+              <span v-if="r.note" class="text-amber-700 dark:text-amber-500/80">
+                {{ r.note }}
+              </span>
             </div>
           </li>
         </ul>
