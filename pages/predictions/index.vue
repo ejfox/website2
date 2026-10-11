@@ -167,7 +167,7 @@ const deltaClass = (delta: number) => {
 usePageSeo({
   title: 'Predictions · EJ Fox',
   description:
-    'Public, timestamped predictions with SHA-256 hashes and calibration tracking.',
+    'Public, timestamped predictions, committed to a public repo, with Brier-score calibration tracking.',
   type: 'article',
   section: 'Forecasting',
   tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],

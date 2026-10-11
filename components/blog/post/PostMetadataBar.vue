@@ -6,6 +6,8 @@
 <script setup lang="ts">
 const props = defineProps<{
   date: string | null | undefined
+  /** Frontmatter `modified`: shows "edited" when it's a later day than `date` */
+  modified?: string | null
   stats: {
     readingTime: number
     words: number
@@ -41,6 +43,25 @@ const archives = computed(() => {
   ].filter(Boolean)
 })
 
+// Every published edit is a commit to the public repo, so the file's git log
+// IS the post's change history: no extra infrastructure, nothing to fake.
+const historyUrl = computed(() =>
+  props.slug
+    ? `https://github.com/ejfox/website2/commits/main/content/blog/${props.slug}.md`
+    : null
+)
+
+// Only call it "edited" when the edit landed on a later day than publication;
+// same-day saves are just the writing process.
+const editedDate = computed(() => {
+  if (!props.modified || !props.date) return null
+  const m = new Date(props.modified)
+  const d = new Date(props.date)
+  if (Number.isNaN(m.getTime()) || Number.isNaN(d.getTime())) return null
+  if (m.toISOString().slice(0, 10) <= d.toISOString().slice(0, 10)) return null
+  return formatShortDate(props.modified)?.toUpperCase() || null
+})
+
 const formattedDate = computed(() => {
   const d = formatShortDate(props.date)
   return d ? d.toUpperCase() : 'N/A'
@@ -59,6 +80,16 @@ function formatCompact(num: number): string {
     class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:gap-x-6 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
   >
     <span class="whitespace-nowrap">{{ formattedDate }}</span>
+    <a
+      v-if="editedDate && historyUrl"
+      :href="historyUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Every published edit is a commit in the public repo"
+      class="whitespace-nowrap text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+    >
+      edited {{ editedDate }} ↗
+    </a>
     <span class="whitespace-nowrap">{{ stats.readingTime }}min read</span>
     <span class="whitespace-nowrap">
       {{ formatCompact(stats.words) }} words

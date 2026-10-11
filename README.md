@@ -59,7 +59,7 @@ replyTo: https://example.com/post # IndieWeb reply (single or array)
 yarn predict --statement "X will happen" --confidence 75 --deadline 2025-12-31
 ```
 
-- SHA-256 + Git commit + optional PGP signing
+- Git commit as the checkable record (stored SHA-256 doesn't reproduce yet; PGP signing not yet in use)
 - AI quality analysis via OpenRouter
 - See `docs/predictions.md`
 

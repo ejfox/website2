@@ -550,6 +550,7 @@ onMounted(() => {
         >
           <PostMetadataBar
             :date="post?.metadata?.date || post?.date"
+            :modified="post?.metadata?.modified"
             :stats="readingStatsData"
             :slug="route.params.slug.join('/')"
             :atproto-url="atprotoUrl"
