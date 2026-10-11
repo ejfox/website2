@@ -56,7 +56,10 @@ const MODEL = 'anthropic/claude-haiku-4.5'
 
 const env = process.env
 const auth = () =>
-  'Basic ' + Buffer.from(`${env.CLOUDINARY_API_KEY}:${env.CLOUDINARY_API_SECRET}`).toString('base64')
+  'Basic ' +
+  Buffer.from(
+    `${env.CLOUDINARY_API_KEY}:${env.CLOUDINARY_API_SECRET}`
+  ).toString('base64')
 const readJson = async (f, d) => {
   try {
     return JSON.parse(await fs.readFile(f, 'utf8'))
@@ -70,13 +73,16 @@ async function listAllImages() {
   const all = []
   let cursor = null
   do {
-    const u = new URL(`https://api.cloudinary.com/v1_1/${env.CLOUDINARY_CLOUD_NAME}/resources/image/upload`)
+    const u = new URL(
+      `https://api.cloudinary.com/v1_1/${env.CLOUDINARY_CLOUD_NAME}/resources/image/upload`
+    )
     u.searchParams.set('max_results', '500')
     u.searchParams.set('context', 'true')
     if (cursor) u.searchParams.set('next_cursor', cursor)
     const res = await fetch(u, { headers: { Authorization: auth() } })
     const j = await res.json()
-    if (!res.ok) throw new Error(`Cloudinary list: ${JSON.stringify(j).slice(0, 200)}`)
+    if (!res.ok)
+      throw new Error(`Cloudinary list: ${JSON.stringify(j).slice(0, 200)}`)
     all.push(...j.resources)
     cursor = j.next_cursor
   } while (cursor)
@@ -99,14 +105,18 @@ async function markdownAlts() {
         continue
       }
       if (!f.endsWith('.md')) continue
-      const { data, content } = matter(await fs.readFile(f, 'utf8'))
+      const { content } = matter(await fs.readFile(f, 'utf8'))
       const isProject = f.includes(`${path.sep}projects${path.sep}`)
       const isWeekNote = f.includes(`${path.sep}week-notes${path.sep}`)
       for (const m of content.matchAll(/!\[([^\]]*)\]\(\s*<?([^)\s>]+)/g)) {
         const alt = norm(m[1])
         const target = parseCloudinary(m[2])
         if (!target || isJunkAlt(alt)) continue
-        const entry = out.get(target.publicId) || { project: [], essay: [], any: [] }
+        const entry = out.get(target.publicId) || {
+          project: [],
+          essay: [],
+          any: [],
+        }
         const tier = isProject ? entry.project : isWeekNote ? null : entry.essay
         if (tier && !tier.includes(alt)) tier.push(alt)
         if (!entry.any.includes(alt)) entry.any.push(alt)
@@ -122,13 +132,18 @@ function isBroken(alt, md) {
   if (!alt) return false
   if (/^https?:\/\//.test(alt) || /\/Users\/[a-z]/.test(alt)) return true
   // The old sync script turned `=` into a space.
-  return (md?.any || []).some((a) => a.includes('=') && norm(a.replace(/=/g, ' ')) === norm(alt))
+  return (md?.any || []).some(
+    (a) => a.includes('=') && norm(a.replace(/=/g, ' ')) === norm(alt)
+  )
 }
 
 async function summarize(long) {
   const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${env.OPENROUTER_API_KEY}`, 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: `Bearer ${env.OPENROUTER_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       model: MODEL,
       max_tokens: 120,
@@ -149,17 +164,28 @@ async function summarize(long) {
     signal: AbortSignal.timeout(60_000),
   })
   const j = await res.json()
-  if (!res.ok) throw new Error(`OpenRouter ${res.status}: ${JSON.stringify(j).slice(0, 200)}`)
+  if (!res.ok)
+    throw new Error(
+      `OpenRouter ${res.status}: ${JSON.stringify(j).slice(0, 200)}`
+    )
   return norm(j.choices?.[0]?.message?.content).replace(/^["'“]|["'”]$/g, '')
 }
 
 async function pool(items, n, fn) {
   let i = 0
-  await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) await fn(items[i++]) }))
+  await Promise.all(
+    Array.from({ length: n }, async () => {
+      while (i < items.length) await fn(items[i++])
+    })
+  )
 }
 
 async function main() {
-  for (const k of ['CLOUDINARY_CLOUD_NAME', 'CLOUDINARY_API_KEY', 'CLOUDINARY_API_SECRET']) {
+  for (const k of [
+    'CLOUDINARY_CLOUD_NAME',
+    'CLOUDINARY_API_KEY',
+    'CLOUDINARY_API_SECRET',
+  ]) {
     if (!env[k]) throw new Error(`${k} not set`)
   }
   const [images, md, cache, shortAlts] = await Promise.all([
@@ -168,12 +194,15 @@ async function main() {
     readJson(CACHE, {}),
     readJson(SHORT_ALTS, {}),
   ])
-  console.log(`${images.length} Cloudinary images · ${md.size} with markdown alt`)
+  console.log(
+    `${images.length} Cloudinary images · ${md.size} with markdown alt`
+  )
   // Repo-cache alts, last-resort source (e.g. a post removed since).
   const cacheAlt = new Map()
   for (const [url, v] of Object.entries(cache)) {
     const t = parseCloudinary(url)
-    if (t && v.alt && !isJunkAlt(v.alt) && !cacheAlt.has(t.publicId)) cacheAlt.set(t.publicId, norm(v.alt))
+    if (t && v.alt && !isJunkAlt(v.alt) && !cacheAlt.has(t.publicId))
+      cacheAlt.set(t.publicId, norm(v.alt))
   }
 
   // --- Decide -----------------------------------------------------------
@@ -209,18 +238,25 @@ async function main() {
     }
     const newAlt = set.alt ?? alt
     if (newAlt && norm(cu.caption) !== newAlt) set.caption = newAlt
-    if (!cu.description && cu.ai_description) set.description = cu.ai_description
+    if (!cu.description && cu.ai_description)
+      set.description = cu.ai_description
     if (newAlt) finalAlt.set(r.public_id, newAlt)
-    if (Object.keys(set).length || rule === 'summarize') plan.set(r.public_id, { before: cu, set, rule })
+    if (Object.keys(set).length || rule === 'summarize')
+      plan.set(r.public_id, { before: cu, set, rule })
   }
 
   // --- Summaries (rule 4) ----------------------------------------------
   if (needLlm.length) {
     if (!LLM || !env.OPENROUTER_API_KEY) {
-      console.log(`rule 4 skipped for ${needLlm.length} (${LLM ? 'no OPENROUTER_API_KEY' : '--no-llm'})`)
-      for (const id of needLlm) if (!Object.keys(plan.get(id).set).length) plan.delete(id)
+      console.log(
+        `rule 4 skipped for ${needLlm.length} (${LLM ? 'no OPENROUTER_API_KEY' : '--no-llm'})`
+      )
+      for (const id of needLlm)
+        if (!Object.keys(plan.get(id).set).length) plan.delete(id)
     } else {
-      console.log(`summarizing ${needLlm.length} long descriptions with ${MODEL}…`)
+      console.log(
+        `summarizing ${needLlm.length} long descriptions with ${MODEL}…`
+      )
       const byId = new Map(images.map((r) => [r.public_id, r]))
       let done = 0
       await pool(needLlm, 6, async (id) => {
@@ -236,7 +272,10 @@ async function main() {
         finalAlt.set(id, shortAlts[id])
         if (++done % 50 === 0) {
           console.log(`  ${done}/${needLlm.length}`)
-          await fs.writeFile(SHORT_ALTS, JSON.stringify(shortAlts, null, 1) + '\n')
+          await fs.writeFile(
+            SHORT_ALTS,
+            JSON.stringify(shortAlts, null, 1) + '\n'
+          )
         }
       })
       await fs.mkdir(path.dirname(SHORT_ALTS), { recursive: true })
@@ -257,15 +296,45 @@ async function main() {
 
   // --- Report ------------------------------------------------------------
   const byRule = {}
-  for (const p of plan.values()) byRule[p.rule || 'caption/description only'] = (byRule[p.rule || 'caption/description only'] || 0) + 1
-  console.log(`\n${WRITE ? '✏️  WRITE' : '👀 DRY RUN'} — ${plan.size} Cloudinary image(s) to update`, byRule)
-  console.log(`repo cache: ${cacheChanged} entr${cacheChanged === 1 ? 'y' : 'ies'} to update`)
-  for (const rule of ['own-words', 'broken', 'fill-from-markdown', 'fill-from-repo-cache', 'summarize']) {
-    const ex = [...plan.entries()].filter(([, p]) => p.rule === rule && p.set.alt).slice(0, 3)
-    for (const [id, p] of ex) console.log(`  [${rule}] ${id}\n     was: ${norm(p.before.alt).slice(0, 90) || '∅'}\n     now: ${p.set.alt.slice(0, 90)}`)
+  for (const p of plan.values())
+    byRule[p.rule || 'caption/description only'] =
+      (byRule[p.rule || 'caption/description only'] || 0) + 1
+  console.log(
+    `\n${WRITE ? '✏️  WRITE' : '👀 DRY RUN'} — ${plan.size} Cloudinary image(s) to update`,
+    byRule
+  )
+  console.log(
+    `repo cache: ${cacheChanged} entr${cacheChanged === 1 ? 'y' : 'ies'} to update`
+  )
+  for (const rule of [
+    'own-words',
+    'broken',
+    'fill-from-markdown',
+    'fill-from-repo-cache',
+    'summarize',
+  ]) {
+    const ex = [...plan.entries()]
+      .filter(([, p]) => p.rule === rule && p.set.alt)
+      .slice(0, 3)
+    for (const [id, p] of ex)
+      console.log(
+        `  [${rule}] ${id}\n     was: ${norm(p.before.alt).slice(0, 90) || '∅'}\n     now: ${p.set.alt.slice(0, 90)}`
+      )
   }
   if (process.env.UNIFY_PLAN_OUT) {
-    await fs.writeFile(process.env.UNIFY_PLAN_OUT, JSON.stringify([...plan.entries()].map(([id, p]) => ({ id, rule: p.rule, before: { alt: p.before.alt, caption: p.before.caption }, set: p.set })), null, 1))
+    await fs.writeFile(
+      process.env.UNIFY_PLAN_OUT,
+      JSON.stringify(
+        [...plan.entries()].map(([id, p]) => ({
+          id,
+          rule: p.rule,
+          before: { alt: p.before.alt, caption: p.before.caption },
+          set: p.set,
+        })),
+        null,
+        1
+      )
+    )
   }
   if (!WRITE) return console.log('\nRun with --write to apply.')
 
@@ -277,7 +346,10 @@ async function main() {
     const pairs = Object.entries(p.set).map(([k, v]) => `${k}=${esc(v)}`)
     if (!pairs.length) return
     try {
-      await addContext({ cloud: env.CLOUDINARY_CLOUD_NAME, publicId }, pairs.join('|'))
+      await addContext(
+        { cloud: env.CLOUDINARY_CLOUD_NAME, publicId },
+        pairs.join('|')
+      )
       log.push({ publicId, rule: p.rule, before: p.before, set: p.set })
       if (++ok % 100 === 0) console.log(`  ${ok}/${plan.size}`)
     } catch (e) {
@@ -285,11 +357,19 @@ async function main() {
     }
   })
   const day = new Date().toISOString().slice(0, 10)
-  await fs.writeFile(path.join(ROOT, `data/_tool-cache/unify-log-${day}.json`), JSON.stringify(log, null, 1))
-  if (cacheChanged) await fs.writeFile(CACHE, JSON.stringify(cache, null, 2) + '\n')
-  console.log(`\n✓ updated ${ok} Cloudinary image(s), ${cacheChanged} repo-cache entries`)
+  await fs.writeFile(
+    path.join(ROOT, `data/_tool-cache/unify-log-${day}.json`),
+    JSON.stringify(log, null, 1)
+  )
+  if (cacheChanged)
+    await fs.writeFile(CACHE, JSON.stringify(cache, null, 2) + '\n')
+  console.log(
+    `\n✓ updated ${ok} Cloudinary image(s), ${cacheChanged} repo-cache entries`
+  )
   if (failed.length) {
-    console.log(`✗ ${failed.length} failed:\n  ` + failed.slice(0, 20).join('\n  '))
+    console.log(
+      `✗ ${failed.length} failed:\n  ` + failed.slice(0, 20).join('\n  ')
+    )
     process.exit(1)
   }
 }

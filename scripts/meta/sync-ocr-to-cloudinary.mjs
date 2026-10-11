@@ -53,19 +53,32 @@ const readJson = async (f, fallback) => {
 
 /** https://res.cloudinary.com/ejf/image/upload/v123/folder/name.png → { cloud, publicId } */
 export function parseCloudinary(url) {
-  const m = url.split(/[?#]/)[0].match(/^https?:\/\/res\.cloudinary\.com\/([^/]+)\/image\/upload\/(.+)$/)
+  const m = url
+    .split(/[?#]/)[0]
+    .match(/^https?:\/\/res\.cloudinary\.com\/([^/]+)\/image\/upload\/(.+)$/)
   if (!m) return null
   const parts = m[2].split('/')
   // Drop transformation segments and the version, keep the folder path.
-  while (parts.length > 1 && (/^v\d+$/.test(parts[0]) || parts[0].includes(',') || /^[a-z]{1,3}_[^/]+$/.test(parts[0]))) {
+  while (
+    parts.length > 1 &&
+    (/^v\d+$/.test(parts[0]) ||
+      parts[0].includes(',') ||
+      /^[a-z]{1,3}_[^/]+$/.test(parts[0]))
+  ) {
     parts.shift()
   }
-  return { cloud: m[1], publicId: decodeURIComponent(parts.join('/')).replace(/\.[a-z0-9]{2,5}$/i, '') }
+  return {
+    cloud: m[1],
+    publicId: decodeURIComponent(parts.join('/')).replace(
+      /\.[a-z0-9]{2,5}$/i,
+      ''
+    ),
+  }
 }
 
 /** OCR of a photo is noise like "Bs -_ ff ae". Require some actual words. */
 export function isMeaningful(text) {
-  return (text.match(/\b[A-Za-z]{3,}\b/g) || []).length >= 5
+  return (text.match(/\b[A-Z]{3,}\b/gi) || []).length >= 5
 }
 
 export function clean(text) {
@@ -89,7 +102,8 @@ export function splitChunks(text, size = CHUNK) {
   while (i < text.length && chunks.length < MAX_PARTS) {
     let end = Math.min(i + size, text.length)
     if (end < text.length) {
-      while (end > i + 1 && (/\s/.test(text[end]) || /\s/.test(text[end - 1]))) end--
+      while (end > i + 1 && (/\s/.test(text[end]) || /\s/.test(text[end - 1])))
+        end--
       if (end === i + 1) end = Math.min(i + size, text.length) // a 1000-char whitespace run: give up
     }
     chunks.push(text.slice(i, end))
@@ -108,27 +122,41 @@ export function toContext(text, at) {
 export async function addContext({ cloud, publicId }, context) {
   const { CLOUDINARY_API_KEY: key, CLOUDINARY_API_SECRET: secret } = process.env
   const ts = Math.floor(Date.now() / 1000)
-  const params = { command: 'add', context, public_ids: publicId, timestamp: ts, type: 'upload' }
+  const params = {
+    command: 'add',
+    context,
+    public_ids: publicId,
+    timestamp: ts,
+    type: 'upload',
+  }
   // Signed upload-API call: sha1 of the sorted params + secret.
   const toSign = Object.keys(params)
     .sort()
     .map((k) => `${k}=${params[k]}`)
     .join('&')
-  const signature = createHash('sha1').update(toSign + secret).digest('hex')
+  const signature = createHash('sha1')
+    .update(toSign + secret)
+    .digest('hex')
   const body = new URLSearchParams({ ...params, api_key: key, signature })
   body.delete('public_ids')
   body.append('public_ids[]', publicId)
-  const res = await fetch(`https://api.cloudinary.com/v1_1/${cloud}/image/context`, {
-    method: 'POST',
-    body,
-  })
-  if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`)
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${cloud}/image/context`,
+    {
+      method: 'POST',
+      body,
+    }
+  )
+  if (!res.ok)
+    throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`)
 }
 
 async function main() {
   const texts = await readJson(OCR_TEXT, null)
   if (!texts) {
-    console.error(`No OCR text at ${path.relative(ROOT, OCR_TEXT)} — run \`yarn check:images\` first.`)
+    console.error(
+      `No OCR text at ${path.relative(ROOT, OCR_TEXT)} — run \`yarn check:images\` first.`
+    )
     process.exit(1)
   }
   const scan = (await readJson(SCAN, {})).images || {}
@@ -137,29 +165,68 @@ async function main() {
   const at = new Date().toISOString().slice(0, 10)
 
   const plan = []
-  const skipped = { flagged: 0, allowlisted: 0, noise: 0, notCloudinary: 0, unscanned: 0, unchanged: 0 }
+  const skipped = {
+    flagged: 0,
+    allowlisted: 0,
+    noise: 0,
+    notCloudinary: 0,
+    unscanned: 0,
+    unchanged: 0,
+  }
   for (const [url, raw] of Object.entries(texts)) {
     const target = parseCloudinary(url)
-    if (!target) { skipped.notCloudinary++; continue }
+    if (!target) {
+      skipped.notCloudinary++
+      continue
+    }
     // Only push text the guard has looked at and passed under current rules.
     const verdict = scan[url]
-    if (!verdict) { skipped.unscanned++; continue }
-    if (verdict.hits?.length) { skipped.flagged++; continue }
-    if (allow[url]) { skipped.allowlisted++; continue }
+    if (!verdict) {
+      skipped.unscanned++
+      continue
+    }
+    if (verdict.hits?.length) {
+      skipped.flagged++
+      continue
+    }
+    if (allow[url]) {
+      skipped.allowlisted++
+      continue
+    }
     const text = clean(raw)
-    if (!isMeaningful(text)) { skipped.noise++; continue }
+    if (!isMeaningful(text)) {
+      skipped.noise++
+      continue
+    }
     // CHUNKING in the hash: a change to how text is split re-pushes everything.
-    const hash = createHash('sha1').update(`${CHUNKING}\n${text}`).digest('hex').slice(0, 16)
-    if (synced[url] === hash) { skipped.unchanged++; continue }
+    const hash = createHash('sha1')
+      .update(`${CHUNKING}\n${text}`)
+      .digest('hex')
+      .slice(0, 16)
+    if (synced[url] === hash) {
+      skipped.unchanged++
+      continue
+    }
     plan.push({ url, target, text, hash })
   }
 
-  console.log(`${WRITE ? '✏️  WRITE' : '👀 DRY RUN'} — ${plan.length} image(s) to push`)
-  console.log(`skipped: ${Object.entries(skipped).map(([k, v]) => `${k} ${v}`).join(', ')}`)
+  console.log(
+    `${WRITE ? '✏️  WRITE' : '👀 DRY RUN'} — ${plan.length} image(s) to push`
+  )
+  console.log(
+    `skipped: ${Object.entries(skipped)
+      .map(([k, v]) => `${k} ${v}`)
+      .join(', ')}`
+  )
   const chars = plan.reduce((n, p) => n + p.text.length, 0)
-  console.log(`${chars.toLocaleString()} chars of text, ${plan.filter((p) => p.text.length > CHUNK).length} split across several keys`)
+  console.log(
+    `${chars.toLocaleString()} chars of text, ${plan.filter((p) => p.text.length > CHUNK).length} split across several keys`
+  )
   if (!WRITE) {
-    for (const p of plan.slice(0, 5)) console.log(`  ${p.target.publicId}: ${JSON.stringify(p.text.slice(0, 80))}…`)
+    for (const p of plan.slice(0, 5))
+      console.log(
+        `  ${p.target.publicId}: ${JSON.stringify(p.text.slice(0, 80))}…`
+      )
     console.log('\nRun with --write to push.')
     return
   }

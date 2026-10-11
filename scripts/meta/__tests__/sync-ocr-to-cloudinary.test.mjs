@@ -1,9 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { splitChunks, parseCloudinary, isMeaningful } from '../sync-ocr-to-cloudinary.mjs'
+import {
+  splitChunks,
+  parseCloudinary,
+  isMeaningful,
+} from '../sync-ocr-to-cloudinary.mjs'
 
 describe('splitChunks', () => {
   it('reassembles exactly, with no piece starting or ending on whitespace', () => {
-    const words = Array.from({ length: 1500 }, (_, i) => `word${i}${i % 7 ? ' ' : '\n'}`).join('')
+    const words = Array.from(
+      { length: 1500 },
+      (_, i) => `word${i}${i % 7 ? ' ' : '\n'}`
+    ).join('')
     const text = words.trim()
     const chunks = splitChunks(text, 1000)
     expect(chunks.join('')).toBe(text)
@@ -20,7 +27,11 @@ describe('splitChunks', () => {
 
 describe('parseCloudinary', () => {
   it('drops transforms and version, keeps folders', () => {
-    expect(parseCloudinary('https://res.cloudinary.com/ejf/image/upload/c_limit,w_800/v12/blog/2024/foo%20bar.jpg')).toEqual({
+    expect(
+      parseCloudinary(
+        'https://res.cloudinary.com/ejf/image/upload/c_limit,w_800/v12/blog/2024/foo%20bar.jpg'
+      )
+    ).toEqual({
       cloud: 'ejf',
       publicId: 'blog/2024/foo bar',
     })
