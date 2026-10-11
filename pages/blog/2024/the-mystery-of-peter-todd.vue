@@ -9,11 +9,9 @@
 import chroma from 'chroma-js'
 import { useIntersectionObserver } from '@vueuse/core'
 import striptags from 'striptags'
-import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
-import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 const peterToddQuote1 =
@@ -103,7 +101,6 @@ const relatedPosts = computed(() => {
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
 })
-const { stats: readingStatsData } = readingStats(post)
 const { renderedHtml: renderedTitle, startAnimation } =
   useTypingAnimation(postTitle)
 
@@ -629,17 +626,6 @@ onMounted(() => {
     <!-- Progress bar -->
     <div class="pt-progress">
       <div class="pt-progress-inner" :style="`width: ${scrollProgress}%`" />
-    </div>
-
-    <!-- Top metadata bar -->
-    <div
-      v-if="post"
-      class="fixed top-0 left-0 right-0 z-[100] bg-black/80 backdrop-blur-sm print:hidden"
-    >
-      <PostMetadataBar
-        :date="post?.metadata?.date || post?.date"
-        :stats="readingStatsData"
-      />
     </div>
 
     <article v-if="post" class="h-entry takeover-article">

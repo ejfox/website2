@@ -40,6 +40,7 @@ import {
   remarkEnhanceLinks,
   remarkEnhanceImages,
   remarkExtractToc,
+  dropTitleHeading,
   remarkMermaid,
 } from '../plugins/index.mjs'
 
@@ -55,7 +56,7 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
-const CACHE_VERSION = '2026-10-05-source-hash'
+const CACHE_VERSION = '2026-10-11-drop-title-heading'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
@@ -306,27 +307,18 @@ async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
-    let ast = processor.parse(markdownContent)
+    const ast = processor.parse(markdownContent)
+    const titleHeading = dropTitleHeading(ast, frontmatter.title)
 
     // Create vfile to hold data from plugins
     const vfile = { path: filename, data: {} }
 
     // Process through unified pipeline
     // (TOC extraction happens in remarkExtractToc plugin)
-    let result = await processor.run(ast, vfile)
+    const result = await processor.run(ast, vfile)
 
     // Get TOC data from plugin
     const toc = vfile.data?.toc || []
-    const firstHeading = vfile.data?.firstHeading
-    const firstHeadingNode = vfile.data?.firstHeadingNode
-
-    // Remove first heading if it exists
-    if (firstHeadingNode) {
-      const index = result.children.indexOf(firstHeadingNode)
-      if (index !== -1) {
-        result.children.splice(index, 1)
-      }
-    }
 
     let html = processor.stringify(result)
 
@@ -338,7 +330,7 @@ async function processMarkdown(content, filePath) {
 
     const extractedTitle =
       frontmatter.title ||
-      firstHeading ||
+      titleHeading ||
       formatTitle(path.basename(filePath, '.md'))
 
     // Extract detailed image stats

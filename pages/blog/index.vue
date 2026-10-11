@@ -65,33 +65,7 @@ const blogStats = computed(() => {
     totalWordsK: Math.floor(totalWords / 1000),
     totalReadHours: Math.floor(totalWords / 200 / 60),
     avgWords: all.length ? Math.floor(totalWords / all.length) : 0,
-    totalLinks: all.reduce((sum, p) => sum + postLinks(p), 0),
-    totalImages: all.reduce((sum, p) => sum + postImages(p), 0),
   }
-})
-
-// Writing cadence: posts per month over the last 24 months, empty months
-// included — the gaps are part of the record.
-const cadenceStrip = computed(() => {
-  const counts = new Map()
-  ;(posts.value || []).forEach((p) => {
-    const d = postDate(p)
-    if (!d) return
-    const key = String(d).slice(0, 7)
-    counts.set(key, (counts.get(key) || 0) + 1)
-  })
-  const months = []
-  const now = new Date()
-  for (let i = 23; i >= 0; i--) {
-    const dt = new Date(now.getFullYear(), now.getMonth() - i, 1)
-    const key = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}`
-    months.push({ key, n: counts.get(key) || 0 })
-  }
-  const max = Math.max(1, ...months.map((m) => m.n))
-  return months.map((m) => ({
-    ...m,
-    pct: m.n === 0 ? 0 : Math.max(12, Math.round((m.n / max) * 100)),
-  }))
 })
 
 const blogPostsByYear = computed(() => {
@@ -192,38 +166,6 @@ useHead(() => ({
 
 <template>
   <div>
-    <div
-      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 dark:bg-black/90 backdrop-blur-sm print:hidden"
-    >
-      <div
-        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
-      >
-        <span class="whitespace-nowrap">
-          {{ blogStats.postsCount }} entries
-        </span>
-        <span class="text-zinc-600">·</span>
-        <span class="whitespace-nowrap">
-          {{ blogStats.totalWordsK }}K words
-        </span>
-        <span class="text-zinc-600">·</span>
-        <span class="whitespace-nowrap">
-          {{ blogStats.totalReadHours }}hr read
-        </span>
-        <span class="text-zinc-600 hidden sm:inline">·</span>
-        <span class="whitespace-nowrap hidden sm:inline">
-          {{ blogStats.totalLinks }} links
-        </span>
-        <span class="text-zinc-600 hidden sm:inline">·</span>
-        <span class="whitespace-nowrap hidden sm:inline">
-          {{ blogStats.totalImages }} img
-        </span>
-        <span class="text-zinc-600 hidden sm:inline">·</span>
-        <span class="whitespace-nowrap hidden sm:inline">
-          {{ sortedYears?.length || 0 }} years
-        </span>
-      </div>
-    </div>
-
     <header class="mb-6 relative pt-2">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
         <div class="px-4 sm:px-6 pt-4 pb-3">
@@ -231,33 +173,6 @@ useHead(() => ({
           <p class="blog-description">
             Things I'm thinking about — data, code, journalism, the web
           </p>
-
-          <!-- Writing cadence: one bar per month, gaps left visible -->
-          <div class="mt-3 space-y-0.5">
-            <div
-              class="flex items-end gap-px h-3 w-fit"
-              aria-label="Posts per month over the last 24 months"
-            >
-              <div
-                v-for="m in cadenceStrip"
-                :key="m.key"
-                class="w-1 h-full flex items-end"
-                :title="`${m.key} · ${m.n} post${m.n === 1 ? '' : 's'}`"
-              >
-                <div
-                  v-if="m.n"
-                  class="w-full bg-zinc-400 dark:bg-zinc-600"
-                  :style="{ height: m.pct + '%' }"
-                />
-                <div v-else class="w-full h-px bg-zinc-300 dark:bg-zinc-800" />
-              </div>
-            </div>
-            <div
-              class="font-mono text-4xs text-zinc-500 uppercase tabular-nums"
-            >
-              posts / month · last 24
-            </div>
-          </div>
         </div>
 
         <!-- h-feed microformat -->

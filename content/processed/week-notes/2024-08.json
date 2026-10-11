@@ -1,7 +1,7 @@
 {
-  "cacheVersion": "2026-10-05-source-hash",
+  "cacheVersion": "2026-10-11-drop-title-heading",
   "sourceHash": "7a72b71e9db62ee8af0140db40c0462d051884e907c56a523ee7f53b910eac7e",
-  "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
+  "html": "<ul class=\"list-disc\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
   "title": "Overview of the Week",
   "metadata": {
     "tags": [
@@ -21,17 +21,8 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {
-      "h2": 1
-    },
-    "toc": [
-      {
-        "text": "Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post"
   }
 }

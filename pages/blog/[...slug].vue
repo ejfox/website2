@@ -539,23 +539,30 @@ onMounted(() => {
 
     <!-- Top metadata bar — teleported into the layout's #layout-bar slot
          so it lives as a sibling of the navs in the layout grid, not buried
-         inside this page. Sticky behavior is on the layout slot itself. -->
-    <Teleport v-if="post && !post.redirect" to="#layout-bar">
-      <div class="bg-zinc-900/90 dark:bg-black/90 backdrop-blur-sm">
-        <PostMetadataBar
-          :date="post?.metadata?.date || post?.date"
-          :stats="readingStatsData"
-          :slug="route.params.slug.join('/')"
-          :atproto-url="atprotoUrl"
-        />
-        <div v-if="isDraft" class="draft-banner">
-          <span class="draft-banner-text">DRAFT</span>
-          <span class="draft-banner-subtext">
-            Work in progress · Not for distribution
-          </span>
+         inside this page. Sticky behavior is on the layout slot itself.
+         ClientOnly: SSR can't render into #layout-bar (Nuxt only injects
+         #teleports), so the server sent an empty bar and every post logged
+         a hydration mismatch when the client filled it. -->
+    <ClientOnly>
+      <Teleport v-if="post && !post.redirect" to="#layout-bar">
+        <div
+          class="bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800"
+        >
+          <PostMetadataBar
+            :date="post?.metadata?.date || post?.date"
+            :stats="readingStatsData"
+            :slug="route.params.slug.join('/')"
+            :atproto-url="atprotoUrl"
+          />
+          <div v-if="isDraft" class="draft-banner">
+            <span class="draft-banner-text">DRAFT</span>
+            <span class="draft-banner-subtext">
+              Work in progress · Not for distribution
+            </span>
+          </div>
         </div>
-      </div>
-    </Teleport>
+      </Teleport>
+    </ClientOnly>
 
     <!-- Reading progress bar -->
     <div v-if="post && !post.redirect" class="progress-bar print:hidden">
