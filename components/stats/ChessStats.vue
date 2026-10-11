@@ -220,7 +220,7 @@ const performanceMetrics = computed(() => [
     <!-- Primary Rating -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
-        <HandDrawnMark ink-class="text-yellow-600">
+        <HandDrawnMark>
           <AnimatedNumber
             :value="highestActiveRating"
             format="commas"

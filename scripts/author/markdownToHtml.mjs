@@ -27,6 +27,7 @@ import {
   remarkEnhanceLinks,
   remarkEnhanceImages,
   remarkExtractToc,
+  dropTitleHeading,
   remarkMermaid,
   remarkHandDrawn,
   remarkGearCard,
@@ -102,32 +103,23 @@ const formatTitle = (filename) => {
 export async function convertMarkdown(content, filename = 'preview.md') {
   const { data: frontmatter, content: markdownContent } = matter(content)
 
-  let ast = processor.parse(markdownContent)
+  const ast = processor.parse(markdownContent)
+  const titleHeading = dropTitleHeading(ast, frontmatter.title)
 
   // Create vfile to hold data from plugins
   const vfile = { path: filename, data: {} }
 
   // Process through unified pipeline
-  let result = await processor.run(ast, vfile)
+  const result = await processor.run(ast, vfile)
 
   // Get TOC data from plugin
   const toc = vfile.data?.toc || []
-  const firstHeading = vfile.data?.firstHeading
-  const firstHeadingNode = vfile.data?.firstHeadingNode
-
-  // Remove first heading if it exists (same as processMarkdown.mjs)
-  if (firstHeadingNode) {
-    const index = result.children.indexOf(firstHeadingNode)
-    if (index !== -1) {
-      result.children.splice(index, 1)
-    }
-  }
 
   let html = processor.stringify(result)
 
   const extractedTitle =
     frontmatter.title ||
-    firstHeading ||
+    titleHeading ||
     formatTitle(path.basename(filename, '.md'))
 
   return {

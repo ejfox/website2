@@ -7,7 +7,7 @@
 // Remark plugins
 export { remarkEnhanceLinks } from './remarkEnhanceLinks.mjs'
 export { remarkObsidianSupport } from './remarkObsidianSupport.mjs'
-export { remarkExtractToc } from './remarkExtractToc.mjs'
+export { remarkExtractToc, dropTitleHeading } from './remarkExtractToc.mjs'
 export { remarkPredictionRef } from './remarkPredictionRef.mjs'
 export { remarkEnhanceImages } from './remarkEnhanceImages.mjs'
 export { remarkGearCard } from './remarkGearCard.mjs'
