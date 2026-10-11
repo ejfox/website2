@@ -44,7 +44,7 @@
   {
     "date": "2025-07",
     "title": "Cryptographic Predictions",
-    "description": "10 PGP-signed predictions for 2025-2029 with SHA-256 hashing and git commits for verifiable forecasting.",
+    "description": "10 predictions for 2025-2029, SHA-256 hashed and committed to git so they can't be quietly edited later.",
     "link": "/predictions"
   },
   {

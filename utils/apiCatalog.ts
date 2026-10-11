@@ -258,7 +258,7 @@ export const apiCatalog: ApiRoute[] = [
     method: 'GET',
     path: '/api/predictions/{id}',
     group: 'Content & blog',
-    summary: 'One prediction (GET + PATCH write)',
+    summary: 'One prediction',
     consumer: 'frontend',
     consumedBy: 'pages/now +6',
     deps: 'content/predictions/*.md',

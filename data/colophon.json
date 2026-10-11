@@ -82,10 +82,10 @@
     "version": "2.3",
     "date": "2025-07",
     "title": "Cryptographic Predictions",
-    "body": "10 PGP-signed predictions for 2025-2029 with SHA-256 hashing and git commits for verifiable forecasting. The idea is simple: write down what you think will happen, cryptographically commit to it, then come back later and see how wrong you were. Accountability through math.",
+    "body": "10 predictions for 2025-2029, SHA-256 hashed and committed to git. The idea is simple: write down what you think will happen, commit to it in public, then come back later and see how wrong you were. Accountability through math.",
     "stats": { "commits": 9, "filesChanged": 15 },
     "tags": ["predictions", "crypto"],
-    "stack": ["PGP", "SHA-256", "Git"],
+    "stack": ["SHA-256", "Git"],
     "link": "/predictions"
   },
   {
