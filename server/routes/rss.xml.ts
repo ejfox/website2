@@ -1,7 +1,7 @@
 import RSS from 'rss'
-import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
-import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
+import { parseISO, isValid, compareDesc } from 'date-fns'
+import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'
 
 // RSS item type
 interface RSSCustomElement {
@@ -17,14 +17,6 @@ interface RSSItemOptions {
   author?: string
   date?: Date | string
   custom_elements?: RSSCustomElement[]
-}
-
-// Helper to create a short excerpt
-function createExcerpt(html: string, length = 280): string {
-  // Remove HTML tags and get plain text
-  const text = sanitizeHtml(html, { allowedTags: [] })
-  // Truncate to length and add ellipsis if needed
-  return text.length > length ? `${text.slice(0, length)}...` : text
 }
 
 export default defineEventHandler(async (event) => {
@@ -80,14 +72,6 @@ export default defineEventHandler(async (event) => {
   // Add items to feed
   for (const post of sortedPosts) {
     const metadata = (post.metadata || {}) as PostMetadata
-    const parsedContent = post.html || ''
-    const html = sanitizeHtml(parsedContent, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-      allowedAttributes: {
-        ...sanitizeHtml.defaults.allowedAttributes,
-        img: ['src', 'alt', 'title'],
-      },
-    })
 
     // Title and slug can be at root level or in metadata
     const title = post.title || metadata.title || 'No title'
@@ -132,35 +116,34 @@ export default defineEventHandler(async (event) => {
       continue
 
     const postDate = parseISO(date)
-    const postUrl = `${siteUrl}/blog/${slug}`
+    // An undated item would otherwise be stamped "now" on every request and
+    // resurface as new in readers each hour. getAllPosts() already backfills
+    // missing dates, so this is a belt-and-braces skip, not a common path.
+    if (!isValid(postDate)) continue
 
-    // Create feed item with enhanced metadata
+    const postUrl = `${siteUrl}/blog/${slug}`
+    // Absolute links/images, working footnotes, embeds kept as links.
+    const html = feedHtml(post.html || '', postUrl)
+
     const feedItem: RSSItemOptions = {
       title,
-      description: description || createExcerpt(html),
+      description: description || feedExcerpt(html),
       url: postUrl,
       guid: postUrl,
       categories: tags,
       author: 'EJ Fox',
-      date: isValid(postDate) ? postDate : new Date(),
-      custom_elements: [
-        { 'content:encoded': { _cdata: html } },
-        {
-          'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()),
-        },
-      ],
+      date: postDate,
+      custom_elements: [{ 'content:encoded': { _cdata: html } }],
     }
 
     feed.item(feedItem as Parameters<typeof feed.item>[0])
   }
 
-  // Set response headers with longer cache for production
   const isProd = process.env.NODE_ENV === 'production'
-  event.node.res.setHeader('content-type', 'application/xml')
-  event.node.res.setHeader(
-    'cache-control',
-    isProd ? 'max-age=3600, s-maxage=7200' : 'max-age=0, s-maxage=0'
+  return sendFeed(
+    event,
+    feed.xml({ indent: true }),
+    'application/xml; charset=utf-8',
+    isProd ? 'public, max-age=3600, s-maxage=7200' : 'max-age=0, s-maxage=0'
   )
-
-  return feed.xml({ indent: true })
 })

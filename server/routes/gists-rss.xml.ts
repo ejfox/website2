@@ -54,7 +54,7 @@ const MAX_FILE_TEXT_CHARS = 16_000
 // Bump whenever the emitted XML shape changes. This invalidates BOTH stale-serve
 // paths at once — the disk-cache filename and the ETag — so a cache or a
 // conditional request left over from an older serializer can never resurrect it.
-const FEED_FORMAT_VERSION = 'v2'
+const FEED_FORMAT_VERSION = 'v3'
 
 // Disk-cache the last successful XML so the feed keeps serving when GitHub's
 // API is down, the token is missing, or we're rate-limited. The stale-on-error
@@ -185,6 +185,7 @@ export default defineEventHandler(async (event): Promise<string> => {
   xmlns:atom="http://www.w3.org/2005/Atom" 
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:media="http://search.yahoo.com/mrss/"
   xmlns:code="http://ejfox.com/ns/code/">
 <channel>
@@ -203,7 +204,10 @@ export default defineEventHandler(async (event): Promise<string> => {
     .map((gist: Gist) => {
       const title = gist.description || gist.files[0]?.name || 'Untitled Gist'
       const pubDate = new Date(gist.createdAt).toUTCString()
-      const updateDate = new Date(gist.updatedAt).toUTCString()
+      // dcterms:modified wants W3C-DTF (ISO 8601), not RFC 822. It was
+      // `dc:modified`, which doesn't exist (`modified` is a DC *terms*
+      // element) and made the W3C validator reject the whole feed.
+      const updateDate = new Date(gist.updatedAt).toISOString()
 
       // Structured per-file metadata, in our own `code:` namespace. These are
       // real child elements of <item> — they must NOT be nested inside
@@ -243,7 +247,7 @@ export default defineEventHandler(async (event): Promise<string> => {
       <guid isPermaLink="true">${escapeXml(gist.url)}</guid>
       <pubDate>${pubDate}</pubDate>
       <dc:creator>EJ Fox</dc:creator>
-      <dc:modified>${updateDate}</dc:modified>
+      <dcterms:modified>${updateDate}</dcterms:modified>
       <code:stargazers>${gist.stargazerCount}</code:stargazers>${fileElements}
       <description>${cdata(gist.description || '')}</description>
       <content:encoded>${cdata(filesHtml)}</content:encoded>

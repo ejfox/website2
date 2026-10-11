@@ -1,13 +1,9 @@
-import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
+import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'
+import { decodeEntities } from '~/server/utils/decodeEntities'
 
 // JSON Feed 1.1 spec: https://jsonfeed.org/version/1.1
-
-function createExcerpt(html: string, length = 280): string {
-  const text = sanitizeHtml(html, { allowedTags: [] })
-  return text.length > length ? `${text.slice(0, length)}...` : text
-}
 
 export default defineEventHandler(async (event) => {
   const { getPostsWithContent } = useProcessedMarkdown()
@@ -27,13 +23,6 @@ export default defineEventHandler(async (event) => {
 
   for (const post of sortedPosts) {
     const metadata = (post.metadata || {}) as Record<string, any>
-    const html = sanitizeHtml(post.html || '', {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-      allowedAttributes: {
-        ...sanitizeHtml.defaults.allowedAttributes,
-        img: ['src', 'alt', 'title'],
-      },
-    })
 
     const title = post.title || metadata.title || 'No title'
     const slug = post.slug || metadata.slug
@@ -73,13 +62,16 @@ export default defineEventHandler(async (event) => {
 
     const postDate = parseISO(date)
     const postUrl = `${siteUrl}/blog/${slug}`
+    // Absolute links/images, working footnotes, embeds kept as links.
+    const html = feedHtml(post.html || '', postUrl)
 
     items.push({
       id: postUrl,
       url: postUrl,
       title,
       content_html: html,
-      summary: description || createExcerpt(html),
+      // JSON Feed summary is plain text, so undo the HTML escaping.
+      summary: description || decodeEntities(feedExcerpt(html)),
       date_published: isValid(postDate) ? postDate.toISOString() : undefined,
       tags: tags.length > 0 ? tags : undefined,
     })
@@ -90,6 +82,7 @@ export default defineEventHandler(async (event) => {
     title: 'EJ Fox',
     home_page_url: siteUrl,
     feed_url: `${siteUrl}/feed.json`,
+    icon: `${siteUrl}/icon.png`,
     description:
       'Hacker-journalist using code and art to uncover hidden patterns.',
     authors: [
@@ -103,11 +96,10 @@ export default defineEventHandler(async (event) => {
   }
 
   const isProd = process.env.NODE_ENV === 'production'
-  event.node.res.setHeader('content-type', 'application/feed+json')
-  event.node.res.setHeader(
-    'cache-control',
-    isProd ? 'max-age=3600, s-maxage=7200' : 'max-age=0, s-maxage=0'
+  return sendFeed(
+    event,
+    JSON.stringify(feed),
+    'application/feed+json; charset=utf-8',
+    isProd ? 'public, max-age=3600, s-maxage=7200' : 'max-age=0, s-maxage=0'
   )
-
-  return feed
 })
