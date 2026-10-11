@@ -20,7 +20,6 @@ const CACHE_IMMUTABLE = 'public, max-age=31536000, immutable'
 const PRERENDERED_ROUTES = [
   '/blog/**',
   '/gear',
-  '/now',
   '/sitemap',
   '/gists',
   '/changelog',
@@ -207,6 +206,7 @@ export default defineNuxtConfig({
     HEALTH_WEBHOOK_SECRET: process.env.HEALTH_WEBHOOK_SECRET || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
     calcomApiKey: process.env.CAL_COM_API_KEY || '',
+    X_BEARER_TOKEN: process.env.X_BEARER_TOKEN || '',
     buildInfo: getBuildInfo(),
 
     // Public client-accessible vars
@@ -370,6 +370,12 @@ export default defineNuxtConfig({
         // Dynamic pages — SSR with edge caching
         '/calendar': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
         '/stats': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
+        // /now is a live page: prerendered, it froze at the last deploy.
+        // Its one fetch (/api/now) is a cached handler, so SSR stays fast.
+        '/now': {
+          prerender: false,
+          headers: { 'Cache-Control': CACHE_DYNAMIC },
+        },
         // Static assets — cache forever
         '/_nuxt/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
         // Fonts fell through to Cloudflare's 4h default, so repeat visitors
