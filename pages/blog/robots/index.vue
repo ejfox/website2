@@ -72,9 +72,8 @@ const getNoteSummary = (note) => {
             target="_blank"
             class="text-hover"
           >
-            Conversations with Robots
-          </a>
-          , notes from various AI models, projects, and experiments.
+            Conversations with Robots </a
+          >, notes from various AI models, projects, and experiments.
         </p>
       </div>
 

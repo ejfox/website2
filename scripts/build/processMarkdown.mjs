@@ -196,7 +196,7 @@ const hashSource = (content) =>
  * clone: every committed JSON looks newer than its source, so CI reused stale
  * output — `draft: true` on a post deployed green while the post stayed live.
  * A hash is right everywhere: fresh clone, CI, or a laptop.
- * @returns {'cache' | 'process'}
+ * @returns {'cache' | 'process'} 'cache' to reuse the JSON, 'process' to rebuild
  */
 function getFileCacheStatus(filePath, outputPath) {
   if (!existsSync(outputPath)) return 'process'

@@ -445,9 +445,9 @@ useHead({
           scanned from the notebook, traced, and sliced into
           <code class="text-sm">{{ manifest.length }}</code>
           named pieces. Each one renders inline and inherits
-          <code class="text-sm">currentColor</code>
-          , so it adapts to dark mode and sits in a sentence like a letter.
-          Below: a few ways they could live in posts and across the design.
+          <code class="text-sm">currentColor</code>, so it adapts to dark mode
+          and sits in a sentence like a letter. Below: a few ways they could
+          live in posts and across the design.
         </p>
       </header>
 
@@ -697,9 +697,8 @@ useHead({
                 </a>
                 — pm2, a single node process, read-the-logs-and-reload
                 <a class="hd-footnote-ref text-rose-500" href="#">
-                  <HandDrawn name="circled-2" size="1.25em" />
-                </a>
-                .
+                  <HandDrawn name="circled-2" size="1.25em" /> </a
+                >.
               </p>
               <div
                 class="hd-divider my-8 flex justify-center text-zinc-400 dark:text-zinc-600"
@@ -708,8 +707,7 @@ useHead({
               </div>
               <p class="text-base text-zinc-500">
                 …and the divider above was just a plain
-                <code>---</code>
-                .
+                <code>---</code>.
               </p>
             </div>
           </Demo>
@@ -910,9 +908,8 @@ then read the logs and move on.</code></pre>
                   size="1.4rem"
                   class="text-zinc-400 dark:text-zinc-500 mx-1"
                 />
-                <HandDrawnMark tone="#fde047">100</HandDrawnMark>
-              </span>
-              .
+                <HandDrawnMark tone="#fde047">100</HandDrawnMark> </span
+              >.
             </p>
             <figcaption
               class="mt-6 text-3xs uppercase tracking-[0.16em] text-zinc-400"

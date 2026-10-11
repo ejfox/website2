@@ -160,7 +160,11 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint'],
+  // Generates .nuxt/eslint.config.mjs (on `nuxt prepare` / postinstall) with
+  // the real auto-import globals, so eslint.config.mjs needn't hand-list them.
+  // Stylistic rules stay off: Prettier owns formatting.
+  eslint: { config: { tooling: true } },
   devServer: {
     port: 3006,
   },
