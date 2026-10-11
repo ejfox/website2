@@ -406,6 +406,16 @@ usePageSeo({
         </div>
       </section>
 
+      <!-- Testimonial lift -->
+      <section class="section">
+        <blockquote class="blockquote">
+          <p class="blockquote-text">
+            "Instant solutions to tough problems, under intense time pressure"
+          </p>
+          <cite class="blockquote-cite">Michael Small, NBC News</cite>
+        </blockquote>
+      </section>
+
       <!-- Specialties -->
       <section class="section">
         <h2 class="section-label">Things I'm good at</h2>

@@ -144,7 +144,8 @@ usePageSeo({
         He tapped again. Still nothing. The map was frozen on live TV.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        My heart stopped.
+        My heart stopped. I was watching from the control room, headset on,
+        listening to the chaos.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
         But here's the thing: the app wasn't frozen. The video feed from the app
@@ -153,8 +154,8 @@ usePageSeo({
         to the screen.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
-        The control room re-routed the video feed and we were back. Most viewers
-        probably didn't notice.
+        The control room re-routed the video feed. 15 seconds later, we were
+        back. Most viewers probably didn't notice.
       </p>
       <div
         class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 my-6"
@@ -191,6 +192,31 @@ usePageSeo({
           <p class="font-mono text-xs text-zinc-500">app crashes</p>
         </div>
       </div>
+
+      <blockquote
+        class="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 my-6"
+      >
+        <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
+          "A newly juiced-up model of the board that can zoom in on the most
+          obscure House districts"
+        </p>
+        <cite class="font-mono text-xs text-zinc-500 not-italic">
+          — The New York Times
+        </cite>
+      </blockquote>
+
+      <blockquote
+        class="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 my-6"
+      >
+        <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
+          "Kornacki, eli5-ing races with sleeves rolled up and an 82-inch
+          vertical touchscreen... looked amazing with the board, panning and
+          zooming"
+        </p>
+        <cite class="font-mono text-xs text-zinc-500 not-italic">
+          — Vulture
+        </cite>
+      </blockquote>
 
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
         Chuck Todd's producer said it was the first election night where Chuck
