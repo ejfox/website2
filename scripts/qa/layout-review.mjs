@@ -3,8 +3,8 @@
  * Layout review — screenshots + measured checks across routes, viewports and
  * light/dark. Started as a topbar review; now covers the whole page.
  *
- *   yarn qa:layout                 # headed, against localhost:3006
- *   yarn qa:layout --headless      # no windows
+ *   yarn qa:layout                 # headless, against localhost:3006
+ *   yarn qa:layout --watch         # show the lockstep windows (they take focus)
  *   yarn qa:layout --strict        # exit 1 on any error-level issue
  *   BASE_URL=http://localhost:3016 yarn qa:layout   # e.g. a prod build
  *   yarn qa:layout --routes=/,/blog/ --viewports=iphone-se,wide
@@ -19,7 +19,7 @@
  * IPv6, and the review silently tested the wrong code. Serving the build on
  * 127.0.0.1 and pointing BASE_URL at 127.0.0.1 avoids that.
  *
- * Headed mode opens two Chromium windows, dark on top and light below, that
+ * --watch opens two Chromium windows, dark on top and light below, that
  * move in lockstep (same route, same moment, scrolling together), stacked on
  * the portrait monitor if there is one (WINDOW_X / WINDOW_Y /
  * WINDOW_H override the placement). Output: .qa/layout/ — PNGs, report.json
@@ -55,7 +55,9 @@ const args = Object.fromEntries(
   })
 )
 const BASE = process.env.BASE_URL || 'http://localhost:3006'
-const HEADLESS = !!args.headless
+// Headless unless asked: every headed window takes focus on macOS, once per
+// viewport, which yanks you out of the terminal mid-run
+const HEADLESS = !args.watch
 const OUT = path.resolve(args.out || '.qa/layout')
 const ERROR_KINDS = new Set([
   'overflow',
