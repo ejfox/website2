@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "paperclip",
+    "name": "Paperclip",
+    "line": "One emoji for how you're doing, shared with your friends. No feed, no chat",
+    "platforms": ["iPhone", "Android"],
+    "status": "app-store",
+    "appStoreId": "6757249809",
+    "note": "Android is on its way to Google Play"
+  },
+  {
+    "slug": "tempo",
+    "name": "Tempo",
+    "line": "A brutalist Pomodoro timer for iPhone and Apple Watch",
+    "platforms": ["iPhone", "Apple Watch"],
+    "status": "unreleased"
+  },
+  {
+    "slug": "vulpino",
+    "name": "Vulpino",
+    "line": "Any JSON endpoint into a home-screen widget, no code",
+    "platforms": ["iPhone"],
+    "status": "open-source",
+    "github": "https://github.com/ejfox/vulpino"
+  },
+  {
+    "slug": "towntuner",
+    "name": "towntuner",
+    "line": "A podcast app for exactly one podcast: all of Harmontown",
+    "platforms": ["iPhone"],
+    "status": "open-source",
+    "github": "https://github.com/ejfox/towntuner",
+    "note": "The TestFlight beta is closed for now"
+  }
+]
