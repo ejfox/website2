@@ -265,6 +265,10 @@ if (import.meta.client) {
   let visibilityHandler = null
   // Halts the recursive streaming setTimeout chains once the page unmounts.
   let isUnmounted = false
+  // initGraph runs again when the second fetch (posts or scraps) lands and on
+  // resize. Each run claims a number; a superseded run's async continuations
+  // stop instead of locking/streaming onto the newer run's nodes.
+  let graphRun = 0
   let nodes = []
   let links = []
   let ctx = null
@@ -463,7 +467,10 @@ if (import.meta.client) {
   requestRedraw = draw
 
   const initGraph = async () => {
+    const run = ++graphRun
+    const stale = () => isUnmounted || run !== graphRun
     const d3 = await import('d3')
+    if (stale()) return
 
     if (!canvasRef.value || !containerRef.value || !posts.value.length) return
 
@@ -725,7 +732,7 @@ if (import.meta.client) {
 
     // Stream scraps (called after posts are done)
     const streamScraps = () => {
-      if (isUnmounted) return
+      if (stale()) return
       if (scrapIndex >= allScraps.length) {
         isStreaming.value = false
         animateHeader()
@@ -740,7 +747,7 @@ if (import.meta.client) {
 
     // Stream posts (called after maypoles are done)
     const streamPosts = () => {
-      if (isUnmounted) return
+      if (stale()) return
       if (postIndex >= allPosts.length) {
         setTimeout(streamScraps, POST_TO_SCRAP_PAUSE)
         return
@@ -755,9 +762,11 @@ if (import.meta.client) {
     // Phase 1: Animate maypole tags from top
     const animateMaypoles = async () => {
       const { animate, stagger } = await import('animejs')
+      if (stale()) return
 
       // Add maypole nodes to graph first
-      nodes = topTags.map((t) => ({ ...t, isMaypole: true }))
+      const maypoles = topTags.map((t) => ({ ...t, isMaypole: true }))
+      nodes = maypoles
       simulation.nodes(nodes)
       simulation.alpha(0).stop() // Pause simulation during anime animation
 
@@ -772,9 +781,10 @@ if (import.meta.client) {
       })
 
       await anim
+      if (stale()) return
 
       // Lock maypoles in place
-      nodes.forEach((n, i) => {
+      maypoles.forEach((n, i) => {
         n.fx = topTags[i].targetX
         n.fy = topTags[i].targetY
       })
@@ -931,7 +941,13 @@ if (import.meta.client) {
           class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
         >
           <input v-model="showTags" type="checkbox" class="accent-amber-400" />
-          <span :class="showTags ? 'text-amber-400' : 'text-zinc-600'">
+          <span
+            :class="
+              showTags
+                ? 'text-amber-700 dark:text-amber-400'
+                : 'text-zinc-400 dark:text-zinc-600'
+            "
+          >
             tags
           </span>
         </label>
@@ -1038,7 +1054,11 @@ if (import.meta.client) {
               />
               <span
                 class="font-mono text-3xs"
-                :class="showTags ? 'text-amber-400' : 'text-zinc-600'"
+                :class="
+                  showTags
+                    ? 'text-amber-700 dark:text-amber-400'
+                    : 'text-zinc-400 dark:text-zinc-600'
+                "
               >
                 Tags
               </span>

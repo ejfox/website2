@@ -8,6 +8,7 @@
  *   yarn qa:layout --strict        # exit 1 on any error-level issue
  *   BASE_URL=http://localhost:3016 yarn qa:layout   # e.g. a prod build
  *   yarn qa:layout --routes=/,/blog/ --viewports=iphone-se,wide
+ *   yarn qa:layout --routes=/threads --out=.qa/threads   # keep the full report
  *
  * Verify against a production build when you can: the dev server's SSR can
  * go stale after edits (the client HMRs, the server doesn't), which shows up
@@ -55,7 +56,7 @@ const args = Object.fromEntries(
 )
 const BASE = process.env.BASE_URL || 'http://localhost:3006'
 const HEADLESS = !!args.headless
-const OUT = path.resolve('.qa/layout')
+const OUT = path.resolve(args.out || '.qa/layout')
 const ERROR_KINDS = new Set([
   'overflow',
   'contrast',
