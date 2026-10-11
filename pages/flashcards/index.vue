@@ -60,7 +60,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
               Collection
             </p>
             <h1
-              class="text-3xl md:text-4xl font-light text-zinc-100 tracking-tight"
+              class="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight"
             >
               Flashcards
             </h1>
@@ -93,7 +93,9 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
         class="mb-12"
       >
         <div class="flex items-baseline gap-4 mb-6">
-          <h2 class="text-xl font-light text-zinc-100">{{ course }}</h2>
+          <h2 class="text-xl font-light text-zinc-900 dark:text-zinc-100">
+            {{ course }}
+          </h2>
           <span class="font-mono text-xs text-zinc-600 tabular-nums">
             {{ courseDecks.reduce((s, d) => s + d.cardCount, 0) }}
             cards
@@ -110,7 +112,9 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
                 >
                   &rsaquo;
                 </span>
-                <span class="deck-name">{{ deck.name }}</span>
+                <span class="deck-name text-zinc-800 dark:text-zinc-200">
+                  {{ deck.name }}
+                </span>
                 <span class="deck-count">{{ deck.cardCount }}</span>
               </div>
               <NuxtLink
@@ -176,7 +180,6 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
 
 .deck-name {
   font-size: 0.9375rem;
-  color: #e4e4e7;
 }
 
 .deck-count {

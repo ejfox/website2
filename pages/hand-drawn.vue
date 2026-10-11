@@ -497,14 +497,12 @@ useHead({
                   size="1.3rem"
                   class="text-zinc-400 dark:text-zinc-500 mx-1"
                 />
-                <HandDrawnMark tone="#fde047">one node process</HandDrawnMark>
+                <HandDrawnMark>one node process</HandDrawnMark>
               </span>
               under pm2 — a
               <code class="text-lg">git pull</code>
               and a reload, no containers, no orchestration. It is gloriously
-              <HandDrawnMark placement="under" tone="#fde047">
-                boring
-              </HandDrawnMark>
+              <HandDrawnMark placement="under"> boring </HandDrawnMark>
               .
             </p>
           </div>
@@ -515,7 +513,7 @@ useHead({
           <div class="text-lg leading-9 max-w-prose space-y-7">
             <p>
               When it hangs,
-              <HandDrawnMark tone="#fde047">delete code</HandDrawnMark>
+              <HandDrawnMark>delete code</HandDrawnMark>
               until it works — no clever fixes.
             </p>
             <p class="flex items-center gap-3 text-zinc-500">
@@ -535,9 +533,7 @@ useHead({
         <Demo n="4" title="A number worth circling" :blurb="blurbNumberCircled">
           <p class="text-xl md:text-2xl leading-loose max-w-prose">
             The blog has published
-            <HandDrawnMark tone="#fde047">
-              {{ fmt(blogWords) }} words
-            </HandDrawnMark>
+            <HandDrawnMark> {{ fmt(blogWords) }} words </HandDrawnMark>
             , across {{ fmt(blogPosts.length) }} posts.
           </p>
         </Demo>
@@ -610,7 +606,6 @@ useHead({
               :total="100"
               :columns="10"
               size="0.8rem"
-              tone="#fde047"
             />
             <figcaption
               class="mt-6 text-base text-zinc-600 dark:text-zinc-300 max-w-prose leading-7"
@@ -774,10 +769,7 @@ then read the logs and move on.</code></pre>
                 blog posts published
               </div>
               <div class="flex items-center gap-4 mb-2">
-                <HandDrawnMark
-                  tone="#fde047"
-                  class="text-5xl font-semibold tracking-tight"
-                >
+                <HandDrawnMark class="text-5xl font-semibold tracking-tight">
                   {{ fmt(blogPosts.length) }}
                 </HandDrawnMark>
                 <HandDrawn
@@ -918,7 +910,7 @@ then read the logs and move on.</code></pre>
                   size="1.4rem"
                   class="text-zinc-400 dark:text-zinc-500 mx-1"
                 />
-                <HandDrawnMark tone="#fde047">100</HandDrawnMark> </span
+                <HandDrawnMark>100</HandDrawnMark> </span
               >.
             </p>
             <figcaption
@@ -933,7 +925,7 @@ then read the logs and move on.</code></pre>
             <p class="text-xl leading-loose">
               Seeing my step count drop below 5,000 for days running is a clear
               sign I need to
-              <HandDrawnMark tone="#fde047">touch grass</HandDrawnMark>
+              <HandDrawnMark>touch grass</HandDrawnMark>
               .
             </p>
             <figcaption
@@ -948,9 +940,7 @@ then read the logs and move on.</code></pre>
             <p class="text-xl leading-loose">
               If you're going to spend half your life in a terminal, it might as
               well feel like a
-              <HandDrawnMark placement="under" tone="#fde047">
-                cyberpunk
-              </HandDrawnMark>
+              <HandDrawnMark placement="under">cyberpunk</HandDrawnMark>
               movie.
             </p>
             <figcaption
@@ -1002,9 +992,7 @@ then read the logs and move on.</code></pre>
             >
               Instead of avoiding hard work or hard problems, we should make
               hard work
-              <HandDrawnMark placement="under" tone="#fde047">
-                fun
-              </HandDrawnMark>
+              <HandDrawnMark placement="under">fun</HandDrawnMark>
               .
             </blockquote>
             <figcaption
@@ -1018,7 +1006,7 @@ then read the logs and move on.</code></pre>
           <figure class="max-w-2xl">
             <p class="text-xl leading-loose">
               If you can reliably discover the
-              <HandDrawnMark tone="#fde047">magic words</HandDrawnMark>
+              <HandDrawnMark>magic words</HandDrawnMark>
               you need, you can teach yourself almost anything.
             </p>
             <figcaption

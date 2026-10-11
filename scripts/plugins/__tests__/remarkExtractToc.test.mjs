@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
-import { remarkExtractToc } from '../remarkExtractToc.mjs'
+import { remarkExtractToc, dropTitleHeading } from '../remarkExtractToc.mjs'
 
 describe('remarkExtractToc', () => {
   function processMarkdown(markdown, options = {}) {
@@ -169,5 +169,40 @@ Some content
     // Empty heading should be skipped
     expect(toc).toHaveLength(1)
     expect(toc[0].text).toBe('Real Heading')
+  })
+})
+
+describe('dropTitleHeading', () => {
+  const parse = (md) => unified().use(remarkParse).parse(md)
+
+  it('drops an opening heading that repeats the title', () => {
+    const tree = parse('# How To Use Radios\n\nBody')
+    expect(dropTitleHeading(tree, 'How to use radios!')).toBe(
+      'How To Use Radios'
+    )
+    expect(tree.children[0].type).toBe('paragraph')
+  })
+
+  it('drops the opening heading when there is no title (it is the title)', () => {
+    const tree = parse('## 2016 in Review\n\nBody')
+    expect(dropTitleHeading(tree, undefined)).toBe('2016 in Review')
+    expect(tree.children).toHaveLength(1)
+  })
+
+  it('keeps a first section heading that differs from the title', () => {
+    const tree = parse('## Background\n\nBody')
+    expect(dropTitleHeading(tree, 'How To Use Radios')).toBeNull()
+    expect(tree.children[0].type).toBe('heading')
+  })
+
+  it('keeps a matching heading that is not the opening block', () => {
+    const tree = parse('Intro\n\n# How To Use Radios')
+    expect(dropTitleHeading(tree, 'How To Use Radios')).toBeNull()
+    expect(tree.children).toHaveLength(2)
+  })
+
+  it('ignores h3 and deeper', () => {
+    const tree = parse('### How To Use Radios')
+    expect(dropTitleHeading(tree, 'How To Use Radios')).toBeNull()
   })
 })

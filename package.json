@@ -50,7 +50,8 @@
     "seal:links": "node scripts/author/seal-links.mjs",
     "seal:import": "node scripts/blog/import-sealed.mjs",
     "seal": "npm run seal:import && npm run blog:process && npm run check:sealed",
-    "meta:frontmatter-sync": "node scripts/meta/frontmatter-sync-report.mjs"
+    "meta:frontmatter-sync": "node scripts/meta/frontmatter-sync-report.mjs",
+    "qa:layout": "node scripts/qa/layout-review.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
@@ -72,6 +73,7 @@
     "eslint-plugin-vue": "^10.5.1",
     "gray-matter": "^4.0.3",
     "nuxt": "^4.0.3",
+    "playwright": "^1.64.0",
     "prettier": "^3.6.2",
     "rehype-pretty-code": "^0.14.0",
     "rehype-stringify": "^10.0.0",

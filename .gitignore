@@ -100,3 +100,6 @@ content/blog/private/
 
 # Timestamped vault backups written by scripts/meta/vault-repo-merge.mjs --apply
 .vault-backup-*/
+
+# QA screenshot runs (yarn qa:topbar)
+.qa

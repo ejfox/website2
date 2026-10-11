@@ -9,11 +9,9 @@
 import chroma from 'chroma-js'
 import { useIntersectionObserver } from '@vueuse/core'
 import striptags from 'striptags'
-import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
-import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 const peterToddQuote1 =
@@ -103,7 +101,6 @@ const relatedPosts = computed(() => {
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
 })
-const { stats: readingStatsData } = readingStats(post)
 const { renderedHtml: renderedTitle, startAnimation } =
   useTypingAnimation(postTitle)
 
@@ -631,17 +628,6 @@ onMounted(() => {
       <div class="pt-progress-inner" :style="`width: ${scrollProgress}%`" />
     </div>
 
-    <!-- Top metadata bar -->
-    <div
-      v-if="post"
-      class="fixed top-0 left-0 right-0 z-[100] bg-black/80 backdrop-blur-sm print:hidden"
-    >
-      <PostMetadataBar
-        :date="post?.metadata?.date || post?.date"
-        :stats="readingStatsData"
-      />
-    </div>
-
     <article v-if="post" class="h-entry takeover-article">
       <!-- ===== HERO ===== -->
       <header class="takeover-hero">
@@ -828,6 +814,12 @@ body.peter-todd-takeover .prose blockquote::before,
 body.peter-todd-takeover blockquote::before {
   content: none !important;
   display: none !important;
+}
+
+/* The global blockquote rule forces near-black (!important) in light mode,
+   which vanished on this always-dark page — pull quotes included */
+body.peter-todd-takeover blockquote {
+  color: var(--pt-text) !important;
 }
 
 /* Kill the pull quote blockquote ::before too */
@@ -1123,7 +1115,9 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   background: transparent !important;
   padding: 0.5rem 0 0.5rem 1.5rem !important;
   margin: 2rem 0 !important;
-  color: var(--pt-text-dim);
+  /* !important: the global blockquote rule forces near-black in light mode,
+     which vanished on this always-dark page */
+  color: var(--pt-text-dim) !important;
 }
 
 /* Code */

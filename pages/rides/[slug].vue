@@ -636,7 +636,6 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
       </NuxtLink>
       <p class="post-metadata mt-4">
         <span>{{ formatDate(ride.date) }}</span>
-        <span v-if="ride.region">·</span>
         <span v-if="ride.region">{{ ride.region }}</span>
       </p>
       <h1
@@ -973,7 +972,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             <div style="font-size: 9px; letter-spacing: 0.2em">N</div>
           </div>
           <div
-            class="absolute right-4 md:right-8 font-mono text-zinc-400/70 dark:text-zinc-700"
+            class="absolute right-4 md:right-8 font-mono text-zinc-500 dark:text-zinc-500"
             :style="{
               bottom: ELEV_H + 16 + 'px',
               fontSize: '8px',
