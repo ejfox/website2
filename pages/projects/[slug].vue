@@ -37,6 +37,13 @@ if (error.value) {
   })
 }
 
+// If this project is one of the apps (data/apps.json), show where to get it.
+const { data: app } = await useFetch('/api/apps', {
+  key: 'apps',
+  default: () => [],
+})
+const thisApp = computed(() => (app.value || []).find((a) => a.slug === slug))
+
 // SEO metadata
 const title = computed(
   () => project.value?.title || project.value?.metadata?.title || 'Project'
@@ -197,6 +204,21 @@ onMounted(() => {
       >
         {{ title }}
       </h1>
+      <p v-if="thisApp?.store?.url" class="mb-8 -mt-2">
+        <a
+          :href="thisApp.store.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="app-store-link"
+          data-umami-event="app-store-click"
+          :data-umami-event-app="slug"
+        >
+          Get {{ thisApp.name }} on the App Store ↗
+        </a>
+        <span class="font-mono text-2xs text-zinc-500 ml-3">
+          v{{ thisApp.store.version }}
+        </span>
+      </p>
       <BlogPostContent :content="project.html" class="project-content" />
 
       <!-- Back link -->
@@ -344,6 +366,10 @@ onMounted(() => {
 .tech-badge {
   @apply font-mono text-2xs px-1 py-0.5 rounded;
   @apply bg-zinc-100 dark:bg-surface text-zinc-700 dark:text-zinc-300;
+}
+
+.app-store-link {
+  @apply inline-block font-mono text-2xs px-3 py-1.5 rounded bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors;
 }
 
 .github-link {
