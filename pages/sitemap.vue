@@ -19,25 +19,30 @@ const lastUpdated = computed(() => {
   return new Date(Math.max(...dates)).toISOString().split('T')[0]
 })
 
-// Process recent posts
-const recentPosts = computed(() => {
+// Projects share the manifest with posts; count them separately
+const isProject = (post) => post.slug?.startsWith('projects/')
+
+// Published blog posts, projects excluded
+const blogPosts = computed(() => {
   if (!manifest.value) return []
-  return manifest.value
-    .filter((post) => !post.hidden && !post.draft)
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 10)
+  return manifest.value.filter(
+    (post) => !post.hidden && !post.draft && !isProject(post)
+  )
 })
 
+// Process recent posts
+const recentPosts = computed(() =>
+  [...blogPosts.value]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 10)
+)
+
 // Calculate stats
-const totalPosts = computed(() => {
-  if (!manifest.value) return 0
-  return manifest.value.filter((post) => !post.hidden && !post.draft).length
-})
+const totalPosts = computed(() => blogPosts.value.length)
 
 const totalProjects = computed(() => {
   if (!manifest.value) return 0
-  return manifest.value.filter((post) => post.slug?.includes('projects/'))
-    .length
+  return manifest.value.filter(isProject).length
 })
 
 const totalTags = computed(() => {
@@ -142,11 +147,6 @@ usePageSeo({
               to="/scraps"
               title="Scrapbook"
               description="Visual inspiration collection"
-            />
-            <SitemapLink
-              to="/blog/week-notes"
-              title="Week Notes"
-              description="Weekly summaries and reflections"
             />
             <SitemapLink
               to="/blog/robots"
@@ -295,9 +295,8 @@ usePageSeo({
             to="/sitemap.xml"
             class="underline hover:text-zinc-700 dark:hover:text-zinc-300"
           >
-            XML sitemap
-          </NuxtLink>
-          .
+            XML sitemap </NuxtLink
+          >.
         </p>
       </div>
     </footer>

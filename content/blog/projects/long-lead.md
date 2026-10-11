@@ -20,7 +20,7 @@ Production and technical work for [Long Lead](https://longlead.com), a story stu
 
 ## The Depths She'll Reach
 
-Xan Rice's profile of world-record freediver Alenka Artnik, told as an immersive scroll that mirrors the descent. It won two Webbys for Best Sports Website.
+Xan Rice's profile of world-record freediver Alenka Artnik, told as an immersive scroll that mirrors the descent. It won two Webbys for Best Sports Website (credited to the Decimal team).
 
 ![The Depths She'll Reach — a freediver descending, with captioned audio](https://res.cloudinary.com/ejf/image/upload/v1666630397/project-images/ll_diver.png)
 

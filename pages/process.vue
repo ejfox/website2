@@ -64,7 +64,7 @@ usePageSeo({
     <header class="section-spacing-lg">
       <h1 class="heading-1 mb-4">How I Work</h1>
       <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400">
-        After 10+ years building newsroom tools under deadline pressure, I've
+        After 15+ years building newsroom tools under deadline pressure, I've
         developed strong opinions about what works.
       </p>
     </header>

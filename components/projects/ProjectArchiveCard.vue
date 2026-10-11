@@ -106,7 +106,9 @@ const stackLayerStyle = (index) => {
   >
     <div
       class="relative mb-2 aspect-[3/2]"
-      :class="isStack ? 'overflow-visible' : 'overflow-hidden rounded bg-raised'"
+      :class="
+        isStack ? 'overflow-visible' : 'overflow-hidden rounded bg-raised'
+      "
     >
       <template v-if="isStack">
         <div
@@ -123,7 +125,11 @@ const stackLayerStyle = (index) => {
             loading="lazy"
             decoding="async"
             class="w-full h-full object-cover"
-            :class="i === 0 ? 'group-hover:scale-[1.03] transition-transform duration-300' : ''"
+            :class="
+              i === 0
+                ? 'group-hover:scale-[1.03] transition-transform duration-300'
+                : ''
+            "
           />
         </div>
       </template>

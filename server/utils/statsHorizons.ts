@@ -196,7 +196,7 @@ export function buildStatsHorizons(
     carry: {
       items: num(gear?.stats?.totalItems),
       // gear-stats totalWeight is in OUNCES ("all in oz"); convert to real pounds for the _lbs field
-      weight_lbs: round((num(gear?.stats?.totalWeight) ?? NaN) / 16, 1),
+      weight_lbs: round((num(gear?.stats?.totalWeight) ?? Number.NaN) / 16, 1),
       containers: num(gear?.stats?.containerCount),
       by_type: gear?.typeDistribution ?? null,
       starred: (gear?.starred?.items ?? []).slice(0, 5),

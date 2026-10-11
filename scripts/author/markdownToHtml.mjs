@@ -14,6 +14,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import remarkDirective from 'remark-directive'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
 import matter from 'gray-matter'
@@ -28,6 +29,9 @@ import {
   remarkExtractToc,
   dropTitleHeading,
   remarkMermaid,
+  remarkHandDrawn,
+  remarkGearCard,
+  remarkPredictionRef,
 } from '../plugins/index.mjs'
 
 // Load theme once - use absolute path for compatibility with eval scripts
@@ -43,14 +47,20 @@ const highlighter = await shiki.createHighlighter({
   langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown'],
 })
 
-// EXACT same processor as processMarkdown.mjs
+// Mirrors the plugin chain in scripts/build/processMarkdown.mjs (same order).
+// Keep them in step: when this drifted, Dispatch previews showed :hd{} marks
+// as raw text.
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
+  .use(remarkDirective)
   .use(remarkObsidianSupport)
   .use(remarkExtractToc)
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
+  .use(remarkPredictionRef)
+  .use(remarkGearCard)
+  .use(remarkHandDrawn)
   .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)

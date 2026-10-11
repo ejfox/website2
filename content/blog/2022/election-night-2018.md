@@ -19,7 +19,7 @@ Jason and Adam had set up a makeshift assembly line, cooking bacon and then squi
 
 ![Standing in front of a big screen with the app on it](https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg)
 
-It is very strange to make an app that is put onto TV because it is performed. In a performance there is not a lot of room for error. It is definitely the most stressful thing I have ever done. To create something and hand it off to someone else and put it on a screen I have very little control of and broadcast it to 19 million people. And they translated it into Spanish at like 1 am the night before we went live. Very wild.
+It is very strange to make an app that is put onto TV because it is performed. In a performance there is not a lot of room for error. It is definitely the most stressful thing I have ever done. To create something and hand it off to someone else and put it on a screen I have very little control of and broadcast it to about 10 million people. And they translated it into Spanish at like 1 am the night before we went live. Very wild.
 
 It felt really cool though when I went to collect my headset. Broadcast works through these radio frequencies, and for the most part it’s silent (when things are going well) and you can hear things breaking all over. “The 3A wall went to black” someone says. “The (ice) rink graphics are not loading” someone else says later. “Don’t go to that for now.” someone else responds back. You hope to god you don’t hear your name.
 
@@ -27,7 +27,7 @@ I kept my ears perked for key words like “Adam” (Kornacki’s producer), “
 
 Boop boop boop, just edit some JSON, VPN into the NBC network, SSH into the server that serves the app, git pull from master, pm2 restart all, text the producer that it’s updated. Bada bing bada boom. I did it from my couch a few times in a late-night emergency and then watched my changes on air a few minutes later through Hulu while smoking a spliff. That is a pretty cool feeling.
 
-There are a lot of negatives that I could choose to dwell on. I keep thinking about that Larry Page quote: “it is very hard to fail completely at a very ambitious thing”. When you try and strive for enough cool shit, when some of it fails, as things inevitably do, even your failure is progress. I feel like we did that.
+There are a lot of negatives that I could choose to dwell on. I keep thinking about that Larry Page quote: “Even if you fail at your ambitious thing, it's very hard to fail completely”. When you try and strive for enough cool shit, when some of it fails, as things inevitably do, even your failure is progress. I feel like we did that.
 
 I wonder what I sacrificed to create this app though. I gave up a lot and delayed a lot of relationships and happiness just to make this thing that ultimately did… what? I think it is good to think about all of the things I learned. I learned how to be a better manager. To lead from behind. That pushing people doesn’t work. That different people have different motivations, and you have to learn each person’s and figure out how to appeal to those. That some people need a lot of direction and some people don’t want any direction. That you need to be very clear about things from the start. Even internally. Even with people that you trust.
 

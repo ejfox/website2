@@ -18,8 +18,8 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 | `posts/[...slug]` | Blog post by slug (privacy + draft guard) | `pages/blog`, `projects` | `content/processed/*.json` |
 | `manifest` | Published-post manifest (filters draft/hidden/unlisted/pw) | many pages | `manifest-lite.json` |
 | `projects` | Projects sorted by date | `pages/projects` | manifest + JSON |
-| `reading` | Books w/ random highlight | `pages/reading`, `now` | `content/processed/reading` |
-| `reading/[slug]` | Single book | `pages/reading`, `now` | reading JSON |
+| `reading` | Books w/ random highlight | `pages/reading`, `now` | `content/processed/reading` + `data/reading-kindle.json` |
+| `reading/[slug]` | Single book | `pages/reading`, `now` | reading JSON + `data/reading-kindle.json` |
 | `scraps` | Shared scraps | `pages/threads` +5 | Supabase (`shared=true`) |
 | `scraps/by-tags` | Scraps matching tags | `pages/blog`, `scraps` | Supabase |
 | `scraps/tags` | All unique scrap tags | public API | Supabase |

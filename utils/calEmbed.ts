@@ -24,7 +24,6 @@ export function loadCalInline({ namespace, calLink, selector, config = {} }) {
   }
   // Cal.com's official embed bootstrap (vendor snippet): queues calls until
   // embed.js loads, then replays them. Left structurally intact on purpose.
-  /* eslint-disable prefer-rest-params */
   ;(function (C, A, L) {
     const p = (a, ar) => a.q.push(ar)
     const d = C.document
@@ -56,7 +55,6 @@ export function loadCalInline({ namespace, calLink, selector, config = {} }) {
         p(cal, ar)
       }
   })(window, 'https://app.cal.com/embed/embed.js', 'init')
-  /* eslint-enable prefer-rest-params */
 
   window.Cal('init', namespace, { origin: 'https://cal.com' })
   window.Cal.ns[namespace]('inline', {

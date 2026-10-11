@@ -115,8 +115,9 @@ const _calculateTotalWeightInGrams = (items) =>
 const formatWeight = (items) => {
   const weightData = calculateTotalWeight(items)
   if (weightUnit.value === 'imperial') {
-    const pounds = Math.floor(weightData.ounces / 16)
-    const ounces = Math.round(weightData.ounces % 16)
+    const totalOz = Math.round(weightData.ounces)
+    const pounds = Math.floor(totalOz / 16)
+    const ounces = totalOz % 16
     return pounds > 0 ? `${pounds}lb ${ounces}oz` : `${ounces}oz`
   } else {
     const kg = Math.floor(weightData.grams / 1000)
@@ -187,7 +188,14 @@ const totalWeight = computed(() => {
     ? ounces.toFixed(1)
     : '0.0'
 })
-const containerCount = computed(() => groupedGear.value?.size || 0)
+const containerCount = computed(
+  () =>
+    new Set(
+      (gearItems.value || [])
+        .map((item) => item['Parent Container'])
+        .filter((c) => c && c.trim() !== '')
+    ).size
+)
 const _totalWeightInGrams = computed(() => {
   const total = calculateTotalWeight(gearItems.value || [])
   return total.grams || 0
@@ -204,8 +212,9 @@ const displayTotalWeight = computed(() => {
     if (typeof totalOz !== 'number' || Number.isNaN(totalOz)) {
       return { value: '0oz', unit: '' }
     }
-    const pounds = Math.floor(totalOz / 16)
-    const ounces = totalOz % 16
+    const tenthsOz = Math.round(totalOz * 10) / 10
+    const pounds = Math.floor(tenthsOz / 16)
+    const ounces = tenthsOz - pounds * 16
     const ouncesStr =
       typeof ounces === 'number' && !Number.isNaN(ounces)
         ? ounces.toFixed(1)

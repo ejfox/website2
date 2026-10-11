@@ -1,6 +1,6 @@
 ---
 title: "COVIDcast"
-date: 2020-04-24T00:00:00-04:00
+date: 2020-07-01T00:00:00-04:00
 category: "Journalism"
 featured: false
 modified: 2025-08-26T15:53:05-04:00
@@ -16,7 +16,7 @@ tags:
   - health
 ---
 
-During the early COVID-19 pandemic, I worked with Carnegie Mellon University's Delphi research group on [COVIDcast](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and interactions to help the public understand hospitalization, transmission and movement trends across the country.
+In summer 2020 I worked with Carnegie Mellon University's [Delphi research group](https://delphi.cmu.edu/about/team/) on [COVIDcast](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and interactions to help the public understand hospitalization, transmission and movement trends across the country.
 
 COVIDcast launched in April 2020 with a then-unusual idea: no single signal could be trusted on its own, so it mapped many rough ones side by side. These included doctor and telemedicine visits, symptom searches on Google, flu-test statistics, and symptom surveys run through Facebook and Google. Where several signals agreed, you could believe them.
 

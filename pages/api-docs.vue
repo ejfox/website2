@@ -78,17 +78,15 @@ function pathFor(r: ApiRoute) {
         <p class="mt-2 text-sm text-zinc-400 max-w-prose">
           {{ apiCatalog.length }} routes. Read-only GETs unless noted. Source of
           truth:
-          <code class="text-zinc-700 dark:text-zinc-300">
-            utils/apiCatalog.ts
-          </code>
-          . Machine spec:
+          <code class="text-zinc-700 dark:text-zinc-300"
+            >utils/apiCatalog.ts</code
+          >. Machine spec:
           <a
             href="/openapi.json"
             class="text-sky-400 underline hover:text-sky-300"
           >
-            /openapi.json
-          </a>
-          .
+            /openapi.json </a
+          >.
         </p>
       </header>
 
