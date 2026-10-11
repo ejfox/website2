@@ -1081,12 +1081,3 @@ if (import.meta.client) {
   margin-top: 4px;
 }
 </style>
-
-<!-- Global (un-scoped): on the threads route only, collapse the layout's
-     surface elevation so the sidebar and the canvas read as one deep,
-     full-bleed field instead of a boxed panel sitting on grey. -->
-<style>
-body:has(.threads-view) .min-h-screen {
-  background-color: #08080a;
-}
-</style>

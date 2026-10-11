@@ -1109,7 +1109,9 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   background: transparent !important;
   padding: 0.5rem 0 0.5rem 1.5rem !important;
   margin: 2rem 0 !important;
-  color: var(--pt-text-dim);
+  /* !important: the global blockquote rule forces near-black in light mode,
+     which vanished on this always-dark page */
+  color: var(--pt-text-dim) !important;
 }
 
 /* Code */

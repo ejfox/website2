@@ -1210,7 +1210,7 @@ definePageMeta({
                   Every commit I have ever made (publicly)
                 </h2>
                 <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-                  <HandDrawnMark ink-class="text-yellow-600">
+                  <HandDrawnMark>
                     {{ allCommits.length.toLocaleString() }}
                   </HandDrawnMark>
                   commits

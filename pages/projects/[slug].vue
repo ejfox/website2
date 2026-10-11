@@ -154,37 +154,28 @@ onMounted(() => {
           project.metadata?.url ||
           project.metadata?.['ai-involvement'])
       "
-      class="sticky top-0 z-40 bg-zinc-900/90 dark:bg-black/90 backdrop-blur-sm rounded-b print:hidden"
+      class="sticky top-0 z-40 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800 print:hidden"
     >
       <div
-        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-100 uppercase tracking-wider"
+        class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:gap-x-6 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-zinc-100 uppercase tracking-wider"
       >
         <span v-if="project.metadata?.state" class="whitespace-nowrap">
           {{ project.metadata.state }}
         </span>
         <!-- ai-involvement disclosure, verbatim from frontmatter. Readers
              can smell robot work — say it plainly, don't let them wonder. -->
-        <template v-if="project.metadata?.['ai-involvement']">
-          <span v-if="project.metadata?.state" class="text-zinc-500">·</span>
-          <span class="whitespace-nowrap text-zinc-400">
-            {{ project.metadata['ai-involvement'] }}
-          </span>
-        </template>
         <span
-          v-if="
-            (project.metadata?.state || project.metadata?.['ai-involvement']) &&
-            project.metadata?.url
-          "
-          class="text-zinc-500"
+          v-if="project.metadata?.['ai-involvement']"
+          class="whitespace-nowrap text-zinc-500 dark:text-zinc-400"
         >
-          ·
+          {{ project.metadata['ai-involvement'] }}
         </span>
         <a
           v-if="project.metadata?.url"
           :href="project.metadata.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="whitespace-nowrap hover:text-zinc-300 transition-colors"
+          class="whitespace-nowrap hover:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
         >
           view project ↗
         </a>

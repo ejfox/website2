@@ -1664,6 +1664,19 @@ img[data-loading='lazy']::before {
   display: inline-flex;
   align-items: center;
 }
+/* The annotation ink: 1-bit grey. Not a palette grey — black or white at low
+   alpha, so a mark reads as the same pencil over any background in its mode */
+.hd-ink {
+  color: rgb(0 0 0 / 0.3);
+}
+.dark .hd-ink {
+  color: rgb(255 255 255 / 0.35);
+}
+@media (prefers-color-scheme: dark) {
+  .hd-ink {
+    color: rgb(255 255 255 / 0.35);
+  }
+}
 
 /* ── Print ─────────────────────────────────────────────────────────────────
    The site is dark-first and nothing removes the .dark class or the

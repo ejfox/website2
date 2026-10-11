@@ -156,7 +156,7 @@ onMounted(() => {})
         <!-- Primary WPM Stat with AnimatedNumber -->
         <div class="individual-stat-large">
           <div class="stat-value">
-            <HandDrawnMark ink-class="text-yellow-600">
+            <HandDrawnMark>
               {{ Math.round(stats.typingStats.bestWPM) }}
             </HandDrawnMark>
           </div>

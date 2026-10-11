@@ -242,7 +242,7 @@ function formatDate(dateString) {
             </div>
             <NuxtLink
               :to="`/reading/${currentlyReading.slug}`"
-              class="block font-serif text-3xs text-zinc-300 leading-3"
+              class="block font-serif text-3xs text-zinc-700 dark:text-zinc-300 leading-3"
             >
               {{
                 currentlyReading.metadata?.['kindle-sync']?.title ||
@@ -259,19 +259,27 @@ function formatDate(dateString) {
           >
             <div class="flex justify-between">
               <span class="text-zinc-500">Books</span>
-              <span class="text-zinc-300">{{ books?.length || 0 }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ books?.length || 0 }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Highlights</span>
-              <span class="text-zinc-300">{{ totalHighlights }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ totalHighlights }}
+              </span>
             </div>
             <div v-if="avgHighlights > 0" class="flex justify-between">
               <span class="text-zinc-500">Avg/book</span>
-              <span class="text-zinc-300">{{ avgHighlights }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ avgHighlights }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Updated</span>
-              <span class="text-zinc-300">{{ lastUpdated }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ lastUpdated }}
+              </span>
             </div>
           </div>
 
@@ -286,7 +294,7 @@ function formatDate(dateString) {
                 v-for="book in topHighlighted"
                 :key="book.slug"
                 :to="`/reading/${book.slug}`"
-                class="flex justify-between font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                class="flex justify-between font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               >
                 <span class="truncate mr-2">
                   {{

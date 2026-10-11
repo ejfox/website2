@@ -22,10 +22,10 @@ const props = defineProps({
   name: { type: String, default: 'auto' },
   // 'around' wraps the text (ring); 'under' sits beneath it (scribble / underline)
   placement: { type: String, default: 'around' },
-  // ink colour: any CSS colour (defaults to highlighter yellow) ...
-  tone: { type: String, default: '#fde047' },
-  // ... or a Tailwind text-color token class ("text-amber-500"), which wins over tone
-  inkClass: { type: String, default: '' },
+  // ink: a class (default: the site's 1-bit grey, .hd-ink in global.css) ...
+  inkClass: { type: String, default: 'hd-ink' },
+  // ... or any CSS colour, which wins over the class
+  tone: { type: String, default: '' },
 })
 
 const root = ref(null)
@@ -89,9 +89,9 @@ const erode = computed(() =>
   props.placement === 'around' ? (SAFE_ERODE[resolvedName.value] ?? 1.0) : 0
 )
 
-// ink colour (token class wins over tone) + the auto tilt/mirror
+// ink colour (tone wins over the class) + the auto tilt/mirror
 const inkStyle = computed(() => {
-  const s = props.inkClass ? {} : { color: props.tone }
+  const s = props.tone ? { color: props.tone } : {}
   if (props.placement === 'around') {
     s.transform = `rotate(${recipe.value.rot}deg)${recipe.value.flip ? ' scaleX(-1)' : ''}`
   }

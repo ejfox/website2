@@ -66,17 +66,21 @@ function pathFor(r: ApiRoute) {
 </script>
 
 <template>
-  <div class="min-h-screen bg-page text-zinc-200 font-mono">
+  <div class="min-h-screen bg-page text-zinc-800 dark:text-zinc-200 font-mono">
     <div class="max-w-screen-lg mx-auto px-4 md:px-8 py-10">
       <!-- Header -->
       <header class="mb-8">
-        <h1 class="text-3xl font-display tracking-tight text-zinc-100">
+        <h1
+          class="text-3xl font-display tracking-tight text-zinc-900 dark:text-zinc-100"
+        >
           ejfox.com API
         </h1>
         <p class="mt-2 text-sm text-zinc-400 max-w-prose">
           {{ apiCatalog.length }} routes. Read-only GETs unless noted. Source of
           truth:
-          <code class="text-zinc-300">utils/apiCatalog.ts</code>
+          <code class="text-zinc-700 dark:text-zinc-300">
+            utils/apiCatalog.ts
+          </code>
           . Machine spec:
           <a
             href="/openapi.json"
@@ -94,7 +98,7 @@ function pathFor(r: ApiRoute) {
           v-model="query"
           type="search"
           placeholder="filter routes, deps, callers…"
-          class="w-full bg-surface border border-zinc-700 rounded px-3 py-2 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-sky-500"
+          class="w-full bg-surface border border-zinc-700 rounded px-3 py-2 text-sm text-zinc-800 dark:text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-sky-500"
         />
       </div>
 
@@ -142,7 +146,7 @@ function pathFor(r: ApiRoute) {
               >
                 {{ r.method }}
               </span>
-              <code class="text-sm text-zinc-100 break-all">
+              <code class="text-sm text-zinc-900 dark:text-zinc-100 break-all">
                 {{ pathFor(r) }}
               </code>
               <span class="text-xs text-zinc-400 flex-1 min-w-[200px]">

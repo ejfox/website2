@@ -318,8 +318,8 @@ useHead(() => ({
               class="flex justify-between font-mono text-3xs tabular-nums transition-colors"
               :class="
                 activeYear === String(year)
-                  ? 'text-zinc-100'
-                  : 'text-zinc-500 hover:text-zinc-300'
+                  ? 'text-zinc-900 dark:text-zinc-100'
+                  : 'text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300'
               "
               @click.prevent="scrollToYear(year)"
             >
@@ -335,23 +335,27 @@ useHead(() => ({
           >
             <div class="flex justify-between">
               <span class="text-zinc-500">Posts</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ blogStats.postsCount }}
               </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Words</span>
-              <span class="text-zinc-300">{{ blogStats.totalWordsK }}K</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ blogStats.totalWordsK }}K
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Read time</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ blogStats.totalReadHours }}hr
               </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Avg post</span>
-              <span class="text-zinc-300">{{ blogStats.avgWords }} words</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ blogStats.avgWords }} words
+              </span>
             </div>
           </div>
         </div>

@@ -782,12 +782,12 @@ export const stories = {
   HandDrawnMark: [
     {
       name: 'around',
-      props: { placement: 'around', tone: '#fde047' },
+      props: { placement: 'around' },
       slot: 'highlighted phrase',
     },
     {
       name: 'under',
-      props: { placement: 'under', tone: '#f43f5e' },
+      props: { placement: 'under' },
       slot: 'underlined',
     },
   ],

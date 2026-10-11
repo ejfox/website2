@@ -51,7 +51,7 @@
     "seal:import": "node scripts/blog/import-sealed.mjs",
     "seal": "npm run seal:import && npm run blog:process && npm run check:sealed",
     "meta:frontmatter-sync": "node scripts/meta/frontmatter-sync-report.mjs",
-    "qa:topbar": "node scripts/qa/topbar-review.mjs"
+    "qa:layout": "node scripts/qa/layout-review.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
