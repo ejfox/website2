@@ -1,5 +1,87 @@
 [
   {
+    "date": "2026-10",
+    "title": "v2.1.0: Live /now",
+    "description": "/now renders per request, one line per route, newest first. Kindle covers are back on /reading, /threads has a real light mode, and a lint cleanup fixed typos Prettier had put into live pages.",
+    "link": "/now"
+  },
+  {
+    "date": "2026-10",
+    "title": "Dispatch",
+    "description": "Standalone pieces of journalism, each at /dispatch/<slug>.",
+    "link": "/dispatch"
+  },
+  {
+    "date": "2026-10",
+    "title": "Email Signup",
+    "description": "An email signup form at the end of every post, self-hosted on listmonk."
+  },
+  {
+    "date": "2026-10",
+    "title": "OLED Black Dark Mode",
+    "description": "Dark mode is pure black everywhere. Layers are separated by borders, not fills."
+  },
+  {
+    "date": "2026-10",
+    "title": "Automated Deploys",
+    "description": "A push to main builds, deploys and health-checks the site, and rolls back on its own if the check fails."
+  },
+  {
+    "date": "2026-10",
+    "title": "Projects Archive",
+    "description": "The projects page shows the whole archive, with two-column flagships and a Games category.",
+    "link": "/projects"
+  },
+  {
+    "date": "2026-09",
+    "title": "Motorcycle Rides",
+    "description": "Ride maps built from GPX tracks, with photos, audio and notes.",
+    "link": "/rides"
+  },
+  {
+    "date": "2026-09",
+    "title": "Sealed Posts",
+    "description": "Link-protected posts on a public repo. They are decrypted in the reader's browser."
+  },
+  {
+    "date": "2026-09",
+    "title": "Scheduled Posts",
+    "description": "Posts can be set to go public at a later time, with no rebuild."
+  },
+  {
+    "date": "2026-09",
+    "title": "Webmentions",
+    "description": "Webmentions now show on every post.",
+    "link": "/blog"
+  },
+  {
+    "date": "2026-07",
+    "title": "JSON Twins",
+    "description": "Every page has a JSON version at the same path with a .json suffix."
+  },
+  {
+    "date": "2026-06",
+    "title": "Hand-Drawn Kit",
+    "description": "Arrows, circled numbers and marks scanned from a notebook, usable as components.",
+    "link": "/hand-drawn"
+  },
+  {
+    "date": "2026-06",
+    "title": "AT Protocol Mirror",
+    "description": "Blog posts are mirrored to AT Protocol (standard.site)."
+  },
+  {
+    "date": "2026-06",
+    "title": "Vault Alarm Headings",
+    "description": "A new display font for headings."
+  },
+  {
+    "date": "2026-01",
+    "title": "Stats Lite API",
+    "description": "Single-number stats for iOS Shortcuts and widgets.",
+    "link": "/api/stats-lite"
+  },
+  {
     "date": "2025-12",
     "title": "Flashcard System",
     "description": "Added spaced repetition flashcards with 3D card UI, multi-deck support, and API endpoints for learning.",
@@ -44,7 +126,7 @@
   {
     "date": "2025-07",
     "title": "Cryptographic Predictions",
-    "description": "10 PGP-signed predictions for 2025-2029 with SHA-256 hashing and git commits for verifiable forecasting.",
+    "description": "10 predictions for 2025-2029, SHA-256 hashed and committed to git so they can't be quietly edited later.",
     "link": "/predictions"
   },
   {

@@ -20,7 +20,6 @@ const CACHE_IMMUTABLE = 'public, max-age=31536000, immutable'
 const PRERENDERED_ROUTES = [
   '/blog/**',
   '/gear',
-  '/now',
   '/sitemap',
   '/gists',
   '/changelog',
@@ -129,12 +128,6 @@ export default defineNuxtConfig({
         {
           rel: 'alternate',
           type: 'application/rss+xml',
-          title: 'EJ Fox · Week notes',
-          href: 'https://ejfox.com/week-notes-rss.xml',
-        },
-        {
-          rel: 'alternate',
-          type: 'application/rss+xml',
           title: 'EJ Fox · Gists',
           href: 'https://ejfox.com/gists-rss.xml',
         },
@@ -160,7 +153,11 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint'],
+  // Generates .nuxt/eslint.config.mjs (on `nuxt prepare` / postinstall) with
+  // the real auto-import globals, so eslint.config.mjs needn't hand-list them.
+  // Stylistic rules stay off: Prettier owns formatting.
+  eslint: { config: { tooling: true } },
   devServer: {
     port: 3006,
   },
@@ -203,6 +200,7 @@ export default defineNuxtConfig({
     HEALTH_WEBHOOK_SECRET: process.env.HEALTH_WEBHOOK_SECRET || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
     calcomApiKey: process.env.CAL_COM_API_KEY || '',
+    X_BEARER_TOKEN: process.env.X_BEARER_TOKEN || '',
     buildInfo: getBuildInfo(),
 
     // Public client-accessible vars
@@ -338,10 +336,24 @@ export default defineNuxtConfig({
           'Cache-Control': 'no-store',
         },
       },
+      // Sponsor links (server/routes/go). Every hit must reach Umami, so no cache.
+      '/go/**': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
       '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // public/README.md (asset provenance notes) serves at /README.md — noindex it.
       '/README.md': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // Web Key Directory (WKD) for ejfox@ejfox.com: public/.well-known/openpgpkey/.
+      // Mail clients and `gpg --locate-keys` fetch it; browser-based clients
+      // (e.g. Mailvelope, Keyoxide) need CORS. The key file has no extension, so
+      // Nitro serves it as a binary blob, which is what WKD expects.
+      '/.well-known/openpgpkey/**': {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+      },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
@@ -359,6 +371,12 @@ export default defineNuxtConfig({
         // Dynamic pages — SSR with edge caching
         '/calendar': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
         '/stats': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
+        // /now is a live page: prerendered, it froze at the last deploy.
+        // Its one fetch (/api/now) is a cached handler, so SSR stays fast.
+        '/now': {
+          prerender: false,
+          headers: { 'Cache-Control': CACHE_DYNAMIC },
+        },
         // Static assets — cache forever
         '/_nuxt/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
         // Fonts fell through to Cloudflare's 4h default, so repeat visitors

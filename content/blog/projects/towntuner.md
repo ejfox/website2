@@ -34,4 +34,4 @@ It builds on the amazing work of [HarmonSearch](https://harmonsearch.com), whose
 
 ![towntuner on iPhone — the episode browser with prestige progression](https://res.cloudinary.com/ejf/image/upload/projects/towntuner/2.png)
 
-[Join the TestFlight beta](https://testflight.apple.com/join/Theuk8mq) — iOS only, sorry.
+The TestFlight beta is closed for now.

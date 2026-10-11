@@ -3,8 +3,9 @@
 /* Vault Alarm - Display Sans-Serif */
 @font-face {
   font-family: 'Vault Alarm';
-  src: url('/fonts/VaultAlarm-Regular.woff2') format('woff2'),
-       url('/fonts/VaultAlarm-Regular.woff') format('woff');
+  src:
+    url('/fonts/VaultAlarm-Regular.woff2') format('woff2'),
+    url('/fonts/VaultAlarm-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,8 +13,9 @@
 
 @font-face {
   font-family: 'Vault Alarm';
-  src: url('/fonts/VaultAlarm-Sharp.woff2') format('woff2'),
-       url('/fonts/VaultAlarm-Sharp.woff') format('woff');
+  src:
+    url('/fonts/VaultAlarm-Sharp.woff2') format('woff2'),
+    url('/fonts/VaultAlarm-Sharp.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -102,15 +104,18 @@ body {
   font-family:
     'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
     serif;
-  /* Enhanced Georgia OpenType features */
+  /* Enhanced Georgia OpenType features: kern = kerning, liga = standard
+     ligatures (fi, fl), calt = contextual alternates, onum = old-style
+     numerals, dlig = discretionary ligatures (ct, st), swsh = swashes,
+     hist = historical forms */
   font-feature-settings:
-    'kern' 1,      /* Kerning */
-    'liga' 1,      /* Standard ligatures (fi, fl, etc.) */
-    'calt' 1,      /* Contextual alternates */
-    'onum' 1,      /* Old-style numerals in body text */
-    'dlig' 1,      /* Discretionary ligatures (ct, st) */
-    'swsh' 1,      /* Swash characters for emphasis */
-    'hist' 1;      /* Historical forms */
+    'kern' 1,
+    'liga' 1,
+    'calt' 1,
+    'onum' 1,
+    'dlig' 1,
+    'swsh' 1,
+    'hist' 1;
   font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
   font-variant-numeric: oldstyle-nums;
   -webkit-font-smoothing: antialiased;
@@ -176,12 +181,15 @@ body {
   }
 }
 
-
 /* Typography System - Serif for human content, Mono for data */
 /* Vault Alarm for display/headings, Georgia for body */
 .text-display {
   @apply text-4xl md:text-6xl font-light leading-tight text-zinc-900 dark:text-zinc-100;
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif;
   letter-spacing: -0.03em;
 }
 
@@ -190,21 +198,33 @@ h1,
 .text-8xl,
 .text-7xl,
 .text-6xl {
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif;
   letter-spacing: -0.035em;
 }
 
 h2,
 .text-5xl,
 .text-4xl {
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif;
   letter-spacing: -0.025em;
 }
 
 h3,
 .text-3xl,
 .text-2xl {
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif;
   letter-spacing: -0.015em;
 }
 
@@ -531,7 +551,6 @@ p,
   @apply mb-16; /* 2 * 8px baseline units */
 }
 
-
 /* Borders - Minimal */
 .border-default {
   @apply border-zinc-200 dark:border-zinc-800;
@@ -695,7 +714,12 @@ blockquote {
   letter-spacing: 0.01em !important; /* Slight letter spacing for elegance */
   text-rendering: optimizeLegibility !important;
   /* Enhanced font features */
-  font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1, 'swsh' 1, 'onum' 1 !important;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'dlig' 1,
+    'swsh' 1,
+    'onum' 1 !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -854,7 +878,12 @@ blockquote a {
   display: inline-block !important; /* Better control over breaking */
   color: #6b7280 !important; /* Subtle color for URLs in quotes */
   text-decoration: underline !important;
-  text-decoration-color: rgba(107, 114, 128, 0.3) !important; /* Subtle underline */
+  text-decoration-color: rgba(
+    107,
+    114,
+    128,
+    0.3
+  ) !important; /* Subtle underline */
   line-height: 1.4 !important; /* Better spacing for wrapped URLs */
 }
 
@@ -928,7 +957,11 @@ blockquote a {
 .blog-post-content h4,
 .blog-post-content h5,
 .blog-post-content h6 {
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif !important;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif !important;
 }
 
 .blog-post-content pre,
@@ -944,7 +977,11 @@ blockquote a {
 .prose h5,
 .prose h6 {
   @apply font-light;
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif !important;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   letter-spacing: -0.02em;
   margin-left: 0;
   font-feature-settings:
@@ -1031,7 +1068,9 @@ blockquote a {
   line-height: 0;
   position: relative;
   vertical-align: baseline;
-  font-feature-settings: 'sups' 1, 'lnum' 1; /* Proper superscript */
+  font-feature-settings:
+    'sups' 1,
+    'lnum' 1; /* Proper superscript */
 }
 
 .prose sup {
@@ -1044,11 +1083,11 @@ blockquote a {
 
 /* Mobile layout utilities */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Safari and Chrome */
+  display: none; /* Safari and Chrome */
 }
 
 /* Mobile-specific layout fixes */
@@ -1104,7 +1143,8 @@ blockquote a {
   padding: 0.25em 0.35em !important; /* Larger touch targets for mobile */
   border-radius: 3px !important;
   background: rgba(45, 55, 72, 0.12) !important; /* More visible background */
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important; /* Monospace for clarity */
+  font-family:
+    ui-monospace, 'SF Mono', Monaco, monospace !important; /* Monospace for clarity */
   min-width: 1.8em !important; /* Ensure consistent minimum size */
   text-align: center !important; /* Center text in larger tap target */
   display: inline-block !important; /* Better control over sizing */
@@ -1151,12 +1191,15 @@ blockquote a {
   line-height: 1.2;
   text-align: center;
   color: #6b7280; /* Muted color for annotations */
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace; /* Monospace for clarity */
+  font-family:
+    ui-monospace, 'SF Mono', Monaco, monospace; /* Monospace for clarity */
   font-weight: 400;
   letter-spacing: 0.05em;
   margin-bottom: 0.2em;
   /* Better typography for small annotation text */
-  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -1179,9 +1222,9 @@ p.font-serif.text-xl {
     'kern' 1,
     'liga' 1,
     'calt' 1,
-    'dlig' 1,      /* Discretionary ligatures for elegant combinations */
-    'onum' 1,      /* Old-style numerals */
-    'swsh' 1;      /* Swash characters for elegance */
+    'dlig' 1,
+    'onum' 1,
+    'swsh' 1;
   font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
   font-variant-numeric: oldstyle-nums;
 }
@@ -1395,7 +1438,8 @@ img[data-loading='lazy']::before {
     width: 200px;
     font-size: 0.7rem;
     line-height: 1.3;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
+    font-family:
+      'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
       'Courier New', monospace;
     color: #71717a;
     text-align: justify;
@@ -1586,7 +1630,9 @@ img[data-loading='lazy']::before {
   margin-bottom: 0.5rem;
 }
 
-.blog-post-content .external-link { display: inline; }
+.blog-post-content .external-link {
+  display: inline;
+}
 .blog-post-content .external-link svg {
   display: inline-block;
   width: 0.5rem;
@@ -1595,7 +1641,9 @@ img[data-loading='lazy']::before {
   margin-left: 2px;
   opacity: 0.5;
 }
-.blog-post-content a:hover .external-link svg { opacity: 0.8; }
+.blog-post-content a:hover .external-link svg {
+  opacity: 0.8;
+}
 
 /* Splayed-on-a-table image treatment — static rotation from build-time
    hash, shadow lifts with scroll-proximity to viewport center. Shadow is
@@ -1605,8 +1653,11 @@ img[data-loading='lazy']::before {
   transform-origin: center center;
   border-radius: 0;
   box-shadow:
-    0 calc(28px * var(--splay-focal, 0)) calc(52px * var(--splay-focal, 0)) calc(-14px + -2px * var(--splay-focal, 0)) rgba(0, 0, 0, calc(0.38 * var(--splay-focal, 0))),
-    0 calc(6px * var(--splay-focal, 0)) calc(12px * var(--splay-focal, 0)) -3px rgba(0, 0, 0, calc(0.22 * var(--splay-focal, 0)));
+    0 calc(28px * var(--splay-focal, 0)) calc(52px * var(--splay-focal, 0))
+      calc(-14px + -2px * var(--splay-focal, 0))
+      rgba(0, 0, 0, calc(0.38 * var(--splay-focal, 0))),
+    0 calc(6px * var(--splay-focal, 0)) calc(12px * var(--splay-focal, 0)) -3px
+      rgba(0, 0, 0, calc(0.22 * var(--splay-focal, 0)));
   padding: 0 !important;
   background-origin: content-box;
   background-clip: content-box;
@@ -1633,12 +1684,16 @@ img[data-loading='lazy']::before {
    DARK MODE TYPOGRAPHY (class-based)
    VueUse uses .dark class, not media query
    ======================================== */
-.dark body, .dark {
+.dark body,
+.dark {
   letter-spacing: 0.005em;
   font-weight: 375;
 }
 
-.dark .text-sm, .dark .text-xs, .dark .text-2xs, .dark .text-3xs {
+.dark .text-sm,
+.dark .text-xs,
+.dark .text-2xs,
+.dark .text-3xs {
   letter-spacing: 0.02em;
 }
 
@@ -1663,6 +1718,19 @@ img[data-loading='lazy']::before {
 .hd-inline {
   display: inline-flex;
   align-items: center;
+}
+/* The annotation ink: 1-bit grey. Not a palette grey — black or white at low
+   alpha, so a mark reads as the same pencil over any background in its mode */
+.hd-ink {
+  color: rgb(0 0 0 / 0.3);
+}
+.dark .hd-ink {
+  color: rgb(255 255 255 / 0.35);
+}
+@media (prefers-color-scheme: dark) {
+  .hd-ink {
+    color: rgb(255 255 255 / 0.35);
+  }
 }
 
 /* ── Print ─────────────────────────────────────────────────────────────────

@@ -112,7 +112,7 @@ export default defineEventHandler(async () => {
         count: 'dynamic',
         earliest: '2010',
         latest: 'current',
-        description: 'Technical writing, week notes, tutorials',
+        description: 'Technical writing, essays, tutorials',
       },
       predictions: {
         count: 'dynamic',

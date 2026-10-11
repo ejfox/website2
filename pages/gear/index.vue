@@ -115,8 +115,9 @@ const _calculateTotalWeightInGrams = (items) =>
 const formatWeight = (items) => {
   const weightData = calculateTotalWeight(items)
   if (weightUnit.value === 'imperial') {
-    const pounds = Math.floor(weightData.ounces / 16)
-    const ounces = Math.round(weightData.ounces % 16)
+    const totalOz = Math.round(weightData.ounces)
+    const pounds = Math.floor(totalOz / 16)
+    const ounces = totalOz % 16
     return pounds > 0 ? `${pounds}lb ${ounces}oz` : `${ounces}oz`
   } else {
     const kg = Math.floor(weightData.grams / 1000)
@@ -187,7 +188,14 @@ const totalWeight = computed(() => {
     ? ounces.toFixed(1)
     : '0.0'
 })
-const containerCount = computed(() => groupedGear.value?.size || 0)
+const containerCount = computed(
+  () =>
+    new Set(
+      (gearItems.value || [])
+        .map((item) => item['Parent Container'])
+        .filter((c) => c && c.trim() !== '')
+    ).size
+)
 const _totalWeightInGrams = computed(() => {
   const total = calculateTotalWeight(gearItems.value || [])
   return total.grams || 0
@@ -204,8 +212,9 @@ const displayTotalWeight = computed(() => {
     if (typeof totalOz !== 'number' || Number.isNaN(totalOz)) {
       return { value: '0oz', unit: '' }
     }
-    const pounds = Math.floor(totalOz / 16)
-    const ounces = totalOz % 16
+    const tenthsOz = Math.round(totalOz * 10) / 10
+    const pounds = Math.floor(tenthsOz / 16)
+    const ounces = tenthsOz - pounds * 16
     const ouncesStr =
       typeof ounces === 'number' && !Number.isNaN(ounces)
         ? ounces.toFixed(1)
@@ -470,7 +479,9 @@ useHead(() => ({
         class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm"
       >
         <div class="flex flex-col gap-2">
-          <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
+          <h1 class="font-mono text-sm text-zinc-900 dark:text-zinc-100">
+            GEAR
+          </h1>
           <div class="font-mono text-3xs text-muted tabular">
             {{ totalItems }} items · {{ displayTotalWeight.value }} ·
             {{ containerCount }} bags
@@ -601,7 +612,7 @@ useHead(() => ({
           class="gear-container-card group"
         >
           <div class="flex items-baseline justify-between">
-            <span class="font-mono text-3xs text-zinc-200">
+            <span class="font-mono text-3xs text-zinc-800 dark:text-zinc-200">
               {{ container }}
             </span>
             <div class="text-5xs text-zinc-600 tabular-nums">
@@ -641,7 +652,7 @@ useHead(() => ({
       >
         <div class="gear-container-header">
           <div class="flex items-baseline gap-3">
-            <h2 class="text-3xs font-mono text-zinc-200">
+            <h2 class="text-3xs font-mono text-zinc-800 dark:text-zinc-200">
               {{ container }}
             </h2>
             <span class="text-5xs text-zinc-600">
@@ -714,7 +725,7 @@ useHead(() => ({
               v-for="[container, items] in groupedGear"
               :key="`nav-${container}`"
               :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
-              class="flex justify-between font-mono text-3xs tabular-nums text-zinc-500 hover:text-zinc-300 transition-colors"
+              class="flex justify-between font-mono text-3xs tabular-nums text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               @click.prevent="scrollToContainer(container)"
             >
               <span class="truncate mr-2">{{ container }}</span>
@@ -729,15 +740,21 @@ useHead(() => ({
           >
             <div class="flex justify-between">
               <span class="text-zinc-500">Items</span>
-              <span class="text-zinc-300">{{ totalItems }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ totalItems }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Total</span>
-              <span class="text-zinc-300">{{ displayTotalWeight.value }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ displayTotalWeight.value }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Bags</span>
-              <span class="text-zinc-300">{{ containerCount }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ containerCount }}
+              </span>
             </div>
           </div>
         </div>

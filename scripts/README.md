@@ -70,7 +70,9 @@ scripts/
 │   ├── lint-frontmatter-safety.mjs # PII/exposure frontmatter linter
 │   ├── content-report.mjs       # content health report card (HTML dashboard)
 │   ├── generate-alt-text.mjs    # LLM alt-text generation for images
-│   ├── sync-alt-to-cloudinary.mjs  # push alt text → Cloudinary metadata
+│   ├── unify-cloudinary-text.mjs   # one alt/caption/description model across Cloudinary + repo cache
+│   ├── sync-ocr-to-cloudinary.mjs  # push OCR text → Cloudinary context (ocr_1…N)
+│   ├── check-image-pii.mjs         # deploy gate: OCR published images for secrets/financials
 │   ├── hydrate-cloudinary-cache.mjs # dims/colors → cloudinary-image-cache.json
 │   └── gen-gear-annex.mjs       # derive gear checklists into the vault
 │

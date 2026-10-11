@@ -1,11 +1,12 @@
 /**
  * @file plugins/remarkExtractToc.mjs
  * @description Remark plugin that extracts table of contents from headings and stores in vfile.data
- * @usage .use(remarkExtractToc, { maxDepth: 3, removeFirstHeading: false })
+ * @usage .use(remarkExtractToc, { maxDepth: 3 })
  */
 
 import { visit } from 'unist-util-visit'
 import GithubSlugger from 'github-slugger'
+import { toString } from 'mdast-util-to-string'
 
 export function extractHeadersAndToc(tree, maxDepth = 3) {
   const slugger = new GithubSlugger()
@@ -81,14 +82,24 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
   return { firstHeading, toc, firstHeadingNode }
 }
 
-export function removeFirstHeading(tree, firstHeadingNode) {
-  if (firstHeadingNode) {
-    const index = tree.children.indexOf(firstHeadingNode)
-    if (index !== -1) {
-      tree.children.splice(index, 1)
-    }
-  }
-  return tree
+const normalize = (text) => text.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '')
+
+/**
+ * Drop the heading a post opens with when it just repeats the title — the
+ * page already renders the title as the hero <h1>, so leaving it in shows the
+ * title twice. Only the opening block, only h1/h2, and only when it matches
+ * the frontmatter title (or there is none, in which case it IS the title), so
+ * a real first section heading is never touched. Run on the mdast before
+ * processor.run(), so the TOC doesn't list it either.
+ * @returns {string | null} the dropped heading's text
+ */
+export function dropTitleHeading(tree, title) {
+  const first = tree.children[0]
+  if (first?.type !== 'heading' || first.depth > 2) return null
+  const text = toString(first).trim()
+  if (title && normalize(text) !== normalize(String(title))) return null
+  tree.children.shift()
+  return text
 }
 
 // Export the remark plugin
@@ -103,17 +114,6 @@ export function remarkExtractToc(options = { maxDepth: 3 }) {
     file.data.toc = toc
     file.data.firstHeading = firstHeading
     file.data.firstHeadingNode = firstHeadingNode
-
-    // Debug logging
-    if (toc.length === 0) {
-      // Silently track empty TOCs - they're valid
-      // (some posts have no h2-h3 headings)
-    }
-
-    // Remove first heading if requested
-    if (options.removeFirstHeading) {
-      removeFirstHeading(tree, firstHeadingNode)
-    }
 
     return tree
   }

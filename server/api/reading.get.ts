@@ -8,6 +8,7 @@ import { defineEventHandler } from 'h3'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { isScheduled } from '~/utils/postFilters'
+import { withKindleSync } from '~/server/utils/readingKindle'
 
 // Helper function to extract random highlight from book content
 function extractRandomHighlight(htmlContent) {
@@ -54,10 +55,10 @@ export default defineEventHandler(async (_event) => {
       jsonFiles.map(async (file) => {
         const filePath = path.join(readingDir, file)
         const content = await readFile(filePath, 'utf-8')
-        const book = JSON.parse(content)
-
         // Add slug for routing
-        book.slug = path.basename(file, '.json')
+        const slug = path.basename(file, '.json')
+        const book = withKindleSync(JSON.parse(content), slug)
+        book.slug = slug
 
         // Extract random highlight for preview
         book.randomHighlight = extractRandomHighlight(book.content || book.html)

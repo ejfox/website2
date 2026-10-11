@@ -35,9 +35,6 @@ const allTaggedPosts = computed(() => {
 const posts = computed(() =>
   allTaggedPosts.value.filter((p) => p.slug?.match(/^\d{4}\//))
 )
-const weekNotes = computed(() =>
-  allTaggedPosts.value.filter((p) => p.slug?.startsWith('week-notes/'))
-)
 const reading = computed(() =>
   allTaggedPosts.value.filter((p) => p.slug?.startsWith('reading/'))
 )
@@ -102,43 +99,6 @@ useHead({
       <div class="space-y-0.5">
         <div
           v-for="post in posts"
-          :key="post.slug"
-          class="flex gap-3 text-sm leading-5"
-        >
-          <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
-            {{ formatShortDate(post.date || post.metadata?.date) }}
-          </span>
-          <div class="flex-1 min-w-0">
-            <NuxtLink
-              :to="`/blog/${post.slug}`"
-              class="hover:underline underline-offset-2"
-            >
-              {{ post.title || post.metadata?.title }}
-            </NuxtLink>
-            <div
-              class="font-mono text-zinc-600 truncate"
-              style="font-size: 9px; line-height: 1.2"
-            >
-              ejfox.com/blog/{{ post.slug }}
-            </div>
-          </div>
-          <span class="font-mono text-xs text-zinc-600 shrink-0">
-            {{ (post.metadata?.words || post.words || 0).toLocaleString() }}
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Week Notes -->
-    <section v-if="weekNotes.length" class="mb-6">
-      <h3
-        class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
-      >
-        Week Notes
-      </h3>
-      <div class="space-y-0.5">
-        <div
-          v-for="post in weekNotes"
           :key="post.slug"
           class="flex gap-3 text-sm leading-5"
         >

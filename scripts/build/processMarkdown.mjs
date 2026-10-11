@@ -40,6 +40,7 @@ import {
   remarkEnhanceLinks,
   remarkEnhanceImages,
   remarkExtractToc,
+  dropTitleHeading,
   remarkMermaid,
 } from '../plugins/index.mjs'
 
@@ -55,7 +56,7 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
-const CACHE_VERSION = '2026-10-05-source-hash'
+const CACHE_VERSION = '2026-10-11-drop-title-heading'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
@@ -196,7 +197,7 @@ const hashSource = (content) =>
  * clone: every committed JSON looks newer than its source, so CI reused stale
  * output — `draft: true` on a post deployed green while the post stayed live.
  * A hash is right everywhere: fresh clone, CI, or a laptop.
- * @returns {'cache' | 'process'}
+ * @returns {'cache' | 'process'} 'cache' to reuse the JSON, 'process' to rebuild
  */
 function getFileCacheStatus(filePath, outputPath) {
   if (!existsSync(outputPath)) return 'process'
@@ -306,27 +307,18 @@ async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
-    let ast = processor.parse(markdownContent)
+    const ast = processor.parse(markdownContent)
+    const titleHeading = dropTitleHeading(ast, frontmatter.title)
 
     // Create vfile to hold data from plugins
     const vfile = { path: filename, data: {} }
 
     // Process through unified pipeline
     // (TOC extraction happens in remarkExtractToc plugin)
-    let result = await processor.run(ast, vfile)
+    const result = await processor.run(ast, vfile)
 
     // Get TOC data from plugin
     const toc = vfile.data?.toc || []
-    const firstHeading = vfile.data?.firstHeading
-    const firstHeadingNode = vfile.data?.firstHeadingNode
-
-    // Remove first heading if it exists
-    if (firstHeadingNode) {
-      const index = result.children.indexOf(firstHeadingNode)
-      if (index !== -1) {
-        result.children.splice(index, 1)
-      }
-    }
 
     let html = processor.stringify(result)
 
@@ -338,7 +330,7 @@ async function processMarkdown(content, filePath) {
 
     const extractedTitle =
       frontmatter.title ||
-      firstHeading ||
+      titleHeading ||
       formatTitle(path.basename(filePath, '.md'))
 
     // Extract detailed image stats
@@ -1236,6 +1228,20 @@ async function processAllFiles() {
     // can be skipped is not a guard — that exact bypass is how the previous
     // attempt shipped a post with no protection and a green build.
     await assertNoStraySecretFrontmatter(allFiles)
+
+    // Week notes were retired from the site on 2026-10-11 (they leaked
+    // screenshots and were searchable). They stay private in the vault. A
+    // week-notes/ folder reappearing here means something re-imported them:
+    // fail the build rather than publish them again.
+    const weekNotes = allFiles.filter((f) =>
+      path.relative(paths.contentDir, f).startsWith('week-notes' + path.sep)
+    )
+    if (weekNotes.length) {
+      throw new Error(
+        `${weekNotes.length} file(s) under content/blog/week-notes/. Week notes ` +
+          'are retired and must not be published; delete them from the repo.'
+      )
+    }
 
     // Everything downstream of here that writes a TRACKED build artifact gets
     // the public files only. Enumerating readers rather than writing filters is

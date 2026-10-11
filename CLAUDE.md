@@ -8,7 +8,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 
 - Runs under **pm2** on the VPS (process name `website2`, port 3006). Docker was retired 2026-05-06 — see "Deployment" section below.
 - Dynamic tags system with journalist pyramid ordering
-- Cryptographic predictions system with PGP signing
+- Predictions system: timestamped + git-committed (NOT PGP-signed yet; see Predictions below)
 - Multi-source API aggregation for personal stats
 - Clean root directory (delete-driven cleanup completed)
 
@@ -31,6 +31,11 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 2. **Predictions System**
    - CLI tool `yarn predict` for personal predictions
      - SHA-256 hashing + Git commits for verification
+     - **Reality check (2026-10-05):** the git commit is the only checkable proof.
+       0 of 15 stored hashes reproduce (predict-pro.mjs hashes a gray-matter
+       re-serialization that drifts), and `signed:` is a timestamp, not a PGP
+       signature. The API exposes `gitCommit` only; don't call predictions
+       "signed" or "cryptographically verified" until both are fixed.
      - Storage: `content/predictions/` as Markdown with YAML frontmatter
    - Calibration tracking: `yarn calibrate` generates Brier scores + calibration curves
    - Simple pipeline: make prediction → wait → resolve → track accuracy
@@ -280,7 +285,7 @@ ssh vps 'pm2 reload website2'
 - **Content Pipeline**: Obsidian → JSON processing working smoothly
 - **Runtime**: pm2 on VPS (formerly docker; retired 2026-05-06)
 - **Dynamic Tags**: Journalist pyramid ordering operational
-- **Predictions**: Cryptographic verification system functional
+- **Predictions**: Git-committed + calibration working; hash reproducibility and PGP signing NOT done
 - **Root Folder**: Professional, no build artifacts or test debris
 - **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
 - **Typography**: Vault Alarm (display/headings) + Georgia serif (body) + mono (data); tokenized scale (see Typography System)
@@ -660,6 +665,27 @@ and slugs only, never PII. An element already tagged with
 | `contact-email` | any `mailto:` link (plugin) | (none; never the address) |
 | `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
 | `read-complete` | reader passes 85% of `.h-entry .e-content` on /blog/** and /dispatch/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch) |
+
+**umami-plus (2026-10-06).** `plugins/umami.client.js` also loads the shared
+helper `https://umami-plus.tools.ejfox.com/umami-plus.js` (source and docs:
+`chart-desk/infra/umami-plus/`), the 3.4 tracker with `data-performance`
+(Web Vitals → Umami "Performance"), and `recorder.js` (heatmaps plus
+strict-masked session replay; sampling is set in the Umami DB, not here). The
+helper's own `outbound` / `rss-click` / `contact-email` are switched off because
+the plugin above already sends them. It adds:
+
+| event | when | props |
+|---|---|---|
+| `scroll-depth` | 25/50/75/100% of a scrollable page, once each per page view | `depth` |
+| `engaged` | 30s and 120s of *active* time (tab visible, input in the last 20s) | `seconds` |
+| `copy` | text copied (at most 10 per page) | `chars`, `code` (bool). Never the text. |
+| `download` | link to a file extension or `[download]` | `ext`, `file`, `host` |
+| `not-found` | `error.vue` rendered (`[data-not-found]`) | `path` |
+| `search` | page loaded with `?q=` / `?query=` / `?search=` / `?s=`, or a search form submitted | `q`, `via` |
+| (session data) | once per browser session, via `umami.identify` | `visitor` new/returning, `visits` bucket, `ref` class, `viewport` class, `theme` |
+
+Bump `?v=` in `plugins/umami.client.js` after changing the helper (Cloudflare
+caches it for hours).
 
 Umami ignores headless/bot user agents. To verify in a test, check the
 attributes and handlers, not database rows.

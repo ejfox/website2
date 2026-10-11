@@ -8,10 +8,10 @@ const passphrase = ref('')
 const showPassword = ref(false)
 
 const steps = [
-  'Saves to Pinboard immediately',
-  'Analyzes page content in background',
-  'Suggests tags from your existing bookmarks',
-  'One click to update with better tags',
+  'Opens a popup with the page title, URL and selected text',
+  'A small model suggests tags, preferring this site’s tag list',
+  'Pick the tags you want',
+  'Save opens Pinboard’s add form with everything filled in',
 ]
 
 const bookmarkletCode = computed(() => {
@@ -62,7 +62,7 @@ const copyCode = async () => {
 
 usePageSeo({
   title: 'Pinboard Bookmarklet',
-  description: 'Save to Pinboard instantly with smart tag suggestions.',
+  description: 'Send a page to Pinboard with suggested tags.',
   type: 'website',
   section: 'Tools',
   tags: ['Bookmarklet', 'Pinboard', 'Tagging'],
@@ -74,7 +74,7 @@ usePageSeo({
     <header class="mb-12">
       <h1 class="font-serif text-3xl mb-2">Pinboard Bookmarklet</h1>
       <p class="text-zinc-600 dark:text-zinc-400">
-        Save to Pinboard instantly, get smart tag suggestions after.
+        Send a page to Pinboard with suggested tags.
       </p>
     </header>
 

@@ -1,6 +1,20 @@
 <script setup>
 import { computed, ref, h } from 'vue'
 import manifest from '~/assets/hand-drawn/manifest.json'
+import sidenotesPluginSrc from '~/plugins/footnotes-to-sidenotes.client.ts?raw'
+
+// counted from the real files, so the figures can't go stale
+const pluginLines = sidenotesPluginSrc.trimEnd().split('\n').length
+const { data: siteManifest } = await useFetch('/api/manifest')
+const blogPosts = computed(() =>
+  (siteManifest.value || []).filter(
+    (p) => p?.slug && !p.slug.startsWith('projects/')
+  )
+)
+const blogWords = computed(() =>
+  blogPosts.value.reduce((sum, p) => sum + (p.metadata?.words || 0), 0)
+)
+const fmt = (n) => n.toLocaleString('en-US')
 
 // tiny inline layout helper for the demo blocks (keeps the template readable).
 // `stacked` puts the label above a full-width body — for demos that need room
@@ -113,7 +127,7 @@ const trendSpike = computed(() => {
   }
 })
 
-// real before→afters pulled from posts & week notes
+// real before→afters pulled from posts and notes
 const releases = [
   {
     title: 'Photo backup',
@@ -139,7 +153,7 @@ const arrowH = [
   { name: 'arrow-right', a: 'Electron', b: 'Tauri' },
   { name: 'arrow-right-thin', a: 'Flickr', b: 'self-host' },
   { name: 'arrow-wavy-right', a: 'cloud', b: 'local-first' },
-  { name: 'arrow-squiggle', a: '800 lines', b: '113' },
+  { name: 'arrow-squiggle', a: '800 lines', b: String(pluginLines) },
   { name: 'arrow-diagonal-thick', a: '4,096-D', b: '2-D' },
 ]
 // downward: top resolves down to bottom
@@ -175,11 +189,10 @@ const arrowStudies = [
 ]
 
 // real stats spelled out in the hand-drawn digit glyphs. there's no zero in the set,
-// so the figures are real ones that happen to avoid it; together they exercise 1–9 in
-// both weights. the compound "10–13" glyphs carry small real counts.
+// so the figures are real ones that happen to avoid it; together they exercise 1–9.
+// the compound "10–13" glyphs carry small real counts.
 const numeralStats = [
   { digits: '29915', label: 'officer nodes mapped (CCRB)', thin: false },
-  { digits: '45923', label: 'words written this year', thin: false },
   { digits: '159671', label: 'relationships in the graph', thin: false },
   { digits: '1189', label: 'GitHub contributions', thin: false },
   { digits: '1554', label: 'screenshots in the atlas', thin: true },
@@ -193,7 +206,7 @@ const numCompound = [
   ['num-11', '11 tools shipped, numbered below'],
   ['num-12', 'a 12-entry changelog'],
   ['num-13', 'knives forged since the 13th century'],
-  ['num-thin-10', 'a 10-week note streak'],
+  ['num-thin-10', 'a 10-week writing streak'],
 ]
 
 // real bulleted list (dot / dot-lg markers) — the backup tool's requirements
@@ -226,7 +239,7 @@ const wordCounts = [
   ['word-seven', 'services humming on the VPS'],
   ['word-eight', 'thousand Pinboard bookmarks'],
   ['word-nine', '-to-five I walked away from'],
-  ['word-ten', 'years of week notes'],
+  ['word-ten', 'years of blog posts'],
 ]
 
 // real projects → circled numbers 1–11
@@ -248,14 +261,14 @@ const kitProjects = [
 const kitTimeline = [
   { n: 1, t: 'Flickr → Instagram → self-hosted photos' },
   { n: 2, t: 'Twitter → Mastodon' },
-  { n: 3, t: '800-line sidenotes → 113-line plugin' },
+  { n: 3, t: `800-line sidenotes → ${pluginLines}-line plugin` },
   { n: 4, t: 'Docker → pm2, one node process' },
   { n: 5, t: 'Electron → Tauri for the backup tool' },
   { n: 6, t: 'CCRB: 29,915-node officer graph' },
   { n: 7, t: '1,554-screenshot embeddings atlas' },
   { n: 8, t: 'tv-station: public-access from Watch Later' },
   { n: 9, t: 'personal APIs → "touch grass" alerts' },
-  { n: 10, t: 'the hand-drawn kit, 152 marks' },
+  { n: 10, t: `the hand-drawn kit, ${manifest.length} marks` },
   { n: 12, t: '100 videos — the goal for this year' },
 ]
 
@@ -282,10 +295,8 @@ const magStats = [
   ['mag-10000', '22,380 hours tracked in 14 years'],
   ['mag-100000', '159,671 graph edges'],
   ['mag-1k', '~1k commits a year'],
-  ['mag-10k', '45,923 words written'],
   ['mag-100k', '1.5M messages in the archive'],
   ['badge-1k', '1,554 screenshots'],
-  ['badge-10k', '65,820 words published'],
   ['badge-100k', '100k+ runtime seconds'],
 ]
 
@@ -445,9 +456,9 @@ useHead({
           scanned from the notebook, traced, and sliced into
           <code class="text-sm">{{ manifest.length }}</code>
           named pieces. Each one renders inline and inherits
-          <code class="text-sm">currentColor</code>
-          , so it adapts to dark mode and sits in a sentence like a letter.
-          Below: a few ways they could live in posts and across the design.
+          <code class="text-sm">currentColor</code>, so it adapts to dark mode
+          and sits in a sentence like a letter. Below: a few ways they could
+          live in posts and across the design.
         </p>
       </header>
 
@@ -466,7 +477,7 @@ useHead({
               size="1.05em"
               class="mx-0.5 align-baseline"
             />
-            and the sidenotes plugin is only 113 lines
+            and the sidenotes plugin is only {{ pluginLines }} lines
             <HandDrawn name="circled-2" size="1.05em" class="mx-0.5" />
             because complexity is the enemy
             <HandDrawn name="circled-3" size="1.05em" class="mx-0.5" />
@@ -486,15 +497,13 @@ useHead({
                   size="1.3rem"
                   class="text-zinc-400 dark:text-zinc-500 mx-1"
                 />
-                <HandDrawnMark tone="#fde047">one node process</HandDrawnMark>
+                <HandDrawnMark>one node process</HandDrawnMark>
               </span>
               under pm2 — a
               <code class="text-lg">git pull</code>
               and a reload, no containers, no orchestration. It is gloriously
-              <HandDrawnMark placement="under" tone="#fde047">
-                boring
-              </HandDrawnMark>
-              , and it hasn't gone down since.
+              <HandDrawnMark placement="under"> boring </HandDrawnMark>
+              .
             </p>
           </div>
         </Demo>
@@ -504,7 +513,7 @@ useHead({
           <div class="text-lg leading-9 max-w-prose space-y-7">
             <p>
               When it hangs,
-              <HandDrawnMark tone="#fde047">delete code</HandDrawnMark>
+              <HandDrawnMark>delete code</HandDrawnMark>
               until it works — no clever fixes.
             </p>
             <p class="flex items-center gap-3 text-zinc-500">
@@ -523,9 +532,9 @@ useHead({
         <!-- 4. a real number, circled -->
         <Demo n="4" title="A number worth circling" :blurb="blurbNumberCircled">
           <p class="text-xl md:text-2xl leading-loose max-w-prose">
-            This year the blog crossed
-            <HandDrawnMark tone="#fde047">65,820 words</HandDrawnMark>
-            , across 103 posts — and counting.
+            The blog has published
+            <HandDrawnMark> {{ fmt(blogWords) }} words </HandDrawnMark>
+            , across {{ fmt(blogPosts.length) }} posts.
           </p>
         </Demo>
 
@@ -597,7 +606,6 @@ useHead({
               :total="100"
               :columns="10"
               size="0.8rem"
-              tone="#fde047"
             />
             <figcaption
               class="mt-6 text-base text-zinc-600 dark:text-zinc-300 max-w-prose leading-7"
@@ -609,7 +617,7 @@ useHead({
               <span
                 class="block text-3xs uppercase tracking-[0.16em] text-zinc-400 mt-3"
               >
-                week note · 2024-01
+                my notes · 2024-01
               </span>
             </figcaption>
           </figure>
@@ -697,9 +705,8 @@ useHead({
                 </a>
                 — pm2, a single node process, read-the-logs-and-reload
                 <a class="hd-footnote-ref text-rose-500" href="#">
-                  <HandDrawn name="circled-2" size="1.25em" />
-                </a>
-                .
+                  <HandDrawn name="circled-2" size="1.25em" /> </a
+                >.
               </p>
               <div
                 class="hd-divider my-8 flex justify-center text-zinc-400 dark:text-zinc-600"
@@ -708,8 +715,7 @@ useHead({
               </div>
               <p class="text-base text-zinc-500">
                 …and the divider above was just a plain
-                <code>---</code>
-                .
+                <code>---</code>.
               </p>
             </div>
           </Demo>
@@ -763,11 +769,8 @@ then read the logs and move on.</code></pre>
                 blog posts published
               </div>
               <div class="flex items-center gap-4 mb-2">
-                <HandDrawnMark
-                  tone="#fde047"
-                  class="text-5xl font-semibold tracking-tight"
-                >
-                  103
+                <HandDrawnMark class="text-5xl font-semibold tracking-tight">
+                  {{ fmt(blogPosts.length) }}
                 </HandDrawnMark>
                 <HandDrawn
                   name="arrow-up-thick"
@@ -775,12 +778,9 @@ then read the logs and move on.</code></pre>
                   class="text-zinc-400 dark:text-zinc-500"
                 />
               </div>
-              <div class="text-sm text-zinc-500">
-                15.6 a year — and climbing
-              </div>
               <hr class="my-5 border-zinc-100 dark:border-zinc-800" />
               <div class="text-sm text-zinc-500 leading-6">
-                65,820 words published in all.
+                {{ fmt(blogWords) }} words published in all.
               </div>
             </div>
           </div>
@@ -894,8 +894,8 @@ then read the logs and move on.</code></pre>
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">Straight from the archive</h2>
         <p class="text-zinc-500 dark:text-zinc-400 mb-16 max-w-prose">
-          Not lorem ipsum — actual lines from real posts and week notes, marked
-          up the way you might in the margin. Each one notes where it came from.
+          Not lorem ipsum — actual lines from real posts, marked up the way you
+          might in the margin. Each one notes where it came from.
         </p>
 
         <div class="space-y-16">
@@ -910,14 +910,13 @@ then read the logs and move on.</code></pre>
                   size="1.4rem"
                   class="text-zinc-400 dark:text-zinc-500 mx-1"
                 />
-                <HandDrawnMark tone="#fde047">100</HandDrawnMark>
-              </span>
-              .
+                <HandDrawnMark>100</HandDrawnMark> </span
+              >.
             </p>
             <figcaption
               class="mt-6 text-3xs uppercase tracking-[0.16em] text-zinc-400"
             >
-              week note · 2024-01
+              my notes · 2024-01
             </figcaption>
           </figure>
 
@@ -926,7 +925,7 @@ then read the logs and move on.</code></pre>
             <p class="text-xl leading-loose">
               Seeing my step count drop below 5,000 for days running is a clear
               sign I need to
-              <HandDrawnMark tone="#fde047">touch grass</HandDrawnMark>
+              <HandDrawnMark>touch grass</HandDrawnMark>
               .
             </p>
             <figcaption
@@ -941,9 +940,7 @@ then read the logs and move on.</code></pre>
             <p class="text-xl leading-loose">
               If you're going to spend half your life in a terminal, it might as
               well feel like a
-              <HandDrawnMark placement="under" tone="#fde047">
-                cyberpunk
-              </HandDrawnMark>
+              <HandDrawnMark placement="under">cyberpunk</HandDrawnMark>
               movie.
             </p>
             <figcaption
@@ -995,9 +992,7 @@ then read the logs and move on.</code></pre>
             >
               Instead of avoiding hard work or hard problems, we should make
               hard work
-              <HandDrawnMark placement="under" tone="#fde047">
-                fun
-              </HandDrawnMark>
+              <HandDrawnMark placement="under">fun</HandDrawnMark>
               .
             </blockquote>
             <figcaption
@@ -1011,7 +1006,7 @@ then read the logs and move on.</code></pre>
           <figure class="max-w-2xl">
             <p class="text-xl leading-loose">
               If you can reliably discover the
-              <HandDrawnMark tone="#fde047">magic words</HandDrawnMark>
+              <HandDrawnMark>magic words</HandDrawnMark>
               you need, you can teach yourself almost anything.
             </p>
             <figcaption

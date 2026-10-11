@@ -68,7 +68,7 @@ These little drills we practice, the games we play in our off-time, can genuinel
 
 The same principles apply to communication drills. Every time you coordinate a complex raid in an MMO or call out enemy positions in Squad, you're practicing information triage, situational awareness, and calm communication under stress.
 
-Take, for example, the "over and out" phrase commonly used in radio communication. The phrase encapsulates the essence of radio communication—clarity, brevity, and finality—all in just three syllables. It's a linguistic meme that has stood the test of time, rounded down like a river rock over time.
+Take, for example, the "over and out" phrase commonly heard in movie radio chatter (proper procedure never pairs the two). The phrase encapsulates the essence of radio communication—clarity, brevity, and finality—all in just three syllables. It's a linguistic meme that has stood the test of time, rounded down like a river rock over time.
 
 I remember listening to GMRS radio on Lake George, and hearing a female voice sign off over the radio: "Over and out, good buddy" – a gruff voice on the other end responses "I'm not your buddy", to which she cheerfully replied "Over and out good hubby!"
 

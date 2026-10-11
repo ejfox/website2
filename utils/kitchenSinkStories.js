@@ -543,6 +543,15 @@ export const stories = {
       },
     },
     {
+      name: 'edited later (history link)',
+      props: {
+        date: '2025-11-02',
+        modified: '2026-01-14',
+        slug: 'the-kitchen-sink',
+        stats: { readingTime: 12, words: 2400, images: 6, links: 18 },
+      },
+    },
+    {
       name: 'with atproto record',
       props: {
         date: '2025-11-02',
@@ -687,6 +696,13 @@ export const stories = {
     },
   ],
 
+  // Live: reads EJ's real Paperclip status (SSR + shared SSE stream), so the
+  // preview shows whatever he's set right now — or nothing if the API is down.
+  PaperclipStatus: [
+    { name: 'inline (mobile nav)', props: {} },
+    { name: 'with time (sidebar)', props: { showTime: true } },
+  ],
+
   // ── consulting ───────────────────────────────────────────────────────────────
   // mock injected because cal.com isn't configured in dev ("Calendar not
   // configured") — previews the inline "(next slot)" booking link.
@@ -782,12 +798,12 @@ export const stories = {
   HandDrawnMark: [
     {
       name: 'around',
-      props: { placement: 'around', tone: '#fde047' },
+      props: { placement: 'around' },
       slot: 'highlighted phrase',
     },
     {
       name: 'under',
-      props: { placement: 'under', tone: '#f43f5e' },
+      props: { placement: 'under' },
       slot: 'underlined',
     },
   ],

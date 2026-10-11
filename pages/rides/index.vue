@@ -193,7 +193,7 @@ useHead({ title: 'Rides — EJ Fox' })
         </div>
         <div
           v-if="ride.elev?.length || ride.spdHist?.length"
-          class="flex justify-between font-mono text-4xs uppercase tracking-wider text-zinc-300 dark:text-zinc-700"
+          class="flex justify-between font-mono text-4xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
         >
           <span>{{ ride.elev?.length ? 'elev' : '' }}</span>
           <span>{{ ride.spdHist?.length ? 'speed' : '' }}</span>

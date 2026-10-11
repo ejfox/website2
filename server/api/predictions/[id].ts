@@ -1,17 +1,10 @@
 /**
  * @file predictions/[id].ts
- * @description Handles prediction GET (single prediction with SSR markdown) and PATCH (resolution updates)
+ * @description Single prediction with SSR markdown (read-only)
  * @endpoint GET /api/predictions/{id} - Fetch single prediction with rendered markdown
- * @endpoint PATCH /api/predictions/{id} - Update prediction resolution
  * @params id: string - Prediction ID/slug (supports both flat and year-based structures)
  */
-import {
-  defineEventHandler,
-  readBody,
-  getRouterParam,
-  createError,
-  getMethod,
-} from 'h3'
+import { defineEventHandler, getRouterParam, createError, getMethod } from 'h3'
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
@@ -77,55 +70,11 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  if (method === 'PATCH') {
-    // Update a prediction (typically to resolve it)
-    const body = await readBody(event)
-
-    try {
-      const filePath = await findPredictionFile(id)
-      if (!filePath) {
-        throw new Error('File not found')
-      }
-
-      const content = await fs.readFile(filePath, 'utf-8')
-      const { data, content: markdownBody } = matter(content)
-
-      // Update the frontmatter with the outcome
-      if (body.outcome) {
-        data.outcome = {
-          resolved: body.outcome.resolved,
-          correct: body.outcome.correct,
-          notes: body.outcome.notes,
-        }
-      }
-
-      // Rebuild the markdown file
-      const newContent = matter.stringify(markdownBody, data)
-      await fs.writeFile(filePath, newContent)
-
-      return {
-        id,
-        statement: data.statement,
-        created: new Date(data.created),
-        confidence: data.confidence,
-        deadline: new Date(data.deadline),
-        categories: data.categories || [],
-        outcome: data.outcome
-          ? {
-              resolved: new Date(data.outcome.resolved),
-              correct: data.outcome.correct,
-              notes: data.outcome.notes || '',
-            }
-          : undefined,
-        visibility: data.visibility || 'public',
-        evidence: markdownBody.trim(),
-      }
-    } catch {
-      throw createError({
-        statusCode: 404,
-        statusMessage: 'Prediction not found',
-      })
-    }
+  // Read-only. A PATCH branch used to rewrite the prediction's .md on the
+  // server with no auth (anyone could set an outcome); predictions change
+  // through git and `yarn predict` instead.
+  if (method !== 'GET') {
+    throw createError({ statusCode: 405, statusMessage: 'Method Not Allowed' })
   }
 
   if (method === 'GET') {
@@ -209,6 +158,9 @@ export default defineEventHandler(async (event) => {
       resolutionHtml,
       updates: data.updates || [],
       relatedPredictions,
+      // Committed, checkable on GitHub. Hash + "signed" deliberately not exposed
+      // (see predictions.get.ts). TODO: reproducible hash + real signatures.
+      gitCommit: data.gitCommit,
     }
   }
 

@@ -88,6 +88,7 @@ const buildTitle = computed(() => {
         <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses">
           email
         </a>
+        <NuxtLink to="/tips" :class="navLinkClasses">tips</NuxtLink>
       </nav>
 
       <!-- PGP + Build info -->

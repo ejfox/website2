@@ -1,0 +1,41 @@
+name: Lint
+
+# ESLint (bugs) + Prettier (formatting) on every PR and push to main.
+# Source is clean as of the lint-config cleanup, so this holds the line at
+# zero instead of letting noise pile up on main. Not part of deploy.yml, so a
+# lint failure never blocks a content deploy; make it a required check on PRs
+# in branch protection if you want it to gate merges.
+#
+# Typecheck is deliberately not here yet: vue-tsc reports ~50 errors already
+# on main. Add `yarn typecheck` once that backlog is cleared.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      # postinstall runs `nuxt prepare`, which generates .nuxt/eslint.config.mjs
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-engines
+
+      - name: ESLint
+        run: yarn lint --max-warnings 0
+
+      - name: Prettier
+        run: yarn format:check

@@ -89,7 +89,7 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
       v-if="!grid"
       :name="subtleMark"
       size="1.05rem"
-      class="stats-section__mark text-zinc-400 dark:text-zinc-500"
+      class="stats-section__mark hd-ink"
       :style="markStyle"
       aria-hidden="true"
     />

@@ -896,7 +896,7 @@ definePageMeta({
               :value="stats.lastfm.stats?.totalScrobbles || 0"
             />
             <StatsStatRow
-              label="Artists"
+              label="Artists this month"
               :value="stats.lastfm.stats?.uniqueArtists || 0"
             />
             <StatsStatRow
@@ -906,7 +906,7 @@ definePageMeta({
               :decimals="1"
             />
             <StatsStatRow
-              label="Tracks"
+              label="Tracks this month"
               :value="stats.lastfm.stats?.uniqueTracks || 0"
             />
           </StatsStatSection>
@@ -1210,7 +1210,7 @@ definePageMeta({
                   Every commit I have ever made (publicly)
                 </h2>
                 <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-                  <HandDrawnMark ink-class="text-yellow-600">
+                  <HandDrawnMark>
                     {{ allCommits.length.toLocaleString() }}
                   </HandDrawnMark>
                   commits

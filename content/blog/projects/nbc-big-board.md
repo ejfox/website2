@@ -1,6 +1,6 @@
 ---
 title: NBC News Big Board
-date: 2016-11-08T00:00:00-05:00
+date: 2018-11-06T00:00:00-05:00
 client: "NBC News"
 category: "Journalism"
 modified: 2025-08-13T12:24:29-04:00
@@ -16,7 +16,7 @@ tags:
   - elections
 ---
 
-It started as a prototype I made in January — a touchscreen way to explore county-level election results — that I demoed to Adam, then to Steve, then to Marc, until it got the budget and became the real thing: the "Big Board" Steve Kornacki wields on air, live, in front of ten to nineteen million people.
+It started as a prototype I made in January — a touchscreen way to explore county-level election results — that I demoed to Adam, then to Steve, then to Marc, until it got the budget and became the real thing: the "Big Board" Steve Kornacki wields on air, live, in front of about 10 million people watching on NBC and MSNBC. Michael Small and I built it with NBC News Digital's product and tech teams.
 
 Building something that gets *performed* live is the most stressful thing I've ever done — no room for error, and you hand it off to someone else on a screen you don't control. In the weeks before an election, Adam (Kornacki's producer) was texting and calling me at all hours as he did hits on Maddow and Morning Joe, and I got used to adding new scorecard filters at a moment's notice.
 

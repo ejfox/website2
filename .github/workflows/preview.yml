@@ -11,15 +11,28 @@ name: PR Preview
 #
 # The preview loads production's .env (read-only API keys), so only PRs whose
 # workflow can read VPS_SSH_KEY deploy — fork PRs never get repository secrets.
+#
+# Lifecycle (2026-10-11): previews leaked (pr-62 stayed up after merge because
+# its cleanup run was cancelled). Now: the closed event never gets cancelled by
+# the concurrency group, cleanup has a 10-minute timeout, and it calls the
+# VPS-side `preview-reap` (/home/debian/observability/bin, git), which also
+# runs nightly as a reconcile sweep (asks `gh` for each PR's state), enforces
+# a hard cap on the number of previews (oldest evicted), and hardlinks
+# identical files across previews (~50% smaller). The deploy step refuses to
+# start a preview for a PR that is no longer open.
 
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
 
-# Cancel an in-flight preview build when a newer commit is pushed to the same PR.
+# One group per PR. A newer push cancels an in-flight build, but the closed
+# event does NOT cancel anything: it queues behind a running deploy and runs
+# after it, so cleanup is always the last word and a late deploy can't leave
+# a zombie. (A reopen is a deploy event again and may cancel a pending cleanup,
+# which is what we want.)
 concurrency:
   group: preview-${{ github.event.number }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event.action != 'closed' }}
 
 env:
   PR: pr-${{ github.event.number }}
@@ -75,6 +88,14 @@ jobs:
             set -euo pipefail
             BASE="/data2/previews/$PR"
             TARBALL="/tmp/$PR/preview.tar.gz"
+            REAP=/home/debian/observability/bin/preview-reap
+
+            # The PR may have closed while this build ran. Only an OPEN PR gets
+            # a preview; anything else is cleanup's job (or the nightly sweep).
+            STATE=$(gh pr view "${PR#pr-}" -R ejfox/website2 --json state --jq .state 2>/dev/null || echo UNKNOWN)
+            if [ "$STATE" != "OPEN" ]; then
+              echo "$PR is $STATE, not deploying a preview"; rm -rf "/tmp/$PR"; exit 0
+            fi
 
             # Extract, verify, then swap — never leave a half-extracted preview
             rm -rf "$BASE.staging" && mkdir -p "$BASE.staging"
@@ -116,7 +137,13 @@ jobs:
 
             for i in $(seq 1 30); do
               code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:$PORT/api/healthcheck" || true)
-              if [ "$code" = "200" ]; then echo "preview-$PR healthy on :$PORT"; exit 0; fi
+              if [ "$code" = "200" ]; then
+                echo "preview-$PR healthy on :$PORT"
+                # Keep the fleet small: evict the oldest beyond the cap, then
+                # hardlink files this build shares with the other previews.
+                if [ -x "$REAP" ]; then "$REAP" --cap || true; "$REAP" --dedupe || true; fi
+                exit 0
+              fi
               sleep 2
             done
             echo "preview-$PR failed its health check"
@@ -157,6 +184,7 @@ jobs:
   cleanup-preview:
     if: github.event.action == 'closed'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Stop and remove the preview
         uses: appleboy/ssh-action@v1.0.3
@@ -165,7 +193,16 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           envs: PR
+          command_timeout: 8m
           script: |
+            set -uo pipefail
+            REAP=/home/debian/observability/bin/preview-reap
+            if [ -x "$REAP" ]; then
+              # pm2 delete + pm2 save + rm of the dir, staging dirs and the old
+              # static snapshot; logged to ~/logs/preview-reap.log on the VPS.
+              "$REAP" --pr "${PR#pr-}" && exit 0
+              echo "preview-reap failed, falling back to inline cleanup"
+            fi
             pm2 delete "preview-$PR" 2>/dev/null || true
             pm2 save
-            rm -rf "/data2/previews/$PR" "/var/www/previews/$PR"
+            rm -rf "/data2/previews/$PR" "/data2/previews/$PR.staging" "/data2/previews/$PR.old" "/var/www/previews/$PR"

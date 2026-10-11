@@ -92,7 +92,7 @@ usePageSeo({
   title: computed(() => prediction.value?.statement || 'Prediction'),
   description: computed(() => {
     const p = prediction.value
-    if (!p) return 'Cryptographically verified prediction.'
+    if (!p) return 'A hashed, git-committed prediction.'
     return `${p.confidence}% · ${p.statement}`
   }),
   type: 'article',
@@ -264,7 +264,9 @@ usePageSeo({
       <div class="space-y-4">
         <!-- Confidence display -->
         <div class="space-y-0.5">
-          <div class="font-mono text-2xl font-bold tabular-nums text-zinc-100">
+          <div
+            class="font-mono text-2xl font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+          >
             {{ prediction.confidence }}%
           </div>
           <div class="font-mono text-3xs text-zinc-500">Confidence</div>
@@ -293,7 +295,9 @@ usePageSeo({
           </div>
         </div>
         <div v-else-if="deadline" class="space-y-0.5">
-          <div class="font-mono text-sm text-zinc-300">{{ deadline }}</div>
+          <div class="font-mono text-sm text-zinc-700 dark:text-zinc-300">
+            {{ deadline }}
+          </div>
           <div class="font-mono text-3xs text-zinc-500">Deadline</div>
         </div>
 
@@ -310,14 +314,16 @@ usePageSeo({
           <div class="space-y-0.5 font-mono text-3xs tabular-nums">
             <div class="flex justify-between">
               <span class="text-zinc-500">Predictions</span>
-              <span class="text-zinc-300">{{ confidenceContext.count }}</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ confidenceContext.count }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Actual</span>
               <span
                 :class="
                   Math.abs(confidenceContext.delta) <= 10
-                    ? 'text-zinc-300'
+                    ? 'text-zinc-700 dark:text-zinc-300'
                     : 'text-error'
                 "
               >

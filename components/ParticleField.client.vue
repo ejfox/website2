@@ -49,6 +49,7 @@ let particles = []
 let ctxUnder = null
 let ctxOver = null
 let lastScrollY = 0
+let dpr = 1
 let well = null // { x, y, start } of the latest mousedown
 
 const rand = (a, b) => a + Math.random() * (b - a)
@@ -73,17 +74,19 @@ function spawn(w, h) {
   })
 }
 
+// Draw in raw device pixels, never through a dpr transform: at a fractional
+// devicePixelRatio (browser zoom, e.g. 1.5 or 1.8) a 1-CSS-px rect lands on
+// partial device pixels, clearRect antialiases, and every dirty clear leaves
+// residue — moving particles left streaks. Integer device rects clear exactly.
 function setupCanvas(canvas) {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2)
   canvas.width = Math.round(width.value * dpr)
   canvas.height = Math.round(height.value * dpr)
-  const ctx = canvas.getContext('2d')
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-  return ctx
+  return canvas.getContext('2d')
 }
 
 function resize() {
   if (!under.value || !over.value) return
+  dpr = Math.min(window.devicePixelRatio || 1, 2)
   ctxUnder = setupCanvas(under.value)
   ctxOver = setupCanvas(over.value)
   spawn(width.value, height.value)
@@ -137,17 +140,18 @@ function step(now) {
 function draw(force = false) {
   if (!ctxUnder || !ctxOver) return
   const rgb = isDark.value ? '244,244,245' : '24,24,27'
+  const size = Math.max(1, Math.round(PIXEL * dpr)) // whole device pixels
 
   for (const p of particles) {
-    const px = Math.round(p.x)
-    const py = Math.round(p.y)
+    const px = Math.round(p.x * dpr)
+    const py = Math.round(p.y * dpr)
     if (!force && px === p.px && py === p.py) continue // still: no redraw
     const ctx = p.z > PAGE_DEPTH ? ctxOver : ctxUnder
-    if (p.px >= 0) ctx.clearRect(p.px, p.py, PIXEL, PIXEL)
+    if (p.px >= 0) ctx.clearRect(p.px, p.py, size, size)
     // Near = brighter
     const alpha = p.z > PAGE_DEPTH ? 0.7 : 0.12 + p.z * 0.5
     ctx.fillStyle = `rgba(${rgb},${alpha})`
-    ctx.fillRect(px, py, PIXEL, PIXEL)
+    ctx.fillRect(px, py, size, size)
     p.px = px
     p.py = py
   }

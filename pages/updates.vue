@@ -102,9 +102,8 @@ usePageSeo({
             to="/changelog"
             class="underline hover:text-zinc-900 dark:hover:text-zinc-100"
           >
-            git changelog
-          </NuxtLink>
-          .
+            git changelog </NuxtLink
+          >.
         </p>
       </footer>
     </div>

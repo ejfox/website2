@@ -1,6 +1,5 @@
 <!-- eslint-disable max-len, vue/max-len -->
 <script setup lang="ts">
-/* eslint-disable max-len */
 import {
   useDark,
   useElementVisibility,
@@ -241,7 +240,6 @@ const CLIENT_LOGOS = [
   { name: 'GitHub', logo: '/logos/github.svg' },
   { name: 'Gothamist', logo: '/logos/gothamist.svg' },
   { name: 'WNYC', logo: '/logos/wnyc.svg' },
-  { name: 'Knight Foundation', logo: '/logos/knight.svg' },
   { name: 'Climate TRACE', logo: '/logos/climate-trace.svg' },
   { name: 'Stamen', logo: '/logos/stamen.svg' },
 ]
@@ -251,32 +249,33 @@ const specialties = [
     title: 'Rapid Prototyping',
     description:
       'Napkin sketch Monday, working demo Friday. That moment when it first works? Never gets old.',
-    proof: 'NBC Big Board: weekend hack → 19M viewers on air.',
+    proof:
+      'NBC Big Board: a January prototype, on air by November, 10M watching',
   },
   {
     title: 'Newsroom Tools',
     description:
       'Small teams doing important work deserve sharp tools. I build the systems that make impossible deadlines survivable.',
-    proof: 'Vocativ, Gothamist, Dataproofer, ASU Newswell.',
+    proof: 'Gothamist, Dataproofer (Knight-funded, via Vocativ), ASU Newswell',
   },
   {
     title: 'AI Integration',
     description:
       'Not the hype-y kind. I wire models into real workflows where they actually save people time. Heavy Claude, heavy local.',
-    proof: 'ASU Lenfest Fellow. Shipping in newsrooms now.',
+    proof: 'Lenfest AI Fellow at ASU, 2025–26',
   },
   {
     title: 'Live Systems',
     description:
       'Election nights, breaking news, live television. When millions are watching and it has to work, I stay until it does.',
-    proof: 'CMU COVIDcast, NBC elections, investigations.',
+    proof: 'CMU COVIDcast, NBC elections, investigations',
   },
 ]
 
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description:
-    "I ship fast, bend computers toward hard problems, and don't stop until it works. Prototypes, newsroom tools, AI integration, live systems. 19M viewers, zero crashes.",
+    "I ship fast, bend computers toward hard problems, and don't stop until it works. Prototypes, newsroom tools, AI integration, live systems. The Big Board: about 10 million people watching on NBC and MSNBC, and it never crashed.",
   type: 'website',
   section: 'Consulting',
   tags: ['Consulting', 'Data Visualization', 'Elections', 'Journalism'],
@@ -351,17 +350,12 @@ usePageSeo({
         <p class="body-lg mb-6">
           I write code fast, think in prototypes, and don't stop until it ships.
           That's taken me through newsrooms
-          <span class="aside">(NBC News, Washington Post, Gothamist)</span>
-          , design studios
-          <span class="aside">(Stamen)</span>
-          , research labs
-          <span class="aside">(CMU, ASU's AI fellowship)</span>
-          , climate orgs
-          <span class="aside">(Climate TRACE, Earth Genome)</span>
-          , foundations
-          <span class="aside">(Knight)</span>
-          , and companies I can't name. The common thread: people with a hard
-          problem and not enough time.
+          <span class="aside">(NBC News, Washington Post, Gothamist)</span>,
+          design studios <span class="aside">(Stamen)</span>, research labs
+          <span class="aside">(CMU, ASU's AI fellowship)</span>, climate orgs
+          <span class="aside">(Climate TRACE, Earth Genome)</span>, and
+          companies I can't name. The common thread: people with a hard problem
+          and not enough time.
         </p>
         <div class="grid grid-cols-2 gap-6 text-center py-6 divider-y">
           <div>
@@ -369,7 +363,7 @@ usePageSeo({
             <p class="stat-label">industries</p>
           </div>
           <div>
-            <p class="stat-value">13</p>
+            <p class="stat-value">15+</p>
             <p class="stat-label">years shipping</p>
           </div>
         </div>

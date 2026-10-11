@@ -167,7 +167,7 @@ const deltaClass = (delta: number) => {
 usePageSeo({
   title: 'Predictions · EJ Fox',
   description:
-    'Public, timestamped predictions with SHA-256 hashes and calibration tracking.',
+    'Public, timestamped predictions, committed to a public repo, with Brier-score calibration tracking.',
   type: 'article',
   section: 'Forecasting',
   tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
@@ -494,11 +494,13 @@ usePageSeo({
             <span v-if="Math.abs(bucket.delta) <= 5" class="text-success">
               (well calibrated)
             </span>
+            <!-- delta = actual − stated: positive means it happened more
+                 often than I said, i.e. I was underconfident -->
             <span v-else-if="bucket.delta > 5" class="text-zinc-400">
-              (overconfident by {{ bucket.delta }}pp)
+              (underconfident by {{ bucket.delta }}pp)
             </span>
             <span v-else class="text-zinc-400">
-              (underconfident by {{ Math.abs(bucket.delta) }}pp)
+              (overconfident by {{ Math.abs(bucket.delta) }}pp)
             </span>
           </div>
         </div>
@@ -524,7 +526,9 @@ usePageSeo({
 
           <!-- Brier score -->
           <div v-if="calibration?.brier_score != null" class="space-y-0.5">
-            <div class="font-mono text-lg font-bold tabular-nums text-zinc-100">
+            <div
+              class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+            >
               {{ calibration.brier_score.toFixed(3) }}
             </div>
             <div class="font-mono text-3xs text-zinc-500">
@@ -536,13 +540,13 @@ usePageSeo({
           <div class="space-y-1 font-mono text-3xs tabular-nums">
             <div class="flex justify-between">
               <span class="text-zinc-500">Total</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ transformedPredictions.length }}
               </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Resolved</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{ resolvedPredictions.length }}
               </span>
             </div>
@@ -559,7 +563,7 @@ usePageSeo({
               class="flex justify-between"
             >
               <span class="text-zinc-500">Accuracy</span>
-              <span class="text-zinc-300">
+              <span class="text-zinc-700 dark:text-zinc-300">
                 {{
                   Math.round((correctCount / resolvedPredictions.length) * 100)
                 }}%
@@ -584,7 +588,7 @@ usePageSeo({
                 <span
                   :class="
                     Math.abs(bucket.delta) <= 10
-                      ? 'text-zinc-300'
+                      ? 'text-zinc-700 dark:text-zinc-300'
                       : 'text-error'
                   "
                 >
@@ -600,7 +604,7 @@ usePageSeo({
             <a
               v-if="activePredictions.length > 0"
               href="#"
-              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               @click.prevent="scrollToEl('active')"
             >
               Active · {{ activePredictions.length }}
@@ -608,7 +612,7 @@ usePageSeo({
             <a
               v-if="resolvedPredictions.length > 0"
               href="#"
-              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               @click.prevent="scrollToEl('resolved')"
             >
               Resolved · {{ resolvedPredictions.length }}
@@ -616,7 +620,7 @@ usePageSeo({
             <a
               v-if="calibration?.calibration?.length"
               href="#"
-              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               @click.prevent="scrollToEl('calibration')"
             >
               Calibration
