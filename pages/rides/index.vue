@@ -131,7 +131,7 @@ useHead({ title: 'Rides — EJ Fox' })
         v-for="ride in rides"
         :key="ride.slug"
         :to="`/rides/${ride.slug}`"
-        class="group block bg-white dark:bg-zinc-950 p-4 border border-zinc-200 dark:border-zinc-800 -mt-px -ml-px"
+        class="group block bg-white dark:bg-black p-4 border border-zinc-200 dark:border-zinc-800 -mt-px -ml-px"
       >
         <svg
           v-if="ride.thumb"

@@ -193,7 +193,7 @@ useHead(() => ({
 <template>
   <div>
     <div
-      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
+      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 dark:bg-black/90 backdrop-blur-sm print:hidden"
     >
       <div
         class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"

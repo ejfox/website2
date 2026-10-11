@@ -1,5 +1,6 @@
 {
-  "cacheVersion": "2026-05-13-gear-cards",
+  "cacheVersion": "2026-10-05-source-hash",
+  "sourceHash": "0ab0f98373f1afd05649dd98cc4824a3c86b15d8a12bf58ea6fc413dcb44b941",
   "html": "<!-- TODO (EJ): add your voice + an image. Capture: terminal or web screenshot. Draft until imaged. -->\n<p class=\"\">A hand-made LLM for journalists, by journalists. Truthfulness, harm reduction, accountability.</p>\n<figure role=\"figure\" aria-label=\"journo-llm\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1789191258/projects/journo-llm/landing.png\" alt=\"journo-llm\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1789191258/projects/journo-llm/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1789191258/projects/journo-llm/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1789191258/projects/journo-llm/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1789191258/projects/journo-llm/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"journo-llm\" width=\"1200\" height=\"800\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1200×800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">journo-llm</figcaption>\n</figure>",
   "title": "Journo LLM",
   "metadata": {
@@ -17,14 +18,14 @@
     "tags": [
       "tools"
     ],
-    "words": 32,
+    "words": 30,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

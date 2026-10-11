@@ -48,7 +48,7 @@ onMounted(async () => {
 
 <template>
   <NuxtLayout>
-    <div class="space-y-8">
+    <div class="space-y-8" data-not-found>
       <div class="space-y-2">
         <h1 class="text-xl font-mono tracking-wide">404</h1>
         <p class="text-sm text-zinc-600 dark:text-zinc-400">

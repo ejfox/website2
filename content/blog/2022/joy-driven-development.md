@@ -33,7 +33,7 @@ You have to set an intention to lean into what you are naturally drawn to. Harne
 Embracing Joy-Driven Development is akin to navigating your creative odyssey with a compass forged from joy. As you face countless decisions, let each step be guided by the direction that invites the most joy for the people embarking on this voyage with you.
 
 >There's a kind of excited curiosity that's both the engine and the rudder of great work. It will not only drive you, but if you let it have its way, will also show you what to work on.
-><https://paulgraham.com/greatwork.html>
+> Paul Graham, who later wrote this in 2023: <https://paulgraham.com/greatwork.html>
 
 ### Addressing the Skeptics
 

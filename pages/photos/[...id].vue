@@ -123,7 +123,7 @@ watch(photoId, () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-zinc-900 text-zinc-100">
+  <div class="min-h-screen bg-zinc-900 dark:bg-black text-zinc-100">
     <!-- Loading -->
     <div v-if="pending" class="font-mono text-xs text-zinc-600 py-12 px-8">
       Loading...

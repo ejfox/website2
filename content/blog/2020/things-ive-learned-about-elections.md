@@ -40,7 +40,7 @@ Every [eligible(!)](https://en.wikipedia.org/wiki/Voting_rights_in_the_United_St
 
 ### Voting
 
-Constituents show up to their polling place. Or, well, [sort of](http://www.ncsl.org/research/elections-and-campaigns/absentee-and-early-voting.aspx). [39 states](http://www.ncsl.org/research/elections-and-campaigns/absentee-and-early-voting.aspx#overview) have mechanisms for early voting, 28 allow no-excuse absentee votes, 19 allow voting with an “accepted excuse”. [36 million people voted early in the midterm election.](https://www.politico.com/story/2018/11/05/early-voting-turnout-2018-elections-midterms-963149) - that’s about 30% of the [117 million](http://www.electproject.org/2018g) total votes cast.
+Constituents show up to their polling place. Or, well, [sort of](http://www.ncsl.org/research/elections-and-campaigns/absentee-and-early-voting.aspx). [39 states](http://www.ncsl.org/research/elections-and-campaigns/absentee-and-early-voting.aspx#overview) (as of 2020) have mechanisms for early voting, 28 allow no-excuse absentee votes, 19 allow voting with an “accepted excuse”. [36 million people voted early in the midterm election.](https://www.politico.com/story/2018/11/05/early-voting-turnout-2018-elections-midterms-963149) - that’s about 30% of the [117 million](http://www.electproject.org/2018g) total votes cast.
 
 When reporting votes, absentee votes are typically only available at the county-level and not be precinct.
 
@@ -80,7 +80,7 @@ The term “reporting unit” can refer to a boundary division of any size used 
 
 Presidential, senate, and gubernatorial races are organized by county and state.
 
-House races are organized by house districts. The borders of these house districts are [primarily decided by state legislatures](https://ballotpedia.org/State-by-state_redistricting_procedures) but some <small>(AZ, CA, ID, WA)</small> are made by independent commissions. [538 did an excellent piece](https://projects.fivethirtyeight.com/redistricting-maps/) on congressional redistricting and gerrymandering.
+House races are organized by house districts. The borders of these house districts are [primarily decided by state legislatures](https://ballotpedia.org/State-by-state_redistricting_procedures) but some <small>(AZ, CA, ID, WA, as of 2020)</small> are made by independent commissions. [538 did an excellent piece](https://projects.fivethirtyeight.com/redistricting-maps/) on congressional redistricting and gerrymandering.
 
 ### Election data
 
@@ -100,7 +100,7 @@ County-level presidential results 2008-2016 have been [collected in this GitHub 
 
 States can be identified via their name (`New York`), [abbreviation](https://gist.github.com/mshafrir/2646763) (`NY`), or a state FIPS code ([36](https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm)).
 
-House districts are identified by their district code. New York’s first district is `NY-01`. Large states with smaller populations like [Montana](https://en.wikipedia.org/wiki/Montana%27s_at-large_congressional_district) have only one congressional district (“at large”), denoted like `MT-AL`.
+House districts are identified by their district code. New York’s first district is `NY-01`. Large states with smaller populations like [Montana](https://en.wikipedia.org/wiki/Montana%27s_at-large_congressional_district) have only one congressional district (“at large”, as of 2020), denoted like `MT-AL`.
 
 I’ve seen various systems handle this different ways. Some designate these districts with `MT-00` so at least you can rely on two numeric digits when writing your code.
 

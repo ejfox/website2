@@ -93,7 +93,7 @@ useHead({
     {
       key: 'theme-color-dark',
       name: 'theme-color',
-      content: '#18181b',
+      content: '#000000',
       media: '(prefers-color-scheme: dark)',
     },
     {
@@ -123,7 +123,7 @@ useHead({
           color:#18181b;background:#fff
         }
         @media(prefers-color-scheme:dark){
-          body{color:#fafafa;background:#18181b}
+          body{color:#fafafa;background:#000}
         }
         main{padding:1rem;max-width:48rem;margin:0 auto}
         @media(min-width:768px){main{padding:2rem}}

@@ -30,7 +30,7 @@ onMounted(() =>
     }
 
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color('#0a0a0a')
+    scene.background = new THREE.Color('#000000')
 
     const key = new THREE.DirectionalLight(0x06b6d4, 1.5)
     key.position.set(5, 5, 5)

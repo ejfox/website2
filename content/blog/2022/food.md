@@ -33,7 +33,7 @@ Oatmeal and granola is a delicious and healthy breakfast option. Oatmeal is a gr
 
 #### Toast & Greek Yogurt
 
-I first had this at the Samovar Lounge in Yerba Buena Park. It was simple and yet extraordinarily delicious and decadent: a thick slice of sourdough with fresh, thick greek yogurt, topped with honey, olive oil, and big flakes of sea salt. It is a simple and luxurious breakfast.
+I first had this at the Samovar Lounge in Yerba Buena Gardens. It was simple and yet extraordinarily delicious and decadent: a thick slice of sourdough with fresh, thick greek yogurt, topped with honey, olive oil, and big flakes of sea salt. It is a simple and luxurious breakfast.
 
 #### Eggs & Toast
 
@@ -66,7 +66,7 @@ What should I have for lunch? Just have a salad. Its not that complicated.
 - Tomatoes
 - Sliced purple cabbage
 - Sprouts (sunflower, alfalfa, arugula)
-- Sliced citrus (oranges, mandarins, apples)
+- Sliced fruit (oranges, mandarins, apples)
 ##### Dressings
 - Ceasar
 - Oil & Vinegar

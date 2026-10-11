@@ -133,7 +133,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
     <!-- Expanded likes -->
     <div
       v-if="showLikes && likes.length > 0"
-      class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-zinc-900/50 rounded"
+      class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-black/50 rounded"
     >
       <a
         v-for="like in likes"
@@ -155,7 +155,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
     <!-- Expanded reposts -->
     <div
       v-if="showReposts && reposts.length > 0"
-      class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-zinc-900/50 rounded"
+      class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-black/50 rounded"
     >
       <a
         v-for="repost in reposts"

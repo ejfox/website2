@@ -11,6 +11,7 @@ import matter from 'gray-matter'
 import { glob } from 'glob'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { withKindleSync } from '~/server/utils/readingKindle'
 
 const WINDOW_DAYS = 30 // ±30 days from the target date
 
@@ -69,7 +70,7 @@ export default defineEventHandler(async (event) => {
     for (const file of jsonFiles) {
       try {
         const raw = await fs.readFile(join(readingDir, file), 'utf-8')
-        const book = JSON.parse(raw)
+        const book = withKindleSync(JSON.parse(raw), file.replace('.json', ''))
         const annotatedDate = book.metadata?.['kindle-sync']?.lastAnnotatedDate
         if (withinWindow(targetDate, annotatedDate, 60)) {
           results.reading.push({

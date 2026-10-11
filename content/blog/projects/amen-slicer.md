@@ -20,4 +20,4 @@ I made one for the Game Boy (Miyoo Mini, really) to experiment with making my ow
 
 Plug in the Game Boy — the headphone port is a little janky but you can get it — then sync up the 1 from the Game Boy, pick a sample, chop it around while the other instruments happen.
 
-I also made a Rust macOS amen slice breaker app that works with the 64-pad grid controller over MIDI — [amen-grid](https://github.com/ejfox/amen-grid).
+I also made a Rust macOS amen slice breaker app that works with the 64-pad grid controller over MIDI, called amen-grid.

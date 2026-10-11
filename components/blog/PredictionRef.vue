@@ -220,7 +220,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 }
 
 :root.dark .prediction-ref__popover {
-  background: #18181b;
+  background: #000;
   color: #e4e4e7;
   border-color: #3f3f46;
 }

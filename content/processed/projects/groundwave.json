@@ -1,5 +1,6 @@
 {
-  "cacheVersion": "2026-05-13-gear-cards",
+  "cacheVersion": "2026-10-05-source-hash",
+  "sourceHash": "a1641322800214783ca947bde89d76316408805164d874c6c54e0ae82827adcd",
   "html": "<!-- NOTE (2026-07-30): checked \"Getting Started In Amateur Radio\" video for voice material — zero groundwave/HackRF content, it is radio-life story only. Voice needs the recording session.\n     TODO (EJ): add your voice. NEEDS A HERO — a screenshot of the dashboard\n     running (spectrum + map). Draft until captured. -->\n<p class=\"\">A realtime dashboard for a Meshtastic mesh network and HackRF SDR — a spectrum waterfall, a geographic node map with RSSI, and mesh chat, all in dense Tufte-academic styling. Nuxt 3 + D3 over a Nitro WebSocket.</p>\n<figure role=\"figure\" aria-label=\"groundwave running: live SDR spectrum, geographic mesh-node map, and roster dashboard\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1789191242/projects/groundwave/landing.png\" alt=\"groundwave running: live SDR spectrum, geographic mesh-node map, and roster dashboard\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1789191242/projects/groundwave/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1789191242/projects/groundwave/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1789191242/projects/groundwave/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1789191242/projects/groundwave/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"groundwave running: live SDR spectrum, geographic mesh-node map, and roster dashboard\" width=\"1440\" height=\"813\" style=\"--splay-rot:2.83deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">groundwave running: live SDR spectrum, geographic mesh-node map, and roster dashboard</figcaption>\n</figure>",
   "title": "groundwave",
   "metadata": {
@@ -23,14 +24,14 @@
       "dataviz",
       "radio"
     ],
-    "words": 99,
+    "words": 97,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

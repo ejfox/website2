@@ -26,7 +26,7 @@ With cursory knowledge, it seemed like the best approach would be to feed Shodan
 
 To do this, first you would need to find [IP ranges for the state of Texas](https://www.xmyip.com/ip-addresses/united--states/texas)
 
-The first thing that jumps out to me is El Paso, home to the [ICE El Paso Processing Center](https://www.ice.gov/detention-facility/el-paso-processing-center) where a [Honduran migrant died in late May](https://www.nbcnews.com/news/latino/honduran-man-dies-ice-custody-texas-facility-n1025526).
+The first thing that jumps out to me is El Paso, home to the [ICE El Paso Processing Center](https://www.ice.gov/detention-facility/el-paso-processing-center) where a [Honduran migrant was held in May before he died in ICE custody in Houston that June](https://www.nbcnews.com/news/latino/honduran-man-dies-ice-custody-texas-facility-n1025526) [updated].
 
 >El Paso: 12.162.129.0 - 12.162.129.255
 
@@ -42,7 +42,7 @@ But then I started doing more research on how to use shodan, and found a great g
 
 Oh! I don’t need to use IP ranges at all. I can just feed [latitudes and longitudes](https://en.wikipedia.org/wiki/Geo-fence) directly into my searches.
 
-Now, we need a geocoded list of every ICE facility. Luckily, [I’ve already done that](https://trackingice.com/wiki/List_of_holding_facilities) based on data released in response to a FOIA from Immigrant Justice. This data is hosted on a [wikipedia-style site](https://trackingice.com) I created for open source information related to ICE.
+Now, we need a geocoded list of every ICE facility. Luckily, I’ve already done that based on data released in response to a FOIA from Immigrant Justice. This data is hosted on a wikipedia-style site (since retired) I created for open source information related to ICE.
 
 This [excellent resource on manipulating CSVs with the command line](https://bconnelly.net/posts/working_with_csvs_on_the_command_line/) teaches us:
 

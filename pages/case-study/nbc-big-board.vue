@@ -2,7 +2,7 @@
 usePageSeo({
   title: 'Case Study: NBC Big Board · EJ Fox',
   description:
-    'How I rebuilt the election touchscreen used by Steve Kornacki on live TV. 19M viewers. Zero crashes. The full story.',
+    'How we rebuilt the election touchscreen Steve Kornacki uses on live TV. About 10 million people watching on NBC and MSNBC. Zero crashes. The full story.',
 })
 </script>
 
@@ -20,8 +20,10 @@ usePageSeo({
         Building the Big Board
       </h1>
       <p class="font-serif text-xl text-zinc-600 dark:text-zinc-400 mb-6">
-        How I rebuilt the election touchscreen used by Steve Kornacki on live
-        TV. 19 million viewers. Zero crashes. This is the full story.
+        How we rebuilt the election touchscreen Steve Kornacki uses on live TV.
+        I co-built it and led the design, with Michael Small and NBC News
+        Digital's product and tech teams. About 10 million people watching on
+        NBC and MSNBC. Zero crashes. This is the full story.
       </p>
 
       <div
@@ -66,8 +68,8 @@ usePageSeo({
         TV—was fighting the technology instead of flowing with it.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        The stakes were absurd. Election night is the Super Bowl of news. Tens
-        of millions of viewers. Live TV. No second takes. If the app crashes,
+        The stakes were absurd. Election night is the Super Bowl of news.
+        Millions of viewers. Live TV. No second takes. If the app crashes,
         you've just created a viral moment for all the wrong reasons.
       </p>
       <div class="bg-raised rounded-lg p-4 my-6">
@@ -147,9 +149,9 @@ usePageSeo({
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
         But here's the thing: the app wasn't frozen. The video feed from the app
-        to the broadcast system had hiccupped. My touch inputs were being
-        received and processed correctly—the output just wasn't making it to the
-        screen.
+        to the broadcast system had hiccupped. His touch inputs were landing and
+        the app was processing them correctly—the output just wasn't making it
+        to the screen.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
         The control room re-routed the video feed. 15 seconds later, we were
@@ -175,10 +177,10 @@ usePageSeo({
           <p
             class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold"
           >
-            19M
+            10M
           </p>
           <p class="font-mono text-xs text-zinc-500">
-            viewers on election night
+            watching on NBC and MSNBC
           </p>
         </div>
         <div class="bg-raised rounded-lg p-4">

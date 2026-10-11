@@ -494,11 +494,13 @@ usePageSeo({
             <span v-if="Math.abs(bucket.delta) <= 5" class="text-success">
               (well calibrated)
             </span>
+            <!-- delta = actual − stated: positive means it happened more
+                 often than I said, i.e. I was underconfident -->
             <span v-else-if="bucket.delta > 5" class="text-zinc-400">
-              (overconfident by {{ bucket.delta }}pp)
+              (underconfident by {{ bucket.delta }}pp)
             </span>
             <span v-else class="text-zinc-400">
-              (underconfident by {{ Math.abs(bucket.delta) }}pp)
+              (overconfident by {{ Math.abs(bucket.delta) }}pp)
             </span>
           </div>
         </div>
