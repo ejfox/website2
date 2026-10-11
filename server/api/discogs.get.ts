@@ -4,6 +4,7 @@
  * @endpoint GET /api/discogs
  * @returns Collection data with stats (total items, value, median), top genres, decade breakdown, top artists, and a random record
  */
+import { warnNotConfigured } from '~/server/utils/notConfigured'
 
 interface DiscogsArtist {
   name: string
@@ -57,7 +58,7 @@ export default defineEventHandler(async () => {
     config.DISCOGS_USERNAME || process.env.DISCOGS_USERNAME || 'mrejfox'
 
   if (!token) {
-    console.warn('Discogs token not configured')
+    warnNotConfigured('Discogs', 'DISCOGS_TOKEN')
     return {
       error: 'Discogs token not configured',
       stats: {

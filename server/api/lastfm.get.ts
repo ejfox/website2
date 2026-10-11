@@ -4,6 +4,7 @@
  * @endpoint GET /api/lastfm
  * @returns Last.fm data with recent tracks, top artists/albums/tracks for the month, user info, and calculated listening statistics
  */
+import { notConfigured, isNotConfigured } from '~/server/utils/notConfigured'
 
 // Last.fm API response types
 interface LastFmImage {
@@ -212,10 +213,7 @@ export default defineEventHandler(async () => {
     // No key configured → degrade to empty data via the catch fallback below
     // instead of hammering the API with 12 retries that will all 403.
     if (!apiKey) {
-      throw createError({
-        statusCode: 500,
-        message: 'LASTFM_API_KEY not configured',
-      })
+      throw notConfigured('Last.fm', 'LASTFM_API_KEY')
     }
 
     // Log API key info (safely)
@@ -383,7 +381,8 @@ export default defineEventHandler(async () => {
 
     return result
   } catch (error) {
-    console.error('Last.fm API error details:', error)
+    if (!isNotConfigured(error))
+      console.error('Last.fm API error details:', error)
     const err = error as Error & { statusCode?: number }
 
     // Instead of throwing an error, return fallback data

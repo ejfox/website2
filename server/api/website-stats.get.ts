@@ -7,6 +7,7 @@
  * @endpoint GET /api/website-stats
  */
 import { Pool } from 'pg'
+import { warnNotConfigured } from '~/server/utils/notConfigured'
 
 const EJFOX_WEBSITE_ID = '165590cb-c361-4ad8-9459-6c6390744c64' // ejfox.com
 const SHARE_URL =
@@ -67,7 +68,7 @@ async function summarize(db: Pool, start: Date, end: Date): Promise<Metrics> {
 export default defineEventHandler(async () => {
   const db = getPool()
   if (!db) {
-    console.error('Website stats: UMAMI_DATABASE_URL not set')
+    warnNotConfigured('Umami', 'UMAMI_DATABASE_URL')
     return { error: 'UMAMI_DATABASE_URL not set', stats: null }
   }
 

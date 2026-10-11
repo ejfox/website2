@@ -5,6 +5,7 @@
  * @returns Health stats including steps, heart rate, exercise, sleep data
  */
 import { defineEventHandler } from 'h3'
+import { notConfigured } from '~/server/utils/notConfigured'
 
 interface HealthStats {
   today: {
@@ -109,6 +110,8 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
   const secret = (config.HEALTH_WEBHOOK_SECRET ||
     process.env.HEALTH_WEBHOOK_SECRET ||
     '') as string
+
+  if (!secret) throw notConfigured('Health', 'HEALTH_WEBHOOK_SECRET')
 
   try {
     // Fetch metrics from health-webhook (auth required)

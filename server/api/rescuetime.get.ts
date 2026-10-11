@@ -6,6 +6,7 @@
  */
 import { defineEventHandler, createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { notConfigured } from '~/server/utils/notConfigured'
 
 interface RescueTimeRow {
   date: string
@@ -46,10 +47,7 @@ export default defineEventHandler(async () => {
   const token = serverEnv('RESCUETIME_TOKEN')
 
   if (!token) {
-    throw createError({
-      statusCode: 500,
-      message: 'RescueTime token not configured',
-    })
+    throw notConfigured('RescueTime', 'RESCUETIME_TOKEN')
   }
 
   try {

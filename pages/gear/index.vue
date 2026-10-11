@@ -487,8 +487,7 @@ useHead(() => ({
             {{ containerCount }} bags
           </div>
           <div class="font-mono text-3xs text-zinc-500">
-            Updated {{ lastUpdated || currentDate }} · source: gear sheet
-            exports
+            Updated {{ currentDate }} · source: gear sheet exports
           </div>
         </div>
 

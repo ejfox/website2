@@ -5,6 +5,7 @@
  * @returns Comprehensive StatsResponse object containing data from all integrated services with graceful error handling for individual service failures
  */
 import type { StatsResponse } from '~/composables/useStats'
+import { logStatsError } from '~/server/utils/notConfigured'
 import { buildStatsHorizons, type StatsHorizons } from '../utils/statsHorizons'
 import githubHandler from './github.get'
 import monkeyTypeHandler from './monkeytype.get'
@@ -257,79 +258,79 @@ export default defineEventHandler(
         photosResult,
       ] = await Promise.allSettled([
         githubHandler(event).catch((err) => {
-          console.error('❌ GitHub API error:', err)
+          logStatsError('GitHub API', err)
           return null
         }),
         monkeyTypeHandler(event).catch((err) => {
-          console.error('❌ MonkeyType API error:', err)
+          logStatsError('MonkeyType API', err)
           return null
         }),
         // photosHandler(event).catch((err) => {
-        //   console.error('❌ Photos API error:', err)
+        //   logStatsError('Photos API', err)
         //   return null
         // }),
         healthHandler(event).catch((err) => {
-          console.error('❌ Health API error:', err)
+          logStatsError('Health API', err)
           return null
         }),
         leetcodeHandler(event).catch((err) => {
-          console.error('❌ LeetCode API error:', err)
+          logStatsError('LeetCode API', err)
           return null
         }),
         chessHandler(event).catch((err) => {
-          console.error('❌ Chess API error:', err)
+          logStatsError('Chess API', err)
           return null
         }),
         rescuetimeHandler(event).catch((err) => {
-          console.error('❌ RescueTime API error:', err)
+          logStatsError('RescueTime API', err)
           return null
         }),
         lastfmHandler(event).catch((err) => {
-          console.error('❌ Last.fm API error:', err)
+          logStatsError('Last.fm API', err)
           return null
         }),
         gearStatsHandler(event).catch((err) => {
-          console.error('❌ Gear stats error:', err)
+          logStatsError('Gear stats', err)
           return null
         }),
         gistStatsHandler(event).catch((err) => {
-          console.error('❌ Gist stats error:', err)
+          logStatsError('Gist stats', err)
           return null
         }),
         websiteStatsHandler(event).catch((err) => {
-          console.error('❌ Website stats error:', err)
+          logStatsError('Website stats', err)
           return null
         }),
         letterboxdStatsHandler(event).catch((err) => {
-          console.error('❌ Letterboxd stats error:', err)
+          logStatsError('Letterboxd stats', err)
           return null
         }),
         blogStatsHandler(event).catch((err) => {
-          console.error('❌ Blog stats error:', err)
+          logStatsError('Blog stats', err)
           return null
         }),
         discogsHandler(event).catch((err) => {
-          console.error('❌ Discogs API error:', err)
+          logStatsError('Discogs API', err)
           return null
         }),
         duolingoHandler(event).catch((err) => {
-          console.error('❌ Duolingo API error:', err)
+          logStatsError('Duolingo API', err)
           return null
         }),
         goodreadsHandler(event).catch((err) => {
-          console.error('❌ Goodreads API error:', err)
+          logStatsError('Goodreads API', err)
           return null
         }),
         wikiHandler(event).catch((err) => {
-          console.error('❌ Wiki stats error:', err)
+          logStatsError('Wiki stats', err)
           return null
         }),
         reachHandler(event).catch((err) => {
-          console.error('❌ Reach (umami) error:', err)
+          logStatsError('Reach (umami)', err)
           return null
         }),
         photosHandler(event).catch((err) => {
-          console.error('❌ Photos error:', err)
+          logStatsError('Photos', err)
           return null
         }),
       ])
