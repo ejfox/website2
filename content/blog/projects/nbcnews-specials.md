@@ -45,5 +45,4 @@ How a populist message proved everyone wrong, county by county. [Read it →](ht
 
 ## And more
 
-- [The Making of an Astronaut (2017)](https://www.nbcnews.com/specials/making-of-an-astronaut): a rare look inside astronaut training and spaceflight
 - [Donald Trump's First 100 Days (2017)](https://www.nbcnews.com/specials/donald-trump-first-100-days/): historians, activists and White House veterans grade the first major benchmark

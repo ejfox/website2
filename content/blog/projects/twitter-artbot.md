@@ -12,7 +12,7 @@ tags:
   - generative
 ---
 
-My first generative art bot — [@417am1975](https://x.com/417am1975), running since 2017. It picks a random art script, renders a piece with node-canvas, and tweets it, on the hour, on its own.
+My first generative art bot — [@417am1975](https://x.com/417am1975). It ran hourly from June 2017 to late 2019, on its own: pick a random art script, render a piece with node-canvas, tweet it.
 
 This was my first generative art bot, and boy did he make some dope shit. It came from node-canvas tick-generations.
 

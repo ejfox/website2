@@ -27,7 +27,7 @@ The [first Coach Artie](https://github.com/room302studio/coachartie) was a Disco
 
 ## Version two: one brain, many doors
 
-[Coach Artie 2](https://github.com/room302studio/coachartie2) is a 2025 rebuild as a TypeScript monorepo. One capabilities service sits behind many doors: Discord, Slack, SMS, IRC, email and a web "brain" UI for looking inside his head. A Redis queue feeds the language model through OpenRouter, and his memory and state live in SQLite. Capabilities are grouped by what they do: research, memory, the web, development, media, productivity, finance and more.
+[Coach Artie 2](https://github.com/room302studio/coachartie2) is a 2025 rebuild as a TypeScript monorepo. One capabilities service sits behind two doors today: Discord, and a web "brain" UI for looking inside his head. I also built Slack, SMS, IRC and email doors, then cut them because nobody used them. A Redis queue feeds the language model through OpenRouter, and his memory and state live in SQLite. Capabilities are grouped by what they do: research, memory, the web, development, media, productivity, finance and more.
 
 ## What he remembers
 
