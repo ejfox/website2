@@ -9,6 +9,7 @@ import { defineEventHandler, getRouterParam, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { isScheduled } from '~/utils/postFilters'
+import { withKindleSync } from '~/server/utils/readingKindle'
 
 export default defineEventHandler(async (event) => {
   const rawSlug = getRouterParam(event, 'slug')
@@ -30,7 +31,10 @@ export default defineEventHandler(async (event) => {
       'content/processed/reading',
       `${slug}.json`
     )
-    const bookData = JSON.parse(await readFile(bookPath, 'utf-8'))
+    const bookData = withKindleSync(
+      JSON.parse(await readFile(bookPath, 'utf-8')),
+      slug
+    )
 
     // Reads processed JSON by slug, bypassing the manifest — hold the embargo
     // here too, or a scheduled reading note serves in full by direct URL.

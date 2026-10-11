@@ -10,6 +10,8 @@ modified: 2025-03-27T16:12:50-04:00
 
 ## Mapping Novel Territories: Untangling MCP Servers
 
+*Note (Oct 2026): the MCP landscape and my own setup have moved on since I wrote this; this is a snapshot.*
+
 There are now *so many* MCP servers which is both overwhelming and exciting for me.
 
 Right now, all the MCP servers you add are made available to your robot at all times. That means that each tool and its description are taking up some of your context window, whether they are relevant or not. Which means you need to think through your toolkit carefully.
@@ -22,7 +24,7 @@ The first step was to take the MCP names and descriptions and turn them into emb
 
 ![](http://res.cloudinary.com/ejf/video/upload/v1742924387/Screen_Recording_2025-03-25_at_1.38.45_PM.gif)
 
-Now that we have a file full of the titles, descriptions, and embeddings we can apply “dimension reduction” to take the point from 4096TK dimensions, which I struggle to imagine, to 2 dimensions, which I can imagine quite easily.
+Now that we have a file full of the titles, descriptions, and embeddings we can apply “dimension reduction” to take the point from thousands of dimensions, which I struggle to imagine, to 2 dimensions, which I can imagine quite easily.
 
 A ton of points with X and Y positions? That’s data begging to be a scatterplot if I ever saw it. We can run our dimension reduction algorithms with all sorts of different parameters and see what the resulting piles look like. Some seem to have more prominent groupings, some look like true jumbles.
 

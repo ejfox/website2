@@ -455,7 +455,10 @@ async function processRide(slug, states) {
     // No raw GPX on this machine: keep the published ride rather than
     // overwriting it with an empty track, re-trimming it once if needed.
     const prev = JSON.parse(await readFile(outPath, 'utf8'))
-    const ride = prev.privacyVersion >= PRIVACY_VERSION ? prev : retrimProcessed(prev, states)
+    const ride =
+      prev.privacyVersion >= PRIVACY_VERSION
+        ? prev
+        : retrimProcessed(prev, states)
     await writeFile(outPath, JSON.stringify(ride))
     return ride
   }
@@ -524,21 +527,34 @@ function retrimProcessed(prev, states) {
   const pts = prev.points ?? []
   if (pts.length < 3) return { ...prev, privacyVersion: PRIVACY_VERSION }
   const total = pts[pts.length - 1][4]
-  const cutStart = RETRIM_MIN_METERS + RETRIM_SPAN_METERS * seededJitter(prev.slug, 'retrim-start')
-  const cutEnd = RETRIM_MIN_METERS + RETRIM_SPAN_METERS * seededJitter(prev.slug, 'retrim-end')
+  const cutStart =
+    RETRIM_MIN_METERS +
+    RETRIM_SPAN_METERS * seededJitter(prev.slug, 'retrim-start')
+  const cutEnd =
+    RETRIM_MIN_METERS +
+    RETRIM_SPAN_METERS * seededJitter(prev.slug, 'retrim-end')
   const kept = pts.filter((p) => p[4] >= cutStart && p[4] <= total - cutEnd)
   if (kept.length < 3) return { ...prev, privacyVersion: PRIVACY_VERSION }
   const d0 = kept[0][4]
   const t0 = kept[0][3]
   const dEnd = kept[kept.length - 1][4]
-  const points = kept.map((p) => [p[0], p[1], p[2], p[3] === null || t0 === null ? p[3] : p[3] - t0, p[4] - d0, p[5]])
-  const inRange = (d) => d === null || d === undefined || (d >= d0 && d <= dEnd)
+  const points = kept.map((p) => [
+    p[0],
+    p[1],
+    p[2],
+    p[3] === null || t0 === null ? p[3] : p[3] - t0,
+    p[4] - d0,
+    p[5],
+  ])
+  const isMissing = (v) => v === null || v === undefined
+  const inRange = (d) => isMissing(d) || (d >= d0 && d <= dEnd)
   const moments = (prev.moments ?? [])
     .filter((m) => inRange(m.distMeters))
     .map((m) => ({
       ...m,
-      distMeters: m.distMeters == null ? m.distMeters : m.distMeters - d0,
-      tSeconds: m.tSeconds == null || t0 === null ? m.tSeconds : m.tSeconds - t0,
+      distMeters: isMissing(m.distMeters) ? m.distMeters : m.distMeters - d0,
+      tSeconds:
+        isMissing(m.tSeconds) || t0 === null ? m.tSeconds : m.tSeconds - t0,
     }))
   const refuels = (prev.refuels ?? [])
     .filter((r) => inRange(r.dist))
@@ -552,7 +568,11 @@ function retrimProcessed(prev, states) {
     maxLat: Math.max(...lats),
   }
   const stats = prev.stats
-    ? { ...prev.stats, distanceMeters: Math.round(dEnd - d0), pointCount: points.length }
+    ? {
+        ...prev.stats,
+        distanceMeters: Math.round(dEnd - d0),
+        pointCount: points.length,
+      }
     : prev.stats
   return {
     ...prev,

@@ -19,7 +19,7 @@ I started filming my rides in case something went wrong. A helmet cam is insuran
 
 By the end of those first few years I had gigabytes and gigabytes of it, and I got curious what all of it looked like at once — what years of riding might add up to. So I ran the whole corpus through a battery of meta-visualization techniques, pulling images out of the footage that no single frame holds.
 
-![Scrolling the helmet-cam corpus explorer — 294 rides, the frame contact sheet, and GPS route maps](https://res.cloudinary.com/ejf/video/upload/projects/motorcycle-viz/corpus-scroll.mp4)
+![Scrolling the helmet-cam corpus explorer — 294 clips, the frame contact sheet, and GPS route maps](https://res.cloudinary.com/ejf/video/upload/projects/motorcycle-viz/corpus-scroll.mp4)
 
 ![Every frame from 3.5 years of riding — 294 clips, 78 rides — averaged into a single image](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-overall.png)
 

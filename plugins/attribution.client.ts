@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
  * Attribution tracking plugin
  * Captures UTMs and referrer on first page load

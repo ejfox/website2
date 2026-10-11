@@ -1,7 +1,7 @@
 /**
  * @file dispatch-rss.xml.ts
  * @description RSS feed of public Dispatch pieces at /dispatch-rss.xml (named
- * like the other secondary feeds: week-notes-rss.xml, gists-rss.xml). Drafts,
+ * like the other secondary feeds: gists-rss.xml). Drafts,
  * unlisted, password and still-scheduled pieces never appear — the shared
  * `listDispatches()` gate handles all of them.
  */

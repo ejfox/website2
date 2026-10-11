@@ -131,14 +131,20 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
     // evening after 8pm ET into "tomorrow", and "today" used to be a rolling 24h.
     const TZ = 'America/New_York'
     const etDate = (d: Date): string =>
-      new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d)
+      new Intl.DateTimeFormat('en-CA', {
+        timeZone: TZ,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).format(d)
     const todayET = etDate(new Date())
     // Steps/exercise/distance are additive: sum every same-name row on a UTC day,
     // not .find() a single hourly sample.
     const sumOnDay = (name: string, dateStr: string): number =>
       metrics
         .filter(
-          (m: MetricRecord) => m.name === name && etDate(new Date(m.date)) === dateStr
+          (m: MetricRecord) =>
+            m.name === name && etDate(new Date(m.date)) === dateStr
         )
         .reduce((s: number, m: MetricRecord) => s + val(m), 0)
 

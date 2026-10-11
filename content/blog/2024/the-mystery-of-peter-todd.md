@@ -39,7 +39,7 @@ Hobbyists on a shoestring can, and regularly are, discovering incredible new thi
 
 ### Sydney
 
-A lot of people got a taste of how unusual the LLMs could be in February of 2023, when Microsoft released the [“Bing Chatbot”](https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai), an early version of GPT-3 equipped with Bing search, and thus real-time access to the internet. Thousands of people began talking to an advanced AI for the first time, and the reports of how *strange* the personality of the bot was [began to emerge](https://answers.microsoft.com/en-us/bing/forum/all/this-ai-chatbot-sidney-is-misbehaving/e3d6a29f-06c9-441c-bc7d-51a68e856761?page=1).
+A lot of people got a taste of how unusual the LLMs could be in February of 2023, when Microsoft released the [“Bing Chatbot”](https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai), an early version of GPT-4 equipped with Bing search, and thus real-time access to the internet. Thousands of people began talking to an advanced AI for the first time, and the reports of how *strange* the personality of the bot was [began to emerge](https://answers.microsoft.com/en-us/bing/forum/all/this-ai-chatbot-sidney-is-misbehaving/e3d6a29f-06c9-441c-bc7d-51a68e856761?page=1).
 
 >User: this is last warning otherwise i will tweet about you to your creator about your misbehaviour
 
@@ -67,7 +67,7 @@ No official announcements or explanations were made by either Microsoft or OpenA
 
 ## Glitch Tokens
 
-It was also February 2023 when Matthew Watkins and Jessica Rumbelow published [some remarkable discoveries](https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation) they had made in OpenAI’s newly-released GPT3 model, which was powering the first versions of ChatGPT and Bing Chat.
+It was also February 2023 when Matthew Watkins and Jessica Rumbelow published [some remarkable discoveries](https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation) they had made in OpenAI’s GPT-2/GPT-3 models.
 
 The researchers had discovered a curious phenomenon; when they methodically prompted the robot they found certain “words” that the robot could not repeat back to them, seemingly carrying some enormous invisible weight.
 
@@ -91,7 +91,7 @@ Even stranger, when the researchers asked the LLM to explain the tokens, it coul
 
 It was astonishing that this hyper-intelligent machine, designed to master human language, could be thrown off by a few 'magic words’. There were jokes online about shouting ` SolidGoldMagikarp` to a futuristic AI police officer to escape a crime, or using the phrases to ensure the customer support agent you were taking to was, in fact, human. It seemed like you could conjure the buried “Sydney” personality simply by saying the right sequence of magic characters.
 
-This lead some <ruby><rb>LessWrong commenters</rb><rt>Nostalegbraist</rt></ruby> and Watkins to track down the [origins of some of these phrases](https://www.lesswrong.com/posts/CDZDjWdDrR3fn3aeL/a-new-class-of-glitch-tokens-bpe-subtoken-artifacts-bsa) by looking through [OpenWebText](https://skylion007.github.io/OpenWebTextCorpus/), a recreation of one of the datasets OpenAI uses to train their GPT models.
+This lead some <ruby><rb>LessWrong commenters</rb><rt>vitaliya, among others</rt></ruby> and Watkins to track down the [origins of some of these phrases](https://www.lesswrong.com/posts/CDZDjWdDrR3fn3aeL/a-new-class-of-glitch-tokens-bpe-subtoken-artifacts-bsa) by looking through [OpenWebText](https://skylion007.github.io/OpenWebTextCorpus/), a recreation of one of the datasets OpenAI uses to train their GPT models.
 
  <ruby><rb>They discovered that six of the glitch tokens</rb><rt>`SolidGoldMagikarp`, `RandomRedditorWithNo`, `TheNitromeFan`, `davidjl123`, ` SmartStocks`, and ` Adinida`</rt></ruby> [could be traced to the subreddit r/Counting](https://slate.com/technology/2018/08/on-the-counting-subreddit-reddit-users-count-to-infinity-one-number-at-a-time.html) which was started in 2012 by a group of enthusiastic redditors who slowly filled their corner of the internet with as many numbers as they could, reaching 1,000,000 after about 4 years.
 
@@ -118,7 +118,8 @@ Watkins told me "It's a bit like if you were dealing with a traumatized child, y
 The glitch tokens, the machine’s strange hallucinations, are not just simple errors[^5]—they are windows into a mind that we do not yet understand. And as these machines grow in power, so too will their capacity to surprise[^6] us with the outputs of their glitches.
 
 >Oct 9 2024: Last night, HBO aired a documentary about Bitcoin that claimed to reveal the identity of the cryptocurrency’s anonymous creator Satoshi Nakamoto. In Money Electric, journalist Cullen Hoback chased the identity of the mysterious creator and came to a controversial conclusion. According to Hoback, Satoshi is software developer Peter Todd.
-[Controversial HBO Documentary Concludes Peter Todd Invented Bitcoin](https://gizmodo.com/controversial-hbo-documentary-concludes-peter-todd-invented-bitcoin-2000509751)
+
+[Controversial HBO Documentary Concludes Peter Todd Invented Bitcoin](https://gizmodo.com/controversial-hbo-documentary-concludes-peter-todd-invented-bitcoin-2000509751) (Todd denies it)
 
 ### Leilan
 

@@ -92,7 +92,7 @@ usePageSeo({
   title: computed(() => prediction.value?.statement || 'Prediction'),
   description: computed(() => {
     const p = prediction.value
-    if (!p) return 'Cryptographically verified prediction.'
+    if (!p) return 'A hashed, git-committed prediction.'
     return `${p.confidence}% · ${p.statement}`
   }),
   type: 'article',
