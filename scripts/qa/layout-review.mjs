@@ -18,8 +18,9 @@
  * IPv6, and the review silently tested the wrong code. Serving the build on
  * 127.0.0.1 and pointing BASE_URL at 127.0.0.1 avoids that.
  *
- * Headed mode opens two Chromium windows, dark on top and light below,
- * stacked on the portrait monitor if there is one (WINDOW_X / WINDOW_Y /
+ * Headed mode opens two Chromium windows, dark on top and light below, that
+ * move in lockstep (same route, same moment, scrolling together), stacked on
+ * the portrait monitor if there is one (WINDOW_X / WINDOW_Y /
  * WINDOW_H override the placement). Output: .qa/layout/ — PNGs, report.json
  * and index.html (a contact sheet, failures first).
  *
@@ -608,8 +609,21 @@ async function gotoSettled(page, url) {
   }
 }
 
-async function runScheme(scheme, slot, routes, results) {
-  const browser = await chromium.launch({
+const SCHEMES = ['dark', 'light']
+
+/** A two-window rendezvous: resolves once every party has arrived. */
+function barrier(parties) {
+  let arrived = 0
+  let open
+  const gate = new Promise((resolve) => (open = resolve))
+  return () => {
+    if (++arrived === parties) open()
+    return gate
+  }
+}
+
+function launchWindow(slot) {
+  return chromium.launch({
     headless: HEADLESS,
     args: HEADLESS
       ? []
@@ -618,104 +632,134 @@ async function runScheme(scheme, slot, routes, results) {
           `--window-size=1440,${slot.h}`,
         ],
   })
-  for (const [vpName, vp] of Object.entries(VIEWPORTS)) {
-    const touch = isTouch(vp)
-    const context = await browser.newContext({
-      viewport: { width: vp.width, height: vp.height },
-      colorScheme: scheme,
-      deviceScaleFactor: 2,
-      isMobile: touch && vp.width < 1024,
-      hasTouch: touch,
-    })
-    // The dev-only "changed files" HUD sits over the top-right of every page
-    await context.addInitScript(() => {
-      const hide = () => {
-        const st = document.createElement('style')
-        st.textContent = '.dev-hud{display:none!important}'
-        document.head.appendChild(st)
-      }
-      if (document.head) hide()
-      else document.addEventListener('DOMContentLoaded', hide)
-    })
-    const page = await context.newPage()
-    // Per-route collectors, reset before each goto
-    let runtime = { jsErrors: [], http5xx: [] }
-    const origin = new URL(BASE).origin
-    page.on('pageerror', (e) =>
-      runtime.jsErrors.push(String(e.message).split('\n')[0].slice(0, 160))
-    )
-    page.on('console', (m) => {
-      if (/Hydration .*mismatch/i.test(m.text()))
-        runtime.jsErrors.push(m.text().split('\n')[0].slice(0, 160))
-    })
-    page.on('response', (r) => {
-      if (r.status() >= 500 && r.url().startsWith(origin))
-        runtime.http5xx.push(`${r.status()} ${r.url().slice(origin.length)}`)
-    })
+}
 
-    for (const route of routes) {
-      const id = `${slug(route)}__${vpName}__${scheme}`
-      const entry = {
-        route,
-        viewport: vpName,
-        scheme,
-        id,
-        shots: {},
-        issues: [],
-      }
-      runtime = { jsErrors: [], http5xx: [] }
-      try {
-        await gotoSettled(page, BASE + route)
-        await page.waitForTimeout(600) // hydration + useDark class sync
-        const top = await page.evaluate(measure, { touch })
-        entry.top = top
-        entry.issues.push(
-          ...findIssues(top, { scrolled: false }).map((i) => ({
-            ...i,
-            at: 'top',
-          }))
-        )
-        await page.screenshot({ path: path.join(OUT, `${id}__top.png`) })
-        entry.shots.top = `${id}__top.png`
-
-        await page.mouse.wheel(0, Math.round(vp.height * 0.9))
-        await page.waitForTimeout(500)
-        const scrolled = await page.evaluate(measure, { touch })
-        entry.scrolled = scrolled
-        if (scrolled.scrollY > 0) {
-          entry.issues.push(
-            ...findIssues(scrolled, { scrolled: true }).map((i) => ({
-              ...i,
-              at: 'scrolled',
-            }))
-          )
-          await page.screenshot({ path: path.join(OUT, `${id}__scrolled.png`) })
-          entry.shots.scrolled = `${id}__scrolled.png`
-        }
-      } catch (err) {
-        entry.issues.push({
-          kind: 'error',
-          msg: String(err.message).split('\n')[0],
-        })
-      }
-      for (const e of new Set(runtime.jsErrors))
-        entry.issues.push({ kind: 'js-error', msg: e })
-      for (const e of new Set(runtime.http5xx))
-        entry.issues.push({ kind: 'http-5xx', msg: e })
-      for (const i of entry.issues)
-        i.level = ERROR_KINDS.has(i.kind) ? 'error' : 'warn'
-
-      const errs = entry.issues.filter((i) => i.level === 'error').length
-      const warns = entry.issues.length - errs
-      const flag = errs ? `✗ ${errs}` : warns ? `· ${warns} warn` : '✓'
-      console.log(
-        `${scheme.padEnd(5)} ${vpName.padEnd(16)} ${route.slice(0, 44).padEnd(44)} ${flag}`
-      )
-      results.push(entry)
+/** One page per scheme per viewport, with per-route error collectors. */
+async function openTab(browser, scheme, vp) {
+  const touch = isTouch(vp)
+  const context = await browser.newContext({
+    viewport: { width: vp.width, height: vp.height },
+    colorScheme: scheme,
+    deviceScaleFactor: 2,
+    isMobile: touch && vp.width < 1024,
+    hasTouch: touch,
+  })
+  // The dev-only "changed files" HUD sits over the top-right of every page
+  await context.addInitScript(() => {
+    const hide = () => {
+      const st = document.createElement('style')
+      st.textContent = '.dev-hud{display:none!important}'
+      document.head.appendChild(st)
     }
-    await context.close()
+    if (document.head) hide()
+    else document.addEventListener('DOMContentLoaded', hide)
+  })
+  const page = await context.newPage()
+  const tab = { scheme, touch, context, page, runtime: null }
+  const origin = new URL(BASE).origin
+  page.on('pageerror', (e) =>
+    tab.runtime?.jsErrors.push(String(e.message).split('\n')[0].slice(0, 160))
+  )
+  page.on('console', (m) => {
+    if (/Hydration .*mismatch/i.test(m.text()))
+      tab.runtime?.jsErrors.push(m.text().split('\n')[0].slice(0, 160))
+  })
+  page.on('response', (r) => {
+    if (r.status() >= 500 && r.url().startsWith(origin))
+      tab.runtime?.http5xx.push(`${r.status()} ${r.url().slice(origin.length)}`)
+  })
+  return tab
+}
+
+/**
+ * Visit one route in one tab. `loaded` and `beforeScroll` are shared with the
+ * other scheme's tab, so both windows show the same page and scroll together.
+ */
+async function visit(tab, route, vpName, vp, { loaded, beforeScroll }) {
+  const { page, scheme, touch } = tab
+  const id = `${slug(route)}__${vpName}__${scheme}`
+  const entry = { route, viewport: vpName, scheme, id, shots: {}, issues: [] }
+  tab.runtime = { jsErrors: [], http5xx: [] }
+  const gates = { loaded: false, beforeScroll: false }
+  const pass = async (name, gate) => {
+    gates[name] = true
+    await gate()
   }
-  await browser.close()
+  try {
+    await gotoSettled(page, BASE + route)
+    await page.waitForTimeout(600) // hydration + useDark class sync
+    await pass('loaded', loaded)
+    const top = await page.evaluate(measure, { touch })
+    entry.top = top
+    entry.issues.push(
+      ...findIssues(top, { scrolled: false }).map((i) => ({ ...i, at: 'top' }))
+    )
+    await page.screenshot({ path: path.join(OUT, `${id}__top.png`) })
+    entry.shots.top = `${id}__top.png`
+
+    await pass('beforeScroll', beforeScroll)
+    await page.mouse.wheel(0, Math.round(vp.height * 0.9))
+    await page.waitForTimeout(500)
+    const scrolled = await page.evaluate(measure, { touch })
+    entry.scrolled = scrolled
+    if (scrolled.scrollY > 0) {
+      entry.issues.push(
+        ...findIssues(scrolled, { scrolled: true }).map((i) => ({
+          ...i,
+          at: 'scrolled',
+        }))
+      )
+      await page.screenshot({ path: path.join(OUT, `${id}__scrolled.png`) })
+      entry.shots.scrolled = `${id}__scrolled.png`
+    }
+  } catch (err) {
+    entry.issues.push({
+      kind: 'error',
+      msg: String(err.message).split('\n')[0],
+    })
+    // Release the other window rather than leave it waiting on us
+    if (!gates.loaded) loaded()
+    if (!gates.beforeScroll) beforeScroll()
+  }
+  for (const e of new Set(tab.runtime.jsErrors))
+    entry.issues.push({ kind: 'js-error', msg: e })
+  for (const e of new Set(tab.runtime.http5xx))
+    entry.issues.push({ kind: 'http-5xx', msg: e })
+  for (const i of entry.issues)
+    i.level = ERROR_KINDS.has(i.kind) ? 'error' : 'warn'
+  return entry
+}
+
+const flagFor = (entry) => {
+  const errs = entry.issues.filter((i) => i.level === 'error').length
+  const warns = entry.issues.length - errs
+  return errs ? `✗ ${errs}` : warns ? `· ${warns}w` : '✓'
+}
+
+/** Both schemes in lockstep: same viewport, same route, same moment. */
+async function runLockstep(slots, routes, results) {
+  const browsers = await Promise.all(SCHEMES.map((s) => launchWindow(slots[s])))
+  for (const [vpName, vp] of Object.entries(VIEWPORTS)) {
+    const tabs = await Promise.all(
+      SCHEMES.map((s, i) => openTab(browsers[i], s, vp))
+    )
+    for (const route of routes) {
+      const sync = {
+        loaded: barrier(tabs.length),
+        beforeScroll: barrier(tabs.length),
+      }
+      const entries = await Promise.all(
+        tabs.map((tab) => visit(tab, route, vpName, vp, sync))
+      )
+      results.push(...entries)
+      console.log(
+        `${vpName.padEnd(16)} ${route.slice(0, 44).padEnd(44)} ` +
+          entries.map((e) => `${e.scheme} ${flagFor(e).padEnd(5)}`).join('  ')
+      )
+    }
+    await Promise.all(tabs.map((t) => t.context.close()))
+  }
+  await Promise.all(browsers.map((b) => b.close()))
 }
 
 async function discoverRoutes() {
@@ -806,10 +850,14 @@ const slot = portraitSlot()
 const half = Math.floor(slot.h / 2)
 const results = []
 // Dark on the top half of the portrait monitor, light on the bottom half
-await Promise.all([
-  runScheme('dark', { x: slot.x, y: slot.y, h: half }, routes, results),
-  runScheme('light', { x: slot.x, y: slot.y + half, h: half }, routes, results),
-])
+await runLockstep(
+  {
+    dark: { x: slot.x, y: slot.y, h: half },
+    light: { x: slot.x, y: slot.y + half, h: half },
+  },
+  routes,
+  results
+)
 await fs.writeFile(
   path.join(OUT, 'report.json'),
   JSON.stringify(results, null, 2)
