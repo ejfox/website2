@@ -179,12 +179,7 @@ const availabilityLine = computed(() => {
 })
 
 // Checkable facts — each is corroborated by a write-up in content/blog/projects.
-const CREDENTIALS = [
-  'NBC News',
-  'Gothamist / WNYC',
-  'Knight Foundation',
-  'Global Energy Monitor',
-]
+const CREDENTIALS = ['NBC News', 'Gothamist / WNYC', 'Global Energy Monitor']
 
 // Every parseable ship-year across all projects (dateless ones dropped).
 const projectYears = computed(() =>

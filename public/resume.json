@@ -7,7 +7,7 @@
     "website": "http://ejfox.com",
     "summary": "Data visualization expert working at the intersection of design, journalism, and data. Experience working with a wide variety of clients and datasets to create work that makes complicated things easy to understand. Focusing on iterating quickly, building toolsets and teams, and telling important stories.",
     "location": {
-      "city": "Brooklyn",
+      "city": "Beacon",
       "region": "New York",
       "countryCode": "US"
     },
@@ -25,12 +25,27 @@
   },
   "work": [
     {
+      "company": "ASU NEWSWELL",
+      "position": "Lenfest AI Fellow",
+      "startDate": "2025-09-01",
+      "endDate": "2026-08-17",
+      "summary": "Lenfest AI Fellow at ASU, 2025–26. Built a print-layout automation tool."
+    },
+    {
+      "company": "Stamen Design",
+      "position": "Contractor",
+      "website": "https://stamen.com",
+      "startDate": "2020",
+      "endDate": "2022",
+      "summary": "Contract work, 2020–2022."
+    },
+    {
       "company": "NBC News",
       "position": "Senior Interactive Graphics Specialist",
       "website": "http://nbcnews.com/specials",
       "startDate": "2016-09-01",
       "endDate": "2019-07-01",
-      "summary": "Worked across NBC News Digital and Broadcast teams to re-develop the “Big Board” application used by Chuck Todd (NBC News) and Steve Kornacki (MSNBC) to call elections on air. Helped lead the team that re-designed the app and updated it to use D3, Vue, and TopoJSON resulting in 'a newly juiced-up model of the board that can zoom in on the most obscure House districts' (NYTimes)."
+      "summary": "Worked across NBC News Digital and Broadcast teams to rebuild the “Big Board” application used by Chuck Todd (NBC News) and Steve Kornacki (MSNBC) to call elections on air. Co-built the app and was lead designer, with Michael Small and the NBC News Digital product and technology teams, rebuilding it in D3, Vue, and TopoJSON."
     },
     {
       "company": "Vocativ",
