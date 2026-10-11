@@ -1237,6 +1237,20 @@ async function processAllFiles() {
     // attempt shipped a post with no protection and a green build.
     await assertNoStraySecretFrontmatter(allFiles)
 
+    // Week notes were retired from the site on 2026-10-11 (they leaked
+    // screenshots and were searchable). They stay private in the vault. A
+    // week-notes/ folder reappearing here means something re-imported them:
+    // fail the build rather than publish them again.
+    const weekNotes = allFiles.filter((f) =>
+      path.relative(paths.contentDir, f).startsWith('week-notes' + path.sep)
+    )
+    if (weekNotes.length) {
+      throw new Error(
+        `${weekNotes.length} file(s) under content/blog/week-notes/. Week notes ` +
+          'are retired and must not be published; delete them from the repo.'
+      )
+    }
+
     // Everything downstream of here that writes a TRACKED build artifact gets
     // the public files only. Enumerating readers rather than writing filters is
     // the lesson from the last attempt: three of its four real leaks were in

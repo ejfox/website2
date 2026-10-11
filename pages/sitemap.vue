@@ -149,11 +149,6 @@ usePageSeo({
               description="Visual inspiration collection"
             />
             <SitemapLink
-              to="/blog/week-notes"
-              title="Week Notes"
-              description="Weekly summaries and reflections"
-            />
-            <SitemapLink
               to="/blog/robots"
               title="Robots"
               description="AI experiments and automation projects"

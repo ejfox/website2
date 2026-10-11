@@ -105,15 +105,6 @@ export default defineCachedEventHandler(
         at: iso(essay.date || essay.metadata?.date),
       }
     )
-    const weekNote = post(/^week-notes\//)
-    add(
-      weekNote && {
-        label: '/week-notes',
-        href: `/blog/${weekNote.slug}`,
-        text: `Week note ${weekNote.title}`,
-        at: iso(weekNote.date),
-      }
-    )
     const project = post(/^projects\//)
     add(
       project && {

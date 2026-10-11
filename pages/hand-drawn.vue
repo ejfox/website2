@@ -127,7 +127,7 @@ const trendSpike = computed(() => {
   }
 })
 
-// real before→afters pulled from posts & week notes
+// real before→afters pulled from posts and notes
 const releases = [
   {
     title: 'Photo backup',
@@ -206,7 +206,7 @@ const numCompound = [
   ['num-11', '11 tools shipped, numbered below'],
   ['num-12', 'a 12-entry changelog'],
   ['num-13', 'knives forged since the 13th century'],
-  ['num-thin-10', 'a 10-week note streak'],
+  ['num-thin-10', 'a 10-week writing streak'],
 ]
 
 // real bulleted list (dot / dot-lg markers) — the backup tool's requirements
@@ -239,7 +239,7 @@ const wordCounts = [
   ['word-seven', 'services humming on the VPS'],
   ['word-eight', 'thousand Pinboard bookmarks'],
   ['word-nine', '-to-five I walked away from'],
-  ['word-ten', 'years of week notes'],
+  ['word-ten', 'years of blog posts'],
 ]
 
 // real projects → circled numbers 1–11
@@ -622,7 +622,7 @@ useHead({
               <span
                 class="block text-3xs uppercase tracking-[0.16em] text-zinc-400 mt-3"
               >
-                week note · 2024-01
+                my notes · 2024-01
               </span>
             </figcaption>
           </figure>
@@ -902,8 +902,8 @@ then read the logs and move on.</code></pre>
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">Straight from the archive</h2>
         <p class="text-zinc-500 dark:text-zinc-400 mb-16 max-w-prose">
-          Not lorem ipsum — actual lines from real posts and week notes, marked
-          up the way you might in the margin. Each one notes where it came from.
+          Not lorem ipsum — actual lines from real posts, marked up the way you
+          might in the margin. Each one notes where it came from.
         </p>
 
         <div class="space-y-16">
@@ -924,7 +924,7 @@ then read the logs and move on.</code></pre>
             <figcaption
               class="mt-6 text-3xs uppercase tracking-[0.16em] text-zinc-400"
             >
-              week note · 2024-01
+              my notes · 2024-01
             </figcaption>
           </figure>
 

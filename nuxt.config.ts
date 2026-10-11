@@ -128,12 +128,6 @@ export default defineNuxtConfig({
         {
           rel: 'alternate',
           type: 'application/rss+xml',
-          title: 'EJ Fox · Week notes',
-          href: 'https://ejfox.com/week-notes-rss.xml',
-        },
-        {
-          rel: 'alternate',
-          type: 'application/rss+xml',
           title: 'EJ Fox · Gists',
           href: 'https://ejfox.com/gists-rss.xml',
         },
