@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      skip_image_guard:
+        description: 'Skip the screenshot guard (ONLY if the guard itself is broken — images ship unchecked)'
+        type: boolean
+        default: false
 
 # One production deploy at a time. Back-to-back merges used to launch
 # overlapping runs racing to swap .output on the VPS. Queue, never cancel:
@@ -39,6 +44,50 @@ jobs:
       run: |
         yarn lint:safety
         yarn check:sealed
+
+    # Screenshots are where secrets leak: in 2026-10 published week notes
+    # showed a live DB password, API keys and bank statements, and every
+    # text-side check passed. OCR each published image (verdicts cached by
+    # URL — committed in data/image-pii-scan.json, plus this runner cache for
+    # images added since) and block on credentials or financial details.
+    - name: Install tesseract
+      run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends tesseract-ocr >/dev/null
+
+    - name: Restore image scan cache
+      uses: actions/cache@v4
+      with:
+        path: .cache/image-pii-scan.json
+        key: image-pii-${{ github.sha }}
+        restore-keys: image-pii-
+
+    # On failure the guard prints WHAT/WHY/HOW TO FIX, adds a red annotation
+    # and a run summary, and the next step pings Discord. Override for a
+    # broken guard: Run workflow → skip_image_guard.
+    - name: Screenshot guard (OCR for secrets and financial details)
+      id: image_guard
+      run: yarn check:images
+      env:
+        SKIP_IMAGE_GUARD: ${{ inputs.skip_image_guard }}
+
+    - name: Read screenshot guard alert
+      id: guard_alert
+      if: failure() && steps.image_guard.outcome == 'failure'
+      run: |
+        MSG=$(cat .cache/image-guard-alert.txt 2>/dev/null || echo "the guard failed — see the run")
+        echo "msg=$MSG" >> "$GITHUB_OUTPUT"
+
+    - name: Alert Discord that the screenshot guard blocked the deploy
+      if: failure() && steps.image_guard.outcome == 'failure'
+      uses: appleboy/ssh-action@v1.0.3
+      env:
+        GUARD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        GUARD_MSG: "**🛑 ejfox.com deploy BLOCKED by screenshot guard** — ${{ steps.guard_alert.outputs.msg }} `${{ github.sha }}` ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        envs: GUARD_MSG,GUARD_URL
+        script: ALERT_FORCE=1 ALERT_DEEPLINK="$GUARD_URL" /home/debian/scripts/alert.sh website error "$GUARD_MSG"
 
     - name: Process markdown
       run: yarn blog:process

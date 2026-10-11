@@ -38,7 +38,7 @@ const JUNK_ALT_PATTERNS = [
   /^https?:\/\//, // URL used as alt text
 ]
 
-function isJunkAlt(alt) {
+export function isJunkAlt(alt) {
   if (!alt || alt.trim().length === 0) return true
   return JUNK_ALT_PATTERNS.some((p) => p.test(alt.trim()))
 }
