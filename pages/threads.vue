@@ -1,16 +1,40 @@
 <script setup>
-import { useElementSize, useRafFn, watchDebounced } from '@vueuse/core'
+import { useDark, useElementSize, useRafFn, watchDebounced } from '@vueuse/core'
 
 // =============================================================================
 // CONSTANTS
 // =============================================================================
 const NODE_RADIUS = { tag: 2.5, post: 2, scrap: 0.75 }
 const COLLISION_RADIUS = { tag: 4, post: 3, scrap: 1.5 }
-const NODE_COLOR = {
-  tag: '#fbbf24', // amber
-  post: '#fafafa', // white
-  scrap: '#f87171', // red
+// Two palettes, one vibe: a luminous field on black, and the same marks as
+// ink on paper in light mode. Glow reads as light on black but as smudge on
+// white, so light mode keeps halos off and leans on weight instead.
+const PALETTE = {
+  dark: {
+    node: { tag: '#fbbf24', post: '#fafafa', scrap: '#f87171' },
+    edge: '#52525b',
+    edgeAlpha: 0.08,
+    tagActive: '#fde68a',
+    tagTick: 'rgba(251, 191, 36, 0.45)',
+    tagCount: 'rgba(251, 191, 36, 0.4)',
+    tagCountActive: 'rgba(253, 230, 138, 0.6)',
+    labelHalo: 'rgba(0, 0, 0, 0.9)',
+    glow: 1,
+  },
+  light: {
+    node: { tag: '#b45309', post: '#18181b', scrap: '#dc2626' },
+    edge: '#71717a',
+    edgeAlpha: 0.14,
+    tagActive: '#78350f',
+    tagTick: 'rgba(180, 83, 9, 0.45)',
+    tagCount: 'rgba(180, 83, 9, 0.55)',
+    tagCountActive: 'rgba(120, 53, 15, 0.75)',
+    labelHalo: 'rgba(255, 255, 255, 0.95)',
+    glow: 0,
+  },
 }
+const isDark = useDark()
+const theme = computed(() => (isDark.value ? PALETTE.dark : PALETTE.light))
 const BLACKLISTED_TAGS = ['video', 'youtube', 'watchlater']
 const ANIM_SPEED = 1.25 // 1.0 = default, higher = slower, lower = faster
 
@@ -31,20 +55,20 @@ const FILTERS = [
   {
     type: 'post',
     label: 'posts',
-    color: 'text-zinc-300',
-    accent: 'accent-white',
+    color: 'text-zinc-700 dark:text-zinc-300',
+    accent: 'accent-zinc-900 dark:accent-white',
   },
   {
     type: 'scrap',
     label: 'scraps',
-    color: 'text-red-400',
-    accent: 'accent-red-400',
+    color: 'text-red-600 dark:text-red-400',
+    accent: 'accent-red-600 dark:accent-red-400',
   },
   {
     type: 'tag',
     label: 'tags',
-    color: 'text-amber-400',
-    accent: 'accent-amber-400',
+    color: 'text-amber-700 dark:text-amber-400',
+    accent: 'accent-amber-700 dark:accent-amber-400',
   },
 ]
 
@@ -225,8 +249,10 @@ function draw() {
 
   // Faint base layer — every visible edge except the hovered node's (those
   // get redrawn bright on top).
-  ctx.strokeStyle = '#52525b'
-  ctx.globalAlpha = 0.08
+  const t = theme.value
+  const NODE_COLOR = t.node
+  ctx.strokeStyle = t.edge
+  ctx.globalAlpha = t.edgeAlpha
   ctx.lineWidth = 0.5
   shown.forEach((l) => {
     if (!hoveredId || !touchesHover(l)) drawEdge(l)
@@ -240,7 +266,7 @@ function draw() {
     ctx.globalAlpha = 0.6
     ctx.lineWidth = 1
     ctx.shadowColor = NODE_COLOR.tag
-    ctx.shadowBlur = 8
+    ctx.shadowBlur = 8 * t.glow
     shown.filter(touchesHover).forEach((l) => {
       drawEdge(l)
       connected.add(l.source.id === hoveredId ? l.target.id : l.source.id)
@@ -258,7 +284,7 @@ function draw() {
     ctx.globalAlpha = near ? 1 : 0.8
     ctx.fillStyle = NODE_COLOR[n.type]
     ctx.shadowColor = near ? NODE_COLOR[n.type] : NODE_COLOR.tag
-    ctx.shadowBlur = near ? 12 : n.isMaypole ? glowPulse : 0
+    ctx.shadowBlur = (near ? 12 : n.isMaypole ? glowPulse : 0) * t.glow
     ctx.beginPath()
     ctx.arc(ax(n), ay(n), NODE_RADIUS[n.type] + (near ? 1 : 0), 0, Math.PI * 2)
     ctx.fill()
@@ -282,10 +308,10 @@ function draw() {
       ctx.font = `${active ? size + 1 : size}px "Monaspace Neon", ui-monospace, monospace`
       const labelX = n.x + NODE_RADIUS.tag + 8
       // Glow when active; otherwise a dark halo purely for legibility.
-      ctx.shadowColor = active ? NODE_COLOR.tag : 'rgba(0, 0, 0, 0.9)'
-      ctx.shadowBlur = active ? 8 : 4
+      ctx.shadowColor = active && t.glow ? NODE_COLOR.tag : t.labelHalo
+      ctx.shadowBlur = active ? 8 * t.glow || 4 : 4
       // Tick from the dot to the label — technical-annotation feel.
-      ctx.strokeStyle = active ? '#fde68a' : 'rgba(251, 191, 36, 0.45)'
+      ctx.strokeStyle = active ? t.tagActive : t.tagTick
       ctx.lineWidth = 1
       ctx.beginPath()
       ctx.moveTo(n.x + NODE_RADIUS.tag + 2, n.y)
@@ -293,12 +319,10 @@ function draw() {
       ctx.stroke()
       // Topic name, then a dim count annotation — the label is quantitative.
       const name = (n.title || '').toUpperCase()
-      ctx.fillStyle = active ? '#fde68a' : NODE_COLOR.tag
+      ctx.fillStyle = active ? t.tagActive : NODE_COLOR.tag
       ctx.fillText(name, labelX, n.y)
       ctx.shadowBlur = 0
-      ctx.fillStyle = active
-        ? 'rgba(253, 230, 138, 0.6)'
-        : 'rgba(251, 191, 36, 0.4)'
+      ctx.fillStyle = active ? t.tagCountActive : t.tagCount
       ctx.fillText(
         String(n.count || ''),
         labelX + ctx.measureText(name).width + 10,
@@ -316,7 +340,7 @@ function draw() {
     ctx.globalAlpha = 0.9
     ctx.strokeStyle = ctx.shadowColor = NODE_COLOR[h.type]
     ctx.lineWidth = 1.25
-    ctx.shadowBlur = 12
+    ctx.shadowBlur = 12 * t.glow
     ctx.beginPath()
     ctx.arc(ax(h), ay(h), NODE_RADIUS[h.type] + 5, 0, Math.PI * 2)
     ctx.stroke()
@@ -543,7 +567,9 @@ onBeforeUnmount(() => {
       ref="headerRef"
       class="relative z-10 px-4 md:px-8 pt-8 pb-4 font-mono text-xs"
     >
-      <h1 class="header-item font-serif text-2xl text-zinc-100 mb-1 opacity-0">
+      <h1
+        class="header-item font-serif text-2xl text-zinc-900 dark:text-zinc-100 mb-1 opacity-0"
+      >
         Threads
       </h1>
       <p class="header-item text-zinc-500 tabular-nums opacity-0">
@@ -571,7 +597,9 @@ onBeforeUnmount(() => {
           class="header-item flex items-center gap-1 cursor-pointer select-none opacity-0"
         >
           <input v-model="show[f.type]" type="checkbox" :class="f.accent" />
-          <span :class="show[f.type] ? f.color : 'text-zinc-600'">
+          <span
+            :class="show[f.type] ? f.color : 'text-zinc-400 dark:text-zinc-600'"
+          >
             {{ f.label }}
           </span>
         </label>
@@ -580,16 +608,18 @@ onBeforeUnmount(() => {
 
     <div
       v-if="hoveredNode"
-      class="fixed z-50 pointer-events-none max-w-52 px-3 py-2 rounded border border-zinc-800 bg-black/90 backdrop-blur font-mono"
+      class="fixed z-50 pointer-events-none max-w-52 px-3 py-2 rounded border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-black/90 backdrop-blur font-mono"
       :style="tooltipStyle"
     >
       <div class="text-4xs uppercase tracking-wider text-zinc-500">
         {{ hoveredNode.type }}
       </div>
-      <div class="font-serif text-xs leading-tight text-zinc-50">
+      <div
+        class="font-serif text-xs leading-tight text-zinc-900 dark:text-zinc-50"
+      >
         {{ hoveredNode.title }}
       </div>
-      <div class="mt-1 text-3xs text-zinc-400">
+      <div class="mt-1 text-3xs text-zinc-500 dark:text-zinc-400">
         {{
           hoveredNode.type === 'tag'
             ? `${hoveredNode.count} items`
@@ -599,12 +629,3 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
-
-<!-- Global (un-scoped): on the threads route only, force the layout's
-     background to OLED black (in light mode too) so the sidebar and the
-     canvas read as one deep, full-bleed field. -->
-<style>
-body:has(.threads-view) .min-h-screen {
-  background-color: #000;
-}
-</style>
