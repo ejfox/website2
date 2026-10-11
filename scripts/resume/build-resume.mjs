@@ -20,7 +20,7 @@ import {
   copyFile,
 } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
-import { spawn } from 'node:child_process'
+import { execFileSync, spawn } from 'node:child_process'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 
@@ -53,7 +53,19 @@ const isEarly = (w) =>
   w.endDate && Number(String(w.endDate).slice(0, 4)) <= 2014
 const mainWork = work.filter((w) => !isEarly(w))
 const earlyWork = work.filter(isEarly)
-const image = path.join(root, 'public/images/me_full.png')
+// The illustration is 1674px square but prints under an inch wide, so it
+// alone made the PDF ~1 MB. Shrink a copy to 300px (still sharp at print
+// resolution) with macOS sips; elsewhere, fall back to the original.
+let image = path.join(root, 'public/images/me_full.png')
+try {
+  const small = path.join(tmpdir(), 'resume-illustration-300.png')
+  execFileSync('sips', ['-Z', '300', image, '--out', small], {
+    stdio: 'ignore',
+  })
+  image = small
+} catch {
+  // no sips: embed the full-size image
+}
 
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <style>
