@@ -47,7 +47,7 @@ I want to have fewer things; in order to form less attachment, in order to bette
 
 You cannot take from me what I do not have, and it is in this vein that teaching myself to be self-sufficient and rely on less feels a lot more like investing in my own freedom. The motorcycle is a lighter, smaller vehicle that requires less gas to go further, which makes me both less reliant on the fossil fuels that are burning up our planet, as well as able to financially withstand fluctuations in fuel prices.
 
-My real re-introduction to the Hudson Valley came through a pandemic-driven purchase of a a motorcycle (a 150cc Honda Grom) and then, a year later, another (a 300cc Kawasaki Versys X) and zipping up and down 9D and up and around Bear Mountain to Perkins Lookout I thought to myself “holy shit, this was here the whole time?”
+My real re-introduction to the Hudson Valley came through a pandemic-driven purchase of a a motorcycle (a 125cc Honda Grom) and then, a year later, another (a 300cc Kawasaki Versys X) and zipping up and down 9D and up and around Bear Mountain to Perkins Lookout I thought to myself “holy shit, this was here the whole time?”
 
 ![https://res.cloudinary.com/ejf/image/upload/v1733760764/arena/arena-32817026.jpg](https://res.cloudinary.com/ejf/image/upload/v1733760764/arena/arena-32817026.jpg)
 
@@ -67,7 +67,7 @@ After reading [some dispatches from North Carolina](https://crimethinc.com/2024/
 
 Part of the desire for a callsign is an exercise in learning new skills; in proving that I can set a goal and put dedication into it and accomplish what I set out to do. Some of the motivation is practice in the meta-skill; learning something uncomfortable by finding systems to understand it. I find this style of self-directed learning profoundly fun and rewarding and very different from anything I experienced in our schooling system.
 
-After some early studying, I began acquiring cheap radios, first the obligatory Baofengs, but recently a TIDRADIO H3 which has fun features like a nice bright screen and bluetooth support. But I also stumbled on a little community using hacked firmware on it created by one guy essentially reverse-engineering the hardware on his own. In the mornings I tune the radio to the local NPR station; WAMC (91.7FM) and the local repeater NF2ZC (146.97Mhz) on Mt. Beacon and was pleasantly surprised to find an active community of folks checking in from Poughkeepsie to Florida, NY.
+After some early studying, I began acquiring cheap radios, first the obligatory Baofengs, but recently a TIDRADIO H3 which has fun features like a nice bright screen and bluetooth support. But I also stumbled on a little community using hacked firmware on it created by one guy essentially reverse-engineering the hardware on his own. In the mornings I tune the radio to the local NPR station; WAMC (91.7FM) and the local repeater N2FZC (146.97Mhz) on Mt. Beacon and was pleasantly surprised to find an active community of folks checking in from Poughkeepsie to Florida, NY.
 
 I love knowing that hidden on radio waves that permeate this valley, there’s a group of people talking about their breakfast and practicing passing messages both for their own benefit as well as to potentially help the community more broadly in case of an emergency. These people are assuredly all different, with different ideas about what an ideal future holds, but for this thing they can come together and agree.
 

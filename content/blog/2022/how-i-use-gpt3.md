@@ -11,6 +11,8 @@ tags:
 
 # How I Use GPT
 
+*Note (Oct 2026): I wrote this in the GPT-3 era, and my tooling has moved on a lot since; this is a snapshot.*
+
 The OpenAI Generative Pre-trained Transformer / Large Language Model can be used for incredible things. From generating election summaries to writing shot lists for a documentary, knowing how to use GPT-3 is the key to unlocking its potential. 
 
 I've been talking to GPT-3 (who I sometimes call 🤖 The Robot) for a while. I first used GPT-3 through the app [AI Dungeon](https://www.pcgamer.com/this-ai-writes-a-text-adventure-while-you-play-it/) which encouraged a storytelling approach. Though it quickly became clear you could get the AI to dive into deep philosophical discussions, or psychedelic interpretations of religious doctrines, which I found extremely entertaining.
@@ -25,7 +27,7 @@ I eventually moved up the food chain to the [OpenAI playground](https://platform
 
 When using a technology it is important to understand who created it and what their motivations are. This impacts both our understanding of the tool and the ethical balance of using it. 
 
-[December 2016: Introducing OpenAI](https://openai.com/blog/introducing-openai/)
+[December 2015: Introducing OpenAI](https://openai.com/blog/introducing-openai/)
 
 > OpenAI’s research director is Ilya Sutskever, one of the world experts in machine learning. Our CTO is Greg Brockman, formerly the CTO of Stripe. The group’s other founding members are world-class research engineers and scientists: Trevor Blackwell, Vicki Cheung, Andrej Karpathy, Durk Kingma, John Schulman, Pamela Vagata, and Wojciech Zaremba. Pieter Abbeel, Yoshua Bengio, Alan Kay, Sergey Levine, and Vishal Sikka are advisors to the group. OpenAI’s co-chairs are Sam Altman and [Elon Musk](https://www.theatlantic.com/technology/archive/2022/12/elon-musk-twitter-far-right-activist/672436/).
 

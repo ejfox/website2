@@ -109,13 +109,13 @@ I created an [Alfred workflow](https://github.com/ejfox/scrapbook-core/blob/main
 
 ## Sharing with others
 
-I also created the [/scrapbook](https://ejfox.com/scrapbook/) section of my website, that shows all of my recent internet actions all in one place, primarily for my own consumption. Theoretically, if you cared enough, you could watch me work through things in real time; gathering inspiration, thinking through ideas, writing code, and making things. I do this for a bunch of reasons. I do it to be accountable, to make promises in public, to share knowledge, to send to friends after a conversation, and to simply remember it all later.
+I also created the /scrapbook section (now [/scraps](https://ejfox.com/scraps/)) of my website, that shows all of my recent internet actions all in one place, primarily for my own consumption. Theoretically, if you cared enough, you could watch me work through things in real time; gathering inspiration, thinking through ideas, writing code, and making things. I do this for a bunch of reasons. I do it to be accountable, to make promises in public, to share knowledge, to send to friends after a conversation, and to simply remember it all later.
 
-[/scrapbook/verbose/](https://ejfox.com/scrapbook/verbose/) is a table-style, information-dense view of all of my recent scraps with the goal of making it easy to see a lot at once, in order to see patterns / links over a larger period of time, since only 1 or 2 scraps fit into a screen in the normal view.
+/scrapbook/verbose/ (since retired) was a table-style, information-dense view of all of my recent scraps with the goal of making it easy to see a lot at once, in order to see patterns / links over a larger period of time, since only 1 or 2 scraps fit into a screen in the normal view.
 
 ![](http://res.cloudinary.com/ejf/image/upload/v1722612330/Screenshot_2024-08-02_at_11.25.18_AM.png)
 
-[/scrapbook/graph/](https://ejfox.com/scrapbook/graph/) is the foundation of a network-based view of my scraps, beginning with tying each scrap together sequentially and placing them on the screen horizontally based on the day they were saved. But I am hoping eventually the network of scraps can be explored through shared tags, references, and entity relationships.
+/scrapbook/graph/ (since retired) was the foundation of a network-based view of my scraps, beginning with tying each scrap together sequentially and placing them on the screen horizontally based on the day they were saved. But I am hoping eventually the network of scraps can be explored through shared tags, references, and entity relationships.
 
 ![](http://res.cloudinary.com/ejf/image/upload/v1722612365/Screenshot_2024-08-02_at_11.25.53_AM.png)
 
