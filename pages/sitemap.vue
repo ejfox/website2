@@ -295,9 +295,8 @@ usePageSeo({
             to="/sitemap.xml"
             class="underline hover:text-zinc-700 dark:hover:text-zinc-300"
           >
-            XML sitemap
-          </NuxtLink>
-          .
+            XML sitemap </NuxtLink
+          >.
         </p>
       </div>
     </footer>

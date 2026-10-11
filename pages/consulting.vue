@@ -1,6 +1,5 @@
 <!-- eslint-disable max-len, vue/max-len -->
 <script setup lang="ts">
-/* eslint-disable max-len */
 import {
   useDark,
   useElementVisibility,
@@ -351,17 +350,12 @@ usePageSeo({
         <p class="body-lg mb-6">
           I write code fast, think in prototypes, and don't stop until it ships.
           That's taken me through newsrooms
-          <span class="aside">(NBC News, Washington Post, Gothamist)</span>
-          , design studios
-          <span class="aside">(Stamen)</span>
-          , research labs
-          <span class="aside">(CMU, ASU's AI fellowship)</span>
-          , climate orgs
-          <span class="aside">(Climate TRACE, Earth Genome)</span>
-          , foundations
-          <span class="aside">(Knight)</span>
-          , and companies I can't name. The common thread: people with a hard
-          problem and not enough time.
+          <span class="aside">(NBC News, Washington Post, Gothamist)</span>,
+          design studios <span class="aside">(Stamen)</span>, research labs
+          <span class="aside">(CMU, ASU's AI fellowship)</span>, climate orgs
+          <span class="aside">(Climate TRACE, Earth Genome)</span>, foundations
+          <span class="aside">(Knight)</span>, and companies I can't name. The
+          common thread: people with a hard problem and not enough time.
         </p>
         <div class="grid grid-cols-2 gap-6 text-center py-6 divider-y">
           <div>

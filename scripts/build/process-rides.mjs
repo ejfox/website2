@@ -546,14 +546,15 @@ function retrimProcessed(prev, states) {
     p[4] - d0,
     p[5],
   ])
-  const inRange = (d) => d === null || d === undefined || (d >= d0 && d <= dEnd)
+  const isMissing = (v) => v === null || v === undefined
+  const inRange = (d) => isMissing(d) || (d >= d0 && d <= dEnd)
   const moments = (prev.moments ?? [])
     .filter((m) => inRange(m.distMeters))
     .map((m) => ({
       ...m,
-      distMeters: m.distMeters == null ? m.distMeters : m.distMeters - d0,
+      distMeters: isMissing(m.distMeters) ? m.distMeters : m.distMeters - d0,
       tSeconds:
-        m.tSeconds == null || t0 === null ? m.tSeconds : m.tSeconds - t0,
+        isMissing(m.tSeconds) || t0 === null ? m.tSeconds : m.tSeconds - t0,
     }))
   const refuels = (prev.refuels ?? [])
     .filter((r) => inRange(r.dist))

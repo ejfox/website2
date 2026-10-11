@@ -1,6 +1,10 @@
 <script setup>
 // Animation handled via global anime.js from CDN
-import { useWindowSize, useEventListener } from '@vueuse/core'
+import {
+  useWindowSize,
+  useEventListener,
+  useIntersectionObserver,
+} from '@vueuse/core'
 import { formatNumber } from '~/utils/numberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
