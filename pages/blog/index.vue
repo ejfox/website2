@@ -234,14 +234,12 @@ useHead(() => ({
                     <time class="dt-published" :datetime="postDate(post)">
                       {{ formatShortDate(postDate(post)) }}
                     </time>
-                    <span class="mx-1 text-divider">·</span>
                     <span>{{ readingTime(postWords(post)) }}min</span>
 
                     <span
                       v-if="postWords(post)"
                       class="inline-flex gap-1 items-center"
                     >
-                      <span class="mx-1 text-divider">·</span>
                       <ClientOnly>
                         <BlogSparkline
                           :value="postWords(post)"
@@ -259,7 +257,6 @@ useHead(() => ({
                       v-if="postImages(post) > 0"
                       class="inline-flex gap-1 items-center"
                     >
-                      <span class="mx-1 text-divider">·</span>
                       <ClientOnly>
                         <BlogSparkline
                           :value="postImages(post)"
@@ -274,7 +271,6 @@ useHead(() => ({
                       v-if="postLinks(post) > 0"
                       class="inline-flex gap-1 items-center"
                     >
-                      <span class="mx-1 text-divider">·</span>
                       <ClientOnly>
                         <BlogSparkline
                           :value="postLinks(post)"

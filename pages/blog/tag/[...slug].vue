@@ -139,7 +139,7 @@ const postSummaryClass =
         <!-- Compact metadata bar matching blog posts -->
         <div class="border-b border-zinc-200 dark:border-zinc-800">
           <div
-            class="flex flex-wrap items-center gap-1 px-4 py-2 font-mono text-3xs text-zinc-500 uppercase tracking-wider"
+            class="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2 font-mono text-3xs text-zinc-500 uppercase tracking-wider"
           >
             <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
@@ -147,7 +147,6 @@ const postSummaryClass =
                 {{ filteredPosts?.length || 0 }}
               </span>
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
@@ -161,7 +160,6 @@ const postSummaryClass =
                 }}K
               </span>
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
               <span class="text-zinc-600 dark:text-zinc-300">
@@ -177,7 +175,6 @@ const postSummaryClass =
                 }}hr
               </span>
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span
               v-if="tagScraps?.length"
               class="flex items-center gap-0.5 whitespace-nowrap"
@@ -234,7 +231,6 @@ const postSummaryClass =
                 <span>
                   {{ formatShortDate(post?.metadata?.date || post?.date) }}
                 </span>
-                <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
                 <span>
                   {{
                     calculateReadingTime(post?.metadata?.words || post?.words)
@@ -246,7 +242,6 @@ const postSummaryClass =
                   v-if="post?.metadata?.words || post?.words"
                   class="flex items-center gap-0.5"
                 >
-                  <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
                   <span>
                     {{
                       (

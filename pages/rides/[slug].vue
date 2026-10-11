@@ -636,7 +636,6 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
       </NuxtLink>
       <p class="post-metadata mt-4">
         <span>{{ formatDate(ride.date) }}</span>
-        <span v-if="ride.region">·</span>
         <span v-if="ride.region">{{ ride.region }}</span>
       </p>
       <h1
