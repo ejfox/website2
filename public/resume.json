@@ -52,7 +52,7 @@
       "summary": "Select Clients: GitHub • NBC News • CBS News • Washington Post • New York Times • Carnegie Mellon • Stamen",
       "highlights": [
         "Specializing in tight-deadline projects that require fast iterative sprints and user testing – especially things no one has ever done before",
-        "Helped CBS News prototype their broadcast touchscreen app, analyzed newspaper front pages for the NY Times, and helped make geographic visualizations with the geniuses at Stamen for Meta",
+        "Helped CBS News prototype their broadcast touchscreen app, analyzed newspaper front pages for the NY Times, and helped make geographic visualizations with the geniuses at Stamen",
         "Comfortable working across design and engineering teams and with a wide array of technology stacks, adapting to everything from fresh startups to enterprise workflows",
         "Published 50+ Observable notebooks, YouTube livestreams, and blog posts of in-progress work, experiments, and methodology - working in public at every opportunity"
       ]
@@ -69,6 +69,16 @@
         "Transform rough ideas into polished demos clients can actually use to gain internal stakeholder support or get funding",
         "Joined AP team as support for 2024 election coverage, delivered Webby-nominated work",
         "Helped WCS map the story of coral reefs resisting climate change"
+      ]
+    },
+    {
+      "name": "Stamen Design",
+      "position": "Contractor",
+      "startDate": "2020",
+      "endDate": "2022",
+      "url": "https://stamen.com",
+      "highlights": [
+        "Made geographic visualizations with the Stamen team"
       ]
     },
     {
