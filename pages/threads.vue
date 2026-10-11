@@ -249,10 +249,10 @@ function draw() {
 
   // Faint base layer — every visible edge except the hovered node's (those
   // get redrawn bright on top).
-  const t = theme.value
-  const NODE_COLOR = t.node
-  ctx.strokeStyle = t.edge
-  ctx.globalAlpha = t.edgeAlpha
+  const pal = theme.value
+  const NODE_COLOR = pal.node
+  ctx.strokeStyle = pal.edge
+  ctx.globalAlpha = pal.edgeAlpha
   ctx.lineWidth = 0.5
   shown.forEach((l) => {
     if (!hoveredId || !touchesHover(l)) drawEdge(l)
@@ -266,7 +266,7 @@ function draw() {
     ctx.globalAlpha = 0.6
     ctx.lineWidth = 1
     ctx.shadowColor = NODE_COLOR.tag
-    ctx.shadowBlur = 8 * t.glow
+    ctx.shadowBlur = 8 * pal.glow
     shown.filter(touchesHover).forEach((l) => {
       drawEdge(l)
       connected.add(l.source.id === hoveredId ? l.target.id : l.source.id)
@@ -284,7 +284,7 @@ function draw() {
     ctx.globalAlpha = near ? 1 : 0.8
     ctx.fillStyle = NODE_COLOR[n.type]
     ctx.shadowColor = near ? NODE_COLOR[n.type] : NODE_COLOR.tag
-    ctx.shadowBlur = (near ? 12 : n.isMaypole ? glowPulse : 0) * t.glow
+    ctx.shadowBlur = (near ? 12 : n.isMaypole ? glowPulse : 0) * pal.glow
     ctx.beginPath()
     ctx.arc(ax(n), ay(n), NODE_RADIUS[n.type] + (near ? 1 : 0), 0, Math.PI * 2)
     ctx.fill()
@@ -308,10 +308,10 @@ function draw() {
       ctx.font = `${active ? size + 1 : size}px "Monaspace Neon", ui-monospace, monospace`
       const labelX = n.x + NODE_RADIUS.tag + 8
       // Glow when active; otherwise a dark halo purely for legibility.
-      ctx.shadowColor = active && t.glow ? NODE_COLOR.tag : t.labelHalo
-      ctx.shadowBlur = active ? 8 * t.glow || 4 : 4
+      ctx.shadowColor = active && pal.glow ? NODE_COLOR.tag : pal.labelHalo
+      ctx.shadowBlur = active ? 8 * pal.glow || 4 : 4
       // Tick from the dot to the label — technical-annotation feel.
-      ctx.strokeStyle = active ? t.tagActive : t.tagTick
+      ctx.strokeStyle = active ? pal.tagActive : pal.tagTick
       ctx.lineWidth = 1
       ctx.beginPath()
       ctx.moveTo(n.x + NODE_RADIUS.tag + 2, n.y)
@@ -319,10 +319,10 @@ function draw() {
       ctx.stroke()
       // Topic name, then a dim count annotation — the label is quantitative.
       const name = (n.title || '').toUpperCase()
-      ctx.fillStyle = active ? t.tagActive : NODE_COLOR.tag
+      ctx.fillStyle = active ? pal.tagActive : NODE_COLOR.tag
       ctx.fillText(name, labelX, n.y)
       ctx.shadowBlur = 0
-      ctx.fillStyle = active ? t.tagCountActive : t.tagCount
+      ctx.fillStyle = active ? pal.tagCountActive : pal.tagCount
       ctx.fillText(
         String(n.count || ''),
         labelX + ctx.measureText(name).width + 10,
@@ -340,7 +340,7 @@ function draw() {
     ctx.globalAlpha = 0.9
     ctx.strokeStyle = ctx.shadowColor = NODE_COLOR[h.type]
     ctx.lineWidth = 1.25
-    ctx.shadowBlur = 12 * t.glow
+    ctx.shadowBlur = 12 * pal.glow
     ctx.beginPath()
     ctx.arc(ax(h), ay(h), NODE_RADIUS[h.type] + 5, 0, Math.PI * 2)
     ctx.stroke()
