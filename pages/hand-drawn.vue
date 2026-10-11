@@ -1,6 +1,20 @@
 <script setup>
 import { computed, ref, h } from 'vue'
 import manifest from '~/assets/hand-drawn/manifest.json'
+import sidenotesPluginSrc from '~/plugins/footnotes-to-sidenotes.client.ts?raw'
+
+// counted from the real files, so the figures can't go stale
+const pluginLines = sidenotesPluginSrc.trimEnd().split('\n').length
+const { data: siteManifest } = await useFetch('/api/manifest')
+const blogPosts = computed(() =>
+  (siteManifest.value || []).filter(
+    (p) => p?.slug && !p.slug.startsWith('projects/')
+  )
+)
+const blogWords = computed(() =>
+  blogPosts.value.reduce((sum, p) => sum + (p.metadata?.words || 0), 0)
+)
+const fmt = (n) => n.toLocaleString('en-US')
 
 // tiny inline layout helper for the demo blocks (keeps the template readable).
 // `stacked` puts the label above a full-width body — for demos that need room
@@ -139,7 +153,7 @@ const arrowH = [
   { name: 'arrow-right', a: 'Electron', b: 'Tauri' },
   { name: 'arrow-right-thin', a: 'Flickr', b: 'self-host' },
   { name: 'arrow-wavy-right', a: 'cloud', b: 'local-first' },
-  { name: 'arrow-squiggle', a: '800 lines', b: '113' },
+  { name: 'arrow-squiggle', a: '800 lines', b: String(pluginLines) },
   { name: 'arrow-diagonal-thick', a: '4,096-D', b: '2-D' },
 ]
 // downward: top resolves down to bottom
@@ -175,11 +189,10 @@ const arrowStudies = [
 ]
 
 // real stats spelled out in the hand-drawn digit glyphs. there's no zero in the set,
-// so the figures are real ones that happen to avoid it; together they exercise 1–9 in
-// both weights. the compound "10–13" glyphs carry small real counts.
+// so the figures are real ones that happen to avoid it; together they exercise 1–9.
+// the compound "10–13" glyphs carry small real counts.
 const numeralStats = [
   { digits: '29915', label: 'officer nodes mapped (CCRB)', thin: false },
-  { digits: '45923', label: 'words written this year', thin: false },
   { digits: '159671', label: 'relationships in the graph', thin: false },
   { digits: '1189', label: 'GitHub contributions', thin: false },
   { digits: '1554', label: 'screenshots in the atlas', thin: true },
@@ -248,14 +261,14 @@ const kitProjects = [
 const kitTimeline = [
   { n: 1, t: 'Flickr → Instagram → self-hosted photos' },
   { n: 2, t: 'Twitter → Mastodon' },
-  { n: 3, t: '800-line sidenotes → 113-line plugin' },
+  { n: 3, t: `800-line sidenotes → ${pluginLines}-line plugin` },
   { n: 4, t: 'Docker → pm2, one node process' },
   { n: 5, t: 'Electron → Tauri for the backup tool' },
   { n: 6, t: 'CCRB: 29,915-node officer graph' },
   { n: 7, t: '1,554-screenshot embeddings atlas' },
   { n: 8, t: 'tv-station: public-access from Watch Later' },
   { n: 9, t: 'personal APIs → "touch grass" alerts' },
-  { n: 10, t: 'the hand-drawn kit, 152 marks' },
+  { n: 10, t: `the hand-drawn kit, ${manifest.length} marks` },
   { n: 12, t: '100 videos — the goal for this year' },
 ]
 
@@ -282,10 +295,8 @@ const magStats = [
   ['mag-10000', '22,380 hours tracked in 14 years'],
   ['mag-100000', '159,671 graph edges'],
   ['mag-1k', '~1k commits a year'],
-  ['mag-10k', '45,923 words written'],
   ['mag-100k', '1.5M messages in the archive'],
   ['badge-1k', '1,554 screenshots'],
-  ['badge-10k', '65,820 words published'],
   ['badge-100k', '100k+ runtime seconds'],
 ]
 
@@ -466,7 +477,7 @@ useHead({
               size="1.05em"
               class="mx-0.5 align-baseline"
             />
-            and the sidenotes plugin is only 113 lines
+            and the sidenotes plugin is only {{ pluginLines }} lines
             <HandDrawn name="circled-2" size="1.05em" class="mx-0.5" />
             because complexity is the enemy
             <HandDrawn name="circled-3" size="1.05em" class="mx-0.5" />
@@ -494,7 +505,7 @@ useHead({
               <HandDrawnMark placement="under" tone="#fde047">
                 boring
               </HandDrawnMark>
-              , and it hasn't gone down since.
+              .
             </p>
           </div>
         </Demo>
@@ -523,9 +534,11 @@ useHead({
         <!-- 4. a real number, circled -->
         <Demo n="4" title="A number worth circling" :blurb="blurbNumberCircled">
           <p class="text-xl md:text-2xl leading-loose max-w-prose">
-            This year the blog crossed
-            <HandDrawnMark tone="#fde047">65,820 words</HandDrawnMark>
-            , across 103 posts — and counting.
+            The blog has published
+            <HandDrawnMark tone="#fde047">
+              {{ fmt(blogWords) }} words
+            </HandDrawnMark>
+            , across {{ fmt(blogPosts.length) }} posts.
           </p>
         </Demo>
 
@@ -765,7 +778,7 @@ then read the logs and move on.</code></pre>
                   tone="#fde047"
                   class="text-5xl font-semibold tracking-tight"
                 >
-                  103
+                  {{ fmt(blogPosts.length) }}
                 </HandDrawnMark>
                 <HandDrawn
                   name="arrow-up-thick"
@@ -773,12 +786,9 @@ then read the logs and move on.</code></pre>
                   class="text-zinc-400 dark:text-zinc-500"
                 />
               </div>
-              <div class="text-sm text-zinc-500">
-                15.6 a year — and climbing
-              </div>
               <hr class="my-5 border-zinc-100 dark:border-zinc-800" />
               <div class="text-sm text-zinc-500 leading-6">
-                65,820 words published in all.
+                {{ fmt(blogWords) }} words published in all.
               </div>
             </div>
           </div>
