@@ -6,35 +6,18 @@ import { useDark, useElementSize, useRafFn, watchDebounced } from '@vueuse/core'
 // =============================================================================
 const NODE_RADIUS = { tag: 2.5, post: 2, scrap: 0.75 }
 const COLLISION_RADIUS = { tag: 4, post: 3, scrap: 1.5 }
-// Two palettes, one vibe: a luminous field on black, and the same marks as
-// ink on paper in light mode. Glow reads as light on black but as smudge on
-// white, so light mode keeps halos off and leans on weight instead.
-const PALETTE = {
-  dark: {
-    node: { tag: '#fbbf24', post: '#fafafa', scrap: '#f87171' },
-    edge: '#52525b',
-    edgeAlpha: 0.08,
-    tagActive: '#fde68a',
-    tagTick: 'rgba(251, 191, 36, 0.45)',
-    tagCount: 'rgba(251, 191, 36, 0.4)',
-    tagCountActive: 'rgba(253, 230, 138, 0.6)',
-    labelHalo: 'rgba(0, 0, 0, 0.9)',
-    glow: 1,
-  },
-  light: {
-    node: { tag: '#b45309', post: '#18181b', scrap: '#dc2626' },
-    edge: '#71717a',
-    edgeAlpha: 0.14,
-    tagActive: '#78350f',
-    tagTick: 'rgba(180, 83, 9, 0.45)',
-    tagCount: 'rgba(180, 83, 9, 0.55)',
-    tagCountActive: 'rgba(120, 53, 15, 0.75)',
-    labelHalo: 'rgba(255, 255, 255, 0.95)',
-    glow: 0,
-  },
+// 1-bit ink: the canvas paints with the site's own zinc text ladder, read
+// from hidden probes styled by the same Tailwind classes as the legend dots,
+// so the graph follows the tokens in both modes. Types differ by ink + radius.
+const INK = {
+  primary: 'text-zinc-900 dark:text-zinc-100',
+  secondary: 'text-zinc-600 dark:text-zinc-400',
+  tertiary: 'text-zinc-500',
+  quaternary: 'text-zinc-400 dark:text-zinc-600',
+  page: 'text-page', // label halo: knocks edges out behind topic names
 }
+const EDGE_ALPHA = 0.07 // primary ink at low alpha: same weight on black or white
 const isDark = useDark()
-const theme = computed(() => (isDark.value ? PALETTE.dark : PALETTE.light))
 const BLACKLISTED_TAGS = ['video', 'youtube', 'watchlater']
 const ANIM_SPEED = 1.25 // 1.0 = default, higher = slower, lower = faster
 
@@ -51,26 +34,8 @@ const EDGE_CURVE = 0.14
 // positions, and hit-testing, are untouched.
 const AMBIENT_AMP = 1.1
 
-const FILTERS = [
-  {
-    type: 'post',
-    label: 'posts',
-    color: 'text-zinc-700 dark:text-zinc-300',
-    accent: 'accent-zinc-900 dark:accent-white',
-  },
-  {
-    type: 'scrap',
-    label: 'scraps',
-    color: 'text-red-600 dark:text-red-400',
-    accent: 'accent-red-600 dark:accent-red-400',
-  },
-  {
-    type: 'tag',
-    label: 'tags',
-    color: 'text-amber-700 dark:text-amber-400',
-    accent: 'accent-amber-700 dark:accent-amber-400',
-  },
-]
+// Also the filter/legend order: each toggle's dot is painted in its node's ink
+const NODE_INK = { post: 'secondary', scrap: 'tertiary', tag: 'primary' }
 
 // =============================================================================
 // DATA
@@ -80,11 +45,19 @@ const FILTERS = [
 const posts = shallowRef([]) // published posts
 const scraps = shallowRef([]) // scraps with at least one usable tag
 
-const tagsOf = (item) =>
-  [
-    ...(item.tags || item.metadata?.tags || []),
-    ...(item.concept_tags || []),
-  ].filter((t) => !BLACKLISTED_TAGS.includes(t.toLowerCase()))
+// Strings only (the scraps API can hand back nulls/objects), deduped so a tag
+// in both `tags` and `concept_tags` doesn't count or link twice.
+const tagsOf = (item) => [
+  ...new Set(
+    [
+      ...(item.tags || item.metadata?.tags || []),
+      ...(item.concept_tags || []),
+    ].filter(
+      (t) =>
+        typeof t === 'string' && !BLACKLISTED_TAGS.includes(t.toLowerCase())
+    )
+  ),
+]
 
 // Posts + scraps become content nodes; a tag becomes a node once 2+ items use
 // it. Content with no surviving tag is dropped (it would float unconnected).
@@ -129,9 +102,10 @@ function buildGraph(postList, scrapList) {
 const containerRef = ref(null)
 const canvasRef = ref(null)
 const headerRef = ref(null)
+const inkRef = ref(null)
 const hoveredNode = shallowRef(null)
 const pointer = ref({ x: 0, y: 0 })
-const stats = reactive({ posts: 0, scraps: 0, tags: 0, links: 0 })
+const stats = reactive({ posts: 0, scraps: 0, tags: 0, connections: 0 })
 const isStreaming = ref(false)
 const show = reactive({ post: true, scrap: true, tag: true })
 
@@ -143,6 +117,8 @@ let ctx = null
 let width = 0
 let height = 0
 let ambientClock = 0
+let ink = null // resolved colours + mono font, re-read when the OS scheme flips
+let inkDark = null
 // Bumped on every (re)init and on unmount; stale streaming chains check it
 // and stop, so a resize never leaves two animations fighting over `nodes`.
 let run = 0
@@ -184,7 +160,7 @@ function handleMouseMove(event) {
 
 function handleClick() {
   const n = hoveredNode.value
-  if (n?.type === 'tag') navigateTo(`/tag/${n.title}`)
+  if (n?.type === 'tag') navigateTo(`/tag/${encodeURIComponent(n.title)}`)
   else if (n?.slug) navigateTo(`/blog/${n.slug}`)
 }
 
@@ -192,7 +168,15 @@ function handleClick() {
 // DRAW (runs every animation frame)
 // =============================================================================
 function draw() {
-  if (!ctx) return
+  if (!ctx || !inkRef.value) return
+  if (inkDark !== isDark.value) {
+    inkDark = isDark.value
+    const styles = [...inkRef.value.children].map(getComputedStyle)
+    ink = Object.fromEntries(
+      Object.keys(INK).map((k, i) => [k, styles[i].color])
+    )
+    ink.font = styles[0].fontFamily
+  }
   ctx.clearRect(0, 0, width, height)
 
   const hoveredId = hoveredNode.value?.id
@@ -200,7 +184,7 @@ function draw() {
 
   // Ambient breathing: each post drifts on a slow sine around its settled
   // spot (topics stay pinned). ax/ay give the *drawn* position; real n.x/n.y
-  // (and hit-testing) are never touched. Also a slow glow pulse for signposts.
+  // (and hit-testing) are never touched.
   const t = ambientClock
   const phaseOf = (n) => {
     if (n._ph === undefined) {
@@ -217,7 +201,6 @@ function draw() {
     n.isMaypole
       ? n.y
       : n.y + Math.cos(t * 0.0004 + phaseOf(n) * 1.3) * AMBIENT_AMP
-  const glowPulse = 5 + Math.sin(t * 0.0016) * 2.5
 
   // Organic edge: a quadratic "bow" gives a Catmull-Rom-ish curve instead of
   // a straight line. Flip EDGE_CURVE to 0 for a rigid 90/45° schematic feel.
@@ -249,10 +232,9 @@ function draw() {
 
   // Faint base layer — every visible edge except the hovered node's (those
   // get redrawn bright on top).
-  const pal = theme.value
-  const NODE_COLOR = pal.node
-  ctx.strokeStyle = pal.edge
-  ctx.globalAlpha = pal.edgeAlpha
+  const inkOf = (n) => ink[NODE_INK[n.type]]
+  ctx.strokeStyle = ink.primary
+  ctx.globalAlpha = EDGE_ALPHA
   ctx.lineWidth = 0.5
   shown.forEach((l) => {
     if (!hoveredId || !touchesHover(l)) drawEdge(l)
@@ -262,71 +244,65 @@ function draw() {
   // neighbours so we can accent them below.
   const connected = new Set()
   if (hoveredId) {
-    ctx.strokeStyle = NODE_COLOR.tag
     ctx.globalAlpha = 0.6
     ctx.lineWidth = 1
-    ctx.shadowColor = NODE_COLOR.tag
-    ctx.shadowBlur = 8 * pal.glow
     shown.filter(touchesHover).forEach((l) => {
       drawEdge(l)
       connected.add(l.source.id === hoveredId ? l.target.id : l.source.id)
     })
-    ctx.shadowBlur = 0
   }
 
   // Nodes. Additive emphasis only: on hover, the hovered node and its
-  // neighbours brighten, grow, and glow — nothing else is ever dimmed.
-  // Maypole signposts carry a soft always-on glow so they read as luminous;
-  // the plain post dots stay crisp (and cheap — no per-frame blur on 100s).
+  // neighbours go full ink and grow — nothing else is ever dimmed.
   nodes.forEach((n) => {
     if (!n.x || !visible(n)) return
     const near = n.id === hoveredId || connected.has(n.id)
     ctx.globalAlpha = near ? 1 : 0.8
-    ctx.fillStyle = NODE_COLOR[n.type]
-    ctx.shadowColor = near ? NODE_COLOR[n.type] : NODE_COLOR.tag
-    ctx.shadowBlur = (near ? 12 : n.isMaypole ? glowPulse : 0) * pal.glow
+    ctx.fillStyle = inkOf(n)
     ctx.beginPath()
     ctx.arc(ax(n), ay(n), NODE_RADIUS[n.type] + (near ? 1 : 0), 0, Math.PI * 2)
     ctx.fill()
   })
-  ctx.shadowBlur = 0
   ctx.globalAlpha = 1
 
   // Topic labels: always-on signposts on the pinned "maypole" tags, so the
   // graph reads as a labeled map of subjects rather than anonymous dots.
-  // Size scales gently with how often the topic is used.
+  // Size steps up the type scale (12/14/16) with how often it's used.
   if (show.tag) {
     ctx.save()
     ctx.textBaseline = 'middle'
-    ctx.letterSpacing = '1.5px'
+    ctx.lineJoin = 'round'
     nodes.forEach((n) => {
       if (!n.isMaypole || !n.x) return
       // A topic lights up when it's hovered OR linked to the hovered node —
       // so hovering a post reveals which topics it's filed under.
       const active = n.id === hoveredId || connected.has(n.id)
-      const size = Math.min(17, 10 + Math.sqrt(n.count || 1))
-      ctx.font = `${active ? size + 1 : size}px "Monaspace Neon", ui-monospace, monospace`
+      const size = n.count >= 36 ? 16 : n.count >= 16 ? 14 : 12
+      ctx.font = `${size}px ${ink.font}`
+      ctx.letterSpacing = `${size * 0.05}px`
       const labelX = n.x + NODE_RADIUS.tag + 8
-      // Glow when active; otherwise a dark halo purely for legibility.
-      ctx.shadowColor = active && pal.glow ? NODE_COLOR.tag : pal.labelHalo
-      ctx.shadowBlur = active ? 8 * pal.glow || 4 : 4
       // Tick from the dot to the label — technical-annotation feel.
-      ctx.strokeStyle = active ? pal.tagActive : pal.tagTick
+      ctx.strokeStyle = active ? ink.primary : ink.quaternary
       ctx.lineWidth = 1
       ctx.beginPath()
       ctx.moveTo(n.x + NODE_RADIUS.tag + 2, n.y)
       ctx.lineTo(labelX - 2, n.y)
       ctx.stroke()
       // Topic name, then a dim count annotation — the label is quantitative.
+      // Each sits on a page-coloured halo so edges never strike through it.
       const name = (n.title || '').toUpperCase()
-      ctx.fillStyle = active ? pal.tagActive : NODE_COLOR.tag
-      ctx.fillText(name, labelX, n.y)
-      ctx.shadowBlur = 0
-      ctx.fillStyle = active ? pal.tagCountActive : pal.tagCount
-      ctx.fillText(
+      const label = (text, x, fill) => {
+        ctx.strokeStyle = ink.page
+        ctx.lineWidth = 3
+        ctx.strokeText(text, x, n.y)
+        ctx.fillStyle = fill
+        ctx.fillText(text, x, n.y)
+      }
+      label(name, labelX, ink.primary)
+      label(
         String(n.count || ''),
         labelX + ctx.measureText(name).width + 10,
-        n.y
+        active ? ink.primary : ink.quaternary
       )
     })
     ctx.restore()
@@ -338,9 +314,8 @@ function draw() {
   if (h?.x && visible(h)) {
     ctx.save()
     ctx.globalAlpha = 0.9
-    ctx.strokeStyle = ctx.shadowColor = NODE_COLOR[h.type]
+    ctx.strokeStyle = inkOf(h)
     ctx.lineWidth = 1.25
-    ctx.shadowBlur = 12 * pal.glow
     ctx.beginPath()
     ctx.arc(ax(h), ay(h), NODE_RADIUS[h.type] + 5, 0, Math.PI * 2)
     ctx.stroke()
@@ -349,7 +324,7 @@ function draw() {
 }
 
 // Ambient render loop — keeps the constellation gently breathing (posts
-// drift, signposts pulse) even after the simulation settles. rAF already
+// drift) even after the simulation settles. rAF already
 // pauses in hidden tabs, so it never burns CPU in the background.
 useRafFn(({ timestamp }) => {
   ambientClock = timestamp
@@ -373,7 +348,12 @@ async function initGraph() {
 
   width = canvas.clientWidth
   height = canvas.clientHeight
-  const dpr = window.devicePixelRatio || 1
+  // Cap the backing store under ~16M px: iOS Safari silently refuses to draw
+  // larger canvases, and 350vh at DPR 2–3 on an iPad is already at the edge.
+  const dpr = Math.min(
+    window.devicePixelRatio || 1,
+    Math.sqrt(16e6 / (width * height || 1))
+  )
   canvas.width = width * dpr
   canvas.height = height * dpr
   ctx = canvas.getContext('2d')
@@ -384,7 +364,7 @@ async function initGraph() {
   const box = {
     x0: mobile ? 80 : 120,
     x1: width - (mobile ? 60 : 150),
-    y0: mobile ? 160 : 260,
+    y0: (headerRef.value?.offsetHeight ?? 0) + 40,
     y1: height - (mobile ? 80 : 150),
   }
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
@@ -409,7 +389,7 @@ async function initGraph() {
   nodes = [...maypoles]
   links = []
   hoveredNode.value = null
-  Object.assign(stats, { posts: 0, scraps: 0, tags: 0, links: 0 })
+  Object.assign(stats, { posts: 0, scraps: 0, tags: 0, connections: 0 })
   isStreaming.value = true
 
   // Merge a new snapshot into the live graph: existing nodes keep their
@@ -436,7 +416,7 @@ async function initGraph() {
     nodes = [...next, ...maypoles.filter((m) => !ids.has(m.id))]
     links = g.links
     stats.tags = g.tags.length
-    stats.links = g.links.length
+    stats.connections = g.links.length
     simulation.nodes(nodes)
     simulation.force('link').links(links)
     simulation.alpha(0.3).restart()
@@ -508,13 +488,16 @@ async function initGraph() {
 
 onMounted(async () => {
   const { animate, stagger } = await import('animejs')
-  animate(headerRef.value.querySelectorAll('.header-item'), {
-    opacity: [0, 1],
-    translateY: [-10, 0],
-    duration: 400 * ANIM_SPEED,
-    delay: stagger(80 * ANIM_SPEED),
-    ease: 'outQuart',
-  })
+  // The import is async: the user may already have navigated away
+  const items = headerRef.value?.querySelectorAll('.header-item')
+  if (items)
+    animate(items, {
+      opacity: [0, 1],
+      translateY: [-10, 0],
+      duration: 400 * ANIM_SPEED,
+      delay: stagger(80 * ANIM_SPEED),
+      ease: 'outQuart',
+    })
 
   const [postList, scrapList] = await Promise.all([
     $fetch('/api/manifest').catch(() => []),
@@ -530,12 +513,15 @@ onMounted(async () => {
   initGraph()
 })
 
-// Re-lay out when the canvas actually changes width (resize, layout settle)
-const { width: boxWidth } = useElementSize(containerRef)
+// Re-lay out when the canvas actually changes size (resize, layout settle).
+// Height too: the canvas is 350vh, and a stale backing buffer stretches the
+// drawing and puts hover hit-testing in the wrong place.
+const box = useElementSize(containerRef)
 watchDebounced(
-  boxWidth,
-  (w) => {
-    if (ctx && Math.abs(w - width) > 1) initGraph()
+  [box.width, box.height],
+  ([w, h]) => {
+    if (ctx && (Math.abs(w - width) > 1 || Math.abs(h - height) > 1))
+      initGraph()
   },
   { debounce: 200 }
 )
@@ -547,10 +533,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    class="threads-view relative"
-    :style="{ height: `${CANVAS_HEIGHT_VH}vh` }"
-  >
+  <div class="relative" :style="{ height: `${CANVAS_HEIGHT_VH}vh` }">
     <div ref="containerRef" class="absolute inset-0">
       <canvas
         ref="canvasRef"
@@ -563,59 +546,73 @@ onBeforeUnmount(() => {
       />
     </div>
 
-    <header
-      ref="headerRef"
-      class="relative z-10 px-4 md:px-8 pt-8 pb-4 font-mono text-xs"
-    >
+    <!-- Ink probes: the canvas reads its colours + mono font from these -->
+    <div ref="inkRef" hidden aria-hidden="true">
+      <span v-for="(cls, k) in INK" :key="k" class="font-mono" :class="cls" />
+    </div>
+
+    <header ref="headerRef" class="relative z-10 px-4 md:px-8 pt-8 pb-4">
+      <div
+        class="header-item font-mono text-xs uppercase tracking-wider text-zinc-500 mb-4 opacity-0"
+      >
+        Index / Threads
+      </div>
       <h1
-        class="header-item font-serif text-2xl text-zinc-900 dark:text-zinc-100 mb-1 opacity-0"
+        class="header-item text-3xl md:text-4xl font-light tracking-tight mb-2 opacity-0"
       >
         Threads
       </h1>
-      <p class="header-item text-zinc-500 tabular-nums opacity-0">
-        <span
-          :class="{
-            'animate-pulse': isStreaming && stats.posts < posts.length,
-          }"
-        >
-          {{ stats.posts }}/{{ posts.length }}
-        </span>
-        posts ·
-        <span
-          :class="{
-            'animate-pulse': isStreaming && stats.scraps < scraps.length,
-          }"
-        >
-          {{ stats.scraps }}/{{ scraps.length }}
-        </span>
-        scraps · {{ stats.tags }} tags · {{ stats.links }} connections
+      <p
+        class="header-item font-serif text-base text-zinc-600 dark:text-zinc-400 mb-3 opacity-0"
+      >
+        Every post and scrap, strung on the topics they share · hover to peek,
+        click to open
       </p>
-      <div class="flex gap-4 mt-2">
-        <label
-          v-for="f in FILTERS"
-          :key="f.type"
-          class="header-item flex items-center gap-1 cursor-pointer select-none opacity-0"
-        >
-          <input v-model="show[f.type]" type="checkbox" :class="f.accent" />
+      <!-- posts + scraps count up as they stream in. Gaps, not "·": a
+           separator dangles at a line edge when this wraps on a phone -->
+      <p
+        class="header-item flex flex-wrap gap-x-3 font-mono text-xs text-zinc-500 tabular-nums opacity-0"
+      >
+        <span v-for="(n, k, i) in stats" :key="k">
           <span
-            :class="show[f.type] ? f.color : 'text-zinc-400 dark:text-zinc-600'"
+            class="text-zinc-900 dark:text-zinc-100"
+            :class="{ 'animate-pulse': isStreaming && i < 2 }"
           >
-            {{ f.label }}
+            {{ n }}
           </span>
-        </label>
+          {{ k }}
+        </span>
+      </p>
+      <div class="header-item flex gap-4 mt-2 font-mono text-xs opacity-0">
+        <button
+          v-for="(level, type) in NODE_INK"
+          :key="type"
+          type="button"
+          :aria-pressed="show[type]"
+          class="flex items-center gap-1.5 select-none"
+          :class="
+            show[type]
+              ? 'text-zinc-900 dark:text-zinc-100'
+              : 'text-zinc-400 dark:text-zinc-600 line-through'
+          "
+          @click="show[type] = !show[type]"
+        >
+          <span class="size-1.5 rounded-full bg-current" :class="INK[level]" />
+          <span>{{ type }}s</span>
+        </button>
       </div>
     </header>
 
     <div
       v-if="hoveredNode"
-      class="fixed z-50 pointer-events-none max-w-52 px-3 py-2 rounded border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-black/90 backdrop-blur font-mono"
+      class="fixed z-50 pointer-events-none max-w-52 px-3 py-2 border border-zinc-200 dark:border-zinc-800 bg-surface font-mono"
       :style="tooltipStyle"
     >
       <div class="text-4xs uppercase tracking-wider text-zinc-500">
         {{ hoveredNode.type }}
       </div>
       <div
-        class="font-serif text-xs leading-tight text-zinc-900 dark:text-zinc-50"
+        class="font-serif text-xs leading-tight text-zinc-900 dark:text-zinc-100"
       >
         {{ hoveredNode.title }}
       </div>
