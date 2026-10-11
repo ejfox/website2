@@ -79,7 +79,7 @@ export const apiCatalog: ApiRoute[] = [
     summary: 'Books with a random highlight',
     consumer: 'frontend',
     consumedBy: 'pages/reading, now',
-    deps: 'content/processed/reading',
+    deps: 'content/processed/reading, data/reading-kindle.json',
     health: 'ok',
   },
   {
@@ -89,7 +89,7 @@ export const apiCatalog: ApiRoute[] = [
     summary: 'Single book by slug',
     consumer: 'frontend',
     consumedBy: 'pages/reading, now',
-    deps: 'reading JSON',
+    deps: 'reading JSON, data/reading-kindle.json',
     health: 'ok',
   },
   {

@@ -11,6 +11,7 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { withKindleSync } from '~/server/utils/readingKindle'
 
 // Timeline event types
 interface TimelineEvent {
@@ -165,7 +166,10 @@ export default defineEventHandler(async (event) => {
         .map(async (file) => {
           const filePath = join(readingDir, file)
           const content = await fs.readFile(filePath, 'utf-8')
-          const book = JSON.parse(content)
+          const book = withKindleSync(
+            JSON.parse(content),
+            file.replace(/\.json$/, '')
+          )
 
           const lastAnnotated =
             book.metadata?.['kindle-sync']?.lastAnnotatedDate
