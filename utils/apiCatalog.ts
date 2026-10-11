@@ -584,6 +584,16 @@ export const apiCatalog: ApiRoute[] = [
   },
   {
     method: 'GET',
+    path: '/api/paperclip',
+    group: 'Stats & metrics',
+    summary: 'Paperclip presence emoji (seeds SSR; browser goes live via SSE)',
+    consumer: 'frontend',
+    consumedBy: 'composables/usePaperclipStatus (nav)',
+    deps: 'getpaperclipped.com public status',
+    health: 'ok',
+  },
+  {
+    method: 'GET',
     path: '/api/letterboxd',
     group: 'Stats & metrics',
     summary: 'Films watched',

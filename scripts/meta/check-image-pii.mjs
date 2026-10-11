@@ -93,14 +93,20 @@ function luhn(digits) {
 /** `test` returns the matched substring (for a redacted snippet), or null. */
 export const RULES = [
   // Credentials — key formats
-  { id: 'openai-anthropic-key', re: /\bsk-(?:ant-|proj-|or-v1-)?[A-Za-z0-9_-]{20,}/ },
+  { id: 'openai-anthropic-key', re: /\bsk-[\w-]{20,}/ },
   { id: 'elevenlabs-key', re: /\bsk_[a-f0-9]{32,}/ },
   { id: 'stripe-key', re: /\b[rs]k_live_[A-Za-z0-9]{16,}/ },
-  { id: 'github-token', re: /\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{30,}|\bgithub_pat_[A-Za-z0-9_]{40,}/ },
+  {
+    id: 'github-token',
+    re: /\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{30,}|\bgithub_pat_\w{40,}/,
+  },
   { id: 'aws-access-key', re: /\bAKIA[0-9A-Z]{16}\b/ },
-  { id: 'google-api-key', re: /\bAIza[0-9A-Za-z_-]{35}\b/ },
+  { id: 'google-api-key', re: /\bAIza[\w-]{35}\b/ },
   { id: 'slack-token', re: /\bxox[abprs]-[A-Za-z0-9-]{10,}/ },
-  { id: 'private-key', re: /BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY/ },
+  {
+    id: 'private-key',
+    re: /BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY/,
+  },
   // Credentials — assignments. The value must look like a secret (6+ chars,
   // not a placeholder), so prose like "password manager" doesn't trip it.
   // `password=` / `password:` followed by a value. Prefix may be an env-var
@@ -108,7 +114,7 @@ export const RULES = [
   // the end of a value; prose ("password manager") has no `=`/`:` after it.
   {
     id: 'password-assignment',
-    re: /(?:^|[^A-Za-z])(?:[A-Za-z0-9]+_)*(?:password|passwd|pwd)["']?\s*[:=]\s*["']?(?!\*{3}|•|x{4}|<|\$\{|process\.env|your|example|changeme|null|undefined|true|false)[^\s"'`,;)]{4,}/i,
+    re: /(?:^|[^A-Z])(?:[A-Z0-9]+_)*(?:password|passwd|pwd)["']?\s*[:=]\s*["']?(?!\*{3}|•|x{4}|<|\$\{|process\.env|your|example|changeme|null|undefined|true|false)[^\s"'`,;)]{4,}/i,
   },
   // Uppercase env assignment of anything secret-named, with ANY value.
   // OCR mangles values (`0 . J9BO…`), but the variable name survives.
@@ -118,33 +124,48 @@ export const RULES = [
   },
   {
     id: 'secret-assignment',
-    re: /\b(?:api[_-]?key|secret(?:[_-]?key)?|access[_-]?token|auth[_-]?token|client[_-]?secret)\b["']?\s*[:=]\s*["']?(?!<|\$\{|process\.env|your|example)[A-Za-z0-9_\-+/]{20,}/i,
+    re: /\b(?:api[_-]?key|secret(?:[_-]?key)?|access[_-]?token|auth[_-]?token|client[_-]?secret)["']?\s*[:=]\s*["']?(?!<|\$\{|process\.env|your|example)[\w\-+/]{20,}/i,
   },
   // A hardcoded secret string: words joined around "secret"/"password", e.g.
   // `acme-billing-secret-v2`. Lowercase only, so env-var NAMES like
   // JWT_SECRET_KEY (no value) don't count, and two words must come before it so
   // gpg's `--list-secret-keys` doesn't either. OCR often reads - as —.
-  { id: 'hardcoded-secret', re: /\b[a-z0-9]+(?:[-_—][a-z0-9]+)+[-_—](?:secret|password|passwd)(?:[-_—][a-z0-9]+)+\b/ },
-  { id: 'url-credentials', re: /\b[a-z][a-z0-9+.-]*:\/\/[^\s:@/]{2,}:[^\s:@/]{6,}@[^\s/]+/i },
+  {
+    id: 'hardcoded-secret',
+    re: /\b[a-z0-9]+(?:[-_—][a-z0-9]+)+[-_—](?:secret|password|passwd)(?:[-_—][a-z0-9]+)+\b/,
+  },
+  {
+    id: 'url-credentials',
+    re: /\b[a-z][a-z0-9+.-]*:\/\/[^\s:@/]{2,}:[^\s:@/]{6,}@[^\s/]+/i,
+  },
   // Financial
   {
     id: 'card-number',
     test: (t) => {
-      for (const m of t.matchAll(/(?<![\d.,-])\d{4}([ -]?)\d{4}\1\d{4}\1\d{4}(?![\d.,])/g)) {
+      for (const m of t.matchAll(
+        /(?<![\d.,-])\d{4}([ -]?)\d{4}\1\d{4}\1\d{4}(?![\d.,])/g
+      )) {
         const digits = m[0].replace(/\D/g, '')
-        if (/^[3-6]/.test(digits) && luhn(digits) && !/^(\d)\1+$/.test(digits)) return m[0]
+        if (/^[3-6]/.test(digits) && luhn(digits) && !/^(\d)\1+$/.test(digits))
+          return m[0]
       }
       return null
     },
   },
-  { id: 'bank-account-number', re: /\b(?:routing|account|acct)\s*(?:number|no\.?|#)\s*:?\s*[\dX*•.]{4,}/i },
+  {
+    id: 'bank-account-number',
+    re: /\b(?:routing|account|acct)\s*(?:number|no\.?|#)\s*(?::\s*)?[\dX*•.]{4,}/i,
+  },
   { id: 'iban', re: /\b[A-Z]{2}\d{2}(?: ?[A-Z0-9]{4}){3,7}\b/ },
   {
     id: 'bank-balance',
     // Needs an amount with cents after it — a game's "CURRENT BALANCE $1.1b" is fine.
     re: /\b(?:available|current|ending|statement|beginning)\s+balance\b[^\n$]{0,40}\$\s?\d[\d,]*\.\d{2}\b/i,
   },
-  { id: 'pay-stub', re: /\b(?:net pay|gross pay|pay stub|paystub|direct deposit|YTD gross|earnings statement)\b/i },
+  {
+    id: 'pay-stub',
+    re: /\b(?:net pay|gross pay|pay stub|paystub|direct deposit|YTD gross|earnings statement)\b/i,
+  },
   // Payment-processor object ids (Stripe pi_/ch_/in_/cus_…) — a dashboard.
   { id: 'payment-id', re: /\b(?:pi|ch|in|cus|py|po)_[A-Za-z0-9]{20,}\b/ },
   // An invoice/payment ledger: many dollar amounts with cents in one image.
@@ -153,20 +174,36 @@ export const RULES = [
     id: 'money-ledger',
     test: (t) => {
       const amounts = t.match(/\$\s?\d{1,3}(?:,\d{3})*\.\d{2}\b/g) || []
-      const big = amounts.filter((a) => Number(a.replace(/[$,\s]/g, '')) >= 1000)
-      return amounts.length >= 6 && big.length >= 3 ? `${amounts.length} amounts` : null
+      const big = amounts.filter(
+        (a) => Number(a.replace(/[$,\s]/g, '')) >= 1000
+      )
+      return amounts.length >= 6 && big.length >= 3
+        ? `${amounts.length} amounts`
+        : null
     },
   },
   // An inbox or contact list: several distinct email addresses.
   {
     id: 'email-addresses',
     test: (t) => {
-      const emails = new Set((t.match(/\b[A-Za-z][\w.+-]*@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}\b/g) || []).map((e) => e.toLowerCase()))
+      const emails = new Set(
+        (
+          t.match(
+            /\b[A-Z][\w.+-]*@[A-Z0-9-]+(?:\.[A-Z0-9-]+)*\.[A-Z]{2,}\b/gi
+          ) || []
+        ).map((e) => e.toLowerCase())
+      )
       return emails.size >= 3 ? `${emails.size} addresses` : null
     },
   },
-  { id: 'personal-docs', re: /\b(?:co-?signer|lease application|rental application|credit check)\b/i },
-  { id: 'ssn', re: /\b(?:SSN|social security)\b[^\n]{0,20}\b\d{3}-\d{2}-\d{4}\b/i },
+  {
+    id: 'personal-docs',
+    re: /\b(?:co-?signer|lease application|rental application|credit check)\b/i,
+  },
+  {
+    id: 'ssn',
+    re: /\b(?:SSN|social security)\b[^\n]{1,20}\b\d{3}-\d{2}-\d{4}\b/i,
+  },
 ]
 
 /** Alt text is prose a model wrote ABOUT the image, so match the vocabulary,
@@ -182,7 +219,10 @@ export const ALT_RULES = [
     id: 'alt-credential',
     re: /\b(?:full|actual|plain ?text|unredacted|exposed|visible|leaked)\s+(?:api keys?|passwords?|secret keys?|access tokens?|credentials)\b/i,
   },
-  { id: 'alt-personal', re: /\b(?:(?:my|browser|google|search engine) search history|co-?signer|social security number|home address|medical records?)\b/i },
+  {
+    id: 'alt-personal',
+    re: /\b(?:(?:my|browser|google|search engine) search history|co-?signer|social security number|home address|medical records?)\b/i,
+  },
 ]
 
 export function scanText(text, rules = RULES) {
@@ -198,7 +238,11 @@ export function scanText(text, rules = RULES) {
 export function redact(s) {
   const t = s.replace(/\s+/g, ' ').trim()
   if (t.length <= 8) return t.slice(0, 2) + '…'
-  return t.slice(0, Math.min(6, Math.floor(t.length / 4))) + '…' + `(${t.length} chars)`
+  return (
+    t.slice(0, Math.min(6, Math.floor(t.length / 4))) +
+    '…' +
+    `(${t.length} chars)`
+  )
 }
 
 // --- Collect published images -----------------------------------------------
@@ -217,19 +261,27 @@ async function* walk(dir) {
 }
 
 const MD_IMAGE = /!\[([^\]]*)\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g
-const HTML_IMAGE = /<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi
+const HTML_IMAGE = /<img\b[^>]+\bsrc=["']([^"']+)["'][^>]*>/gi
 const HTML_ALT = /\balt=["']([^"']*)["']/i
-const OBSIDIAN_IMAGE = /!\[\[([^\]|]+\.(?:png|jpe?g|gif|webp))(?:\|[^\]]*)?\]\]/gi
+const OBSIDIAN_IMAGE =
+  /!\[\[([^\]|]+\.(?:png|jpe?g|gif|webp))(?:\|[^\]]*)?\]\]/gi
 
 export function extractImages(body, frontmatter = {}) {
   const out = []
   for (const m of body.matchAll(MD_IMAGE)) out.push({ url: m[2], alt: m[1] })
-  for (const m of body.matchAll(HTML_IMAGE)) out.push({ url: m[1], alt: m[0].match(HTML_ALT)?.[1] || '' })
-  for (const m of body.matchAll(OBSIDIAN_IMAGE)) out.push({ url: m[1], alt: '' })
+  for (const m of body.matchAll(HTML_IMAGE))
+    out.push({ url: m[1], alt: m[0].match(HTML_ALT)?.[1] || '' })
+  for (const m of body.matchAll(OBSIDIAN_IMAGE))
+    out.push({ url: m[1], alt: '' })
   for (const key of ['image', 'cover', 'thumbnail', 'ogImage']) {
-    if (typeof frontmatter[key] === 'string') out.push({ url: frontmatter[key], alt: '' })
+    if (typeof frontmatter[key] === 'string')
+      out.push({ url: frontmatter[key], alt: '' })
   }
-  return out.filter((i) => /^https?:\/\//.test(i.url) && !/\.(?:mp4|mov|webm|svg)(?:$|\?)/i.test(i.url))
+  return out.filter(
+    (i) =>
+      /^https?:\/\//.test(i.url) &&
+      !/\.(?:mp4|mov|webm|svg)(?:$|\?)/i.test(i.url)
+  )
 }
 
 async function collectPublishedImages() {
@@ -255,9 +307,13 @@ function ocrFetchUrl(url) {
   url = url.replace(/^http:\/\//, 'https://')
   // Animated GIFs/screen recordings live under /video/upload/ and tesseract
   // can't read an animation: ask for the middle frame as a PNG instead.
-  const v = url.match(/^(https:\/\/res\.cloudinary\.com\/[^/]+\/video\/upload\/)(?:[^/]*[_,][^/]*\/)*((?:v\d+\/)?.+?)\.\w+$/)
+  const v = url.match(
+    /^(https:\/\/res\.cloudinary\.com\/[^/]+\/video\/upload\/)(?:[^,/_]*[,_][^/]*\/)*((?:v\d+\/)?.+?)\.\w+$/
+  )
   if (v) return `${v[1]}so_50p,c_limit,w_${OCR_WIDTH},f_png/${v[2]}.png`
-  const m = url.match(/^(https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\/)(.*)$/)
+  const m = url.match(
+    /^(https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\/)(.*)$/
+  )
   if (!m) return url
   return `${m[1]}c_limit,w_${OCR_WIDTH},f_png,pg_1/${m[2]}`
 }
@@ -278,7 +334,11 @@ const KEEP_TEXT = !process.env.CI
 
 async function saveOcrText(texts) {
   await fs.mkdir(path.dirname(OCR_TEXT), { recursive: true, mode: 0o700 })
-  await fs.writeFile(OCR_TEXT, JSON.stringify(sortKeys(texts), null, 1) + '\n', { mode: 0o600 })
+  await fs.writeFile(
+    OCR_TEXT,
+    JSON.stringify(sortKeys(texts), null, 1) + '\n',
+    { mode: 0o600 }
+  )
 }
 
 const ocrUrl = ocrUrlUncached
@@ -289,17 +349,26 @@ async function ocrUrlUncached(url, tmpDir) {
   let res
   for (let attempt = 1; ; attempt++) {
     try {
-      res = await fetch(ocrFetchUrl(url), { signal: AbortSignal.timeout(30_000) })
-      if (res.ok || res.status === 404 || res.status === 410 || attempt === 3) break
+      res = await fetch(ocrFetchUrl(url), {
+        signal: AbortSignal.timeout(30_000),
+      })
+      if (res.ok || res.status === 404 || res.status === 410 || attempt === 3)
+        break
     } catch (e) {
-      if (attempt === 3) throw new Error(e.name === 'TimeoutError' ? 'timed out after 30s (3 tries)' : `${e.message} (3 tries)`)
+      if (attempt === 3)
+        throw new Error(
+          e.name === 'TimeoutError'
+            ? 'timed out after 30s (3 tries)'
+            : `${e.message} (3 tries)`
+        )
     }
     await new Promise((r) => setTimeout(r, attempt * 2000))
   }
   if (res.status === 404 || res.status === 410) return { gone: true }
   if (!res.ok) throw new Error(`HTTP ${res.status} (3 tries)`)
   const type = res.headers.get('content-type') || ''
-  if (!type.startsWith('image/') || type.includes('svg')) return { skipped: type }
+  if (!type.startsWith('image/') || type.includes('svg'))
+    return { skipped: type }
   const file = path.join(tmpDir, `${Math.random().toString(36).slice(2)}.img`)
   await fs.writeFile(file, Buffer.from(await res.arrayBuffer()))
   try {
@@ -351,19 +420,28 @@ const ALERT_FILE = path.join(ROOT, '.cache/image-guard-alert.txt')
 async function fail({ title, why, items, fix }) {
   const bar = '━'.repeat(72)
   console.log('\n' + chalk.red.bold(bar))
-  console.log(chalk.red.bold(`  🛑 DEPLOY BLOCKED BY THE SCREENSHOT GUARD — ${title}`))
+  console.log(
+    chalk.red.bold(`  🛑 DEPLOY BLOCKED BY THE SCREENSHOT GUARD — ${title}`)
+  )
   console.log(chalk.red.bold(bar))
   console.log(`\nWHY:\n${why}\n`)
   console.log('WHAT:')
   for (const line of items) console.log('  ' + line)
   console.log(`\nHOW TO FIX:\n${fix}\n\n${OVERRIDE_HELP}\n`)
-  console.log(chalk.dim(`(scripts/meta/check-image-pii.mjs — run it locally with: yarn check:images)`))
+  console.log(
+    chalk.dim(
+      `(scripts/meta/check-image-pii.mjs — run it locally with: yarn check:images)`
+    )
+  )
   console.log(chalk.red.bold(bar) + '\n')
 
   if (process.env.GITHUB_ACTIONS) {
     // Annotation: shows on the run page and the commit, no log-digging.
-    const esc = (t) => t.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A')
-    console.log(`::error title=Deploy blocked: ${title}::${esc(`${why}\n\n${items.slice(0, 10).join('\n')}\n\n${fix}`)}`)
+    const esc = (t) =>
+      t.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A')
+    console.log(
+      `::error title=Deploy blocked: ${title}::${esc(`${why}\n\n${items.slice(0, 10).join('\n')}\n\n${fix}`)}`
+    )
     if (process.env.GITHUB_STEP_SUMMARY) {
       await fs.appendFile(
         process.env.GITHUB_STEP_SUMMARY,
@@ -374,7 +452,10 @@ async function fail({ title, why, items, fix }) {
     }
     // One line for the Discord alert step (redacted — no snippets).
     await fs.mkdir(path.dirname(ALERT_FILE), { recursive: true })
-    await fs.writeFile(ALERT_FILE, `${title}. ${items.length} item(s). Fix: see the run summary.`)
+    await fs.writeFile(
+      ALERT_FILE,
+      `${title}. ${items.length} item(s). Fix: see the run summary.`
+    )
   }
   process.exit(1)
 }
@@ -398,9 +479,11 @@ async function scanLocal(files) {
 async function main() {
   const args = process.argv.slice(2)
   if (process.env.SKIP_IMAGE_GUARD === 'true') {
-    const msg = 'SCREENSHOT GUARD SKIPPED by manual override (skip_image_guard). Images in this deploy were NOT checked for secrets.'
+    const msg =
+      'SCREENSHOT GUARD SKIPPED by manual override (skip_image_guard). Images in this deploy were NOT checked for secrets.'
     console.log(chalk.yellow.bold(`\n⚠ ${msg}\n`))
-    if (process.env.GITHUB_ACTIONS) console.log(`::warning title=Screenshot guard skipped::${msg}`)
+    if (process.env.GITHUB_ACTIONS)
+      console.log(`::warning title=Screenshot guard skipped::${msg}`)
     return
   }
   if (!(await hasTesseract())) {
@@ -432,20 +515,25 @@ async function main() {
 
   const findings = [] // { url, posts, hits }
   const report = (url, hits) => {
-    if (hits.length && !allow[url]) findings.push({ url, posts: [...images.get(url).posts], hits })
+    if (hits.length && !allow[url])
+      findings.push({ url, posts: [...images.get(url).posts], hits })
   }
 
   // 1. Alt text — instant, no network.
   for (const [url, { alts }] of images) {
     const cached = altCache[url]
-    const text = [...alts, cached?.alt, cached?.caption].filter(Boolean).join('\n')
+    const text = [...alts, cached?.alt, cached?.caption]
+      .filter(Boolean)
+      .join('\n')
     report(url, scanText(text, ALT_RULES))
   }
 
   // 2. OCR — only images with no verdict under the current rules.
   const todo = [...images.keys()].filter((u) => !verdicts[u])
   console.log(
-    chalk.dim(`${images.size} published images · ${images.size - todo.length} cached · ${todo.length} to OCR`)
+    chalk.dim(
+      `${images.size} published images · ${images.size - todo.length} cached · ${todo.length} to OCR`
+    )
   )
   const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'image-pii-'))
   const errors = []
@@ -453,9 +541,11 @@ async function main() {
   await pool(todo, CONCURRENCY, async (url) => {
     try {
       const r = await ocrUrl(url, tmpDir)
-      if (KEEP_TEXT && r.text != null) texts[url] = r.text
+      if (KEEP_TEXT && r.text !== null && r.text !== undefined)
+        texts[url] = r.text
       // Gone/non-image: nothing to read, and nothing to leak.
-      const hits = r.text == null ? [] : scanText(r.text)
+      const hits =
+        r.text === null || r.text === undefined ? [] : scanText(r.text)
       verdicts[url] = { hits: hits.map((h) => h.rule) }
       if (hits.length) verdicts[url].snippets = hits.map((h) => h.snippet)
     } catch (e) {
@@ -471,13 +561,24 @@ async function main() {
 
   for (const [url] of images) {
     const v = verdicts[url]
-    if (v?.hits?.length) report(url, v.hits.map((rule, i) => ({ rule, snippet: v.snippets?.[i] || '' })))
+    if (v?.hits?.length)
+      report(
+        url,
+        v.hits.map((rule, i) => ({ rule, snippet: v.snippets?.[i] || '' }))
+      )
   }
 
   // Persist verdicts (rule ids + redacted snippets, never OCR text). Prune
   // images no longer published so the file doesn't grow forever.
-  const keep = Object.fromEntries(Object.entries(verdicts).filter(([u]) => images.has(u)))
-  const out = JSON.stringify({ rulesVersion: RULES_VERSION, images: sortKeys(keep) }, null, 1) + '\n'
+  const keep = Object.fromEntries(
+    Object.entries(verdicts).filter(([u]) => images.has(u))
+  )
+  const out =
+    JSON.stringify(
+      { rulesVersion: RULES_VERSION, images: sortKeys(keep) },
+      null,
+      1
+    ) + '\n'
   await fs.writeFile(SCAN_CACHE, out)
   if (process.env.CI) {
     await fs.mkdir(path.dirname(CI_CACHE), { recursive: true })
@@ -497,7 +598,9 @@ async function main() {
     for (const { url, posts, hits } of byUrl.values()) {
       items.push(`${posts.join(', ')}`)
       items.push(`  ↳ ${url}`)
-      items.push(`  ↳ matched: ${hits.map((h) => h.rule + (h.snippet ? ` (${h.snippet})` : '')).join(', ')}`)
+      items.push(
+        `  ↳ matched: ${hits.map((h) => h.rule + (h.snippet ? ` (${h.snippet})` : '')).join(', ')}`
+      )
     }
     await fail({
       title: `${byUrl.size} image(s) may show secrets or financial details`,
@@ -521,7 +624,11 @@ async function main() {
     const items = errors.slice(0, 25).map((e) => `${e.url}  →  ${e.error}`)
     if (errors.length > 25) items.push(`…and ${errors.length - 25} more`)
     if (!process.env.CI) {
-      console.log(chalk.yellow(`\n⚠ ${errors.length} image(s) couldn't be downloaded, so weren't checked:`))
+      console.log(
+        chalk.yellow(
+          `\n⚠ ${errors.length} image(s) couldn't be downloaded, so weren't checked:`
+        )
+      )
       for (const l of items) console.log(chalk.yellow('  ' + l))
       return
     }
@@ -534,16 +641,24 @@ async function main() {
       items,
       fix:
         '• Most likely: just re-run the job (Actions → this run → "Re-run failed jobs").\n' +
-        '• If an image URL is broken/typo\'d: fix the link in the post and push.\n' +
+        "• If an image URL is broken/typo'd: fix the link in the post and push.\n" +
         '• If it keeps failing and you need to ship now: use the override below.',
     })
   }
 
-  console.log(chalk.green(`✓ No credentials or financial details found in ${images.size} published images`))
+  console.log(
+    chalk.green(
+      `✓ No credentials or financial details found in ${images.size} published images`
+    )
+  )
 }
 
 function sortKeys(o) {
-  return Object.fromEntries(Object.keys(o).sort().map((k) => [k, o[k]]))
+  return Object.fromEntries(
+    Object.keys(o)
+      .sort()
+      .map((k) => [k, o[k]])
+  )
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
@@ -551,7 +666,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     fail({
       title: 'the guard itself crashed',
       why: 'check-image-pii.mjs threw an unexpected error, so nothing was checked. This is a bug in the guard, not a problem with your post.',
-      items: String(e?.stack || e).split('\n').slice(0, 8),
+      items: String(e?.stack || e)
+        .split('\n')
+        .slice(0, 8),
       fix: 'Fix the guard (scripts/meta/check-image-pii.mjs), or use the override below to ship meanwhile.',
     })
   )

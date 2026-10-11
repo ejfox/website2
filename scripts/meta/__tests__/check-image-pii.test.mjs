@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest'
-import { scanText, ALT_RULES, extractImages, redact } from '../check-image-pii.mjs'
+import {
+  scanText,
+  ALT_RULES,
+  extractImages,
+  redact,
+} from '../check-image-pii.mjs'
 
 // Every value here is fake. The shapes mirror real OCR output from the
 // screenshots that leaked in 2026-10 (OCR spacing quirks included).
@@ -11,12 +16,18 @@ describe('OCR rules — catch', () => {
 NEXT_PUBLIC_OPENROUTER_API_KEY=sk-or-v1-0000aaaa1111bbbb2222cccc3333dddd
 ELEVENLABS_API_KEY=sk_00000000aaaaaaaa11111111bbbbbbbb22222222`
     expect(rules(ocr)).toEqual(
-      expect.arrayContaining(['openai-anthropic-key', 'elevenlabs-key', 'env-secret'])
+      expect.arrayContaining([
+        'openai-anthropic-key',
+        'elevenlabs-key',
+        'env-secret',
+      ])
     )
   })
 
   it('an env password even when OCR mangles the value', () => {
-    expect(rules('VITE_CLICKHOUSE_PASSWORD=0 . Ab12Cd34')).toContain('env-secret')
+    expect(rules('VITE_CLICKHOUSE_PASSWORD=0 . Ab12Cd34')).toContain(
+      'env-secret'
+    )
   })
 
   it('a clipped password assignment', () => {
@@ -24,11 +35,15 @@ ELEVENLABS_API_KEY=sk_00000000aaaaaaaa11111111bbbbbbbb22222222`
   })
 
   it('a hardcoded secret string in code', () => {
-    expect(rules('.update(`${provider}:${id}:acme—billing—secret—v2`)')).toContain('hardcoded-secret')
+    expect(
+      rules('.update(`${provider}:${id}:acme—billing—secret—v2`)')
+    ).toContain('hardcoded-secret')
   })
 
   it('credentials in a connection string', () => {
-    expect(rules('postgres://admin:hunter22x@db.example.com:5432/app')).toContain('url-credentials')
+    expect(
+      rules('postgres://admin:hunter22x@db.example.com:5432/app')
+    ).toContain('url-credentials')
   })
 
   it('bank statements and pay stubs', () => {
@@ -39,7 +54,14 @@ ELEVENLABS_API_KEY=sk_00000000aaaaaaaa11111111bbbbbbbb22222222`
   })
 
   it('an invoice ledger', () => {
-    const ocr = ['$7,000.00', '$8,000.00', '$10,000.00', '$0.00', '$0.00', '$12.50'].join('\n')
+    const ocr = [
+      '$7,000.00',
+      '$8,000.00',
+      '$10,000.00',
+      '$0.00',
+      '$0.00',
+      '$12.50',
+    ].join('\n')
     expect(rules(ocr)).toContain('money-ledger')
   })
 
@@ -77,18 +99,30 @@ describe('OCR rules — leave alone', () => {
 
 describe('alt-text rules', () => {
   it('flag model-written descriptions of private documents', () => {
-    expect(rules('Screenshot of a bank statement showing recent transactions', ALT_RULES)).toContain(
-      'alt-financial'
+    expect(
+      rules(
+        'Screenshot of a bank statement showing recent transactions',
+        ALT_RULES
+      )
+    ).toContain('alt-financial')
+    expect(
+      rules('Terminal with the full API key printed in a log', ALT_RULES)
+    ).toContain('alt-credential')
+    expect(rules('Browser search history list', ALT_RULES)).toContain(
+      'alt-personal'
     )
-    expect(rules('Terminal with the full API key printed in a log', ALT_RULES)).toContain(
-      'alt-credential'
-    )
-    expect(rules('Browser search history list', ALT_RULES)).toContain('alt-personal')
   })
 
   it('pass ordinary photos and settings screens', () => {
-    expect(rules('Motorcycle parked by a lake with green hills', ALT_RULES)).toEqual([])
-    expect(rules('LLM API management interface showing import dialog for API keys', ALT_RULES)).toEqual([])
+    expect(
+      rules('Motorcycle parked by a lake with green hills', ALT_RULES)
+    ).toEqual([])
+    expect(
+      rules(
+        'LLM API management interface showing import dialog for API keys',
+        ALT_RULES
+      )
+    ).toEqual([])
   })
 })
 
@@ -98,7 +132,9 @@ describe('extractImages', () => {
 <img src="https://example.com/b.jpg" alt="bee">
 ![clip](https://res.cloudinary.com/x/video/upload/v1/clip.mp4)
 ![local](./img.png)`
-    const urls = extractImages(body, { image: 'https://example.com/hero.jpg' }).map((i) => i.url)
+    const urls = extractImages(body, {
+      image: 'https://example.com/hero.jpg',
+    }).map((i) => i.url)
     expect(urls).toEqual([
       'https://res.cloudinary.com/x/image/upload/v1/cat.png',
       'https://example.com/b.jpg',
