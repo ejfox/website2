@@ -384,6 +384,12 @@ export default defineNuxtConfig({
           prerender: false,
           headers: { 'Cache-Control': CACHE_DYNAMIC },
         },
+        // /keymap reads Oryx live (cached handler), so a layout edit shows
+        // without a deploy. Prerendered, it would freeze at build time.
+        '/keymap': {
+          prerender: false,
+          headers: { 'Cache-Control': CACHE_DYNAMIC },
+        },
         // Static assets — cache forever
         '/_nuxt/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
         // Fonts fell through to Cloudflare's 4h default, so repeat visitors

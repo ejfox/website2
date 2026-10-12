@@ -349,6 +349,16 @@ export const apiCatalog: ApiRoute[] = [
   },
   {
     method: 'GET',
+    path: '/api/keymap',
+    group: 'Photos & gear',
+    summary: 'Voyager keymap, live from Oryx (latest revision)',
+    consumer: 'frontend',
+    consumedBy: 'pages/keymap',
+    deps: 'oryx.zsa.io GraphQL',
+    health: 'ok',
+  },
+  {
+    method: 'GET',
     path: '/api/gear',
     group: 'Photos & gear',
     summary: 'All gear items',
