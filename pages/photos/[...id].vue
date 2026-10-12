@@ -17,9 +17,9 @@ const photo = computed(
   () => allPhotos.value.find((p) => p.id === photoId.value) || null
 )
 
-// Unknown photo id → real 404 (only once the list actually loaded, so a
-// transient API failure doesn't 404 every photo).
-if (data.value && !photo.value) {
+// Unknown photo id → real 404 (only once the list actually loaded with
+// photos, so a transient API failure or empty response doesn't 404 them all).
+if (allPhotos.value.length > 0 && !photo.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Photo not found',

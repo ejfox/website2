@@ -118,8 +118,11 @@ describe('JSON-LD guard', () => {
         'grep -rn "children: JSON.stringify" pages components layouts app.vue composables',
         { encoding: 'utf8' }
       )
-    } catch {
-      out = '' // grep exits 1 on no match
+    } catch (e) {
+      // grep exits 1 on no match (fine); exit 2 means a bad path — fail loudly.
+      const err = e as { status?: number; stdout?: string }
+      if (err.status !== 1) throw e
+      out = err.stdout || ''
     }
     expect(out).toBe('')
   })
