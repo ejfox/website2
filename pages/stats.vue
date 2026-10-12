@@ -175,9 +175,12 @@ const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = numberFormat()
 const { isValidPost } = postFilters()
 
-// Load all commits for the matrix visualization (lazy: below-the-fold, 868KB)
+// Load all commits for the matrix visualization (below-the-fold, ~700KB).
+// Client-only: `lazy` alone still runs the fetch during SSR and serializes
+// the whole payload into the HTML's __NUXT__ blob.
 const { data: allCommitsData } = useFetch('/api/github-commits', {
   lazy: true,
+  server: false,
 })
 const allCommits = computed(() => allCommitsData.value || [])
 

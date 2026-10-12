@@ -103,6 +103,8 @@
     "chroma-js": "^3.2.0",
     "cloudinary": "^2.9.0",
     "d3": "^7.9.0",
+    "d3-format": "3",
+    "d3-interpolate": "3",
     "d3-scale-chromatic": "^3.1.0",
     "date-fns": "^4.1.0",
     "dotenv": "^17.0.1",
