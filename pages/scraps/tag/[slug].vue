@@ -33,13 +33,14 @@ const tag = computed(() => {
   return Array.isArray(slug) ? slug[0] : decodeURIComponent(slug)
 })
 
-// SSR-friendly data fetching: fetch all scraps once, cache aggressively
+// The cached /api/scraps response, filtered to this tag during SSR. The key is
+// per tag: a shared key would hand the previous tag's list to the next one.
 const {
   data: scraps,
   pending,
   error,
 } = await useFetch<Scrap[]>('/api/scraps', {
-  key: 'scraps-all',
+  key: `scraps-tag-${tag.value}`,
   transform: (data) => {
     // Filter for this tag server-side during SSR
     return data.filter((s) => s.tags?.includes(tag.value))
