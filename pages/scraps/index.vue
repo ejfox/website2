@@ -78,6 +78,17 @@ usePageSeo({
   type: 'website',
   section: 'Content',
 })
+
+useHead({
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'EJ Fox · Scraps',
+      href: 'https://ejfox.com/scraps-rss.xml',
+    },
+  ],
+})
 </script>
 
 <template>
@@ -88,7 +99,8 @@ usePageSeo({
       <div class="text-3xs text-zinc-500 dark:text-zinc-500 space-y-1">
         <div>
           {{ scraps?.length || 0 }} items · {{ uniqueTags }} tags ·
-          {{ uniqueSources }}
+          {{ uniqueSources }} ·
+          <a href="/scraps-rss.xml" class="hover:underline">rss</a>
         </div>
       </div>
     </div>

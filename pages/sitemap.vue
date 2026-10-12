@@ -172,6 +172,12 @@ usePageSeo({
               external
             />
             <SitemapLink
+              to="/scraps-rss.xml"
+              title="Scraps RSS"
+              description="Links and bookmarks as they're saved"
+              external
+            />
+            <SitemapLink
               to="/archive.epub"
               title="Blog Archive (EPUB)"
               description="Every post as one e-book — sideload and read offline"
