@@ -2,6 +2,7 @@ User-agent: *
 Disallow: /drafts/
 Disallow: /_nuxt/
 Disallow: /api/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 Sitemap: https://ejfox.com/sitemap.xml
 
