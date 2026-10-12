@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import {
+  suggestForPath,
+  type SuggestableItem,
+} from '~/utils/notFoundSuggestions'
+
 defineProps<{
   error?: { statusCode: number }
 }>()
@@ -11,35 +16,11 @@ const cleanPath = computed(() => {
   return route.path?.replace(/^\//, '').replace(/\/$/, '') || 'unknown'
 })
 
-interface ManifestItem {
-  title: string
-  slug: string
-  hidden?: boolean
-  draft?: boolean
-}
-
 onMounted(async () => {
   try {
-    const manifest = await $fetch<ManifestItem[]>('/api/manifest')
-    const items = manifest?.filter((item) => !item.hidden && !item.draft) || []
-
-    const search = cleanPath.value.toLowerCase()
-    if (!search || search.length > 80) return
-
-    // Suggest posts whose slug shares words with the mistyped path
-    const words = search.split(/[/-]/).filter((w) => w.length > 2)
-    if (!words.length) return
-
-    suggestions.value = items
-      .map((item) => {
-        const slug = (item.slug || '').toLowerCase()
-        const hits = words.filter((w) => slug.includes(w)).length
-        return { title: item.title, path: `/blog/${item.slug}`, hits }
-      })
-      .filter((m) => m.hits > 0)
-      .sort((a, b) => b.hits - a.hits)
-      .slice(0, 3)
-      .map(({ title, path }) => ({ title, path }))
+    // /api/manifest already drops drafts, hidden, unlisted and scheduled posts
+    const manifest = await $fetch<SuggestableItem[]>('/api/manifest')
+    suggestions.value = suggestForPath(route.path || '', manifest || [])
   } catch {
     // Silently fail
   }

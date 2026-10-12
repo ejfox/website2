@@ -72,7 +72,11 @@ export default defineEventHandler(async () => {
       hoursPerWeekRange: data.hoursPerWeekRange,
       activeClientCount: activeClients.length,
       totalHoursCommitted,
-      nextAvailable: data.nextAvailable || null,
+      // A past date means "available now", not "opens <old date>"
+      nextAvailable:
+        data.nextAvailable && new Date(data.nextAvailable) > now
+          ? data.nextAvailable
+          : null,
       currentQuarter: {
         name: currentQuarter,
         ...currentQuarterInfo,

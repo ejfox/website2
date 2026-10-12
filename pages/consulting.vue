@@ -134,10 +134,33 @@ const { data: availability } = await useFetch<ConsultingAvailability>(
 )
 
 // Next available Cal.com slots for intro calls (lazy - not critical for SSR)
-const { data: calSlots } = useLazyFetch('/api/cal/available-slots', {
-  query: { duration: '1hr', days: 21 },
-  default: () => ({ slots: [] }),
-  server: false,
+const { data: calSlots, pending: calPending } = useLazyFetch(
+  '/api/cal/available-slots',
+  {
+    query: { duration: '1hr', days: 21 },
+    default: () => ({ slots: [] }),
+    server: false,
+  }
+)
+
+// Sidebar status. Cal.com is the source of truth, so this can't go stale; the
+// JSON's nextAvailable is only a fallback (and the API drops it once past).
+// No "N/3" capacity: nothing live knows how many engagements are running.
+const availabilityLine = computed(() => {
+  if (calPending.value) return ''
+  const next = calSlots.value?.slots?.[0]
+  if (next) return `Next call ${next.day.slice(0, 3)} ${next.date}`
+  const opens = availability.value?.nextAvailable
+  if (opens) {
+    // Date-only string = UTC midnight; format in UTC so Mar 1 stays Mar 1
+    const label = new Date(opens).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+    return `Opens ${label}`
+  }
+  return 'Taking new clients'
 })
 
 // Track when #book section is visible — hide floating CTA
@@ -617,67 +640,9 @@ usePageSeo({
           <!-- Status -->
           <p class="sidebar-label">Availability</p>
 
-          <!-- Capacity row: dots + count -->
-          <div class="sidebar-capacity-row">
-            <div class="capacity-dots">
-              <template v-for="i in availability?.maxClients || 3" :key="i">
-                <div
-                  v-tooltip="
-                    i <= (availability?.activeClientCount || 0)
-                      ? 'Spot filled'
-                      : 'Open'
-                  "
-                  class="capacity-dot-sm"
-                  :class="
-                    i <= (availability?.activeClientCount || 0)
-                      ? 'capacity-filled'
-                      : 'capacity-open'
-                  "
-                />
-              </template>
-            </div>
-            <span
-              v-tooltip="'Max 3 clients so everyone gets real attention'"
-              class="sidebar-capacity-text"
-            >
-              {{ availability?.activeClientCount || 0 }}/{{
-                availability?.maxClients || 3
-              }}
-            </span>
-          </div>
-
-          <!-- Status message -->
-          <p class="sidebar-status-line">
-            <template v-if="availability?.nextAvailable">
-              Opens
-              {{
-                new Date(availability.nextAvailable).toLocaleDateString(
-                  'en-US',
-                  { month: 'short', day: 'numeric' }
-                )
-              }}
-            </template>
-            <template
-              v-else-if="
-                (availability?.maxClients || 3) -
-                  (availability?.activeClientCount || 0) >
-                0
-              "
-            >
-              {{
-                (availability?.maxClients || 3) -
-                (availability?.activeClientCount || 0)
-              }}
-              {{
-                (availability?.maxClients || 3) -
-                  (availability?.activeClientCount || 0) ===
-                1
-                  ? 'spot'
-                  : 'spots'
-              }}
-              open
-            </template>
-            <template v-else>Fully booked</template>
+          <!-- Live from Cal.com; the hand-edited JSON only if that fails -->
+          <p v-if="availabilityLine" class="sidebar-status-line">
+            {{ availabilityLine }}
           </p>
 
           <!-- CTA -->
@@ -934,38 +899,6 @@ usePageSeo({
 }
 
 /* ============================================
-   AVAILABILITY / CAPACITY
-   ============================================ */
-.capacity-dots {
-  @apply flex gap-1.5;
-}
-
-.capacity-dot {
-  @apply w-3 h-3 rounded-full transition-colors;
-}
-
-.capacity-dot-sm {
-  @apply w-2.5 h-2.5 rounded-full;
-}
-
-.capacity-filled {
-  @apply bg-zinc-400 dark:bg-zinc-500;
-}
-
-.capacity-open {
-  @apply bg-emerald-400 dark:bg-emerald-500;
-}
-
-.availability-callout {
-  @apply mb-6 py-3 px-4 bg-emerald-50 dark:bg-emerald-950/30
-         border border-emerald-200 dark:border-emerald-800 rounded;
-}
-
-.availability-callout-text {
-  @apply font-serif text-sm text-emerald-800 dark:text-emerald-200;
-}
-
-/* ============================================
    VIDEO BACKGROUND
    ============================================ */
 .video-container {
@@ -990,14 +923,6 @@ usePageSeo({
 
 .sidebar-label {
   @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider;
-}
-
-.sidebar-capacity-row {
-  @apply flex items-center gap-2;
-}
-
-.sidebar-capacity-text {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
 }
 
 .sidebar-status-line {

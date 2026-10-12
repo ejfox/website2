@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { format } from 'date-fns'
+import { findCalibrationBucket } from '~/utils/calibration'
 
 const { tocTarget } = useTOC()
 const { data: calibration } = useCalibration()
@@ -42,23 +43,60 @@ const { data: prediction, error } = await useFetch<PredictionResponse>(
   `/api/predictions/${slug}`
 )
 
-// Find the calibration bucket that matches this prediction's confidence
+// The calibration bucket this prediction's confidence falls in. The page shows
+// the current confidence (last logged change), so the bucket comes from the
+// "as updated" basis; older JSON only has `calibration`, which is the same basis
 const confidenceContext = computed(() => {
-  if (!calibration.value?.calibration?.length || !prediction.value) return null
-  const conf = prediction.value.confidence
-  // Find the bucket this confidence falls into
-  const bucket = calibration.value.calibration.find(
-    (b: { expected: number }) => {
-      return Math.abs(b.expected - conf) <= 10
-    }
-  )
+  if (!prediction.value) return null
+  const buckets =
+    calibration.value?.calibration_as_updated ?? calibration.value?.calibration
+  const bucket = findCalibrationBucket(buckets, prediction.value.confidence)
   if (!bucket) return null
   return {
     bucket: bucket.label,
     count: bucket.count,
-    accuracy: bucket.accuracy,
-    delta: bucket.delta,
+    correct:
+      bucket.correct ?? Math.round((bucket.accuracy / 100) * bucket.count),
   }
+})
+
+// End of page: the record, and the two open calls with the nearest deadlines
+const { data: allPredictions } = await useFetch<
+  Array<{
+    slug: string
+    statement: string
+    confidence: number
+    deadline?: string
+    resolved?: boolean
+    visibility?: string
+  }>
+>('/api/predictions', { key: 'predictions-all' })
+
+const nextOpen = computed(() =>
+  (allPredictions.value || [])
+    .filter(
+      (p) =>
+        p.visibility === 'public' &&
+        !p.resolved &&
+        p.slug !== prediction.value?.slug &&
+        p.statement
+    )
+    .sort((a, b) => {
+      const da = a.deadline ? new Date(a.deadline).getTime() : Infinity
+      const db = b.deadline ? new Date(b.deadline).getTime() : Infinity
+      return da - db
+    })
+    .slice(0, 2)
+)
+
+const recordSummary = computed(() => {
+  const resolved = calibration.value?.summary?.resolved
+  const brier = calibration.value?.brier?.as_signed
+  const parts: string[] = []
+  if (typeof resolved === 'number') parts.push(`${resolved} resolved`)
+  if (typeof brier === 'number')
+    parts.push(`Brier ${brier.toFixed(3)} as signed`)
+  return parts.join(' · ')
 })
 
 // Sorted updates (newest first)
@@ -248,6 +286,38 @@ usePageSeo({
         </li>
       </ul>
     </section>
+
+    <!-- End: the record + what's still open -->
+    <footer
+      class="mt-12 mb-16 pt-6 border-t border-zinc-200 dark:border-zinc-800 font-mono text-xs space-y-4"
+    >
+      <NuxtLink to="/predictions" class="block hover:underline">
+        <span class="text-zinc-900 dark:text-zinc-100">All predictions</span>
+        <span v-if="recordSummary" class="text-zinc-500 tabular-nums">
+          · {{ recordSummary }}
+        </span>
+      </NuxtLink>
+      <div v-if="nextOpen.length">
+        <div class="text-zinc-500 uppercase tracking-wider mb-2">
+          Still open
+        </div>
+        <ul class="space-y-2">
+          <li v-for="p in nextOpen" :key="p.slug" class="text-sm">
+            <NuxtLink :to="`/predictions/${p.slug}`" class="hover:underline">
+              <span class="text-zinc-500 tabular-nums"
+                >{{ p.confidence }}%</span
+              >
+              <span class="font-serif text-zinc-700 dark:text-zinc-300">
+                {{ p.statement }}
+              </span>
+              <span v-if="p.deadline" class="text-zinc-500 tabular-nums">
+                · {{ formatDate(p.deadline) }}
+              </span>
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </main>
 
   <!-- Error/Loading -->
@@ -304,41 +374,24 @@ usePageSeo({
         <!-- Calibration context at this confidence level -->
         <div
           v-if="confidenceContext"
-          class="space-y-1 pt-2 border-t border-zinc-800"
+          class="space-y-1 pt-2 border-t border-zinc-200 dark:border-zinc-800"
         >
           <div
             class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1"
           >
-            At {{ confidenceContext.bucket }}
+            {{ confidenceContext.bucket }} calls · as updated
           </div>
           <div class="space-y-0.5 font-mono text-3xs tabular-nums">
             <div class="flex justify-between">
-              <span class="text-zinc-500">Predictions</span>
+              <span class="text-zinc-500">Resolved</span>
               <span class="text-zinc-700 dark:text-zinc-300">
                 {{ confidenceContext.count }}
               </span>
             </div>
             <div class="flex justify-between">
-              <span class="text-zinc-500">Actual</span>
-              <span
-                :class="
-                  Math.abs(confidenceContext.delta) <= 10
-                    ? 'text-zinc-700 dark:text-zinc-300'
-                    : 'text-error'
-                "
-              >
-                {{ confidenceContext.accuracy }}%
-              </span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Delta</span>
-              <span
-                :class="
-                  confidenceContext.delta >= 0 ? 'text-success' : 'text-error'
-                "
-              >
-                {{ confidenceContext.delta >= 0 ? '+' : ''
-                }}{{ confidenceContext.delta }}pp
+              <span class="text-zinc-500">Came true</span>
+              <span class="text-zinc-700 dark:text-zinc-300">
+                {{ confidenceContext.correct }} of {{ confidenceContext.count }}
               </span>
             </div>
           </div>

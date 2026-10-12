@@ -7,6 +7,7 @@ import ReplyContext from '~/components/blog/ReplyContext.vue'
 import SealedPost from '~/components/blog/SealedPost.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
+import AuthorLine from '~/components/blog/AuthorLine.vue'
 import { readingStats } from '~/utils/readingStats'
 import { atprotoDocUri, atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
@@ -670,6 +671,12 @@ onMounted(() => {
           </a>
         </div>
       </div>
+
+      <!-- Who wrote this, on long posts only -->
+      <AuthorLine
+        v-if="(readingStatsData?.words || 0) > 800"
+        class="print:hidden"
+      />
 
       <!-- Email signup (self-hosted listmonk; plain form, no JS) -->
       <NewsletterSignup location="post-footer" class="print:hidden" />

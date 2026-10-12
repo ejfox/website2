@@ -1630,6 +1630,7 @@ export const stories = {
   ParticleField: [{ name: 'default', props: {} }],
   Footer: [{ name: 'default', props: {} }],
   NewsletterSignup: [{ name: 'default', props: {} }],
+  AuthorLine: [{ name: 'default', props: {} }],
   DispatchReceipts: [
     {
       name: 'full',
