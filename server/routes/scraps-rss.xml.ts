@@ -23,6 +23,31 @@ interface ScrapItem {
 
 const MAX_ITEMS = 100
 
+// Shopping saves stay on /scraps but out of the feed (EJ, 2026-10-12): a
+// subscriber wants the reading, not the cart. Airbnb is here too: a saved
+// listing says where EJ might be staying. Any `shop.` subdomain counts.
+const FEED_SKIP_HOSTS = new Set([
+  'aescripts.com',
+  'airbnb.com',
+  'amazon.com',
+  'bhphotovideo.com',
+  'bladehq.com',
+  'franklinartglass.com',
+  'mosaicartsupply.com',
+  'revzilla.com',
+  'theceramicshop.com',
+  'woolichracing.com',
+])
+
+function isFeedSkipped(url: string | null): boolean {
+  try {
+    const host = new URL(url || '').hostname.replace(/^www\./, '')
+    return host.startsWith('shop.') || FEED_SKIP_HOSTS.has(host)
+  } catch {
+    return false
+  }
+}
+
 // Pinboard stores untitled bookmarks as the literal "[no title]".
 function itemTitle(scrap: ScrapItem): string {
   const title = scrap.title?.trim()
@@ -54,7 +79,9 @@ export default defineEventHandler(async (event) => {
   // Already shared-only and newest first.
   const scraps = await $fetch<ScrapItem[]>('/api/scraps')
 
-  for (const scrap of scraps.slice(0, MAX_ITEMS)) {
+  for (const scrap of scraps
+    .filter((s) => !isFeedSkipped(s.url))
+    .slice(0, MAX_ITEMS)) {
     feed.item({
       title: stripInvalidXmlChars(itemTitle(scrap)),
       description: stripInvalidXmlChars(scrap.summary || ''),
