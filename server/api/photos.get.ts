@@ -4,6 +4,7 @@
  * @endpoint GET /api/photos
  */
 import { v2 as cloudinary } from 'cloudinary'
+import { notConfigured } from '~/server/utils/notConfigured'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'ejf',
@@ -13,6 +14,9 @@ cloudinary.config({
 
 export default defineCachedEventHandler(
   async () => {
+    if (!process.env.CLOUDINARY_API_KEY) {
+      throw notConfigured('Cloudinary', 'CLOUDINARY_API_KEY')
+    }
     try {
       const result = await cloudinary.search
         .expression('resource_type:image AND tags=photo-blog')

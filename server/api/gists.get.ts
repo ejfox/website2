@@ -7,6 +7,7 @@
  */
 import { defineEventHandler, createError, getQuery } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { notConfigured } from '~/server/utils/notConfigured'
 
 interface GistFile {
   filename: string
@@ -49,10 +50,7 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
   }
 
   if (!token) {
-    throw createError({
-      statusCode: 500,
-      message: 'GitHub token not configured',
-    })
+    throw notConfigured('GitHub', 'GITHUB_TOKEN')
   }
 
   try {

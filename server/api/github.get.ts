@@ -6,6 +6,7 @@
  */
 import { createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { notConfigured } from '~/server/utils/notConfigured'
 
 interface GitHubStats {
   stats: {
@@ -288,11 +289,7 @@ export default defineCachedEventHandler(
     // console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
 
     if (!token) {
-      console.error('❌ No GitHub token found!')
-      throw createError({
-        statusCode: 500,
-        message: 'GitHub token not configured',
-      })
+      throw notConfigured('GitHub', 'GITHUB_TOKEN')
     }
 
     try {

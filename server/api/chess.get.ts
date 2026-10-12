@@ -6,6 +6,7 @@
  */
 import { defineEventHandler, createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { notConfigured } from '~/server/utils/notConfigured'
 
 interface ChessGameResult {
   id: string
@@ -108,10 +109,7 @@ export default defineEventHandler(async () => {
   const username = serverEnv('CHESS_USERNAME')
 
   if (!username) {
-    throw createError({
-      statusCode: 401,
-      message: 'Chess.com username not configured',
-    })
+    throw notConfigured('Chess.com', 'CHESS_USERNAME')
   }
 
   const makeRequest = async <T>(url: string): Promise<T> => {

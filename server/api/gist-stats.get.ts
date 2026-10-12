@@ -4,6 +4,8 @@
  * @endpoint GET /api/gist-stats
  * @returns Gist statistics with total counts, top languages, year distribution, and recent gists with metadata
  */
+import { isNotConfigured } from '~/server/utils/notConfigured'
+
 export default defineEventHandler(async () => {
   try {
     // Get all gists
@@ -86,7 +88,9 @@ export default defineEventHandler(async () => {
       lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
-    console.error('Gist stats error:', error)
+    const body = (error as { data?: unknown })?.data
+    if (!isNotConfigured(error) && !isNotConfigured(body))
+      console.error('Gist stats error:', error)
 
     return {
       stats: {
