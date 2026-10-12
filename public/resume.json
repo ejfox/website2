@@ -7,7 +7,7 @@
     "email": "ejfox@ejfox.com",
     "phone": "(260) 673-5369",
     "url": "https://ejfox.com",
-    "summary": "Design engineer and creative technologist who does good work under pressure. I turn complicated information into interactive graphics people can actually read, and I have fun doing it. The work mixes journalistic curiosity with an addiction to trying new things. That has included NBC’s election-night graphics and experimental interfaces for embeddings. I want to make things no one has seen before, with smart, kind people.",
+    "summary": "Design engineer and creative technologist. I do my best work under deadline pressure. I turn complicated information into interactive graphics people can actually read, and I have fun doing it. The work mixes journalistic curiosity with an addiction to trying new things. That has included NBC’s election-night graphics and experimental interfaces for embeddings. I want to make things no one has seen before, with smart, kind people.",
     "location": {
       "city": "Beacon",
       "region": "New York",
@@ -39,9 +39,9 @@
       "url": "https://www.lenfestinstitute.org/our-work/lenfest-ai-collaborative-and-fellowship-program/",
       "summary": "The Lenfest Institute’s AI Collaborative and Fellowship Program, hosted at ASU and supported by OpenAI and Microsoft",
       "highlights": [
-        "Built a tool that uses AI to lay out the ads and stories in hyperlocal print newspapers",
-        "Gave an Ignite talk on it at ASU’s National Journalism + AI Accelerator in January 2026",
-        "Demoed it to OpenAI, Microsoft, ProPublica and the Boston Globe on the program’s demo day"
+        "I built a tool that uses AI to lay out the ads and stories in small local print newspapers",
+        "I gave an Ignite talk about it at ASU’s National Journalism + AI Accelerator in January 2026",
+        "On demo day I showed it to OpenAI, Microsoft, ProPublica and the Boston Globe"
       ]
     },
     {
@@ -51,10 +51,10 @@
       "url": "https://ejfox.com/consulting",
       "summary": "Select Clients: GitHub • NBC News • CBS News • Washington Post • New York Times • Carnegie Mellon • Stamen",
       "highlights": [
-        "I take the tight-deadline projects, the ones that need short sprints and user testing. Especially the things no one has done before",
-        "For CBS News, helped prototype their broadcast touchscreen app. For the New York Times, an analysis of newspaper front pages. With the geniuses at Stamen, geographic visualizations.",
-        "I sit between the design and engineering teams and work in whatever stack the client already has, whether that is a brand-new startup or a big enterprise with its own process",
-        "I work in public whenever I can. That means 50+ Observable notebooks, plus YouTube livestreams and blog posts about work in progress, experiments and how I do things."
+        "I take the tight-deadline projects that need short sprints and real user testing, especially things no one has built before",
+        "I helped CBS News prototype its broadcast touchscreen app, analyzed newspaper front pages for the New York Times, and made geographic visualizations with the geniuses at Stamen.",
+        "I work between design and engineering, in whatever stack the client already has, from brand-new startups to big companies with their own process",
+        "I work in public when I can. There are 50+ Observable notebooks, plus livestreams on YouTube and blog posts about what I'm making and how."
       ]
     },
     {
@@ -64,11 +64,11 @@
       "url": "https://room302.studio",
       "summary": "Select Clients: The Associated Press • Wildlife Conservation Society • Earth Genome",
       "highlights": [
-        "A prototyping shop for new kinds of data visualization and analysis, on tight deadlines",
-        "Built a studio manager on top of an LLM, the studio’s ‘AI team member’",
-        "We turn rough ideas into demos polished enough for a client to show their own leadership or take to a funder",
-        "Backed up the Associated Press team on its 2024 election coverage. The work was nominated for a Webby.",
-        "Helped the Wildlife Conservation Society map and tell the story of coral reefs that are resisting climate change"
+        "My prototyping shop for new kinds of data visualization and analysis, usually on tight deadlines",
+        "I built the studio’s manager on top of an LLM. It’s our ‘AI team member’",
+        "We turn rough ideas into demos good enough for a client to show their bosses or take to a funder",
+        "I worked with the Associated Press team on its 2024 election coverage, which was nominated for a Webby.",
+        "I helped the Wildlife Conservation Society map coral reefs that are holding up against climate change and tell their story"
       ]
     },
     {
@@ -78,7 +78,7 @@
       "endDate": "2022",
       "url": "https://stamen.com",
       "highlights": [
-        "Made geographic visualizations with the Stamen team"
+        "I made geographic visualizations with the Stamen team"
       ]
     },
     {
@@ -88,7 +88,7 @@
       "endDate": "2019",
       "url": "https://www.nbcnews.com",
       "highlights": [
-        "Lead designer and co-builder of the 2018 relaunch of the election-night Big Board, with Michael Small and the NBC News Digital teams. The New York Times called it “newly juiced-up.” It is still in use today."
+        "I was lead designer on the 2018 relaunch of the election-night Big Board and built it with Michael Small and the NBC News Digital teams. The New York Times called it “newly juiced-up.” It’s still in use today."
       ]
     },
     {
@@ -97,9 +97,9 @@
       "startDate": "2014",
       "endDate": "2016",
       "highlights": [
-        "Took the desk from five graphics a month to five a day, 20x, through automation",
-        "Led the winning Knight Foundation grant pitch for Dataproofer, a data-validation tool",
-        "Gave reporters a visualization platform they could use without us, made the visualization templates, and ran the daily breaking-news graphics"
+        "I automated enough of the desk to go from five graphics a month to five a day",
+        "I led the winning Knight Foundation grant pitch for Dataproofer, a tool that checks datasets for errors",
+        "I gave reporters a visualization platform they could use on their own, made the templates, and ran daily breaking-news graphics"
       ]
     },
     {
@@ -108,7 +108,7 @@
       "startDate": "2013",
       "endDate": "2013",
       "highlights": [
-        "Freelanced with the GitHub team on the “State of the Octoverse” site and its visualizations"
+        "I worked with the GitHub team on the “State of the Octoverse” site and its visualizations"
       ]
     },
     {
@@ -117,7 +117,7 @@
       "startDate": "2011",
       "endDate": "2012",
       "highlights": [
-        "On the core team that built one of the first platforms to offer visualization as a service"
+        "I was on the core team that built one of the first visualization-as-a-service platforms"
       ]
     }
   ],
@@ -134,7 +134,7 @@
       "name": "Decision Desk HQ",
       "startDate": "2025",
       "endDate": "2026",
-      "description": "Design and engineering on the tools broadcasters use to show election results"
+      "description": "I work on design and engineering for the tools broadcasters use to show election results"
     },
     {
       "name": "Global Energy Ownership Tracker",
@@ -142,54 +142,54 @@
       "startDate": "2025",
       "endDate": "2026",
       "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker/",
-      "description": "An explorer of which companies own which energy assets, with ownership trees, embeddable cards and a screener"
+      "description": "An explorer of who owns the world's energy assets, with ownership trees, embeddable cards and a screener"
     },
     {
       "name": "Paramilitary Leaks",
       "startDate": "2025",
       "url": "https://micahflee.com/step-by-step-guide-to-reading-the-leaked-militia-chats-yourself/",
-      "description": "An explorer and visualizations for 200 GB of leaked militia chats. Micah Lee credited the work in his reporting."
+      "description": "I built an explorer and visualizations for 200 GB of leaked militia chats. Micah Lee cited it in his reporting."
     },
     {
       "name": "NYPD misconduct network",
       "entity": "WNYC/Gothamist",
       "startDate": "2021",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-      "description": "Network analysis of civilian complaint records for an investigation into clusters of officers accused of misconduct over and over"
+      "description": "I did the network analysis of civilian complaint records for an investigation into clusters of officers accused of misconduct again and again"
     },
     {
       "name": "Climate TRACE",
       "entity": "Earthrise Media",
       "startDate": "2022",
-      "description": "Maps and data exploration of emitting assets around the world"
+      "description": "I made maps and data exploration tools for emissions sources around the world"
     },
     {
       "name": "Ukraine grain",
       "entity": "Earth Genome",
       "startDate": "2022",
       "endDate": "2023",
-      "description": "Scrollytelling data story on global food security"
+      "description": "A scrolling data story about global food security"
     },
     {
       "name": "COVIDcast",
       "entity": "Carnegie Mellon University Delphi",
       "startDate": "2020",
       "url": "https://delphi.cmu.edu/about/team/",
-      "description": "Visualization prototypes for the public COVID-19 indicators, as a contributor from July to September 2020"
+      "description": "I prototyped visualizations for the public COVID-19 indicators, July to September 2020"
     },
     {
       "name": "Election simulator",
       "entity": "Washington Post Opinions",
       "startDate": "2019",
       "endDate": "2020",
-      "description": "Engineering on an interactive simulator built on David Byler’s election model"
+      "description": "I did engineering on an interactive simulator built on David Byler’s election model"
     },
     {
       "name": "Dark-money map",
       "entity": "Mother Jones",
       "startDate": "2012",
       "url": "https://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money/",
-      "description": "Co-author of an interactive map of the super PAC and dark-money universe"
+      "description": "I co-authored an interactive map of the super PAC and dark-money universe"
     }
   ],
   "skills": [
