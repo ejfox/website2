@@ -34,6 +34,8 @@ const published = {
 
 const FIXTURES: Record<string, unknown> = {
   '2024/published': published,
+  // Public JSON, but not a dated blog post — no markdown copy.
+  'robots/some-bot': published,
   '2024/draft': {
     ...published,
     metadata: { ...published.metadata, draft: true },
@@ -108,6 +110,7 @@ describe('/blog/**.md — gate', () => {
     ['sealed envelope outside private/', '/blog/2024/sealed-elsewhere.md'],
     ['missing post', '/blog/2024/nope.md'],
     ['path traversal', '/blog/2024/..%2F..%2Fmanifest-lite.md'],
+    ['non-dated path (robots)', '/blog/robots/some-bot.md'],
   ]
   for (const [name, path] of blocked) {
     it(`404s a ${name}`, async () => {
@@ -181,5 +184,9 @@ describe('helpers', () => {
     expect(isMarkdownSlug('private/x')).toBe(false)
     expect(isMarkdownSlug('2024/private/x')).toBe(false)
     expect(isMarkdownSlug('../x')).toBe(false)
+    expect(isMarkdownSlug('week-notes/2024-01')).toBe(false)
+    expect(isMarkdownSlug('robots/some-bot')).toBe(false)
+    expect(isMarkdownSlug('projects/x')).toBe(false)
+    expect(isMarkdownSlug('2024/nested/x')).toBe(false)
   })
 })

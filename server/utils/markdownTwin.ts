@@ -54,11 +54,15 @@ export function isMarkdownServable(
   return !isHiddenFromListings(post) && !isScheduled(post, now)
 }
 
-/** Slug is a plain dated or nested blog path — never `private/`, never `..`. */
+/**
+ * Only `<year>/<slug>` — the shape `isValidPost` calls a regular blog post.
+ * Week notes, robots, projects and anything else under content/processed get
+ * no markdown copy. `private/` and `..` are refused outright as well.
+ */
 export function isMarkdownSlug(slug: string): boolean {
   if (!slug || slug.includes('..') || slug.includes('|')) return false
-  if (slug === 'private' || isSealedSlug(`${slug}/`)) return false
-  return /^[\p{L}\p{N}_\-/.,'’&()]+$/u.test(slug)
+  if (isSealedSlug(`${slug}/`)) return false
+  return /^\d{4}\/[^/]+$/.test(slug)
 }
 
 // rehype-pretty-code puts the language on `data-language`, which

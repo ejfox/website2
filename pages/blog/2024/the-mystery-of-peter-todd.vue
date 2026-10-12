@@ -116,6 +116,15 @@ usePageSeo({
 useHead({
   htmlAttrs: { lang: 'en' },
   bodyAttrs: { class: 'peter-todd-takeover' },
+  // Markdown copy (server/middleware/markdown-twin.ts); this crowned page
+  // replaces pages/blog/[...slug].vue, so it advertises its own.
+  link: [
+    {
+      rel: 'alternate',
+      type: 'text/markdown',
+      href: 'https://ejfox.com/blog/2024/the-mystery-of-peter-todd.md',
+    },
+  ],
   style: [
     {
       innerHTML: `:root {

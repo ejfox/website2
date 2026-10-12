@@ -307,8 +307,10 @@ usePageSeo({
 })
 
 // Markdown copy for AI tools (server/middleware/markdown-twin.ts). Advertised
-// only when the .md would actually serve: same predicates as its gate.
+// only when the .md would actually serve: same slug shape and predicates as
+// its gate (isMarkdownSlug / isMarkdownServable).
 const markdownUrl = computed(() =>
+  /^\d{4}\/[^/]+$/.test(route.params.slug.join('/')) &&
   post.value?.html &&
   !isHiddenFromListings(post.value) &&
   !isScheduled(post.value)
