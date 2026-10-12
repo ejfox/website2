@@ -7,7 +7,7 @@
 -->
 <template>
   <aside
-    class="author-line my-12 max-w-prose border-t border-zinc-200 dark:border-zinc-800 pt-6"
+    class="author-line mt-12 max-w-prose border-t border-zinc-200 dark:border-zinc-800 pt-6"
   >
     <p class="font-mono text-2xs uppercase tracking-wider text-zinc-500 mb-1">
       EJ Fox

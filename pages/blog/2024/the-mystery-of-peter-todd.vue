@@ -1613,6 +1613,11 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
 .peter-todd-page .pt-ending a {
   color: var(--pt-accent);
 }
+.peter-todd-page .pt-ending input[type='email'] {
+  background: transparent;
+  color: var(--pt-text);
+  border-color: var(--pt-accent-faint);
+}
 
 /* --- PostNav/PostRelated --- */
 .peter-todd-page :deep(.post-nav),

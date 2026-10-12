@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format, parseISO } from 'date-fns'
+import { format } from 'date-fns'
 import { findCalibrationBucket } from '~/utils/calibration'
 
 const { tocTarget } = useTOC()
@@ -120,16 +120,6 @@ const deadline = computed(() => {
 const formatDate = (date: string) => {
   try {
     return format(new Date(date), 'MMM d, yyyy')
-  } catch {
-    return date
-  }
-}
-
-// Deadlines are calendar dates: 2026-12-31 arrives as UTC midnight, which
-// local time would show as Dec 30
-const formatDeadline = (date: string) => {
-  try {
-    return format(parseISO(String(date).slice(0, 10)), 'MMM d, yyyy')
   } catch {
     return date
   }
@@ -314,15 +304,11 @@ usePageSeo({
         <ul class="space-y-2">
           <li v-for="p in nextOpen" :key="p.slug" class="text-sm">
             <NuxtLink :to="`/predictions/${p.slug}`" class="hover:underline">
-              <span class="text-zinc-500 tabular-nums"
+              <span class="text-zinc-500 tabular-nums mr-2"
                 >{{ p.confidence }}%</span
-              >
-              <span class="font-serif text-zinc-700 dark:text-zinc-300">
-                {{ p.statement }}
-              </span>
-              <span v-if="p.deadline" class="text-zinc-500 tabular-nums">
-                · {{ formatDeadline(p.deadline) }}
-              </span>
+              ><span class="font-serif text-zinc-700 dark:text-zinc-300">{{
+                p.statement
+              }}</span>
             </NuxtLink>
           </li>
         </ul>
