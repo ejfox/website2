@@ -17,6 +17,16 @@ const photo = computed(
   () => allPhotos.value.find((p) => p.id === photoId.value) || null
 )
 
+// Unknown photo id → real 404 (only once the list actually loaded with
+// photos, so a transient API failure or empty response doesn't 404 them all).
+if (allPhotos.value.length > 0 && !photo.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Photo not found',
+    fatal: true,
+  })
+}
+
 const isPortrait = computed(() =>
   photo.value ? photo.value.height > photo.value.width : false
 )

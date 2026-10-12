@@ -41,6 +41,13 @@ const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug || ''
 const { data: prediction, error } = await useFetch<PredictionResponse>(
   `/api/predictions/${slug}`
 )
+if (error.value || !prediction.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Prediction not found',
+    fatal: true,
+  })
+}
 
 // Find the calibration bucket that matches this prediction's confidence
 const confidenceContext = computed(() => {

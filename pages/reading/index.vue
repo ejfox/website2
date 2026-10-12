@@ -65,6 +65,8 @@ const topHighlighted = computed(() => {
 })
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: 'Reading Collection - EJ Fox',
   description: "Books I've read, and the highlights I saved from them",
   type: 'article',
@@ -97,7 +99,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(readingSchema.value),
+      innerHTML: JSON.stringify(readingSchema.value),
     },
   ],
 }))

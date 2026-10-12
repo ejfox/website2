@@ -30,6 +30,8 @@ if (error.value) {
 
 // SEO the Nuxt way - reactive and clean
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: computed(() =>
     data.value ? `${data.value.Name} - Gear` : 'Loading... - Gear'
   ),
@@ -80,7 +82,7 @@ useHead(() => ({
     ? [
         {
           type: 'application/ld+json',
-          children: JSON.stringify(gearItemSchema.value),
+          innerHTML: JSON.stringify(gearItemSchema.value),
         },
       ]
     : [],

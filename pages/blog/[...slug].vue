@@ -291,6 +291,8 @@ const articleSchema = computed(() => ({
 }))
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: postTitle,
   description: postDescription,
   type: 'article',
@@ -323,7 +325,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(articleSchema.value),
+      innerHTML: JSON.stringify(articleSchema.value),
     },
   ],
   link: [

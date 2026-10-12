@@ -120,6 +120,8 @@ const yearsAgo = (year: number) => {
 
 // SEO
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: computed(() => `On This Day · ${formattedDate.value}`),
   description: computed(
     () =>
@@ -155,7 +157,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(onThisDaySchema.value),
+      innerHTML: JSON.stringify(onThisDaySchema.value),
     },
   ],
 }))

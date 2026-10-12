@@ -36,7 +36,7 @@ withDefaults(defineProps<{ listId?: string; location?: string }>(), {
         required
         autocomplete="email"
         placeholder="you@example.com"
-        class="flex-1 font-mono text-sm px-3 py-2 bg-sunken border border-zinc-300 dark:border-zinc-700 rounded focus:outline-none focus:border-zinc-500"
+        class="flex-1 font-mono text-sm px-3 py-2 bg-sunken border border-zinc-300 dark:border-zinc-700 rounded focus:border-zinc-500"
       />
       <input type="hidden" name="l" :value="listId" />
       <!-- listmonk honeypot: must stay empty (bots filling it get dropped) -->

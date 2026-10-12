@@ -17,6 +17,15 @@ const {
   error,
 } = await useFetch(`/api/reading/${route.params.slug}`)
 
+// A missing book is a real 404, not a 200 "Book Not Found" soft-404.
+if (error.value || !book.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Book not found',
+    fatal: true,
+  })
+}
+
 const bookTitle = computed(
   () => book.value?.metadata?.['kindle-sync']?.title || book.value?.title
 )
@@ -32,6 +41,8 @@ const bookCover = computed(
 const bookTags = computed(() => book.value?.metadata?.tags || [])
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: computed(() =>
     bookTitle.value ? `${bookTitle.value} - Reading Notes` : 'Book Not Found'
   ),
@@ -76,7 +87,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(bookSchema.value),
+      innerHTML: JSON.stringify(bookSchema.value),
     },
   ],
 }))
