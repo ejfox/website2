@@ -308,6 +308,11 @@ export default defineNuxtConfig({
       '/blog/how-i-use-gpt3': {
         redirect: { to: '/blog/2022/how-i-use-gpt3', statusCode: 301 },
       },
+      // Long-title slug for the radios post still gets real visitors (Umami
+      // not-found events, 2026-10).
+      '/blog/2025/using-radios-to-see-the-invisible-world': {
+        redirect: { to: '/blog/2025/using-radios', statusCode: 301 },
+      },
       // Friends & Family booking (/ff) — hidden link, never index/follow.
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.

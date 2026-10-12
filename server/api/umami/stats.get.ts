@@ -1,26 +1,28 @@
 /**
  * @file umami/stats.get.ts
- * @description Fetches page-specific analytics from Umami with authentication and overall website stats
+ * @description Last-30-day Umami pageviews for one path, plus site-wide stats
  * @endpoint GET /api/umami/stats
- * @params url: string - URL to fetch page view statistics for
- * @returns Page views for specific URL and overall website statistics from Umami
+ * @params url: string - site path to fetch page view statistics for (e.g. /now)
+ * @returns Daily pageviews for that path and overall website stats from Umami
  */
 
-export default defineEventHandler(async (event) => {
-  const query = getQuery(event)
-  const { url } = query
+const UMAMI = 'https://umami.tools.ejfox.com'
+const WEBSITE_ID = '165590cb-c361-4ad8-9459-6c6390744c64'
+const DAYS = 30
 
-  if (!url) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'URL parameter is required',
-    })
-  }
+export default defineCachedEventHandler(
+  async (event) => {
+    const { url } = getQuery(event)
 
-  try {
+    if (!url || typeof url !== 'string') {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'URL parameter is required',
+      })
+    }
+
     const username = serverEnv('UMAMI_USERNAME')
     const password = serverEnv('UMAMI_PASSWORD')
-
     if (!username || !password) {
       throw createError({
         statusCode: 500,
@@ -29,90 +31,50 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    // Debug logging
-    // console.log('Umami auth attempt:', {
-    //   username: username,
-    //   hasPassword: !!password,
-    //   passwordLength: password?.length,
-    // })
+    try {
+      const { token } = await $fetch<{ token: string }>(
+        `${UMAMI}/api/auth/login`,
+        { method: 'POST', body: { username, password } }
+      )
+      const headers = { Authorization: `Bearer ${token}` }
 
-    // First, authenticate to get token
-    const authResponse = await fetch(
-      'https://umami.tools.ejfox.com/api/auth/login',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
+      // Umami 3 requires a range, and filters by `path` (`url` is ignored and
+      // silently returns the whole site).
+      const endAt = Date.now()
+      const range = { startAt: endAt - DAYS * 86_400_000, endAt }
+      const site = `${UMAMI}/api/websites/${WEBSITE_ID}`
+
+      const [pageViews, overallStats] = await Promise.all([
+        $fetch(`${site}/pageviews`, {
+          headers,
+          query: {
+            ...range,
+            unit: 'day',
+            timezone: 'America/New_York',
+            path: url,
+          },
         }),
+        $fetch(`${site}/stats`, { headers, query: range }).catch(() => null),
+      ])
+
+      return {
+        url,
+        days: DAYS,
+        pageViews,
+        overallStats,
+        lastUpdated: new Date().toISOString(),
       }
-    )
-
-    if (!authResponse.ok) {
-      const errorText = await authResponse.text()
-      console.error('Auth failed:', authResponse.status, errorText)
-      throw new Error(
-        `Authentication failed: ${authResponse.status} - ${errorText}`
-      )
+    } catch (error) {
+      console.error('Umami stats error:', error)
+      throw createError({
+        statusCode: 502,
+        statusMessage: 'Failed to fetch Umami stats',
+      })
     }
-
-    const authData = await authResponse.json()
-    const token = authData.token
-
-    // Website ID from your Umami setup
-    const websiteId = '165590cb-c361-4ad8-9459-6c6390744c64'
-
-    // Get page views for the specific URL
-    const statsResponse = await fetch(
-      `https://umami.tools.ejfox.com/api/websites/${websiteId}/pageviews?url=${encodeURIComponent(url as string)}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-
-    if (!statsResponse.ok) {
-      const errorText = await statsResponse.text()
-      console.error('Stats API failed:', statsResponse.status, errorText)
-      throw new Error(
-        `Failed to fetch stats: ${statsResponse.status} - ${errorText}`
-      )
-    }
-
-    const statsData = await statsResponse.json()
-
-    // Also get overall website stats
-    const overallResponse = await fetch(
-      `https://umami.tools.ejfox.com/api/websites/${websiteId}/stats`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-
-    let overallStats = null
-    if (overallResponse.ok) {
-      overallStats = await overallResponse.json()
-    }
-
-    return {
-      url,
-      pageViews: statsData,
-      overallStats,
-      lastUpdated: new Date().toISOString(),
-    }
-  } catch (error) {
-    console.error('Umami stats error:', error)
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Failed to fetch Umami stats',
-    })
+  },
+  {
+    maxAge: 300,
+    name: 'umami-stats',
+    getKey: (event) => String(getQuery(event).url || ''),
   }
-})
+)
