@@ -20,7 +20,7 @@ Elections are all edge cases. Votes are cast and tallied by a wide variety of Am
 
 This great country contains lots of different people with lots of different ways of going about things.
 
-The basic rules around voting are laid out in the constitution^[[Article 1 of the Constitution](https://constitutioncenter.org/interactive-constitution/articles/article-i#elections-clause) “The House of Representatives shall be composed of Members chosen every second Year by the People of the several States…” - [Section 4](https://www.usconstitution.net/xconst_A1Sec4.html): “The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.”] but a remarkable amount of the nitty-gritty details are [left up to each state](https://www.brennancenter.org/analysis/voting-laws-roundup-2019) to figure out.
+The basic rules around voting are laid out in the constitution^[[Article 1 of the Constitution](https://constitutioncenter.org/interactive-constitution/articles/article-i#elections-clause) “The House of Representatives shall be composed of Members chosen every second Year by the People of the several States…” - [Section 4](https://web.archive.org/web/20260222103924/https://usconstitution.net/xconst_A1Sec4.html/): “The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.”] but a remarkable amount of the nitty-gritty details are [left up to each state](https://www.brennancenter.org/analysis/voting-laws-roundup-2019) to figure out.
 
 On election day in America, polls open at a particular time and close at a particular time. Those times, like almost everything else, [depend on where you’re talking about](<https://ballotpedia.org/State_Poll_Opening_and_Closing_Times_(2019)>) and can vary even within a single state and could change any year.
 
@@ -76,7 +76,7 @@ The Center for Civic Design has a [great guide](https://civicdesign.org/fieldgui
 
 ### Reporting units
 
-The term “reporting unit” can refer to a boundary division of any size used to aggregate votes in an election. This can be a [town](https://en.wikipedia.org/wiki/New_England_town), [parish](https://en.wikipedia.org/wiki/List_of_parishes_in_Louisiana), [precinct](https://www.nytimes.com/interactive/2018/upshot/election-2016-voting-precinct-maps.html), county, [county sub-division](https://www.policymap.com/2015/09/county-subdivisions-the-secret-geography/) or state.
+The term “reporting unit” can refer to a boundary division of any size used to aggregate votes in an election. This can be a [town](https://en.wikipedia.org/wiki/New_England_town), [parish](https://en.wikipedia.org/wiki/List_of_parishes_in_Louisiana), [precinct](https://www.nytimes.com/interactive/2018/upshot/election-2016-voting-precinct-maps.html), county, [county sub-division](https://web.archive.org/web/20200805111551/https://www.policymap.com/2015/09/county-subdivisions-the-secret-geography/) or state.
 
 Presidential, senate, and gubernatorial races are organized by county and state.
 

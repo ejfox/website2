@@ -20,7 +20,7 @@ These are some of my experiments in combining audio and visuals. Most are DJ mix
 
 ### December 2016
 
-Shadow Garden is a visual album with all original music. It is a combination of some found footage, original photos, original 3D renders from Cinema4D, visual effects from [CoGe](https://imimot.com/cogevj/), custom motion graphics from After Effects, and some experiments in audio visualization.
+Shadow Garden is a visual album with all original music. It is a combination of some found footage, original photos, original 3D renders from Cinema4D, visual effects from [CoGe](https://web.archive.org/web/20220929105853/https://imimot.com/cogevj/), custom motion graphics from After Effects, and some experiments in audio visualization.
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/EVO_2RFCP08?showinfo=0' frameborder='0' allowfullscreen></iframe></div>
 

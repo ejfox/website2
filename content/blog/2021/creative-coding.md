@@ -64,7 +64,7 @@ I experimented with using Processing in combination with a node script to create
 
 #### Audio Visualization
 
-I've experimented in the past with [the OS X VJ software CoGe](https://imimot.com/cogevj/) which I really enjoyed for BPM-syncing effects and looping videos and GIFs. Unfortunately it doesn't run on Catalina and the new version hasn't been released yet. But as a fan of music and DJ'ing and live music creation, I think that creating visuals both for livestreaming and also, maybe, eventually, in-person parties is a really interesting outlet for generative art.
+I've experimented in the past with [the OS X VJ software CoGe](https://web.archive.org/web/20220929105853/https://imimot.com/cogevj/) which I really enjoyed for BPM-syncing effects and looping videos and GIFs. Unfortunately it doesn't run on Catalina and the new version hasn't been released yet. But as a fan of music and DJ'ing and live music creation, I think that creating visuals both for livestreaming and also, maybe, eventually, in-person parties is a really interesting outlet for generative art.
 
 ### What I think the next 5-10 years will hold
 

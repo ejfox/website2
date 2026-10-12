@@ -24,9 +24,9 @@ That sounds very plausible. Let’s give it a try. [Webcam scanning with Shodan]
 
 With cursory knowledge, it seemed like the best approach would be to feed Shodan an IP range for the state of Texas (or other Mexico-border states) and then look through the resulting webcams by hand for anything that looks like a prison, holding facility, or government institution.
 
-To do this, first you would need to find [IP ranges for the state of Texas](https://www.xmyip.com/ip-addresses/united--states/texas)
+To do this, first you would need to find [IP ranges for the state of Texas](https://web.archive.org/web/20260219095201/https://www.xmyip.com/ip-addresses/united--states/texas)
 
-The first thing that jumps out to me is El Paso, home to the [ICE El Paso Processing Center](https://www.ice.gov/detention-facility/el-paso-processing-center) where a [Honduran migrant was held in May before he died in ICE custody in Houston that June](https://www.nbcnews.com/news/latino/honduran-man-dies-ice-custody-texas-facility-n1025526) [updated].
+The first thing that jumps out to me is El Paso, home to the [ICE El Paso Processing Center](https://web.archive.org/web/20200411013932/https://www.ice.gov/detention-facility/el-paso-processing-center) where a [Honduran migrant was held in May before he died in ICE custody in Houston that June](https://www.nbcnews.com/news/latino/honduran-man-dies-ice-custody-texas-facility-n1025526) [updated].
 
 >El Paso: 12.162.129.0 - 12.162.129.255
 
@@ -44,7 +44,7 @@ Oh! I don’t need to use IP ranges at all. I can just feed [latitudes and longi
 
 Now, we need a geocoded list of every ICE facility. Luckily, I’ve already done that based on data released in response to a FOIA from Immigrant Justice. This data is hosted on a wikipedia-style site (since retired) I created for open source information related to ICE.
 
-This [excellent resource on manipulating CSVs with the command line](https://bconnelly.net/posts/working_with_csvs_on_the_command_line/) teaches us:
+This [excellent resource on manipulating CSVs with the command line](https://web.archive.org/web/20230322124004/http://bconnelly.net/posts/working_with_csvs_on_the_command_line/) teaches us:
 
 >Specific columns can also be easily extracted from CSVs. For example, if we wanted to extract columns 2, 4, 5, and 6 from input.csv:
 >`cut -d , -f 2,4-6 input.csv`
