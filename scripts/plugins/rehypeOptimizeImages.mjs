@@ -59,8 +59,8 @@ export function rehypeOptimizeImages() {
       const isFirst = !seenFirst
       seenFirst = true
       if (isFirst) return
-      if (props.loading == null) props.loading = 'lazy'
-      if (props.decoding == null) props.decoding = 'async'
+      if (props.loading === undefined) props.loading = 'lazy'
+      if (props.decoding === undefined) props.decoding = 'async'
     })
   }
 }
