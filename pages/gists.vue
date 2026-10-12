@@ -123,6 +123,8 @@ const gistsDescription = computed(() => {
 })
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: 'GitHub Gists · EJ Fox',
   description: computed(
     () =>
@@ -161,7 +163,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(gistsSchema.value),
+      innerHTML: JSON.stringify(gistsSchema.value),
     },
   ],
 }))

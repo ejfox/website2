@@ -111,6 +111,21 @@ usePageSeo({
   type: 'article',
   tags: articleTags,
   image: heroImage,
+  section: computed(() => articleTags.value[0] || 'Writing'),
+  // Gives the Article JSON-LD its author + dates (usePageSeo is reactive, so
+  // these resolve once the post loads below).
+  publishedTime: computed(() => {
+    const d = post.value?.metadata?.date || post.value?.date
+    return d ? new Date(d).toISOString() : undefined
+  }),
+  modifiedTime: computed(() => {
+    const d =
+      post.value?.metadata?.lastUpdated ||
+      post.value?.metadata?.modified ||
+      post.value?.metadata?.date ||
+      post.value?.date
+    return d ? new Date(d).toISOString() : undefined
+  }),
 })
 
 useHead({

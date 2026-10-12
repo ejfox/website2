@@ -121,6 +121,8 @@ onMounted(() => {
 })
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: 'Blog - EJ Fox',
   description: "Things I'm thinking about — data, code, journalism, the web",
   type: 'article',
@@ -158,7 +160,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(blogSchema.value),
+      innerHTML: JSON.stringify(blogSchema.value),
     },
   ],
 }))

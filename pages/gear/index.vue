@@ -290,6 +290,8 @@ const gearDescription = computed(() => {
 })
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: 'Gear - EJ Fox',
   description: computed(() => gearDescription.value),
   type: 'article',
@@ -458,7 +460,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(gearSchema.value),
+      innerHTML: JSON.stringify(gearSchema.value),
     },
   ],
 }))

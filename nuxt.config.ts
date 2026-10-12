@@ -313,6 +313,37 @@ export default defineNuxtConfig({
       '/blog/2025/using-radios-to-see-the-invisible-world': {
         redirect: { to: '/blog/2025/using-radios', statusCode: 301 },
       },
+      // The Subway Builder project lives at /projects/subway-builder; the
+      // "-mods" slug is linked from subwaybuilder.com (Umami not-found,
+      // 2026-10). Both twins point straight at the target — no 2-hop chain
+      // through blog-projects-redirect.ts.
+      '/projects/subway-builder-mods': {
+        redirect: { to: '/projects/subway-builder', statusCode: 301 },
+      },
+      '/blog/projects/subway-builder-mods': {
+        redirect: { to: '/projects/subway-builder', statusCode: 301 },
+      },
+      // The Cloudinary backup tool's project page is a draft, but Google still
+      // sends visitors to it; the published write-up is the honest target.
+      '/projects/cloudinary-backup-tool': {
+        redirect: {
+          to: '/blog/2025/owning-my-cloudinary-photos',
+          statusCode: 301,
+        },
+      },
+      '/blog/projects/cloudinary-backup-tool': {
+        redirect: {
+          to: '/blog/2025/owning-my-cloudinary-photos',
+          statusCode: 301,
+        },
+      },
+      // (The legacy /blog/williams-the%20dead%20emcee%20scrolls link is handled
+      // in server/middleware/blog-reading-redirect.ts — its encoding varies.)
+      // Bookmarklet setup page: a personal tool behind a password, not content.
+      '/bookmarklet': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      '/bookmarklet-popup': {
+        headers: { 'X-Robots-Tag': 'noindex, nofollow' },
+      },
       // Friends & Family booking (/ff) — hidden link, never index/follow.
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.

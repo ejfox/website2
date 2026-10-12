@@ -127,6 +127,8 @@ const repoTags = computed(() => {
 })
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: computed(() => `${title.value} - EJ Fox`),
   description: computed(() => description.value),
   type: 'article',
@@ -163,7 +165,7 @@ useHead(() => ({
     ? [
         {
           type: 'application/ld+json',
-          children: JSON.stringify(repoSchema.value),
+          innerHTML: JSON.stringify(repoSchema.value),
         },
       ]
     : [],
