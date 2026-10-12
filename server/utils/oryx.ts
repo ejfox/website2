@@ -222,7 +222,7 @@ export async function fetchOryxLayout(
     title: layout.title,
     geometry: layout.geometry,
     revision: revision.hashId,
-    updated: new Date(revision.createdAt.replace(' UTC', 'Z')).toISOString(),
+    updated: new Date(revision.createdAt.replace(' UTC', 'Z').replace(' ', 'T')).toISOString(),
     url: `https://configure.zsa.io/${geometry}/layouts/${hashId}/${revision.hashId}/0`,
     layers: [...revision.layers]
       .sort((a, b) => a.position - b.position)
