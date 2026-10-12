@@ -9,6 +9,7 @@ import Webmentions from '~/components/blog/Webmentions.vue'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 import { readingStats } from '~/utils/readingStats'
 import { atprotoDocUri, atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables
@@ -306,6 +307,18 @@ usePageSeo({
   ),
 })
 
+// Markdown copy for AI tools (server/middleware/markdown-twin.ts). Advertised
+// only when the .md would actually serve: same slug shape and predicates as
+// its gate (isMarkdownSlug / isMarkdownServable).
+const markdownUrl = computed(() =>
+  /^\d{4}\/[^/]+$/.test(route.params.slug.join('/')) &&
+  post.value?.html &&
+  !isHiddenFromListings(post.value) &&
+  !isScheduled(post.value)
+    ? `https://ejfox.com/blog/${route.params.slug.join('/')}.md`
+    : null
+)
+
 useHead(() => ({
   script: [
     {
@@ -313,9 +326,14 @@ useHead(() => ({
       children: JSON.stringify(articleSchema.value),
     },
   ],
-  link: atprotoUri.value
-    ? [{ rel: 'site.standard.document', href: atprotoUri.value }]
-    : [],
+  link: [
+    ...(atprotoUri.value
+      ? [{ rel: 'site.standard.document', href: atprotoUri.value }]
+      : []),
+    ...(markdownUrl.value
+      ? [{ rel: 'alternate', type: 'text/markdown', href: markdownUrl.value }]
+      : []),
+  ],
   htmlAttrs: { lang: 'en' },
 }))
 
