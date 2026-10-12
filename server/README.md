@@ -37,7 +37,7 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 | `highlight` (POST) | Server-side Shiki highlighting | `GistPreview.vue` | Shiki |
 | `predictions` | All predictions | `pages/now` +6 | `content/predictions/*.md` |
 | `predictions/[id]` | One prediction (GET + PATCH write) | `pages/now` +6 | `content/predictions/*.md` |
-| `calibration` | Brier scores + accuracy | `useCalibration` | `data/calibration-analysis.json` (EMPTY-CATCH) |
+| `calibration` | Brier scores (as signed + as updated) + accuracy | `useCalibration` | `data/calibration-analysis.json` (EMPTY-CATCH) |
 | `words-this-month` | Monthly post/word count | `blog-stats` | manifest (fragile) |
 | `changelog` | see above | | |
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T13:39:53.234Z",
+  "generated_at": "2026-10-12T16:41:34.483Z",
   "summary": {
     "total_predictions": 15,
     "resolved": 4,
@@ -8,6 +8,94 @@
     "incorrect": 1,
     "accuracy": 75
   },
+  "brier": {
+    "as_signed": 0.313,
+    "as_updated": 0.182
+  },
+  "calibration_as_signed": [
+    {
+      "min": 20,
+      "max": 29,
+      "label": "20-29%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 25,
+      "delta": 76
+    },
+    {
+      "min": 50,
+      "max": 59,
+      "label": "50-59%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 55,
+      "delta": 45
+    },
+    {
+      "min": 60,
+      "max": 69,
+      "label": "60-69%",
+      "count": 1,
+      "correct": 0,
+      "accuracy": 0,
+      "expected": 65,
+      "delta": -64
+    },
+    {
+      "min": 70,
+      "max": 79,
+      "label": "70-79%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 75,
+      "delta": 26
+    }
+  ],
+  "calibration_as_updated": [
+    {
+      "min": 50,
+      "max": 59,
+      "label": "50-59%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 55,
+      "delta": 45
+    },
+    {
+      "min": 60,
+      "max": 69,
+      "label": "60-69%",
+      "count": 1,
+      "correct": 0,
+      "accuracy": 0,
+      "expected": 65,
+      "delta": -64
+    },
+    {
+      "min": 70,
+      "max": 79,
+      "label": "70-79%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 75,
+      "delta": 26
+    },
+    {
+      "min": 80,
+      "max": 89,
+      "label": "80-89%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 85,
+      "delta": 16
+    }
+  ],
   "brier_score": 0.182,
   "calibration": [
     {

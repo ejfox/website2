@@ -130,9 +130,32 @@ const formatResolvedDate = (date: string | undefined) => {
   }
 }
 
+// Two Brier bases: as signed (confidence at publication) and as updated (last
+// logged change). Older JSON only has brier_score/calibration, as updated.
+const brier = computed(() => ({
+  signed: calibration.value?.brier?.as_signed ?? null,
+  updated:
+    calibration.value?.brier?.as_updated ??
+    calibration.value?.brier_score ??
+    null,
+}))
+const hasBrier = computed(
+  () =>
+    typeof brier.value.signed === 'number' ||
+    typeof brier.value.updated === 'number'
+)
+
+// Curve + tables score on the signed basis: the number that was hashed
+const signedBuckets = computed(
+  () =>
+    calibration.value?.calibration_as_signed ??
+    calibration.value?.calibration ??
+    []
+)
+
 const calibrationPoints = computed(() => {
-  if (!calibration.value?.calibration?.length) return ''
-  return calibration.value.calibration
+  if (!signedBuckets.value.length) return ''
+  return signedBuckets.value
     .map(
       (b: { expected: number; accuracy: number }) =>
         `${b.expected},${100 - b.accuracy}`
@@ -224,15 +247,20 @@ usePageSeo({
               <span class="text-error">{{ incorrectCount }} wrong</span>
             </span>
           </div>
-          <div
-            v-if="calibration?.brier_score != null"
-            class="text-xs text-zinc-500"
-          >
-            Brier score: {{ calibration.brier_score.toFixed(3) }}
-            <span class="text-zinc-400">
-              ({{ brierScoreLabel(calibration.brier_score) }}, 0 = perfect, 0.25
-              = coin flip)
-            </span>
+          <div v-if="hasBrier" class="text-xs text-zinc-500">
+            Brier score:
+            <template v-if="brier.signed !== null">
+              <span class="tabular-nums">{{ brier.signed.toFixed(3) }}</span>
+              as signed
+            </template>
+            <template v-if="brier.signed !== null && brier.updated !== null">
+              ·
+            </template>
+            <template v-if="brier.updated !== null">
+              <span class="tabular-nums">{{ brier.updated.toFixed(3) }}</span>
+              as updated
+            </template>
+            <span class="text-zinc-400">(0 = perfect, 0.25 = coin flip)</span>
           </div>
         </div>
       </header>
@@ -394,7 +422,7 @@ usePageSeo({
 
       <!-- Calibration -->
       <section
-        v-if="calibration?.calibration?.length"
+        v-if="signedBuckets.length"
         data-section="calibration"
         class="section-spacing font-mono text-xs"
       >
@@ -403,6 +431,37 @@ usePageSeo({
           When I say X%, does it happen X% of the time? Dots on the diagonal =
           well calibrated.
         </p>
+
+        <!-- Brier, both bases -->
+        <div v-if="hasBrier" class="mb-4">
+          <div class="flex gap-8">
+            <div v-if="brier.signed !== null">
+              <div
+                class="text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.signed.toFixed(3) }}
+              </div>
+              <div class="text-3xs text-zinc-500">
+                as signed · {{ brierScoreLabel(brier.signed) }}
+              </div>
+            </div>
+            <div v-if="brier.updated !== null">
+              <div
+                class="text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.updated.toFixed(3) }}
+              </div>
+              <div class="text-3xs text-zinc-500">
+                as updated · {{ brierScoreLabel(brier.updated) }}
+              </div>
+            </div>
+          </div>
+          <p class="text-zinc-500 mt-2 text-xs">
+            As signed scores the confidence each prediction was published with;
+            as updated scores the last logged change. Curve and table below are
+            as signed.
+          </p>
+        </div>
 
         <!-- Calibration Curve -->
         <div class="mb-6">
@@ -437,7 +496,7 @@ usePageSeo({
               stroke-dasharray="2,2"
             />
             <circle
-              v-for="bucket in calibration.calibration"
+              v-for="bucket in signedBuckets"
               :key="bucket.label"
               :cx="bucket.expected"
               :cy="100 - bucket.accuracy"
@@ -461,7 +520,7 @@ usePageSeo({
             />
           </svg>
           <div class="text-3xs text-zinc-500 mt-1">
-            x: predicted · y: actual · dashed: perfect
+            x: predicted (as signed) · y: actual · dashed: perfect
           </div>
         </div>
 
@@ -478,7 +537,7 @@ usePageSeo({
           </thead>
           <tbody>
             <tr
-              v-for="bucket in calibration.calibration"
+              v-for="bucket in signedBuckets"
               :key="bucket.label"
               class="border-b border-zinc-200 dark:border-zinc-800"
             >
@@ -504,10 +563,7 @@ usePageSeo({
 
         <!-- Plain English calibration summary -->
         <div class="mt-4 text-xs text-zinc-500 space-y-1">
-          <div
-            v-for="bucket in calibration.calibration"
-            :key="bucket.label + '-text'"
-          >
+          <div v-for="bucket in signedBuckets" :key="bucket.label + '-text'">
             When I say {{ bucket.label }}, it happens {{ bucket.accuracy }}% of
             the time
             <span v-if="Math.abs(bucket.delta) <= 5" class="text-success">
@@ -544,14 +600,26 @@ usePageSeo({
           </div>
 
           <!-- Brier score -->
-          <div v-if="calibration?.brier_score != null" class="space-y-0.5">
-            <div
-              class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
-            >
-              {{ calibration.brier_score.toFixed(3) }}
+          <div v-if="hasBrier" class="flex gap-4">
+            <div v-if="brier.signed !== null" class="space-y-0.5">
+              <div
+                class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.signed.toFixed(3) }}
+              </div>
+              <div class="font-mono text-3xs text-zinc-500">
+                Brier as signed
+              </div>
             </div>
-            <div class="font-mono text-3xs text-zinc-500">
-              Brier score · {{ brierScoreLabel(calibration.brier_score) }}
+            <div v-if="brier.updated !== null" class="space-y-0.5">
+              <div
+                class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.updated.toFixed(3) }}
+              </div>
+              <div class="font-mono text-3xs text-zinc-500">
+                Brier as updated
+              </div>
             </div>
           </div>
 
@@ -591,15 +659,15 @@ usePageSeo({
           </div>
 
           <!-- Calibration by bucket -->
-          <div v-if="calibration?.calibration?.length">
+          <div v-if="signedBuckets.length">
             <div
               class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1"
             >
-              By Confidence
+              By Confidence · as signed
             </div>
             <div class="space-y-0.5 font-mono text-3xs tabular-nums">
               <div
-                v-for="bucket in calibration.calibration"
+                v-for="bucket in signedBuckets"
                 :key="bucket.label"
                 class="flex justify-between"
               >
@@ -645,7 +713,7 @@ usePageSeo({
               Changelog
             </a>
             <a
-              v-if="calibration?.calibration?.length"
+              v-if="signedBuckets.length"
               href="#"
               class="block font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               @click.prevent="scrollToEl('calibration')"
