@@ -191,7 +191,9 @@ export default defineNuxtConfig({
     OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY || '',
     EDITOR_CONTEXT_TOKEN: process.env.EDITOR_CONTEXT_TOKEN || '',
     UMAMI_URL: process.env.UMAMI_URL || 'https://umami.tools.ejfox.com',
-    UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
+    // No default: a baked 'admin' shadowed the VPS's real username (serverEnv
+    // reads config first), so every login 401'd.
+    UMAMI_USERNAME: process.env.UMAMI_USERNAME || '',
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
     UMAMI_WEBSITE_ID:
       process.env.UMAMI_WEBSITE_ID || '165590cb-c361-4ad8-9459-6c6390744c64',
