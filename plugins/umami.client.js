@@ -4,6 +4,12 @@ export default defineNuxtPlugin(() => {
   // like real Chrome — one QA crawl on 2026-10-11 logged 12k events (100× a
   // normal day). Automation always sets navigator.webdriver, so skip it.
   if (navigator.webdriver) return
+  // Only production counts: `yarn dev` and pr-N.preview hosts were ~10% of
+  // all events (localhost alone: 371 in 90 days), mostly /kitchen-sink.
+  if (location.hostname !== 'ejfox.com') return
+  // The bookmarklet popup carries the page text and an `auth=` passphrase in
+  // its query string, which Umami stores. It's a tool, not a page: never track.
+  if (location.pathname.startsWith('/bookmarklet')) return
 
   const UMAMI = 'https://umami.tools.ejfox.com'
   const WEBSITE_ID = '165590cb-c361-4ad8-9459-6c6390744c64'
