@@ -80,7 +80,7 @@ I don’t think that is necessarily a better way to create, but it is undeniably
 
 #### Printing
 
-The process of printing a linocut, once you have [assembled your mise en place](https://ejfox.com/blog/step-zero), is astoundingly easy and efficient. I have also done the field research and the entire process of laying out ink, laying the paper, rubbing it, and slowly unpeeling the print can be conducted by a reasonably intelligent child. I say this as a form of the strongest encouragement to try it yourself.
+The process of printing a linocut, once you have [assembled your mise en place](https://ejfox.com/blog/2019/step-zero), is astoundingly easy and efficient. I have also done the field research and the entire process of laying out ink, laying the paper, rubbing it, and slowly unpeeling the print can be conducted by a reasonably intelligent child. I say this as a form of the strongest encouragement to try it yourself.
 
 ![A few prints on watercolor drying on the clothesline](https://res.cloudinary.com/ejf/image/upload/v1566227086/IMG_3293.jpg)
 

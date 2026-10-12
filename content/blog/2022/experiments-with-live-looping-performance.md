@@ -18,7 +18,7 @@ Performing electronic music with loops is a technique known as live looping. It 
 This article aims to introduce the reader to the techniques used in live looping and to describe what a live looping performer needs to know in order to do perform effectively.
 
 >To program a drumbeat is to align an external rhythmic device to an individual’s biorhythm.
->Saul Williams [Williams-The Dead Emcee Scrolls](Williams-The%20Dead%20Emcee%20Scrolls.md)
+>Saul Williams [Williams-The Dead Emcee Scrolls](/reading/Williams-The%20Dead%20Emcee%20Scrolls)
 
 See also [[blog/2019/generative-music-iteration]]
 

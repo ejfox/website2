@@ -36,7 +36,7 @@ One thing that really helped us figure out how to think about how to present our
 
 The thing I like about these cooking shows is the same thing I like about shows like [Mythbusters](https://en.wikipedia.org/wiki/MythBusters); **I got to see someone make something every episode**.
 
-This also helps me think of my show preparation the same way a chef might prepare for a service. I do my [mise en place](https://ejfox.com/blog/step-zero/) and get all my ingredients sliced and diced in the right proportions. When it comes time to do the show, I am left with the entertaining parts of assembling them, talking about why, and experimenting.
+This also helps me think of my show preparation the same way a chef might prepare for a service. I do my [mise en place](https://ejfox.com/blog/2019/step-zero) and get all my ingredients sliced and diced in the right proportions. When it comes time to do the show, I am left with the entertaining parts of assembling them, talking about why, and experimenting.
 
 Too many modern educational coding videos fall closer on the spectrum to watching a chef cut their carrots individually, and that's not the type of TV show that I wanted to create.
 
