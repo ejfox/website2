@@ -17,8 +17,10 @@
  *   panel with no sub-pixel antialiasing.
  * - **Images capped and centred, never floated.** Reflow on a 6–8" screen
  *   turns floats into single-word columns.
- * - **JPEG, not WebP/AVIF.** EPUB reader support for modern formats is
- *   inconsistent in a way that fails silently — a blank frame, no error.
+ * - **1-bit PNG, not WebP/AVIF (or even JPEG).** Every image is embedded as a
+ *   line halftone (halftone.ts): PNG is universally supported, and a 1-bit
+ *   screen looks identical on every panel. Modern formats fail silently on
+ *   some readers — a blank frame, no error.
  *
  * ## Structural notes
  *
@@ -106,6 +108,20 @@ hr { border: 0; border-top: 1px solid #999; margin: 2em 20%; }
 .chapter-source { font-size: 0.75em; margin-top: 2.5em; }
 ul, ol { margin: 0 0 0.9em 1.2em; padding: 0; }
 li { margin-bottom: 0.3em; }
+/* Halftone figures (epubImages.ts). Full text width; nearest-neighbour scaling
+   so the 1-bit line screen stays crisp ink instead of smearing into grey. */
+figure.ht { margin: 1.6em 0; page-break-inside: avoid; break-inside: avoid; }
+figure.ht img {
+  width: 100%; max-width: 100%; height: auto; margin: 0;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+}
+figure.ht figcaption {
+  font-family: 'DejaVu Sans Mono', 'Courier New', monospace;
+  font-size: 0.68em; line-height: 1.45; font-style: normal; text-align: left;
+  font-variant-caps: all-small-caps; letter-spacing: 0.06em;
+  border-top: 1px solid #000; margin-top: 0.5em; padding-top: 0.4em;
+}
+figure.ht-missing figcaption { margin-top: 0; }
 table { border-collapse: collapse; width: 100%; font-size: 0.8em; margin: 1.2em 0; }
 th, td { border: 1px solid #999; padding: 0.3em 0.5em; text-align: left; }
 `.trim()

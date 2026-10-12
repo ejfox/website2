@@ -4,133 +4,100 @@
  *   a plane. Always current — built from the same Cloudinary data /photos uses.
  * @endpoint GET /photos.epub
  *
- * Unlike /archive.epub, which leaves images remote, this one downloads and
- * embeds every frame: in a photo book the images ARE the content, and a book
- * that renders as a column of broken-image icons offline is worthless.
- *
- * That makes size the governing constraint. Cloudinary does the work — each
- * photo is fetched already resized and re-encoded, so the server never holds a
- * full-resolution original and never needs an image library.
+ * Every frame is embedded as a 1-bit line halftone (halftone.ts — EJ's
+ * "halftone line 15deg p5"), not a JPEG: 50 full JPEGs made this book 13 MB,
+ * and a 1-bit screen renders the same on every e-ink panel. Cloudinary still
+ * does the resizing, so the server never holds a full-resolution original.
  */
-import { defineEventHandler, setHeaders, getRequestURL, createError } from 'h3'
-import NodeCache from 'node-cache'
+import { defineEventHandler, getRequestURL, createError } from 'h3'
 import {
   buildEpub,
   type EpubChapter,
   type EpubImage,
 } from '~/server/utils/epub'
+import { halftoneImage, mapLimit } from '~/server/utils/halftone'
+import { serveBook } from '~/server/utils/epubCache'
 
 // Longer than the blog's hour: the photo set changes rarely and each rebuild
-// costs ~N image fetches.
-const cache = new NodeCache({ stdTTL: 21600, maxKeys: 2 })
-const CACHE_KEY = 'photos-epub'
+// costs ~N image fetches (cheap after the first, thanks to the disk cache).
+const TTL_SECONDS = 21600
 
 /** Hard ceiling so one runaway response can't OOM a 1GB pm2 process. */
 const MAX_PHOTOS = 300
 
-/**
- * Cloudinary transform for e-ink:
- *   c_limit,w_1600  — cap the long edge; e-ink panels are ~1400px at best, and
- *                     the extra pixels are pure file size
- *   q_auto:good     — perceptual quality, roughly halves bytes vs q_100
- *   f_jpg           — NOT f_auto. f_auto negotiates WebP/AVIF from the
- *                     User-Agent, and EPUB readers that don't support them
- *                     fail silently with a blank frame rather than an error.
- */
-const EINK_TRANSFORM = 'c_limit,w_1600,q_auto:good,f_jpg'
-
-function transformed(url: string): string {
-  const marker = '/image/upload/'
-  const at = url.indexOf(marker)
-  if (at === -1) return url
-  const head = url.slice(0, at + marker.length)
-  // Strip transforms already baked in, so ours isn't applied on top of a
-  // smaller one (which would upscale a downscale — softer AND heavier).
-  const segs = url.slice(at + marker.length).split('/')
-  const isTransform = (s: string) =>
-    s.length > 0 && s.split(',').every((t) => /^[a-z]+_/.test(t))
-  let i = 0
-  while (i < segs.length && isTransform(segs[i])) i++
-  return `${head}${EINK_TRANSFORM}/${segs.slice(i).join('/')}`
-}
-
+/** Shape of /api/photos (server/api/photos.get.ts), plus the older raw-Cloudinary keys. */
 interface Photo {
-  secure_url?: string
   url?: string
+  secure_url?: string
+  id?: string
   public_id?: string
+  description?: string | null
   context?: { alt?: string; caption?: string }
+  date?: string
   created_at?: string
-  width?: number
-  height?: number
 }
 
-export default defineEventHandler(async (event) => {
-  const cached = cache.get<Buffer>(CACHE_KEY)
-  if (cached) {
-    setHeaders(event, {
-      'Content-Type': 'application/epub+zip',
-      'Content-Disposition': 'attachment; filename="ejfox-photos.epub"',
-      'Cache-Control': 'public, max-age=21600',
-      'X-Epub-Cache': 'hit',
-    })
-    return cached
-  }
+const escText = (s: string) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
 
+async function buildPhotos(origin: string) {
   const raw = await $fetch<Photo[] | { photos?: Photo[]; resources?: Photo[] }>(
     '/api/photos',
-    { baseURL: getRequestURL(event).origin }
+    { baseURL: origin }
   ).catch(() => null)
 
-  const photos: Photo[] = Array.isArray(raw)
-    ? raw
-    : raw?.photos || raw?.resources || []
+  const photos: Photo[] = (
+    Array.isArray(raw) ? raw : raw?.photos || raw?.resources || []
+  ).slice(0, MAX_PHOTOS)
 
   if (!photos.length) {
-    throw createError({
-      statusCode: 503,
-      message: 'Photo source unavailable',
-    })
+    throw createError({ statusCode: 503, message: 'Photo source unavailable' })
   }
+
+  // Small concurrency, not Promise.all: 300 concurrent fetches would hammer
+  // Cloudinary and spike memory on a 1GB box.
+  const pngs = await mapLimit(photos, 4, (p) => {
+    const src = p.secure_url || p.url
+    return src ? halftoneImage(src) : Promise.resolve(null)
+  })
 
   const chapters: EpubChapter[] = []
   const images: EpubImage[] = []
 
-  // Sequential, not Promise.all: 300 concurrent image fetches would hammer
-  // Cloudinary and spike memory on a 1GB box. A slow cold build is fine —
-  // it happens once per six hours.
-  for (const [i, photo] of photos.slice(0, MAX_PHOTOS).entries()) {
-    const src = photo.secure_url || photo.url
-    if (!src) continue
+  photos.forEach((photo, i) => {
+    const data = pngs[i]
+    // One unreachable image must not sink the whole book.
+    if (!data) return
+    const path = `images/p${String(i).padStart(4, '0')}.png`
+    images.push({ path, data, mediaType: 'image/png' })
 
-    let data: ArrayBuffer
-    try {
-      data = await $fetch<ArrayBuffer>(transformed(src), {
-        responseType: 'arrayBuffer',
-      })
-    } catch {
-      // One unreachable image must not sink the whole book.
-      continue
-    }
-
-    const path = `images/p${String(i).padStart(4, '0')}.jpg`
-    images.push({ path, data, mediaType: 'image/jpeg' })
-
-    const alt = photo.context?.alt || photo.context?.caption || ''
+    // /api/photos exposes the caption as `description`; `context` is the raw
+    // Cloudinary shape this route used to expect (and never received).
+    const alt = (
+      photo.description ||
+      photo.context?.alt ||
+      photo.context?.caption ||
+      ''
+    ).trim()
+    const id = photo.id || photo.public_id
+    // Title stays the short file-derived name: descriptions run to a paragraph,
+    // which belongs in the caption, not an <h1>.
     const title =
-      alt ||
-      photo.public_id?.split('/').pop()?.replace(/[-_]/g, ' ') ||
-      `Photo ${i + 1}`
+      id?.split('/').pop()?.replace(/[-_]/g, ' ') || `Photo ${i + 1}`
+    const created = photo.date || photo.created_at
 
     chapters.push({
       title,
-      date: photo.created_at
-        ? new Date(photo.created_at).toISOString().slice(0, 10)
-        : undefined,
-      html: `<figure><img src="${path}" alt="${alt.replace(/"/g, '&quot;')}"/>${
-        alt ? `<figcaption>${alt.replace(/[<>&]/g, '')}</figcaption>` : ''
+      date: created ? new Date(created).toISOString().slice(0, 10) : undefined,
+      html: `<figure class="ht"><img src="${path}" alt="${escText(alt)}"/>${
+        alt ? `<figcaption>${escText(alt)}</figcaption>` : ''
       }</figure>`,
     })
-  }
+  })
 
   if (!chapters.length) {
     throw createError({
@@ -139,7 +106,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const epub = await buildEpub({
+  const data = await buildEpub({
     title: 'EJ Fox — Photos',
     author: 'EJ Fox',
     identifier: `urn:ejfox:photos:${new Date().toISOString().slice(0, 10)}`,
@@ -149,13 +116,22 @@ export default defineEventHandler(async (event) => {
     coverPath: images[0]?.path,
   })
 
-  cache.set(CACHE_KEY, epub)
-  setHeaders(event, {
-    'Content-Type': 'application/epub+zip',
-    'Content-Disposition': 'attachment; filename="ejfox-photos.epub"',
-    'Cache-Control': 'public, max-age=21600',
-    'X-Epub-Cache': 'miss',
-    'X-Epub-Photos': String(chapters.length),
+  return {
+    data,
+    meta: {
+      'X-Epub-Photos': String(chapters.length),
+      'X-Epub-Images': String(images.length),
+      'X-Epub-Images-Failed': String(photos.length - images.length),
+    },
+  }
+}
+
+export default defineEventHandler((event) => {
+  const origin = getRequestURL(event).origin
+  return serveBook(event, {
+    name: 'photos',
+    ttlSeconds: TTL_SECONDS,
+    filename: 'ejfox-photos.epub',
+    build: () => buildPhotos(origin),
   })
-  return epub
 })

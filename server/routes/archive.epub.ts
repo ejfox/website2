@@ -21,17 +21,19 @@
  * If a new visibility flag is ever added, this file inherits it for free. That
  * is worth more than the request-time cost, which the cache absorbs anyway.
  */
-import { defineEventHandler, setHeaders } from 'h3'
-import NodeCache from 'node-cache'
+import { defineEventHandler } from 'h3'
 import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { buildEpub, type EpubChapter } from '~/server/utils/epub'
+import { embedHalftones } from '~/server/utils/epubImages'
+import { serveBook } from '~/server/utils/epubCache'
 
 // An hour matches /api/photo-posts and /api/suggest. The book is a snapshot of
 // an archive that changes a few times a week; a stale hour is invisible, and
-// rebuilding ~250 posts per request is not.
-const cache = new NodeCache({ stdTTL: 3600, maxKeys: 4 })
-const CACHE_KEY = 'archive-epub'
+// rebuilding ~250 posts per request is not. Past the hour the previous book is
+// served while a rebuild runs (epubCache.ts) — a cold build fetches ~200
+// images and must not hold a request past Cloudflare's timeout.
+const TTL_SECONDS = 3600
 
 /**
  * Strip everything an e-reader can't render or shouldn't be asked to.
@@ -99,10 +101,9 @@ function toEbookHtml(html: string): string {
               : {},
         }
       },
-      // Remote images stay remote: embedding every image from 250 posts would
-      // produce a file too large to sideload comfortably. The photo book
-      // (/photos.epub) is the one that embeds, because there the images ARE
-      // the content.
+      // Images are embedded afterwards as 1-bit line halftones
+      // (epubImages.ts) — small enough that the whole archive fits, and
+      // readable offline. Here they're only reduced to src + alt.
       img: (tagName, attribs) => ({
         tagName,
         attribs: { src: attribs.src || '', alt: attribs.alt || '' },
@@ -112,18 +113,7 @@ function toEbookHtml(html: string): string {
   })
 }
 
-export default defineEventHandler(async (event) => {
-  const cached = cache.get<Buffer>(CACHE_KEY)
-  if (cached) {
-    setHeaders(event, {
-      'Content-Type': 'application/epub+zip',
-      'Content-Disposition': 'attachment; filename="ejfox-archive.epub"',
-      'Cache-Control': 'public, max-age=3600',
-      'X-Epub-Cache': 'hit',
-    })
-    return cached
-  }
-
+async function buildArchive() {
   const { getPostsWithContent } = useProcessedMarkdown()
   // Signature is (limit, offset, includeDrafts, includeWeekNotes) — NOT a pair
   // of booleans. Passing booleans here silently slices to zero posts and ships
@@ -151,7 +141,12 @@ export default defineEventHandler(async (event) => {
     // Oldest first: a book reads forward through time, unlike a feed.
     .sort((a, b) => (a.date || '').localeCompare(b.date || ''))
 
-  const epub = await buildEpub({
+  const { htmls, images, stats } = await embedHalftones(
+    chapters.map((c) => c.html)
+  )
+  chapters.forEach((c, i) => (c.html = htmls[i]))
+
+  const data = await buildEpub({
     title: 'EJ Fox — Blog Archive',
     author: 'EJ Fox',
     // Date-stamped so a re-download is treated as a new edition rather than
@@ -159,15 +154,24 @@ export default defineEventHandler(async (event) => {
     identifier: `urn:ejfox:archive:${new Date().toISOString().slice(0, 10)}`,
     description: `${chapters.length} posts from ejfox.com`,
     chapters,
+    images,
   })
 
-  cache.set(CACHE_KEY, epub)
-  setHeaders(event, {
-    'Content-Type': 'application/epub+zip',
-    'Content-Disposition': 'attachment; filename="ejfox-archive.epub"',
-    'Cache-Control': 'public, max-age=3600',
-    'X-Epub-Cache': 'miss',
-    'X-Epub-Chapters': String(chapters.length),
+  return {
+    data,
+    meta: {
+      'X-Epub-Chapters': String(chapters.length),
+      'X-Epub-Images': String(images.length),
+      'X-Epub-Images-Failed': String(stats.failed),
+    },
+  }
+}
+
+export default defineEventHandler((event) =>
+  serveBook(event, {
+    name: 'archive',
+    ttlSeconds: TTL_SECONDS,
+    filename: 'ejfox-archive.epub',
+    build: buildArchive,
   })
-  return epub
-})
+)
