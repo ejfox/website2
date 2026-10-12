@@ -231,7 +231,9 @@ function getValue<T>(result: PromiseSettledResult<T>): T | null {
   return result.status === 'fulfilled' ? result.value : null
 }
 
-export default defineEventHandler(
+// Cached: this fans out to ~17 upstream handlers (2–3s cold). With swr a
+// visitor gets the last result instantly while a refresh runs behind it.
+export default defineCachedEventHandler(
   async (event): Promise<StatsResponse & StatsHorizons> => {
     try {
       // console.log('🎯 Stats handler called')
@@ -458,5 +460,6 @@ export default defineEventHandler(
       console.error('💥 Error in stats handler:', error)
       throw error
     }
-  }
+  },
+  { maxAge: 600, staleMaxAge: 3600, swr: true, name: 'stats' }
 )

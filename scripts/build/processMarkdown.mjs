@@ -37,6 +37,7 @@ import {
   remarkHandDrawn,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
+  rehypeOptimizeImages,
   remarkEnhanceLinks,
   remarkEnhanceImages,
   remarkExtractToc,
@@ -56,7 +57,7 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
-const CACHE_VERSION = '2026-10-11-drop-title-heading'
+const CACHE_VERSION = '2026-10-12-optimize-raw-images'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
@@ -279,6 +280,7 @@ const processor = unified()
   .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
+  .use(rehypeOptimizeImages) // raw HTML <img> → sized Cloudinary + lazy
   .use(rehypePrettyCode, {
     theme: JSON.parse(
       await fs.readFile('./scripts/utils/ayu-mirage.json', 'utf-8')

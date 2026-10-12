@@ -3,7 +3,7 @@
  * @description Centralized number formatting utilities using d3-format
  * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
  */
-import { format } from 'd3'
+import { format } from 'd3-format'
 
 // --- Number formatting (d3-format) ---
 

@@ -450,15 +450,9 @@ export default defineNuxtConfig({
           manualChunks: {
             // Static chunks instead of function (faster)
             vue: ['vue', '@vue/reactivity', '@vueuse/core'],
-            d3: [
-              'd3',
-              'd3-dsv',
-              'd3-format',
-              'd3-scale-chromatic',
-              'd3-scale',
-              'd3-array',
-              'd3-shape',
-            ],
+            // No d3 group: forcing every d3 module into one chunk meant a
+            // single `format` import (utils/numberFormat.ts) shipped all of
+            // d3 (~96 KB br) on every page. Let Rollup split it per use.
           },
         },
       },

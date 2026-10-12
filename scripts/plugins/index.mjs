@@ -16,6 +16,7 @@ export { remarkMermaid } from './remarkMermaid.mjs'
 
 // Rehype plugins
 export { rehypeAddClassToParagraphs } from './rehypeAddClassToParagraphs.mjs'
+export { rehypeOptimizeImages } from './rehypeOptimizeImages.mjs'
 
 // Plugin configurations
 export const DEFAULT_PLUGINS = [
