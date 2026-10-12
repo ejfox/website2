@@ -577,7 +577,10 @@ onBeforeUnmount(() => {
       <p
         class="header-item flex flex-wrap gap-x-3 font-mono text-xs text-zinc-500 tabular-nums opacity-0"
       >
-        <span v-if="!hasStarted" class="animate-pulse">
+        <span
+          v-if="!hasStarted || (isStreaming && !stats.posts && !stats.scraps)"
+          class="animate-pulse"
+        >
           loading posts + scraps…
         </span>
         <template v-else>

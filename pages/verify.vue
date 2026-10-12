@@ -139,17 +139,20 @@ usePageSeo({
         >
           ◇ Accounts
         </h2>
-        <table class="w-full font-mono text-xs">
+        <table data-plain class="w-full font-mono text-xs">
           <tbody>
             <tr
               v-for="acct in ACCOUNTS"
               :key="acct.service"
-              class="border-t border-zinc-200 dark:border-zinc-800 align-top"
+              class="block sm:table-row border-t border-zinc-200 dark:border-zinc-800 align-top"
             >
-              <td class="py-1 pr-2 text-zinc-500 w-px whitespace-nowrap">
+              <!-- stacked on a phone: the value gets the full width -->
+              <td
+                class="block sm:table-cell pt-1 sm:py-1 pr-2 text-zinc-500 sm:w-px whitespace-nowrap"
+              >
                 {{ acct.service }}
               </td>
-              <td class="py-1">
+              <td class="block sm:table-cell pb-1 sm:py-1">
                 <a
                   :href="acct.href"
                   :rel="acct.rel"
