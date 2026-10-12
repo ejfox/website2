@@ -135,11 +135,16 @@ const linkClasses =
         <div
           class="mt-auto pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400"
         >
+          <!-- Long key ID (last 16 of the fingerprint), same as the footer.
+             The old 8-char cut came from the MIDDLE of it, so it matched
+             neither the short ID nor the start of the /verify fingerprint. -->
           <NuxtLink
             to="/verify"
-            class="hover:text-zinc-700 dark:hover:text-zinc-200"
+            class="block hover:text-zinc-700 dark:hover:text-zinc-200"
+            title="5D30 A33E 08E3 5B89 15B4 C7E2 E207 8E65 3FE3 89CD"
           >
-            PGP: E207 8E65
+            <span class="block">PGP</span>
+            <span class="block whitespace-nowrap">E207 8E65 3FE3 89CD</span>
           </NuxtLink>
         </div>
       </nav>
