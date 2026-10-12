@@ -174,7 +174,7 @@ const postsThisMonth = computed(() => {
         />
       </div>
       <div class="stat-label">LEETCODE</div>
-      <div class="stat-details">
+      <div class="stat-details whitespace-nowrap">
         <AnimatedNumber
           :value="stats.leetcode.submissionStats.hard.count"
           format="default"
@@ -214,9 +214,7 @@ const postsThisMonth = computed(() => {
           :decimals="0"
         />
       </div>
-      <div class="stat-label">
-        CHESS<template v-if="chessControl"> {{ chessControl }}</template>
-      </div>
+      <div class="stat-label">CHESS {{ chessControl || '' }}</div>
       <div class="stat-details">
         <AnimatedNumber
           :value="Math.round(chessWinRate)"

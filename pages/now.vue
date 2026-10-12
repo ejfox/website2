@@ -136,13 +136,16 @@ usePageSeo({
   @apply text-zinc-500 truncate;
 }
 
+/* wraps on a phone, but a 14-repo list still stops at three lines */
 .what {
+  @apply line-clamp-3;
   overflow-wrap: anywhere;
 }
 
 @media (min-width: 640px) {
   .what {
     @apply truncate;
+    display: block;
   }
 }
 

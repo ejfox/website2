@@ -298,7 +298,8 @@ usePageSeo({
                   Statement
                 </th>
                 <th class="text-right pb-2 font-normal text-zinc-500">
-                  Deadline
+                  <span class="sm:hidden">Due</span>
+                  <span class="hidden sm:inline">Deadline</span>
                 </th>
               </tr>
             </thead>

@@ -249,9 +249,6 @@ function formatRelativeTime(dateStr: string) {
     <!-- Activity Calendar -->
     <div v-if="hasCommits" class="col-span-full">
       <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
-      <div class="text-zinc-500 mb-2 text-xs leading-4">
-        PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS
-      </div>
       <ActivityCalendar
         :active-dates="commitActivityDates"
         :active-color="'#71717a'"
