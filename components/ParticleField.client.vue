@@ -8,8 +8,9 @@
  *
  * At rest the field is still. It only moves when pushed: scrolling feeds
  * velocity in with the scroll (so it carries on briefly after you stop),
- * any mousedown briefly draws the whole field toward that point (a gravity
- * well that swells and releases), and a route change
+ * any mousedown opens a brief gravity well at that point on the page plane
+ * (it swells and releases), pulling by true 3D distance so only stars near
+ * it in x, y and depth really move, and a route change
  * sends one coherent upward gust sweeping top→bottom. Velocity decays
  * exponentially, so everything glides and settles where it lands.
  *
@@ -38,7 +39,9 @@ const PIXEL = 1 // CSS px per particle
 const DAMPING = 0.955 // per-frame velocity decay (glide length)
 const SCROLL_INERTIA = 0.004 // scroll px → particle velocity at z=1
 const REST = 0.01 // below this speed a particle snaps to still
-const PULL_FORCE = 0.28 // peak attraction, px/frame² at z=1
+const PULL_G = 6000 // gravity-well strength (px³/frame²)
+const PULL_SOFTEN = 120 // px; keeps the well finite so nothing slingshots
+const DEPTH_PX = 500 // how many px of depth the field's z ∈ [0,1] spans
 const PULL_MS = 520 // how long the well holds before releasing
 const GUST_FORCE = 6
 const GUST_SWEEP_MS = 420 // time for the route-change gust to cross the screen
@@ -167,18 +170,22 @@ function step(now) {
   if (well) {
     const t = (now - well.start) / PULL_MS
     if (t >= 1) well = null
-    else pull = PULL_FORCE * Math.sin(Math.PI * t)
+    else pull = PULL_G * Math.sin(Math.PI * t)
   }
 
   for (const p of particles) {
     if (pull) {
+      // Real 3D gravity: the click sits on the page plane, so distance counts
+      // x, y AND depth. Falls off as 1/d², so nearby stars on the page's
+      // plane drift in while distant or deep ones barely stir. Only the
+      // in-plane share of the pull moves a star (it can't change depth).
       const dx = well.x - p.x
       const dy = well.y - p.y
-      const dist = Math.hypot(dx, dy) || 1
-      // Ease off close in so nothing slingshots through the point
-      const f = pull * (0.2 + p.z) * Math.min(1, dist / 120)
-      p.vx += (dx / dist) * f
-      p.vy += (dy / dist) * f
+      const dz = (PAGE_DEPTH - p.z) * DEPTH_PX
+      const d2 = dx * dx + dy * dy + dz * dz + PULL_SOFTEN * PULL_SOFTEN
+      const f = pull / (d2 * Math.sqrt(d2))
+      p.vx += dx * f
+      p.vy += dy * f
     }
     if (p.gustAt && now >= p.gustAt) {
       p.vx += p.gx
