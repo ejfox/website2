@@ -175,27 +175,9 @@ const postsThisMonth = computed(() => {
       </div>
       <div class="stat-label">LEETCODE</div>
       <div class="stat-details whitespace-nowrap">
-        <AnimatedNumber
-          :value="stats.leetcode.submissionStats.hard.count"
-          format="default"
-          :duration="800"
-          priority="tertiary"
-        />
-        H
-        <AnimatedNumber
-          :value="stats.leetcode.submissionStats.medium.count"
-          format="default"
-          :duration="800"
-          priority="tertiary"
-        />
-        M
-        <AnimatedNumber
-          :value="stats.leetcode.submissionStats.easy.count"
-          format="default"
-          :duration="800"
-          priority="tertiary"
-        />
-        E
+        {{ stats.leetcode.submissionStats.hard.count }}H ·
+        {{ stats.leetcode.submissionStats.medium.count }}M ·
+        {{ stats.leetcode.submissionStats.easy.count }}E
       </div>
     </div>
 
@@ -214,7 +196,9 @@ const postsThisMonth = computed(() => {
           :decimals="0"
         />
       </div>
-      <div class="stat-label">CHESS {{ chessControl || '' }}</div>
+      <div class="stat-label">
+        {{ chessControl ? `CHESS · ${chessControl}` : 'CHESS' }}
+      </div>
       <div class="stat-details">
         <AnimatedNumber
           :value="Math.round(chessWinRate)"
