@@ -1,6 +1,9 @@
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as d3 from 'd3'
+// The page links with this same function; a second copy here kept the
+// trailing '-' from names ending in ')' and those four items 404'd.
+import { slugifyGear } from '../../utils/gearUI'
 
 export interface GearItem {
   slug: string
@@ -32,15 +35,11 @@ export interface GearItem {
   Location_Detail?: string
 }
 
-function slugify(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}
-
 export async function loadGearItems(): Promise<GearItem[]> {
   const csvPath = resolve(process.cwd(), 'data/gear.csv')
   const csvText = await readFile(csvPath, 'utf-8')
   return (d3.csvParse(csvText) as Omit<GearItem, 'slug'>[])
     .filter((item) => item.Name?.trim())
-    .map((item) => ({ ...item, slug: slugify(item.Name!) }))
+    .map((item) => ({ ...item, slug: slugifyGear(item.Name!) }))
     .sort((a, b) => (a.Name || '').localeCompare(b.Name || ''))
 }

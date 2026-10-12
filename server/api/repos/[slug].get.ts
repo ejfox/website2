@@ -279,6 +279,11 @@ export default defineEventHandler(async (event): Promise<RepoData> => {
     const fileContent = readFileSync(filePath, 'utf-8')
     const repoData: RepoData = JSON.parse(fileContent)
     repoData.commits = buildCommitMeta(slug)
+    if (repoData.readme?.html)
+      repoData.readme.html = absolutizeReadmeUrls(
+        repoData.readme.html,
+        repoData.url
+      )
 
     const networkPath = join(
       process.cwd(),
