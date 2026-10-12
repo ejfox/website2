@@ -18,6 +18,27 @@
 // mrejfox.bsky.social. If that account ever changes, change this too.
 export const ATPROTO_DID = 'did:plc:5qysguz3v267ggtfitebl5nc'
 
+// One stable publication record for the whole blog. This MUST be a literal
+// constant and MUST NEVER change: every site.standard.document we write points
+// at `at://<did>/site.standard.publication/<PUB_RKEY>`, so editing it orphans
+// the publication and silently re-parents all of them on the next run.
+//
+// It is a TID, not 'self'. site.standard.publication declares a `tid` record
+// key, and bsky.social enforces it:
+//   putRecord site.standard.publication/self: 400 InvalidRequest
+//   Invalid record key for site.standard.publication:
+//   Invalid TID string (got "self")
+// The publication is written before any document, so 'self' failed the whole
+// mirror on its first write — nothing was mirrored between 2026-09-10 and the
+// fix. Generating a fresh TID per run would instead create a new publication
+// every time, so this one is frozen: it decodes to 2026-09-22T00:00:00Z.
+export const PUB_RKEY = '3mw2wa5qk2222'
+
+// What /.well-known/site.standard.publication serves, so Standard.site readers
+// can verify ejfox.com owns the publication. The mirror writes it under the
+// authenticated session's DID, which is why ATPROTO_DID must match that account.
+export const PUBLICATION_URI = `at://${ATPROTO_DID}/site.standard.publication/${PUB_RKEY}`
+
 const TID_ALPHABET = '234567abcdefghijklmnopqrstuvwxyz'
 
 /** FNV-1a, folded to the 10 bits a TID reserves for a clock id. */
@@ -111,15 +132,25 @@ export function isMirrorEligible(post) {
 }
 
 /**
- * A browsable link to the post's record, or null if it has none. pdsls.dev
- * resolves the DID to whatever PDS currently hosts it, so this keeps working
- * if the account migrates — don't substitute a bare PDS hostname here.
+ * The post's record as an at:// URI, or null if it has none. The post page
+ * puts this in `<link rel="site.standard.document">`, which is how
+ * Standard.site verifies that the page and the record belong together.
  */
-export function atprotoDocUrl(post) {
+export function atprotoDocUri(post) {
   if (!isMirrorEligible(post)) return null
   const publishedAt = publishedAtFor(post)
   if (!publishedAt) return null
   const rkey = rkeyFor(post.slug, publishedAt)
   if (!rkey) return null
-  return `https://pdsls.dev/at://${ATPROTO_DID}/site.standard.document/${rkey}`
+  return `at://${ATPROTO_DID}/site.standard.document/${rkey}`
+}
+
+/**
+ * A browsable link to the post's record, or null if it has none. pdsls.dev
+ * resolves the DID to whatever PDS currently hosts it, so this keeps working
+ * if the account migrates — don't substitute a bare PDS hostname here.
+ */
+export function atprotoDocUrl(post) {
+  const uri = atprotoDocUri(post)
+  return uri ? `https://pdsls.dev/${uri}` : null
 }

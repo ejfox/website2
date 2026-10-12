@@ -8,7 +8,7 @@ import SealedPost from '~/components/blog/SealedPost.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 import { readingStats } from '~/utils/readingStats'
-import { atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
+import { atprotoDocUri, atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
@@ -63,13 +63,14 @@ const { context: temporalContext, hasContext: hasTemporalContext } =
 // from the post itself (see utils/atprotoRkey.mjs), so no lookup is needed —
 // and the gate is the mirror's own predicate, so a draft/hidden/unlisted/
 // scheduled post never links to a record that was never written.
-const atprotoUrl = computed(() =>
-  atprotoDocUrl({
-    slug: route.params.slug.join('/'),
-    date: post.value?.date,
-    metadata: post.value?.metadata,
-  })
-)
+const atprotoPost = computed(() => ({
+  slug: route.params.slug.join('/'),
+  date: post.value?.date,
+  metadata: post.value?.metadata,
+}))
+const atprotoUrl = computed(() => atprotoDocUrl(atprotoPost.value))
+// Standard.site document verification — same gate, so no record, no <link>
+const atprotoUri = computed(() => atprotoDocUri(atprotoPost.value))
 
 // Tag-matched scraps: "related research" from scrapbook
 const postTags = computed(() => {
@@ -319,14 +320,19 @@ const markdownUrl = computed(() =>
 )
 
 useHead(() => ({
-  link: markdownUrl.value
-    ? [{ rel: 'alternate', type: 'text/markdown', href: markdownUrl.value }]
-    : [],
   script: [
     {
       type: 'application/ld+json',
       children: JSON.stringify(articleSchema.value),
     },
+  ],
+  link: [
+    ...(atprotoUri.value
+      ? [{ rel: 'site.standard.document', href: atprotoUri.value }]
+      : []),
+    ...(markdownUrl.value
+      ? [{ rel: 'alternate', type: 'text/markdown', href: markdownUrl.value }]
+      : []),
   ],
   htmlAttrs: { lang: 'en' },
 }))

@@ -966,6 +966,71 @@ export const stories = {
   ],
 
   // ── reading ──────────────────────────────────────────────────────────────────
+  // Mamdani: signed 25, updated to 80, resolved ✓ — the number at left must
+  // read 25. Deepfake: an update that held at 80.
+  BeliefTimeline: [
+    {
+      name: 'default',
+      props: {
+        predictions: [
+          {
+            slug: 'zohran-mamdani-nyc-mayor-2025',
+            statement:
+              'Zohran Mamdani will win the 2025 NYC mayoral election by a margin greater than 5%',
+            confidence: 80,
+            created: '2025-01-20T19:50:00.000Z',
+            deadline: '2025-11-30T00:00:00.000Z',
+            resolved: true,
+            resolved_date: '2025-11-09T00:00:00.000Z',
+            status: 'correct',
+            updates: [
+              {
+                timestamp: '2025-11-01T16:35:00.000Z',
+                confidenceBefore: 25,
+                confidenceAfter: 80,
+                reasoning: 'Ground game momentum',
+              },
+            ],
+          },
+          {
+            slug: 'anthropic-chatbot-arena-2025',
+            statement:
+              'Anthropic will hold #1 on Chatbot Arena for 60 consecutive days',
+            confidence: 65,
+            created: '2025-01-20T19:35:00.000Z',
+            deadline: '2025-12-31T00:00:00.000Z',
+            resolved: true,
+            resolved_date: '2026-03-24T00:00:00.000Z',
+            status: 'incorrect',
+          },
+          {
+            slug: 'deepfake-crime-10m-2027',
+            statement: 'A deepfake fraud over $10M ends in a conviction',
+            confidence: 80,
+            created: '2025-01-20T20:30:00.000Z',
+            deadline: '2027-12-31T00:00:00.000Z',
+            resolved: false,
+            updates: [
+              {
+                timestamp: '2026-03-24T00:00:00.000Z',
+                confidenceBefore: 80,
+                confidenceAfter: 80,
+                reasoning: 'Crimes at scale; prosecution is the bottleneck',
+              },
+            ],
+          },
+          {
+            slug: 'vance-not-gop-nominee-2028',
+            statement: 'JD Vance will not be the 2028 GOP nominee',
+            confidence: 80,
+            created: '2026-03-24T20:00:00.000Z',
+            deadline: '2028-11-30T00:00:00.000Z',
+            resolved: false,
+          },
+        ],
+      },
+    },
+  ],
   ReadingSparklines: [
     {
       name: 'default',

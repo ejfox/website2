@@ -37,6 +37,7 @@ The goal is technology for joy, not just profit. AI that serves communities, not
 ## Public APIs
 
 - [/rss.xml](https://ejfox.com/rss.xml): Blog feed in RSS 2.0
+- [/scraps-rss.xml](https://ejfox.com/scraps-rss.xml): Scraps (public link log) in RSS 2.0
 - [/feed.json](https://ejfox.com/feed.json): Blog feed in JSON Feed 1.1
 - [/sitemap.xml](https://ejfox.com/sitemap.xml): Full URL listing with images
 - [/tags.json](https://ejfox.com/tags.json): Tag vocabulary ordered by usage frequency
