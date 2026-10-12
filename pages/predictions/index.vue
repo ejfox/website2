@@ -34,7 +34,12 @@ interface Prediction {
   status?: 'correct' | 'incorrect' | 'pending' | 'resolved'
   evidence?: string
   resolution?: string
-  updates?: Array<{ timestamp: string; content?: string }>
+  updates?: Array<{
+    timestamp: string
+    confidenceBefore: number
+    confidenceAfter: number
+    reasoning?: string
+  }>
   hash?: string
   gitCommit?: string
 }
@@ -373,6 +378,20 @@ usePageSeo({
         </div>
       </section>
 
+      <!-- Changelog: signing → deadline, every logged update -->
+      <section
+        v-if="transformedPredictions.length > 0"
+        data-section="changelog"
+        class="section-spacing"
+      >
+        <h2 class="heading-2 mb-2">Changelog</h2>
+        <p class="font-mono text-zinc-500 mb-4 text-xs">
+          line = signed → deadline · number = confidence when signed · ◆ =
+          logged update · ✓ / ✗ = resolved · dashed = today
+        </p>
+        <PredictionsBeliefTimeline :predictions="transformedPredictions" />
+      </section>
+
       <!-- Calibration -->
       <section
         v-if="calibration?.calibration?.length"
@@ -616,6 +635,14 @@ usePageSeo({
               @click.prevent="scrollToEl('resolved')"
             >
               Resolved · {{ resolvedPredictions.length }}
+            </a>
+            <a
+              v-if="transformedPredictions.length > 0"
+              href="#"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+              @click.prevent="scrollToEl('changelog')"
+            >
+              Changelog
             </a>
             <a
               v-if="calibration?.calibration?.length"
