@@ -3,8 +3,10 @@
  * Calibration Analysis for Predictions
  *
  * Reads prediction markdown files directly and calculates:
- * - Brier score (lower is better, 0 = perfect)
- * - Calibration by confidence bucket
+ * - Brier score (lower is better, 0 = perfect), on two bases:
+ *     as signed  = the confidence each prediction was published with
+ *     as updated = the last logged change (current `confidence`)
+ * - Calibration by confidence bucket, on both bases
  * - Category breakdown
  *
  * Run: yarn calibrate
@@ -15,6 +17,12 @@ import { readFile, writeFile, readdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import matter from 'gray-matter'
+import {
+  BASES,
+  brierScore,
+  calibrationBuckets,
+  round3,
+} from '../utils/brier.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = join(dirname(__filename), '..')
@@ -33,74 +41,6 @@ async function loadPredictions() {
   }
 
   return predictions
-}
-
-/**
- * Brier score = average of (prediction - outcome)^2
- * Range: 0 (perfect) to 1 (worst)
- */
-function calculateBrierScore(predictions) {
-  const resolved = predictions.filter(
-    (p) =>
-      p.resolved &&
-      (p.status === 'correct' || p.status === 'incorrect') &&
-      typeof p.confidence === 'number'
-  )
-
-  if (resolved.length === 0) return null
-
-  const scores = resolved.map((p) => {
-    const predicted = p.confidence / 100
-    const outcome = p.status === 'correct' ? 1 : 0
-    return Math.pow(predicted - outcome, 2)
-  })
-
-  return scores.reduce((sum, s) => sum + s, 0) / scores.length
-}
-
-/**
- * "When I say 70%, does it happen ~70% of the time?"
- */
-function calculateCalibration(predictions) {
-  const resolved = predictions.filter(
-    (p) =>
-      p.resolved &&
-      (p.status === 'correct' || p.status === 'incorrect') &&
-      typeof p.confidence === 'number'
-  )
-
-  if (resolved.length === 0) return []
-
-  const buckets = [
-    { min: 50, max: 59, label: '50-59%' },
-    { min: 60, max: 69, label: '60-69%' },
-    { min: 70, max: 79, label: '70-79%' },
-    { min: 80, max: 89, label: '80-89%' },
-    { min: 90, max: 100, label: '90-100%' },
-  ]
-
-  return buckets
-    .map((bucket) => {
-      const inBucket = resolved.filter(
-        (p) => p.confidence >= bucket.min && p.confidence <= bucket.max
-      )
-
-      if (inBucket.length === 0) return null
-
-      const correct = inBucket.filter((p) => p.status === 'correct').length
-      const accuracy = correct / inBucket.length
-      const expectedMidpoint = (bucket.min + bucket.max) / 2 / 100
-
-      return {
-        ...bucket,
-        count: inBucket.length,
-        correct,
-        accuracy: Math.round(accuracy * 100),
-        expected: Math.round(expectedMidpoint * 100),
-        delta: Math.round((accuracy - expectedMidpoint) * 100),
-      }
-    })
-    .filter(Boolean)
 }
 
 function analyzeByCategory(predictions) {
@@ -142,8 +82,12 @@ async function main() {
     const resolved = predictions.filter((p) => p.resolved)
     const correct = predictions.filter((p) => p.status === 'correct')
     const incorrect = predictions.filter((p) => p.status === 'incorrect')
-    const brierScore = calculateBrierScore(predictions)
-    const calibration = calculateCalibration(predictions)
+    const brier = {}
+    const calibrationBy = {}
+    for (const [basis, confOf] of Object.entries(BASES)) {
+      brier[basis] = round3(brierScore(predictions, confOf))
+      calibrationBy[basis] = calibrationBuckets(predictions, confOf)
+    }
     const byCategory = analyzeByCategory(predictions)
 
     const analysis = {
@@ -159,8 +103,13 @@ async function main() {
             ? Math.round((correct.length / resolved.length) * 100)
             : null,
       },
-      brier_score: brierScore ? Math.round(brierScore * 1000) / 1000 : null,
-      calibration,
+      // as_signed: confidence at publication; as_updated: last logged change
+      brier,
+      calibration_as_signed: calibrationBy.as_signed,
+      calibration_as_updated: calibrationBy.as_updated,
+      // Legacy keys, as updated (what they always meant: current confidence)
+      brier_score: brier.as_updated,
+      calibration: calibrationBy.as_updated,
       by_category: byCategory,
     }
 
@@ -183,19 +132,22 @@ async function main() {
       console.log(`Accuracy: ${analysis.summary.accuracy}%`)
     }
 
-    if (brierScore !== null) {
-      const quality =
-        brierScore < 0.2
-          ? '(excellent)'
-          : brierScore < 0.25
-            ? '(good)'
-            : '(needs work)'
-      console.log(`Brier Score: ${brierScore.toFixed(3)} ${quality}`)
+    const quality = (score) =>
+      score < 0.2 ? '(excellent)' : score < 0.25 ? '(good)' : '(needs work)'
+    const LABELS = { as_signed: 'as signed', as_updated: 'as updated' }
+
+    for (const [basis, label] of Object.entries(LABELS)) {
+      if (typeof brier[basis] === 'number') {
+        console.log(
+          `Brier ${label.padEnd(10)}: ${brier[basis].toFixed(3)} ${quality(brier[basis])}`
+        )
+      }
     }
 
-    if (calibration.length > 0) {
-      console.log('\nCalibration:')
-      calibration.forEach((bucket) => {
+    for (const [basis, label] of Object.entries(LABELS)) {
+      if (calibrationBy[basis].length === 0) continue
+      console.log(`\nCalibration (${label}):`)
+      calibrationBy[basis].forEach((bucket) => {
         const delta = bucket.delta >= 0 ? `+${bucket.delta}` : bucket.delta
         console.log(
           `  ${bucket.label}: ${bucket.accuracy}% actual (expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`

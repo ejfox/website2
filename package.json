@@ -25,7 +25,7 @@
     "blog": "npm run lint:safety && npm run blog:process && npm run check:sealed",
     "create-prediction": "node scripts/blog/create-prediction.mjs",
     "predict": "node scripts/author/predict-pro.mjs",
-    "calibrate": "node scripts/meta/calibration-analysis.mjs",
+    "calibrate": "node --no-warnings scripts/meta/calibration-analysis.mjs",
     "gear:lint": "node scripts/meta/lint-gear.mjs",
     "gear:fix": "node scripts/meta/lint-gear.mjs --fix",
     "lint:safety": "node scripts/meta/lint-frontmatter-safety.mjs",

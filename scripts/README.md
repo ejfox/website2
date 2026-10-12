@@ -136,7 +136,12 @@ non-interactive variant.
 ### `meta/calibration-analysis.mjs` — accuracy tracking (`yarn calibrate`)
 
 Reads resolved predictions, computes Brier score, and plots calibration curves
-(are your 70% calls right ~70% of the time?) bucketed by confidence.
+(are your 70% calls right ~70% of the time?) bucketed by confidence. Both are
+computed twice: **as signed** (the confidence each prediction was published with,
+i.e. the first update's `confidenceBefore`) and **as updated** (the last logged
+change, the current `confidence`). Math lives in `utils/brier.mjs`; writes
+`data/calibration-analysis.json`, which `/api/calibration` serves as-is — re-run
+and commit it after resolving a prediction.
 
 ## Content Type Detection Rules
 
