@@ -162,10 +162,13 @@ export default defineEventHandler(async () => {
         blitz: stats.chess_blitz?.last?.rating || 0,
         rapid: stats.chess_rapid?.last?.rating || 0,
       },
+      // Chess.com omits `best` until a rating is established (e.g. one rapid
+      // game), and `best` can lag a fresh high. A peak below the current
+      // rating is a contradiction, so the peak is never less than `last`.
       bestRating: {
-        bullet: stats.chess_bullet?.best?.rating || 0,
-        blitz: stats.chess_blitz?.best?.rating || 0,
-        rapid: stats.chess_rapid?.best?.rating || 0,
+        bullet: peakRating(stats.chess_bullet),
+        blitz: peakRating(stats.chess_blitz),
+        rapid: peakRating(stats.chess_rapid),
       },
       gamesPlayed: {
         bullet:
@@ -199,12 +202,12 @@ export default defineEventHandler(async () => {
       recentGames: games.games.slice(0, 10).map((game: ChessGame) => ({
         id: game.uuid,
         opponent:
-          game[username === game.white.username ? 'black' : 'white'].username,
+          game[playerSide(game, username) === 'white' ? 'black' : 'white']
+            .username,
         timeControl: game.time_class,
         result: determineResult(game, username),
         timestamp: game.end_time,
-        rating:
-          game[username === game.white.username ? 'white' : 'black'].rating,
+        rating: game[playerSide(game, username)].rating,
         ratingDiff: calculateRatingDiff(game, username),
       })),
       lastUpdated: new Date().toISOString(),
@@ -216,17 +219,18 @@ export default defineEventHandler(async () => {
       response.gamesPlayed.blitz +
       response.gamesPlayed.rapid
 
-    // Calculate overall win rate as average of non-zero rates
-    const nonZeroRates = [
-      response.winRate.bullet,
-      response.winRate.blitz,
-      response.winRate.rapid,
-    ].filter((rate) => rate > 0)
-
+    // Overall win rate is wins / games across every time control. Averaging
+    // the per-control percentages let one rapid win (100%) drag ~40% bullet
+    // and blitz records up to "60% WIN".
+    const records = [
+      stats.chess_bullet?.record,
+      stats.chess_blitz?.record,
+      stats.chess_rapid?.record,
+    ]
+    const totalWins = records.reduce((sum, r) => sum + (r?.win || 0), 0)
     response.winRate.overall =
-      nonZeroRates.length > 0
-        ? nonZeroRates.reduce((sum, rate) => sum + rate, 0) /
-          nonZeroRates.length
+      response.gamesPlayed.total > 0
+        ? Math.round((totalWins / response.gamesPlayed.total) * 100)
         : 0
 
     return response
@@ -248,26 +252,38 @@ function calculateWinRate(
   return total > 0 ? Math.round((record.win / total) * 100) : 0
 }
 
+// Chess.com per-player result codes. Anything that isn't a win or one of
+// these draw codes is a loss (checkmated, timeout, resigned, abandoned, ...).
+const DRAW_RESULTS = new Set([
+  'agreed',
+  'repetition',
+  'stalemate',
+  'insufficient',
+  '50move',
+  'timevsinsufficient',
+])
+
+function playerSide(game: ChessGame, username: string): 'white' | 'black' {
+  return game.white.username.toLowerCase() === username.toLowerCase()
+    ? 'white'
+    : 'black'
+}
+
 function determineResult(
   game: ChessGame,
   username: string
 ): 'win' | 'loss' | 'draw' {
-  if (game.white.username === username) {
-    return game.white.result === 'win'
-      ? 'win'
-      : game.white.result === 'resigned'
-        ? 'loss'
-        : 'draw'
-  } else {
-    return game.black.result === 'win'
-      ? 'win'
-      : game.black.result === 'resigned'
-        ? 'loss'
-        : 'draw'
-  }
+  const result = game[playerSide(game, username)].result
+  if (result === 'win') return 'win'
+  return DRAW_RESULTS.has(result) ? 'draw' : 'loss'
+}
+
+function peakRating(
+  control: { last?: { rating: number }; best?: { rating: number } } | undefined
+): number {
+  return Math.max(control?.best?.rating || 0, control?.last?.rating || 0)
 }
 
 function calculateRatingDiff(game: ChessGame, username: string): number {
-  const playerData = game.white.username === username ? game.white : game.black
-  return playerData.rating_diff || 0
+  return game[playerSide(game, username)].rating_diff || 0
 }

@@ -12,19 +12,20 @@ interface DuolingoUser {
   courses: Array<{
     title: string
     xp: number
-    level: number
-    crowns: number
+    level: number | null
+    crowns: number | null
   }>
   currentCourse?: {
     title: string
     xp: number
-    level: number
+    level: number | null
   }
   creationDate: number
   lastUpdated: string
 }
 
 interface DuolingoCourse {
+  id?: string
   title: string
   learningLanguage: string
   fromLanguage: string
@@ -61,28 +62,41 @@ export default defineEventHandler(async (): Promise<DuolingoUser | null> => {
       return null
     }
 
-    // Extract courses with XP
+    // Duolingo dropped per-course levels with the path redesign: the public
+    // endpoint no longer sends `level`, and `crowns` is a 9999 sentinel. Both
+    // become null rather than a fake "Level 0" next to thousands of XP.
+    const CROWNS_SENTINEL = 9999
     const courses: Array<{
+      id?: string
       title: string
       xp: number
-      level: number
-      crowns: number
+      level: number | null
+      crowns: number | null
     }> = (user.courses || []).map((course: DuolingoCourse) => ({
+      id: course.id,
       title: course.title || course.learningLanguage,
       xp: course.xp || 0,
-      level: course.level || 0,
-      crowns: course.crowns || 0,
+      level: course.level && course.level > 0 ? course.level : null,
+      crowns:
+        course.crowns && course.crowns !== CROWNS_SENTINEL
+          ? course.crowns
+          : null,
     }))
 
-    // Sort by XP to find most active course
+    // Sort by XP for the language list
     const sortedCourses = [...courses].sort((a, b) => b.xp - a.xp)
+    // The course actually being studied, falling back to the most-XP one
+    const active =
+      sortedCourses.find((c) => c.id && c.id === user.currentCourseId) ||
+      sortedCourses[0]
+    const strip = ({ id: _id, ...rest }: (typeof courses)[number]) => rest
 
     return {
       username: user.username,
       streak: user.streak || 0,
       totalXp: user.totalXp || courses.reduce((sum, c) => sum + c.xp, 0),
-      courses: sortedCourses,
-      currentCourse: sortedCourses[0] || undefined,
+      courses: sortedCourses.map(strip),
+      currentCourse: active ? strip(active) : undefined,
       creationDate: user.creationDate,
       lastUpdated: new Date().toISOString(),
     }

@@ -973,7 +973,9 @@ definePageMeta({
     <!-- Full Mode (default) -->
     <div v-else class="">
       <!-- Main Content -->
-      <section class="min-w-0 w-full mx-auto max-w-none pr-6 sm:pr-10 lg:pr-16">
+      <section
+        class="min-w-0 w-full mx-auto max-w-none px-4 pt-8 md:px-8 lg:pr-16"
+      >
         <!-- Header -->
         <header class="pb-8">
           <div style="max-width: 65ch">
@@ -1060,6 +1062,17 @@ definePageMeta({
               class="break-inside-avoid"
             >
               <GitHubStats key="github" :stats="stats.github" />
+            </StatSection>
+            <!-- Stable slot when GitHub failed: keep the section (and the TOC
+                 anchor) instead of letting the page reflow around a hole -->
+            <StatSection
+              v-else
+              id="github"
+              key="github-section-empty"
+              title="GITHUB"
+              class="break-inside-avoid"
+            >
+              <StatsDataState message="GitHub data unavailable right now" />
             </StatSection>
 
             <!-- Code Snippets -->
@@ -1237,6 +1250,20 @@ definePageMeta({
 .fade-leave-to {
   opacity: 0;
   transform: translateY(8px);
+}
+
+/* Section stack: was an undefined class, so sections butted together and
+   on phone each inline label read as the tail of the section above. */
+.stats-grid-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (max-width: 640px) {
+  .stats-grid-responsive {
+    gap: 2.5rem;
+  }
 }
 
 /* Dense mode specific styles */

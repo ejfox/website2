@@ -10,6 +10,7 @@
  */
 import RSS from 'rss'
 import { defineEventHandler, setHeader } from 'h3'
+import { scrapDisplayTitle } from '~/utils/scrapTitle'
 import { stripInvalidXmlChars } from '~/server/utils/xml'
 
 interface ScrapItem {
@@ -50,13 +51,7 @@ function isFeedSkipped(url: string | null): boolean {
 
 // Pinboard stores untitled bookmarks as the literal "[no title]".
 function itemTitle(scrap: ScrapItem): string {
-  const title = scrap.title?.trim()
-  if (title && title !== '[no title]') return title
-  try {
-    return new URL(scrap.url || '').hostname.replace(/^www\./, '')
-  } catch {
-    return 'Untitled scrap'
-  }
+  return scrapDisplayTitle(scrap.title, scrap.url)
 }
 
 export default defineEventHandler(async (event) => {

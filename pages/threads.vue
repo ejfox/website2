@@ -107,6 +107,9 @@ const hoveredNode = shallowRef(null)
 const pointer = ref({ x: 0, y: 0 })
 const stats = reactive({ posts: 0, scraps: 0, tags: 0, connections: 0 })
 const isStreaming = ref(false)
+// Counts read as zero until the first batch lands; show a loading line
+// instead so a slow fetch doesn't look like an empty site
+const hasStarted = ref(false)
 const show = reactive({ post: true, scrap: true, tag: true })
 
 // Graph state (plain, non-reactive — the canvas reads it every frame)
@@ -391,6 +394,7 @@ async function initGraph() {
   hoveredNode.value = null
   Object.assign(stats, { posts: 0, scraps: 0, tags: 0, connections: 0 })
   isStreaming.value = true
+  hasStarted.value = true
 
   // Merge a new snapshot into the live graph: existing nodes keep their
   // position/velocity (and pins); new ones spawn near their topic's maypole.
@@ -573,15 +577,23 @@ onBeforeUnmount(() => {
       <p
         class="header-item flex flex-wrap gap-x-3 font-mono text-xs text-zinc-500 tabular-nums opacity-0"
       >
-        <span v-for="(n, k, i) in stats" :key="k">
-          <span
-            class="text-zinc-900 dark:text-zinc-100"
-            :class="{ 'animate-pulse': isStreaming && i < 2 }"
-          >
-            {{ n }}
-          </span>
-          {{ k }}
+        <span
+          v-if="!hasStarted || (isStreaming && !stats.posts && !stats.scraps)"
+          class="animate-pulse"
+        >
+          loading posts + scraps…
         </span>
+        <template v-else>
+          <span v-for="(n, k, i) in stats" :key="k">
+            <span
+              class="text-zinc-900 dark:text-zinc-100"
+              :class="{ 'animate-pulse': isStreaming && i < 2 }"
+            >
+              {{ n }}
+            </span>
+            {{ k }}
+          </span>
+        </template>
       </p>
       <div class="header-item flex gap-4 mt-2 font-mono text-xs opacity-0">
         <button

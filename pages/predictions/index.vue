@@ -239,13 +239,18 @@ usePageSeo({
           <div>
             {{ transformedPredictions.length }} predictions ·
             {{ resolvedPredictions.length }} resolved ·
-            <span v-if="correctCount > 0" class="text-success">
-              {{ correctCount }} correct
-            </span>
-            <span v-if="incorrectCount > 0">
-              ,
-              <span class="text-error">{{ incorrectCount }} wrong</span>
-            </span>
+            <!-- v-text: no template whitespace, so no space before the comma -->
+            <span
+              v-if="correctCount > 0"
+              class="text-success"
+              v-text="`${correctCount} correct`"
+            />
+            <span v-if="incorrectCount > 0" v-text="', '" />
+            <span
+              v-if="incorrectCount > 0"
+              class="text-error"
+              v-text="`${incorrectCount} wrong`"
+            />
           </div>
           <div v-if="hasBrier" class="text-xs text-zinc-500">
             Brier score:
@@ -275,21 +280,26 @@ usePageSeo({
         v-if="activePredictions.length > 0"
         ref="activeReveal"
         data-section="active"
-        class="section-spacing"
+        class="mb-12"
       >
         <h2 class="heading-2 mb-4">Active</h2>
-        <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-          <table class="w-full font-mono text-xs border-collapse">
+        <div class="overflow-x-auto">
+          <table data-plain class="w-full font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-zinc-300 dark:border-zinc-700">
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Conf
                 </th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Statement
                 </th>
                 <th class="text-right pb-2 font-normal text-zinc-500">
-                  Deadline
+                  <span class="sm:hidden">Due</span>
+                  <span class="hidden sm:inline">Deadline</span>
                 </th>
               </tr>
             </thead>
@@ -299,7 +309,7 @@ usePageSeo({
                 :key="prediction.id"
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
-                <td class="py-3 pr-4 align-top tabular-nums">
+                <td class="py-3 pr-3 sm:pr-4 align-top tabular-nums">
                   <NuxtLink
                     :to="`/predictions/${prediction.slug}`"
                     class="text-lg font-bold hover:underline"
@@ -308,12 +318,12 @@ usePageSeo({
                   </NuxtLink>
                 </td>
                 <td
-                  class="py-3 pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
+                  class="py-3 pr-3 sm:pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
                 >
                   {{ prediction.statement }}
                 </td>
                 <td
-                  class="py-3 pr-4 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap"
+                  class="py-3 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap"
                 >
                   <template v-if="daysUntil(prediction.deadline) !== null">
                     {{ daysUntil(prediction.deadline) }}d
@@ -333,23 +343,29 @@ usePageSeo({
         v-if="resolvedPredictions.length > 0"
         ref="resolvedReveal"
         data-section="resolved"
-        class="section-spacing"
+        class="mb-12"
       >
         <h2 class="heading-2 mb-4">Resolved</h2>
-        <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-          <table class="w-full font-mono text-xs border-collapse">
+        <div class="overflow-x-auto">
+          <table data-plain class="w-full font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-zinc-300 dark:border-zinc-700">
                 <th
-                  class="text-center pb-2 pr-4 font-normal text-zinc-500"
+                  class="text-center pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
                 ></th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Conf
                 </th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Statement
                 </th>
-                <th class="text-left pb-2 font-normal text-zinc-500">
+                <th
+                  class="hidden sm:table-cell text-left pb-2 font-normal text-zinc-500"
+                >
                   Resolved
                 </th>
               </tr>
@@ -360,7 +376,7 @@ usePageSeo({
                 :key="prediction.id"
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
-                <td class="py-3 pr-4 align-top text-center">
+                <td class="py-3 pr-3 sm:pr-4 align-top text-center">
                   <span
                     v-if="prediction.status === 'correct'"
                     class="text-success"
@@ -375,7 +391,7 @@ usePageSeo({
                   </span>
                   <span v-else class="text-zinc-400">—</span>
                 </td>
-                <td class="py-3 pr-4 align-top tabular-nums">
+                <td class="py-3 pr-3 sm:pr-4 align-top tabular-nums">
                   <NuxtLink
                     :to="`/predictions/${prediction.slug}`"
                     class="text-lg font-bold hover:underline"
@@ -391,12 +407,17 @@ usePageSeo({
                   </NuxtLink>
                 </td>
                 <td
-                  class="py-3 pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
+                  class="py-3 pr-3 sm:pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
                 >
                   {{ prediction.statement }}
+                  <div
+                    class="sm:hidden font-mono text-2xs text-zinc-500 tabular-nums"
+                  >
+                    {{ formatResolvedDate(prediction.resolved_date) }}
+                  </div>
                 </td>
                 <td
-                  class="py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums"
+                  class="hidden sm:table-cell py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums"
                 >
                   {{ formatResolvedDate(prediction.resolved_date) }}
                 </td>
@@ -410,7 +431,7 @@ usePageSeo({
       <section
         v-if="transformedPredictions.length > 0"
         data-section="changelog"
-        class="section-spacing"
+        class="mb-12"
       >
         <h2 class="heading-2 mb-2">Changelog</h2>
         <p class="font-mono text-zinc-500 mb-4 text-xs">
@@ -424,7 +445,7 @@ usePageSeo({
       <section
         v-if="signedBuckets.length"
         data-section="calibration"
-        class="section-spacing font-mono text-xs"
+        class="mb-12 font-mono text-xs"
       >
         <h2 class="heading-2 mb-2">Calibration</h2>
         <p class="text-zinc-500 mb-4 text-xs">
@@ -524,7 +545,7 @@ usePageSeo({
           </div>
         </div>
 
-        <table class="w-full border-collapse">
+        <table data-plain class="w-full border-collapse">
           <thead>
             <tr
               class="border-b border-zinc-300 dark:border-zinc-700 text-zinc-500"

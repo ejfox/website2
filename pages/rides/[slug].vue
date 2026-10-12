@@ -88,25 +88,45 @@ const ELEV_H = 80
 const mapContainer = ref<HTMLElement | null>(null)
 const { width, height } = useElementSize(mapContainer)
 
+// The HUD sits over the top of the map. On a phone it eats a real slice of
+// the viewport, so the fit starts below it instead of tucking the route under.
+const hud = ref<HTMLElement | null>(null)
+const { height: hudH } = useElementSize(hud)
+const PHONE_MAX = 640
+
 const projection = computed(() => {
   const b = ride.value?.bounds
   if (!b || width.value === 0 || height.value === 0) return null
   const pad = Math.min(width.value, height.value) * 0.12
-  return geoMercator().fitExtent(
-    [
-      [pad, pad],
-      [width.value - pad, height.value - pad - ELEV_H],
+  const phone = width.value < PHONE_MAX
+  // HUD is top-4 (32px) + its own height; leave 16px under it
+  // (rounded to the 8px grid so a ticking clock can't jiggle the fit)
+  const hudBottom = Math.ceil((32 + hudH.value + 16) / 8) * 8
+  const top = phone ? Math.max(pad, hudBottom) : pad
+  const bottom = height.value - pad - ELEV_H
+  const box = {
+    type: 'LineString' as const,
+    coordinates: [
+      [b.minLon, b.minLat],
+      [b.minLon, b.maxLat],
+      [b.maxLon, b.maxLat],
+      [b.maxLon, b.minLat],
     ],
-    {
-      type: 'LineString',
-      coordinates: [
-        [b.minLon, b.minLat],
-        [b.minLon, b.maxLat],
-        [b.maxLon, b.maxLat],
-        [b.maxLon, b.minLat],
-      ],
-    }
+  }
+  const proj = geoMercator().fitExtent(
+    [
+      [pad, top],
+      [width.value - pad, Math.max(top + 1, bottom)],
+    ],
+    box
   )
+  if (!phone) return proj
+  // A width-bound route in a tall, narrow viewport gets centred, leaving a
+  // band of empty map between the HUD and the geography. On a phone, pin
+  // the route's top edge right under the HUD instead.
+  const [, y0] = proj([b.minLon, b.maxLat]) ?? [0, top]
+  const [tx, ty] = proj.translate()
+  return proj.translate([tx, ty - (y0 - top)])
 })
 
 const projected = computed(() => {
@@ -898,9 +918,13 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
 
           <!-- live readout: the instrument chip -->
           <div
-            class="absolute top-4 left-4 md:top-8 md:left-8 font-mono tabular-nums bg-white/80 dark:bg-black/80 backdrop-blur border border-zinc-200 dark:border-zinc-800 px-3 py-2"
+            ref="hud"
+            class="absolute top-4 left-4 right-8 md:right-auto md:top-8 md:left-8 font-mono tabular-nums bg-white/80 dark:bg-black/80 backdrop-blur border border-zinc-200 dark:border-zinc-800 px-2 md:px-3 py-2"
           >
-            <div class="flex items-baseline gap-x-4 text-2xs">
+            <!-- each reading stays on one line; readings wrap as units -->
+            <div
+              class="flex flex-wrap items-baseline gap-x-2 md:gap-x-4 gap-y-0.5 text-2xs whitespace-nowrap"
+            >
               <span>
                 <span class="text-zinc-900 dark:text-zinc-100">
                   {{ mi(progressDist) }}
@@ -926,7 +950,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               </span>
             </div>
             <div
-              class="mt-1.5 flex items-baseline gap-x-2 text-3xs text-zinc-400 dark:text-zinc-600"
+              class="mt-1.5 flex flex-wrap items-baseline gap-x-2 text-3xs text-zinc-400 dark:text-zinc-600 whitespace-nowrap"
             >
               <span class="uppercase tracking-widest">fuel</span>
               <span class="tracking-tight text-zinc-600 dark:text-zinc-400">
