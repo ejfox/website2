@@ -121,7 +121,7 @@ usePageSeo({
         >
           What each layer changes
         </h2>
-        <div class="grid md:grid-cols-2 gap-x-8 gap-y-8 max-w-5xl">
+        <div class="grid gap-y-10 max-w-4xl">
           <figure v-for="(layer, n) in others" :key="layer.name">
             <KeymapBoard :layers="km.layers" :active="n + 1" mode="diff" />
             <figcaption class="font-mono text-2xs text-zinc-500 tabular-nums">
