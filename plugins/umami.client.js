@@ -1,5 +1,9 @@
 export default defineNuxtPlugin(() => {
   if (!import.meta.client) return
+  // Umami only drops *headless* UAs. A headed Playwright/Puppeteer run looks
+  // like real Chrome — one QA crawl on 2026-10-11 logged 12k events (100× a
+  // normal day). Automation always sets navigator.webdriver, so skip it.
+  if (navigator.webdriver) return
 
   const UMAMI = 'https://umami.tools.ejfox.com'
   const WEBSITE_ID = '165590cb-c361-4ad8-9459-6c6390744c64'

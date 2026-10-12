@@ -17,12 +17,9 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const config = useRuntimeConfig()
-
   try {
-    // Use the API user credentials from environment
-    const username = config.UMAMI_USERNAME || process.env.UMAMI_USERNAME
-    const password = config.UMAMI_PASSWORD || process.env.UMAMI_PASSWORD
+    const username = serverEnv('UMAMI_USERNAME')
+    const password = serverEnv('UMAMI_PASSWORD')
 
     if (!username || !password) {
       throw createError({
