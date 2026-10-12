@@ -290,7 +290,9 @@ const sortedCategories = computed(() => {
         }"
       ></div>
     </div>
-    <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-3">
+    <div
+      class="flex flex-wrap justify-between gap-x-4 gap-y-1 text-zinc-500 mt-4 text-xs leading-4"
+    >
       <span>{{ uniqueActivitiesCount }} TRACKED ACTIVITIES</span>
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>

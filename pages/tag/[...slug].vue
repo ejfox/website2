@@ -85,7 +85,9 @@ useHead({
     <header class="mb-6">
       <h1 class="font-serif text-2xl">{{ tag }}</h1>
       <p class="font-mono text-xs text-zinc-500 mt-1">
-        {{ allTaggedPosts.length }} posts · {{ scraps.length }} scraps
+        {{ allTaggedPosts.length }}
+        {{ allTaggedPosts.length === 1 ? 'post' : 'posts' }} ·
+        {{ scraps.length }} {{ scraps.length === 1 ? 'scrap' : 'scraps' }}
       </p>
     </header>
 

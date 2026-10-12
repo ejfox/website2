@@ -338,6 +338,19 @@ export default defineEventHandler(async () => {
           )
         : 0
 
+    // Average accuracy over the same tests as averageWpm, so the "AVG WPM ·
+    // % ACC" pair describes one population. It was never computed, so the
+    // top tile read `averageAccuracy || 0` and showed "0 % ACC".
+    const accTests = allTests.filter((test) => getTestAccuracy(test) > 0)
+    const averageAccuracy =
+      accTests.length > 0
+        ? Math.round(
+            (accTests.reduce((sum, test) => sum + getTestAccuracy(test), 0) /
+              accTests.length) *
+              10
+          ) / 10
+        : 0
+
     const response = {
       typingStats: {
         bestWPM,
@@ -345,6 +358,7 @@ export default defineEventHandler(async () => {
         bestAccuracy: bestTest?.acc || 0,
         bestConsistency: bestTest?.consistency || 0,
         averageWpm,
+        averageAccuracy,
         recentTests,
         languageBreakdown: languageBreakdown.length
           ? languageBreakdown

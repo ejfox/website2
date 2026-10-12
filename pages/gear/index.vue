@@ -683,7 +683,14 @@ useHead(() => ({
           class="mb-4"
         />
 
-        <div class="relative overflow-x-auto">
+        <!-- phones can't fit all nine columns: say so, and fade the edge -->
+        <div
+          class="sm:hidden text-right font-mono text-4xs text-zinc-500 mb-0.5"
+          aria-hidden="true"
+        >
+          scroll →
+        </div>
+        <div class="relative overflow-x-auto gear-table-scroll">
           <table class="w-full text-4xs font-mono">
             <thead class="sticky top-0 bg-surface backdrop-blur-sm">
               <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
@@ -763,6 +770,20 @@ useHead(() => ({
 </template>
 
 <style>
+/* Scroll shadows (CSS only): the bg-surface covers ride along with the
+   content (attachment: local) and hide the tinted edges (attachment: scroll)
+   once you reach that end — so an edge only shows where more table hides. */
+.gear-table-scroll {
+  background:
+    linear-gradient(to right, var(--bg-surface) 30%, transparent) left center /
+      2rem 100% no-repeat local,
+    linear-gradient(to left, var(--bg-surface) 30%, transparent) right center /
+      2rem 100% no-repeat local,
+    linear-gradient(to right, rgb(113 113 122 / 0.35), transparent) left
+      center / 0.75rem 100% no-repeat scroll,
+    linear-gradient(to left, rgb(113 113 122 / 0.35), transparent) right
+      center / 0.75rem 100% no-repeat scroll;
+}
 .flex-between {
   @apply flex items-center justify-between;
 }

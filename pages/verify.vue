@@ -146,12 +146,18 @@ usePageSeo({
               :key="acct.service"
               class="border-t border-zinc-200 dark:border-zinc-800 align-top"
             >
-              <td class="py-1 pr-4 text-zinc-500 w-24">{{ acct.service }}</td>
-              <td class="py-1 break-all">
-                <a :href="acct.href" :rel="acct.rel" class="underline">
+              <td class="py-1 pr-2 text-zinc-500 w-px whitespace-nowrap">
+                {{ acct.service }}
+              </td>
+              <td class="py-1">
+                <a
+                  :href="acct.href"
+                  :rel="acct.rel"
+                  class="underline wrap-anywhere"
+                >
                   {{ acct.label }}
                 </a>
-                <div v-if="acct.note" class="text-zinc-500">
+                <div v-if="acct.note" class="text-zinc-500 wrap-anywhere">
                   {{ acct.note }}
                 </div>
               </td>
@@ -169,8 +175,8 @@ usePageSeo({
         <ul
           class="list-none space-y-1 font-mono text-xs text-zinc-600 dark:text-zinc-400"
         >
-          <li v-for="proof in PROOFS" :key="proof.href" class="break-all">
-            <a :href="proof.href" class="underline">{{ proof.label }}</a>
+          <li v-for="proof in PROOFS" :key="proof.href">
+            <a :href="proof.href" class="underline wrap-anywhere">{{ proof.label }}</a>
             · {{ proof.note }}
           </li>
         </ul>
@@ -185,3 +191,11 @@ usePageSeo({
     </div>
   </div>
 </template>
+
+<style scoped>
+/* URLs, handles and DIDs have no spaces, so let only them break anywhere —
+   normal words in notes keep whole-word wrapping (break-all split "points") */
+.wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+</style>

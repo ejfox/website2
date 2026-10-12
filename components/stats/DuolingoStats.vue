@@ -95,7 +95,9 @@ const getLanguageFlag = (language: string): string => {
             {{ duolingo.currentCourse.title }}
           </div>
           <div class="text-xs text-zinc-500">
-            Level {{ duolingo.currentCourse.level }} &middot;
+            <template v-if="duolingo.currentCourse.level">
+              Level {{ duolingo.currentCourse.level }} &middot;
+            </template>
             {{ duolingo.currentCourse.xp.toLocaleString() }} XP
           </div>
         </div>

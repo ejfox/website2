@@ -165,7 +165,8 @@ export default defineEventHandler(async (event) => {
           .filter((s) => s.title || s.url) // skip scraps with no title and no URL
           .map((s) => {
             // Clean AI-generated title prefixes
-            let title = s.title || ''
+            // Pinboard's literal "[no title]" counts as missing
+            let title = s.title === '[no title]' ? '' : s.title || ''
             const aiPrefixes = [
               'Main Thesis:',
               'Breaking News:',

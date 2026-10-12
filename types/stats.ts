@@ -229,6 +229,7 @@ export interface StatsResponse {
       bestAccuracy: number
       bestConsistency: number
       averageWpm: number
+      averageAccuracy?: number
       recentTests: Array<{
         timestamp: string
         wpm: number
@@ -569,13 +570,13 @@ export interface StatsResponse {
     courses: Array<{
       title: string
       xp: number
-      level: number
-      crowns: number
+      level: number | null
+      crowns: number | null
     }>
     currentCourse?: {
       title: string
       xp: number
-      level: number
+      level: number | null
     }
     creationDate: number
     lastUpdated: string

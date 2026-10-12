@@ -393,6 +393,7 @@ onMounted(async () => {
           <span class="text-zinc-500 dark:text-zinc-400">
             {{ availabilityLine.text }}
           </span>
+          {{ ' ' }}
           <NuxtLink
             to="/calendar"
             data-umami-event="consulting-book"

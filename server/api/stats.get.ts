@@ -226,6 +226,12 @@ function adaptGitHubStats(githubData: GitHubData | null) {
   }
 }
 
+// GitHub's GraphQL fetch fails or times out now and then. With swr caching,
+// one failed refresh used to drop the whole GitHub section (and the top tile
+// and the "made N commits" clause) until the next refresh. Keep the last good
+// adapted result for this process and serve it instead of nothing.
+let lastGoodGithub: ReturnType<typeof adaptGitHubStats>
+
 // Helper function to safely get value from Promise result
 function getValue<T>(result: PromiseSettledResult<T>): T | null {
   return result.status === 'fulfilled' ? result.value : null
@@ -338,9 +344,11 @@ export default defineCachedEventHandler(
       ])
 
       // Build adapted data
-      const githubData = getValue(githubResult)
+      const freshGithub = getValue(githubResult)
         ? adaptGitHubStats(getValue(githubResult))
         : undefined
+      if (freshGithub) lastGoodGithub = freshGithub
+      const githubData = freshGithub || lastGoodGithub
       const chessData = getValue(chessResult)
         ? adaptChessStats(getValue(chessResult))
         : undefined

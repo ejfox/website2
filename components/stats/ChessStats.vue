@@ -10,7 +10,11 @@ import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import { formatNumber } from '~/utils/numberFormat'
 import { formatGameTypeMinimal } from '~/utils/date'
-import { formatRatingDiff, getRatingDiffClass } from '~/utils/chess'
+import {
+  formatRatingDiff,
+  getRatingDiffClass,
+  primaryTimeControl,
+} from '~/utils/chess'
 
 interface ChessGame {
   id?: string
@@ -79,26 +83,27 @@ const getRating = (type: keyof NewFormatRatings) => {
   return props.stats.currentRating as number
 }
 
-// Get highest active rating
+// The section leads with ONE time control (same one as the top tile), and
+// its peak is that control's peak — not max-of-current next to
+// max-of-best across different controls (which read "391 · 370 PEAK").
+const primaryControl = computed(() => primaryTimeControl(props.stats))
+
 const highestActiveRating = computed(() => {
   if (!props.stats) return 0
-
   if (isNewFormat.value) {
-    const ratings = props.stats.currentRating as NewFormatRatings
-    return Math.max(ratings.bullet || 0, ratings.blitz || 0, ratings.rapid || 0)
+    return primaryControl.value ? getRating(primaryControl.value) : 0
   }
-
   return props.stats.currentRating as number
 })
 
 const bestRating = computed(() => {
   if (!props.stats) return 0
-
   if (isNewFormat.value) {
-    const ratings = props.stats.bestRating as NewFormatRatings
-    return Math.max(ratings.bullet || 0, ratings.blitz || 0, ratings.rapid || 0)
+    const control = primaryControl.value
+    if (!control) return 0
+    const best = (props.stats.bestRating as NewFormatRatings)[control] || 0
+    return Math.max(best, getRating(control))
   }
-
   return props.stats.bestRating as number
 })
 
@@ -230,7 +235,7 @@ const performanceMetrics = computed(() => [
         </HandDrawnMark>
       </div>
       <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
-        CHESS RATING
+        {{ primaryControl ? `${primaryControl} rating` : 'CHESS RATING' }}
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber
@@ -244,7 +249,7 @@ const performanceMetrics = computed(() => [
           format="commas"
           priority="tertiary"
         />
-        % WIN RATE
+        % WIN RATE (ALL GAMES)
       </div>
     </div>
 

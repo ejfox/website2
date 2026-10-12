@@ -40,7 +40,7 @@ function scrollToSection(slug: string) {
             :class="[
               'flex items-baseline text-3xs font-mono',
               'transition-all duration-200',
-              'no-underline py-1 gap-2',
+              'no-underline py-1 gap-1',
               isActive(child.slug)
                 ? 'text-zinc-900 dark:text-zinc-100'
                 : [
@@ -52,13 +52,15 @@ function scrollToSection(slug: string) {
           >
             <span
               :class="[
-                'tabular-nums w-4 text-right flex-shrink-0',
+                // natural width: the spacing scale is 8px-based, so w-4 was 32px
+                // and crushed the heading text to ~70px in a 200px sidebar
+                'tabular-nums flex-shrink-0',
                 isActive(child.slug) ? 'opacity-70' : 'opacity-30',
               ]"
             >
               {{ child.number || '' }}
             </span>
-            <span class="leading-snug">
+            <span class="leading-snug min-w-0">
               {{ child.text }}
             </span>
           </a>

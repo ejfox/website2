@@ -4,7 +4,11 @@
   @props stats: Object - GitHub statistics from API
 -->
 <script setup lang="ts">
-// Nuxt 4 auto-imports components!
+// Explicit imports: these auto-register as UiAnimatedNumber /
+// StatsActivityCalendar, so the bare tags rendered as unknown empty elements
+// (the "GITHUB COMMITS" / "TOTAL REPOS" labels sat under nothing).
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import ActivityCalendar from './ActivityCalendar.vue'
 import { format } from 'date-fns/format'
 import { formatDistance } from 'date-fns'
 
@@ -199,7 +203,7 @@ function formatRelativeTime(dateStr: string) {
 <template>
   <div
     v-if="stats"
-    class="grid gap-0.5 auto-fit-columns font-mono overflow-hidden"
+    class="grid gap-x-4 gap-y-6 auto-fit-columns font-mono overflow-hidden"
   >
     <!-- Primary Stats -->
     <div class="col-span-full">
@@ -245,7 +249,7 @@ function formatRelativeTime(dateStr: string) {
     <!-- Activity Calendar -->
     <div v-if="hasCommits" class="col-span-full">
       <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
-      <div class="text-zinc-500 mb-2 text-xs leading-[10px]">
+      <div class="text-zinc-500 mb-2 text-xs leading-4">
         PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS
       </div>
       <ActivityCalendar

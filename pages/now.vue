@@ -113,20 +113,23 @@ usePageSeo({
   text-transform: none;
 }
 
-/* Rule 2: one line per thing. age | where | what, never wrapping. */
+/* Rule 2: one line per thing. age | where | what. On a phone the value
+   column is too narrow for that ("14 repos tou…"), so there it wraps;
+   from sm up it stays a single truncated line. */
 .row {
-  @apply grid gap-x-3 py-1 whitespace-nowrap;
-  grid-template-columns: 2.5rem 6.5rem minmax(0, 1fr);
+  @apply grid gap-x-1 py-1;
+  grid-template-columns: 2.5rem 5.5rem minmax(0, 1fr);
 }
 
 @media (min-width: 640px) {
   .row {
+    @apply gap-x-3 whitespace-nowrap;
     grid-template-columns: 3rem 8.5rem minmax(0, 1fr);
   }
 }
 
 .age {
-  @apply text-right text-zinc-500 tabular-nums;
+  @apply text-right text-zinc-500 tabular-nums whitespace-nowrap;
 }
 
 .where {
@@ -134,7 +137,13 @@ usePageSeo({
 }
 
 .what {
-  @apply truncate;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  .what {
+    @apply truncate;
+  }
 }
 
 .fresh .what {
