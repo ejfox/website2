@@ -89,6 +89,7 @@ const buildTitle = computed(() => {
           email
         </a>
         <NuxtLink to="/tips" :class="navLinkClasses">tips</NuxtLink>
+        <NuxtLink to="/verify" :class="navLinkClasses">verify</NuxtLink>
       </nav>
 
       <!-- PGP + Build info -->

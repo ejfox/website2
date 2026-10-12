@@ -135,12 +135,12 @@ const linkClasses =
         <div
           class="mt-auto pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400"
         >
-          <a
-            href="/pgp.txt"
+          <NuxtLink
+            to="/verify"
             class="hover:text-zinc-700 dark:hover:text-zinc-200"
           >
             PGP: E207 8E65
-          </a>
+          </NuxtLink>
         </div>
       </nav>
 
