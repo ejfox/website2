@@ -470,6 +470,16 @@ export const apiCatalog: ApiRoute[] = [
     deps: 'calls manifest/stats/github/photos/… routes',
     health: 'ok',
   },
+  {
+    method: 'GET',
+    path: '/api/apps',
+    group: 'Content & blog',
+    summary: "EJ's apps with live App Store version and icon",
+    consumer: 'frontend',
+    consumedBy: 'pages/apps, pages/projects/[slug]',
+    deps: 'data/apps.json + Apple iTunes lookup API',
+    health: 'ok',
+  },
 
   // ── Stats & metrics ────────────────────────────────────────────────────────
   {

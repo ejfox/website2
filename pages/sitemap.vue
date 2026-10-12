@@ -149,6 +149,11 @@ usePageSeo({
               description="Visual inspiration collection"
             />
             <SitemapLink
+              to="/apps"
+              title="Apps"
+              description="Small apps for iPhone, Apple Watch and Android"
+            />
+            <SitemapLink
               to="/blog/robots"
               title="Robots"
               description="AI experiments and automation projects"
