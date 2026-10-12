@@ -7,7 +7,7 @@
     "email": "ejfox@ejfox.com",
     "phone": "(260) 673-5369",
     "url": "https://ejfox.com",
-    "summary": "Design engineer and creative technologist. I do my best work under deadline pressure. I turn complicated information into interactive graphics people can actually read, and I have fun doing it. The work mixes journalistic curiosity with an addiction to trying new things. That has included NBC’s election-night graphics and experimental interfaces for embeddings. I want to make things no one has seen before, with smart, kind people.",
+    "summary": "Design engineer and creative technologist who ships under pressure. I transform complex information into clear interactive visuals and have fun doing it. My work combines journalistic curiosity with an addiction to trying new things—from NBC’s election graphics to experimental embedding interfaces. I want to make things no one has seen before with smart, kind people.",
     "location": {
       "city": "Beacon",
       "region": "New York",
@@ -40,8 +40,7 @@
       "summary": "The Lenfest Institute’s AI Collaborative and Fellowship Program, hosted at ASU and supported by OpenAI and Microsoft",
       "highlights": [
         "I built a tool that uses AI to lay out the ads and stories in small local print newspapers",
-        "I gave an Ignite talk about it at ASU’s National Journalism + AI Accelerator in January 2026",
-        "On demo day I showed it to OpenAI, Microsoft, ProPublica and the Boston Globe"
+        "I gave an Ignite talk about it at ASU’s National Journalism + AI Accelerator in January 2026"
       ]
     },
     {
