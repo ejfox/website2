@@ -10,9 +10,10 @@ const props = defineProps<{
   predictions: BeliefPrediction[]
 }>()
 
-// Geometry. Fixed width: on phones the wrapper scrolls, never the page.
-const W = 900
-const L = 310 // label column
+// Geometry. Fixed width to fit the content column; on phones the wrapper
+// scrolls, never the page.
+const W = 760
+const L = 270 // label column
 const R = 24
 const T = 34
 const ROW = 26

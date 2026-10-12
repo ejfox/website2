@@ -61,7 +61,7 @@ describe('beliefShortLabel', () => {
   it('cuts long statements at a word boundary', () => {
     const l = beliefShortLabel(MAMDANI.statement)
     expect(l.endsWith('…')).toBe(true)
-    expect(l.length).toBeLessThanOrEqual(39)
+    expect(l.length).toBeLessThanOrEqual(33)
     expect(MAMDANI.statement.startsWith(l.slice(0, -1))).toBe(true)
   })
 

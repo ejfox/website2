@@ -52,7 +52,7 @@ export const beliefSignedConfidence = (p: BeliefPrediction): number => {
 }
 
 // Cut at a word boundary; the full statement rides along in a <title>
-export const beliefShortLabel = (s: string, max = 38): string => {
+export const beliefShortLabel = (s: string, max = 32): string => {
   const flat = (s || '').replace(/\s+/g, ' ').trim()
   if (flat.length <= max) return flat
   const cut = flat.slice(0, max)

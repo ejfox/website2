@@ -387,7 +387,7 @@ usePageSeo({
         <h2 class="heading-2 mb-2">Changelog</h2>
         <p class="font-mono text-zinc-500 mb-4 text-xs">
           line = signed → deadline · number = confidence when signed · ◆ =
-          logged update · ✓ / ✗ = resolved · dashed = today
+          update · ✓ ✗ = resolved · dashed = today
         </p>
         <PredictionsBeliefTimeline :predictions="transformedPredictions" />
       </section>
