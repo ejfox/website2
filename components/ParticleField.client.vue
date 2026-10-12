@@ -13,7 +13,12 @@
  * sends one coherent upward gust sweeping top→bottom. Velocity decays
  * exponentially, so everything glides and settles where it lands.
  *
- * Cheap by construction: Canvas 2D, ~60 points, only pixels that changed are
+ * Placement is blue noise (best-candidate sampling) so the field reads as
+ * evenly scattered rather than clumped, and brightness is heavy-tailed: most
+ * stars are barely there, a rare few are bright, and the brightest behind the
+ * page get a 1px cross glint. Resizing keeps every star where it was.
+ *
+ * Cheap by construction: Canvas 2D, ~30 points, only pixels that changed are
  * redrawn (nothing at rest), paused while the tab is hidden, one static
  * frame under prefers-reduced-motion.
  */
@@ -37,6 +42,8 @@ const PULL_FORCE = 0.28 // peak attraction, px/frame² at z=1
 const PULL_MS = 520 // how long the well holds before releasing
 const GUST_FORCE = 6
 const GUST_SWEEP_MS = 420 // time for the route-change gust to cross the screen
+const CANDIDATES = 12 // best-candidate samples per star (higher = more even)
+const STARS_PER_GLINT = 20 // the brightest 1-in-N behind the page get a cross
 
 const under = ref(null)
 const over = ref(null)
@@ -45,7 +52,7 @@ const isDark = usePreferredDark()
 const reducedMotion = usePreferredReducedMotion()
 const visibility = useDocumentVisibility()
 
-let particles = []
+const particles = []
 let ctxUnder = null
 let ctxOver = null
 let lastScrollY = 0
@@ -54,24 +61,77 @@ let well = null // { x, y, start } of the latest mousedown
 
 const rand = (a, b) => a + Math.random() * (b - a)
 
-function spawn(w, h) {
-  const count = Math.round((w * h) / AREA_PER_PARTICLE)
-  particles = Array.from({ length: count }, () => {
-    // Bias toward far: most of the field sits behind the page
-    const z = Math.pow(Math.random(), 1.6)
-    return {
-      x: rand(0, w),
-      y: rand(0, h),
-      z,
-      vx: 0,
-      vy: 0,
-      gustAt: 0,
-      gx: 0,
-      gy: 0,
-      px: -1, // last drawn pixel, for dirty clears
-      py: -1,
+// Mitchell's best-candidate: of a few random spots, take the one farthest
+// from every existing star. Cheap blue noise — even, but still organic.
+function place(w, h) {
+  let best = null
+  let bestDist = -1
+  for (let i = 0; i < CANDIDATES; i++) {
+    const x = rand(0, w)
+    const y = rand(0, h)
+    let nearest = Infinity
+    for (const p of particles) {
+      const d = (p.x - x) ** 2 + (p.y - y) ** 2
+      if (d < nearest) nearest = d
     }
-  })
+    if (nearest > bestDist) {
+      bestDist = nearest
+      best = { x, y }
+    }
+  }
+  return best
+}
+
+function makeParticle(w, h) {
+  const { x, y } = place(w, h)
+  // Bias toward far: most of the field sits behind the page
+  const z = Math.pow(Math.random(), 1.6)
+  // Intrinsic brightness, heavy-tailed: most faint, a rare few bright
+  const lum = Math.pow(Math.random(), 3)
+  return {
+    x,
+    y,
+    z,
+    lum,
+    glint: false, // assigned by rank in fit()
+    vx: 0,
+    vy: 0,
+    gustAt: 0,
+    gx: 0,
+    gy: 0,
+    px: -1, // last drawn pixel, for dirty clears
+    py: -1,
+  }
+}
+
+// Keep the field across resizes: stretch existing stars to the new viewport
+// and top up / trim to the new count. Respawning made the whole sky jump
+// whenever a mobile toolbar collapsed.
+let fieldW = 0
+let fieldH = 0
+function fit(w, h) {
+  if (fieldW && fieldH) {
+    const sx = w / fieldW
+    const sy = h / fieldH
+    for (const p of particles) {
+      p.x *= sx
+      p.y *= sy
+      p.px = -1 // canvases were reset by the resize; nothing to clear
+    }
+  }
+  fieldW = w
+  fieldH = h
+  const count = Math.round((w * h) / AREA_PER_PARTICLE)
+  if (particles.length > count) particles.length = count
+  while (particles.length < count) particles.push(makeParticle(w, h))
+
+  // Crosses go to the brightest few behind the page, by rank, so every
+  // screen has one or two — a luminance cutoff left some screens with none
+  const behind = particles.filter((p) => p.z <= PAGE_DEPTH)
+  const glints = Math.max(1, Math.round(particles.length / STARS_PER_GLINT))
+  behind.sort((a, b) => b.lum - a.lum)
+  for (const p of particles) p.glint = false
+  for (const p of behind.slice(0, glints)) p.glint = true
 }
 
 // Draw in raw device pixels, never through a dpr transform: at a fractional
@@ -89,7 +149,7 @@ function resize() {
   dpr = Math.min(window.devicePixelRatio || 1, 2)
   ctxUnder = setupCanvas(under.value)
   ctxOver = setupCanvas(over.value)
-  spawn(width.value, height.value)
+  fit(width.value, height.value)
   draw(true)
 }
 
@@ -142,18 +202,39 @@ function draw(force = false) {
   const rgb = isDark.value ? '244,244,245' : '24,24,27'
   const size = Math.max(1, Math.round(PIXEL * dpr)) // whole device pixels
 
+  // Two passes: clear every moved star, then draw. A glint's 3×3 clear can
+  // overlap a neighbour drawn earlier in the same frame — clearing first
+  // means nothing gets erased by someone else's dirty rect.
+  const moved = []
   for (const p of particles) {
     const px = Math.round(p.x * dpr)
     const py = Math.round(p.y * dpr)
     if (!force && px === p.px && py === p.py) continue // still: no redraw
     const ctx = p.z > PAGE_DEPTH ? ctxOver : ctxUnder
-    if (p.px >= 0) ctx.clearRect(p.px, p.py, size, size)
-    // Near = brighter
-    const alpha = p.z > PAGE_DEPTH ? 0.7 : 0.12 + p.z * 0.5
-    ctx.fillStyle = `rgba(${rgb},${alpha})`
-    ctx.fillRect(px, py, size, size)
+    if (p.px >= 0) {
+      if (p.glint) ctx.clearRect(p.px - size, p.py - size, size * 3, size * 3)
+      else ctx.clearRect(p.px, p.py, size, size)
+    }
     p.px = px
     p.py = py
+    moved.push(p)
+  }
+  for (const p of moved) {
+    const over = p.z > PAGE_DEPTH
+    const ctx = over ? ctxOver : ctxUnder
+    // Over the page stays a quiet constant so it never fights the text;
+    // behind it, brightness is the star's own luminance, nudged by depth
+    const alpha = over ? 0.7 : 0.06 + p.lum * 0.74 + p.z * 0.12
+    ctx.fillStyle = `rgba(${rgb},${alpha})`
+    ctx.fillRect(p.px, p.py, size, size)
+    if (p.glint) {
+      // Pixel-art twinkle cross: four arms at a third of the core
+      ctx.fillStyle = `rgba(${rgb},${alpha * 0.33})`
+      ctx.fillRect(p.px - size, p.py, size, size)
+      ctx.fillRect(p.px + size, p.py, size, size)
+      ctx.fillRect(p.px, p.py - size, size, size)
+      ctx.fillRect(p.px, p.py + size, size, size)
+    }
   }
 }
 
