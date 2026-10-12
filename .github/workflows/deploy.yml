@@ -248,6 +248,25 @@ jobs:
 
           ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"
 
+    # Cloudflare caches HTML per origin s-maxage. Every deploy replaces the
+    # hashed /_nuxt chunks, so cached HTML from the old build would point at
+    # files that no longer exist: purge the zone once the new build is live.
+    # No-op (with a notice) until the token secret exists.
+    - name: Purge Cloudflare cache
+      env:
+        CF_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+        CF_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      run: |
+        if [ -z "$CF_TOKEN" ] || [ -z "$CF_ZONE" ]; then
+          echo "::notice::CLOUDFLARE_PURGE_TOKEN / CLOUDFLARE_ZONE_ID not set, skipping purge"
+          exit 0
+        fi
+        RESULT=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
+          -H "Authorization: Bearer ${CF_TOKEN}" -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}' | grep -o '"success":[a-z]*' || true)
+        echo "purge: ${RESULT:-no response}"
+        [ "$RESULT" = '"success":true' ] || { echo "::warning::Cloudflare purge failed"; exit 1; }
+
     # The VPS step already proved localhost serves the new commit (or rolled
     # back and failed). This proves the public path — tunnel + Cloudflare —
     # serves it too, so a green run means ejfox.com itself is updated.
