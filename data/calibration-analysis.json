@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-12T16:41:34.483Z",
+  "generated_at": "2026-10-12T16:49:03.373Z",
   "summary": {
     "total_predictions": 15,
-    "resolved": 4,
-    "pending": 11,
-    "correct": 3,
+    "resolved": 5,
+    "pending": 10,
+    "correct": 4,
     "incorrect": 1,
-    "accuracy": 75
+    "accuracy": 80
   },
   "brier": {
-    "as_signed": 0.313,
-    "as_updated": 0.182
+    "as_signed": 0.263,
+    "as_updated": 0.158
   },
   "calibration_as_signed": [
     {
@@ -47,8 +47,8 @@
       "min": 70,
       "max": 79,
       "label": "70-79%",
-      "count": 1,
-      "correct": 1,
+      "count": 2,
+      "correct": 2,
       "accuracy": 100,
       "expected": 75,
       "delta": 26
@@ -79,8 +79,8 @@
       "min": 70,
       "max": 79,
       "label": "70-79%",
-      "count": 1,
-      "correct": 1,
+      "count": 2,
+      "correct": 2,
       "accuracy": 100,
       "expected": 75,
       "delta": 26
@@ -96,7 +96,7 @@
       "delta": 16
     }
   ],
-  "brier_score": 0.182,
+  "brier_score": 0.158,
   "calibration": [
     {
       "min": 50,
@@ -122,8 +122,8 @@
       "min": 70,
       "max": 79,
       "label": "70-79%",
-      "count": 1,
-      "correct": 1,
+      "count": 2,
+      "correct": 2,
       "accuracy": 100,
       "expected": 75,
       "delta": 26
@@ -202,6 +202,30 @@
     },
     {
       "category": "markets",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "osint",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "journalism",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "legal",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "accountability",
       "total": 1,
       "correct": 1,
       "accuracy": 100
