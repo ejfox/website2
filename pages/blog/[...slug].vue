@@ -9,6 +9,7 @@ import Webmentions from '~/components/blog/Webmentions.vue'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 import { readingStats } from '~/utils/readingStats'
 import { atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables
@@ -305,7 +306,20 @@ usePageSeo({
   ),
 })
 
+// Markdown copy for AI tools (server/middleware/markdown-twin.ts). Advertised
+// only when the .md would actually serve: same predicates as its gate.
+const markdownUrl = computed(() =>
+  post.value?.html &&
+  !isHiddenFromListings(post.value) &&
+  !isScheduled(post.value)
+    ? `https://ejfox.com/blog/${route.params.slug.join('/')}.md`
+    : null
+)
+
 useHead(() => ({
+  link: markdownUrl.value
+    ? [{ rel: 'alternate', type: 'text/markdown', href: markdownUrl.value }]
+    : [],
   script: [
     {
       type: 'application/ld+json',
