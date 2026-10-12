@@ -7,8 +7,10 @@ const isDev = process.env.NODE_ENV !== 'production'
 // Shared Cache-Control values (referenced in nitro.routeRules below)
 // max-age=0: browsers revalidate (cheap 304s) instead of holding a page for
 // an hour — an unpublished/edited post used to linger in browser caches.
-// Cloudflare doesn't cache HTML here (cf-cache-status: DYNAMIC), so s-maxage
-// is only a hint for any future edge caching.
+// Cloudflare honours s-maxage once the "respect origin" cache rule is on; the
+// deploy workflow purges the zone after each release so cached HTML never
+// points at deleted /_nuxt chunks. Errors are forced to no-store in
+// server/plugins/no-cache-errors.ts.
 const CACHE_PRERENDER =
   'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400'
 const CACHE_DYNAMIC =
@@ -340,9 +342,19 @@ export default defineNuxtConfig({
       // (The legacy /blog/williams-the%20dead%20emcee%20scrolls link is handled
       // in server/middleware/blog-reading-redirect.ts — its encoding varies.)
       // Bookmarklet setup page: a personal tool behind a password, not content.
-      '/bookmarklet': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // The popup's query string carries page text and the auth passphrase:
+      // never let an edge cache key on (or store) those URLs.
+      '/bookmarklet': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
       '/bookmarklet-popup': {
-        headers: { 'X-Robots-Tag': 'noindex, nofollow' },
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
       },
       // Friends & Family booking (/ff) — hidden link, never index/follow.
       // Header covers crawlers that ignore the in-page meta tag and the
