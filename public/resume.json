@@ -133,7 +133,7 @@
       "name": "Decision Desk HQ",
       "startDate": "2025",
       "endDate": "2026",
-      "description": "I work on design and engineering for the tools broadcasters use to show election results"
+      "description": "I helped design and build the tools broadcasters use to show election results"
     },
     {
       "name": "Global Energy Ownership Tracker",
@@ -141,7 +141,7 @@
       "startDate": "2025",
       "endDate": "2026",
       "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker/",
-      "description": "An explorer of who owns the world's energy assets, with ownership trees, embeddable cards and a screener"
+      "description": "I helped build an explorer of who owns the world's energy assets, with ownership trees, embeddable cards and a screener"
     },
     {
       "name": "Paramilitary Leaks",
@@ -181,7 +181,7 @@
       "entity": "Washington Post Opinions",
       "startDate": "2019",
       "endDate": "2020",
-      "description": "I did engineering on an interactive simulator built on David Byler’s election model"
+      "description": "I helped build an election simulator on top of David Byler’s model"
     },
     {
       "name": "Dark-money map",
