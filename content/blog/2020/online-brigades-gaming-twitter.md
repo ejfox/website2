@@ -19,7 +19,7 @@ Twitter doesn’t detail publicly the mechanisms used to decide which tweets and
 
 Recently the Twitter account for the magazine Jewish Worker [@JewishWorker](https://twitter.com/jewishworker) was suspended from Twitter for [“posting private information”](https://twitter.com/selfagency_llc/status/1195481914007805952) after a series of tweets about a journalism project that revealed the identities of alleged white supremacists.
 
-Another victim of targeted mass reporting is the journalist Barrett Brown who was [repeatedly banned from Twitter](https://www.dailydot.com/layer8/barrett-brown-twitter-suspension/) after being targeted by a group of far-right trolls known to organize and mass-report their online enemies, and who publicly celebrated their success in gaming Twitter’s moderation systems and getting Brown banned.
+Another victim of targeted mass reporting is the journalist Barrett Brown who was [repeatedly banned from Twitter](https://web.archive.org/web/20191206202454/https://www.dailydot.com/layer8/barrett-brown-twitter-suspension/) after being targeted by a group of far-right trolls known to organize and mass-report their online enemies, and who publicly celebrated their success in gaming Twitter’s moderation systems and getting Brown banned.
 
 Telegram groups, like the [“Mass Report and Retweet thread”](https://t.me/s/RTandReport?before=248) previously reported in March by [the Daily Beast](https://www.thedailybeast.com/proud-boys-cite-twitter-ceo-jack-dorsey-to-attack-antifa) continues to be filled with one-way blasts of Twitter posts, accompanied by which option should be selected when reporting the tweet: most often “report as abusive”, or “personal info”.
 

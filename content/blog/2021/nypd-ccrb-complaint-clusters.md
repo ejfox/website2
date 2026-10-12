@@ -47,7 +47,7 @@ I am documenting my analysis in detail for a few reasons:
 
 You may have seen network analysis like this before.
 
-[Jacob Silver used it to look at the spread of anti-vax material](https://disinformationindex.org/2021/03/anti-vaccine-networks-thrive-on-instagram-despite-recent-policy-shifts/).
+[Jacob Silver used it to look at the spread of anti-vax material](https://web.archive.org/web/20220128223013/https://disinformationindex.org/2021/03/anti-vaccine-networks-thrive-on-instagram-despite-recent-policy-shifts/).
 
 [Adi Cohen](https://twitter.com/adico11) has pioneered a method of [combining Gephi with CrowdTangle](https://help.crowdtangle.com/en/articles/4495952-network-mapping-with-gephi-and-crowdtangle) to analyze the network of groups and pages sharing links.
 
