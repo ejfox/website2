@@ -52,9 +52,7 @@ const chessWinRate = computed(() => {
 })
 
 const typingAccuracy = computed(() =>
-  Math.round(
-    (props.stats.monkeyType?.typingStats as any)?.averageAccuracy || 0
-  )
+  Math.round((props.stats.monkeyType?.typingStats as any)?.averageAccuracy || 0)
 )
 
 const averageWordsPerPost = computed(() => {

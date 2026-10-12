@@ -93,7 +93,9 @@ useHead({
 </script>
 
 <template>
-  <div class="max-w-screen-xl mx-auto px-4 md:px-8 pt-8 pb-8 font-mono text-xs space-y-2">
+  <div
+    class="max-w-screen-xl mx-auto px-4 md:px-8 pt-8 pb-8 font-mono text-xs space-y-2"
+  >
     <!-- Header -->
     <div>
       <div class="font-bold tracking-wider uppercase">Scraps</div>
@@ -220,10 +222,7 @@ useHead({
           </div>
 
           <!-- Row 4: Confidence scores (xl+ only) -->
-          <div
-            v-if="scrap.extraction_confidence"
-            class="hidden xl:block"
-          >
+          <div v-if="scrap.extraction_confidence" class="hidden xl:block">
             Conf:
             <span v-if="scrap.extraction_confidence.tags">
               tags {{ Math.round(scrap.extraction_confidence.tags * 100) }}%
@@ -235,10 +234,7 @@ useHead({
           </div>
 
           <!-- Row 5: Financial data (xl+ only) -->
-          <div
-            v-if="scrap.financial_analysis"
-            class="hidden xl:block"
-          >
+          <div v-if="scrap.financial_analysis" class="hidden xl:block">
             financial data present
           </div>
         </div>

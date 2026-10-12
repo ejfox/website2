@@ -176,7 +176,9 @@ usePageSeo({
           class="list-none space-y-1 font-mono text-xs text-zinc-600 dark:text-zinc-400"
         >
           <li v-for="proof in PROOFS" :key="proof.href">
-            <a :href="proof.href" class="underline wrap-anywhere">{{ proof.label }}</a>
+            <a :href="proof.href" class="underline wrap-anywhere">{{
+              proof.label
+            }}</a>
             · {{ proof.note }}
           </li>
         </ul>
