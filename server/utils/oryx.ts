@@ -126,6 +126,11 @@ const GLYPHS: Record<string, string> = {
   MS_BTN2: 'rclk',
   MS_WH_UP: 'wh↑',
   MS_WH_DOWN: 'wh↓',
+  CW_TOGG: 'caps',
+  CAPS_WORD: 'caps',
+  QK_LLCK: 'lock',
+  QK_BOOT: 'boot',
+  RESET: 'boot',
 }
 
 // One symbol per modifier, in the order macOS menus print them
@@ -142,9 +147,19 @@ function code(a?: OryxAction | null) {
   return (a?.code || '').replace(/^KC_/, '')
 }
 
+// Oryx sends an empty macro object ({ keys: [] }) on plain keys
+function isMacro(a?: OryxAction | null) {
+  const keys = (a?.macro as { keys?: unknown[] } | null | undefined)?.keys
+  return Array.isArray(keys) && keys.length > 0
+}
+
+function isAction(a?: OryxAction | null) {
+  return !!a && (!!a.code || typeof a.layer === 'number' || isMacro(a))
+}
+
 export function glyph(a?: OryxAction | null): string | undefined {
   if (!a) return
-  if (a.macro) return 'macro'
+  if (isMacro(a)) return 'macro'
   const c = code(a)
   if (typeof a.layer === 'number' && LAYER_OPS.has(c)) return
   let g: string
@@ -166,8 +181,11 @@ function layerRef(a?: OryxAction | null) {
 
 export function normalizeKey(k: OryxKey | null): KeymapKey | null {
   if (!k) return null
+  // A key with nothing assigned compiles to KC_TRANSPARENT, not KC_NO
+  if (!isAction(k.tap) && !isAction(k.hold) && !isAction(k.doubleTap))
+    return null
   const tap = code(k.tap)
-  if (tap === 'TRANSPARENT' && !k.tap?.macro) return null
+  if (tap === 'TRANSPARENT' && !isMacro(k.tap)) return null
   if (tap === 'NO') return { x: true }
   const out: KeymapKey = {}
   const t = k.customLabel || glyph(k.tap)

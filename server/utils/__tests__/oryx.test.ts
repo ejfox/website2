@@ -8,6 +8,16 @@ describe('normalizeKey', () => {
     expect(normalizeKey({ tap: { code: 'KC_NO' } })).toEqual({ x: true })
   })
 
+  it('treats a key with nothing assigned as transparent, not blocked', () => {
+    // Oryx compiles an empty key to KC_TRANSPARENT
+    expect(
+      normalizeKey({ tap: null, hold: null, customLabel: null })
+    ).toBeNull()
+    expect(
+      normalizeKey({ tap: { code: 'KC_TRANSPARENT', macro: { keys: [] } } })
+    ).toBeNull()
+  })
+
   it('reads tap, hold, double-tap and layer switches', () => {
     expect(
       normalizeKey({
@@ -43,5 +53,8 @@ describe('glyph', () => {
     expect(glyph({ code: 'KC_EXLM' })).toBe('!')
     expect(glyph({ code: 'KC_F10' })).toBe('F10')
     expect(glyph({ code: 'RGB_HUI' })).toBe('rgb')
+    expect(glyph({ code: 'QK_LLCK' })).toBe('lock')
+    expect(glyph({ code: 'CW_TOGG' })).toBe('caps')
+    expect(glyph({ code: 'KC_A', macro: { keys: [] } })).toBe('A')
   })
 })

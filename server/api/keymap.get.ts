@@ -7,7 +7,7 @@
 import { createError } from 'h3'
 import { fetchOryxLayout } from '~/server/utils/oryx'
 
-const LAYOUT = { hashId: 'xBzP0', geometry: 'voyager' }
+const LAYOUT = { hashId: 'QJ7wB', geometry: 'voyager' }
 
 export default defineCachedEventHandler(
   async () => {

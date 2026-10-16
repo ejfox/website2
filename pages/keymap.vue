@@ -64,7 +64,7 @@ usePageSeo({
       Oryx isn't answering right now, so there's nothing to draw. The layout
       lives at
       <a
-        href="https://configure.zsa.io/voyager/layouts/xBzP0/latest/0"
+        href="https://configure.zsa.io/voyager/layouts/QJ7wB/latest/0"
         class="underline"
         >configure.zsa.io</a
       >

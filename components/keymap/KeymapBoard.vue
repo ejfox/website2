@@ -45,9 +45,18 @@ const colorStyle = (i: number) =>
     ? { '--c': 'currentColor' }
     : { '--c': layerColor(i) as string }
 
+// A key is U=40 wide, about 6 mono chars at size 10. Longer labels wrap at
+// their first space onto two lines, and a long single word shrinks to fit.
+const lines = (s: string) => {
+  const i = s.indexOf(' ')
+  return [...s].length > 6 && i > 0 ? [s.slice(0, i), s.slice(i + 1)] : [s]
+}
 const size = (s: string) => {
-  const n = [...s].length
-  return n <= 1 ? 17 : n <= 3 ? 12 : 10
+  const n = Math.max(...lines(s).map((l) => [...l].length))
+  if (n <= 1) return 17
+  if (n <= 3) return 12
+  if (n <= 6) return 10
+  return Math.max(6, Math.floor(36 / (n * 0.6)))
 }
 
 interface Cell {
@@ -163,7 +172,17 @@ const ticks = computed(() =>
             :font-size="size(c.key.t)"
             class="glyph"
           >
-            {{ c.key.t }}
+            <template v-if="lines(c.key.t).length > 1">
+              <tspan
+                v-for="(line, li) in lines(c.key.t)"
+                :key="li"
+                :x="c.x"
+                :dy="li === 0 ? '-0.5em' : '1.05em'"
+              >
+                {{ line }}
+              </tspan>
+            </template>
+            <template v-else>{{ c.key.t }}</template>
           </text>
           <text
             v-if="c.key.h"
