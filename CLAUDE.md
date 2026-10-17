@@ -360,6 +360,26 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 - [ ] Verify no layout shift on slower connections
 - [ ] Cross-browser testing (Safari, Firefox, Chrome)
 
+## Diagrams — Mermaid via Pele (2026-10-17)
+
+Write a ` ```mermaid ` fence in any post. `scripts/plugins/remarkMermaid.mjs`
+renders it to inline SVG **at build time** with [Pele](https://pele.run)
+(Obsidian's Mermaid-compatible renderer, zero deps). There is no client JS. The
+`mermaid` package and `plugins/mermaid.client.ts` were deleted.
+
+- **Theme** = `--pele-*` vars in `global.css` (under `:root`, `.dark` AND the
+  dark media query, like the bg tokens). Light/dark switch without re-rendering.
+  OLED dark: nodes are `#000`, separated by `--pele-border`.
+- **Phones:** a diagram wider than 540px also ships a 360px re-layout (LR → TB),
+  and CSS swaps it in below 640px (`.diagram-wide` / `.diagram-narrow`).
+- **Parse errors** never fail the build. The block renders as escaped source
+  with a `diagram error:` line, and processing logs `[diagram] file: …`.
+- Labels are measured with Pele's Node width table, which is within ~1% of
+  Georgia. Mermaid `themeVariables` and HTML labels are ignored, and inline
+  `style`/`classDef` colors are fixed (they don't follow dark mode).
+- The processing cache keys on source hash, so a renderer change only reaches
+  old posts when they're reprocessed (`yarn blog:process` after clearing their JSON).
+
 ## Dead Internal Link Detection (2026-06-29)
 
 Two separate link-health systems — don't confuse them:
