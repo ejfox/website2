@@ -144,6 +144,18 @@ body {
   --bg-sunken: #ffffff;
   --bg-surface: #ffffff;
   --bg-raised: #f4f4f5; /* zinc-100 */
+  /* Diagrams (Pele, rendered at build time in remarkMermaid.mjs). */
+  --pele-bg: #ffffff;
+  --pele-fg: #18181b; /* zinc-900 */
+  --pele-muted: #71717a; /* zinc-500 */
+  --pele-line: #3f3f46; /* zinc-700 */
+  --pele-surface: #f4f4f5; /* zinc-100 */
+  --pele-surface-alt: #fafafa; /* zinc-50 */
+  --pele-border: #a1a1aa; /* zinc-400 */
+  --pele-accent: #2563eb; /* blue-600 */
+  --pele-critical: #dc2626; /* red-600 */
+  --pele-font: Georgia, serif;
+  --pele-font-mono: ui-monospace, monospace;
 }
 .dark {
   accent-color: #60a5fa; /* blue-400 */
@@ -153,6 +165,15 @@ body {
   --bg-sunken: #000;
   --bg-surface: #000;
   --bg-raised: #000;
+  --pele-bg: #000;
+  --pele-fg: #e4e4e7; /* zinc-200 */
+  --pele-muted: #a1a1aa; /* zinc-400 */
+  --pele-line: #a1a1aa;
+  --pele-surface: #000; /* OLED: nodes separated by border, not fill */
+  --pele-surface-alt: #000;
+  --pele-border: #52525b; /* zinc-600 */
+  --pele-accent: #60a5fa; /* blue-400 */
+  --pele-critical: #f87171; /* red-400 */
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -161,6 +182,15 @@ body {
     --bg-sunken: #000;
     --bg-surface: #000;
     --bg-raised: #000;
+    --pele-bg: #000;
+    --pele-fg: #e4e4e7; /* zinc-200 */
+    --pele-muted: #a1a1aa; /* zinc-400 */
+    --pele-line: #a1a1aa;
+    --pele-surface: #000; /* OLED: nodes separated by border, not fill */
+    --pele-surface-alt: #000;
+    --pele-border: #52525b; /* zinc-600 */
+    --pele-accent: #60a5fa; /* blue-400 */
+    --pele-critical: #f87171; /* red-400 */
   }
 }
 
@@ -1771,4 +1801,33 @@ img[data-loading='lazy']::before {
     color: #52525b;
     word-break: break-all;
   }
+}
+
+/* Diagrams — ```mermaid blocks rendered to SVG at build time by Pele
+   (scripts/plugins/remarkMermaid.mjs). Wide diagrams ship a narrow re-layout
+   too; swap at the same 640px Pele uses for its LR → TB direction switch. */
+.diagram {
+  margin: 2rem 0;
+}
+.diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.diagram-narrow {
+  display: none;
+}
+@media (max-width: 639px) {
+  .diagram-responsive .diagram-wide {
+    display: none;
+  }
+  .diagram-responsive .diagram-narrow {
+    display: block;
+  }
+}
+.diagram-error::before {
+  content: 'diagram error: ' attr(data-error);
+  display: block;
+  color: var(--pele-critical);
+  margin-bottom: 0.5rem;
 }
