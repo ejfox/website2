@@ -17,7 +17,11 @@
  *      confirms it exists. No fuzzy/prefix matching: a typo matcher at request
  *      time is how hidden posts leak.
  */
-import { isHiddenFromListings, isScheduled, type Post } from '~/utils/postFilters'
+import {
+  isHiddenFromListings,
+  isScheduled,
+  type Post,
+} from '~/utils/postFilters'
 
 const CLOUDINARY_ORIGIN = 'https://res.cloudinary.com'
 // Same transform chain the markdown pipeline writes into srcset, so the
@@ -38,7 +42,11 @@ export function cloudinaryFragmentTarget(pathname: string): string | null {
   // Re-check the emitted URL, not just the input (see /from-youtube, /via).
   try {
     const u = new URL(target)
-    if (u.origin !== CLOUDINARY_ORIGIN || !u.pathname.startsWith('/ejf/image/upload/')) return null
+    if (
+      u.origin !== CLOUDINARY_ORIGIN ||
+      !u.pathname.startsWith('/ejf/image/upload/')
+    )
+      return null
   } catch {
     return null
   }
@@ -66,7 +74,10 @@ export interface SlugIndex {
   byFinal: Map<string, string[]>
 }
 
-export function buildSlugIndex(manifest: Array<Post & { slug?: unknown }>, now = Date.now()): SlugIndex {
+export function buildSlugIndex(
+  manifest: Array<Post & { slug?: unknown }>,
+  now = Date.now()
+): SlugIndex {
   const all = new Set<string>()
   const byFinal = new Map<string, string[]>()
   for (const p of manifest) {
@@ -84,7 +95,10 @@ export function buildSlugIndex(manifest: Array<Post & { slug?: unknown }>, now =
 // Single-segment /blog/<x> paths that are real pages, not posts.
 const RESERVED = new Set(['robots', 'tag', 'index', 'drafts', 'week-notes'])
 
-export function legacySlugTarget(pathname: string, index: SlugIndex): string | null {
+export function legacySlugTarget(
+  pathname: string,
+  index: SlugIndex
+): string | null {
   let path: string
   try {
     path = decodeURIComponent(pathname).replace(/\/+$/, '')
@@ -100,10 +114,15 @@ export function legacySlugTarget(pathname: string, index: SlugIndex): string | n
   // Twins (.md/.json) and asset-looking paths (.js, .png …) are not pages.
   if (!last || /\.[a-z0-9]{1,5}$/i.test(last)) return null
   if (/^\d+$/.test(last) || last === 'null' || last === 'undefined') return null
-  if (section === 'blog' && (RESERVED.has(segs[0]) || segs[0] === 'tag' || segs.includes('drafts'))) return null
+  if (
+    section === 'blog' &&
+    (RESERVED.has(segs[0]) || segs[0] === 'tag' || segs.includes('drafts'))
+  )
+    return null
 
   // The URL is itself a real post (of any visibility): leave it to the page.
-  if (index.all.has(section === 'projects' ? `projects/${rest}` : rest)) return null
+  if (index.all.has(section === 'projects' ? `projects/${rest}` : rest))
+    return null
 
   const routes = index.byFinal.get(norm(last))
   if (!routes || routes.length !== 1) return null

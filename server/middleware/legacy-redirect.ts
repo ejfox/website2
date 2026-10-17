@@ -25,7 +25,11 @@ async function slugIndex(): Promise<SlugIndex | null> {
   try {
     const { mtimeMs } = await stat(MANIFEST)
     // Rebuild hourly too: scheduled posts go public without the file changing.
-    if (!cached || cached.mtime !== mtimeMs || Date.now() - cached.builtAt > 3_600_000) {
+    if (
+      !cached ||
+      cached.mtime !== mtimeMs ||
+      Date.now() - cached.builtAt > 3_600_000
+    ) {
       const index = buildSlugIndex(JSON.parse(await readFile(MANIFEST, 'utf8')))
       cached = { mtime: mtimeMs, builtAt: Date.now(), index }
     }
@@ -38,7 +42,8 @@ async function slugIndex(): Promise<SlugIndex | null> {
 export default defineEventHandler(async (event) => {
   const url = getRequestURL(event)
   const { pathname } = url
-  if (!pathname.startsWith('/blog/') && !pathname.startsWith('/projects/')) return
+  if (!pathname.startsWith('/blog/') && !pathname.startsWith('/projects/'))
+    return
 
   const image = cloudinaryFragmentTarget(pathname)
   if (image) return sendRedirect(event, image, 301)

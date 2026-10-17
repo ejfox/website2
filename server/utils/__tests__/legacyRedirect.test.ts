@@ -18,7 +18,11 @@ const index = buildSlugIndex(
     { slug: 'projects/connectology', date: '2025-01-01' },
     { slug: 'reading/Roose-Futureproof', date: '2021-01-01' },
     { slug: '2022/the-studio', date: '2022-12-27', hidden: true },
-    { slug: '2023/secret-ish', date: '2023-01-01', metadata: { unlisted: true } },
+    {
+      slug: '2023/secret-ish',
+      date: '2023-01-01',
+      metadata: { unlisted: true },
+    },
     { slug: '2026/not-yet', date: '2026-12-01' },
     { slug: '2020/food', date: '2020-01-01' },
     { slug: '2022/food', date: '2022-01-01' },
@@ -36,7 +40,9 @@ describe('legacySlugTarget', () => {
 
   it('fixes case and the wrong folder', () => {
     expect(go('/blog/2019/Step-Zero')).toBe('/blog/2019/step-zero')
-    expect(go('/blog/project-notes/connectology')).toBe('/projects/connectology')
+    expect(go('/blog/project-notes/connectology')).toBe(
+      '/projects/connectology'
+    )
     expect(go('/blog/roose-futureproof')).toBe('/reading/Roose-Futureproof')
   })
 
@@ -75,14 +81,22 @@ describe('legacySlugTarget', () => {
 describe('cloudinaryFragmentTarget', () => {
   it('sends a comma-split srcset fragment to the real image', () => {
     expect(
-      cloudinaryFragmentTarget('/blog/2024/w_1280/v1722610045/Screenshot_2024-08-02_at_10.47.11_AM.png')
+      cloudinaryFragmentTarget(
+        '/blog/2024/w_1280/v1722610045/Screenshot_2024-08-02_at_10.47.11_AM.png'
+      )
     ).toBe(
       'https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1722610045/Screenshot_2024-08-02_at_10.47.11_AM.png'
     )
-    expect(cloudinaryFragmentTarget('/blog/w_640/v1733093033/arena/arena-10075114.jpg')).toBe(
+    expect(
+      cloudinaryFragmentTarget(
+        '/blog/w_640/v1733093033/arena/arena-10075114.jpg'
+      )
+    ).toBe(
       'https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1733093033/arena/arena-10075114.jpg'
     )
-    expect(cloudinaryFragmentTarget('/projects/x/w_960/v1755098311/a.webp')).toMatch(/^https:\/\/res\.cloudinary\.com\/ejf\//)
+    expect(
+      cloudinaryFragmentTarget('/projects/x/w_960/v1755098311/a.webp')
+    ).toMatch(/^https:\/\/res\.cloudinary\.com\/ejf\//)
   })
 
   it('rejects anything that is not a plain image fragment', () => {
