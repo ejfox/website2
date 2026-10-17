@@ -1,19 +1,15 @@
 import { defineEventHandler, setHeader, type H3Event } from 'h3'
-import { isScheduled } from '~/utils/postFilters'
 import { listDispatches } from '~/server/utils/dispatch'
+import { escapeXml } from '~/server/utils/xml'
+import {
+  buildSitemapPostEntries,
+  renderSitemapUrl,
+  sitemapLoc,
+  type ManifestPost,
+} from '~/server/utils/sitemapEntries'
 
 // Nuxt auto-imports $fetch at runtime
 declare const $fetch: typeof globalThis.fetch
-
-// Escape XML special characters
-function escapeXml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;')
-}
 
 // Extract unique cloudinary image URLs from HTML content
 function extractImageUrls(html: string): string[] {
@@ -50,6 +46,14 @@ export default defineEventHandler(async (event: H3Event) => {
   const staticPages = [
     { url: '/', priority: '1.0', changefreq: 'daily' },
     { url: '/blog', priority: '0.9', changefreq: 'daily' },
+    { url: '/consulting', priority: '0.9', changefreq: 'monthly' },
+    { url: '/process', priority: '0.7', changefreq: 'monthly' },
+    { url: '/case-study/nbc-big-board', priority: '0.7', changefreq: 'yearly' },
+    { url: '/photos', priority: '0.6', changefreq: 'weekly' },
+    { url: '/rides', priority: '0.5', changefreq: 'monthly' },
+    { url: '/reading', priority: '0.6', changefreq: 'weekly' },
+    { url: '/threads', priority: '0.4', changefreq: 'weekly' },
+    { url: '/changelog', priority: '0.4', changefreq: 'weekly' },
     { url: '/projects', priority: '0.8', changefreq: 'weekly' },
     { url: '/gear', priority: '0.7', changefreq: 'weekly' },
     { url: '/stats', priority: '0.6', changefreq: 'daily' },
@@ -72,15 +76,14 @@ export default defineEventHandler(async (event: H3Event) => {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `
 
-  // Add static pages
+  // Add static pages. No <lastmod>: an always-"now" lastmod is noise Google
+  // learns to ignore, and these pages have no real modification date.
   for (const page of staticPages) {
-    sitemap += `  <url>
-    <loc>${baseUrl}${page.url}</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>
-`
+    sitemap += renderSitemapUrl({
+      loc: sitemapLoc(baseUrl, page.url),
+      changefreq: page.changefreq,
+      priority: page.priority,
+    })
   }
 
   // Add dynamic blog posts
@@ -93,69 +96,33 @@ export default defineEventHandler(async (event: H3Event) => {
       'content/processed/manifest-lite.json'
     )
     const manifestData = await fs.readFile(manifestPath, 'utf-8')
-    const posts = JSON.parse(manifestData)
+    const posts: ManifestPost[] = JSON.parse(manifestData)
 
-    // Add each blog post to sitemap (filter drafts, hidden, unlisted, password-protected, special sections)
-    for (const post of posts) {
-      const isDraft = post.draft || post.metadata?.draft
-      const isHidden = post.hidden || post.metadata?.hidden
-      const isUnlisted = post.unlisted || post.metadata?.unlisted
-      const hasPassword = !!(
-        post.password ||
-        post.passwordHash ||
-        post.metadata?.password ||
-        post.metadata?.passwordHash
-      )
-      const isSpecialSection =
-        post.slug?.startsWith('drafts/') || post.slug?.startsWith('robots/')
-      // Don't advertise a post to crawlers before it publishes.
-      const isEmbargoed = isScheduled(post)
-      if (
-        !isDraft &&
-        !isHidden &&
-        !isUnlisted &&
-        !hasPassword &&
-        !isSpecialSection &&
-        !isEmbargoed &&
-        post.date
-      ) {
-        const priority = post.type === 'essay' ? '0.8' : '0.7'
-        // Blog posts are static once published - use 'never' or 'yearly' for older posts
-        const postDate = new Date(post.date || now)
-        const monthsOld =
-          (Date.now() - postDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
-        const changefreq = monthsOld < 1 ? 'monthly' : 'never'
-        // Use actual modification date, fall back to publish date (never use 'now')
-        const lastmod = post.modified || post.date
+    // Privacy filters (draft/hidden/unlisted/password/scheduled/special) live
+    // in buildSitemapPostEntries — see server/utils/sitemapEntries.ts + test.
+    const { entries, tags } = buildSitemapPostEntries(posts)
+    const bySlug = new Map(posts.map((p) => [p.slug, p]))
+    for (const entry of entries) {
+      const post = bySlug.get(entry.slug)
+      const images =
+        (post?.metadata?.images || 0) > 0
+          ? await getPostImages(entry.slug, fs, path)
+          : []
+      sitemap += renderSitemapUrl({
+        ...entry,
+        loc: sitemapLoc(baseUrl, entry.path),
+        images,
+      })
+    }
 
-        // Extract images from post HTML if available
-        const imageUrls =
-          post.metadata?.images > 0
-            ? await getPostImages(post.slug, fs, path)
-            : []
-
-        // Projects' canonical home is /projects/<slug>; the /blog/projects/*
-        // twins 301 there (server/middleware/blog-projects-redirect.ts) —
-        // listing the redirecting URL in the sitemap splits the pages' equity.
-        const loc = post.slug?.startsWith('projects/')
-          ? `${baseUrl}/${post.slug}`
-          : `${baseUrl}/blog/${post.slug}`
-        sitemap += `  <url>
-    <loc>${escapeXml(loc)}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-`
-        // Add image entries
-        for (const imageUrl of imageUrls) {
-          sitemap += `    <image:image>
-      <image:loc>${escapeXml(imageUrl)}</image:loc>
-    </image:image>
-`
-        }
-        sitemap += `  </url>
-`
-      }
+    // Tag pages that are real hubs: >=2 PUBLIC posts (counted after the
+    // privacy filter, so a drafts-only tag never shows up here).
+    for (const tag of tags) {
+      sitemap += renderSitemapUrl({
+        loc: sitemapLoc(baseUrl, `/tag/${tag}`),
+        changefreq: 'weekly',
+        priority: '0.4',
+      })
     }
   } catch (error) {
     console.warn('Could not load blog posts for sitemap:', error)
@@ -167,7 +134,7 @@ export default defineEventHandler(async (event: H3Event) => {
     if (Array.isArray(predictions)) {
       for (const prediction of predictions) {
         sitemap += `  <url>
-    <loc>${escapeXml(`${baseUrl}/predictions/${prediction.id}`)}</loc>
+    <loc>${sitemapLoc(baseUrl, `/predictions/${prediction.id}`)}</loc>
     <lastmod>${prediction.created_at || now}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
@@ -185,7 +152,7 @@ export default defineEventHandler(async (event: H3Event) => {
     const pieces = await listDispatches({ preview: false })
     for (const piece of pieces) {
       sitemap += `  <url>
-    <loc>${escapeXml(`${baseUrl}/dispatch/${piece.slug}`)}</loc>
+    <loc>${sitemapLoc(baseUrl, `/dispatch/${piece.slug}`)}</loc>
     <lastmod>${piece.date || now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

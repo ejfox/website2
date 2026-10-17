@@ -147,14 +147,16 @@ const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
         <div
           v-for="gist in recentGists.slice(0, 5)"
           :key="gist.id"
-          class="flex items-baseline justify-between text-xs"
+          class="flex items-baseline justify-between gap-2 text-xs"
         >
-          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+          <!-- wraps the language under a long title instead of letting it
+               shrink to nothing and overprint the date -->
+          <div class="flex flex-wrap items-baseline gap-x-2 min-w-0 flex-1">
             <a
               :href="gist.html_url"
               target="_blank"
               rel="noopener"
-              class="text-xs transition-colors"
+              class="min-w-0 break-words text-xs transition-colors"
               :class="[
                 'text-zinc-700 dark:text-zinc-300',
                 'hover:text-black dark:hover:text-white',
@@ -162,11 +164,14 @@ const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
             >
               {{ getGistTitle(gist) }}
             </a>
-            <span v-if="gist.languages?.length" class="text-zinc-500 text-xs">
+            <span
+              v-if="gist.languages?.length"
+              class="shrink-0 text-zinc-500 text-xs"
+            >
               {{ gist.languages[0] }}
             </span>
           </div>
-          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums text-xs">
+          <span class="text-zinc-500 shrink-0 tabular-nums text-xs">
             {{ formatDate(gist.created_at) }}
           </span>
         </div>

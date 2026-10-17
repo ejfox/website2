@@ -7,8 +7,10 @@ const isDev = process.env.NODE_ENV !== 'production'
 // Shared Cache-Control values (referenced in nitro.routeRules below)
 // max-age=0: browsers revalidate (cheap 304s) instead of holding a page for
 // an hour — an unpublished/edited post used to linger in browser caches.
-// Cloudflare doesn't cache HTML here (cf-cache-status: DYNAMIC), so s-maxage
-// is only a hint for any future edge caching.
+// Cloudflare honours s-maxage once the "respect origin" cache rule is on; the
+// deploy workflow purges the zone after each release so cached HTML never
+// points at deleted /_nuxt chunks. Errors are forced to no-store in
+// server/plugins/no-cache-errors.ts.
 const CACHE_PRERENDER =
   'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400'
 const CACHE_DYNAMIC =
@@ -313,6 +315,47 @@ export default defineNuxtConfig({
       '/blog/2025/using-radios-to-see-the-invisible-world': {
         redirect: { to: '/blog/2025/using-radios', statusCode: 301 },
       },
+      // The Subway Builder project lives at /projects/subway-builder; the
+      // "-mods" slug is linked from subwaybuilder.com (Umami not-found,
+      // 2026-10). Both twins point straight at the target — no 2-hop chain
+      // through blog-projects-redirect.ts.
+      '/projects/subway-builder-mods': {
+        redirect: { to: '/projects/subway-builder', statusCode: 301 },
+      },
+      '/blog/projects/subway-builder-mods': {
+        redirect: { to: '/projects/subway-builder', statusCode: 301 },
+      },
+      // The Cloudinary backup tool's project page is a draft, but Google still
+      // sends visitors to it; the published write-up is the honest target.
+      '/projects/cloudinary-backup-tool': {
+        redirect: {
+          to: '/blog/2025/owning-my-cloudinary-photos',
+          statusCode: 301,
+        },
+      },
+      '/blog/projects/cloudinary-backup-tool': {
+        redirect: {
+          to: '/blog/2025/owning-my-cloudinary-photos',
+          statusCode: 301,
+        },
+      },
+      // (The legacy /blog/williams-the%20dead%20emcee%20scrolls link is handled
+      // in server/middleware/blog-reading-redirect.ts — its encoding varies.)
+      // Bookmarklet setup page: a personal tool behind a password, not content.
+      // The popup's query string carries page text and the auth passphrase:
+      // never let an edge cache key on (or store) those URLs.
+      '/bookmarklet': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
+      '/bookmarklet-popup': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
       // Friends & Family booking (/ff) — hidden link, never index/follow.
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.
@@ -456,15 +499,9 @@ export default defineNuxtConfig({
           manualChunks: {
             // Static chunks instead of function (faster)
             vue: ['vue', '@vue/reactivity', '@vueuse/core'],
-            d3: [
-              'd3',
-              'd3-dsv',
-              'd3-format',
-              'd3-scale-chromatic',
-              'd3-scale',
-              'd3-array',
-              'd3-shape',
-            ],
+            // No d3 group: forcing every d3 module into one chunk meant a
+            // single `format` import (utils/numberFormat.ts) shipped all of
+            // d3 (~96 KB br) on every page. Let Rollup split it per use.
           },
         },
       },

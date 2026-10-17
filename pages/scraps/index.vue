@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { format, parseISO } from 'date-fns'
+import { scrapDisplayTitle } from '~/utils/scrapTitle'
 
 interface Scrap {
   id: string
@@ -92,7 +93,9 @@ useHead({
 </script>
 
 <template>
-  <div class="max-w-screen-xl mx-auto px-4 md:px-8 font-mono text-xs space-y-2">
+  <div
+    class="max-w-screen-xl mx-auto px-4 md:px-8 pt-8 pb-8 font-mono text-xs space-y-2"
+  >
     <!-- Header -->
     <div>
       <div class="font-bold tracking-wider uppercase">Scraps</div>
@@ -143,13 +146,13 @@ useHead({
           rel="noopener noreferrer"
           class="text-blue-600 hover:underline dark:text-blue-400 block text-xs line-clamp-1 xl:line-clamp-2 break-words"
         >
-          {{ scrap.title || scrap.url }}
+          {{ scrapDisplayTitle(scrap.title, scrap.url, scrap.url) }}
         </a>
         <div
           v-else
           class="text-zinc-900 dark:text-zinc-100 text-xs line-clamp-2"
         >
-          {{ scrap.title || '(untitled)' }}
+          {{ scrapDisplayTitle(scrap.title, null, '(untitled)') }}
         </div>
 
         <!-- Summary -->
@@ -161,13 +164,13 @@ useHead({
         </div>
 
         <!-- Metadata Grid -->
-        <div class="text-5xs text-zinc-500 dark:text-zinc-500 space-y-0.5">
+        <div class="text-4xs text-zinc-600 dark:text-zinc-500 space-y-0.5">
           <!-- Row 1: Core info -->
-          <div class="flex flex-wrap gap-2 opacity-70">
+          <div class="flex flex-wrap gap-2">
             <span v-if="scrap.source">{{ scrap.source }}</span>
             <span v-if="scrap.type">{{ scrap.type }}</span>
             <span v-if="scrap.content_type">{{ scrap.content_type }}</span>
-            <span class="opacity-50">{{ formatDate(scrap.created_at) }}</span>
+            <span>{{ formatDate(scrap.created_at) }}</span>
           </div>
 
           <!-- Row 2: Tags + Concept tags -->
@@ -179,7 +182,7 @@ useHead({
               v-for="tag in scrap.tags"
               :key="tag"
               :to="`/scraps/tag/${encodeURIComponent(tag)}`"
-              class="px-1 bg-raised text-zinc-700 dark:text-zinc-300 opacity-60 hover:opacity-100 hover:underline cursor-pointer transition-opacity"
+              class="px-1 bg-raised text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:underline cursor-pointer"
             >
               {{ tag }}
             </NuxtLink>
@@ -200,7 +203,7 @@ useHead({
               scrap.shared ||
               scrap.relationships?.length
             "
-            class="hidden lg:flex flex-wrap gap-2 opacity-60"
+            class="hidden lg:flex flex-wrap gap-2"
           >
             <span v-if="scrap.location">{{ scrap.location }}</span>
             <a
@@ -208,7 +211,7 @@ useHead({
               :href="scrap.screenshot_url"
               target="_blank"
               rel="noopener noreferrer"
-              class="opacity-50 hover:opacity-100 hover:underline cursor-pointer transition-opacity"
+              class="hover:text-zinc-900 dark:hover:text-zinc-200 hover:underline cursor-pointer"
             >
               image
             </a>
@@ -219,10 +222,7 @@ useHead({
           </div>
 
           <!-- Row 4: Confidence scores (xl+ only) -->
-          <div
-            v-if="scrap.extraction_confidence"
-            class="hidden xl:block opacity-50"
-          >
+          <div v-if="scrap.extraction_confidence" class="hidden xl:block">
             Conf:
             <span v-if="scrap.extraction_confidence.tags">
               tags {{ Math.round(scrap.extraction_confidence.tags * 100) }}%
@@ -234,10 +234,7 @@ useHead({
           </div>
 
           <!-- Row 5: Financial data (xl+ only) -->
-          <div
-            v-if="scrap.financial_analysis"
-            class="hidden xl:block opacity-50"
-          >
+          <div v-if="scrap.financial_analysis" class="hidden xl:block">
             financial data present
           </div>
         </div>

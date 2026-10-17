@@ -121,6 +121,8 @@ onMounted(() => {
 })
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: 'Blog - EJ Fox',
   description: "Things I'm thinking about — data, code, journalism, the web",
   type: 'article',
@@ -158,7 +160,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(blogSchema.value),
+      innerHTML: JSON.stringify(blogSchema.value),
     },
   ],
 }))
@@ -215,7 +217,7 @@ useHead(() => ({
                 <div
                   v-if="index === 0"
                   :data-year="year"
-                  class="year-marker rule-dotted-leader leading-3 scroll-mt-4"
+                  class="year-marker rule-dotted-leader leading-3 mb-2 scroll-mt-4"
                 >
                   {{ year }}
                 </div>

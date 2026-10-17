@@ -9,6 +9,7 @@ import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { numberFormat } from '~/utils/numberFormat'
+import { primaryTimeControl } from '~/utils/chess'
 
 interface BlogStats {
   totalPosts: number
@@ -32,19 +33,27 @@ const totalLeetCodeSolved = computed(() => {
   return easy.count + medium.count + hard.count
 })
 
+// Same time control the chess section leads with (blitz unless absent)
+const chessControl = computed(() => primaryTimeControl(props.stats.chess))
+
 const chessRating = computed(() => {
   if (!props.stats.chess) return 0
-  return typeof props.stats.chess.currentRating === 'object'
-    ? props.stats.chess.currentRating.blitz
-    : props.stats.chess.currentRating
+  const ratings = props.stats.chess.currentRating
+  if (typeof ratings !== 'object') return ratings
+  return chessControl.value ? ratings[chessControl.value] : 0
 })
 
 const chessWinRate = computed(() => {
   if (!props.stats.chess) return 0
-  return typeof props.stats.chess.winRate === 'object'
-    ? props.stats.chess.winRate.overall
-    : props.stats.chess.winRate
+  const rates = props.stats.chess.winRate
+  if (typeof rates !== 'object') return rates
+  // win rate of the rated control shown above it, not a cross-control blend
+  return chessControl.value ? rates[chessControl.value] : rates.overall
 })
+
+const typingAccuracy = computed(() =>
+  Math.round((props.stats.monkeyType?.typingStats as any)?.averageAccuracy || 0)
+)
 
 const averageWordsPerPost = computed(() => {
   if (!props.blogStats) return 0
@@ -165,28 +174,10 @@ const postsThisMonth = computed(() => {
         />
       </div>
       <div class="stat-label">LEETCODE</div>
-      <div class="stat-details">
-        <AnimatedNumber
-          :value="stats.leetcode.submissionStats.hard.count"
-          format="default"
-          :duration="800"
-          priority="tertiary"
-        />
-        H
-        <AnimatedNumber
-          :value="stats.leetcode.submissionStats.medium.count"
-          format="default"
-          :duration="800"
-          priority="tertiary"
-        />
-        M
-        <AnimatedNumber
-          :value="stats.leetcode.submissionStats.easy.count"
-          format="default"
-          :duration="800"
-          priority="tertiary"
-        />
-        E
+      <div class="stat-details whitespace-nowrap">
+        {{ stats.leetcode.submissionStats.hard.count }}H ·
+        {{ stats.leetcode.submissionStats.medium.count }}M ·
+        {{ stats.leetcode.submissionStats.easy.count }}E
       </div>
     </div>
 
@@ -205,7 +196,9 @@ const postsThisMonth = computed(() => {
           :decimals="0"
         />
       </div>
-      <div class="stat-label">CHESS</div>
+      <div class="stat-label">
+        {{ chessControl ? `CHESS · ${chessControl}` : 'CHESS' }}
+      </div>
       <div class="stat-details">
         <AnimatedNumber
           :value="Math.round(chessWinRate)"
@@ -239,13 +232,9 @@ const postsThisMonth = computed(() => {
         />
       </div>
       <div class="stat-label">AVG WPM</div>
-      <div class="stat-details">
+      <div v-if="typingAccuracy > 0" class="stat-details">
         <AnimatedNumber
-          :value="
-            Math.round(
-              (stats.monkeyType.typingStats as any).averageAccuracy || 0
-            )
-          "
+          :value="typingAccuracy"
           format="default"
           :duration="800"
           priority="secondary"

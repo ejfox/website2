@@ -7,6 +7,7 @@ import ReplyContext from '~/components/blog/ReplyContext.vue'
 import SealedPost from '~/components/blog/SealedPost.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
+import AuthorLine from '~/components/blog/AuthorLine.vue'
 import { readingStats } from '~/utils/readingStats'
 import { atprotoDocUri, atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
@@ -291,6 +292,8 @@ const articleSchema = computed(() => ({
 }))
 
 usePageSeo({
+  // This page renders its own JSON-LD below; don't add a second one.
+  schema: false,
   title: postTitle,
   description: postDescription,
   type: 'article',
@@ -323,7 +326,7 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(articleSchema.value),
+      innerHTML: JSON.stringify(articleSchema.value),
     },
   ],
   link: [
@@ -670,6 +673,12 @@ onMounted(() => {
           </a>
         </div>
       </div>
+
+      <!-- Who wrote this, on long posts only -->
+      <AuthorLine
+        v-if="(readingStatsData?.words || 0) > 800"
+        class="print:hidden"
+      />
 
       <!-- Email signup (self-hosted listmonk; plain form, no JS) -->
       <NewsletterSignup location="post-footer" class="print:hidden" />

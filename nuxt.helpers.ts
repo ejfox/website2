@@ -66,6 +66,13 @@ export async function getBlogRoutes(): Promise<string[]> {
         if (post.slug === post.slug.toUpperCase()) return false
         if (post.slug.startsWith('robots/')) return false
         if (post.slug.includes('drafts/')) return false
+        // /blog/projects/* and /blog/reading/* 301 to /projects/* and
+        // /reading/* (server/middleware/blog-{projects,reading}-redirect.ts).
+        // Prerendered HTML is served as a static asset BEFORE middleware runs,
+        // so baking these would silently defeat both redirects (it did: the
+        // /blog/projects twins served 200 in prod).
+        if (post.slug.startsWith('projects/')) return false
+        if (post.slug.startsWith('reading/')) return false
         return true
       })
       .map((post) => `/blog/${post.slug}`)

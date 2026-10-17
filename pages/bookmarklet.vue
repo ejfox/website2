@@ -67,6 +67,9 @@ usePageSeo({
   section: 'Tools',
   tags: ['Bookmarklet', 'Pinboard', 'Tagging'],
 })
+
+// Personal tool, not content: noindex here AND via X-Robots-Tag (nuxt.config).
+useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
 </script>
 
 <template>
@@ -80,13 +83,16 @@ usePageSeo({
 
     <section class="mb-12">
       <label
+        for="bookmarklet-passphrase"
         class="block text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3"
       >
         Passphrase
       </label>
       <div class="relative">
         <input
+          id="bookmarklet-passphrase"
           v-model="passphrase"
+          autocomplete="current-password"
           :type="showPassword ? 'text' : 'password'"
           placeholder="Enter your secret passphrase"
           class="w-full px-4 py-3 font-mono text-sm bg-surface border border-zinc-200 dark:border-zinc-800 rounded-lg text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700 focus:border-transparent transition-all duration-200"

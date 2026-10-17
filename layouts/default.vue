@@ -120,7 +120,7 @@ const linkClasses =
           </template>
         </div>
 
-        <div id="nav-toc-container" class="mt-4 px-2 pt-4 pb-4"></div>
+        <div id="nav-toc-container" class="mt-4 pt-4 pb-4"></div>
 
         <div v-if="isBlogPost" class="mt-4">
           <NuxtLink

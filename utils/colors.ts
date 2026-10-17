@@ -1,5 +1,6 @@
 // Color palettes + value/index → color helpers.
-import { quantize, interpolateTurbo } from 'd3'
+import { quantize } from 'd3-interpolate'
+import { interpolateTurbo } from 'd3-scale-chromatic'
 
 // Turbo colormap sampled to 256 steps (d3-scale-chromatic)
 export const turboColors: string[] = quantize(interpolateTurbo, 256)

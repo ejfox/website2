@@ -12,6 +12,8 @@ import striptags from 'striptags'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
+import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
+import AuthorLine from '~/components/blog/AuthorLine.vue'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 const peterToddQuote1 =
@@ -111,6 +113,21 @@ usePageSeo({
   type: 'article',
   tags: articleTags,
   image: heroImage,
+  section: computed(() => articleTags.value[0] || 'Writing'),
+  // Gives the Article JSON-LD its author + dates (usePageSeo is reactive, so
+  // these resolve once the post loads below).
+  publishedTime: computed(() => {
+    const d = post.value?.metadata?.date || post.value?.date
+    return d ? new Date(d).toISOString() : undefined
+  }),
+  modifiedTime: computed(() => {
+    const d =
+      post.value?.metadata?.lastUpdated ||
+      post.value?.metadata?.modified ||
+      post.value?.metadata?.date ||
+      post.value?.date
+    return d ? new Date(d).toISOString() : undefined
+  }),
 })
 
 useHead({
@@ -772,6 +789,12 @@ onMounted(() => {
         >
           {{ tag }}
         </a>
+      </div>
+
+      <!-- Same ending as a regular long post -->
+      <div class="pt-ending print:hidden">
+        <AuthorLine />
+        <NewsletterSignup location="post-footer" />
       </div>
 
       <PostNav
@@ -1585,6 +1608,30 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
 }
 .peter-todd-page .blog-post-content a:hover {
   text-shadow: 0 0 12px var(--pt-accent-faint);
+}
+
+/* --- Author line + newsletter, in the takeover palette --- */
+.peter-todd-page .pt-ending {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.peter-todd-page .pt-ending .author-line,
+.peter-todd-page .pt-ending .newsletter-signup {
+  border-color: var(--pt-accent-faint);
+}
+.peter-todd-page .pt-ending p,
+.peter-todd-page .pt-ending h2 {
+  color: var(--pt-text-dim);
+}
+.peter-todd-page .pt-ending a {
+  color: var(--pt-accent);
+}
+.peter-todd-page .pt-ending input[type='email'] {
+  background: transparent;
+  color: var(--pt-text);
+  border-color: var(--pt-accent-faint);
 }
 
 /* --- PostNav/PostRelated --- */

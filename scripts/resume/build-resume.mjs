@@ -143,7 +143,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
       ${projects
         .map(
           (p) =>
-            `<p class="proj"><b>${esc(p.name)}</b>${p.entity ? ` · ${esc(p.entity)}` : ''} <span class="yr">(${esc(years(p.startDate, p.endDate || p.startDate))})</span> — ${esc(p.description)}</p>`
+            `<p class="proj"><b>${esc(p.name)}</b>${p.entity ? ` · ${esc(p.entity)}` : ''}, <span class="yr">${esc(years(p.startDate, p.endDate || p.startDate))}</span>. ${esc(p.description)}</p>`
         )
         .join('')}`
           : ''

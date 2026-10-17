@@ -1240,7 +1240,7 @@ export const stories = {
             username: 'EJFox2',
             streak: 0,
             totalXp: 3307,
-            currentCourse: { title: 'Arabic', level: 0, xp: 2384 },
+            currentCourse: { title: 'Arabic', level: null, xp: 2384 },
             courses: [
               { title: 'Arabic', xp: 2384 },
               { title: 'Spanish', xp: 851 },
@@ -1653,6 +1653,7 @@ export const stories = {
   ParticleField: [{ name: 'default', props: {} }],
   Footer: [{ name: 'default', props: {} }],
   NewsletterSignup: [{ name: 'default', props: {} }],
+  AuthorLine: [{ name: 'default', props: {} }],
   DispatchReceipts: [
     {
       name: 'full',

@@ -72,7 +72,7 @@ const headerClass = computed(() =>
   props.grid ? 'label-uppercase' : 'stats-section-title-hover'
 )
 const wrapperClass = computed(() =>
-  props.grid ? 'stack-1' : 'stats-section space-y-8 group'
+  props.grid ? 'stack-1' : 'stats-section sm:space-y-8 group'
 )
 const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
@@ -126,18 +126,23 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
   line-height: 1rem;
 }
 
+/* Phone: the rotated gutter label becomes an inline heading. A rule above it
+   + top padding make it open its own section instead of trailing the last
+   row of the section before. The page owns the horizontal gutter. */
 @media (max-width: 640px) {
   .stats-section {
     padding-left: 0;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 0;
+    padding-top: 1rem;
+    @apply border-t border-zinc-200 dark:border-zinc-800;
   }
 
   .stats-section-title-hover {
     position: static;
     transform: none;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     display: block;
+    @apply text-zinc-600 dark:text-zinc-400;
   }
 
   .stats-section__mark {

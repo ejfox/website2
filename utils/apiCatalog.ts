@@ -269,7 +269,7 @@ export const apiCatalog: ApiRoute[] = [
     method: 'GET',
     path: '/api/calibration',
     group: 'Content & blog',
-    summary: 'Prediction Brier scores + accuracy',
+    summary: 'Prediction Brier scores (as signed + as updated) + accuracy',
     consumer: 'frontend',
     consumedBy: 'useCalibration',
     deps: 'data/calibration-analysis.json',

@@ -242,7 +242,11 @@ usePageSeo({
           <NuxtLink
             v-for="post in recentPosts"
             :key="post.slug"
-            :to="`/blog/${post.slug}`"
+            :to="
+              post.slug?.startsWith('reading/')
+                ? `/${post.slug}`
+                : `/blog/${post.slug}`
+            "
             class="card-link"
           >
             <div class="flex items-start justify-between gap-2">

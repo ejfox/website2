@@ -18,7 +18,8 @@ const AI_TITLE_PREFIXES = [
 ]
 
 function cleanTitle(title: string | null, url: string | null): string {
-  if (!title) {
+  // Pinboard stores untitled bookmarks as the literal "[no title]"
+  if (!title || title.trim() === '[no title]') {
     if (!url) return ''
     try {
       return new URL(url).hostname.replace(/^www\./, '')

@@ -57,6 +57,21 @@ const scraps = computed(() => {
     })
 })
 
+// A tag nothing uses is a real 404, not an empty 200 page. Only decide once
+// both lists loaded — a transient fetch failure must not 404 every tag.
+if (
+  allPosts.value &&
+  allScraps.value &&
+  allTaggedPosts.value.length === 0 &&
+  scraps.value.length === 0
+) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Tag not found',
+    fatal: true,
+  })
+}
+
 // Format date (compact)
 const formatShortDate = (dateStr) => {
   if (!dateStr) return '—'
@@ -85,7 +100,9 @@ useHead({
     <header class="mb-6">
       <h1 class="font-serif text-2xl">{{ tag }}</h1>
       <p class="font-mono text-xs text-zinc-500 mt-1">
-        {{ allTaggedPosts.length }} posts · {{ scraps.length }} scraps
+        {{ allTaggedPosts.length }}
+        {{ allTaggedPosts.length === 1 ? 'post' : 'posts' }} ·
+        {{ scraps.length }} {{ scraps.length === 1 ? 'scrap' : 'scraps' }}
       </p>
     </header>
 
@@ -144,7 +161,7 @@ useHead({
           </span>
           <div class="flex-1 min-w-0">
             <NuxtLink
-              :to="`/blog/${post.slug}`"
+              :to="`/${post.slug}`"
               class="hover:underline underline-offset-2"
             >
               {{ post.title || post.metadata?.title }}
@@ -181,7 +198,7 @@ useHead({
           </span>
           <div class="flex-1 min-w-0">
             <NuxtLink
-              :to="`/blog/${post.slug}`"
+              :to="`/${post.slug}`"
               class="hover:underline underline-offset-2"
             >
               {{ post.title || post.metadata?.title }}

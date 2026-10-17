@@ -2,7 +2,7 @@
  * @file calibration.get.ts
  * @description Serves pre-generated prediction calibration analysis including Brier scores and accuracy metrics
  * @endpoint GET /api/calibration
- * @returns Calibration analysis with Brier scores, accuracy rates, category breakdown, and market comparison data (regenerate with scripts/meta/calibration-analysis.mjs)
+ * @returns Calibration analysis with Brier scores as signed (published confidence) and as updated (last logged change), accuracy rates, category breakdown, and market comparison data (regenerate with scripts/meta/calibration-analysis.mjs)
  */
 
 import { readFile } from 'node:fs/promises'
@@ -29,6 +29,9 @@ export default defineEventHandler(async (_event) => {
         incorrect: 0,
         accuracy: null,
       },
+      brier: { as_signed: null, as_updated: null },
+      calibration_as_signed: [],
+      calibration_as_updated: [],
       brier_score: null,
       calibration: [],
       by_category: [],

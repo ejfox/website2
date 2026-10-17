@@ -19,6 +19,8 @@ const T = 34
 const ROW = 26
 const DAY = 86_400_000
 
+const go = (slug: string) => navigateTo(`/predictions/${slug}`)
+
 const rows = computed(() => buildBeliefRows(props.predictions || []))
 const H = computed(() => T + rows.value.length * ROW + 18)
 
@@ -137,11 +139,18 @@ const plotted = computed(() =>
         today
       </text>
 
-      <a
+      <!-- Rows are <g role="link">, not SVG <a>: Cloudflare Email
+           Obfuscation's decoder calls a.href.indexOf() on every <a>, and an
+           SVG anchor's href is an SVGAnimatedString, so each one threw. -->
+      <g
         v-for="r in plotted"
         :key="r.slug"
-        :href="`/predictions/${r.slug}`"
-        class="group outline-none"
+        role="link"
+        tabindex="0"
+        :aria-label="r.tip"
+        class="group outline-none cursor-pointer"
+        @click="go(r.slug)"
+        @keydown.enter="go(r.slug)"
       >
         <title>{{ r.tip }}</title>
         <rect
@@ -241,7 +250,7 @@ const plotted = computed(() =>
           class="stroke-zinc-900 dark:stroke-zinc-100"
           stroke-width="1"
         />
-      </a>
+      </g>
     </svg>
   </div>
 </template>

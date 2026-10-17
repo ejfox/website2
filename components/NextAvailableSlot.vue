@@ -48,17 +48,21 @@ onMounted(() => {
       <!-- Available slot - inline magic link. Renders nothing otherwise
            so the surrounding "grab some time on my calendar" link stands
            alone. -->
-      <a
-        v-if="nextSlot"
-        :href="nextSlot.bookingUrl"
-        data-umami-event="consulting-book"
-        data-umami-event-location="next-available-slot"
-        target="_blank"
-        class="link-blue-underline"
-        :title="`Book ${nextSlot.naturalTime} - 30min chat`"
-      >
-        ({{ nextSlot.naturalTime }})
-      </a>
+      <!-- The leading space lives here, so the sentence closes up cleanly
+           when there's no slot. v-text keeps template whitespace out of the
+           underline. -->
+      <template v-if="nextSlot">
+        {{ ' '
+        }}<a
+          :href="nextSlot.bookingUrl"
+          data-umami-event="consulting-book"
+          data-umami-event-location="next-available-slot"
+          target="_blank"
+          class="link-blue-underline"
+          :title="`Book ${nextSlot.naturalTime} - 30min chat`"
+          v-text="`(${nextSlot.naturalTime})`"
+        />
+      </template>
     </ClientOnly>
   </span>
 </template>

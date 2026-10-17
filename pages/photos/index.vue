@@ -113,7 +113,7 @@ useHead({ title: 'Photos — EJ Fox' })
     <!-- Interleaved feed: masonry columns; stacks span full width -->
     <div v-else-if="feed.length" class="photo-grid">
       <template
-        v-for="item in feed"
+        v-for="(item, i) in feed"
         :key="item.kind + (item.photo?.id || item.post?.slug)"
       >
         <a
@@ -133,7 +133,8 @@ useHead({ title: 'Photos — EJ Fox' })
             :width="item.photo.width"
             :height="item.photo.height"
             :alt="item.photo.description || 'Photograph'"
-            loading="lazy"
+            :loading="i < 2 ? 'eager' : 'lazy'"
+            :fetchpriority="i === 0 ? 'high' : 'auto'"
             decoding="async"
             class="photo-img"
           />

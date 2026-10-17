@@ -307,7 +307,11 @@ export default defineEventHandler(async (event) => {
             documents.push({
               title,
               slug,
-              url: `/blog/${slug}`,
+              // Reading notes + projects have their own canonical homes
+              // (/blog/reading/* and /blog/projects/* 301 there).
+              url: /^(?:reading|projects)\//.test(slug)
+                ? `/${slug}`
+                : `/blog/${slug}`,
               content: contentSource,
               textContent,
               tags,

@@ -17,7 +17,13 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   function enhanceMarkdownTables() {
     // Find all tables in .prose content
-    const tables = document.querySelectorAll('.prose table, article table')
+    // `article table` also matches every app-built table inside the layout's
+    // <article id="main-content">. Those that lay out their own columns opt
+    // out with `data-plain` — the enhancer's text-left th + ↕ indicators
+    // knock their headers off their values.
+    const tables = document.querySelectorAll(
+      '.prose table:not([data-plain]), article table:not([data-plain])'
+    )
 
     tables.forEach((table) => {
       // Skip if already enhanced

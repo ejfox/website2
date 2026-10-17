@@ -16,6 +16,49 @@ categories:
   - accountability
 created: 2026-03-24T20:00:00.000Z
 visibility: public
+resolved: true
+resolved_date: '2026-10-12T00:00:00.000Z'
+status: correct
+resolution: >-
+  **CORRECT**: Citizen Lab, named in this prediction's own list of
+  independent OSINT organizations, has been formally cited as evidence in US
+  federal court filings. One caveat up front: both filings came before this
+  prediction was made (2026-03-24). The resolution criteria set no start date,
+  so it counts under the letter of the prediction.
+
+
+  **Apple Inc. v. NSO Group Technologies** (N.D. Cal., complaint filed
+  2021-11-23): Apple's complaint relies on Citizen Lab's forensic work. It
+  credits Citizen Lab with finding the FORCEDENTRY exploit and alerting Apple
+  on 2021-09-07, and it cites the "high-confidence attribution of the exploit
+  to Defendants" made by researchers at Citizen Lab and Amnesty International.
+
+
+  **Dada v. NSO Group** (N.D. Cal. No. 3:22-cv-07513, amended complaint ECF 31,
+  filed 2022-12-16): the El Faro journalists' complaint mentions Citizen Lab
+  26 times and pleads the Pegasus infections on Citizen Lab's forensic
+  analysis, which Amnesty's Security Lab independently confirmed.
+
+
+  **Since the prediction was made**: no new filing turned up between
+  2026-03-24 and today. The 2026 Ninth Circuit briefs in WhatsApp v. NSO and the
+  2026-09-30 Dada opinion argue jurisdiction and damages without citing the
+  investigators.
+
+
+  **Sources**:
+
+  1. Apple v. NSO complaint
+  (https://www.apple.com/newsroom/pdfs/Apple_v_NSO_Complaint_112321.pdf)
+
+  2. Dada v. NSO amended complaint, ECF 31
+  (https://s3.amazonaws.com/kfai-documents/documents/8df8257b17/2022.12.16-ECF-31-Amended-Complaint.pdf)
+
+  3. CourtListener docket, Dada v. NSO
+  (https://www.courtlistener.com/docket/66575274/dada-v-nso-group-technologies-limited/)
+
+  4. Knight Institute case page, Dada v. NSO
+  (https://knightcolumbia.org/cases/dada-v-nso-group)
 hash: 8bcfb25d3f8749b95ca07418d70a918b8135518f99a715d6312746c3d3235b15
 ---
 

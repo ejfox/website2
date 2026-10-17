@@ -130,9 +130,32 @@ const formatResolvedDate = (date: string | undefined) => {
   }
 }
 
+// Two Brier bases: as signed (confidence at publication) and as updated (last
+// logged change). Older JSON only has brier_score/calibration, as updated.
+const brier = computed(() => ({
+  signed: calibration.value?.brier?.as_signed ?? null,
+  updated:
+    calibration.value?.brier?.as_updated ??
+    calibration.value?.brier_score ??
+    null,
+}))
+const hasBrier = computed(
+  () =>
+    typeof brier.value.signed === 'number' ||
+    typeof brier.value.updated === 'number'
+)
+
+// Curve + tables score on the signed basis: the number that was hashed
+const signedBuckets = computed(
+  () =>
+    calibration.value?.calibration_as_signed ??
+    calibration.value?.calibration ??
+    []
+)
+
 const calibrationPoints = computed(() => {
-  if (!calibration.value?.calibration?.length) return ''
-  return calibration.value.calibration
+  if (!signedBuckets.value.length) return ''
+  return signedBuckets.value
     .map(
       (b: { expected: number; accuracy: number }) =>
         `${b.expected},${100 - b.accuracy}`
@@ -216,23 +239,33 @@ usePageSeo({
           <div>
             {{ transformedPredictions.length }} predictions ·
             {{ resolvedPredictions.length }} resolved ·
-            <span v-if="correctCount > 0" class="text-success">
-              {{ correctCount }} correct
-            </span>
-            <span v-if="incorrectCount > 0">
-              ,
-              <span class="text-error">{{ incorrectCount }} wrong</span>
-            </span>
+            <!-- v-text: no template whitespace, so no space before the comma -->
+            <span
+              v-if="correctCount > 0"
+              class="text-success"
+              v-text="`${correctCount} correct`"
+            />
+            <span v-if="incorrectCount > 0" v-text="', '" />
+            <span
+              v-if="incorrectCount > 0"
+              class="text-error"
+              v-text="`${incorrectCount} wrong`"
+            />
           </div>
-          <div
-            v-if="calibration?.brier_score != null"
-            class="text-xs text-zinc-500"
-          >
-            Brier score: {{ calibration.brier_score.toFixed(3) }}
-            <span class="text-zinc-400">
-              ({{ brierScoreLabel(calibration.brier_score) }}, 0 = perfect, 0.25
-              = coin flip)
-            </span>
+          <div v-if="hasBrier" class="text-xs text-zinc-500">
+            Brier score:
+            <template v-if="brier.signed !== null">
+              <span class="tabular-nums">{{ brier.signed.toFixed(3) }}</span>
+              as signed
+            </template>
+            <template v-if="brier.signed !== null && brier.updated !== null">
+              ·
+            </template>
+            <template v-if="brier.updated !== null">
+              <span class="tabular-nums">{{ brier.updated.toFixed(3) }}</span>
+              as updated
+            </template>
+            <span class="text-zinc-400">(0 = perfect, 0.25 = coin flip)</span>
           </div>
         </div>
       </header>
@@ -247,21 +280,26 @@ usePageSeo({
         v-if="activePredictions.length > 0"
         ref="activeReveal"
         data-section="active"
-        class="section-spacing"
+        class="mb-12"
       >
         <h2 class="heading-2 mb-4">Active</h2>
-        <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-          <table class="w-full font-mono text-xs border-collapse">
+        <div class="overflow-x-auto">
+          <table data-plain class="w-full font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-zinc-300 dark:border-zinc-700">
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Conf
                 </th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Statement
                 </th>
                 <th class="text-right pb-2 font-normal text-zinc-500">
-                  Deadline
+                  <span class="sm:hidden">Due</span>
+                  <span class="hidden sm:inline">Deadline</span>
                 </th>
               </tr>
             </thead>
@@ -271,7 +309,7 @@ usePageSeo({
                 :key="prediction.id"
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
-                <td class="py-3 pr-4 align-top tabular-nums">
+                <td class="py-3 pr-3 sm:pr-4 align-top tabular-nums">
                   <NuxtLink
                     :to="`/predictions/${prediction.slug}`"
                     class="text-lg font-bold hover:underline"
@@ -280,12 +318,12 @@ usePageSeo({
                   </NuxtLink>
                 </td>
                 <td
-                  class="py-3 pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
+                  class="py-3 pr-3 sm:pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
                 >
                   {{ prediction.statement }}
                 </td>
                 <td
-                  class="py-3 pr-4 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap"
+                  class="py-3 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap"
                 >
                   <template v-if="daysUntil(prediction.deadline) !== null">
                     {{ daysUntil(prediction.deadline) }}d
@@ -305,23 +343,29 @@ usePageSeo({
         v-if="resolvedPredictions.length > 0"
         ref="resolvedReveal"
         data-section="resolved"
-        class="section-spacing"
+        class="mb-12"
       >
         <h2 class="heading-2 mb-4">Resolved</h2>
-        <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-          <table class="w-full font-mono text-xs border-collapse">
+        <div class="overflow-x-auto">
+          <table data-plain class="w-full font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-zinc-300 dark:border-zinc-700">
                 <th
-                  class="text-center pb-2 pr-4 font-normal text-zinc-500"
+                  class="text-center pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
                 ></th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Conf
                 </th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                <th
+                  class="text-left pb-2 pr-3 sm:pr-4 font-normal text-zinc-500"
+                >
                   Statement
                 </th>
-                <th class="text-left pb-2 font-normal text-zinc-500">
+                <th
+                  class="hidden sm:table-cell text-left pb-2 font-normal text-zinc-500"
+                >
                   Resolved
                 </th>
               </tr>
@@ -332,7 +376,7 @@ usePageSeo({
                 :key="prediction.id"
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
-                <td class="py-3 pr-4 align-top text-center">
+                <td class="py-3 pr-3 sm:pr-4 align-top text-center">
                   <span
                     v-if="prediction.status === 'correct'"
                     class="text-success"
@@ -347,7 +391,7 @@ usePageSeo({
                   </span>
                   <span v-else class="text-zinc-400">—</span>
                 </td>
-                <td class="py-3 pr-4 align-top tabular-nums">
+                <td class="py-3 pr-3 sm:pr-4 align-top tabular-nums">
                   <NuxtLink
                     :to="`/predictions/${prediction.slug}`"
                     class="text-lg font-bold hover:underline"
@@ -363,12 +407,17 @@ usePageSeo({
                   </NuxtLink>
                 </td>
                 <td
-                  class="py-3 pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
+                  class="py-3 pr-3 sm:pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
                 >
                   {{ prediction.statement }}
+                  <div
+                    class="sm:hidden font-mono text-2xs text-zinc-500 tabular-nums"
+                  >
+                    {{ formatResolvedDate(prediction.resolved_date) }}
+                  </div>
                 </td>
                 <td
-                  class="py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums"
+                  class="hidden sm:table-cell py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums"
                 >
                   {{ formatResolvedDate(prediction.resolved_date) }}
                 </td>
@@ -382,7 +431,7 @@ usePageSeo({
       <section
         v-if="transformedPredictions.length > 0"
         data-section="changelog"
-        class="section-spacing"
+        class="mb-12"
       >
         <h2 class="heading-2 mb-2">Changelog</h2>
         <p class="font-mono text-zinc-500 mb-4 text-xs">
@@ -394,15 +443,46 @@ usePageSeo({
 
       <!-- Calibration -->
       <section
-        v-if="calibration?.calibration?.length"
+        v-if="signedBuckets.length"
         data-section="calibration"
-        class="section-spacing font-mono text-xs"
+        class="mb-12 font-mono text-xs"
       >
         <h2 class="heading-2 mb-2">Calibration</h2>
         <p class="text-zinc-500 mb-4 text-xs">
           When I say X%, does it happen X% of the time? Dots on the diagonal =
           well calibrated.
         </p>
+
+        <!-- Brier, both bases -->
+        <div v-if="hasBrier" class="mb-4">
+          <div class="flex gap-8">
+            <div v-if="brier.signed !== null">
+              <div
+                class="text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.signed.toFixed(3) }}
+              </div>
+              <div class="text-3xs text-zinc-500">
+                as signed · {{ brierScoreLabel(brier.signed) }}
+              </div>
+            </div>
+            <div v-if="brier.updated !== null">
+              <div
+                class="text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.updated.toFixed(3) }}
+              </div>
+              <div class="text-3xs text-zinc-500">
+                as updated · {{ brierScoreLabel(brier.updated) }}
+              </div>
+            </div>
+          </div>
+          <p class="text-zinc-500 mt-2 text-xs">
+            As signed scores the confidence each prediction was published with;
+            as updated scores the last logged change. Curve and table below are
+            as signed.
+          </p>
+        </div>
 
         <!-- Calibration Curve -->
         <div class="mb-6">
@@ -437,7 +517,7 @@ usePageSeo({
               stroke-dasharray="2,2"
             />
             <circle
-              v-for="bucket in calibration.calibration"
+              v-for="bucket in signedBuckets"
               :key="bucket.label"
               :cx="bucket.expected"
               :cy="100 - bucket.accuracy"
@@ -461,11 +541,11 @@ usePageSeo({
             />
           </svg>
           <div class="text-3xs text-zinc-500 mt-1">
-            x: predicted · y: actual · dashed: perfect
+            x: predicted (as signed) · y: actual · dashed: perfect
           </div>
         </div>
 
-        <table class="w-full border-collapse">
+        <table data-plain class="w-full border-collapse">
           <thead>
             <tr
               class="border-b border-zinc-300 dark:border-zinc-700 text-zinc-500"
@@ -478,7 +558,7 @@ usePageSeo({
           </thead>
           <tbody>
             <tr
-              v-for="bucket in calibration.calibration"
+              v-for="bucket in signedBuckets"
               :key="bucket.label"
               class="border-b border-zinc-200 dark:border-zinc-800"
             >
@@ -504,10 +584,7 @@ usePageSeo({
 
         <!-- Plain English calibration summary -->
         <div class="mt-4 text-xs text-zinc-500 space-y-1">
-          <div
-            v-for="bucket in calibration.calibration"
-            :key="bucket.label + '-text'"
-          >
+          <div v-for="bucket in signedBuckets" :key="bucket.label + '-text'">
             When I say {{ bucket.label }}, it happens {{ bucket.accuracy }}% of
             the time
             <span v-if="Math.abs(bucket.delta) <= 5" class="text-success">
@@ -544,14 +621,26 @@ usePageSeo({
           </div>
 
           <!-- Brier score -->
-          <div v-if="calibration?.brier_score != null" class="space-y-0.5">
-            <div
-              class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
-            >
-              {{ calibration.brier_score.toFixed(3) }}
+          <div v-if="hasBrier" class="flex gap-4">
+            <div v-if="brier.signed !== null" class="space-y-0.5">
+              <div
+                class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.signed.toFixed(3) }}
+              </div>
+              <div class="font-mono text-3xs text-zinc-500">
+                Brier as signed
+              </div>
             </div>
-            <div class="font-mono text-3xs text-zinc-500">
-              Brier score · {{ brierScoreLabel(calibration.brier_score) }}
+            <div v-if="brier.updated !== null" class="space-y-0.5">
+              <div
+                class="font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100"
+              >
+                {{ brier.updated.toFixed(3) }}
+              </div>
+              <div class="font-mono text-3xs text-zinc-500">
+                Brier as updated
+              </div>
             </div>
           </div>
 
@@ -591,15 +680,15 @@ usePageSeo({
           </div>
 
           <!-- Calibration by bucket -->
-          <div v-if="calibration?.calibration?.length">
+          <div v-if="signedBuckets.length">
             <div
               class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1"
             >
-              By Confidence
+              By Confidence · as signed
             </div>
             <div class="space-y-0.5 font-mono text-3xs tabular-nums">
               <div
-                v-for="bucket in calibration.calibration"
+                v-for="bucket in signedBuckets"
                 :key="bucket.label"
                 class="flex justify-between"
               >
@@ -645,7 +734,7 @@ usePageSeo({
               Changelog
             </a>
             <a
-              v-if="calibration?.calibration?.length"
+              v-if="signedBuckets.length"
               href="#"
               class="block font-mono text-3xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
               @click.prevent="scrollToEl('calibration')"
