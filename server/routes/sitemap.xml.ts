@@ -64,6 +64,7 @@ export default defineEventHandler(async (event: H3Event) => {
     { url: '/now', priority: '0.8', changefreq: 'weekly' },
     { url: '/tips', priority: '0.5', changefreq: 'yearly' },
     { url: '/verify', priority: '0.5', changefreq: 'yearly' },
+    { url: '/keymap', priority: '0.4', changefreq: 'monthly' },
     { url: '/sitemap', priority: '0.4', changefreq: 'monthly' },
   ]
 

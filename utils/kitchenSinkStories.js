@@ -481,6 +481,29 @@ const HEATMAP_WEEKS = [2025, 2026].flatMap((year, yi) =>
 
 export const stories = {
   // ── blog ───────────────────────────────────────────────────────────────────
+  KeymapBoard: (() => {
+    // A plausible Voyager keymap: QWERTY base plus one sparse symbol layer
+    const base = "`12345\tQWERTYeASDFG^ZXCVB  67890-YUIOP\\HJKL;'NM,./^  "
+      .split('')
+      .slice(0, 52)
+      .map((c) => ({ t: c.trim() || '␣' }))
+    base[24] = { t: '␣', L: { op: 'MO', to: 1 } }
+    base[50] = { t: '⏎', L: { op: 'MO', to: 1 } }
+    const sym = base.map(() => null)
+    '!@#$%'.split('').forEach((c, i) => (sym[i + 1] = { t: c }))
+    '()[]{}'.split('').forEach((c, i) => (sym[i + 12] = { t: c }))
+    ;[44, 45].forEach((i) => (sym[i] = { x: true }))
+    const layers = [
+      { name: 'Main', color: null, keys: base },
+      { name: 'Sym', color: '#ff0000', keys: sym },
+    ]
+    return [
+      { name: 'specimen', props: { layers } },
+      { name: 'specimen + layer', props: { layers, active: 1 } },
+      { name: 'diff', props: { layers, active: 1, mode: 'diff' } },
+      { name: 'strata', props: { layers, mode: 'strata' } },
+    ]
+  })(),
   BlogPostContent: [
     {
       name: 'default',
