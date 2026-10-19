@@ -7,8 +7,8 @@
  * Stage 3: Runtime (useProcessedMarkdown.ts) - Final filtering and processing
  *
  * Content Type Detection Rules:
- * - Week Notes: type='weekNote' OR slug starts with 'week-notes/'
- *   OR slug matches YYYY-WW
+ * - Week Notes: retired 2026-10-11, never processed (410 via
+ *   server/middleware/week-notes-gone.ts)
  * - Special Sections: reading/, projects/, robots/, drafts/,
  *   study-notes/, prompts/
  * - System Files: slug='index' OR starts with '!' or '_'
@@ -145,8 +145,7 @@ function isSpecialSection(slug: string): boolean {
     basePath.startsWith('robots/') ||
     basePath.startsWith('drafts/') ||
     basePath.startsWith('study-notes/') ||
-    basePath.startsWith('prompts/') ||
-    basePath.startsWith('week-notes/')
+    basePath.startsWith('prompts/')
   )
 }
 
@@ -296,10 +295,7 @@ export const useProcessedMarkdown = () => {
     }
   }
 
-  const getAllPosts = async (
-    includeDrafts = false,
-    includeWeekNotes = false
-  ): Promise<Post[]> => {
+  const getAllPosts = async (includeDrafts = false): Promise<Post[]> => {
     try {
       const manifest = await getManifestLite()
 
@@ -308,12 +304,7 @@ export const useProcessedMarkdown = () => {
           if (isSystemFile(post.slug)) return false
           // Filter out hidden, unlisted, and password-protected posts from listings
           if (!includeDrafts && isExcludedFromListings(post)) return false
-          if (isSpecialSection(post.slug)) {
-            // Handle week notes special case
-            if (post.slug.includes('week-notes/')) return includeWeekNotes
-            return false
-          }
-          return true
+          return !isSpecialSection(post.slug)
         })
         .map((post) => {
           let title = post.title || post?.metadata?.title || ''
@@ -349,21 +340,19 @@ export const useProcessedMarkdown = () => {
 
   const getPostsByYear = async (
     year: number,
-    includeDrafts = false,
-    includeWeekNotes = false
+    includeDrafts = false
   ): Promise<Post[]> => {
-    const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
+    const allPosts = await getAllPosts(includeDrafts)
     return allPosts.filter((post) => new Date(post.date).getFullYear() === year)
   }
 
   const getPostsWithContent = async (
     limit = 10,
     offset = 0,
-    includeDrafts = false,
-    includeWeekNotes = false
+    includeDrafts = false
   ): Promise<Post[]> => {
     try {
-      const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
+      const allPosts = await getAllPosts(includeDrafts)
       const postsToFetch = allPosts.slice(offset, offset + limit)
       return await Promise.all(
         postsToFetch.map(async (post) => {
@@ -389,15 +378,6 @@ export const useProcessedMarkdown = () => {
   const getDrafts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
     return filterAndSortPosts(manifest, { type: 'draft', requireShare: true })
-  }
-
-  const getWeekNotes = async (): Promise<Post[]> => {
-    const manifest = await getManifestLite()
-    return filterAndSortPosts(manifest, {
-      excludeHidden: true,
-      customFilter: (post) =>
-        post.type === 'weekNote' || post.slug.startsWith('week-notes/'),
-    })
   }
 
   const getReadingPosts = async (): Promise<Post[]> => {
@@ -521,7 +501,6 @@ export const useProcessedMarkdown = () => {
     getPostsByYear,
     getPostsWithContent,
     getDrafts,
-    getWeekNotes,
     getReadingPosts,
     getNextPrevPosts,
     getProjectPosts,

@@ -41,7 +41,7 @@ const processPost = (post) => {
 // Fetch all posts and filter by tag
 const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
   try {
-    const result = await processedMarkdown.getAllPosts(false, false)
+    const result = await processedMarkdown.getAllPosts(false)
     return result.filter((post) => isValidPost(post)).map(processPost)
   } catch (err) {
     console.error('Error fetching posts for tag:', err)

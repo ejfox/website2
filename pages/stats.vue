@@ -231,8 +231,8 @@ const link = (href: string, text: string) =>
 onMounted(async () => {
   try {
     if (!cachedPosts.value) {
-      const allPosts = await getAllPosts(false, false)
-      cachedPosts.value = allPosts.filter((post) => isValidPost(post, false))
+      const allPosts = await getAllPosts(false)
+      cachedPosts.value = allPosts.filter((post) => isValidPost(post))
     }
 
     const posts = cachedPosts.value
