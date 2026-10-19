@@ -12,6 +12,7 @@
     "github:networks": "node scripts/build/export-github-networks.mjs",
     "goodreads:fetch": "node scripts/build/fetch-goodreads.mjs",
     "lint": "eslint .",
+    "check:components": "node scripts/meta/check-component-tags.mjs",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

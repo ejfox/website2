@@ -25,7 +25,7 @@ const urls = computed(() => {
       :key="url"
       class="reply-context p-4 rounded-lg border bg-zinc-50 dark:bg-black/50 border-zinc-200 dark:border-zinc-800"
     >
-      <ReplyContextItem :url="url" :show-label="index === 0" />
+      <BlogReplyContextItem :url="url" :show-label="index === 0" />
     </div>
   </div>
 </template>

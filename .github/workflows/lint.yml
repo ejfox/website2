@@ -37,5 +37,12 @@ jobs:
       - name: ESLint
         run: yarn lint --max-warnings 0
 
+      # Tags that name an unregistered component render nothing and pass the build
+      - name: Component tags resolve
+        run: yarn check:components
+
+      - name: Unit tests
+        run: yarn test
+
       - name: Prettier
         run: yarn format:check

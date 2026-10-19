@@ -599,7 +599,7 @@ useHead(() => ({
     <ClientOnly>
       <div v-if="scannedItems.length > 0" class="mb-8">
         <h2 class="gear-section-header mb-4">3D Scans</h2>
-        <Gear3DGallery :items="scannedItems" />
+        <GearGear3DGallery :items="scannedItems" />
       </div>
     </ClientOnly>
 
