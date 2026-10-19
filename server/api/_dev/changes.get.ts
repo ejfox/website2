@@ -107,8 +107,8 @@ export default defineEventHandler((event) => {
       ? ['diff', '--no-color', 'main', '--']
       : ['diff', '--no-color', 'HEAD', '--']
 
-  let nameStatus = ''
-  let numStat = ''
+  let nameStatus: string
+  let numStat: string
   let untracked: string[] = []
   try {
     nameStatus = git([...diffArgs.slice(0, -1), '--name-status', '--'])

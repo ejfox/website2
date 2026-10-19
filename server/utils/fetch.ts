@@ -22,7 +22,9 @@ export async function fetchWithTimeout(
 
     // Handle abort/timeout
     if (error instanceof Error && error.name === 'AbortError') {
-      throw new Error(`Request timeout after ${timeoutMs}ms: ${url}`)
+      throw new Error(`Request timeout after ${timeoutMs}ms: ${url}`, {
+        cause: error,
+      })
     }
 
     // Handle connection errors
@@ -34,7 +36,7 @@ export async function fetchWithTimeout(
         error.message.includes('ETIMEDOUT')
       ) {
         const msg = `Network error connecting to ${url}: ${error.message}`
-        throw new Error(msg)
+        throw new Error(msg, { cause: error })
       }
     }
 

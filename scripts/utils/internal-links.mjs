@@ -143,7 +143,7 @@ export async function buildValidRoutes(files, contentDir) {
     if (relNoExt.toLowerCase().startsWith('drafts/')) continue
     if (path.basename(relNoExt).startsWith('!')) continue
 
-    let fm = {}
+    let fm
     try {
       fm = matter(await fs.readFile(file, 'utf8')).data || {}
     } catch {
