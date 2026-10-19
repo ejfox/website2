@@ -8,7 +8,7 @@
 -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { format } from 'date-fns/format'
+import { format } from '~/utils/date'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 
 interface ActivityDay {

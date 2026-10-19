@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import colophonData from '~/data/colophon.json'
+import { formatPeriodLabel } from '~/utils/date'
 
 interface ColophonEntry {
   version: string
@@ -55,30 +56,6 @@ function extractYear(dateStr: string): string {
   if (/^\d{4}$/.test(dateStr)) return dateStr
   if (dateStr.includes('Q')) return dateStr.split('-')[0]
   return dateStr.split('-')[0]
-}
-
-function formatDate(dateStr: string) {
-  if (/^\d{4}$/.test(dateStr)) return dateStr
-  if (dateStr.includes('Q')) {
-    const [year, quarter] = dateStr.split('-')
-    return `${quarter} ${year}`
-  }
-  const [year, month] = dateStr.split('-')
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ]
-  return `${months[Number.parseInt(month) - 1]} ${year}`
 }
 
 // Fetch commit data and manifest in parallel
@@ -209,7 +186,7 @@ usePageSeo({
                 <span
                   class="font-mono text-xs text-zinc-500 dark:text-zinc-500"
                 >
-                  {{ formatDate(entry.date) }}
+                  {{ formatPeriodLabel(entry.date) }}
                 </span>
                 <span
                   v-if="entry.era"

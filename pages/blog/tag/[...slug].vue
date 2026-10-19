@@ -1,7 +1,7 @@
 <!-- Blog Tag Page -->
 
 <script setup>
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from '~/utils/date'
 
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import updatesData from '~/data/updates.json'
+import { formatPeriodLabel } from '~/utils/date'
 
 interface Update {
   date: string
@@ -10,35 +11,6 @@ interface Update {
 }
 
 const updates: Update[] = updatesData
-
-function formatDate(dateStr: string) {
-  // Handle year-only: "2018"
-  if (/^\d{4}$/.test(dateStr)) {
-    return dateStr
-  }
-  // Handle quarters: "2024-Q2"
-  if (dateStr.includes('Q')) {
-    const [year, quarter] = dateStr.split('-')
-    return `${quarter} ${year}`
-  }
-  // Handle month: "2025-12"
-  const [year, month] = dateStr.split('-')
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ]
-  return `${months[Number.parseInt(month) - 1]} ${year}`
-}
 
 usePageSeo({
   title: "What's New · EJ Fox",
@@ -67,7 +39,7 @@ usePageSeo({
             <time
               class="font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider"
             >
-              {{ formatDate(update.date) }}
+              {{ formatPeriodLabel(update.date) }}
             </time>
             <span
               v-if="update.era"

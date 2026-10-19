@@ -134,3 +134,35 @@ export const formatTimeAgo = (date: Date | string): string => {
   if (minutes > 0) return `${minutes}m ago`
   return 'just now'
 }
+
+// Changelog period label: "2018" → "2018", "2024-Q2" → "Q2 2024",
+// "2025-12" → "Dec 2025". Shared by /updates and /changelog (moved verbatim
+// from both pages; not date-fns, so no timezone involvement).
+export function formatPeriodLabel(dateStr: string) {
+  // Handle year-only: "2018"
+  if (/^\d{4}$/.test(dateStr)) {
+    return dateStr
+  }
+  // Handle quarters: "2024-Q2"
+  if (dateStr.includes('Q')) {
+    const [year, quarter] = dateStr.split('-')
+    return `${quarter} ${year}`
+  }
+  // Handle month: "2025-12"
+  const [year, month] = dateStr.split('-')
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  return `${months[Number.parseInt(month) - 1]} ${year}`
+}

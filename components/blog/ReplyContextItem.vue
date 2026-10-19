@@ -5,7 +5,7 @@
   @props showLabel: boolean - Show "In reply to" label (default: false)
 -->
 <script setup lang="ts">
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow } from '~/utils/date'
 
 interface OGData {
   url: string

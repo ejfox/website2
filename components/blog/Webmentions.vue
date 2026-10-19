@@ -4,7 +4,7 @@
   @props url: string - URL to fetch webmentions for
 -->
 <script setup lang="ts">
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow } from '~/utils/date'
 
 const props = defineProps<{
   url: string

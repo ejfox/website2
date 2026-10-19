@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format } from 'date-fns'
+import { format } from '~/utils/date'
 import { findCalibrationBucket } from '~/utils/calibration'
 
 const { tocTarget } = useTOC()
