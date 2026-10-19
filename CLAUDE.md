@@ -419,7 +419,7 @@ Two separate link-health systems — don't confuse them:
 
 ### Build Output Privacy
 
-The `nuxt.config.ts` `compiled` hook copies `content/` to `.output/content/` for API routes. It **excludes** `content/backup/` and `content/drafts/` via a filter to prevent private content from being served.
+`.output` contains **no** `content/` copy (removed 2026-10-19). Every server read is `process.cwd()/content/...`, which is the VPS git checkout in prod and a PR preview's own directory. So `content/backup/`, `content/drafts/` and sealed plaintext (`content/blog/private/`) can't ride along in a build. Don't re-add a content copy hook; read from `process.cwd()`.
 
 ### Content Processing Privacy
 

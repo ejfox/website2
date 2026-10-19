@@ -137,6 +137,9 @@ jobs:
           echo "ERROR: .output/server/index.mjs not found after build!"
           exit 1
         fi
+        # Nitro traces both @napi-rs/canvas Linux binaries. The VPS is Debian
+        # (glibc), so the musl one (~30 MB) can never load; don't ship it.
+        rm -rf .output/server/node_modules/@napi-rs/canvas-linux-x64-musl
         echo "Build OK: $(du -sh .output | cut -f1)"
         # Ship the processed content CI just generated. The server reads
         # content/processed relative to its cwd (the VPS git checkout), so
