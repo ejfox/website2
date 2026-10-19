@@ -13,7 +13,7 @@ import { createApp, defineAsyncComponent, h } from 'vue'
 
 // Lazy-import the component to avoid pulling it into the main bundle
 const GearCardInline = defineAsyncComponent(
-  () => import('~/components/GearCardInline.vue')
+  () => import('~/components/gear/GearCardInline.vue')
 )
 
 export default defineNuxtPlugin((nuxtApp) => {
