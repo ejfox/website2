@@ -10,7 +10,7 @@ import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import { format } from 'date-fns/format'
+import { format } from '~/utils/date'
 import { interpolateTurbo } from 'd3-scale-chromatic'
 
 interface TimeBreakdown {

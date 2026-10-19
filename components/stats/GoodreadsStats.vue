@@ -5,6 +5,7 @@
 -->
 <script setup>
 import StatsSectionHeader from './StatsSectionHeader.vue'
+import { formatNumber } from '~/utils/numberFormat'
 
 defineProps({
   goodreadsStats: {
@@ -16,11 +17,6 @@ defineProps({
 const formatRating = (rating) => {
   if (!rating || rating === 0) return '—'
   return rating.toFixed(1)
-}
-
-const formatNumber = (num) => {
-  if (!num) return '0'
-  return new Intl.NumberFormat('en-US').format(num)
 }
 </script>
 

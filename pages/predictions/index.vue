@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format } from 'date-fns'
+import { format } from '~/utils/date'
 
 const { tocTarget } = useTOC()
 const { revealContainer: activeReveal } = useScrollReveal({

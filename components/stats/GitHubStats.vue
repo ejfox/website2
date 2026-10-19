@@ -9,8 +9,7 @@
 // (the "GITHUB COMMITS" / "TOTAL REPOS" labels sat under nothing).
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
-import { format } from 'date-fns/format'
-import { formatDistance } from 'date-fns'
+import { format, formatDistance } from '~/utils/date'
 
 interface GitHubRepo {
   name: string
