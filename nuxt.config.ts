@@ -259,49 +259,11 @@ export default defineNuxtConfig({
       crawlLinks: false, // Causes issues with broken links
       failOnError: false, // Don't fail build on prerender errors
     },
-    // Copy content directory to .output for API routes to access
-    hooks: {
-      compiled: async (nitro) => {
-        const { promises: fs } = await import('node:fs')
-        const path = await import('node:path')
-
-        const source = path.join(nitro.options.rootDir, 'content')
-        const dest = path.join(nitro.options.output.dir, 'content')
-
-        // Recursively copy content directory (exclude private dirs)
-        const excludeDirs = ['backup', 'drafts']
-        // Sealed posts' PLAINTEXT markdown lives here. It is gitignored, so it
-        // exists only on EJ's laptop — but `yarn build` there (the manual
-        // deploy path in CLAUDE.md) would otherwise copy it into .output and
-        // scp it to the VPS, which is precisely the "the door is locked and
-        // the wall is missing" failure this whole design exists to avoid.
-        //
-        // Matched as `content/blog/private`, NOT as the substring `/private/`:
-        // the loose match would also drop content/processed/private/**, which
-        // is the committed envelope the server actually serves, and the post
-        // would 404 with no error anywhere.
-        const sealedSource = path.join(source, 'blog', 'private')
-        try {
-          await fs.cp(source, dest, {
-            recursive: true,
-            errorOnExist: false,
-            force: true,
-            filter: (src: string) =>
-              !src.startsWith(sealedSource) &&
-              !excludeDirs.some(
-                (d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)
-              ),
-          })
-          // console.log(`✓ Copied content directory to ${dest}`)
-        } catch (err) {
-          // Ignore ENOENT errors during hot reload race conditions
-          const e = err as { code?: string }
-          if (e?.code !== 'ENOENT') {
-            throw err
-          }
-        }
-      },
-    },
+    // No content/ copy into .output: every server read is
+    // process.cwd()/content, i.e. the VPS checkout (and a PR preview's own
+    // dir), so the copy was 16 MB nobody read. Not copying also means a
+    // local manual build can't carry sealed-post plaintext (gitignored
+    // content/blog/private) into .output.
     routeRules: {
       // Legacy URL from the pre-website2 site: "How I Use GPT" was published at
       // the year-less /blog/how-i-use-gpt3. website2 organizes posts by year, so
