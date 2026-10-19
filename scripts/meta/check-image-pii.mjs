@@ -5,6 +5,7 @@
  *   credential or of financial details. Runs in deploy.yml before the build.
  * @usage yarn check:images             # scan every published post's images
  *        yarn check:images --local a.png b.png   # scan local files (testing)
+ *        yarn check:images --count-todo    # print how many images still need OCR
  *
  * ## Why
  *
@@ -487,15 +488,19 @@ async function main() {
       console.log(`::warning title=Screenshot guard skipped::${msg}`)
     return
   }
-  if (!(await hasTesseract())) {
+  const requireTesseract = async () => {
+    if (await hasTesseract()) return
     await fail({
       title: 'tesseract is not installed',
       why: 'The guard reads text out of images with tesseract OCR, and it is missing — so NOTHING was checked. This is a problem with the guard, not with your post.',
       items: ['tesseract: command not found'],
-      fix: 'Locally: brew install tesseract\nIn CI: the "Install tesseract" step in .github/workflows/deploy.yml failed or was removed — check that step\'s log above.',
+      fix: 'Locally: brew install tesseract\nIn CI: the "Install tesseract" step in .github/workflows/deploy.yml failed or was skipped — check that step\'s log above.',
     })
   }
-  if (args[0] === '--local') return scanLocal(args.slice(1))
+  if (args[0] === '--local') {
+    await requireTesseract()
+    return scanLocal(args.slice(1))
+  }
 
   const images = await collectPublishedImages()
   const altCache = await readJson(IMAGE_CACHE, {})
@@ -531,6 +536,13 @@ async function main() {
 
   // 2. OCR — only images with no verdict under the current rules.
   const todo = [...images.keys()].filter((u) => !verdicts[u])
+  // CI asks first, and installs tesseract (~12s of apt) only when needed.
+  if (args[0] === '--count-todo') {
+    console.log(todo.length)
+    return
+  }
+  // Fail closed: anything left to OCR needs tesseract.
+  if (todo.length) await requireTesseract()
   console.log(
     chalk.dim(
       `${images.size} published images · ${images.size - todo.length} cached · ${todo.length} to OCR`

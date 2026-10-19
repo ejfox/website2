@@ -6,7 +6,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "prebuild": "node scripts/build/generate-changelog.mjs && node scripts/build/copy-blogroll.mjs && (node scripts/build/export-github-repos.mjs || echo 'GitHub export failed, using cached data') && (node scripts/build/export-github-networks.mjs || echo 'Network export failed, using cached data') && (node scripts/build/fetch-goodreads.mjs || echo 'Goodreads fetch failed, using cached data')",
+    "prebuild": "node scripts/build/generate-changelog.mjs && node scripts/build/copy-blogroll.mjs && { [ -n \"$CI\" ] || { (node scripts/build/export-github-repos.mjs || echo 'GitHub export failed, using cached data') && (node scripts/build/export-github-networks.mjs || echo 'Network export failed, using cached data'); }; } && (node scripts/build/fetch-goodreads.mjs || echo 'Goodreads fetch failed, using cached data')",
     "build": "nuxt build",
     "github:export": "node scripts/build/export-github-repos.mjs",
     "github:networks": "node scripts/build/export-github-networks.mjs",

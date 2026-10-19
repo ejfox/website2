@@ -30,9 +30,20 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 22
-        cache: yarn
+
+    # Cache node_modules itself, keyed on the lockfile: a hit skips install
+    # entirely (~2s restore vs ~30s for the old yarn-cache restore + install).
+    # Nothing before the build needs .nuxt (postinstall's `nuxt prepare`);
+    # `nuxt build` regenerates it.
+    - name: Restore node_modules
+      id: nm_cache
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: nm-${{ runner.os }}-node22-${{ hashFiles('yarn.lock') }}
 
     - name: Install dependencies
+      if: steps.nm_cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile --ignore-engines
 
     # Blocking, and BEFORE the build, so a visibility-field typo or a leaked
@@ -50,15 +61,23 @@ jobs:
     # text-side check passed. OCR each published image (verdicts cached by
     # URL — committed in data/image-pii-scan.json, plus this runner cache for
     # images added since) and block on credentials or financial details.
-    - name: Install tesseract
-      run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends tesseract-ocr >/dev/null
-
     - name: Restore image scan cache
       uses: actions/cache@v4
       with:
         path: .cache/image-pii-scan.json
         key: image-pii-${{ github.sha }}
         restore-keys: image-pii-
+
+    # Most deploys have no new images to OCR, so tesseract (~12s of apt) is
+    # installed only when the guard has work. The guard still fails closed:
+    # any image left to OCR without tesseract fails the deploy.
+    - name: Count images awaiting OCR
+      id: ocr_todo
+      run: echo "count=$(yarn -s check:images --count-todo | tail -1)" >> "$GITHUB_OUTPUT"
+
+    - name: Install tesseract
+      if: steps.ocr_todo.outputs.count != '0'
+      run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends tesseract-ocr >/dev/null
 
     # On failure the guard prints WHAT/WHY/HOW TO FIX, adds a red annotation
     # and a run summary, and the next step pings Discord. Override for a
