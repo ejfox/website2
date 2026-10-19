@@ -1345,17 +1345,15 @@ async function processAllFiles() {
         // whose output was thrown away. Keep only what downstream reads, the
         // draft flag, so `results` stays index-aligned with `allFiles`. Draft
         // PROJECTS are still rendered, because dev previews them.
-        if (
-          !isSealedSlug(normalizedPath) &&
-          !outputPath.includes('/projects/')
-        ) {
-          const { data: frontmatter } = matter(source)
-          if (frontmatter.draft === true) {
-            await fs.rm(outputPath, { force: true }) // same as writeProcessedResult
-            results.push({ metadata: { ...frontmatter, draft: true } })
-            processStats.filesProcessed++
-            continue
-          }
+        const frontmatter =
+          !isSealedSlug(normalizedPath) && !outputPath.includes('/projects/')
+            ? matter(source).data
+            : null
+        if (frontmatter?.draft === true) {
+          await fs.rm(outputPath, { force: true }) // same as writeProcessedResult
+          results.push({ metadata: { ...frontmatter, draft: true } })
+          processStats.filesProcessed++
+          continue
         }
 
         // Process file (not cached)

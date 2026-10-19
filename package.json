@@ -74,7 +74,7 @@
     "@types/sanitize-html": "^2.13.0",
     "@types/three": "^0.170.0",
     "consola": "^3.4.2",
-    "eslint": "^9.39.1",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "gray-matter": "^4.0.3",
     "nuxt": "^4.6.2",
@@ -89,7 +89,7 @@
     "shiki": "^3.7.0",
     "typescript": "~5.9.3",
     "unified": "^11.0.5",
-    "vitest": "^4.0.15"
+    "vitest": "^5.0.5"
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.97",
