@@ -767,7 +767,7 @@ copies the exact deep-link.
 header shows an amber "N missing a story" count and dev console warns about missing
 stories AND orphaned story keys (renamed/removed components). Components that fetch
 their own data (Webmentions, NextAvailableSlot) or are invisible overlays
-(DebugGrid, WebVitalsReporter, ScrollIndicator, CommandPalette) preview as
+(WebVitalsReporter, ScrollIndicator) preview as
 empty by design — that's expected, not broken.
 
 ---

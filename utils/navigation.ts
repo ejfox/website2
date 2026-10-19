@@ -26,6 +26,3 @@ export const navigationItems: NavItem[] = [
 // Filter helpers
 export const getPrimaryNav = () =>
   navigationItems.filter((item) => item.primary)
-export const getSecondaryNav = () =>
-  navigationItems.filter((item) => !item.primary)
-export const getAllNav = () => navigationItems
