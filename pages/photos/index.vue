@@ -1,5 +1,5 @@
 <script setup>
-import PhotoStack from '~/components/PhotoStack.vue'
+import PhotoStack from '~/components/photo/PhotoStack.vue'
 
 const { data: photosData, pending: photosPending } = await useFetch(
   '/api/photos',

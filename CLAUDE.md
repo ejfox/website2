@@ -347,7 +347,7 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 ### Files Modified
 
 - `plugins/footnotes-to-sidenotes.client.ts` - New sidenote plugin
-- `components/BlogPostContent.vue` - Simplified to basic wrapper
+- `components/blog/BlogPostContent.vue` - Simplified to basic wrapper
 - `pages/blog/[...slug].vue` - Updated container widths
 - Deleted 6 complex components and 3 experimental plugins
 
