@@ -2,6 +2,13 @@
 import { useElementSize, useElementBounding, useWindowSize } from '@vueuse/core'
 import { geoMercator } from 'd3-geo'
 import { interpolateInferno } from 'd3-scale-chromatic'
+import {
+  rideKm as km,
+  rideMi as mi,
+  rideFt as ft,
+  rideMph as mph,
+  rideDuration as duration,
+} from '~/utils/rides'
 
 interface Moment {
   id: number
@@ -67,12 +74,6 @@ const { data: rideIndex } =
 const accent = computed(() => `hsl(${ride.value?.hue ?? 25} 75% 55%)`)
 
 // ---- formatting ----------------------------------------------------------
-const km = (m: number) => (m / 1000).toFixed(1)
-const mi = (m: number) => (m / 1609.34).toFixed(1)
-const ft = (m: number) => Math.round(m * 3.28084)
-const mph = (mps: number) => Math.round(mps * 2.237)
-const duration = (s: number) =>
-  `${Math.floor(s / 3600)}h${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}m`
 const formatDate = (d: string | null) =>
   d
     ? new Date(d).toLocaleDateString('en-US', {
