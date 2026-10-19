@@ -1273,6 +1273,7 @@ async function processAllFiles() {
     console.log('\n📊 Pre-flight cache analysis...')
     let willCache = 0
     let willProcess = 0
+    let willSkipDrafts = 0
     const filesToProcess = []
 
     for (const filePath of allFiles) {
@@ -1283,6 +1284,12 @@ async function processAllFiles() {
       const cacheStatus = getFileCacheStatus(filePath, outputPath)
       if (cacheStatus === 'cache') {
         willCache++
+      } else if (
+        !isSealedSlug(normalizedPath) &&
+        !outputPath.includes('/projects/') &&
+        matter(readFileSync(filePath, 'utf8')).data.draft === true
+      ) {
+        willSkipDrafts++
       } else {
         willProcess++
         filesToProcess.push(path.basename(filePath))
@@ -1291,6 +1298,7 @@ async function processAllFiles() {
 
     console.log(`  ✓ ${willCache} files cached (unchanged)`)
     console.log(`  → ${willProcess} files to process`)
+    console.log(`  ∅ ${willSkipDrafts} drafts skipped (never written)`)
     if (willProcess > 0 && willProcess <= 10) {
       console.log(`\nFiles to process:`)
       filesToProcess.forEach((f) => console.log(`  • ${f}`))
@@ -1331,11 +1339,28 @@ async function processAllFiles() {
           continue
         }
 
+        const source = await fs.readFile(filePath, 'utf8')
+
+        // Drafts never get JSON (see writeProcessedResult), so they can never
+        // hit the cache. Rendering them anyway cost ~15s a deploy for 29 posts
+        // whose output was thrown away. Keep only what downstream reads, the
+        // draft flag, so `results` stays index-aligned with `allFiles`. Draft
+        // PROJECTS are still rendered, because dev previews them.
+        if (
+          !isSealedSlug(normalizedPath) &&
+          !outputPath.includes('/projects/')
+        ) {
+          const { data: frontmatter } = matter(source)
+          if (frontmatter.draft === true) {
+            await fs.rm(outputPath, { force: true }) // same as writeProcessedResult
+            results.push({ metadata: { ...frontmatter, draft: true } })
+            processStats.filesProcessed++
+            continue
+          }
+        }
+
         // Process file (not cached)
-        const result = await processMarkdown(
-          await fs.readFile(filePath, 'utf8'),
-          filePath
-        )
+        const result = await processMarkdown(source, filePath)
         fetchedCount++
 
         const baseName = path.basename(filePath).padEnd(40)
