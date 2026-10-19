@@ -76,7 +76,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.5.1",
     "gray-matter": "^4.0.3",
-    "nuxt": "^4.0.3",
+    "nuxt": "4.4.5",
     "playwright": "^1.64.0",
     "prettier": "^3.6.2",
     "rehype-pretty-code": "^0.14.0",
