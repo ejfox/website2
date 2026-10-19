@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         # Full history: prebuild's generate-changelog reads the last 500
         # commits for the prerendered /changelog. The default depth of 1 made
@@ -32,7 +32,7 @@ jobs:
         fetch-depth: 0
 
     - name: Setup Node 22
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: 22
 
@@ -42,7 +42,7 @@ jobs:
     # `nuxt build` regenerates it.
     - name: Restore node_modules
       id: nm_cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: node_modules
         key: nm-${{ runner.os }}-node22-${{ hashFiles('yarn.lock') }}
@@ -67,7 +67,7 @@ jobs:
     # URL — committed in data/image-pii-scan.json, plus this runner cache for
     # images added since) and block on credentials or financial details.
     - name: Restore image scan cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: .cache/image-pii-scan.json
         key: image-pii-${{ github.sha }}
@@ -102,7 +102,7 @@ jobs:
 
     - name: Alert Discord that the screenshot guard blocked the deploy
       if: failure() && steps.image_guard.outcome == 'failure'
-      uses: appleboy/ssh-action@v1.0.3
+      uses: appleboy/ssh-action@v1.2.5
       env:
         GUARD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         GUARD_MSG: "**🛑 ejfox.com deploy BLOCKED by screenshot guard** — ${{ steps.guard_alert.outputs.msg }} `${{ github.sha }}` ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
@@ -120,7 +120,7 @@ jobs:
     # run after a successful deploy and read THIS, not the checkout's
     # committed JSON (stale for markdown-only commits, e.g. from Dispatch).
     - name: Upload processed content
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: processed-content
         path: content/processed
@@ -157,7 +157,7 @@ jobs:
         target: /tmp/
 
     - name: Deploy and reload
-      uses: appleboy/ssh-action@v1.0.3
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
