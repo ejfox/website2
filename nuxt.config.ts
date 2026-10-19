@@ -498,4 +498,9 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/global.css'],
+  // @nuxtjs/tailwindcss adds tailwindcss/nesting, but Nuxt 4.6 loads PostCSS
+  // plugins by ESM import and Tailwind 3 ships `nesting/` as a bare directory
+  // (no exports map), so it fails to load with a build warning. The site's
+  // CSS has no nested rules, so skip it explicitly. Tailwind 4 removes this.
+  postcss: { plugins: { 'tailwindcss/nesting': false } },
 })
