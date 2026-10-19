@@ -1,6 +1,6 @@
 /**
- * Post filtering utilities for blog pages
- * Consolidates isWeekNote and isValidPost logic
+ * Post filtering utilities: one visibility predicate for every listing,
+ * feed, sitemap and search surface.
  */
 
 export interface Post {
@@ -88,47 +88,22 @@ export function isHiddenFromListings(
 }
 
 /**
- * Check if a post is a week note
+ * Check if a post is a regular, publicly listable blog post.
+ * (Week notes were retired 2026-10-11 and are never processed; see
+ * server/middleware/week-notes-gone.ts for their 410.)
  * @param post - Post object to check
- * @returns true if post is a week note
- */
-export function isWeekNote(post: Post): boolean {
-  const slug = post?.slug || ''
-  const type = post?.type || post?.metadata?.type
-  const lastPart = slug.split('/').pop()
-  return (
-    type === 'weekNote' ||
-    type === 'week-note' ||
-    slug.startsWith('week-notes/') ||
-    slug.includes('/week-notes/') ||
-    /^\d{4}-\d{2}$/.test(lastPart || '')
-  )
-}
-
-/**
- * Check if a post is valid for display
- * @param post - Post object to check
- * @param includeWeekNotes - Whether to include week notes (default: false)
  * @param currentDate - Current date for future post check (default: new Date())
  * @returns true if post should be displayed
  */
-export function isValidPost(
-  post: Post,
-  includeWeekNotes = false,
-  currentDate = new Date()
-): boolean {
+export function isValidPost(post: Post, currentDate = new Date()): boolean {
   // One predicate for every visibility flag, rather than five locals that have
   // to be kept in sync here and at a dozen other call sites — the `sealed` and
   // `passwordHash` flags were missing from this list, and the next flag added
   // would have been missing too.
   const excluded =
     isHiddenFromListings(post) || isScheduled(post, currentDate.getTime())
-  const weekNote = isWeekNote(post)
-
-  if (includeWeekNotes) return weekNote && !excluded
-
   const isRegularBlogPost = /^(?:blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
-  return !weekNote && isRegularBlogPost && !excluded
+  return isRegularBlogPost && !excluded
 }
 
 /**
@@ -140,8 +115,6 @@ export function postFilters(currentDate?: Date) {
   const now = currentDate || new Date()
 
   return {
-    isWeekNote,
-    isValidPost: (post: Post, includeWeekNotes = false) =>
-      isValidPost(post, includeWeekNotes, now),
+    isValidPost: (post: Post) => isValidPost(post, now),
   }
 }

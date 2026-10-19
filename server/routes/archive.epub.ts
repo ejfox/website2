@@ -115,14 +115,14 @@ function toEbookHtml(html: string): string {
 
 async function buildArchive() {
   const { getPostsWithContent } = useProcessedMarkdown()
-  // Signature is (limit, offset, includeDrafts, includeWeekNotes) — NOT a pair
+  // Signature is (limit, offset, includeDrafts) — NOT a pair
   // of booleans. Passing booleans here silently slices to zero posts and ships
   // an empty book, which is exactly the kind of failure nobody notices until
   // someone downloads it.
   //
   // The large limit is "all of them": getAllPosts has already filtered, and
   // there is no paging concept in a book.
-  const posts = await getPostsWithContent(100000, 0, false, false)
+  const posts = await getPostsWithContent(100000, 0, false)
 
   const chapters: EpubChapter[] = posts
     .filter((p: Record<string, unknown>) => p?.html || p?.content)

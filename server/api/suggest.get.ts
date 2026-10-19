@@ -10,7 +10,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import NodeCache from 'node-cache'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
-import { isScheduled } from '~/utils/postFilters'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 // ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
 const cache = new NodeCache({
@@ -168,15 +168,14 @@ async function processJsonFile(
     const fileContent = await readFile(fullPath, 'utf-8')
     const data = JSON.parse(fileContent)
 
-    // Filter out private/draft/unlisted/password-protected content
+    // The shared visibility predicate (draft/hidden/unlisted/password/sealed)
+    // plus embargo. The old inline list checked `type: draft` but not the
+    // `draft: true` flag, and draft PROJECTS do get JSON written.
     const isHiddenOrDraft =
       !data.content ||
-      data.metadata?.hidden ||
       data.metadata?.private === true ||
       data.metadata?.type === 'draft' ||
-      data.metadata?.unlisted === true ||
-      data.metadata?.password ||
-      data.metadata?.passwordHash ||
+      isHiddenFromListings(data) ||
       isScheduled(data)
 
     if (isHiddenOrDraft) return null
@@ -211,14 +210,7 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
         // rather than reading the manifest, which means it does not inherit
         // the manifest's omission of sealed posts. Name the directory here so
         // the safety does not rest on "the envelope happens to be unreadable."
-        const skipDirs = [
-          'backup',
-          '_stale',
-          'week-notes',
-          'robots',
-          'prompts',
-          'private',
-        ]
+        const skipDirs = ['backup', '_stale', 'robots', 'prompts', 'private']
         if (skipDirs.includes(item.name)) continue
         await searchDirectory(fullPath, posts, relativePath)
         continue

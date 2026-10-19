@@ -9,7 +9,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
-import { isScheduled } from '~/utils/postFilters'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 /**
  * Format a slug into a display title
@@ -231,14 +231,9 @@ export default defineEventHandler(async (event) => {
         if (item.isDirectory()) {
           // Skip certain directories - be more restrictive
           if (
-            [
-              'backup',
-              'drafts',
-              '_stale',
-              'week-notes',
-              'robots',
-              'prompts',
-            ].includes(item.name)
+            ['backup', 'drafts', '_stale', 'robots', 'prompts'].includes(
+              item.name
+            )
           )
             continue
           await searchDirectory(fullPath, relativePath)
@@ -259,19 +254,14 @@ export default defineEventHandler(async (event) => {
             // anyone reviewing a future change would notice breaking.
             if (data.sealed === true) continue
 
-            // Skip if no content, hidden, unlisted, password-protected, or private content types
-            if (!contentSource || data.metadata?.hidden) continue
-
-            // Skip unlisted and password-protected posts
-            if (data.metadata?.unlisted === true) continue
-            if (data.metadata?.password || data.metadata?.passwordHash) continue
-            // Skip posts still under embargo — their JSON ships in the build
-            if (isScheduled(data)) continue
+            if (!contentSource) continue
+            // The shared visibility predicate (draft/hidden/unlisted/password/
+            // sealed), plus embargo: scheduled posts' JSON ships in the build.
+            if (isHiddenFromListings(data) || isScheduled(data)) continue
 
             // Additional content filtering
             const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
             if (
-              slug.includes('week-notes/') ||
               slug.includes('drafts/') ||
               slug.includes('robots/') ||
               slug.includes('prompts/') ||

@@ -2,6 +2,7 @@ import RSS from 'rss'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
 import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 // RSS item type
 interface RSSCustomElement {
@@ -42,7 +43,7 @@ export default defineEventHandler(async (event) => {
 
   // Get all published posts WITH FULL CONTENT and sort by date (newest first)
   // Use getPostsWithContent to fetch full HTML for each post
-  const posts = await getPostsWithContent(50, 0, false, false)
+  const posts = await getPostsWithContent(50, 0, false)
   const sortedPosts = posts.sort((a, b) => {
     const dateA = parseISO(a.metadata?.date || a.date || '')
     const dateB = parseISO(b.metadata?.date || b.date || '')
@@ -83,37 +84,19 @@ export default defineEventHandler(async (event) => {
     // Skip posts without a valid slug
     if (!slug) continue
 
-    // Skip drafts, hidden, unlisted, password-protected posts, and system files
-    const isDraft = post.draft || metadata.draft
-    const isHidden = post.hidden || metadata.hidden
-    const isUnlisted = post.unlisted || metadata.unlisted
-    const hasPassword = !!(
-      post.password ||
-      post.passwordHash ||
-      metadata.password ||
-      metadata.passwordHash
-    )
+    // Visibility flags (draft/hidden/unlisted/password/sealed) and embargo
+    // come from the one shared predicate, so this feed can't drift from the
+    // others again. The rest are feed-shape rules.
+    if (isHiddenFromListings(post) || isScheduled(post)) continue
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
     const isSpecialSection =
       slug.includes('drafts/') ||
       slug.includes('robots/') ||
-      slug.includes('prompts/') ||
-      slug.includes('week-notes/')
-    const isWeekNote = metadata.type === 'week-note'
+      slug.includes('prompts/')
     // Only include posts with paths (e.g., 2025/post-name)
     const hasPath = slug.includes('/')
-    if (
-      isDraft ||
-      isHidden ||
-      isUnlisted ||
-      hasPassword ||
-      isSystemFile ||
-      isSpecialSection ||
-      isWeekNote ||
-      !hasPath
-    )
-      continue
+    if (isSystemFile || isSpecialSection || !hasPath) continue
 
     const postDate = parseISO(date)
     // An undated item would otherwise be stamped "now" on every request and
