@@ -310,14 +310,19 @@ const proseClasses =
           </div>
         </div>
 
-        <UAlert
-          icon="i-majesticons-robot"
-          color="gray"
-          variant="soft"
-          title="LLM-Generated / Augmented Content"
-          :description="robotAlertDescription"
-          class="mb-8"
-        />
+        <aside
+          role="note"
+          class="mb-8 border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 py-1"
+        >
+          <p
+            class="font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-1"
+          >
+            LLM-generated / augmented content
+          </p>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            {{ robotAlertDescription }}
+          </p>
+        </aside>
 
         <header class="mb-8">
           <!-- Hero title with animation -->
@@ -373,14 +378,6 @@ const proseClasses =
         </div>
       </aside>
     </div>
-    <UAlert
-      icon="i-majesticons-robot"
-      color="gray"
-      variant="soft"
-      title="LLM-Generated / Augmented Content"
-      description="This note was written by or with the assistance of AI."
-      class="mb-8"
-    />
   </div>
 
   <!-- Teleport the TOC into the sidebar -->
