@@ -5,9 +5,7 @@
  * @returns Array of post metadata from manifest-lite.json
  */
 import { defineEventHandler, createError } from 'h3'
-import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 
 interface Post {
   slug?: string
@@ -37,7 +35,7 @@ export default defineEventHandler(async () => {
     // posts. These posts exist at their URLs but don't appear in listings.
     const publicPosts = manifest.filter((p: Post) => {
       const isDraftsFolder = p.slug?.startsWith('drafts/')
-      return !isHiddenFromListings(p) && !isDraftsFolder && !isScheduled(p)
+      return isListable(p) && !isDraftsFolder
     })
 
     return publicPosts
@@ -50,17 +48,3 @@ export default defineEventHandler(async () => {
     })
   }
 })
-
-async function readManifest() {
-  const manifestPath = resolve(
-    process.cwd(),
-    'content/processed/manifest-lite.json'
-  )
-  try {
-    const content = await readFile(manifestPath, 'utf8')
-    return JSON.parse(content)
-  } catch (error) {
-    console.error('Error reading manifest file:', error)
-    throw error
-  }
-}

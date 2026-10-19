@@ -8,7 +8,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { createError } from 'h3'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 
 interface PhotoPost {
   slug: string
@@ -45,14 +45,10 @@ function extractImageSrcs(
 export default defineCachedEventHandler(
   async () => {
     try {
-      const manifestPath = path.join(PROCESSED_DIR, 'manifest-lite.json')
-      const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf-8'))
+      const manifest = await readManifest()
 
       const photoPosts = manifest.filter(
-        (p: any) =>
-          (p.type === 'photos' || p.type === 'photo') &&
-          !isHiddenFromListings(p) &&
-          !isScheduled(p)
+        (p) => (p.type === 'photos' || p.type === 'photo') && isListable(p)
       )
 
       const results: PhotoPost[] = []
