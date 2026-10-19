@@ -87,7 +87,7 @@ const payload: ActivityPayload = (() => {
   }
   if (!existsSync(COMMITS_PATH)) return empty
 
-  let commits: CommitRow[] = []
+  let commits: CommitRow[]
   try {
     commits = JSON.parse(readFileSync(COMMITS_PATH, 'utf-8'))
   } catch {

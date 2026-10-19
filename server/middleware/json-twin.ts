@@ -55,7 +55,7 @@ export default defineEventHandler(async (event) => {
     (config.public?.siteUrl as string)?.replace(/\/$/, '') ||
     'https://ejfox.com'
 
-  let twin: Twin | null = null
+  let twin: Twin | null
   try {
     twin = await resolveTwin(pagePath)
   } catch (err: any) {

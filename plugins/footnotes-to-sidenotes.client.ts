@@ -23,7 +23,7 @@ export default defineNuxtPlugin(() => {
       if (!footnoteContent) return
 
       // Get clean text content - try multiple extraction methods
-      let cleanText = ''
+      let cleanText: string
 
       // Method 1: Try getting text from the paragraph inside
       const footnoteParagraph = footnoteContent.querySelector('p')

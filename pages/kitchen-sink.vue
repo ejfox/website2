@@ -497,8 +497,7 @@ function focusStep(dir) {
               </div>
               <pre
                 class="text-2xs leading-5 overflow-x-auto whitespace-pre-wrap text-zinc-700 dark:text-zinc-300"
-                >{{ JSON.stringify(activeStory.props, null, 2) }}</pre
-              >
+                >{{ JSON.stringify(activeStory.props, null, 2) }}</pre>
             </div>
 
             <!-- source -->
@@ -513,8 +512,7 @@ function focusStep(dir) {
               <pre
                 v-if="sourceOpen"
                 class="mt-1 text-2xs leading-5 overflow-auto max-h-[55vh] text-zinc-600 dark:text-zinc-400"
-                >{{ activeSource }}</pre
-              >
+                >{{ activeSource }}</pre>
             </div>
           </div>
         </div>

@@ -359,7 +359,8 @@ async function ocrUrlUncached(url, tmpDir) {
         throw new Error(
           e.name === 'TimeoutError'
             ? 'timed out after 30s (3 tries)'
-            : `${e.message} (3 tries)`
+            : `${e.message} (3 tries)`,
+          { cause: e }
         )
     }
     await new Promise((r) => setTimeout(r, attempt * 2000))
