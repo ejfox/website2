@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
@@ -30,7 +30,7 @@ jobs:
 
     - name: Download deployed processed content
       if: github.event_name == 'workflow_run'
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: processed-content
         path: content/processed
@@ -38,12 +38,12 @@ jobs:
         github-token: ${{ github.token }}
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: '22'
 
     - name: Restore webmentions cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: .webmentions-sent.json
         key: webmentions-${{ github.sha }}
