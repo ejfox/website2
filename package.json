@@ -50,6 +50,7 @@
     "rides:process": "node scripts/build/process-rides.mjs",
     "check:sealed": "node scripts/meta/check-sealed.mjs",
     "check:images": "node scripts/meta/check-image-pii.mjs",
+    "icons:vendor": "node scripts/build/vendor-link-icons.mjs",
     "images:sync-ocr": "node scripts/meta/sync-ocr-to-cloudinary.mjs",
     "images:unify": "node scripts/meta/unify-cloudinary-text.mjs",
     "seal:links": "node scripts/author/seal-links.mjs",
