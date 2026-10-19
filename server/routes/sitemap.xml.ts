@@ -1,6 +1,7 @@
 import { defineEventHandler, setHeader, type H3Event } from 'h3'
 import { listDispatches } from '~/server/utils/dispatch'
 import { escapeXml } from '~/server/utils/xml'
+import { readManifest } from '~/server/utils/manifest'
 import {
   buildSitemapPostEntries,
   renderSitemapUrl,
@@ -91,12 +92,7 @@ export default defineEventHandler(async (event: H3Event) => {
     // Use the processed manifest for blog posts
     const fs = await import('node:fs/promises')
     const path = await import('node:path')
-    const manifestPath = path.join(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-    const manifestData = await fs.readFile(manifestPath, 'utf-8')
-    const posts: ManifestPost[] = JSON.parse(manifestData)
+    const posts = (await readManifest()) as ManifestPost[]
 
     // Privacy filters (draft/hidden/unlisted/password/scheduled/special) live
     // in buildSitemapPostEntries — see server/utils/sitemapEntries.ts + test.

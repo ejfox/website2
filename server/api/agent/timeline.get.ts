@@ -10,7 +10,7 @@ import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 import { withKindleSync } from '~/server/utils/readingKindle'
 
 // Timeline event types
@@ -57,12 +57,7 @@ export default defineEventHandler(async (event) => {
 
   // Get all blog posts
   try {
-    const manifestPath = join(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-    const manifestContent = await fs.readFile(manifestPath, 'utf-8')
-    const posts = JSON.parse(manifestContent)
+    const posts = await readManifest()
 
     // These flags were previously checked as `!p.unlisted` etc. against a
     // manifest entry, which only hoists `hidden` — the rest exist solely under
@@ -70,10 +65,7 @@ export default defineEventHandler(async (event) => {
     // endpoint would have published the title, URL and tags of any unlisted or
     // protected post. `isHiddenFromListings` reads both levels.
     posts
-      .filter(
-        (p: ManifestPost) =>
-          !isHiddenFromListings(p) && !isScheduled(p) && p.date
-      )
+      .filter((p: ManifestPost) => isListable(p) && p.date)
       .forEach((post: ManifestPost) => {
         events.push({
           timestamp: post.date,

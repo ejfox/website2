@@ -2,7 +2,7 @@ import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { escapeXml, cdata } from '~/server/utils/xml'
-import { isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Robot Posts'
@@ -10,44 +10,12 @@ const siteDescription = 'Experiments and explorations in AI and automation.'
 
 export default defineEventHandler(async (event) => {
   try {
-    const manifestPath = resolve(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-    const manifest = JSON.parse(await readFile(manifestPath, 'utf-8'))
+    const manifest = await readManifest()
 
     const filteredPosts = manifest
-      // Only include robot posts
-      .filter((post: { slug: string }) => post.slug.startsWith('robots/'))
-      // Filter out hidden posts
-      .filter((post: { hidden?: boolean }) => !post.hidden)
-      // Filter out drafts
-      .filter((post: { draft?: boolean }) => !post.draft)
-      // Filter out unlisted posts
-      .filter(
-        (post: { unlisted?: boolean; metadata?: { unlisted?: boolean } }) =>
-          !post.unlisted && !post.metadata?.unlisted
-      )
-      // Filter out posts still under embargo
-      .filter(
-        (post: {
-          date?: string
-          publishAt?: string
-          metadata?: { date?: string; publishAt?: string }
-        }) => !isScheduled(post)
-      )
-      // Filter out password-protected posts
-      .filter(
-        (post: {
-          password?: string
-          passwordHash?: string
-          metadata?: { password?: string; passwordHash?: string }
-        }) =>
-          !post.password &&
-          !post.passwordHash &&
-          !post.metadata?.password &&
-          !post.metadata?.passwordHash
-      )
+      // Only robot posts, and only listable ones (draft/hidden/unlisted/
+      // password/sealed at both levels, plus embargo)
+      .filter((post) => post.slug.startsWith('robots/') && isListable(post))
       .sort(
         (a: { date: string }, b: { date: string }) =>
           new Date(b.date).getTime() - new Date(a.date).getTime()

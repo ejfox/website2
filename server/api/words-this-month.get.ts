@@ -5,9 +5,7 @@
  * @returns Current month's writing stats with total words, post count, average words per post, and post details
  */
 import { defineEventHandler } from 'h3'
-import { readFile } from 'node:fs/promises'
-import path from 'node:path'
-import { isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 
 interface BlogPost {
   slug: string
@@ -31,14 +29,7 @@ interface BlogPost {
 
 export default defineEventHandler(async () => {
   try {
-    // Read the manifest-lite file which contains all blog posts
-    const manifestPath = path.join(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-
-    const rawData = await readFile(manifestPath, 'utf-8')
-    const allPosts = JSON.parse(rawData) as BlogPost[]
+    const allPosts = (await readManifest()) as BlogPost[]
 
     // Get current month and year
     const now = new Date()
@@ -49,22 +40,8 @@ export default defineEventHandler(async () => {
     // Only count actual blog posts (yearly folders, not projects/reading/etc)
     const allPublishedPosts = allPosts.filter((post) => {
       if (!post.date) return false
-      // Exclude hidden posts
-      if (post.hidden || post.metadata?.hidden) return false
-      // Exclude draft posts
-      if (post.draft || post.metadata?.draft) return false
-      // Exclude unlisted posts
-      if (post.unlisted || post.metadata?.unlisted) return false
-      // Exclude posts still under embargo
-      if (isScheduled(post)) return false
-      // Exclude password-protected posts
-      const hasPassword = !!(
-        post.password ||
-        post.passwordHash ||
-        post.metadata?.password ||
-        post.metadata?.passwordHash
-      )
-      if (hasPassword) return false
+      // draft/hidden/unlisted/password/sealed (both levels) + embargo
+      if (!isListable(post)) return false
       if (post.slug.startsWith('drafts/')) return false
       // Only count posts in yearly folders (2018/, 2019/, etc.) as blog posts
       if (!post.slug.match(/^\d{4}\//)) return false
