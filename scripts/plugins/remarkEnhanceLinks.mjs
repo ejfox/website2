@@ -5,7 +5,6 @@
  */
 
 import { visit } from 'unist-util-visit'
-import fetch from 'node-fetch'
 import NodeCache from 'node-cache'
 
 // Cache for fetched icons

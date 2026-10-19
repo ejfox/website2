@@ -28,7 +28,6 @@ import dotenv from 'dotenv'
 import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
-import fetch from 'node-fetch'
 import { config } from '../config.mjs'
 
 import {
