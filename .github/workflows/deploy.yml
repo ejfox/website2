@@ -25,6 +25,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        # Full history: prebuild's generate-changelog reads the last 500
+        # commits for the prerendered /changelog. The default depth of 1 made
+        # it "1 commits".
+        fetch-depth: 0
 
     - name: Setup Node 22
       uses: actions/setup-node@v4
@@ -170,6 +175,11 @@ jobs:
           git fetch origin main
           git reset --hard "$BUILT_SHA"
           NEW_COMMIT=$(git rev-parse --short HEAD)
+
+          # /api/changelog reads data/changelog.json from this checkout (it's
+          # gitignored, so CI's copy never arrives). Regenerate it from the
+          # real history; before this it sat frozen at 2026-06-18.
+          node scripts/build/generate-changelog.mjs || echo "WARN: changelog regen failed — serving the previous file"
 
           # Get commit info for alert
           COMMIT_MSG=$(git log -1 --pretty=format:"%s" | head -c 100)
