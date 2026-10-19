@@ -1,4 +1,4 @@
-// Auto-enhance markdown tables with DataTable component
+// Auto-enhance markdown tables in place: data-table class, numeric columns, sorting
 export default defineNuxtPlugin((nuxtApp) => {
   if (!import.meta.client) return
 

@@ -16,7 +16,6 @@ formatDate(date, 'custom pattern') // Use date-fns patterns
 formatShortDate(date) // "Nov 28, 2025"
 formatLongDate(date) // "November 28, 2025"
 formatCompactDate(date) // "2025-11-28"
-formatYearOnly(date) // "2025"
 ```
 
 ### Relative Time (Human-Readable)

@@ -73,7 +73,6 @@ export const formatLongDate = (date: DateInput) =>
   formatDate(date, 'MMMM do, yyyy')
 export const formatCompactDate = (date: DateInput) =>
   formatDate(date, 'yyyy-MM-dd')
-export const formatYearOnly = (date: DateInput) => formatDate(date, 'yyyy')
 export const formatTime = (date: DateInput) => formatDate(date, 'h:mm a')
 export const formatDateTime = (date: DateInput) =>
   formatDate(date, 'MMM d, yyyy h:mm a')
@@ -92,22 +91,6 @@ export const formatRelative = (date: DateInput): string => {
 }
 // Alias kept for former useDateFormat().formatRelativeTime callers
 export const formatRelativeTime = formatRelative
-
-export const isValidDate = (
-  date: string | number | Date | null | undefined
-): boolean => {
-  if (!date) return false
-  const parsed = typeof date === 'string' ? parseISO(date) : new Date(date)
-  return isValid(parsed)
-}
-
-export const safeParseDate = (
-  date: string | number | Date | null | undefined
-): Date | null => {
-  if (!date) return null
-  const parsed = typeof date === 'string' ? parseISO(date) : new Date(date)
-  return isValid(parsed) ? parsed : null
-}
 
 // Epoch-seconds or date-string → "MM.dd" (dense stats components).
 export const formatDateMinimal = (timestamp: string | number): string => {
