@@ -681,6 +681,7 @@ and slugs only, never PII. An element already tagged with
 | `dispatch-also-on` | Dispatch piece "Also on" links | `network`, `slug` |
 | `consulting-book` | booking CTAs (consulting floating/sidebar, process, projects, case-study-nbc, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
 | `nav-hire-me` | "Hire Me" nav link (`utils/navigation.ts` `umamiEvent`) | `location` (sidebar-nav, mobile-nav) |
+| `nav-calendar` | links to /calendar: "Book a call" nav item, site footer, end of every blog post | `location` (sidebar-nav, mobile-nav, footer, post-footer) |
 | `outbound` | any untagged link to another host (plugin) | `host` |
 | `contact-email` | any `mailto:` link (plugin) | (none; never the address) |
 | `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
