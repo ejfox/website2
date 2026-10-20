@@ -38,7 +38,12 @@ const GithubCommitMatrix = defineAsyncComponent(
 )
 
 // Define stats first - used by computed properties below
-const { stats: rawStats, liteStats, isLoading, errors } = useStats({
+const {
+  stats: rawStats,
+  liteStats,
+  isLoading,
+  errors,
+} = useStats({
   server: true,
 })
 
