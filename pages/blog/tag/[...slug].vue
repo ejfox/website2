@@ -201,7 +201,7 @@ const postSummaryClass =
     </header>
 
     <!-- Main content area -->
-    <main class="max-w-4xl mx-auto px-4 md:px-6">
+    <div data-page-main class="max-w-4xl mx-auto px-4 md:px-6">
       <!-- Posts listing -->
       <div v-if="filteredPosts && filteredPosts.length > 0" class="space-y-8">
         <template v-for="(post, index) in filteredPosts" :key="post.slug">
@@ -326,6 +326,6 @@ const postSummaryClass =
           </a>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>

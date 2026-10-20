@@ -467,7 +467,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
+  <div data-page-main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
     <div
       v-if="csvError"
       class="text-center py-8 text-red-600 dark:text-red-400"
@@ -768,7 +768,7 @@ useHead(() => ({
         </div>
       </Teleport>
     </ClientOnly>
-  </main>
+  </div>
 </template>
 
 <style>

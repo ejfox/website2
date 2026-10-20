@@ -60,7 +60,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="container-main pt-8 max-w-2xl">
+  <div data-page-main class="container-main pt-8 max-w-2xl">
     <header class="section-spacing-lg">
       <h1 class="heading-1 mb-4">How I Work</h1>
       <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400">
@@ -192,5 +192,5 @@ usePageSeo({
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </template>

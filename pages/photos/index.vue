@@ -100,7 +100,7 @@ useHead({ title: 'Photos — EJ Fox' })
 </script>
 
 <template>
-  <main class="photos-page">
+  <div data-page-main class="photos-page">
     <header class="photos-page__header">
       <h1 class="photos-page__title">Photos</h1>
       <p v-if="!pending" class="photos-page__sub">
@@ -167,7 +167,7 @@ useHead({ title: 'Photos — EJ Fox' })
     </div>
 
     <div v-else class="photos-page__status">No photographs</div>
-  </main>
+  </div>
 </template>
 
 <style scoped>

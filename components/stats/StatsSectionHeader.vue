@@ -10,9 +10,11 @@ defineProps<{
 </script>
 
 <template>
-  <h4 class="section-subheader">
+  <!-- h3: these sit under the page's h2 section titles (an h4 skipped a
+       level, which Lighthouse heading-order flags) -->
+  <h3 class="section-subheader">
     {{ title }}
-  </h4>
+  </h3>
 </template>
 
 <style scoped>
@@ -21,5 +23,8 @@ defineProps<{
   @apply border-zinc-200 dark:border-zinc-800/30;
   font-size: 0.65rem;
   line-height: 1rem;
+  /* the old h4 got no heading font; global h3 sets Vault Alarm, so keep what
+     it rendered with */
+  font-family: inherit;
 }
 </style>

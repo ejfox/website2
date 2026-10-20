@@ -203,7 +203,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="container-main pt-8">
+  <div data-page-main class="container-main pt-8">
     <div
       v-if="predictionsError"
       class="text-center py-8 text-red-600 dark:text-red-400"
@@ -745,5 +745,5 @@ usePageSeo({
         </div>
       </Teleport>
     </ClientOnly>
-  </main>
+  </div>
 </template>

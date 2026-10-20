@@ -223,14 +223,16 @@ useHead(() => ({
                 </div>
 
                 <article class="group mb-6 h-entry">
-                  <h3 class="p-name">
+                  <!-- h2 under the page h1 (h3 skipped a level). The tracking
+                       keeps the old h3 letter-spacing from global.css. -->
+                  <h2 class="p-name tracking-[-0.015em]">
                     <NuxtLink
                       :to="`/blog/${post?.slug}`"
                       class="u-url title-link leading-tight"
                     >
                       {{ post.title }}
                     </NuxtLink>
-                  </h3>
+                  </h2>
 
                   <div class="post-metadata">
                     <time class="dt-published" :datetime="postDate(post)">

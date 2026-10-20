@@ -156,13 +156,15 @@ const linkClasses =
         </div>
       </nav>
 
-      <article id="main-content" class="layout-main min-w-0">
+      <!-- The page's one <main> landmark. Pages render <div>s inside it, not
+           their own <main>, so there's never a nested or missing landmark. -->
+      <main id="main-content" class="layout-main min-w-0">
         <!-- Inner wrapper owns horizontal-overflow clipping so the layout's
            sticky bar isn't trapped in an overflow context. -->
         <div class="overflow-x-clip">
           <slot />
         </div>
-      </article>
+      </main>
     </div>
     <!-- /#app-container — footer is a sibling so the sticky sidebar can't
          overlap it -->
@@ -223,5 +225,11 @@ const linkClasses =
 
 .layout-main {
   grid-area: main;
+  /* app.vue's critical CSS styles bare `main` (padding, max-width, auto
+     margin) for page-level wrappers, now [data-page-main] divs. The layout's
+     own <main> landmark must stay unstyled, as the <article> it replaced was. */
+  padding: 0;
+  max-width: none;
+  margin: 0;
 }
 </style>

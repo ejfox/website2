@@ -57,7 +57,7 @@ const upcoming = computed(() =>
 </script>
 
 <template>
-  <main class="px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-2xl">
+  <div data-page-main class="px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-2xl">
     <header class="mb-10">
       <div
         class="font-mono text-xs text-zinc-400 mb-2 uppercase tracking-wider"
@@ -134,5 +134,5 @@ const upcoming = computed(() =>
         </li>
       </ol>
     </section>
-  </main>
+  </div>
 </template>

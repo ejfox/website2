@@ -71,7 +71,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="max-w-4xl mx-auto px-4 pt-8">
+  <div data-page-main class="max-w-4xl mx-auto px-4 pt-8">
     <!-- Header -->
     <header class="space-y-6 mb-12">
       <div>
@@ -315,7 +315,7 @@ usePageSeo({
         </p>
       </div>
     </footer>
-  </main>
+  </div>
 </template>
 
 <style scoped>
