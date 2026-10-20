@@ -77,7 +77,7 @@ function formatCompact(num: number): string {
 
 <template>
   <div
-    class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:gap-x-6 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
+    class="post-meta-bar flex flex-nowrap items-center gap-x-4 sm:gap-x-6 px-4 py-2 overflow-x-auto font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
   >
     <span class="whitespace-nowrap">{{ formattedDate }}</span>
     <a
@@ -123,3 +123,17 @@ function formatCompact(num: number): string {
     </span>
   </div>
 </template>
+
+<style scoped>
+/* One line, always: a wrapped bar was 73px instead of 49px, which broke the
+   height reserved for it in the layout (layout-bar--post). On widths where
+   it doesn't fit, it scrolls sideways. `safe center` stays centered when it
+   fits and starts at the left edge when it overflows, so nothing is clipped. */
+.post-meta-bar {
+  justify-content: safe center;
+  scrollbar-width: none;
+}
+.post-meta-bar::-webkit-scrollbar {
+  display: none;
+}
+</style>
