@@ -10,13 +10,11 @@ import { computed } from 'vue'
 // live cal.com fetch. Production never passes this.
 const props = defineProps({ mock: { type: Object, default: null } })
 
-// Fetch the first available slot with auto-refresh
 const { data, refresh } = await useLazyFetch('/api/cal/available-slots', {
   refresh: 5 * 60 * 1000, // Refresh every 5 minutes
   default: () => ({ slots: [] }),
 })
 
-// Get the very next available slot
 const nextSlot = computed(() => {
   const slots = props.mock?.slots ?? data.value?.slots
   if (!slots?.length) return null

@@ -61,7 +61,6 @@ const averageWordsPerPost = computed(() => {
 })
 
 const postsThisMonth = computed(() => {
-  // Use the actual postsThisMonth value from blogStats
   return props.blogStats?.postsThisMonth || 0
 })
 </script>
@@ -246,7 +245,6 @@ const postsThisMonth = computed(() => {
 </template>
 
 <style scoped>
-/* Subtle top stats card styling - with anime.js custom properties */
 .top-stat-card {
   @apply text-center p-4 flex-1;
   min-width: 100px;

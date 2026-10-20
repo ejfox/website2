@@ -41,7 +41,6 @@ const stats = computed(
     }
 )
 
-// Engagement Metrics
 const bounceRate = computed(() => {
   const visits = stats.value.visits.value
   const bounces = stats.value.bounces.value
@@ -70,7 +69,6 @@ const pagesPerSession = computed(() => {
   return (pageviews / visits).toFixed(1)
 })
 
-// Growth Calculations
 const pageviewGrowth = computed(() => {
   const current = stats.value.pageviews.value
   const prev = stats.value.pageviews.prev
@@ -92,7 +90,6 @@ const timeGrowth = computed(() => {
   return ((current - prev) / prev) * 100
 })
 
-// Traffic Quality Metrics
 const returnRate = computed(() => {
   const visits = stats.value.visits.value
   const visitors = stats.value.visitors.value
@@ -103,7 +100,6 @@ const returnRate = computed(() => {
 })
 
 const engagementRate = computed(() => {
-  // Inverse of bounce rate
   return 100 - bounceRate.value
 })
 
@@ -112,7 +108,6 @@ const dailyAverage = computed(() => {
   return Math.round(stats.value.pageviews.value / 30)
 })
 
-// Formatting helpers
 const formatGrowth = (growth: number): string => {
   if (growth === 0) return '0%'
   const sign = growth > 0 ? '+' : ''
@@ -133,7 +128,6 @@ const lastUpdated = computed(() => {
 
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
-    <!-- Primary Stats -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
@@ -164,7 +158,6 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
-    <!-- Key Metrics -->
     <div>
       <StatsSectionHeader title="WEBSITE ENGAGEMENT" />
       <div class="space-y-2">
@@ -201,7 +194,6 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
-    <!-- Growth Metrics -->
     <div>
       <StatsSectionHeader title="WEBSITE GROWTH (VS PREV 30 DAYS)" />
       <div class="space-y-2">
@@ -232,7 +224,6 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
-    <!-- Traffic Quality -->
     <div>
       <h4 class="section-label-tracked">WEBSITE TRAFFIC QUALITY</h4>
       <div class="space-y-2">
@@ -263,7 +254,6 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
-    <!-- Period Info -->
     <div class="flex justify-between text-zinc-500 text-xs">
       <span>LAST 30 DAYS</span>
       <span>UPDATED {{ lastUpdated }}</span>

@@ -17,7 +17,6 @@ const hoveredCommit = ref(null)
 const tooltipX = ref(0)
 const tooltipY = ref(0)
 
-// Grid settings
 const CELL_SIZE = 4
 const GAP = 1
 const STEP = CELL_SIZE + GAP
@@ -26,7 +25,6 @@ const STEP = CELL_SIZE + GAP
 let commitGrid = []
 let cols = 0
 
-// Colors
 const getColor = (daysDiff, isDark) => {
   if (daysDiff <= 30) return isDark ? '#fafafa' : '#3f3f46'
   if (daysDiff <= 365) return isDark ? '#a1a1aa' : '#71717a'
@@ -41,13 +39,11 @@ function draw() {
   const ctx = canvas.getContext('2d')
   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-  // Calculate grid dimensions
   const containerWidth = container.offsetWidth - 16 // padding
   cols = Math.floor(containerWidth / STEP)
   const rows = Math.ceil(props.commits.length / cols)
   const height = Math.min(rows * STEP + 8, 300) // max 300px
 
-  // Set canvas size
   const dpr = window.devicePixelRatio || 1
   canvas.width = containerWidth * dpr
   canvas.height = height * dpr
@@ -55,15 +51,12 @@ function draw() {
   canvas.style.height = `${height}px`
   ctx.scale(dpr, dpr)
 
-  // Clear
   ctx.clearRect(0, 0, containerWidth, height)
 
-  // Sort commits newest first
   const sorted = [...props.commits].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   )
 
-  // Draw commits and build grid
   const now = new Date()
   commitGrid = []
 
@@ -79,7 +72,6 @@ function draw() {
     ctx.fillStyle = getColor(daysDiff, isDark)
     ctx.fillRect(x, y, CELL_SIZE, CELL_SIZE)
 
-    // Store for hover
     commitGrid.push({ x, y, commit })
   })
 }
@@ -91,7 +83,6 @@ function handleMouseMove(event) {
   const mouseX = event.clientX - rect.left
   const mouseY = event.clientY - rect.top
 
-  // Find which cell we're hovering
   const col = Math.floor(mouseX / STEP)
   const row = Math.floor(mouseY / STEP)
   const index = row * cols + col
@@ -145,7 +136,6 @@ watch(() => props.commits, draw)
 
 <template>
   <div ref="containerRef" class="commit-matrix">
-    <!-- Legend -->
     <div class="matrix-legend">
       <span class="legend-dot legend-dot--recent"></span>
       <span class="legend-dot legend-dot--year"></span>
@@ -163,7 +153,6 @@ watch(() => props.commits, draw)
       ></canvas>
     </div>
 
-    <!-- Tooltip -->
     <div
       v-if="hoveredCommit"
       class="commit-tooltip"

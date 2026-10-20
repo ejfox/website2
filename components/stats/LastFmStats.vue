@@ -93,7 +93,6 @@ const formatTrackTime = (track: Track): string => {
 
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
-    <!-- Last 5 Songs -->
     <div v-if="stats?.recentTracks?.tracks?.length">
       <StatsSectionHeader title="LAST.FM RECENT TRACKS" />
       <div class="space-y-2">
@@ -126,7 +125,6 @@ const formatTrackTime = (track: Track): string => {
       </div>
     </div>
 
-    <!-- Top Artists -->
     <div v-if="topArtists?.length">
       <StatsSectionHeader title="LAST.FM TOP ARTISTS" />
       <div class="space-y-2">
@@ -156,7 +154,6 @@ const formatTrackTime = (track: Track): string => {
       </div>
     </div>
 
-    <!-- Top Genres if available -->
     <div v-if="topGenres?.length">
       <h4 class="section-label-tracked">LAST.FM TOP GENRES</h4>
       <div class="space-y-2">
@@ -186,7 +183,6 @@ const formatTrackTime = (track: Track): string => {
       </div>
     </div>
 
-    <!-- Top Tracks -->
     <div v-if="topTracks?.length">
       <h4 class="section-label-tracked">LAST.FM TOP TRACKS</h4>
       <div class="space-y-2">

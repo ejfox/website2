@@ -36,7 +36,7 @@ const tiltStyle = ref({})
 const tiltReady = ref(false)
 
 // Two ways to drive the tilt:
-//   • Desktop (hover + fine pointer): the mouse, as before.
+//   • Desktop (hover + fine pointer): the mouse.
 //   • Touch device: the phone's accelerometer/gyroscope (DeviceOrientation),
 //     so tilting the phone tilts the card. iOS 13+ gates motion access behind
 //     a user gesture, so there we surface a small "enable tilt" tap prompt.
@@ -116,7 +116,7 @@ onUnmounted(() => {
 })
 
 useRafFn(() => {
-  // Desktop: live mouse-driven tilt (unchanged).
+  // Desktop: live mouse-driven tilt.
   if (tiltReady.value) {
     const cx = winW.value / 2
     const cy = winH.value / 2
@@ -225,14 +225,12 @@ const formatDetailValue = (key, value) => {
       ↗ tilt to explore
     </button>
 
-    <!-- Header -->
     <div class="card-header">
       <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
       <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
       <div class="label-uppercase">{{ gearItem.Type }}</div>
     </div>
 
-    <!-- Photo -->
     <div v-if="photoUrl" class="photo-wrap">
       <div class="gear-img-square">
         <img
@@ -281,7 +279,6 @@ const formatDetailValue = (key, value) => {
       <span class="text-3xs text-secondary italic">{{ gearItem.Notes }}</span>
     </div>
 
-    <!-- Buy link -->
     <div v-if="buyUrl" class="text-center mt-3">
       <a
         :href="buyUrl"
@@ -293,7 +290,6 @@ const formatDetailValue = (key, value) => {
       </a>
     </div>
 
-    <!-- Details table -->
     <div class="details-section">
       <h3 class="label-tracked-md">Item Details</h3>
       <div

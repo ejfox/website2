@@ -8,7 +8,6 @@ const props = defineProps<{
   replyTo?: string | string[]
 }>()
 
-// Normalize to array
 const urls = computed(() => {
   if (!props.replyTo) return []
   if (Array.isArray(props.replyTo)) {

@@ -14,11 +14,9 @@ onMounted(() => {
     config.public.debug || config.public.nodeEnv === 'development'
 
   if (showVitals.value && typeof window !== 'undefined') {
-    // Listen for web vitals reports
     window.addEventListener('web-vitals', (event) => {
       const { name, value, rating } = event.detail
 
-      // Update or add vital
       const existingIndex = vitals.value.findIndex((v) => v.name === name)
       const vitalData = { name, value, rating }
 

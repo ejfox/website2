@@ -50,7 +50,6 @@ const formatRating = (rating) => {
       </div>
     </div>
 
-    <!-- Currently reading -->
     <div v-if="goodreadsStats.currentlyReading?.length">
       <StatsSectionHeader title="CURRENTLY READING" />
       <div class="space-y-2">
@@ -81,7 +80,6 @@ const formatRating = (rating) => {
       </div>
     </div>
 
-    <!-- Recently read -->
     <div v-if="goodreadsStats.recentlyRead?.length">
       <StatsSectionHeader title="RECENTLY READ" />
       <div class="text-xs space-y-1">
@@ -107,7 +105,6 @@ const formatRating = (rating) => {
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800">
       <a
         :href="goodreadsStats.stats.profileUrl"

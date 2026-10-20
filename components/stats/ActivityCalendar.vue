@@ -17,12 +17,10 @@ interface ActivityDay {
 }
 
 const props = defineProps({
-  // Days to show (default 30)
   days: {
     type: Number,
     default: 30,
   },
-  // Title above the calendar
   title: {
     type: String,
     default: 'ACTIVITY',
@@ -44,34 +42,27 @@ const props = defineProps({
   },
 })
 
-// Tooltip state
 const activeTooltipIndex = ref<number | null>(null)
 
-// Show tooltip for a specific day
 const showTooltip = (index: number) => {
   activeTooltipIndex.value = index
 }
 
-// Hide tooltip
 const hideTooltip = () => {
   activeTooltipIndex.value = null
 }
 
-// Format a friendly tooltip
 const formatTooltip = (day: ActivityDay) => {
   const date = new Date(day.date)
   const formattedDate = format(date, 'MMMM d, yyyy')
   return day.active ? `${formattedDate}: Active` : formattedDate
 }
 
-// Generate activity data based on props
 const activityData = computed<ActivityDay[]>(() => {
-  // If custom data is provided, use it
   if (props.customActivityData) {
     return props.customActivityData
   }
 
-  // Create a days-long array of dates
   const days = Array(props.days)
     .fill(null)
     .map((_, i) => {
@@ -83,7 +74,6 @@ const activityData = computed<ActivityDay[]>(() => {
       }
     })
 
-  // Set active days based on activeDates prop
   const activeDatesSet = new Set(props.activeDates)
   days.forEach((day) => {
     day.active = activeDatesSet.has(day.date)
@@ -92,7 +82,6 @@ const activityData = computed<ActivityDay[]>(() => {
   return days
 })
 
-// Count active days
 const activeCount = computed(() => {
   return activityData.value.filter((day) => day.active).length
 })
@@ -102,7 +91,6 @@ const activeCount = computed(() => {
   <div class="activity-calendar font-mono">
     <StatsSectionHeader v-if="title" :title="title" />
 
-    <!-- Activity Grid -->
     <div class="activity-grid">
       <div
         v-for="(day, index) in activityData"
@@ -113,14 +101,12 @@ const activeCount = computed(() => {
         @mouseenter="showTooltip(index)"
         @mouseleave="hideTooltip()"
       >
-        <!-- Custom Tooltip -->
         <div v-if="activeTooltipIndex === index" class="tooltip-custom">
           {{ formatTooltip(day) }}
         </div>
       </div>
     </div>
 
-    <!-- Caption -->
     <div
       class="flex justify-between text-zinc-500 mt-2 text-xs"
       style="line-height: 10px"

@@ -15,7 +15,6 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  // Data props
   value: {
     type: Number,
     required: true,
@@ -25,14 +24,12 @@ const props = defineProps({
     default: null,
   },
 
-  // Visualization type
   type: {
     type: String,
     default: 'bars', // bars | bar | dots | grid
     validator: (value) => ['bars', 'bar', 'dots', 'grid'].includes(value),
   },
 
-  // Display props
   metric: {
     type: String,
     default: 'words', // words | images | links | size | time
@@ -54,7 +51,6 @@ const props = defineProps({
     default: 4, // More compact for inline use
   },
 
-  // Display options
   showLabel: {
     type: Boolean,
     default: false,
@@ -65,11 +61,9 @@ const props = defineProps({
   },
 })
 
-// Compute dimensions
 const totalSize = computed(() => props.squareSize + props.gap)
 
 const gridCount = computed(() => {
-  // Different scaling per metric
   switch (props.metric) {
     case 'words':
       // 1 unit per 250 words, max 10
@@ -120,14 +114,12 @@ const height = computed(() => {
   return 8 // 8px height aligns with baseline grid
 })
 
-// Monochrome color scheme - subtle colors that match metadata
 const fillColor = computed(() => {
   if (props.color) return props.color
   // Use currentColor to inherit from SVG class
   return 'currentColor'
 })
 
-// Generate grid data
 const gridData = computed(() => {
   const data = []
   for (let i = 0; i < gridCount.value; i++) {
@@ -200,7 +192,6 @@ const inlineBarData = computed(() => {
   return data
 })
 
-// Label text
 const label = computed(() => {
   switch (props.metric) {
     case 'words':
@@ -218,7 +209,6 @@ const label = computed(() => {
   }
 })
 
-// Tooltip text
 const tooltip = computed(() => {
   const readMinutes = Math.ceil(props.value / 250)
   switch (props.metric) {
@@ -277,7 +267,6 @@ const tooltip = computed(() => {
         />
       </g>
 
-      <!-- Dots visualization -->
       <g v-else-if="type === 'dots'">
         <rect
           v-for="(item, i) in dotData"
@@ -292,7 +281,6 @@ const tooltip = computed(() => {
         />
       </g>
 
-      <!-- Grid visualization -->
       <g v-else-if="type === 'grid'">
         <rect
           v-for="(item, i) in gridData"
