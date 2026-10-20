@@ -86,7 +86,11 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
       </div>
     </div>
 
-    <main v-else class="max-w-screen-xl mx-auto px-4 md:px-6 py-8 md:py-12">
+    <div
+      v-else
+      data-page-main
+      class="max-w-screen-xl mx-auto px-4 md:px-6 py-8 md:py-12"
+    >
       <div
         v-for="[course, courseDecks] in courseGroups"
         :key="course"
@@ -142,7 +146,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>
 

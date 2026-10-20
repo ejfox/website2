@@ -166,7 +166,7 @@ const handleReshuffle = () => {
     </div>
 
     <!-- Card area -->
-    <main v-else-if="currentCard" class="card-area">
+    <div v-else-if="currentCard" data-page-main class="card-area">
       <Transition
         :name="slideDirection === 'right' ? 'slide-right' : 'slide-left'"
         mode="out-in"
@@ -182,7 +182,7 @@ const handleReshuffle = () => {
           />
         </div>
       </Transition>
-    </main>
+    </div>
 
     <!-- Loading state -->
     <div v-else class="loading-state">

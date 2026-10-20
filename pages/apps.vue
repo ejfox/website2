@@ -30,7 +30,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-3xl">
+  <div data-page-main class="px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-3xl">
     <header class="mb-10">
       <h1 class="text-3xl mb-2">Apps</h1>
       <p class="font-serif text-base text-zinc-600 dark:text-zinc-400">
@@ -107,7 +107,7 @@ usePageSeo({
         </div>
       </li>
     </ul>
-  </main>
+  </div>
 </template>
 
 <style scoped>

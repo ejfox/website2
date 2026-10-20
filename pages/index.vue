@@ -79,7 +79,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="container-main h-card pt-8 min-h-screen">
+  <div data-page-main class="container-main h-card pt-8 min-h-screen">
     <div ref="homeReveal" style="max-width: 65ch">
       <template v-if="indexContent">
         <div class="mono-xs text-secondary mb-4 tabular">
@@ -130,7 +130,7 @@ usePageSeo({
         </NuxtLink>
       </p>
     </footer>
-  </main>
+  </div>
 </template>
 
 <style scoped>

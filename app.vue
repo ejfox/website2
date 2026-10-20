@@ -125,8 +125,8 @@ useHead({
         @media(prefers-color-scheme:dark){
           body{color:#fafafa;background:#000}
         }
-        main{padding:1rem;max-width:48rem;margin:0 auto}
-        @media(min-width:768px){main{padding:2rem}}
+        main,:where([data-page-main]){padding:1rem;max-width:48rem;margin:0 auto}
+        @media(min-width:768px){main,:where([data-page-main]){padding:2rem}}
         h1{font-size:2rem;font-weight:700;margin-bottom:1rem}
         p{margin:1rem 0}
         a{color:inherit;text-decoration:underline}
