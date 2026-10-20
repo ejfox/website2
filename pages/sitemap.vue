@@ -5,45 +5,48 @@ const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 // Fetch tags for counting
 const { data: tags, error: tagsError } = await useFetch('/tags.json')
 
-const lastUpdated = computed(() => {
-  const dates = []
-  if (manifest.value?.length) {
-    manifest.value.forEach((item) => {
-      if (item?.date) {
-        const timestamp = new Date(item.date).getTime()
-        if (!Number.isNaN(timestamp)) dates.push(timestamp)
-      }
-    })
-  }
-  if (!dates.length) return ''
-  return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
+// One manifest, three kinds of thing. Mirrors isSpecialSection in
+// server/utils/sitemapEntries.ts so these counts match /sitemap.xml.
+const kindOf = (slug = '') => {
+  if (slug.startsWith('projects/')) return 'project'
+  if (slug.startsWith('reading/')) return 'reading'
+  if (slug === 'index' || /^(?:drafts|robots)\//.test(slug)) return 'other'
+  return 'post'
+}
+const published = computed(() =>
+  (manifest.value || []).filter((p) => p?.slug && !p.hidden && !p.draft)
+)
+const ofKind = (kind) => published.value.filter((p) => kindOf(p.slug) === kind)
 
-// Projects share the manifest with posts; count them separately
-const isProject = (post) => post.slug?.startsWith('projects/')
+const blogPosts = computed(() => ofKind('post').filter((p) => p.date))
+const totalPosts = computed(() => blogPosts.value.length)
+const totalProjects = computed(() => ofKind('project').length)
+const totalReading = computed(() => ofKind('reading').length)
 
-// Published blog posts, projects excluded
-const blogPosts = computed(() => {
-  if (!manifest.value) return []
-  return manifest.value.filter(
-    (post) => !post.hidden && !post.draft && !isProject(post)
-  )
-})
-
-// Process recent posts
 const recentPosts = computed(() =>
   [...blogPosts.value]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 10)
 )
 
-// Calculate stats
-const totalPosts = computed(() => blogPosts.value.length)
-
-const totalProjects = computed(() => {
-  if (!manifest.value) return 0
-  return manifest.value.filter(isProject).length
+const postYears = computed(() =>
+  blogPosts.value
+    .map((p) => new Date(p.date).getFullYear())
+    .filter((y) => !Number.isNaN(y))
+)
+const lastUpdated = computed(() => {
+  const times = blogPosts.value
+    .map((p) => new Date(p.date).getTime())
+    .filter((t) => !Number.isNaN(t))
+  if (!times.length) return ''
+  return new Date(Math.max(...times)).toISOString().split('T')[0]
 })
+// Counted from the oldest post, not a hardcoded start year
+const yearsActive = computed(() =>
+  postYears.value.length
+    ? new Date().getFullYear() - Math.min(...postYears.value)
+    : 0
+)
 
 const totalTags = computed(() => {
   if (!tags.value || !Array.isArray(tags.value)) return 0
@@ -52,11 +55,272 @@ const totalTags = computed(() => {
   ).length
 })
 
-const yearsActive = computed(() => {
-  const startYear = 2018 // When the blog started
-  const currentYear = new Date().getFullYear()
-  return currentYear - startYear
-})
+const withCount = (n, noun) => (n ? `${n} ${noun}` : '')
+
+// Every public page, grouped. Keep in step with STATIC_SECTIONS in
+// server/routes/sitemap.xml.ts. Noindex pages (/ff, /live, /atlas,
+// /api-docs, /kitchen-sink) never go here.
+const sections = computed(() => [
+  {
+    name: 'WRITING',
+    links: [
+      {
+        to: '/blog',
+        title: 'Blog',
+        description: 'Essays, guides and notes going back to 2010',
+        count: withCount(totalPosts.value, 'posts'),
+      },
+      {
+        to: '/dispatch',
+        title: 'Dispatch',
+        description: 'Short pieces of data journalism, with receipts',
+      },
+      {
+        to: '/projects',
+        title: 'Projects',
+        description: 'Instruments, investigations and the Vulpes system',
+        count: withCount(totalProjects.value, 'projects'),
+      },
+      {
+        to: '/reading',
+        title: 'Reading',
+        description: 'Books I’ve read, and the highlights I saved',
+        count: withCount(totalReading.value, 'books'),
+      },
+      {
+        to: '/predictions',
+        title: 'Predictions',
+        description:
+          'Public, timestamped predictions with calibration tracking',
+      },
+      {
+        to: '/blog/robots',
+        title: 'Robots',
+        description: 'AI experiments and automation projects',
+      },
+    ],
+  },
+  {
+    name: 'WORK_WITH_ME',
+    links: [
+      {
+        to: '/consulting',
+        title: 'Consulting',
+        description: 'Napkin sketch Monday, working demo Friday',
+      },
+      {
+        to: '/process',
+        title: 'Process',
+        description:
+          'Prototypes over presentations, stress-tested before launch',
+      },
+      {
+        to: '/case-study/nbc-big-board',
+        title: 'NBC Big Board',
+        description: 'Rebuilding the election touchscreen used on live TV',
+      },
+      {
+        to: '/calendar',
+        title: 'Calendar',
+        description: 'Book time, or let your agent grab a link',
+      },
+      {
+        to: '/tips',
+        title: 'Tips',
+        description: 'How to send a document or a lead safely',
+      },
+    ],
+  },
+  {
+    name: 'ABOUT',
+    links: [
+      {
+        to: '/now',
+        title: 'Now',
+        description: 'What I’m reading, building and listening to right now',
+      },
+      {
+        to: '/verify',
+        title: 'Verify',
+        description: 'Identity proofs and accounts in one place',
+      },
+      {
+        to: '/following',
+        title: 'Following',
+        description: 'My blogroll, the corners of the web I keep up with',
+      },
+      {
+        to: '/updates',
+        title: 'What’s New',
+        description: 'How this site has changed, era by era',
+      },
+      {
+        to: '/changelog',
+        title: 'Changelog',
+        description: 'Release notes, stats and the raw git log',
+      },
+    ],
+  },
+  {
+    name: 'COLLECTIONS',
+    links: [
+      { to: '/photos', title: 'Photos', description: 'The photo blog' },
+      {
+        to: '/gear',
+        title: 'Gear',
+        description: 'Inventory of adventure and tech equipment, by weight',
+      },
+      {
+        to: '/rides',
+        title: 'Rides',
+        description:
+          'Motorcycle rides: GPS traces, photos and field recordings',
+      },
+      {
+        to: '/scraps',
+        title: 'Scrapbook',
+        description: 'Bookmarks, links and scraps from around the web',
+      },
+      {
+        to: '/apps',
+        title: 'Apps',
+        description: 'Small apps for iPhone, Apple Watch and Android',
+      },
+      {
+        to: '/flashcards',
+        title: 'Flashcards',
+        description: 'My flashcard deck, study along if you want',
+      },
+      {
+        to: '/keymap',
+        title: 'Keymap',
+        description: 'My ZSA Voyager layout, read live from Oryx',
+      },
+    ],
+  },
+  {
+    name: 'DATA_&_TOOLS',
+    links: [
+      {
+        to: '/stats',
+        title: 'Stats',
+        description: 'Personal metrics from a dozen APIs, live',
+      },
+      {
+        to: '/github',
+        title: 'GitHub',
+        description: 'Commit heatmap and every public repository',
+      },
+      {
+        to: '/gists',
+        title: 'Gists',
+        description: 'Code snippets and quick experiments',
+      },
+      {
+        to: '/threads',
+        title: 'Threads',
+        description: 'Posts, scraps and tags as one force-directed graph',
+      },
+      {
+        to: '/on-this-day',
+        title: 'On This Day',
+        description: 'What happened on this date in past years',
+      },
+      {
+        to: '/external-links',
+        title: 'External Links',
+        description: 'Every outbound URL cited across the site',
+      },
+      {
+        to: '/hand-drawn',
+        title: 'Hand-drawn Kit',
+        description: 'Notebook marginalia, scanned and sliced into components',
+      },
+    ],
+  },
+  {
+    name: 'FEEDS_&_APIs',
+    links: [
+      {
+        to: '/rss.xml',
+        title: 'RSS Feed',
+        description: 'Blog posts as they publish',
+        external: true,
+      },
+      {
+        to: '/feed.json',
+        title: 'JSON Feed',
+        description: 'The same feed, as JSON Feed',
+        external: true,
+      },
+      {
+        to: '/dispatch-rss.xml',
+        title: 'Dispatch RSS',
+        description: 'New Dispatch pieces',
+        external: true,
+      },
+      {
+        to: '/scraps-rss.xml',
+        title: 'Scraps RSS',
+        description: 'Links and bookmarks as they’re saved',
+        external: true,
+      },
+      {
+        to: '/gists-rss.xml',
+        title: 'Gists RSS',
+        description: 'New gists',
+        external: true,
+      },
+      {
+        to: '/robots-rss.xml',
+        title: 'Robots RSS',
+        description: 'AI experiment posts',
+        external: true,
+      },
+      {
+        to: '/archive.epub',
+        title: 'Blog Archive (EPUB)',
+        description: 'Every post as one e-book, to read offline',
+        external: true,
+      },
+      {
+        to: '/photos.epub',
+        title: 'Photos (EPUB)',
+        description: 'The photo blog as an e-book, images included',
+        external: true,
+      },
+      {
+        to: '/api/stats',
+        title: 'Stats API',
+        description: 'JSON endpoint for personal metrics',
+        external: true,
+      },
+      {
+        to: '/sitemap.xml',
+        title: 'XML Sitemap',
+        description: 'This page, for search engines',
+        external: true,
+      },
+    ],
+  },
+  {
+    name: 'ELSEWHERE',
+    links: [
+      {
+        to: 'https://github.com/ejfox',
+        title: 'GitHub',
+        description: 'Open source code and contributions',
+        external: true,
+      },
+      {
+        to: 'https://linkedin.com/in/ejfox',
+        title: 'LinkedIn',
+        description: 'Professional network and experience',
+        external: true,
+      },
+    ],
+  },
+])
 
 usePageSeo({
   title: 'Site Map | ejfox.com',
@@ -86,141 +350,22 @@ usePageSeo({
     </header>
 
     <!-- Navigation sections -->
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Main Pages -->
-      <section class="space-y-8">
-        <div>
-          <div class="sitemap-section-header">MAIN_PAGES</div>
-          <div class="stack-4">
-            <SitemapLink
-              to="/"
-              title="Home"
-              description="Homepage with latest updates"
-            />
-            <SitemapLink
-              to="/blog"
-              title="Blog"
-              description="Technical writing and essays"
-            />
-            <SitemapLink
-              to="/projects"
-              title="Projects"
-              description="Open source projects, experiments, and creative work"
-            />
-            <SitemapLink
-              to="/now"
-              title="Now"
-              description="What I'm currently working on and thinking about"
-            />
-          </div>
-        </div>
-
-        <!-- Data & Tools -->
-        <div>
-          <div class="sitemap-section-header">DATA_&amp;_TOOLS</div>
-          <div class="stack-4">
-            <SitemapLink
-              to="/stats"
-              title="Stats"
-              description="Real-time personal analytics and performance metrics"
-            />
-            <SitemapLink
-              to="/gear"
-              title="Gear"
-              description="Complete inventory of adventure and tech equipment"
-            />
-            <SitemapLink
-              to="/gists"
-              title="Gists"
-              description="Code snippets and quick experiments"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Collections & Archives -->
-      <section class="space-y-8">
-        <div>
-          <div class="sitemap-section-header">COLLECTIONS</div>
-          <div class="stack-4">
-            <SitemapLink
-              to="/scraps"
-              title="Scrapbook"
-              description="Visual inspiration collection"
-            />
-            <SitemapLink
-              to="/apps"
-              title="Apps"
-              description="Small apps for iPhone, Apple Watch and Android"
-            />
-            <SitemapLink
-              to="/blog/robots"
-              title="Robots"
-              description="AI experiments and automation projects"
-            />
-          </div>
-        </div>
-
-        <!-- Feeds & APIs -->
-        <div>
-          <div class="sitemap-section-header">FEEDS_&amp;_APIs</div>
-          <div class="stack-4">
-            <SitemapLink
-              to="/rss.xml"
-              title="RSS Feed"
-              description="Subscribe to blog posts and updates"
-              external
-            />
-            <SitemapLink
-              to="/scraps-rss.xml"
-              title="Scraps RSS"
-              description="Links and bookmarks as they're saved"
-              external
-            />
-            <SitemapLink
-              to="/archive.epub"
-              title="Blog Archive (EPUB)"
-              description="Every post as one e-book — sideload and read offline"
-              external
-            />
-            <SitemapLink
-              to="/photos.epub"
-              title="Photos (EPUB)"
-              description="The photo blog as an e-book, images included"
-              external
-            />
-            <SitemapLink
-              to="/sitemap.xml"
-              title="Sitemap"
-              description="XML sitemap for search engines"
-              external
-            />
-            <SitemapLink
-              to="/api/stats"
-              title="Stats API"
-              description="JSON endpoint for personal metrics"
-              external
-            />
-          </div>
-        </div>
-
-        <!-- External Links -->
-        <div>
-          <div class="sitemap-section-header">EXTERNAL_LINKS</div>
-          <div class="stack-4">
-            <SitemapLink
-              to="https://github.com/ejfox"
-              title="GitHub"
-              description="Open source code and contributions"
-              external
-            />
-            <SitemapLink
-              to="https://linkedin.com/in/ejfox"
-              title="LinkedIn"
-              description="Professional network and experience"
-              external
-            />
-          </div>
+    <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
+      <section v-for="section in sections" :key="section.name">
+        <div class="sitemap-section-header">{{ section.name }}</div>
+        <div class="stack-4">
+          <SitemapLink
+            v-for="link in section.links"
+            :key="link.to"
+            :to="link.to"
+            :title="link.title"
+            :description="
+              link.count
+                ? `${link.description} · ${link.count}`
+                : link.description
+            "
+            :external="link.external"
+          />
         </div>
       </section>
     </div>
@@ -242,11 +387,7 @@ usePageSeo({
           <NuxtLink
             v-for="post in recentPosts"
             :key="post.slug"
-            :to="
-              post.slug?.startsWith('reading/')
-                ? `/${post.slug}`
-                : `/blog/${post.slug}`
-            "
+            :to="`/blog/${post.slug}`"
             class="card-link"
           >
             <div class="flex items-start justify-between gap-2">

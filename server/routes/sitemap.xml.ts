@@ -1,6 +1,5 @@
 import { defineEventHandler, setHeader, type H3Event } from 'h3'
 import { listDispatches } from '~/server/utils/dispatch'
-import { escapeXml } from '~/server/utils/xml'
 import { readManifest } from '~/server/utils/manifest'
 import {
   buildSitemapPostEntries,
@@ -40,36 +39,92 @@ async function getPostImages(
   }
 }
 
+// Public static pages, grouped the way /sitemap groups them. Anything with a
+// noindex routeRule in nuxt.config.ts (/ff, /live, /atlas, /api-docs,
+// /kitchen-sink, bookmarklets, /go, /from-youtube) stays out.
+const STATIC_SECTIONS: Array<{
+  name: string
+  pages: Array<{ url: string; priority: string; changefreq: string }>
+}> = [
+  {
+    name: 'Core',
+    pages: [
+      { url: '/', priority: '1.0', changefreq: 'daily' },
+      { url: '/now', priority: '0.8', changefreq: 'weekly' },
+      { url: '/sitemap', priority: '0.4', changefreq: 'monthly' },
+    ],
+  },
+  {
+    name: 'Writing',
+    pages: [
+      { url: '/blog', priority: '0.9', changefreq: 'daily' },
+      { url: '/dispatch', priority: '0.8', changefreq: 'daily' },
+      { url: '/projects', priority: '0.8', changefreq: 'weekly' },
+      { url: '/reading', priority: '0.6', changefreq: 'weekly' },
+      { url: '/predictions', priority: '0.7', changefreq: 'weekly' },
+    ],
+  },
+  {
+    name: 'Work',
+    pages: [
+      { url: '/consulting', priority: '0.9', changefreq: 'monthly' },
+      { url: '/process', priority: '0.7', changefreq: 'monthly' },
+      {
+        url: '/case-study/nbc-big-board',
+        priority: '0.7',
+        changefreq: 'yearly',
+      },
+      { url: '/calendar', priority: '0.5', changefreq: 'weekly' },
+      { url: '/tips', priority: '0.5', changefreq: 'yearly' },
+    ],
+  },
+  {
+    name: 'About',
+    pages: [
+      { url: '/verify', priority: '0.5', changefreq: 'yearly' },
+      { url: '/following', priority: '0.4', changefreq: 'monthly' },
+      { url: '/updates', priority: '0.4', changefreq: 'monthly' },
+      { url: '/changelog', priority: '0.4', changefreq: 'weekly' },
+    ],
+  },
+  {
+    name: 'Collections',
+    pages: [
+      { url: '/photos', priority: '0.6', changefreq: 'weekly' },
+      { url: '/gear', priority: '0.7', changefreq: 'weekly' },
+      { url: '/rides', priority: '0.5', changefreq: 'monthly' },
+      { url: '/scraps', priority: '0.5', changefreq: 'weekly' },
+      { url: '/apps', priority: '0.5', changefreq: 'monthly' },
+      { url: '/flashcards', priority: '0.3', changefreq: 'monthly' },
+      { url: '/keymap', priority: '0.4', changefreq: 'monthly' },
+    ],
+  },
+  {
+    name: 'Data',
+    pages: [
+      { url: '/stats', priority: '0.6', changefreq: 'daily' },
+      { url: '/github', priority: '0.5', changefreq: 'weekly' },
+      { url: '/gists', priority: '0.6', changefreq: 'weekly' },
+      { url: '/threads', priority: '0.4', changefreq: 'weekly' },
+      { url: '/on-this-day', priority: '0.4', changefreq: 'daily' },
+      { url: '/external-links', priority: '0.3', changefreq: 'monthly' },
+      { url: '/hand-drawn', priority: '0.3', changefreq: 'yearly' },
+    ],
+  },
+]
+
+const section = (name: string) => `\n  <!-- ${name} -->\n`
+
+// Newest first; undated entries (reading notes) sink, alphabetically.
+const byLastmodDesc = (
+  a: { lastmod?: string; slug: string },
+  b: { lastmod?: string; slug: string }
+) =>
+  (b.lastmod || '').localeCompare(a.lastmod || '') ||
+  a.slug.localeCompare(b.slug)
+
 export default defineEventHandler(async (event: H3Event) => {
   const baseUrl = 'https://ejfox.com'
-
-  // Static pages with their priorities and update frequencies
-  const staticPages = [
-    { url: '/', priority: '1.0', changefreq: 'daily' },
-    { url: '/blog', priority: '0.9', changefreq: 'daily' },
-    { url: '/consulting', priority: '0.9', changefreq: 'monthly' },
-    { url: '/process', priority: '0.7', changefreq: 'monthly' },
-    { url: '/case-study/nbc-big-board', priority: '0.7', changefreq: 'yearly' },
-    { url: '/photos', priority: '0.6', changefreq: 'weekly' },
-    { url: '/rides', priority: '0.5', changefreq: 'monthly' },
-    { url: '/reading', priority: '0.6', changefreq: 'weekly' },
-    { url: '/threads', priority: '0.4', changefreq: 'weekly' },
-    { url: '/changelog', priority: '0.4', changefreq: 'weekly' },
-    { url: '/projects', priority: '0.8', changefreq: 'weekly' },
-    { url: '/gear', priority: '0.7', changefreq: 'weekly' },
-    { url: '/stats', priority: '0.6', changefreq: 'daily' },
-    { url: '/predictions', priority: '0.7', changefreq: 'weekly' },
-    { url: '/dispatch', priority: '0.8', changefreq: 'daily' },
-    { url: '/gists', priority: '0.6', changefreq: 'weekly' },
-    { url: '/scraps', priority: '0.5', changefreq: 'weekly' },
-    { url: '/now', priority: '0.8', changefreq: 'weekly' },
-    { url: '/tips', priority: '0.5', changefreq: 'yearly' },
-    { url: '/verify', priority: '0.5', changefreq: 'yearly' },
-    { url: '/keymap', priority: '0.4', changefreq: 'monthly' },
-    { url: '/sitemap', priority: '0.4', changefreq: 'monthly' },
-  ]
-
-  const now = new Date().toISOString()
 
   // Start building sitemap XML with image namespace
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -77,19 +132,21 @@ export default defineEventHandler(async (event: H3Event) => {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `
 
-  // Add static pages. No <lastmod>: an always-"now" lastmod is noise Google
+  // Static pages. No <lastmod>: an always-"now" lastmod is noise Google
   // learns to ignore, and these pages have no real modification date.
-  for (const page of staticPages) {
-    sitemap += renderSitemapUrl({
-      loc: sitemapLoc(baseUrl, page.url),
-      changefreq: page.changefreq,
-      priority: page.priority,
-    })
+  for (const { name, pages } of STATIC_SECTIONS) {
+    sitemap += section(name)
+    for (const page of pages) {
+      sitemap += renderSitemapUrl({
+        loc: sitemapLoc(baseUrl, page.url),
+        changefreq: page.changefreq,
+        priority: page.priority,
+      })
+    }
   }
 
   // Add dynamic blog posts
   try {
-    // Use the processed manifest for blog posts
     const fs = await import('node:fs/promises')
     const path = await import('node:path')
     const posts = (await readManifest()) as ManifestPost[]
@@ -98,21 +155,35 @@ export default defineEventHandler(async (event: H3Event) => {
     // in buildSitemapPostEntries — see server/utils/sitemapEntries.ts + test.
     const { entries, tags } = buildSitemapPostEntries(posts)
     const bySlug = new Map(posts.map((p) => [p.slug, p]))
-    for (const entry of entries) {
-      const post = bySlug.get(entry.slug)
-      const images =
-        (post?.metadata?.images || 0) > 0
-          ? await getPostImages(entry.slug, fs, path)
-          : []
-      sitemap += renderSitemapUrl({
-        ...entry,
-        loc: sitemapLoc(baseUrl, entry.path),
-        images,
-      })
+    const groups = [
+      { name: 'Blog posts', match: (p: string) => p.startsWith('/blog/') },
+      { name: 'Projects', match: (p: string) => p.startsWith('/projects/') },
+      {
+        name: 'Reading notes',
+        match: (p: string) => p.startsWith('/reading/'),
+      },
+    ]
+    for (const group of groups) {
+      sitemap += section(group.name)
+      for (const entry of entries
+        .filter((e) => group.match(e.path))
+        .sort(byLastmodDesc)) {
+        const post = bySlug.get(entry.slug)
+        const images =
+          (post?.metadata?.images || 0) > 0
+            ? await getPostImages(entry.slug, fs, path)
+            : []
+        sitemap += renderSitemapUrl({
+          ...entry,
+          loc: sitemapLoc(baseUrl, entry.path),
+          images,
+        })
+      }
     }
 
     // Tag pages that are real hubs: >=2 PUBLIC posts (counted after the
     // privacy filter, so a drafts-only tag never shows up here).
+    sitemap += section('Tags')
     for (const tag of tags) {
       sitemap += renderSitemapUrl({
         loc: sitemapLoc(baseUrl, `/tag/${tag}`),
@@ -124,18 +195,27 @@ export default defineEventHandler(async (event: H3Event) => {
     console.warn('Could not load blog posts for sitemap:', error)
   }
 
-  // Add dynamic predictions
+  // Predictions. lastmod = the latest real date (made, updated, resolved);
+  // they change when resolved, so not "never".
   try {
     const predictions = await $fetch('/api/predictions')
     if (Array.isArray(predictions)) {
+      sitemap += section('Predictions')
       for (const prediction of predictions) {
-        sitemap += `  <url>
-    <loc>${sitemapLoc(baseUrl, `/predictions/${prediction.id}`)}</loc>
-    <lastmod>${prediction.created_at || now}</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-`
+        const lastmod = [
+          prediction.created,
+          prediction.updatedAt,
+          prediction.resolved_date,
+        ]
+          .filter(Boolean)
+          .sort()
+          .pop()
+        sitemap += renderSitemapUrl({
+          loc: sitemapLoc(baseUrl, `/predictions/${prediction.id}`),
+          lastmod,
+          changefreq: prediction.resolved_date ? 'yearly' : 'monthly',
+          priority: '0.6',
+        })
       }
     }
   } catch (error) {
@@ -146,21 +226,15 @@ export default defineEventHandler(async (event: H3Event) => {
   // draft/unlisted/password/scheduled), regardless of dev/prod.
   try {
     const pieces = await listDispatches({ preview: false })
+    if (pieces.length) sitemap += section('Dispatch')
     for (const piece of pieces) {
-      sitemap += `  <url>
-    <loc>${sitemapLoc(baseUrl, `/dispatch/${piece.slug}`)}</loc>
-    <lastmod>${piece.date || now}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-`
-      if (piece.image) {
-        sitemap += `    <image:image>
-      <image:loc>${escapeXml(piece.image)}</image:loc>
-    </image:image>
-`
-      }
-      sitemap += `  </url>
-`
+      sitemap += renderSitemapUrl({
+        loc: sitemapLoc(baseUrl, `/dispatch/${piece.slug}`),
+        lastmod: piece.date || undefined,
+        changefreq: 'monthly',
+        priority: '0.7',
+        images: piece.image ? [piece.image] : [],
+      })
     }
   } catch (error) {
     console.warn('Could not load dispatch pieces for sitemap:', error)
