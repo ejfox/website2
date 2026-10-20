@@ -109,10 +109,13 @@ const fmtTime = (iso) =>
     .replace(':00', '')
     .replace(' ', '')
     .toLowerCase()
+// Labelled from the first slot's date, not today, so a pick across a DST
+// change still says the right zone (PST vs PDT).
 const tzLabel = computed(() => {
-  if (!import.meta.client) return ''
+  const first = quick.value?.slots?.[0]?.datetime
+  if (!import.meta.client || !first) return ''
   const part = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' })
-    .formatToParts(new Date())
+    .formatToParts(new Date(first))
     .find((p) => p.type === 'timeZoneName')
   return part?.value || ''
 })
@@ -273,13 +276,13 @@ onMounted(() => {
 }
 
 .quick-slots {
-  @apply mb-6 flex flex-wrap items-center gap-2;
+  @apply mb-6 grid max-w-xl grid-cols-3 gap-2;
 }
 .quick-slots__label {
-  @apply mr-1 font-mono text-2xs uppercase tracking-widest text-zinc-500;
+  @apply col-span-3 font-mono text-2xs uppercase tracking-widest text-zinc-500;
 }
 .quick-slot {
-  @apply flex items-baseline gap-2 rounded border px-3 py-2 transition-colors;
+  @apply flex flex-col items-start gap-1 rounded border px-3 py-2 transition-colors;
   @apply border-zinc-300 text-zinc-800 hover:border-zinc-900;
   @apply dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-200;
 }
