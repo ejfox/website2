@@ -23,7 +23,6 @@ const cardRef = ref<HTMLElement | null>(null)
 const { x: mouseX, y: mouseY } = useMouse()
 const { width: winWidth, height: winHeight } = useWindowSize()
 
-// Calculate card size based on available screen space
 const cardSize = computed(() => {
   // Reserve space for header (~60px) and footer (~140px)
   const availableHeight = winHeight.value - 200
@@ -31,36 +30,29 @@ const cardSize = computed(() => {
   // Account for padding on sides
   const availableWidth = winWidth.value - 80
 
-  // Use 16:10 aspect ratio
   const aspectRatio = 16 / 10
 
-  // Calculate dimensions that fit within available space
   let width = Math.min(availableWidth, 800)
   let height = width / aspectRatio
 
-  // If height exceeds available, scale down
   if (height > availableHeight) {
     height = availableHeight
     width = height * aspectRatio
   }
 
-  // Minimum sizes
   width = Math.max(width, 280)
   height = Math.max(height, 180)
 
   return { width, height }
 })
 
-// 3D transform based on mouse position
 const containerStyle = computed(() => {
   const centerX = winWidth.value / 2
   const centerY = winHeight.value / 2
 
-  // Subtle rotation - reduced intensity for elegance
   const rotateX = -((mouseY.value - centerY) / centerY) * 6
   const rotateY = ((mouseX.value - centerX) / centerX) * 6
 
-  // Subtle lift
   const translateZ =
     (Math.abs(mouseX.value - centerX) / centerX +
       Math.abs(mouseY.value - centerY) / centerY) *
@@ -82,7 +74,6 @@ const containerStyle = computed(() => {
     @click="$emit('flip')"
   >
     <div class="flashcard" :class="{ flipped: flipped }">
-      <!-- Front face -->
       <div class="flashcard-face flashcard-front">
         <span class="card-label">Q</span>
         <span v-if="deck" class="card-deck">{{ deck }}</span>
@@ -92,7 +83,6 @@ const containerStyle = computed(() => {
         <span class="card-hint">click to reveal</span>
       </div>
 
-      <!-- Back face -->
       <div class="flashcard-face flashcard-back">
         <span class="card-label">A</span>
         <span v-if="deck" class="card-deck">{{ deck }}</span>
@@ -235,7 +225,6 @@ const containerStyle = computed(() => {
   line-height: 1.5;
 }
 
-/* Hover glow */
 .flashcard-container:hover .flashcard-face {
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -244,12 +233,10 @@ const containerStyle = computed(() => {
     0 32px 64px -8px rgba(0, 0, 0, 0.4);
 }
 
-/* Active press */
 .flashcard-container:active {
   transform: scale(0.98);
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .flashcard-face {
     padding: 1.5rem;

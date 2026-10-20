@@ -67,12 +67,10 @@ withDefaults(defineProps<Props>(), {
         </svg>
       </div>
 
-      <!-- Description -->
       <p v-if="description" class="repo-description">
         {{ description }}
       </p>
 
-      <!-- Language bar - Tuftian micro-viz -->
       <GithubLanguageBar
         v-if="repo?.languages && Object.keys(repo.languages).length > 0"
         :languages="repo.languages"
@@ -80,7 +78,6 @@ withDefaults(defineProps<Props>(), {
         class="language-bar"
       />
 
-      <!-- Stats row - pure typography, no backgrounds -->
       <div class="repo-stats">
         <span v-if="stars > 0" class="stat">{{ stars }} stars</span>
         <span v-if="forks > 0" class="stat">{{ forks }} forks</span>
@@ -93,7 +90,7 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style scoped>
-/* Magazine-style stacked list - pure typography, no backgrounds */
+/* Magazine-style stacked list */
 .repo-card {
   @apply py-4 px-0;
   @apply border-b border-zinc-200 dark:border-zinc-800;

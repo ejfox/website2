@@ -73,7 +73,6 @@ const segments = computed(() => {
       ></div>
     </div>
 
-    <!-- Optional labels -->
     <div v-if="showLabels" class="labels">
       <div v-for="segment in segments" :key="segment.lang" class="label-item">
         <span

@@ -18,7 +18,6 @@ const _props = defineProps({
 
 const currentYear = new Date().getFullYear()
 
-// Process yearly data
 const yearlyData = computed(() => {
   const yearCounts = {}
 
@@ -62,7 +61,6 @@ const barGap = computed(() => {
   return Math.max(1, barWidth.value * 0.1)
 })
 
-// Highlights distribution
 const sortedHighlights = computed(() => {
   return _props.books
     .map((b) => b.metadata?.['kindle-sync']?.highlightsCount || 0)
@@ -114,7 +112,6 @@ const highlightSparklineArea = computed(() => {
   return `${points.join(' ')} ${_props.width},30 0,30`
 })
 
-// Last 12 months activity
 const last12Months = computed(() => {
   const now = new Date()
   const months = []
@@ -161,7 +158,7 @@ function getMonthIntensityClass(count) {
     <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
       <div class="section-label-tiny">Reading Activity by Year</div>
       <svg :width="width" :height="40" class="overflow-visible">
-        <!-- Y-axis reference lines (very subtle) -->
+        <!-- Y-axis reference lines -->
         <line
           v-for="tick in [5, 10, 15]"
           :key="`tick-${tick}`"
@@ -174,7 +171,6 @@ function getMonthIntensityClass(count) {
           stroke-width="0.5"
         />
 
-        <!-- Bars -->
         <g v-for="(item, idx) in yearlyData" :key="item.year">
           <rect
             :x="idx * barWidth + barGap"
@@ -230,7 +226,6 @@ function getMonthIntensityClass(count) {
     <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
       <div class="section-label-tiny">Highlights Per Book Distribution</div>
       <svg :width="width" :height="30" class="overflow-visible">
-        <!-- Sparkline path -->
         <polyline
           :points="highlightSparklinePoints"
           fill="none"

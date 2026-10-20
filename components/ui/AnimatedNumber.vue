@@ -43,16 +43,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 const displayValue = ref(props.value) // Show final value immediately
 
-// Component refs
 const numberRef = ref<HTMLElement | null>(null)
 
 /**
  * Number formatter factory - D3-powered for data visualization
- *
- * PERFORMANCE OPTIMIZATIONS:
- * - Uses d3-format for consistent data viz formatting
- * - Computed once and cached
- * - Specialized formatters for different data types
  *
  * D3 FORMAT STRINGS:
  * - ',' = thousands separator
@@ -83,19 +77,6 @@ const formatter = computed(() => {
   return formatValue(props.format, props.decimals)
 })
 
-/**
- * Animation lifecycle - Mount and trigger counter
- *
- * PERFORMANCE CONSIDERATIONS:
- * - Uses setTimeout for stagger delay (non-blocking)
- * - Defers animation until after component mount
- * - Passes formatter function for efficient updates
- */
-// onMounted(() => {
-//   // Animation code completely removed - numbers show immediately
-// })
-
-// Set final value immediately on mount
 onMounted(() => {
   displayValue.value = props.value
 })

@@ -8,8 +8,6 @@ import { computed } from 'vue'
 import { format } from '~/utils/date'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-// from '~/anime.esm.js'
-// from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -45,7 +43,6 @@ const props = defineProps<{
   stats: MonkeyTypeStats
 }>()
 
-// Computed properties for conditional rendering and data formatting
 const hasRecentTests = computed(
   () => !!props.stats.typingStats?.recentTests?.length
 )
@@ -75,7 +72,6 @@ const topLanguages = computed(() =>
     .slice(0, 6)
 )
 
-// Format utilities for minimal date display
 const formatDateMinimal = (timestamp: string): string => {
   const date = new Date(timestamp)
   return format(date, 'MM.dd').toLowerCase()
@@ -108,12 +104,10 @@ const wpmStrip = computed(() => {
     }))
 })
 
-// Determine if test has meaningful type info
 const hasTestType = (test: MonkeyTypeTest): boolean => {
   return !!(test.duration || test.wordCount || test.mode)
 }
 
-// Format test type in minimal style
 const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
   if (test.duration) {
     return `${test.duration}s`
@@ -128,32 +122,22 @@ const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
 const formatLanguageLabel = (language: string): string =>
   language.replace(/[_-]+/g, ' ').trim().toUpperCase()
 
-// Add a computed property to check if we have stats
 const hasStats = computed(() => {
   return !!props.stats.typingStats?.bestWPM
 })
 
-// Animation refs
 const monkeyStatsRef = ref<HTMLElement | null>(null)
 const mainStatsRef = ref<HTMLElement | null>(null)
 const recentTestsRef = ref<HTMLElement | null>(null)
 const performanceRef = ref<HTMLElement | null>(null)
-
-// Epic MonkeyType stats scroll-triggered animations
-// PERFORMANCE
-// const setupScrollAnimations = () => {
-//   ALL BROKEN ANIMATION CODE DELETED
-// }
 
 onMounted(() => {})
 </script>
 
 <template>
   <div ref="monkeyStatsRef" class="font-mono">
-    <!-- Main Stats -->
     <div v-if="hasStats" ref="mainStatsRef">
       <div class="space-y-2">
-        <!-- Primary WPM Stat with AnimatedNumber -->
         <div class="individual-stat-large">
           <div class="stat-value">
             <HandDrawnMark>
@@ -185,7 +169,6 @@ onMounted(() => {})
       </div>
     </div>
 
-    <!-- Recent Tests -->
     <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="RECENT TYPING TESTS" />
 
@@ -213,7 +196,6 @@ onMounted(() => {})
       <div class="space-y-2">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
           <div class="flex-none">
-            <!-- Simplified date format -->
             <span class="text-zinc-400 text-2xs tabular-nums">
               {{ formatDateMinimal(test.timestamp) }}
             </span>
@@ -245,7 +227,6 @@ onMounted(() => {})
       </div>
     </div>
 
-    <!-- Performance Metrics -->
     <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="TYPING PERFORMANCE" />
 
@@ -289,7 +270,6 @@ onMounted(() => {})
       </div>
     </div>
 
-    <!-- Language Breakdown -->
     <div v-if="hasLanguageBreakdown" class="mt-8 space-y-8">
       <StatsSectionHeader title="TYPING LANGUAGES" />
 

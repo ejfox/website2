@@ -15,7 +15,6 @@ defineProps<{
     class="post-footer print:hidden"
   >
     <div class="post-footer__cols">
-      <!-- PREVIOUS -->
       <section>
         <h2 class="post-footer__label">Previous</h2>
         <ul v-if="prevPost" class="post-footer__list">
@@ -31,7 +30,6 @@ defineProps<{
         <p v-else class="post-footer__empty">—</p>
       </section>
 
-      <!-- RELATED -->
       <section>
         <h2 class="post-footer__label">Related</h2>
         <ul v-if="relatedPosts.length" class="post-footer__list">
@@ -47,7 +45,6 @@ defineProps<{
         <p v-else class="post-footer__empty">—</p>
       </section>
 
-      <!-- NEXT -->
       <section>
         <h2 class="post-footer__label">Next</h2>
         <ul v-if="nextPost" class="post-footer__list">

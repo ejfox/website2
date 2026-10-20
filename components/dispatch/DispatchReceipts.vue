@@ -61,7 +61,6 @@ const dataFormat = computed(() => {
       Receipts
     </h2>
 
-    <!-- Claims ledger -->
     <div v-if="claims.length" class="mb-6">
       <h3 class="receipts-label">Claims</h3>
       <ol class="divide-y divide-zinc-200 dark:divide-zinc-800">
@@ -94,7 +93,6 @@ const dataFormat = computed(() => {
       </ol>
     </div>
 
-    <!-- Sources -->
     <div v-if="sources.length" class="mb-6">
       <h3 class="receipts-label">Sources</h3>
       <ol class="space-y-1">
@@ -127,7 +125,6 @@ const dataFormat = computed(() => {
       </ol>
     </div>
 
-    <!-- Data download -->
     <div v-if="data">
       <h3 class="receipts-label">Data</h3>
       <a

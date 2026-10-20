@@ -53,7 +53,6 @@ const buildTitle = computed(() => {
         </span>
       </div>
 
-      <!-- Navigation -->
       <nav :class="navClasses">
         <NuxtLink to="/stats" :class="navLinkClasses">/stats</NuxtLink>
         <NuxtLink to="/gists" :class="navLinkClasses">/gists</NuxtLink>

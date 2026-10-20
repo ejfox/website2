@@ -38,7 +38,6 @@ const emit = defineEmits<{
   toggle: []
 }>()
 
-// Animation refs
 const gistRef = ref<HTMLElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
 const codeRef = ref<HTMLElement | null>(null)
@@ -58,11 +57,10 @@ const codeToShow = computed(() => {
 const highlightedCode = ref('')
 
 const updateHighlighting = async () => {
-  // SERVER-SIDE HIGHLIGHTING - Pre-baked like the low side
-  // No client bundlin', Zeus almighty style
+  // Highlighting runs server-side (/api/highlight), so no highlighter ships
+  // in the client bundle
   if (codeToShow.value) {
     try {
-      // Enhanced theme detection
       let isDark = false
       if (import.meta.client) {
         // Check multiple methods for dark mode detection
@@ -92,7 +90,6 @@ const updateHighlighting = async () => {
   }
 }
 
-// Initialize on server and client
 if (import.meta.server || import.meta.client) {
   // Initialize immediately for SSR
   updateHighlighting()
@@ -101,10 +98,8 @@ if (import.meta.server || import.meta.client) {
 // Re-initialize on mount for client-side hydration
 onMounted(async () => {
   await updateHighlighting()
-  // Component mounted
 })
 
-// Watch for changes in expanded state, content, or theme
 watch([() => props.expanded, () => props.gist.content], async () => {
   await updateHighlighting()
 })
@@ -135,12 +130,9 @@ if (import.meta.client) {
   })
 }
 
-// Handle toggle with animation
 const handleToggle = () => {
   emit('toggle')
 }
-
-// No animations needed - handled by CSS transitions
 </script>
 
 <template>
@@ -214,7 +206,6 @@ const handleToggle = () => {
   @apply max-h-[60vh] overflow-y-auto;
 }
 
-/* Custom scrollbar */
 .code-content::-webkit-scrollbar {
   @apply w-2;
   height: 0;

@@ -15,7 +15,6 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'unavailable',
 })
 
-// Generate appropriate message based on type
 const computedMessage = computed(() => {
   if (props.message !== 'DATA_UNAVAILABLE') {
     return props.message

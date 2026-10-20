@@ -66,12 +66,10 @@ const props = defineProps<{
   stats?: ChessStats | null
 }>()
 
-// Type conversion helpers
 const isNewFormat = computed(() => {
   return typeof props.stats?.currentRating === 'object'
 })
 
-// Getter for specific rating type
 const getRating = (type: keyof NewFormatRatings) => {
   if (!props.stats) return 0
 
@@ -133,7 +131,6 @@ const hasGameStats = computed(() => {
   return gamesPlayed.value > 0 && bestRating.value > 0
 })
 
-// This month's games only
 const thisMonthGames = computed(() => {
   if (!props.stats?.recentGames) return []
 
@@ -148,7 +145,6 @@ const thisMonthGames = computed(() => {
     .sort((a, b) => b.timestamp - a.timestamp)
 })
 
-// Format time ago for games
 const formatTimeAgo = (timestamp: number) => {
   const now = Date.now()
   const gameDate = timestamp * 1000
@@ -180,7 +176,6 @@ const variantStats = computed(() => {
 
       const delta = current - best
 
-      // Get win rate for this variant
       const variantWinRate =
         isNewFormat.value && props.stats!.winRate
           ? (props.stats!.winRate as NewFormatWinRate)[variant] || 0
@@ -222,7 +217,6 @@ const performanceMetrics = computed(() => [
 
 <template>
   <div v-if="stats" class="space-y-2 font-mono">
-    <!-- Primary Rating -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <HandDrawnMark>
@@ -290,7 +284,6 @@ const performanceMetrics = computed(() => [
       </div>
     </div>
 
-    <!-- Performance Stats -->
     <div v-if="hasGameStats">
       <StatsSectionHeader title="CHESS PERFORMANCE" />
       <div class="space-y-2">
@@ -309,7 +302,6 @@ const performanceMetrics = computed(() => [
       </div>
     </div>
 
-    <!-- Recent Matches (This Month Only) -->
     <div v-if="thisMonthGames.length">
       <StatsSectionHeader title="RECENT CHESS GAMES" />
       <div class="space-y-1">

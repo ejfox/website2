@@ -16,7 +16,6 @@ const props = defineProps<{
 
 const duolingo = computed(() => props.stats.duolingo)
 
-// Map language names to flag emojis
 const languageFlags: Record<string, string> = {
   Spanish: '🇪🇸',
   French: '🇫🇷',
@@ -60,7 +59,6 @@ const getLanguageFlag = (language: string): string => {
 
 <template>
   <div v-if="duolingo" class="space-y-4 font-mono">
-    <!-- Primary Stats -->
     <div class="py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
@@ -83,7 +81,6 @@ const getLanguageFlag = (language: string): string => {
       </div>
     </div>
 
-    <!-- Current Course -->
     <div v-if="duolingo.currentCourse" class="mt-4">
       <StatsSectionHeader title="DUOLINGO COURSE" />
       <div class="flex items-center gap-2 mt-2">
@@ -104,7 +101,6 @@ const getLanguageFlag = (language: string): string => {
       </div>
     </div>
 
-    <!-- All Courses -->
     <div v-if="duolingo.courses?.length > 1">
       <StatsSectionHeader title="DUOLINGO LANGUAGES" />
       <div class="space-y-2 mt-2">

@@ -4,11 +4,8 @@
   @props stats: Object - Gear statistics from CSV data
 -->
 <script setup lang="ts">
-// Nuxt 4 auto-imports everything!
 import * as d3 from 'd3'
 import _StatsSectionHeader from './StatsSectionHeader.vue'
-// from '~/anime.esm.js'
-// from '~/composables/useAnimations'
 
 interface GearItem {
   Name?: string
@@ -116,7 +113,6 @@ const formatWeight = (oz: number) => {
   }
 }
 
-// Weight per type/category
 const weightPerType = computed(() => {
   if (!gearItems.value?.length) return []
 
@@ -159,12 +155,10 @@ const favoriteItems = computed(() => {
     )
 })
 
-// Recently used items
 const recentlyUsed = computed(() => {
   return [...gearItems.value]
     .filter((item) => {
       const lastUsed = item.Last_Used
-      // Valid date format check
       return lastUsed && lastUsed.match(/^\d{4}-\d{2}-\d{2}$/)
     })
     .sort((a, b) => {
@@ -178,7 +172,6 @@ const recentlyUsed = computed(() => {
 const mainContainers = computed(() => {
   if (!gearItems.value?.length) return []
 
-  // Find items that are bags/containers
   const containers = gearItems.value.filter(
     (item) =>
       item.Type === 'Bag' &&
@@ -215,14 +208,12 @@ const mainContainers = computed(() => {
     .sort((a, b) => Number.parseFloat(b.weight) - Number.parseFloat(a.weight))
 })
 
-// Animation refs
 const gearStatsRef = ref<HTMLElement | null>(null)
 const _containersRef = ref<HTMLElement | null>(null)
 const _statsGridRef = ref<HTMLElement | null>(null)
 const _distributionRef = ref<HTMLElement | null>(null)
 const _conversionsRef = ref<HTMLElement | null>(null)
 
-// Load gear data and setup animations
 onMounted(async () => {
   try {
     const response = await fetch('/api/gear-csv')
@@ -231,8 +222,6 @@ onMounted(async () => {
   } catch (_error) {
     console.error('Error loading gear data:', _error)
   }
-
-  // Animation setup removed following delete-driven development
 })
 </script>
 
@@ -241,7 +230,6 @@ onMounted(async () => {
     ref="gearStatsRef"
     class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-4"
   >
-    <!-- Ultra-Dense Stats Grid -->
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
       <div class="flex justify-between">
         <span class="text-zinc-500">ITEMS</span>
@@ -293,10 +281,9 @@ onMounted(async () => {
       </div>
     </div>
 
-    <!-- Micro-divider -->
     <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
-    <!-- Containers - Ultra Dense -->
+    <!-- Containers -->
     <div class="space-y-0.5">
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         BAGS
@@ -326,10 +313,9 @@ onMounted(async () => {
       </div>
     </div>
 
-    <!-- Micro-divider -->
     <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
-    <!-- Weight Per Type - Ultra Dense -->
+    <!-- Weight Per Type -->
     <div class="space-y-0.5">
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         WEIGHT BY TYPE
@@ -350,10 +336,9 @@ onMounted(async () => {
       </div>
     </div>
 
-    <!-- Micro-divider -->
     <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
-    <!-- Type Distribution - Compressed -->
+    <!-- Type Distribution -->
     <div class="space-y-0.5">
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         TYPE COUNTS
@@ -457,7 +442,6 @@ onMounted(async () => {
   font-feature-settings: 'tnum';
 }
 
-/* Container items styling */
 .container-item {
   @apply transition-all duration-300;
 }

@@ -93,27 +93,23 @@ const commitActivityDates = computed(() => {
   return [...new Set(dates)]
 })
 
-// Recent projects with commit summaries
 const recentProjects = computed(() => {
   if (!props.stats?.detail?.commits) return []
 
   const projects = new Map<string, ProjectSummary>()
   const typesByRepo = new Map<string, Map<string, number>>()
 
-  // Process commits to group by repository
   props.stats.detail.commits.forEach((commit) => {
     const repoName = commit.repository.name
     const repoUrl = commit.repository.url
     const commitType = commit.type || 'other'
 
-    // Count commit types for this repo
     if (!typesByRepo.has(repoName)) {
       typesByRepo.set(repoName, new Map())
     }
     const typeMap = typesByRepo.get(repoName)!
     typeMap.set(commitType, (typeMap.get(commitType) || 0) + 1)
 
-    // Update or create repository summary
     if (!projects.has(repoName)) {
       projects.set(repoName, {
         name: repoName,
@@ -128,7 +124,6 @@ const recentProjects = computed(() => {
     const project = projects.get(repoName)!
     project.commitCount++
 
-    // Update last commit if this one is newer
     const currentLastCommit = new Date(project.lastCommit)
     const thisCommit = new Date(commit.occurredAt)
     if (thisCommit > currentLastCommit) {
@@ -137,11 +132,9 @@ const recentProjects = computed(() => {
     }
   })
 
-  // Calculate top types for each repo
   typesByRepo.forEach((typeMap, repoName) => {
     const project = projects.get(repoName)
     if (project) {
-      // Sort types by count and take top 2
       project.topTypes = Array.from(typeMap.entries())
         .sort((a, b) => b[1] - a[1])
         .slice(0, 2)
@@ -149,7 +142,6 @@ const recentProjects = computed(() => {
     }
   })
 
-  // Sort by most recent commit and take top 10
   return Array.from(projects.values())
     .sort(
       (a, b) =>
@@ -158,11 +150,9 @@ const recentProjects = computed(() => {
     .slice(0, 10)
 })
 
-// Contribution streak calculation
 const getContributionStreak = computed(() => {
   if (!commitActivityDates.value.length) return 0
 
-  // Sort dates
   const sortedDates = [...commitActivityDates.value].sort(
     (a, b) => new Date(b).getTime() - new Date(a).getTime()
   )
@@ -204,7 +194,6 @@ function formatRelativeTime(dateStr: string) {
     v-if="stats"
     class="grid gap-x-4 gap-y-6 auto-fit-columns font-mono overflow-hidden"
   >
-    <!-- Primary Stats -->
     <div class="col-span-full">
       <div class="flex justify-around items-start gap-2 py-2">
         <div class="text-center">
@@ -245,7 +234,6 @@ function formatRelativeTime(dateStr: string) {
       </div>
     </div>
 
-    <!-- Activity Calendar -->
     <div v-if="hasCommits" class="col-span-full">
       <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
       <ActivityCalendar
@@ -254,7 +242,6 @@ function formatRelativeTime(dateStr: string) {
       />
     </div>
 
-    <!-- Recent Commits -->
     <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
       <StatsSectionHeader title="RECENT GITHUB COMMITS" />
       <div class="space-y-2">
@@ -287,7 +274,6 @@ function formatRelativeTime(dateStr: string) {
       </div>
     </div>
 
-    <!-- Contribution Streak -->
     <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
       <StatsSectionHeader title="GITHUB STREAK" />
       <div class="text-2xl font-bold text-zinc-700 dark:text-zinc-300">

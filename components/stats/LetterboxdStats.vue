@@ -97,7 +97,6 @@ const renderStars = (rating: number | null) => {
   const stars = []
   let id = 0
 
-  // Full stars
   for (let i = 0; i < fullStars; i++) {
     stars.push({
       id: id++,
@@ -106,7 +105,6 @@ const renderStars = (rating: number | null) => {
     })
   }
 
-  // Half star
   if (hasHalfStar) {
     stars.push({
       id: id++,
@@ -115,7 +113,6 @@ const renderStars = (rating: number | null) => {
     })
   }
 
-  // Empty stars
   for (let i = 0; i < emptyStars; i++) {
     stars.push({
       id: id++,
@@ -130,7 +127,6 @@ const renderStars = (rating: number | null) => {
 
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
-    <!-- Primary Metric -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
@@ -210,7 +206,6 @@ const renderStars = (rating: number | null) => {
       </div>
     </div>
 
-    <!-- Recent Films - Enhanced -->
     <div v-if="recentFilms.length" class="space-y-2">
       <StatsSectionHeader title="RECENT FILMS" />
       <div class="space-y-2">
@@ -262,7 +257,6 @@ const renderStars = (rating: number | null) => {
       </div>
     </div>
 
-    <!-- Top Rated - If we have any -->
     <div v-if="stats.topRatedFilms.length > 0" class="space-y-2">
       <StatsSectionHeader title="TOP RATED FILMS" />
       <div class="space-y-1">
