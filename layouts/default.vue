@@ -9,6 +9,12 @@ const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
 
+// Blog posts teleport PostMetadataBar into #layout-bar client-side (SSR can't
+// render a Teleport there), so the server HTML has an empty 0px bar and the
+// article jumped down 49px on hydration (Lighthouse CLS 0.24). Reserve the
+// bar's height on post routes so the server HTML already has the room.
+const reservesPostBar = computed(() => route.name === 'blog-slug')
+
 const isStatsSimple = computed(() => {
   return route.path === '/stats' && route.query?.simple !== undefined
 })
@@ -52,6 +58,7 @@ const linkClasses =
         v-if="!isStatsSimple"
         id="layout-bar"
         class="layout-bar sticky top-0 z-[100] print:hidden"
+        :class="{ 'layout-bar--post': reservesPostBar }"
       ></header>
 
       <!-- Mobile nav -->
@@ -198,6 +205,12 @@ const linkClasses =
 
 .layout-bar {
   grid-area: bar;
+}
+
+/* Exactly one PostMetadataBar line (py-2 + one text line + 1px border). The
+   bar is kept to a single line (see PostMetadataBar), so this always fits. */
+.layout-bar--post {
+  min-height: 49px;
 }
 
 .layout-mobile-nav {
