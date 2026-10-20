@@ -21,6 +21,12 @@ export const navigationItems: NavItem[] = [
     primary: true,
     umamiEvent: 'nav-hire-me',
   }, // 💰 Money maker
+  {
+    label: 'Book a call',
+    href: '/calendar',
+    primary: true,
+    umamiEvent: 'nav-calendar',
+  },
 ]
 
 // Filter helpers

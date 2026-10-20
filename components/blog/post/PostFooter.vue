@@ -60,10 +60,35 @@ defineProps<{
         <p v-else class="post-footer__empty">—</p>
       </section>
     </div>
+
+    <p class="post-footer__talk">
+      Want to talk about this?
+      <NuxtLink
+        to="/calendar"
+        data-umami-event="nav-calendar"
+        data-umami-event-location="post-footer"
+      >
+        Grab some time on my calendar
+      </NuxtLink>
+    </p>
   </footer>
 </template>
 
 <style scoped>
+.post-footer__talk {
+  @apply font-serif;
+  margin: 2.5rem 0 0;
+  font-size: 0.9375rem;
+  opacity: 0.8;
+}
+
+.post-footer__talk a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 .post-footer {
   margin-top: 4rem;
   padding-top: 2rem;
