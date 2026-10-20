@@ -35,7 +35,7 @@ const postYears = computed(() =>
     .filter((y) => !Number.isNaN(y))
 )
 const lastUpdated = computed(() => {
-  const times = blogPosts.value
+  const times = published.value
     .map((p) => new Date(p.date).getTime())
     .filter((t) => !Number.isNaN(t))
   if (!times.length) return ''
