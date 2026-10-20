@@ -38,7 +38,9 @@ const GithubCommitMatrix = defineAsyncComponent(
 )
 
 // Define stats first - used by computed properties below
-const { stats: rawStats, liteStats, isLoading, errors } = useStats()
+const { stats: rawStats, liteStats, isLoading, errors } = useStats({
+  server: true,
+})
 
 // Skeleton sections. liteKey/liteLabel pull a real top-line number from
 // /api/stats-lite (lands in tens of ms) into the skeleton while the full
@@ -777,21 +779,15 @@ definePageMeta({
         </header>
 
         <!-- Top Stats -->
-        <Suspense>
-          <template #default>
-            <ClientOnly>
-              <Transition name="fade" appear>
-                <div
-                  v-if="stats && Object.keys(stats).length > 0"
-                  id="top-stats"
-                  class="relative"
-                >
-                  <TopStats :stats="stats" :blog-stats="validBlogStats" />
-                </div>
-              </Transition>
-            </ClientOnly>
-          </template>
-        </Suspense>
+        <!-- Server-rendered (useStats({ server: true })), so it's in the first
+             paint instead of popping in and shoving the grid down. -->
+        <div
+          v-if="stats && Object.keys(stats).length > 0"
+          id="top-stats"
+          class="relative"
+        >
+          <TopStats :stats="stats" :blog-stats="validBlogStats" />
+        </div>
 
         <!-- Main Stats Grid -->
         <section class="stats-grid-responsive">

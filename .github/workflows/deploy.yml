@@ -258,9 +258,10 @@ jobs:
             exit 1
           fi
 
-          # Warm the SSR listings (and /api/github's cache) so the first real
+          # Warm the SSR listings (and the /api/github + /api/stats caches; /stats
+          # renders stats server-side) so the first real
           # visitor after a restart doesn't pay the ~2.5s cold render.
-          for p in / /blog /projects; do
+          for p in / /blog /projects /api/stats; do
             curl -s -o /dev/null "http://localhost:3006$p" || true
           done
 
