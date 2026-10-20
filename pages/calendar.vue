@@ -51,7 +51,7 @@ useHead({
 // DRIVE, not read — so there's no visible picker. Instead, the URL is the API:
 // someone shares /calendar?date=YYYY-MM-DD and the embed opens on that day.
 // Supported params: ?date=YYYY-MM-DD ?month=YYYY-MM ?duration=30 ?type=30min
-function buildConfig() {
+function buildConfig(overrides = {}) {
   // theme:'auto' is resolved to an explicit dark/light inside loadCalInline
   // (cal.com's 'auto' leaves the iframe body white in dark mode).
   const config = { layout: 'month_view', theme: 'auto' }
@@ -67,7 +67,7 @@ function buildConfig() {
   config.duration = route.query.duration || '20'
   if (route.query.name) config.name = route.query.name
   if (route.query.email) config.email = route.query.email
-  return config
+  return { ...config, ...overrides }
 }
 
 const DEFAULT_LINK = 'ejfox/30min'
@@ -75,13 +75,64 @@ const DEFAULT_LINK = 'ejfox/30min'
 // Surfaced in the UI when a requested ?type= didn't exist and we fell back.
 const fellBackToDefault = ref(false)
 
-function mountCal(calLink, namespace) {
+function mountCal(calLink, namespace, overrides) {
   loadCalInline({
     namespace,
     calLink,
     selector: '#cal-embed',
-    config: buildConfig(),
+    config: buildConfig(overrides),
   })
+}
+
+// Quick picks: the earliest slot on each of the next 3 open days, so booking
+// can be one click → the name/email form. Only for the default event type
+// (the endpoint reads ejfox/30min); a custom ?type= keeps the plain calendar.
+// Client-only fetch, so the page never waits on Cal.com.
+const showQuickSlots = !route.query.type
+const { data: quick } = useLazyFetch('/api/cal/available-slots', {
+  query: { duration: '30min', spread: 'day' },
+  default: () => ({ slots: [] }),
+  server: false,
+  immediate: showQuickSlots,
+})
+
+// Shown in the visitor's own timezone (the API formats in New York time).
+const fmtDay = (iso) =>
+  new Date(iso).toLocaleDateString(undefined, {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  })
+const fmtTime = (iso) =>
+  new Date(iso)
+    .toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
+    .replace(':00', '')
+    .replace(' ', '')
+    .toLowerCase()
+const tzLabel = computed(() => {
+  if (!import.meta.client) return ''
+  const part = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' })
+    .formatToParts(new Date())
+    .find((p) => p.type === 'timeZoneName')
+  return part?.value || ''
+})
+
+// Re-mount the embed on that exact slot. Cal.com's booker reads `slot` and
+// opens straight to the confirm form (checked 2026-10-20). A fresh namespace
+// per pick, same as the ?type= fallback, since the embed can't be re-pointed.
+let picks = 0
+function pickSlot(slot) {
+  const embed = document.querySelector('#cal-embed')
+  if (!embed) return
+  embed.innerHTML = ''
+  const date = slot.datetime.slice(0, 10)
+  mountCal(DEFAULT_LINK, `calendar-pick-${++picks}`, {
+    date,
+    month: date.slice(0, 7),
+    slot: slot.datetime,
+    duration: '20',
+  })
+  embed.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 onMounted(() => {
@@ -156,6 +207,27 @@ onMounted(() => {
       </p>
 
       <ClientOnly>
+        <div
+          v-if="showQuickSlots && quick.slots?.length"
+          class="quick-slots"
+          aria-label="Next open times"
+        >
+          <span class="quick-slots__label">
+            Next open<template v-if="tzLabel"> ({{ tzLabel }})</template>
+          </span>
+          <button
+            v-for="slot in quick.slots"
+            :key="slot.datetime"
+            type="button"
+            class="quick-slot"
+            data-umami-event="consulting-book"
+            data-umami-event-location="calendar-quick-slot"
+            @click="pickSlot(slot)"
+          >
+            <span class="quick-slot__day">{{ fmtDay(slot.datetime) }}</span>
+            <span class="quick-slot__time">{{ fmtTime(slot.datetime) }}</span>
+          </button>
+        </div>
         <div id="cal-embed" class="cal-embed-container" />
         <template #fallback>
           <p class="cal-loading">warming up the calendar…</p>
@@ -198,6 +270,24 @@ onMounted(() => {
 }
 .cal-tagline {
   @apply mt-2 max-w-prose font-serif text-base text-zinc-600 dark:text-zinc-300;
+}
+
+.quick-slots {
+  @apply mb-6 flex flex-wrap items-center gap-2;
+}
+.quick-slots__label {
+  @apply mr-1 font-mono text-2xs uppercase tracking-widest text-zinc-500;
+}
+.quick-slot {
+  @apply flex items-baseline gap-2 rounded border px-3 py-2 transition-colors;
+  @apply border-zinc-300 text-zinc-800 hover:border-zinc-900;
+  @apply dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-200;
+}
+.quick-slot__day {
+  @apply font-mono text-2xs uppercase tracking-wider text-zinc-500;
+}
+.quick-slot__time {
+  @apply font-mono text-sm;
 }
 
 .cal-embed-container {
