@@ -276,13 +276,15 @@ onMounted(() => {
 }
 
 .quick-slots {
-  @apply mb-6 grid max-w-xl grid-cols-3 gap-2;
+  @apply mb-6 grid max-w-xl grid-cols-1 gap-2 sm:grid-cols-3;
 }
 .quick-slots__label {
-  @apply col-span-3 font-mono text-2xs uppercase tracking-widest text-zinc-500;
+  @apply font-mono text-2xs uppercase tracking-widest text-zinc-500 sm:col-span-3;
 }
+/* Phones: full-width rows (day left, time right). Three across from sm up. */
 .quick-slot {
-  @apply flex flex-col items-start gap-1 min-w-0 rounded border px-2 py-2 transition-colors sm:px-3;
+  @apply flex items-baseline justify-between gap-2 rounded border px-3 py-3 text-left transition-colors;
+  @apply sm:flex-col sm:items-start sm:justify-start sm:gap-1 sm:py-2;
   @apply border-zinc-300 text-zinc-800 hover:border-zinc-900;
   @apply dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-200;
 }
@@ -290,7 +292,7 @@ onMounted(() => {
   @apply font-mono text-2xs uppercase tracking-wider text-zinc-500;
 }
 .quick-slot__time {
-  @apply font-mono text-xs sm:text-sm;
+  @apply font-mono text-sm;
 }
 
 .cal-embed-container {
