@@ -1,3 +1,11 @@
+import {
+  isFunnelPath,
+  deviceAllowsReplay,
+  scrollFraction,
+  ENGAGED_SCROLL,
+  ENGAGED_MS,
+} from '~/utils/replayPolicy'
+
 export default defineNuxtPlugin(() => {
   if (!import.meta.client) return
   // Umami only drops *headless* UAs. A headed Playwright/Puppeteer run looks
@@ -22,9 +30,56 @@ export default defineNuxtPlugin(() => {
     document.head.appendChild(script)
   }
 
+  // --- session replay: when to load recorder.js (see utils/replayPolicy.ts)
+  let recorderLoaded = false
+  let visibleTimer = null
+  const opts = { passive: true, capture: true }
+
+  function loadRecorder() {
+    if (recorderLoaded) return
+    recorderLoaded = true
+    disarm()
+    add(`${UMAMI}/recorder.js`, { 'data-website-id': WEBSITE_ID })
+  }
+
+  // First of: scroll past 25%, a click/tap or key, or 15s of visible time.
+  function onScroll() {
+    const f = scrollFraction(
+      window.scrollY,
+      window.innerHeight,
+      document.documentElement.scrollHeight
+    )
+    if (f >= ENGAGED_SCROLL) loadRecorder()
+  }
+  function startTimer() {
+    if (!visibleTimer && document.visibilityState === 'visible')
+      visibleTimer = setTimeout(loadRecorder, ENGAGED_MS)
+  }
+  function onVisibility() {
+    if (document.visibilityState === 'visible') return startTimer()
+    clearTimeout(visibleTimer)
+    visibleTimer = null
+  }
+  function armEngagement() {
+    window.addEventListener('scroll', onScroll, opts)
+    window.addEventListener('pointerdown', loadRecorder, opts)
+    window.addEventListener('keydown', loadRecorder, opts)
+    document.addEventListener('visibilitychange', onVisibility)
+    startTimer()
+  }
+  function disarm() {
+    window.removeEventListener('scroll', onScroll, opts)
+    window.removeEventListener('pointerdown', loadRecorder, opts)
+    window.removeEventListener('keydown', loadRecorder, opts)
+    document.removeEventListener('visibilitychange', onVisibility)
+    clearTimeout(visibleTimer)
+  }
+
   // Defer analytics until after LCP — don't compete with critical rendering.
   // Web Vitals still land: Umami's observers read buffered entries.
+  let analyticsLoaded = false
   const load = () => {
+    analyticsLoaded = true
     // ?v= busts Cloudflare's cached pre-3.4 tracker (it lacks data-performance
     // + getSession, which recorder.js needs). Bump on Umami upgrades.
     add(`${UMAMI}/script.js?v=3.4.0`, {
@@ -41,10 +96,19 @@ export default defineNuxtPlugin(() => {
       'data-mailto': 'false',
       'data-notfound-selector': '[data-not-found]',
     })
-    // Umami heatmaps + masked session replay; sampling lives in the Umami DB
-    // (website.replay_config), not here.
-    add(`${UMAMI}/recorder.js`, { 'data-website-id': WEBSITE_ID })
+    // Umami heatmaps + masked session replay (rrweb). Funnel pages record
+    // straight away; everywhere else the recorder is earned by engagement.
+    // See utils/replayPolicy.ts. Sampling still lives in the Umami DB.
+    if (isFunnelPath(location.pathname)) loadRecorder()
+    else if (deviceAllowsReplay(navigator)) armEngagement()
   }
+
+  // Navigating into the funnel mid-visit starts the recorder too. Before
+  // load() has run, it checks location.pathname itself (recorder.js needs
+  // script.js, so it must never load first).
+  useRouter().afterEach((to) => {
+    if (analyticsLoaded && isFunnelPath(to.path)) loadRecorder()
+  })
 
   if ('requestIdleCallback' in window) {
     requestIdleCallback(load, { timeout: 3000 })
