@@ -282,7 +282,7 @@ onMounted(() => {
   @apply col-span-3 font-mono text-2xs uppercase tracking-widest text-zinc-500;
 }
 .quick-slot {
-  @apply flex flex-col items-start gap-1 rounded border px-3 py-2 transition-colors;
+  @apply flex flex-col items-start gap-1 min-w-0 rounded border px-2 py-2 transition-colors sm:px-3;
   @apply border-zinc-300 text-zinc-800 hover:border-zinc-900;
   @apply dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-200;
 }
@@ -290,7 +290,7 @@ onMounted(() => {
   @apply font-mono text-2xs uppercase tracking-wider text-zinc-500;
 }
 .quick-slot__time {
-  @apply font-mono text-sm;
+  @apply font-mono text-xs sm:text-sm;
 }
 
 .cal-embed-container {
