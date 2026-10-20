@@ -10,13 +10,15 @@ import type { StatsResponse } from '~/types/stats'
 const STATS_CACHE_KEY = 'stats-swr-v1'
 
 /**
- * @param server Fetch during SSR. /stats passes true: /api/stats is a cached
+ * @param options Fetch options
+ * @param options.server Fetch during SSR. /stats passes true: /api/stats is a cached
  *   swr handler (~60ms warm), and rendering it server-side stops the whole
  *   page popping in after hydration (Lighthouse CLS 0.87 → ~0). Default
  *   false, because /gists is PRERENDERED on CI, where there are no API
  *   secrets: a server fetch would bake empty stats into its static HTML.
  */
-export function useStats({ server = false }: { server?: boolean } = {}) {
+export function useStats(options: { server?: boolean } = {}) {
+  const server = options.server ?? false
   // Stale-while-revalidate: seed from the last successful payload
   // (sessionStorage) so repeat visits paint real numbers instantly while the
   // slow aggregate refreshes in the background.
