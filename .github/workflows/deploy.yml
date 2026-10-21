@@ -24,15 +24,31 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
+      with:
+        # Full history: prebuild's generate-changelog reads the last 500
+        # commits for the prerendered /changelog. The default depth of 1 made
+        # it "1 commits".
+        fetch-depth: 0
 
     - name: Setup Node 22
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: 22
-        cache: yarn
+
+    # Cache node_modules itself, keyed on the lockfile: a hit skips install
+    # entirely (~2s restore vs ~30s for the old yarn-cache restore + install).
+    # Nothing before the build needs .nuxt (postinstall's `nuxt prepare`);
+    # `nuxt build` regenerates it.
+    - name: Restore node_modules
+      id: nm_cache
+      uses: actions/cache@v6
+      with:
+        path: node_modules
+        key: nm-${{ runner.os }}-node22-${{ hashFiles('yarn.lock') }}
 
     - name: Install dependencies
+      if: steps.nm_cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile --ignore-engines
 
     # Blocking, and BEFORE the build, so a visibility-field typo or a leaked
@@ -50,15 +66,23 @@ jobs:
     # text-side check passed. OCR each published image (verdicts cached by
     # URL — committed in data/image-pii-scan.json, plus this runner cache for
     # images added since) and block on credentials or financial details.
-    - name: Install tesseract
-      run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends tesseract-ocr >/dev/null
-
     - name: Restore image scan cache
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: .cache/image-pii-scan.json
         key: image-pii-${{ github.sha }}
         restore-keys: image-pii-
+
+    # Most deploys have no new images to OCR, so tesseract (~12s of apt) is
+    # installed only when the guard has work. The guard still fails closed:
+    # any image left to OCR without tesseract fails the deploy.
+    - name: Count images awaiting OCR
+      id: ocr_todo
+      run: echo "count=$(yarn -s check:images --count-todo | tail -1)" >> "$GITHUB_OUTPUT"
+
+    - name: Install tesseract
+      if: steps.ocr_todo.outputs.count != '0'
+      run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends tesseract-ocr >/dev/null
 
     # On failure the guard prints WHAT/WHY/HOW TO FIX, adds a red annotation
     # and a run summary, and the next step pings Discord. Override for a
@@ -78,7 +102,7 @@ jobs:
 
     - name: Alert Discord that the screenshot guard blocked the deploy
       if: failure() && steps.image_guard.outcome == 'failure'
-      uses: appleboy/ssh-action@v1.0.3
+      uses: appleboy/ssh-action@v1.2.5
       env:
         GUARD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         GUARD_MSG: "**🛑 ejfox.com deploy BLOCKED by screenshot guard** — ${{ steps.guard_alert.outputs.msg }} `${{ github.sha }}` ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
@@ -96,7 +120,7 @@ jobs:
     # run after a successful deploy and read THIS, not the checkout's
     # committed JSON (stale for markdown-only commits, e.g. from Dispatch).
     - name: Upload processed content
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: processed-content
         path: content/processed
@@ -113,6 +137,9 @@ jobs:
           echo "ERROR: .output/server/index.mjs not found after build!"
           exit 1
         fi
+        # Nitro traces both @napi-rs/canvas Linux binaries. The VPS is Debian
+        # (glibc), so the musl one (~30 MB) can never load; don't ship it.
+        rm -rf .output/server/node_modules/@napi-rs/canvas-linux-x64-musl
         echo "Build OK: $(du -sh .output | cut -f1)"
         # Ship the processed content CI just generated. The server reads
         # content/processed relative to its cwd (the VPS git checkout), so
@@ -130,7 +157,7 @@ jobs:
         target: /tmp/
 
     - name: Deploy and reload
-      uses: appleboy/ssh-action@v1.0.3
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
@@ -151,6 +178,11 @@ jobs:
           git fetch origin main
           git reset --hard "$BUILT_SHA"
           NEW_COMMIT=$(git rev-parse --short HEAD)
+
+          # /api/changelog reads data/changelog.json from this checkout (it's
+          # gitignored, so CI's copy never arrives). Regenerate it from the
+          # real history; before this it sat frozen at 2026-06-18.
+          node scripts/build/generate-changelog.mjs || echo "WARN: changelog regen failed — serving the previous file"
 
           # Get commit info for alert
           COMMIT_MSG=$(git log -1 --pretty=format:"%s" | head -c 100)
@@ -226,9 +258,10 @@ jobs:
             exit 1
           fi
 
-          # Warm the SSR listings (and /api/github's cache) so the first real
+          # Warm the SSR listings (and the /api/github + /api/stats caches; /stats
+          # renders stats server-side) so the first real
           # visitor after a restart doesn't pay the ~2.5s cold render.
-          for p in / /blog /projects; do
+          for p in / /blog /projects /api/stats; do
             curl -s -o /dev/null "http://localhost:3006$p" || true
           done
 

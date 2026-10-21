@@ -88,7 +88,7 @@ export async function useCrownedPost(options: CrownedPostOptions) {
 
   const { data: allPosts } = await useAsyncData(
     `all-posts-for-related-${cacheKey}`,
-    () => processedMarkdown.getAllPosts(false, false).catch(() => [])
+    () => processedMarkdown.getAllPosts(false).catch(() => [])
   )
 
   // --- Computed metadata (after data is available) ---

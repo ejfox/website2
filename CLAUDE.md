@@ -347,7 +347,7 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 ### Files Modified
 
 - `plugins/footnotes-to-sidenotes.client.ts` - New sidenote plugin
-- `components/BlogPostContent.vue` - Simplified to basic wrapper
+- `components/blog/BlogPostContent.vue` - Simplified to basic wrapper
 - `pages/blog/[...slug].vue` - Updated container widths
 - Deleted 6 complex components and 3 experimental plugins
 
@@ -359,6 +359,26 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 - [ ] Test with very long sidenotes
 - [ ] Verify no layout shift on slower connections
 - [ ] Cross-browser testing (Safari, Firefox, Chrome)
+
+## Diagrams — Mermaid via Pele (2026-10-17)
+
+Write a ` ```mermaid ` fence in any post. `scripts/plugins/remarkMermaid.mjs`
+renders it to inline SVG **at build time** with [Pele](https://pele.run)
+(Obsidian's Mermaid-compatible renderer, zero deps). There is no client JS. The
+`mermaid` package and `plugins/mermaid.client.ts` were deleted.
+
+- **Theme** = `--pele-*` vars in `global.css` (under `:root`, `.dark` AND the
+  dark media query, like the bg tokens). Light/dark switch without re-rendering.
+  OLED dark: nodes are `#000`, separated by `--pele-border`.
+- **Phones:** a diagram wider than 540px also ships a 360px re-layout (LR → TB),
+  and CSS swaps it in below 640px (`.diagram-wide` / `.diagram-narrow`).
+- **Parse errors** never fail the build. The block renders as escaped source
+  with a `diagram error:` line, and processing logs `[diagram] file: …`.
+- Labels are measured with Pele's Node width table, which is within ~1% of
+  Georgia. Mermaid `themeVariables` and HTML labels are ignored, and inline
+  `style`/`classDef` colors are fixed (they don't follow dark mode).
+- The processing cache keys on source hash, so a renderer change only reaches
+  old posts when they're reprocessed (`yarn blog:process` after clearing their JSON).
 
 ## Dead Internal Link Detection (2026-06-29)
 
@@ -399,7 +419,7 @@ Two separate link-health systems — don't confuse them:
 
 ### Build Output Privacy
 
-The `nuxt.config.ts` `compiled` hook copies `content/` to `.output/content/` for API routes. It **excludes** `content/backup/` and `content/drafts/` via a filter to prevent private content from being served.
+`.output` contains **no** `content/` copy (removed 2026-10-19). Every server read is `process.cwd()/content/...`, which is the VPS git checkout in prod and a PR preview's own directory. So `content/backup/`, `content/drafts/` and sealed plaintext (`content/blog/private/`) can't ride along in a build. Don't re-add a content copy hook; read from `process.cwd()`.
 
 ### Content Processing Privacy
 
@@ -661,6 +681,7 @@ and slugs only, never PII. An element already tagged with
 | `dispatch-also-on` | Dispatch piece "Also on" links | `network`, `slug` |
 | `consulting-book` | booking CTAs (consulting floating/sidebar, process, projects, case-study-nbc, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
 | `nav-hire-me` | "Hire Me" nav link (`utils/navigation.ts` `umamiEvent`) | `location` (sidebar-nav, mobile-nav) |
+| `nav-calendar` | links to /calendar: "Book a call" nav item, site footer, end of every blog post | `location` (sidebar-nav, mobile-nav, footer, post-footer) |
 | `outbound` | any untagged link to another host (plugin) | `host` |
 | `contact-email` | any `mailto:` link (plugin) | (none; never the address) |
 | `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
@@ -747,7 +768,7 @@ copies the exact deep-link.
 header shows an amber "N missing a story" count and dev console warns about missing
 stories AND orphaned story keys (renamed/removed components). Components that fetch
 their own data (Webmentions, NextAvailableSlot) or are invisible overlays
-(DebugGrid, WebVitalsReporter, ScrollIndicator, CommandPalette) preview as
+(WebVitalsReporter, ScrollIndicator) preview as
 empty by design — that's expected, not broken.
 
 ---

@@ -52,7 +52,6 @@ interface BlogStats {
       </div>
     </div>
 
-    <!-- Simple Stats -->
     <StatsSectionHeader title="BLOG STATS" />
     <div class="space-y-2">
       <div class="flex items-center justify-between">
@@ -81,7 +80,6 @@ interface BlogStats {
       </div>
     </div>
 
-    <!-- Recent Posts -->
     <StatsSectionHeader title="RECENT BLOG POSTS" />
     <div class="space-y-2">
       <div

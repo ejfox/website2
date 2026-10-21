@@ -141,26 +141,59 @@ body {
   /* Brand native checkboxes/radios/selects to the link blue instead of OS blue. */
   accent-color: #2563eb; /* blue-600 (matches links) */
   --bg-page: #ffffff;
+  --zinc-500: 113 113 122; /* #71717a, 4.83:1 on white */
   --bg-sunken: #ffffff;
   --bg-surface: #ffffff;
   --bg-raised: #f4f4f5; /* zinc-100 */
+  /* Diagrams (Pele, rendered at build time in remarkMermaid.mjs). */
+  --pele-bg: #ffffff;
+  --pele-fg: #18181b; /* zinc-900 */
+  --pele-muted: #71717a; /* zinc-500 */
+  --pele-line: #3f3f46; /* zinc-700 */
+  --pele-surface: #f4f4f5; /* zinc-100 */
+  --pele-surface-alt: #fafafa; /* zinc-50 */
+  --pele-border: #a1a1aa; /* zinc-400 */
+  --pele-accent: #2563eb; /* blue-600 */
+  --pele-critical: #dc2626; /* red-600 */
+  --pele-font: Georgia, serif;
+  --pele-font-mono: ui-monospace, monospace;
 }
 .dark {
   accent-color: #60a5fa; /* blue-400 */
   /* OLED: every layer pure black (2026-10-05). Depth comes from borders, not
      fills. Was page #0a0a0a < sunken zinc-950 < surface zinc-900 < raised zinc-800. */
   --bg-page: #000;
+  --zinc-500: 117 117 126; /* #75757e, 4.6:1 on black */
   --bg-sunken: #000;
   --bg-surface: #000;
   --bg-raised: #000;
+  --pele-bg: #000;
+  --pele-fg: #e4e4e7; /* zinc-200 */
+  --pele-muted: #a1a1aa; /* zinc-400 */
+  --pele-line: #a1a1aa;
+  --pele-surface: #000; /* OLED: nodes separated by border, not fill */
+  --pele-surface-alt: #000;
+  --pele-border: #52525b; /* zinc-600 */
+  --pele-accent: #60a5fa; /* blue-400 */
+  --pele-critical: #f87171; /* red-400 */
 }
 @media (prefers-color-scheme: dark) {
   :root {
     accent-color: #60a5fa; /* blue-400 */
     --bg-page: #000;
+    --zinc-500: 117 117 126;
     --bg-sunken: #000;
     --bg-surface: #000;
     --bg-raised: #000;
+    --pele-bg: #000;
+    --pele-fg: #e4e4e7; /* zinc-200 */
+    --pele-muted: #a1a1aa; /* zinc-400 */
+    --pele-line: #a1a1aa;
+    --pele-surface: #000; /* OLED: nodes separated by border, not fill */
+    --pele-surface-alt: #000;
+    --pele-border: #52525b; /* zinc-600 */
+    --pele-accent: #60a5fa; /* blue-400 */
+    --pele-critical: #f87171; /* red-400 */
   }
 }
 
@@ -1770,5 +1803,130 @@ img[data-loading='lazy']::before {
     font-size: 0.75em;
     color: #52525b;
     word-break: break-all;
+  }
+}
+
+/* Diagrams — ```mermaid blocks rendered to SVG at build time by Pele
+   (scripts/plugins/remarkMermaid.mjs). Wide diagrams ship a narrow re-layout
+   too; swap at the same 640px Pele uses for its LR → TB direction switch. */
+.diagram {
+  margin: 2rem 0;
+}
+.diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.diagram-narrow {
+  display: none;
+}
+@media (max-width: 639px) {
+  .diagram-responsive .diagram-wide {
+    display: none;
+  }
+  .diagram-responsive .diagram-narrow {
+    display: block;
+  }
+}
+.diagram-error::before {
+  content: 'diagram error: ' attr(data-error);
+  display: block;
+  color: var(--pele-critical);
+  margin-bottom: 0.5rem;
+}
+
+/* ── /stats live refresh (composables/useLiveStats) ─────────────────────────
+   A section whose data changed on a background refresh flashes once and
+   wears a small UPDATED tag, like a live terminal. Reduced motion keeps the
+   tag and drops the animation. */
+:root {
+  --stat-flash: rgb(24 24 27 / 0.09);
+  --stat-flash-tag-fg: #fafafa;
+  --stat-flash-tag-bg: #18181b;
+}
+.dark {
+  --stat-flash: rgb(250 250 250 / 0.11);
+  --stat-flash-tag-fg: #18181b;
+  --stat-flash-tag-bg: #fafafa;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --stat-flash: rgb(250 250 250 / 0.11);
+    --stat-flash-tag-fg: #18181b;
+    --stat-flash-tag-bg: #fafafa;
+  }
+}
+.stat-flash {
+  position: relative;
+  animation: stat-flash 1.6s ease-out;
+}
+.stat-flash::after {
+  content: 'updated';
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  line-height: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1px 4px;
+  color: var(--stat-flash-tag-fg);
+  background: var(--stat-flash-tag-bg);
+  animation: stat-flash-tag 1.6s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes stat-flash {
+  0%,
+  20% {
+    background-color: var(--stat-flash);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes stat-flash-tag {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stat-flash,
+  .stat-flash::after {
+    animation: none;
+  }
+}
+
+.stats-asof {
+  margin-top: 0.75rem;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(var(--zinc-500));
+}
+.stats-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px 1px;
+  border-radius: 9999px;
+  background: currentColor;
+  vertical-align: middle;
+  animation: stats-live-pulse 2.4s ease-in-out infinite;
+}
+@keyframes stats-live-pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stats-live-dot {
+    animation: none;
   }
 }

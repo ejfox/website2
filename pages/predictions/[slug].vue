@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format } from 'date-fns'
+import { format } from '~/utils/date'
 import { findCalibrationBucket } from '~/utils/calibration'
 
 const { tocTarget } = useTOC()
@@ -153,7 +153,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main v-if="prediction" class="container-main pt-8">
+  <div v-if="prediction" data-page-main class="container-main pt-8">
     <!-- Back link -->
     <NuxtLink
       to="/predictions"
@@ -321,7 +321,7 @@ usePageSeo({
         </ul>
       </div>
     </footer>
-  </main>
+  </div>
 
   <!-- Error/Loading -->
   <div v-else class="container-main pt-8 font-mono text-xs text-zinc-500">

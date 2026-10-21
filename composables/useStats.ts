@@ -9,7 +9,16 @@ import type { StatsResponse } from '~/types/stats'
 
 const STATS_CACHE_KEY = 'stats-swr-v1'
 
-export function useStats() {
+/**
+ * @param options Fetch options
+ * @param options.server Fetch during SSR. /stats passes true: /api/stats is a cached
+ *   swr handler (~60ms warm), and rendering it server-side stops the whole
+ *   page popping in after hydration (Lighthouse CLS 0.87 → ~0). Default
+ *   false, because /gists is PRERENDERED on CI, where there are no API
+ *   secrets: a server fetch would bake empty stats into its static HTML.
+ */
+export function useStats(options: { server?: boolean } = {}) {
+  const server = options.server ?? false
   // Stale-while-revalidate: seed from the last successful payload
   // (sessionStorage) so repeat visits paint real numbers instantly while the
   // slow aggregate refreshes in the background.
@@ -23,15 +32,13 @@ export function useStats() {
     }
   }
 
-  // Use Nuxt's useFetch for SSR + caching + automatic error handling
-  // PERF: lazy: true prevents blocking SSR - page renders immediately, stats load after
   const {
     data: stats,
     status,
     error,
   } = useFetch<StatsResponse>('/api/stats', {
     lazy: true,
-    server: false, // Don't fetch during SSR - stats API calls external services
+    server,
     default: () => readCache(),
   })
 

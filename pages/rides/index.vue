@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { geoMercator } from 'd3-geo'
 import { useElementSize } from '@vueuse/core'
+import {
+  rideMi as mi,
+  rideFt as ft,
+  rideMph as mph,
+  rideDuration as duration,
+} from '~/utils/rides'
 
 interface Atlas {
   bounds: { minLon: number; maxLon: number; minLat: number; maxLat: number }
@@ -87,11 +93,6 @@ const elevPoints = (r: RideIndexEntry) => {
     .join(' ')
 }
 
-const mi = (m: number) => (m / 1609.34).toFixed(1)
-const ft = (m: number) => Math.round(m * 3.28084)
-const mph = (mps: number) => Math.round(mps * 2.237)
-const duration = (s: number) =>
-  `${Math.floor(s / 3600)}h${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}m`
 const startClock = (iso: string | null) =>
   iso
     ? new Date(iso).toLocaleTimeString('en-US', {

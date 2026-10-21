@@ -1,7 +1,7 @@
 <!-- Blog Tag Page -->
 
 <script setup>
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from '~/utils/date'
 
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
@@ -41,7 +41,7 @@ const processPost = (post) => {
 // Fetch all posts and filter by tag
 const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
   try {
-    const result = await processedMarkdown.getAllPosts(false, false)
+    const result = await processedMarkdown.getAllPosts(false)
     return result.filter((post) => isValidPost(post)).map(processPost)
   } catch (err) {
     console.error('Error fetching posts for tag:', err)
@@ -201,7 +201,7 @@ const postSummaryClass =
     </header>
 
     <!-- Main content area -->
-    <main class="max-w-4xl mx-auto px-4 md:px-6">
+    <div data-page-main class="max-w-4xl mx-auto px-4 md:px-6">
       <!-- Posts listing -->
       <div v-if="filteredPosts && filteredPosts.length > 0" class="space-y-8">
         <template v-for="(post, index) in filteredPosts" :key="post.slug">
@@ -326,6 +326,6 @@ const postSummaryClass =
           </a>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>

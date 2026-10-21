@@ -52,7 +52,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="now px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-3xl">
+  <div data-page-main class="now px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-3xl">
     <header class="mb-6">
       <h1 class="text-zinc-900 dark:text-zinc-100">
         Now
@@ -99,7 +99,7 @@ usePageSeo({
       What's this?
       <a href="https://nownownow.com/about" class="underline">A now page</a>
     </footer>
-  </main>
+  </div>
 </template>
 
 <style scoped>

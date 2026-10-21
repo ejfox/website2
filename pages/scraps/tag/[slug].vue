@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format, parseISO } from 'date-fns'
+import { formatDate } from '~/utils/date'
 
 interface Scrap {
   id: string
@@ -48,14 +48,6 @@ const {
 })
 
 const filteredScraps = computed(() => scraps.value || [])
-
-const formatDate = (dateStr: string) => {
-  try {
-    return format(parseISO(dateStr), 'MMM d, yyyy')
-  } catch {
-    return 'unknown'
-  }
-}
 
 usePageSeo({
   title: `Tag: ${tag.value}`,
@@ -137,7 +129,9 @@ usePageSeo({
             <span v-if="scrap.source">{{ scrap.source }}</span>
             <span v-if="scrap.type">{{ scrap.type }}</span>
             <span v-if="scrap.content_type">{{ scrap.content_type }}</span>
-            <span class="opacity-50">{{ formatDate(scrap.created_at) }}</span>
+            <span class="opacity-50">{{
+              formatDate(scrap.created_at) || 'unknown'
+            }}</span>
           </div>
 
           <!-- Row 2: Tags + Concept tags -->

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format } from 'date-fns'
+import { format } from '~/utils/date'
 
 interface DispatchListItem {
   slug: string
@@ -50,7 +50,7 @@ useHead({
 </script>
 
 <template>
-  <main class="container-main pt-8">
+  <div data-page-main class="container-main pt-8">
     <header class="section-spacing-lg">
       <h1 class="text-4xl md:text-5xl font-black mb-2">Dispatch</h1>
       <p class="font-serif text-base text-secondary">
@@ -114,5 +114,5 @@ useHead({
         </NuxtLink>
       </li>
     </ol>
-  </main>
+  </div>
 </template>

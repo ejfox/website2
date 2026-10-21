@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns/format'
+import { format } from '~/utils/date'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
@@ -84,7 +84,6 @@ const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
 
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
-    <!-- Primary Stats -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
@@ -116,7 +115,6 @@ const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
       </div>
     </div>
 
-    <!-- Language Distribution -->
     <div class="space-y-2">
       <StatsSectionHeader title="GIST LANGUAGES" />
       <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-xs">
@@ -140,7 +138,6 @@ const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
       </div>
     </div>
 
-    <!-- Recent Gists -->
     <div v-if="recentGists.length" class="space-y-2">
       <StatsSectionHeader title="RECENT GISTS" />
       <div class="space-y-2">

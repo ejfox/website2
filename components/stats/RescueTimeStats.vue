@@ -10,7 +10,7 @@ import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import { format } from 'date-fns/format'
+import { format } from '~/utils/date'
 import { interpolateTurbo } from 'd3-scale-chromatic'
 
 interface TimeBreakdown {
@@ -44,7 +44,6 @@ interface Activity {
   }
 }
 
-// Add interface for daily activity data
 interface DailyActivity {
   date: string
   time?: TimeBreakdown
@@ -60,7 +59,6 @@ const props = defineProps<{
 const rescueTime = computed(() => props.stats.rescueTime)
 const isHovering = ref(false)
 
-// Check if we have data
 const hasData = computed(() => {
   return (
     !!rescueTime.value &&
@@ -68,7 +66,6 @@ const hasData = computed(() => {
   )
 })
 
-// Weekly Stats
 // Use monthly data for yearly progress view
 const monthlyHours = computed(() =>
   Math.round(rescueTime.value?.month.summary.total.hoursDecimal || 0)
@@ -103,7 +100,7 @@ const activityDates = computed(() => {
   return days
 })
 
-// ONE simple function for both waffle and legend colors
+// One function for both waffle and legend colors
 const getTurboColor = (index: number, total: number) => {
   // Skip dark colors: map 0.3 to 1.0 instead of 0 to 1
   const normalizedIndex = index / Math.max(total - 1, 1)
@@ -157,7 +154,6 @@ const waffleCells = computed(() => {
     const scaledPercentage = activity.percentageOfTotal * scalingFactor
     const cellsForActivity = Math.round(scaledPercentage)
 
-    // USE SAME COLOR FUNCTION
     const turboColor = getTurboColor(
       activityIndex,
       consolidatedActivities.length
@@ -177,7 +173,6 @@ const waffleCells = computed(() => {
     }
   })
 
-  // Fill remaining
   while (cellIndex < 100) {
     cells[cellIndex] = {
       turboColor: '#666',
@@ -190,7 +185,6 @@ const waffleCells = computed(() => {
   return cells
 })
 
-// Check if we should show a border between cells
 const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
   const cells = waffleCells.value
   if (!cells || index >= cells.length) return false
@@ -199,12 +193,10 @@ const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
   let nextCell
 
   if (direction === 'right') {
-    // Don't show border on last column
     if ((index + 1) % 20 === 0) return true
     nextCell = cells[index + 1]
   } else {
     // bottom
-    // Don't show border on last row
     if (index >= 80) return true
     nextCell = cells[index + 20]
   }
@@ -215,7 +207,6 @@ const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
   return currentCell.turboColor !== nextCell.turboColor
 }
 
-// Simple categories for display - USE SAME COLOR FUNCTION
 const sortedCategories = computed(() => {
   const categories = rescueTime.value?.month?.categories || []
   const sorted = [...categories]
@@ -232,7 +223,6 @@ const sortedCategories = computed(() => {
 
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
-    <!-- Primary Stats -->
     <div class="py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
@@ -254,14 +244,12 @@ const sortedCategories = computed(() => {
       </div>
     </div>
 
-    <!-- Activity Calendar -->
     <ActivityCalendar
       title="RESCUETIME ACTIVITY"
       :active-dates="activityDates"
       :active-color="'#71717a'"
     />
 
-    <!-- Time Distribution Waffle Chart -->
     <StatsSectionHeader title="RESCUETIME TIME DISTRIBUTION" />
     <div
       class="waffle-grid"
@@ -297,7 +285,6 @@ const sortedCategories = computed(() => {
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
 
-    <!-- Categories -->
     <StatsSectionHeader title="RESCUETIME CATEGORIES" />
     <div class="space-y-2">
       <div

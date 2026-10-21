@@ -17,20 +17,24 @@ jobs:
   guard:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
-      # chalk only; a full `yarn install` would be a minute of CI for a check
-      # that has to be fast enough that nobody is tempted to skip it.
-      - run: npm install --no-save chalk@5
+      # Only the two packages the guard imports; a full `yarn install` would be
+      # a minute of CI for a check that has to be fast enough that nobody is
+      # tempted to skip it. Installed OUTSIDE the repo: `npm install <pkg>` here
+      # resolves the whole yarn package.json tree, which newer npm crashes on
+      # ("Cannot read properties of null (reading 'edgesOut')", 2026-10-16).
+      - name: Install guard deps (isolated)
+        run: |
+          npm install --prefix "$RUNNER_TEMP/guard-deps" --no-audit --no-fund chalk@5 gray-matter@4
+          ln -s "$RUNNER_TEMP/guard-deps/node_modules" node_modules
 
       - name: No sealed plaintext, no keyring, envelope-only JSON
         run: node scripts/meta/check-sealed.mjs
 
       - name: Frontmatter safety
-        run: |
-          npm install --no-save gray-matter@4
-          node scripts/meta/lint-frontmatter-safety.mjs
+        run: node scripts/meta/lint-frontmatter-safety.mjs

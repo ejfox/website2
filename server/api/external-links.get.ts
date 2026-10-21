@@ -121,13 +121,11 @@ export default defineEventHandler(async () => {
         const tldParts = domain.split('.')
         const tld = tldParts[tldParts.length - 1]
 
-        // Filter out week-notes and drafts sources - these contain internal/private content
+        // Drop drafts sources: they can hold private material
         const allSources = sourcesStr ? sourcesStr.split(';') : []
-        const sources = allSources.filter(
-          (s) => !s.startsWith('week-notes/') && !s.startsWith('drafts/')
-        )
+        const sources = allSources.filter((s) => !s.startsWith('drafts/'))
 
-        // Skip links that ONLY appeared in week-notes (no other sources)
+        // Skip links that ONLY appeared in drafts (no other sources)
         if (allSources.length > 0 && sources.length === 0) {
           return
         }

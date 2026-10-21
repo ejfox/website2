@@ -130,7 +130,6 @@ function clearSelection() {
   emit('select', { year: null })
 }
 
-// Year totals
 const yearTotals = computed(() => {
   const totals = new Map()
   for (const w of props.weeks) {
@@ -194,7 +193,6 @@ watch(selectedYear, (v) => emit('select', { year: v }))
         </text>
       </g>
 
-      <!-- Cells -->
       <g>
         <rect
           v-for="cell in cells"

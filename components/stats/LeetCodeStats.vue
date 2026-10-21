@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns/format'
+import { format } from '~/utils/date'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import { formatNumber } from '~/utils/numberFormat'
@@ -17,7 +17,6 @@ const props = defineProps<{
   stats: LeetCodeStats
 }>()
 
-// Total problems solved
 const totalSolved = computed(() => {
   if (!props.stats.submissionStats) return 0
   return (
@@ -27,7 +26,6 @@ const totalSolved = computed(() => {
   )
 })
 
-// Difficulty distribution
 const difficultyPercentages = computed(() => {
   if (totalSolved.value === 0) return { easy: 33.3, medium: 33.3, hard: 33.3 }
 
@@ -65,7 +63,6 @@ const recentAcceptedSubmissions = computed(() => {
     .slice(0, 3)
 })
 
-// Format utilities
 const formatDateMinimal = (timestamp: string): string => {
   const date = new Date(Number.parseInt(timestamp) * 1000)
   return format(date, 'MM.dd')
@@ -78,7 +75,6 @@ const truncateTitle = (title: string): string => {
 
 <template>
   <div class="font-mono">
-    <!-- Main Stats -->
     <div v-if="stats.submissionStats" class="individual-stat-large">
       <div class="stat-value">
         <AnimatedNumber
@@ -114,7 +110,6 @@ const truncateTitle = (title: string): string => {
         HARD
       </div>
 
-      <!-- Difficulty Distribution Bar -->
       <div class="mt-4">
         <div class="difficulty-bar">
           <div
@@ -158,7 +153,6 @@ const truncateTitle = (title: string): string => {
       </div>
     </div>
 
-    <!-- Language Stats -->
     <div v-if="hasLanguageStats" class="mt-8">
       <StatsSectionHeader title="LEETCODE LANGUAGES" />
       <div class="space-y-2">
@@ -182,7 +176,6 @@ const truncateTitle = (title: string): string => {
       </div>
     </div>
 
-    <!-- Recent Submissions -->
     <div v-if="recentAcceptedSubmissions.length" class="mt-8">
       <StatsSectionHeader title="RECENT LEETCODE SOLUTIONS" />
       <div class="space-y-2">

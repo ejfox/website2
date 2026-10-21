@@ -5,7 +5,7 @@
   @props showLabel: boolean - Show "In reply to" label (default: false)
 -->
 <script setup lang="ts">
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow } from '~/utils/date'
 
 interface OGData {
   url: string
@@ -26,7 +26,6 @@ const props = defineProps<{
 
 const showImage = ref(true)
 
-// Extract domain from URL
 const domain = computed(() => {
   if (!props.url) return null
   try {
@@ -36,7 +35,6 @@ const domain = computed(() => {
   }
 })
 
-// Fetch OG data
 const { data: ogData } = await useFetch<OGData>('/api/og', {
   query: { url: props.url },
   immediate: !!props.url,
@@ -65,7 +63,6 @@ const truncate = (str: string, len: number) => {
 
 <template>
   <div class="flex items-start gap-3">
-    <!-- Favicon -->
     <div class="flex-shrink-0 mt-0.5">
       <img
         v-if="ogData?.favicon"
@@ -82,7 +79,6 @@ const truncate = (str: string, len: number) => {
       </div>
     </div>
 
-    <!-- Content -->
     <div class="flex-grow min-w-0">
       <!-- Header: "In reply to" + site name -->
       <div class="flex items-baseline gap-2 flex-wrap mb-2">
@@ -100,7 +96,6 @@ const truncate = (str: string, len: number) => {
         </span>
       </div>
 
-      <!-- Title (linked) -->
       <a
         :href="url"
         target="_blank"
@@ -121,7 +116,6 @@ const truncate = (str: string, len: number) => {
         </span>
       </a>
 
-      <!-- Description -->
       <p
         v-if="ogData?.description"
         class="text-sm text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-2"
@@ -129,7 +123,6 @@ const truncate = (str: string, len: number) => {
         {{ truncate(ogData.description, 160) }}
       </p>
 
-      <!-- OG Image (small, optional) -->
       <img
         v-if="ogData?.image && showImage"
         :src="ogData.image"

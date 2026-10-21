@@ -15,7 +15,6 @@ defineProps<{
     class="post-footer print:hidden"
   >
     <div class="post-footer__cols">
-      <!-- PREVIOUS -->
       <section>
         <h2 class="post-footer__label">Previous</h2>
         <ul v-if="prevPost" class="post-footer__list">
@@ -31,7 +30,6 @@ defineProps<{
         <p v-else class="post-footer__empty">—</p>
       </section>
 
-      <!-- RELATED -->
       <section>
         <h2 class="post-footer__label">Related</h2>
         <ul v-if="relatedPosts.length" class="post-footer__list">
@@ -47,7 +45,6 @@ defineProps<{
         <p v-else class="post-footer__empty">—</p>
       </section>
 
-      <!-- NEXT -->
       <section>
         <h2 class="post-footer__label">Next</h2>
         <ul v-if="nextPost" class="post-footer__list">
@@ -63,10 +60,35 @@ defineProps<{
         <p v-else class="post-footer__empty">—</p>
       </section>
     </div>
+
+    <p class="post-footer__talk">
+      Want to talk about this?
+      <NuxtLink
+        to="/calendar"
+        data-umami-event="nav-calendar"
+        data-umami-event-location="post-footer"
+      >
+        Grab some time on my calendar
+      </NuxtLink>
+    </p>
   </footer>
 </template>
 
 <style scoped>
+.post-footer__talk {
+  @apply font-serif;
+  margin: 2.5rem 0 0;
+  font-size: 0.9375rem;
+  opacity: 0.8;
+}
+
+.post-footer__talk a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 .post-footer {
   margin-top: 4rem;
   padding-top: 2rem;

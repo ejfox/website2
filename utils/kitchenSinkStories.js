@@ -248,196 +248,6 @@ const PREDICTION = {
   updates: [],
 }
 
-// REAL repos from data/github-repos-list.json — real names, stars, languages,
-// disk sizes, and dates so every github visualization (histogram, parallel
-// coords, radial timeline, ridgeline, force layout) shows the actual shape of
-// EJ's GitHub. Field shape matches what the components read (top-level `stars`
-// + `color` + `stats.*` + `languages` + `diskUsage` + created/pushedAt).
-const mkRepo = (o) => ({
-  id: o.name,
-  fork: false,
-  stats: { stars: o.stars, forks: o.forks, commits: o.commits },
-  ...o,
-})
-const REPOS = [
-  mkRepo({
-    name: 'tributary',
-    language: 'JavaScript',
-    color: '#f1e05a',
-    stars: 595,
-    forks: 70,
-    commits: 612,
-    diskUsage: 9722,
-    createdAt: '2012-03-17T02:42:38Z',
-    pushedAt: '2017-05-03T17:22:42Z',
-    languages: { JavaScript: 142000, CSS: 18000, HTML: 9000 },
-  }),
-  mkRepo({
-    name: 'sStory',
-    language: 'CSS',
-    color: '#563d7c',
-    stars: 91,
-    forks: 29,
-    commits: 184,
-    diskUsage: 5033,
-    createdAt: '2012-05-12T01:16:31Z',
-    pushedAt: '2014-05-11T05:28:31Z',
-    languages: { CSS: 53711, CoffeeScript: 9333, JavaScript: 1073 },
-  }),
-  mkRepo({
-    name: 'bart',
-    language: 'JavaScript',
-    color: '#f1e05a',
-    stars: 78,
-    forks: 29,
-    commits: 96,
-    diskUsage: 30654,
-    createdAt: '2013-08-03T22:20:05Z',
-    pushedAt: '2017-05-03T17:21:43Z',
-    languages: { JavaScript: 41000, HTML: 3000 },
-  }),
-  mkRepo({
-    name: 'twitter-artbot',
-    language: 'JavaScript',
-    color: '#f1e05a',
-    stars: 6,
-    forks: 1,
-    commits: 240,
-    diskUsage: 8459,
-    createdAt: '2017-06-11T20:47:18Z',
-    pushedAt: '2022-12-09T04:48:59Z',
-    languages: { JavaScript: 1107516, CoffeeScript: 297001, HTML: 1409 },
-  }),
-  mkRepo({
-    name: 'website',
-    language: 'JavaScript',
-    color: '#f1e05a',
-    stars: 4,
-    forks: 2,
-    commits: 1820,
-    diskUsage: 215512,
-    createdAt: '2018-05-12T03:01:13Z',
-    pushedAt: '2024-11-23T00:09:54Z',
-    languages: { JavaScript: 166462, Vue: 121990, TypeScript: 13460 },
-  }),
-  mkRepo({
-    name: 'hand-midi-controller',
-    language: 'Python',
-    color: '#3572A5',
-    stars: 4,
-    forks: 1,
-    commits: 88,
-    diskUsage: 109,
-    createdAt: '2025-07-26T18:58:06Z',
-    pushedAt: '2026-01-11T04:21:37Z',
-    languages: { Python: 148411, Shell: 1553 },
-  }),
-  mkRepo({
-    name: 'ascii_webcam',
-    language: 'Python',
-    color: '#3572A5',
-    stars: 5,
-    forks: 0,
-    commits: 14,
-    diskUsage: 12,
-    createdAt: '2024-09-03T19:59:50Z',
-    pushedAt: '2024-09-03T20:01:50Z',
-    languages: { Python: 10363 },
-  }),
-  mkRepo({
-    name: 'subway-builder-mods',
-    language: 'JavaScript',
-    color: '#f1e05a',
-    stars: 5,
-    forks: 1,
-    commits: 47,
-    diskUsage: 34,
-    createdAt: '2025-12-17T00:02:45Z',
-    pushedAt: '2026-01-30T17:21:45Z',
-    languages: { JavaScript: 79695 },
-  }),
-]
-
-// REAL commits from data/github-commits.json (Dec 2025) — real sha/message/repo/date.
-const COMMITS = [
-  {
-    sha: 'b4ac7dd',
-    repo: 'vulpes-theme-lab',
-    message: 'Release v0.3.0 - MapLibre + Vulpes Monthly Theme Line',
-    date: '2025-12-04T03:55:53Z',
-    commit: {
-      message: 'Release v0.3.0 - MapLibre + Vulpes Monthly Theme Line',
-    },
-  },
-  {
-    sha: 'f2070a9',
-    repo: 'dotfiles',
-    message: 'feat(mcp): add tmux control server with current pane detection',
-    date: '2025-12-04T03:45:02Z',
-    commit: { message: 'feat(mcp): add tmux control server' },
-  },
-  {
-    sha: '28817a3',
-    repo: 'website2',
-    message: 'fix: resolve all production build issues',
-    date: '2025-12-03T21:26:02Z',
-    commit: { message: 'fix: resolve all production build issues' },
-  },
-  {
-    sha: '571366b',
-    repo: 'website2',
-    message: 'perf: optimize CommitMatrix animation performance',
-    date: '2025-12-03T20:07:37Z',
-    commit: { message: 'perf: optimize CommitMatrix animation performance' },
-  },
-  {
-    sha: '212af1d',
-    repo: 'website2',
-    message: 'feat: animate commit matrix with Perlin noise + boid flocking',
-    date: '2025-12-03T20:02:28Z',
-    commit: { message: 'feat: animate commit matrix' },
-  },
-  {
-    sha: 'a38c889',
-    repo: 'website2',
-    message: 'feat(stats): add 7777px WebGL commit matrix art piece',
-    date: '2025-12-03T19:58:09Z',
-    commit: { message: 'feat(stats): WebGL commit matrix' },
-  },
-  {
-    sha: '592426f',
-    repo: 'website2',
-    message: 'feat(seo): add comprehensive structured data and metadata',
-    date: '2025-12-03T19:45:45Z',
-    commit: { message: 'feat(seo): structured data' },
-  },
-  {
-    sha: 'd19dfbf',
-    repo: 'scrapbook-cli',
-    message:
-      'fix: switch YouTube enrichment to Gemini 2.5 Flash for speed/cost',
-    date: '2025-12-03T19:57:55Z',
-    commit: { message: 'fix: YouTube enrichment to Gemini 2.5 Flash' },
-  },
-  {
-    sha: '6a8129e',
-    repo: 'website2',
-    message: 'feat(on-this-day): add last updated timestamp display',
-    date: '2025-12-03T19:48:09Z',
-    commit: { message: 'feat(on-this-day): last updated timestamp' },
-  },
-  {
-    sha: 'eade513',
-    repo: 'dotfiles',
-    message:
-      'feat(nvim): workflow improvements, hardtime training, auto-validation',
-    date: '2025-12-03T23:38:33Z',
-    commit: { message: 'feat(nvim): workflow improvements' },
-  },
-]
-
-const SPARK = [3, 7, 2, 8, 5, 9, 4, 6, 8, 10, 6, 4]
-
 // CommitMatrix draws ONE canvas cell per commit (coloured by recency), so it
 // needs hundreds of commits to read as a matrix. Spread ~280 commits back from
 // a fixed recent date so the recency gradient (bright → dim) shows.
@@ -481,6 +291,29 @@ const HEATMAP_WEEKS = [2025, 2026].flatMap((year, yi) =>
 
 export const stories = {
   // ── blog ───────────────────────────────────────────────────────────────────
+  KeymapBoard: (() => {
+    // A plausible Voyager keymap: QWERTY base plus one sparse symbol layer
+    const base = "`12345\tQWERTYeASDFG^ZXCVB  67890-YUIOP\\HJKL;'NM,./^  "
+      .split('')
+      .slice(0, 52)
+      .map((c) => ({ t: c.trim() || '␣' }))
+    base[24] = { t: '␣', L: { op: 'MO', to: 1 } }
+    base[50] = { t: '⏎', L: { op: 'MO', to: 1 } }
+    const sym = base.map(() => null)
+    '!@#$%'.split('').forEach((c, i) => (sym[i + 1] = { t: c }))
+    '()[]{}'.split('').forEach((c, i) => (sym[i + 12] = { t: c }))
+    ;[44, 45].forEach((i) => (sym[i] = { x: true }))
+    const layers = [
+      { name: 'Main', color: null, keys: base },
+      { name: 'Sym', color: '#ff0000', keys: sym },
+    ]
+    return [
+      { name: 'specimen', props: { layers } },
+      { name: 'specimen + layer', props: { layers, active: 1 } },
+      { name: 'diff', props: { layers, active: 1, mode: 'diff' } },
+      { name: 'strata', props: { layers, mode: 'strata' } },
+    ]
+  })(),
   BlogPostContent: [
     {
       name: 'default',
@@ -504,15 +337,6 @@ export const stories = {
     {
       name: 'grid',
       props: { value: 6, max: 12, type: 'grid', metric: 'images', columns: 6 },
-    },
-  ],
-  PasswordGate: [
-    {
-      name: 'default',
-      props: {
-        passwordHash: 'd41d8cd98f00b204e9800998ecf8427e',
-        postTitle: 'A Protected Post',
-      },
     },
   ],
   PostFooter: [
@@ -584,23 +408,6 @@ export const stories = {
     {
       name: 'default',
       props: { tocChildren: TOC_CHILDREN, activeSection: 'method' },
-    },
-  ],
-  PostMetadata: [
-    {
-      name: 'default',
-      props: {
-        doc: {
-          metadata: {
-            date: '2025-11-02',
-            words: 2400,
-            images: 6,
-            links: 18,
-            slug: 'the-kitchen-sink',
-            draft: false,
-          },
-        },
-      },
     },
   ],
   PredictionCard: [
@@ -853,10 +660,6 @@ export const stories = {
     ].map(([s, t]) => ({ source: `n${s}`, target: `n${t}` }))
     return [{ name: 'default', props: { nodes, edges } }]
   })(),
-  CommitCard: [
-    { name: 'default', props: { ...COMMITS[0] } },
-    { name: 'website2', props: { ...COMMITS[2] } },
-  ],
   CommitHeatmap: [
     {
       name: 'default',
@@ -884,14 +687,6 @@ export const stories = {
       },
     },
   ],
-  GithubForceLayout: [{ name: 'default', props: { repos: REPOS } }],
-  GitHubHistogramGrid: [{ name: 'default', props: { repos: REPOS } }],
-  GitHubParallelCoords: [
-    { name: 'default', props: { repos: REPOS, width: 720, height: 360 } },
-  ],
-  GitHubRadialTimeline: [
-    { name: 'default', props: { repos: REPOS, size: 520 } },
-  ],
   GithubRepoCard: [
     {
       name: 'default',
@@ -904,7 +699,6 @@ export const stories = {
       },
     },
   ],
-  GitHubRidgeline: [{ name: 'default', props: { repos: REPOS, height: 420 } }],
   LanguageBar: [
     {
       name: 'labels',
@@ -919,19 +713,6 @@ export const stories = {
       props: {
         languages: { Vue: 52, TypeScript: 28, JavaScript: 14, CSS: 6 },
         height: 4,
-      },
-    },
-  ],
-  RepoMetrics: [{ name: 'default', props: { repo: REPOS[0] } }],
-  RepoSparkline: [
-    {
-      name: 'default',
-      props: {
-        data: SPARK,
-        width: 80,
-        height: 20,
-        color: '#71717a',
-        showDot: true,
       },
     },
   ],
@@ -958,11 +739,20 @@ export const stories = {
     },
   ],
 
-  // ── projects ─────────────────────────────────────────────────────────────────
-  ProjectCard: [{ name: 'default', props: { project: PROJECT, index: 0 } }],
   ProjectRow: [
     { name: 'default', props: { project: PROJECT, featured: false } },
     { name: 'featured', props: { project: PROJECT, featured: true } },
+  ],
+
+  ProjectArchiveCard: [{ name: 'default', props: { project: PROJECT } }],
+
+  // No key in the URL fragment, so this previews the "can't open" state —
+  // the only state that renders without a real capability link.
+  SealedPost: [
+    {
+      name: 'no key',
+      props: { slug: 'example', envelope: { v: 1, iv: '', ct: '' } },
+    },
   ],
 
   // ── reading ──────────────────────────────────────────────────────────────────
@@ -1186,24 +976,6 @@ export const stories = {
               url: 'https://chess.com',
             },
           ],
-        },
-      },
-    },
-  ],
-  DiscogsStats: [
-    {
-      name: 'default',
-      props: {
-        stats: {
-          stats: { totalItems: 184, totalValue: 4280, averageValue: 24.6 },
-          randomRecord: {
-            title: 'Kind of Blue',
-            artist: 'Miles Davis',
-            year: 1959,
-            format: 'LP',
-            price: 32,
-            genres: ['Jazz', 'Modal'],
-          },
         },
       },
     },
@@ -1595,38 +1367,6 @@ export const stories = {
       },
     },
   ],
-  Breadcrumb: [
-    {
-      name: 'nested',
-      props: {
-        breadcrumbs: [
-          { label: 'Blog', href: '/blog' },
-          { label: '2025', href: '/blog/2025' },
-          { label: 'This Post', href: null },
-        ],
-      },
-    },
-  ],
-  CommandPalette: [{ name: 'default', props: {} }],
-  DataTable: [
-    {
-      name: 'default',
-      props: {
-        columns: [
-          { key: 'name', label: 'Name', type: 'text', sortable: true },
-          { key: 'count', label: 'Count', type: 'numeric', align: 'right' },
-          { key: 'date', label: 'Date', type: 'date' },
-        ],
-        rows: [
-          { name: 'Threads', count: 1240, date: '2025-11-02' },
-          { name: 'Gear', count: 318, date: '2026-06-18' },
-          { name: 'Predictions', count: 42, date: '2026-05-14' },
-        ],
-        dense: true,
-      },
-    },
-  ],
-  DebugGrid: [{ name: 'default', props: {} }],
   ParticleField: [{ name: 'default', props: {} }],
   Footer: [{ name: 'default', props: {} }],
   NewsletterSignup: [{ name: 'default', props: {} }],
@@ -1681,58 +1421,11 @@ export const stories = {
       },
     },
   ],
-  // ui/SitemapLink shares base name with root SitemapLink — handled above.
-  SparklineScaled: [
-    {
-      name: 'squares',
-      props: { values: SPARK, type: 'squares', width: 120, height: 24 },
-    },
-    {
-      name: 'line',
-      props: {
-        values: SPARK,
-        type: 'line',
-        width: 120,
-        height: 24,
-        color: '#10b981',
-      },
-    },
-    {
-      name: 'bars',
-      props: {
-        values: SPARK,
-        type: 'bars',
-        width: 120,
-        height: 24,
-        color: '#f59e0b',
-      },
-    },
-  ],
-  StaticContent: [
-    {
-      name: 'default',
-      props: {
-        html: '<p class="prose">Server-rendered static HTML content.</p>',
-      },
-    },
-  ],
   SupportLinks: [
     { name: 'sidebar', props: { variant: 'sidebar' } },
     { name: 'inline', props: { variant: 'inline' } },
   ],
   WebVitalsReporter: [{ name: 'default', props: {} }],
-
-  // ── visualizations ───────────────────────────────────────────────────────────
-  RhythmicSparklines: [
-    {
-      name: 'header',
-      props: { data: SPARK, variant: 'header', baseline: 3, showPeak: true },
-    },
-    {
-      name: 'inline',
-      props: { data: SPARK, variant: 'inline', showPeak: false },
-    },
-  ],
 
   // ── widgets ──────────────────────────────────────────────────────────────────
   PullQuote: [

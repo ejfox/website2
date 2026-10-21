@@ -8,7 +8,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 
 // ?slim=1 card shape for the /projects index: everything the cards and header
 // stats need, WITHOUT the full html (which was ~470KB across ~100 projects and
@@ -98,12 +98,7 @@ export default defineEventHandler(async (event) => {
   const slim = 'slim' in getQuery(event)
   try {
     // Read the manifest first
-    const manifestPath = resolve(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-    const manifestContent = await readFile(manifestPath, 'utf8')
-    const manifest = JSON.parse(manifestContent)
+    const manifest = await readManifest()
 
     // Filter for project posts, excluding drafts, hidden, unlisted, password-protected, and those starting with !
     const projectPosts = manifest.filter((post: ManifestPost) => {
@@ -113,8 +108,7 @@ export default defineEventHandler(async (event) => {
       return (
         post.slug?.startsWith('projects/') &&
         !post.slug.includes('/!') &&
-        !isHiddenFromListings(post, { ignoreDraft: allowDrafts }) &&
-        !isScheduled(post)
+        isListable(post, { ignoreDraft: allowDrafts })
       )
     })
 

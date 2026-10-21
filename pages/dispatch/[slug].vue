@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format } from 'date-fns'
+import { format } from '~/utils/date'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 
 interface DispatchPiece {
@@ -94,7 +94,7 @@ useHead({
 </script>
 
 <template>
-  <main v-if="piece" class="container-main pt-8 pb-16">
+  <div v-if="piece" data-page-main class="container-main pt-8 pb-16">
     <NuxtLink
       to="/dispatch"
       class="font-mono text-xs text-zinc-500 hover:underline"
@@ -184,5 +184,5 @@ useHead({
     </article>
 
     <NewsletterSignup location="dispatch-footer" class="print:hidden" />
-  </main>
+  </div>
 </template>

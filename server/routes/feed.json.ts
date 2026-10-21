@@ -1,6 +1,7 @@
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
 import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 import { decodeEntities } from '~/server/utils/decodeEntities'
 
 // JSON Feed 1.1 spec: https://jsonfeed.org/version/1.1
@@ -10,7 +11,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const siteUrl = (config.public.baseUrl as string) || 'https://ejfox.com'
 
-  const posts = await getPostsWithContent(50, 0, false, false)
+  const posts = await getPostsWithContent(50, 0, false)
   const sortedPosts = posts.sort((a, b) => {
     const dateA = parseISO(a.metadata?.date || a.date || '')
     const dateB = parseISO(b.metadata?.date || b.date || '')
@@ -32,15 +33,8 @@ export default defineEventHandler(async (event) => {
 
     if (!slug) continue
 
-    const isDraft = post.draft || metadata.draft
-    const isHidden = post.hidden || metadata.hidden
-    const isUnlisted = post.unlisted || metadata.unlisted
-    const hasPassword = !!(
-      post.password ||
-      post.passwordHash ||
-      metadata.password ||
-      metadata.passwordHash
-    )
+    // Same shared predicate as rss.xml, so the two feeds can't drift.
+    if (isHiddenFromListings(post) || isScheduled(post)) continue
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
     const isSpecialSection =
@@ -48,17 +42,7 @@ export default defineEventHandler(async (event) => {
       slug.includes('robots/') ||
       slug.includes('prompts/')
     const hasPath = slug.includes('/')
-
-    if (
-      isDraft ||
-      isHidden ||
-      isUnlisted ||
-      hasPassword ||
-      isSystemFile ||
-      isSpecialSection ||
-      !hasPath
-    )
-      continue
+    if (isSystemFile || isSpecialSection || !hasPath) continue
 
     const postDate = parseISO(date)
     const postUrl = `${siteUrl}/blog/${slug}`

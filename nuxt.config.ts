@@ -259,49 +259,11 @@ export default defineNuxtConfig({
       crawlLinks: false, // Causes issues with broken links
       failOnError: false, // Don't fail build on prerender errors
     },
-    // Copy content directory to .output for API routes to access
-    hooks: {
-      compiled: async (nitro) => {
-        const { promises: fs } = await import('node:fs')
-        const path = await import('node:path')
-
-        const source = path.join(nitro.options.rootDir, 'content')
-        const dest = path.join(nitro.options.output.dir, 'content')
-
-        // Recursively copy content directory (exclude private dirs)
-        const excludeDirs = ['backup', 'drafts']
-        // Sealed posts' PLAINTEXT markdown lives here. It is gitignored, so it
-        // exists only on EJ's laptop — but `yarn build` there (the manual
-        // deploy path in CLAUDE.md) would otherwise copy it into .output and
-        // scp it to the VPS, which is precisely the "the door is locked and
-        // the wall is missing" failure this whole design exists to avoid.
-        //
-        // Matched as `content/blog/private`, NOT as the substring `/private/`:
-        // the loose match would also drop content/processed/private/**, which
-        // is the committed envelope the server actually serves, and the post
-        // would 404 with no error anywhere.
-        const sealedSource = path.join(source, 'blog', 'private')
-        try {
-          await fs.cp(source, dest, {
-            recursive: true,
-            errorOnExist: false,
-            force: true,
-            filter: (src: string) =>
-              !src.startsWith(sealedSource) &&
-              !excludeDirs.some(
-                (d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)
-              ),
-          })
-          // console.log(`✓ Copied content directory to ${dest}`)
-        } catch (err) {
-          // Ignore ENOENT errors during hot reload race conditions
-          const e = err as { code?: string }
-          if (e?.code !== 'ENOENT') {
-            throw err
-          }
-        }
-      },
-    },
+    // No content/ copy into .output: every server read is
+    // process.cwd()/content, i.e. the VPS checkout (and a PR preview's own
+    // dir), so the copy was 16 MB nobody read. Not copying also means a
+    // local manual build can't carry sealed-post plaintext (gitignored
+    // content/blog/private) into .output.
     routeRules: {
       // Legacy URL from the pre-website2 site: "How I Use GPT" was published at
       // the year-less /blog/how-i-use-gpt3. website2 organizes posts by year, so
@@ -427,6 +389,12 @@ export default defineNuxtConfig({
           prerender: false,
           headers: { 'Cache-Control': CACHE_DYNAMIC },
         },
+        // /keymap reads Oryx live (cached handler), so a layout edit shows
+        // without a deploy. Prerendered, it would freeze at build time.
+        '/keymap': {
+          prerender: false,
+          headers: { 'Cache-Control': CACHE_DYNAMIC },
+        },
         // Static assets — cache forever
         '/_nuxt/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
         // Fonts fell through to Cloudflare's 4h default, so repeat visitors
@@ -490,9 +458,10 @@ export default defineNuxtConfig({
       reportCompressedSize: false, // Skip gzip size reporting (saves ~2s)
       rollupOptions: {
         output: {
-          manualChunks: {
-            // Static chunks instead of function (faster)
-            vue: ['vue', '@vue/reactivity', '@vueuse/core'],
+          // Vite 8 (Rolldown) only accepts the function form.
+          manualChunks(id: string) {
+            if (/node_modules\/(?:vue|@vue\/[^/]+|@vueuse\/core)\//.test(id))
+              return 'vue'
             // No d3 group: forcing every d3 module into one chunk meant a
             // single `format` import (utils/numberFormat.ts) shipped all of
             // d3 (~96 KB br) on every page. Let Rollup split it per use.
@@ -529,4 +498,9 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/global.css'],
+  // @nuxtjs/tailwindcss adds tailwindcss/nesting, but Nuxt 4.6 loads PostCSS
+  // plugins by ESM import and Tailwind 3 ships `nesting/` as a bare directory
+  // (no exports map), so it fails to load with a build warning. The site's
+  // CSS has no nested rules, so skip it explicitly. Tailwind 4 removes this.
+  postcss: { plugins: { 'tailwindcss/nesting': false } },
 })

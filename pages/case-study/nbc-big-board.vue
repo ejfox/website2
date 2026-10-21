@@ -7,7 +7,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="container-main pt-8 max-w-2xl">
+  <div data-page-main class="container-main pt-8 max-w-2xl">
     <!-- Header -->
     <header class="section-spacing-lg">
       <p class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">
@@ -315,5 +315,5 @@ usePageSeo({
         </NuxtLink>
       </div>
     </section>
-  </main>
+  </div>
 </template>

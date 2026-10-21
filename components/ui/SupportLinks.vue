@@ -51,7 +51,6 @@ const containerClasses = computed(() => {
            (utils/navigation.ts), so it's intentionally NOT repeated
            here to avoid duplicating it in sidebars that show both. -->
 
-      <!-- GitHub Sponsors -->
       <a
         href="https://github.com/sponsors/ejfox"
         target="_blank"

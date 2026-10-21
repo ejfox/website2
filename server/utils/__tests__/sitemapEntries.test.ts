@@ -112,7 +112,7 @@ describe('og image dimensions', () => {
 
 describe('JSON-LD guard', () => {
   it('no page renders JSON-LD via `children` (unhead emits it as an attribute)', () => {
-    let out = ''
+    let out: string
     try {
       out = execSync(
         'grep -rn "children: JSON.stringify" pages components layouts app.vue composables',

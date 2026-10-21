@@ -5,6 +5,7 @@
 -->
 <script setup>
 import StatsSectionHeader from './StatsSectionHeader.vue'
+import { formatNumber } from '~/utils/numberFormat'
 
 defineProps({
   goodreadsStats: {
@@ -16,11 +17,6 @@ defineProps({
 const formatRating = (rating) => {
   if (!rating || rating === 0) return '—'
   return rating.toFixed(1)
-}
-
-const formatNumber = (num) => {
-  if (!num) return '0'
-  return new Intl.NumberFormat('en-US').format(num)
 }
 </script>
 
@@ -54,7 +50,6 @@ const formatNumber = (num) => {
       </div>
     </div>
 
-    <!-- Currently reading -->
     <div v-if="goodreadsStats.currentlyReading?.length">
       <StatsSectionHeader title="CURRENTLY READING" />
       <div class="space-y-2">
@@ -85,7 +80,6 @@ const formatNumber = (num) => {
       </div>
     </div>
 
-    <!-- Recently read -->
     <div v-if="goodreadsStats.recentlyRead?.length">
       <StatsSectionHeader title="RECENTLY READ" />
       <div class="text-xs space-y-1">
@@ -111,7 +105,6 @@ const formatNumber = (num) => {
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800">
       <a
         :href="goodreadsStats.stats.profileUrl"

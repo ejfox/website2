@@ -9,6 +9,12 @@ const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
 
+// Blog posts teleport PostMetadataBar into #layout-bar client-side (SSR can't
+// render a Teleport there), so the server HTML has an empty 0px bar and the
+// article jumped down 49px on hydration (Lighthouse CLS 0.24). Reserve the
+// bar's height on post routes so the server HTML already has the room.
+const reservesPostBar = computed(() => route.name === 'blog-slug')
+
 const isStatsSimple = computed(() => {
   return route.path === '/stats' && route.query?.simple !== undefined
 })
@@ -52,6 +58,7 @@ const linkClasses =
         v-if="!isStatsSimple"
         id="layout-bar"
         class="layout-bar sticky top-0 z-[100] print:hidden"
+        :class="{ 'layout-bar--post': reservesPostBar }"
       ></header>
 
       <!-- Mobile nav -->
@@ -149,13 +156,15 @@ const linkClasses =
         </div>
       </nav>
 
-      <article id="main-content" class="layout-main min-w-0">
+      <!-- The page's one <main> landmark. Pages render <div>s inside it, not
+           their own <main>, so there's never a nested or missing landmark. -->
+      <main id="main-content" class="layout-main min-w-0">
         <!-- Inner wrapper owns horizontal-overflow clipping so the layout's
            sticky bar isn't trapped in an overflow context. -->
         <div class="overflow-x-clip">
           <slot />
         </div>
-      </article>
+      </main>
     </div>
     <!-- /#app-container — footer is a sibling so the sticky sidebar can't
          overlap it -->
@@ -200,6 +209,12 @@ const linkClasses =
   grid-area: bar;
 }
 
+/* Exactly one PostMetadataBar line (py-2 + one text line + 1px border). The
+   bar is kept to a single line (see PostMetadataBar), so this always fits. */
+.layout-bar--post {
+  min-height: 49px;
+}
+
 .layout-mobile-nav {
   grid-area: nav;
 }
@@ -210,5 +225,11 @@ const linkClasses =
 
 .layout-main {
   grid-area: main;
+  /* app.vue's critical CSS styles bare `main` (padding, max-width, auto
+     margin) for page-level wrappers, now [data-page-main] divs. The layout's
+     own <main> landmark must stay unstyled, as the <article> it replaced was. */
+  padding: 0;
+  max-width: none;
+  margin: 0;
 }
 </style>

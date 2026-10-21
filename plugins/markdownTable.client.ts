@@ -1,4 +1,4 @@
-// Auto-enhance markdown tables with DataTable component
+// Auto-enhance markdown tables in place: data-table class, numeric columns, sorting
 export default defineNuxtPlugin((nuxtApp) => {
   if (!import.meta.client) return
 
@@ -17,12 +17,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   function enhanceMarkdownTables() {
     // Find all tables in .prose content
-    // `article table` also matches every app-built table inside the layout's
-    // <article id="main-content">. Those that lay out their own columns opt
+    // `#main-content table` also matches every app-built table inside the
+    // layout's <main id="main-content">. Those that lay out their own columns opt
     // out with `data-plain` — the enhancer's text-left th + ↕ indicators
     // knock their headers off their values.
     const tables = document.querySelectorAll(
-      '.prose table:not([data-plain]), article table:not([data-plain])'
+      '.prose table:not([data-plain]), #main-content table:not([data-plain])'
     )
 
     tables.forEach((table) => {

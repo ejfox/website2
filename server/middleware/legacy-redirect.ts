@@ -9,7 +9,6 @@
  *   index is rebuilt only when manifest-lite.json's mtime changes, not per hit.
  */
 import { readFile, stat } from 'node:fs/promises'
-import { resolve } from 'node:path'
 import { getRequestURL, sendRedirect } from 'h3'
 import {
   buildSlugIndex,
@@ -17,8 +16,11 @@ import {
   legacySlugTarget,
   type SlugIndex,
 } from '~/server/utils/legacyRedirect'
+import { MANIFEST_PATH } from '~/server/utils/manifest'
 
-const MANIFEST = resolve(process.cwd(), 'content/processed/manifest-lite.json')
+// Read directly (not readManifest) to rebuild the index only when the file's
+// mtime changes; the path itself is the shared one.
+const MANIFEST = MANIFEST_PATH()
 let cached: { mtime: number; builtAt: number; index: SlugIndex } | null = null
 
 async function slugIndex(): Promise<SlugIndex | null> {

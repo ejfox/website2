@@ -1,18 +1,32 @@
 /**
  * @file plugins/remarkEnhanceLinks.mjs
- * @description Remark plugin that adds social platform icons to external links using Iconify API with caching
+ * @description Remark plugin that adds social platform icons to external links.
+ *   Icons come from data/link-icons.json, raw Iconify SVGs vendored by
+ *   `yarn icons:vendor`, so processing needs no network. A live fetch was
+ *   fragile: a 404 or 429 baked a post's JSON without its icons, and the
+ *   cache never retried.
  * @usage .use(remarkEnhanceLinks)
  */
 
+import { readFileSync } from 'node:fs'
 import { visit } from 'unist-util-visit'
-import fetch from 'node-fetch'
 import NodeCache from 'node-cache'
 
 // Cache for fetched icons
 const iconCache = new NodeCache({ stdTTL: 3600 })
 
+const VENDORED_ICONS = (() => {
+  try {
+    return JSON.parse(
+      readFileSync(new URL('../../data/link-icons.json', import.meta.url))
+    )
+  } catch {
+    return {}
+  }
+})()
+
 // Social platform icons mapping
-const socialPlatforms = {
+export const socialPlatforms = {
   'wikipedia.org': 'simple-icons:wikipedia',
   'github.com': 'simple-icons:github',
   'github.blog': 'simple-icons:github',
@@ -75,13 +89,51 @@ const socialPlatforms = {
   'arxiv.org': 'cib:arxiv',
 }
 
+/** The Iconify URL for an icon. `prefix/icon.svg`, not `prefix:icon.svg`:
+ * by 2026-10 the API 404'd the colon form for some icons (mdi:youtube,
+ * simple-icons:wikipedia, …) while still serving them by path. */
+export const iconUrl = (name) => {
+  const [prefix, icon] = name.split(':')
+  return `https://api.iconify.design/${prefix}/${icon}.svg`
+}
+
+/** Sanity-gate third-party markup before it's baked verbatim into cached
+ * post JSON (rendered with allowDangerousHtml): a bare <svg> document with
+ * no scripts or inline event handlers. */
+export const isSafeSvg = (svg) => {
+  const trimmed = String(svg || '').trim()
+  return (
+    trimmed.startsWith('<svg') &&
+    trimmed.endsWith('</svg>') &&
+    !/<script|\son\w+\s*=/i.test(trimmed)
+  )
+}
+
+const decorate = (svg) =>
+  svg.replace(
+    '<svg',
+    '<svg class="inline-block w-4 h-4 ml-1 opacity-50 ' +
+      'dark:opacity-75 group-hover:opacity-100 ' +
+      'transition-opacity align-text-bottom"'
+  )
+
 const fetchIcon = async (name, retries = 2) => {
   const cached = iconCache.get(name)
   if (cached) return cached
 
+  const vendored = VENDORED_ICONS[name]
+  if (vendored && isSafeSvg(vendored)) {
+    const processed = decorate(vendored)
+    iconCache.set(name, processed)
+    return processed
+  }
+  console.warn(
+    `[remarkEnhanceLinks] ${name} is not vendored, fetching live. Run \`yarn icons:vendor\`.`
+  )
+
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(`https://api.iconify.design/${name}.svg`)
+      const res = await fetch(iconUrl(name))
       if (!res.ok) {
         if (attempt < retries) {
           await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
@@ -93,27 +145,13 @@ const fetchIcon = async (name, retries = 2) => {
         return null
       }
       const svg = await res.text()
-      // Sanity-gate the third-party markup before it's baked verbatim into
-      // cached post JSON (rendered with allowDangerousHtml). Must be a bare
-      // <svg> document with no scripts or inline event handlers — guards
-      // against an unexpected Iconify response shape injecting live markup.
-      const trimmed = svg.trim()
-      if (
-        !trimmed.startsWith('<svg') ||
-        !trimmed.endsWith('</svg>') ||
-        /<script|\son\w+\s*=/i.test(trimmed)
-      ) {
+      if (!isSafeSvg(svg)) {
         console.warn(
           `[remarkEnhanceLinks] Rejected non-SVG/unsafe response for ${name}`
         )
         return null
       }
-      const processed = svg.replace(
-        '<svg',
-        '<svg class="inline-block w-4 h-4 ml-1 opacity-50 ' +
-          'dark:opacity-75 group-hover:opacity-100 ' +
-          'transition-opacity align-text-bottom"'
-      )
+      const processed = decorate(svg)
       iconCache.set(name, processed)
       return processed
     } catch (err) {

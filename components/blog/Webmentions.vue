@@ -4,7 +4,7 @@
   @props url: string - URL to fetch webmentions for
 -->
 <script setup lang="ts">
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow } from '~/utils/date'
 
 const props = defineProps<{
   url: string
@@ -91,7 +91,6 @@ const truncateHtml = (html: string, maxLength = 280) => {
   // Strip tags for length check
   const text = html.replace(/<[^>]*>/g, '')
   if (text.length <= maxLength) return html
-  // Truncate and close any open tags
   return text.slice(0, maxLength) + '...'
 }
 </script>
@@ -130,7 +129,6 @@ const truncateHtml = (html: string, maxLength = 280) => {
       </span>
     </div>
 
-    <!-- Expanded likes -->
     <div
       v-if="showLikes && likes.length > 0"
       class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-black/50 rounded"
@@ -152,7 +150,6 @@ const truncateHtml = (html: string, maxLength = 280) => {
       </a>
     </div>
 
-    <!-- Expanded reposts -->
     <div
       v-if="showReposts && reposts.length > 0"
       class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-black/50 rounded"
@@ -174,7 +171,6 @@ const truncateHtml = (html: string, maxLength = 280) => {
       </a>
     </div>
 
-    <!-- Replies -->
     <div v-if="replies.length > 0" class="space-y-3">
       <div
         v-for="reply in replies"

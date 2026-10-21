@@ -467,7 +467,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
+  <div data-page-main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
     <div
       v-if="csvError"
       class="text-center py-8 text-red-600 dark:text-red-400"
@@ -599,7 +599,7 @@ useHead(() => ({
     <ClientOnly>
       <div v-if="scannedItems.length > 0" class="mb-8">
         <h2 class="gear-section-header mb-4">3D Scans</h2>
-        <Gear3DGallery :items="scannedItems" />
+        <GearGear3DGallery :items="scannedItems" />
       </div>
     </ClientOnly>
 
@@ -768,7 +768,7 @@ useHead(() => ({
         </div>
       </Teleport>
     </ClientOnly>
-  </main>
+  </div>
 </template>
 
 <style>

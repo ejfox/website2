@@ -278,7 +278,7 @@ const toggleGist = (gistId: string) => {
           v-if="gist.content && Object.keys(gist.files).length === 1"
           class="pl-8 mt-4"
         >
-          <GistPreview
+          <GithubGistPreview
             :gist="gist"
             :file="Object.values(gist.files)[0]"
             :expanded="expandedGists.has(gist.id)"

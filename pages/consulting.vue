@@ -326,7 +326,7 @@ usePageSeo({
       />
     </div>
 
-    <main class="container-main pt-8 max-w-2xl relative z-10">
+    <div data-page-main class="container-main pt-8 max-w-2xl relative z-10">
       <!-- Hero -->
       <header class="section">
         <p class="hero-label">Let's build something</p>
@@ -617,7 +617,7 @@ usePageSeo({
           </a>
         </p>
       </footer>
-    </main>
+    </div>
 
     <!-- Floating CTA - visible between hero and booking section -->
     <Transition name="cta-fade">

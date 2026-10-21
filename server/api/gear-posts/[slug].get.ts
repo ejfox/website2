@@ -4,9 +4,7 @@
  * @endpoint GET /api/gear-posts/:slug
  * @returns Array of matching post summaries (slug, title, date, dek, tags) or empty array
  */
-import { readFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
-import { isScheduled } from '~/utils/postFilters'
+import { readManifest, isListable } from '~/server/utils/manifest'
 
 interface ManifestPost {
   slug: string
@@ -36,38 +34,15 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const manifestPath = resolve(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-    const manifestText = await readFile(manifestPath, 'utf-8')
-    const posts: ManifestPost[] = JSON.parse(manifestText)
+    const posts = (await readManifest()) as ManifestPost[]
 
     const matching: GearPost[] = posts
       .filter((post) => {
-        // Privacy filter (CLAUDE.md rule): never leak draft/hidden/unlisted/
-        // password-protected content via this endpoint.
-        const isDraft = post.draft || post.metadata?.draft
-        const isHidden = post.hidden || post.metadata?.hidden
-        const isUnlisted = post.unlisted || post.metadata?.unlisted
-        const hasPassword = !!(
-          post.password ||
-          post.passwordHash ||
-          post.metadata?.password ||
-          post.metadata?.passwordHash
-        )
+        // Privacy filter (CLAUDE.md rule): the shared predicate covers
+        // draft/hidden/unlisted/password/sealed (both levels) + embargo.
         const isDraftsFolder =
           typeof post.slug === 'string' && post.slug.startsWith('drafts/')
-        if (
-          isDraft ||
-          isHidden ||
-          isUnlisted ||
-          hasPassword ||
-          isDraftsFolder ||
-          isScheduled(post)
-        ) {
-          return false
-        }
+        if (!isListable(post) || isDraftsFolder) return false
 
         const gear = post.metadata?.gear
         if (!gear) return false

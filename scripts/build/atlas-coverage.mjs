@@ -264,7 +264,8 @@ const getTile = async (x, y) => {
       await writeFile(file, buf)
       return buf
     } catch (e) {
-      if (attempt >= 3) throw new Error(`tile ${Z}/${x}/${y}: ${e.message}`)
+      if (attempt >= 3)
+        throw new Error(`tile ${Z}/${x}/${y}: ${e.message}`, { cause: e })
     }
   }
 }

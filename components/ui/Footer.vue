@@ -53,7 +53,6 @@ const buildTitle = computed(() => {
         </span>
       </div>
 
-      <!-- Navigation -->
       <nav :class="navClasses">
         <NuxtLink to="/stats" :class="navLinkClasses">/stats</NuxtLink>
         <NuxtLink to="/gists" :class="navLinkClasses">/gists</NuxtLink>
@@ -85,6 +84,14 @@ const buildTitle = computed(() => {
         >
           mastodon
         </a>
+        <NuxtLink
+          to="/calendar"
+          data-umami-event="nav-calendar"
+          data-umami-event-location="footer"
+          :class="navLinkClasses"
+        >
+          book a call
+        </NuxtLink>
         <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses">
           email
         </a>

@@ -139,7 +139,6 @@ const conditionColor = computed(() => {
          transition-colors duration-150 no-underline tracking-wide;
 }
 
-/* Skeleton */
 .card-skeleton {
   @apply animate-pulse;
 }
@@ -153,7 +152,6 @@ const conditionColor = computed(() => {
   @apply h-3 w-1/3 rounded bg-zinc-200 dark:bg-raised;
 }
 
-/* Error */
 .card-error {
   @apply opacity-40;
 }
