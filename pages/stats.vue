@@ -1,38 +1,70 @@
 <!-- eslint-disable max-len -->
 <script setup lang="ts">
+import { useIntersectionObserver } from '@vueuse/core'
 // Import above-fold stats components eagerly
 import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
-import GitHubStats from '~/components/stats/GitHubStats.vue'
-import BlogStats from '~/components/stats/BlogStats.vue'
-import GoodreadsStats from '~/components/stats/GoodreadsStats.vue'
-import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
-import ChessStats from '~/components/stats/ChessStats.vue'
-import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
-import DuolingoStats from '~/components/stats/DuolingoStats.vue'
 import StatsSectionSkeleton from '~/components/stats/StatsSectionSkeleton.vue'
 import { postFilters } from '~/utils/postFilters'
 import { buildStatsSummary } from '~/utils/statsSummary'
 
-// Lazy-load below-fold components
-const LeetCodeStats = defineAsyncComponent(
+// Every stat section is server-rendered in full (no layout shift, readable
+// with JS off), but its JavaScript only hydrates when it scrolls into view.
+// Hydrating all 14 up front cost ~1s of main thread on mobile, for sections
+// most visitors never reach. Plain displays, so nothing is lost meanwhile.
+const GitHubStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/GitHubStats.vue')
+)
+const BlogStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/BlogStats.vue')
+)
+const GoodreadsStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/GoodreadsStats.vue')
+)
+const RescueTimeStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/RescueTimeStats.vue')
+)
+const ChessStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/ChessStats.vue')
+)
+const MonkeyTypeStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/MonkeyTypeStats.vue')
+)
+const DuolingoStats = defineLazyHydrationComponent(
+  'visible',
+  () => import('~/components/stats/DuolingoStats.vue')
+)
+const LeetCodeStats = defineLazyHydrationComponent(
+  'visible',
   () => import('~/components/stats/LeetCodeStats.vue')
 )
-const GistStats = defineAsyncComponent(
+const GistStats = defineLazyHydrationComponent(
+  'visible',
   () => import('~/components/stats/GistStats.vue')
 )
-const LastFmStats = defineAsyncComponent(
+const LastFmStats = defineLazyHydrationComponent(
+  'visible',
   () => import('~/components/stats/LastFmStats.vue')
 )
-const LetterboxdStats = defineAsyncComponent(
+const LetterboxdStats = defineLazyHydrationComponent(
+  'visible',
   () => import('~/components/stats/LetterboxdStats.vue')
 )
-const UmamiStats = defineAsyncComponent(
+const UmamiStats = defineLazyHydrationComponent(
+  'visible',
   () => import('~/components/stats/UmamiStats.vue')
 )
-const GearStats = defineAsyncComponent(
+const GearStats = defineLazyHydrationComponent(
+  'visible',
   () => import('~/components/stats/GearStats.vue')
 )
+
 const GithubCommitMatrix = defineAsyncComponent(
   () => import('~/components/github/CommitMatrix.client.vue')
 )
@@ -184,12 +216,22 @@ const { formatNumber } = numberFormat()
 const { isValidPost } = postFilters()
 
 // Load all commits for the matrix visualization (below-the-fold, ~700KB).
-// Client-only: `lazy` alone still runs the fetch during SSR and serializes
-// the whole payload into the HTML's __NUXT__ blob.
-const { data: allCommitsData } = useFetch('/api/github-commits', {
-  lazy: true,
-  server: false,
-})
+// Client-only, and only once the art piece is ~1 screen away: most visitors
+// never scroll that far, and every visit used to download and parse it.
+const { data: allCommitsData, execute: loadCommits } = useFetch(
+  '/api/github-commits',
+  { lazy: true, server: false, immediate: false }
+)
+const commitsArt = ref<HTMLElement | null>(null)
+const { stop: stopCommitsWatch } = useIntersectionObserver(
+  commitsArt,
+  ([entry]) => {
+    if (!entry?.isIntersecting) return
+    stopCommitsWatch()
+    loadCommits()
+  },
+  { rootMargin: '800px 0px' }
+)
 const allCommits = computed(() => allCommitsData.value || [])
 
 // Simple mode refs
@@ -1008,7 +1050,7 @@ definePageMeta({
 
           <!-- Commit Matrix Art Piece -->
           <ClientOnly>
-            <div id="commits-art" class="relative pt-16">
+            <div id="commits-art" ref="commitsArt" class="relative pt-16">
               <div class="text-center mb-8">
                 <h2 class="text-sm font-mono uppercase tracking-wider">
                   Every commit I have ever made (publicly)
@@ -1020,7 +1062,10 @@ definePageMeta({
                   commits
                 </p>
               </div>
-              <GithubCommitMatrix :commits="allCommits" />
+              <GithubCommitMatrix
+                v-if="allCommits.length"
+                :commits="allCommits"
+              />
             </div>
           </ClientOnly>
         </section>

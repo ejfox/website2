@@ -103,6 +103,12 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 .stats-section {
   position: relative;
   padding-left: 2.5rem;
+  /* Offscreen sections skip style + layout until they're near the viewport
+     (style/layout was 2.3s of /stats' mobile main thread). `auto` makes the
+     browser remember each section's real height once rendered, so TOC jumps
+     and the scrollbar settle instead of guessing every time. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
 
 /* faint margin doodle, tucked into the gutter near the top, well clear of the
