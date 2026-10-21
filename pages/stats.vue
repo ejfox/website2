@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <script setup lang="ts">
-import { useIntersectionObserver } from '@vueuse/core'
+import { useIntersectionObserver, useNow } from '@vueuse/core'
 // Import above-fold stats components eagerly
 import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
@@ -77,6 +77,20 @@ const {
   errors,
 } = useStats({
   server: true,
+})
+
+// Live in place: refetch while visible; flash sections whose data changed.
+const { flashing } = useLiveStats(rawStats)
+provide('statsFlashing', flashing)
+const clock = useNow({ interval: 30_000 })
+// Client-only (rendered in <ClientOnly>): relative time would mismatch SSR.
+const asOf = computed(() => {
+  const g = rawStats.value?.generated
+  if (!g) return ''
+  const mins = Math.round(
+    (clock.value.getTime() - new Date(g).getTime()) / 60000
+  )
+  return mins < 1 ? 'just now' : `${mins} min ago`
 })
 
 // Skeleton sections. liteKey/liteLabel pull a real top-line number from
@@ -822,6 +836,15 @@ definePageMeta({
               class="font-serif text-base text-zinc-600 dark:text-zinc-400"
               v-html="summaryData.text"
             ></div>
+            <ClientOnly>
+              <p v-if="asOf" class="stats-asof">
+                as of {{ asOf }} ·
+                <span class="stats-live-dot" aria-hidden="true"></span> live
+              </p>
+              <template #fallback>
+                <p class="stats-asof">&nbsp;</p>
+              </template>
+            </ClientOnly>
           </div>
         </header>
 
@@ -832,6 +855,7 @@ definePageMeta({
           v-if="stats && Object.keys(stats).length > 0"
           id="top-stats"
           class="relative"
+          :class="{ 'stat-flash': flashing.has('top-stats') }"
         >
           <TopStats :stats="stats" :blog-stats="validBlogStats" />
         </div>
@@ -1042,7 +1066,11 @@ definePageMeta({
         <!-- Full Width Sections -->
         <section class="col-span-full space-y-2 pt-8">
           <!-- Gear Stats -->
-          <div id="gear" class="relative">
+          <div
+            id="gear"
+            class="relative"
+            :class="{ 'stat-flash': flashing.has('gear') }"
+          >
             <StatSection title="GEAR">
               <GearStats :gear-stats="stats?.gear" />
             </StatSection>

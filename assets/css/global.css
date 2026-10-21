@@ -1831,3 +1831,99 @@ img[data-loading='lazy']::before {
   color: var(--pele-critical);
   margin-bottom: 0.5rem;
 }
+
+/* ── /stats live refresh (composables/useLiveStats) ─────────────────────────
+   A section whose data changed on a background refresh flashes once and
+   wears a small UPDATED tag, like a live terminal. Reduced motion keeps the
+   tag and drops the animation. */
+:root {
+  --stat-flash: rgb(24 24 27 / 0.09);
+  --stat-flash-tag-fg: #fafafa;
+  --stat-flash-tag-bg: #18181b;
+}
+.dark {
+  --stat-flash: rgb(250 250 250 / 0.11);
+  --stat-flash-tag-fg: #18181b;
+  --stat-flash-tag-bg: #fafafa;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --stat-flash: rgb(250 250 250 / 0.11);
+    --stat-flash-tag-fg: #18181b;
+    --stat-flash-tag-bg: #fafafa;
+  }
+}
+.stat-flash {
+  position: relative;
+  animation: stat-flash 1.6s ease-out;
+}
+.stat-flash::after {
+  content: 'updated';
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  line-height: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1px 4px;
+  color: var(--stat-flash-tag-fg);
+  background: var(--stat-flash-tag-bg);
+  animation: stat-flash-tag 1.6s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes stat-flash {
+  0%,
+  20% {
+    background-color: var(--stat-flash);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes stat-flash-tag {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stat-flash,
+  .stat-flash::after {
+    animation: none;
+  }
+}
+
+.stats-asof {
+  margin-top: 0.75rem;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(113 113 122);
+}
+.stats-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px 1px;
+  border-radius: 9999px;
+  background: currentColor;
+  vertical-align: middle;
+  animation: stats-live-pulse 2.4s ease-in-out infinite;
+}
+@keyframes stats-live-pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stats-live-dot {
+    animation: none;
+  }
+}

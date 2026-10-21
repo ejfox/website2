@@ -80,6 +80,39 @@ const formatter = computed(() => {
 onMounted(() => {
   displayValue.value = props.value
 })
+
+// When the value changes after mount (e.g. /stats' live refresh), count to
+// it instead of snapping. Reduced motion snaps. SSR and hydration are
+// untouched: the first render is always the final value.
+let frame = 0
+watch(
+  () => props.value,
+  (to, from) => {
+    cancelAnimationFrame(frame)
+    const start = Number(from)
+    const end = Number(to)
+    if (
+      !Number.isFinite(start) ||
+      !Number.isFinite(end) ||
+      start === end ||
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    ) {
+      displayValue.value = to
+      return
+    }
+    const t0 = performance.now()
+    const DURATION = 600
+    const step = (now: number) => {
+      const t = Math.min(1, (now - t0) / DURATION)
+      const eased = 1 - (1 - t) ** 3 // ease-out cubic
+      displayValue.value = start + (end - start) * eased
+      if (t < 1) frame = requestAnimationFrame(step)
+      else displayValue.value = end
+    }
+    frame = requestAnimationFrame(step)
+  }
+)
+onBeforeUnmount(() => cancelAnimationFrame(frame))
 </script>
 
 <template>
