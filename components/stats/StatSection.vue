@@ -26,6 +26,10 @@ const props = defineProps({
   },
 })
 
+// /stats live refresh (composables/useLiveStats) flashes changed sections.
+const flashing = inject('statsFlashing', null)
+const isUpdated = computed(() => !!props.id && !!flashing?.value.has(props.id))
+
 // one quiet margin doodle per section. Picked from the section title so it's
 // deterministic (SSR-safe) and stable, and the list is long enough that no two
 // sections land on the same mark — they all look hand-drawn-different.
@@ -78,7 +82,11 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
 
 <template>
-  <div v-if="show" :id="id" :class="wrapperClass">
+  <div
+    v-if="show"
+    :id="id"
+    :class="[wrapperClass, { 'stat-flash': isUpdated }]"
+  >
     <component :is="headerTag" :class="headerClass">
       {{ title }}
     </component>
