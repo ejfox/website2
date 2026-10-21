@@ -102,6 +102,11 @@ module.exports = {
         sunken: 'var(--bg-sunken)',
         surface: 'var(--bg-surface)',
         raised: 'var(--bg-raised)',
+        // zinc-500 is mode-aware: #71717a in light, #75757e in dark. On OLED
+        // black the stock gray was 4.35:1, under the 4.5:1 WCAG minimum, on 200+
+        // /stats elements; one notch lighter is 4.6:1. Channels live in
+        // global.css (--zinc-500) so text-zinc-500/50 opacity still works.
+        zinc: { 500: 'rgb(var(--zinc-500) / <alpha-value>)' },
       },
     },
   },

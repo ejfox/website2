@@ -141,6 +141,7 @@ body {
   /* Brand native checkboxes/radios/selects to the link blue instead of OS blue. */
   accent-color: #2563eb; /* blue-600 (matches links) */
   --bg-page: #ffffff;
+  --zinc-500: 113 113 122; /* #71717a, 4.83:1 on white */
   --bg-sunken: #ffffff;
   --bg-surface: #ffffff;
   --bg-raised: #f4f4f5; /* zinc-100 */
@@ -162,6 +163,7 @@ body {
   /* OLED: every layer pure black (2026-10-05). Depth comes from borders, not
      fills. Was page #0a0a0a < sunken zinc-950 < surface zinc-900 < raised zinc-800. */
   --bg-page: #000;
+  --zinc-500: 117 117 126; /* #75757e, 4.6:1 on black */
   --bg-sunken: #000;
   --bg-surface: #000;
   --bg-raised: #000;
@@ -179,6 +181,7 @@ body {
   :root {
     accent-color: #60a5fa; /* blue-400 */
     --bg-page: #000;
+    --zinc-500: 117 117 126;
     --bg-sunken: #000;
     --bg-surface: #000;
     --bg-raised: #000;
@@ -1905,7 +1908,7 @@ img[data-loading='lazy']::before {
   line-height: 16px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgb(113 113 122);
+  color: rgb(var(--zinc-500));
 }
 .stats-live-dot {
   display: inline-block;
