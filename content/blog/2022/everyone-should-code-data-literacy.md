@@ -37,7 +37,7 @@ Sometimes I will find myself doing an arduous and repetitive task. When I find m
 
 ### Communicating with Artificial Intelligence
 
-See [[how-i-use-gpt3]] and [[how-i-use-stable-diffusion]] for more.
+See [[blog/2022/how-i-use-gpt3]] and [[how-i-use-stable-diffusion]] for more.
 
 ### Appreciating the “I can do that” moments
 

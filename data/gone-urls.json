@@ -1,0 +1,36 @@
+{
+  "_doc": "Public URLs that 404 on purpose (or pending a decision), so scripts/meta/check-urls.mjs lets them go. Key: a route, or a `prefix/*`. Value: why. Republishing a post makes its entry moot; delete the line when you do.",
+
+  "/blog/week-notes/*": "Week notes retired; server/middleware/week-notes-gone.ts serves 410",
+
+  "/blog/2010/!pinboard-tags": "A !system note that leaked as a page; removed in the 2024-12 content refactor",
+  "/blog/2022/chocolate-chip-cookie": "Wayback artifact: never a post in git (the old site answered 200 for unknown slugs)",
+  "/blog/2022/cooking-kolache": "Wayback artifact: never a post in git",
+  "/blog/2022/cookin": "Wayback artifact: truncated URL",
+  "/blog/2022/how-to-run-a-projec": "Wayback artifact: truncated URL",
+  "/blog/2022/woodworking-setu": "Wayback artifact: truncated URL",
+  "/blog/2025/select id, timestamp, sender, text, media_note, media_filename, filename, group_chat_idfrom messageswhere \"media_filename\" is not nullorder by media_filename desclimit 101": "Wayback artifact: a SQL query captured as a slug",
+  "/projects/cli-tools": "Category page removed in the projects masonry overhaul (#22, 2026-06)",
+  "/projects/data-visualization-suite": "Category page removed in the projects masonry overhaul (#22, 2026-06)",
+  "/projects/developer-tools": "Category page removed in the projects masonry overhaul (#22, 2026-06)",
+
+  "/blog/2018/watercolor-sketching-in-nyc": "hidden: true",
+  "/blog/2019/generative-music-iteration": "hidden: true (inprogress)",
+  "/projects/cloudinary-backup-tool": "Held as draft until the projects illustration pass",
+  "/projects/morningradio": "Held as draft until the projects illustration pass",
+
+  "/blog/2020/introduction-to-eavs-data": "PENDING: live through 2025-02, then draft: true. Republish or say why it's gone",
+  "/blog/2022/2022-prototyping-toolkit": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2022/8pm-to-midnight-mixes": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2022/everyone-should-code-data-literacy": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2022/morning-routine-daily-rituals": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2022/motorcycle-camping": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2022/my-vscode-setup": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2022/rules-for-joyful-travel": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2023/camera-setup": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2023/capitalism-letting-people-die": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2023/design-philosophy": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2023/film-development": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2023/hacker-culture": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone",
+  "/blog/2023/selecting-a-cms": "PENDING: live 2024-11, then draft: true. Republish or say why it's gone"
+}

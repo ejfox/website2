@@ -15,6 +15,6 @@ tags:
 
 <!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->
 
-A native visual SVG editor (Tauri + Vue) — draw rectangles, circles, and paths on a canvas and edit each element's geometry through a properties inspector. Part of the [[vulpes-nvim]] toolset.
+A native visual SVG editor (Tauri + Vue) — draw rectangles, circles, and paths on a canvas and edit each element's geometry through a properties inspector. Part of the [[projects/vulpes-nvim]] toolset.
 
 ![The element inspector — live geometry editing for each SVG primitive](https://res.cloudinary.com/ejf/image/upload/projects/vulpesvg/code.png)

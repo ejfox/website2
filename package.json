@@ -49,6 +49,8 @@
     "shoot": "node scripts/author/shoot-queue.mjs",
     "rides:process": "node scripts/build/process-rides.mjs",
     "check:sealed": "node scripts/meta/check-sealed.mjs",
+    "check:urls": "node scripts/meta/check-urls.mjs --base origin/main",
+    "check:urls:seed": "node scripts/meta/seed-published-urls.mjs",
     "check:images": "node scripts/meta/check-image-pii.mjs",
     "icons:vendor": "node scripts/build/vendor-link-icons.mjs",
     "images:sync-ocr": "node scripts/meta/sync-ocr-to-cloudinary.mjs",

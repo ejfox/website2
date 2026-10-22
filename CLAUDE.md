@@ -415,6 +415,30 @@ Two separate link-health systems — don't confuse them:
   audit, by contrast, always scans all source files and is always accurate.
 - **Report-only by design** — never blocks the build.
 
+## Public URLs keep resolving (2026-10-22)
+
+`2023/how-i-built-coach-artie` was live for over a year, then a 2025 restructure
+set `draft: true`. CI stayed green and inbound links 404'd for a year; the only
+trace was pm2 logs. Neither link check could see it (the links were on other
+sites), so `scripts/meta/check-urls.mjs` checks the URLs themselves:
+
+- **Every route public at the base commit, or seen live by Wayback**
+  (`data/published-urls.json`), must still resolve: a public post, a redirect
+  the real middleware lands on a public post (`legacyRedirect.ts` is loaded via
+  jiti, not copied), or an entry in **`data/gone-urls.json`** saying why.
+  Unpublishing is fine; doing it silently fails the check.
+- **A bare `[[post-name]]` that names a public post fails.** No folder means
+  it routes to `/tag/post-name` (see `buildInternalHref`); write
+  `[[blog/2023/post-name]]` / `[[projects/name]]`. The error prints the fix.
+- Runs in **`.githooks/pre-commit`** (staged vs HEAD, ~0.4s) and **`lint.yml`**
+  (PR vs base; push vs previous tip). On main a break fails one run, then
+  goes quiet, so the hook is the real gate. `yarn check:urls` runs it by hand.
+- `gone-urls.json` entries marked `PENDING` are posts that were live and got
+  drafted with no decision recorded. Republish one and delete its line.
+- Rules: `scripts/utils/url-stability.mjs` (pure, tested in
+  `scripts/utils/__tests__/url-stability.test.mjs`). Re-pull Wayback history
+  with `yarn check:urls:seed` (merges, never drops).
+
 ## Security & Privacy (2026-05-14)
 
 ### Build Output Privacy

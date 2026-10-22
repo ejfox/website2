@@ -1,0 +1,333 @@
+{
+  "_doc": "URLs the Wayback Machine saw live (first 200 capture). Each must still resolve or be listed in data/gone-urls.json. Rebuild: node scripts/meta/seed-published-urls.mjs",
+  "urls": [
+    {
+      "url": "/blog/2010/!pinboard-tags",
+      "seen": "2024-12-07"
+    },
+    {
+      "url": "/blog/2010/photography-2008-2010",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2013/the-magazine-experience-on-the-web",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2015/2015-in-review",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2016/2016-in-review",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2016/video-mixes",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2017/2017-in-review",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2018/2018-in-review",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2018/watercolor-sketching-in-nyc",
+      "seen": "2024-12-07"
+    },
+    {
+      "url": "/blog/2018/work-view-life-view",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/climate-strike-nyc",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/generative-music-iteration",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/hong-kong-protest-techniques",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/linocut-printing-guide",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/movies-to-watch",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2019/step-zero",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/taking-things-for-granted",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2019/the-internet-was-built-to-be-hacked",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2019/two-reasons",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2019/unsecured-ice-cameras",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2020/coding-livestreams",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2020/introduction-to-eavs-data",
+      "seen": "2025-02-19"
+    },
+    {
+      "url": "/blog/2020/online-brigades-gaming-twitter",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2020/things-ive-learned-about-elections",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2021/creative-coding",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2021/lack-of-data",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2021/nypd-ccrb-complaint-clusters",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2022/2022-prototyping-toolkit",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/8pm-to-midnight-mixes",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/art-setup",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/chocolate-chip-cookie",
+      "seen": "2025-10-10"
+    },
+    {
+      "url": "/blog/2022/cookin",
+      "seen": "2025-10-10"
+    },
+    {
+      "url": "/blog/2022/cooking-kolache",
+      "seen": "2025-10-10"
+    },
+    {
+      "url": "/blog/2022/election-night-2018",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/everyone-should-code-data-literacy",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2022/experiments-with-live-looping-performance",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/food",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2022/how-to-run-a-projec",
+      "seen": "2025-10-10"
+    },
+    {
+      "url": "/blog/2022/joy-driven-development",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2022/morning-routine-daily-rituals",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/motorcycle-camping",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/my-vscode-setup",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2022/rules-for-joyful-travel",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2022/the-art-of-coding",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2022/woodworking-setu",
+      "seen": "2025-10-10"
+    },
+    {
+      "url": "/blog/2023/camera-setup",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/capitalism-letting-people-die",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2023/crypto-ai-colonization",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/design-philosophy",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/film-development",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2023/hacker-culture",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2023/how-i-built-coach-artie",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/livestreaming",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/selecting-a-cms",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/starting-a-studio-introducing-room-302",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2023/why-i-love-obsidian",
+      "seen": "2024-11-03"
+    },
+    {
+      "url": "/blog/2024/my-modern-scrapbook",
+      "seen": "2024-11-02"
+    },
+    {
+      "url": "/blog/2024/the-mystery-of-peter-todd",
+      "seen": "2024-11-01"
+    },
+    {
+      "url": "/blog/2025/hidden-networks-of-warmth",
+      "seen": "2025-03-17"
+    },
+    {
+      "url": "/blog/2025/mcp-meta-mapping",
+      "seen": "2025-09-15"
+    },
+    {
+      "url": "/blog/2025/owning-my-cloudinary-photos",
+      "seen": "2025-09-15"
+    },
+    {
+      "url": "/blog/2025/paramilitary-telegram-leaks-001",
+      "seen": "2025-03-10"
+    },
+    {
+      "url": "/blog/2025/personal-apis",
+      "seen": "2025-05-06"
+    },
+    {
+      "url": "/blog/2025/select id, timestamp, sender, text, media_note, media_filename, filename, group_chat_idfrom messageswhere \"media_filename\" is not nullorder by media_filename desclimit 101",
+      "seen": "2025-08-11"
+    },
+    {
+      "url": "/blog/2025/using-radios",
+      "seen": "2025-12-07"
+    },
+    {
+      "url": "/blog/2026/2026-01-25",
+      "seen": "2026-02-09"
+    },
+    {
+      "url": "/projects/ccrb-clusters",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/cli-tools",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/cloudinary-backup-tool",
+      "seen": "2026-04-22"
+    },
+    {
+      "url": "/projects/coach-artie",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/covidcast",
+      "seen": "2026-04-22"
+    },
+    {
+      "url": "/projects/creative-interfaces",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/data-visualization-suite",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/dataproofer",
+      "seen": "2026-04-22"
+    },
+    {
+      "url": "/projects/developer-tools",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/morningradio",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/nbc-big-board",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/nbcnews-specials",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/photography-tools",
+      "seen": "2026-06-07"
+    },
+    {
+      "url": "/projects/smallbot-mcp",
+      "seen": "2026-04-22"
+    },
+    {
+      "url": "/reading/dass-be here now",
+      "seen": "2026-01-23"
+    }
+  ]
+}

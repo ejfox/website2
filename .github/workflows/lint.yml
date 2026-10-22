@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          # check-urls compares against the base commit's content/blog
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -40,6 +43,16 @@ jobs:
       # Tags that name an unregistered component render nothing and pass the build
       - name: Component tags resolve
         run: yarn check:components
+
+      # A URL that was public before this change (or that the Wayback Machine
+      # saw live) must still resolve, and [[post-name]] must not render as a tag
+      # link. The pre-commit hook runs the same check; this is the unskippable
+      # copy. On a push to main it compares against the previous tip, so a
+      # break that lands fails this run once — it won't stay red.
+      - name: Public URLs still resolve
+        run: node scripts/meta/check-urls.mjs --base "$BASE"
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event.before }}
 
       - name: Unit tests
         run: yarn test

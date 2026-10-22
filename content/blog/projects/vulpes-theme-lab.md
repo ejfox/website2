@@ -16,7 +16,7 @@ tags:
 
 <!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->
 
-A minimal theme builder for the Ghostty terminal, with live previews of how the palette lands in nvim, lazygit, htop, and tmux. Tweak a base hue and a ±7° offset and watch the whole [[vulpes-nvim]] aesthetic recolor in real time.
+A minimal theme builder for the Ghostty terminal, with live previews of how the palette lands in nvim, lazygit, htop, and tmux. Tweak a base hue and a ±7° offset and watch the whole [[projects/vulpes-nvim]] aesthetic recolor in real time.
 
 ![The theme lab — palette controls on the left, live nvim / lazygit / htop / tmux previews recoloring as you tune](https://res.cloudinary.com/ejf/image/upload/projects/vulpes-theme-lab/previews.png)
 

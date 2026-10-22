@@ -15,7 +15,7 @@ tags:
 
 <!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->
 
-A one-page editorial showcase for [[coach-artie]] — big serif display type on black, walking through what the agent does: adapts to its environment, remembers what matters, stays cost-conscious, writes its own release notes. 28 capabilities, laid out like a magazine feature.
+A one-page editorial showcase for [[projects/coach-artie]] — big serif display type on black, walking through what the agent does: adapts to its environment, remembers what matters, stays cost-conscious, writes its own release notes. 28 capabilities, laid out like a magazine feature.
 
 ![Scrolling the showcase — the 3D desk scene giving way to big-serif capability sections](https://res.cloudinary.com/ejf/video/upload/projects/coachartie-showcase/showcase-scroll.mp4)
 

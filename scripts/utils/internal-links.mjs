@@ -83,7 +83,7 @@ export function buildInternalHref(target) {
 const validRoutes = new Set()
 
 /** Canonical key for a route: drop hash/query, decode, lowercase, no trailing slash. */
-function routeKey(href) {
+export function routeKey(href) {
   let h = String(href).split('#')[0].split('?')[0]
   h = h
     .split('/')
@@ -116,6 +116,25 @@ export function fileToRoute(relativePath) {
 }
 
 /**
+ * Does this source file (path relative to content/blog, no .md) serve publicly?
+ * Not under drafts/, not a `!`-prefixed system note, and — when
+ * frontmatter is passed — not draft/hidden/unlisted/password. The frontmatter
+ * part mirrors server/api/posts/[...slug].ts isProtectedContent: these never
+ * serve in production by direct slug. Shared with scripts/meta/check-urls.mjs.
+ */
+export function isPublicSource(relNoExt, fm = {}) {
+  if (relNoExt.toLowerCase().startsWith('drafts/')) return false
+  if (path.basename(relNoExt).startsWith('!')) return false
+  return !(
+    fm.draft === true ||
+    fm.hidden === true ||
+    fm.unlisted === true ||
+    fm.password ||
+    fm.passwordHash
+  )
+}
+
+/**
  * Populate the valid-route set from the source markdown files. A file counts as
  * a real route only if it is published — not a draft/hidden/unlisted post, not
  * under the excluded drafts dir, not a `!`-prefixed system note.
@@ -140,8 +159,7 @@ export async function buildValidRoutes(files, contentDir) {
     // Files outside the content dir (e.g. the excluded drafts dir) never ship.
     if (rel.startsWith('..')) continue
     const relNoExt = rel.replace(/\.md$/, '')
-    if (relNoExt.toLowerCase().startsWith('drafts/')) continue
-    if (path.basename(relNoExt).startsWith('!')) continue
+    if (!isPublicSource(relNoExt)) continue
 
     let fm
     try {
@@ -149,17 +167,7 @@ export async function buildValidRoutes(files, contentDir) {
     } catch {
       continue
     }
-    // Mirror server/api/posts/[...slug].ts isProtectedContent: these never serve
-    // in production by direct slug, so a link to one is dead for public readers.
-    if (
-      fm.draft === true ||
-      fm.hidden === true ||
-      fm.unlisted === true ||
-      fm.password ||
-      fm.passwordHash
-    ) {
-      continue
-    }
+    if (!isPublicSource(relNoExt, fm)) continue
 
     validRoutes.add(routeKey(fileToRoute(relNoExt)))
   }

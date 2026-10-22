@@ -10,4 +10,8 @@
 # Bypassable with --no-verify, deliberately — a hook is a seatbelt, not a lock.
 # .github/workflows/guard-sealed.yml re-runs the same check server-side on every
 # branch, which is the layer that cannot be skipped.
-exec node scripts/meta/check-sealed.mjs --staged
+node scripts/meta/check-sealed.mjs --staged || exit 1
+
+# Public URLs keep resolving, and wikilinks meant for posts don't land on /tag/
+# (scripts/meta/check-urls.mjs). Staged tree vs HEAD, ~0.4s. lint.yml re-runs it.
+exec node scripts/meta/check-urls.mjs --staged --base HEAD --quiet
