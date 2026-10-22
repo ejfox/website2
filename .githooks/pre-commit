@@ -14,4 +14,10 @@ node scripts/meta/check-sealed.mjs --staged || exit 1
 
 # Public URLs keep resolving, and wikilinks meant for posts don't land on /tag/
 # (scripts/meta/check-urls.mjs). Staged tree vs HEAD, ~0.4s. lint.yml re-runs it.
+# Needs installed deps (jiti, gray-matter). A fresh worktree without
+# node_modules skips with a warning instead of blocking every commit.
+if ! node -e "import('jiti')" >/dev/null 2>&1; then
+  echo "⚠ check-urls skipped: no node_modules here (lint.yml still runs it)"
+  exit 0
+fi
 exec node scripts/meta/check-urls.mjs --staged --base HEAD --quiet

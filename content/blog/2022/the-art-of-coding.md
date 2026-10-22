@@ -28,8 +28,6 @@ For more less-technical specifics around project management in general (not just
 
 For design philosophy [[blog/2023/design-philosophy]] and work philosophy [[blog/2022/joy-driven-development]]
 
-The tools I use to prototype quickly: [[blog/2022/2022-prototyping-toolkit]]
-
 My coding setup, including theme and plugins: [[blog/2022/my-vscode-setup]]
 
 ## Establish a clear goal
