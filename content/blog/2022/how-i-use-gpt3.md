@@ -209,7 +209,7 @@ Start a new conversation with your frustrated human.
 
 ---
 
-[[how-i-built-coach-artie]]
+[[blog/2023/how-i-built-coach-artie]]
 
 [🔨 GPT-3 Writings Channel on Are.na](https://www.are.na/ej-fox/gpt-3-writings)
 

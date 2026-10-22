@@ -1,5 +1,4 @@
 ---
-draft: true
 dek: In which we build a robot to help around the shop
 date: 2023-03-21T15:03:11-04:00
 modified: 2024-09-23T12:13:40-04:00
@@ -128,4 +127,6 @@ It is really surprising how effective GPT-4 is at acting as any character you gi
 
 [You can also follow Coach Artie on Twitter](https://twitter.com/ai_coachartie) if he is ever allowed to tweet (application pending as of March 2023)
 
-[[how-i-use-gpt3]]
+Coach Artie kept evolving after this post. [See the project page](/projects/coach-artie) for where he is now.
+
+[[blog/2022/how-i-use-gpt3]]
