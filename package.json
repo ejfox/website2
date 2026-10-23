@@ -49,6 +49,7 @@
     "shoot": "node scripts/author/shoot-queue.mjs",
     "rides:process": "node scripts/build/process-rides.mjs",
     "check:sealed": "node scripts/meta/check-sealed.mjs",
+    "smoke": "node scripts/meta/smoke-prod.mjs --browser",
     "check:urls": "node scripts/meta/check-urls.mjs --base origin/main",
     "check:urls:seed": "node scripts/meta/seed-published-urls.mjs",
     "check:images": "node scripts/meta/check-image-pii.mjs",
