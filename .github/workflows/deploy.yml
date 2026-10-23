@@ -315,3 +315,34 @@ jobs:
         done
         echo "❌ ejfox.com is serving '${SERVING:-nothing}', expected ${GITHUB_SHA:0:8}"
         exit 1
+
+    # The 54-check smoke test (scripts/meta/smoke-prod.mjs): pages, feeds, APIs,
+    # redirects, guards, secrets. The deploy is already verified above, so this
+    # never fails the run or rolls back; a failure becomes a Discord alert.
+    - name: Smoke-test the live site
+      id: smoke
+      continue-on-error: true
+      run: |
+        set -o pipefail
+        node scripts/meta/smoke-prod.mjs 2>&1 | tee /tmp/smoke.txt
+      # (no --browser: Chromium isn't installed on the runner; run `yarn smoke` locally)
+
+    - name: Read smoke failures
+      id: smoke_alert
+      if: steps.smoke.outcome == 'failure'
+      run: |
+        FAILS=$(grep -E '^\s+✗' /tmp/smoke.txt | head -6 | sed 's/^ *//' | tr '\n' ';' || true)
+        echo "msg=${FAILS:-smoke crashed, see the run}" >> "$GITHUB_OUTPUT"
+
+    - name: Alert Discord that the smoke test failed
+      if: steps.smoke.outcome == 'failure'
+      uses: appleboy/ssh-action@v1.2.5
+      env:
+        SMOKE_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        SMOKE_MSG: "**⚠️ ejfox.com smoke test failed after deploy** `${{ github.sha }}` — ${{ steps.smoke_alert.outputs.msg }}"
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        envs: SMOKE_MSG,SMOKE_URL
+        script: ALERT_FORCE=1 ALERT_DEEPLINK="$SMOKE_URL" /home/debian/scripts/alert.sh website warning "$SMOKE_MSG"
