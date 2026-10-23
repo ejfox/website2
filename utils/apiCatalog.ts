@@ -388,6 +388,17 @@ export const apiCatalog: ApiRoute[] = [
     health: 'ok',
   },
   {
+    method: 'POST',
+    path: '/api/ping',
+    group: 'Availability & infra',
+    summary: 'Send EJ a short phone notification (Pushcut) from /ping',
+    consumer: 'frontend',
+    consumedBy: 'pages/ping',
+    deps: 'PUSHCUT_PING_URL (server env only)',
+    health: 'ok',
+    note: 'Rate-limited per visitor and globally (server/utils/pingLimit.ts); 503 when PUSHCUT_PING_URL is unset',
+  },
+  {
     method: 'GET',
     path: '/api/gear-csv',
     group: 'Photos & gear',
