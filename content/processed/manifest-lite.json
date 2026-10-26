@@ -1835,7 +1835,7 @@
         "design",
         "inspiration"
       ],
-      "words": 326,
+      "words": 319,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -2472,7 +2472,7 @@
         "project",
         "coding"
       ],
-      "words": 2442,
+      "words": 2434,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -2690,6 +2690,119 @@
       ],
       "type": "post",
       "slug": "2023/crypto-ai-colonization"
+    }
+  },
+  {
+    "slug": "2023/how-i-built-coach-artie",
+    "title": "How I Built An AI Assistant for our Dataviz Studio",
+    "date": "2023-03-21T19:03:11.000Z",
+    "type": "post",
+    "dek": "In which we build a robot to help around the shop",
+    "modified": "2024-09-23T16:13:40.000Z",
+    "tags": [
+      "dataviz",
+      "gpt3",
+      "machinelearning"
+    ],
+    "toc": [
+      {
+        "text": "Motivations",
+        "slug": "motivations",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "Development",
+        "slug": "development",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "Examples",
+        "slug": "examples",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "Future plans",
+        "slug": "future-plans",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "Thoughts",
+        "slug": "thoughts",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "Coach Artie's Perspective",
+        "slug": "coach-arties-perspective",
+        "level": "h3",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "dek": "In which we build a robot to help around the shop",
+      "date": "2023-03-21T19:03:11.000Z",
+      "modified": "2024-09-23T16:13:40.000Z",
+      "tags": [
+        "dataviz",
+        "gpt3",
+        "machinelearning"
+      ],
+      "words": 1514,
+      "images": 4,
+      "imageDetails": {
+        "total": 4,
+        "cloudinary": 4,
+        "withDimensions": 0
+      },
+      "links": 6,
+      "codeBlocks": 1,
+      "headers": {
+        "h3": 6
+      },
+      "toc": [
+        {
+          "text": "Motivations",
+          "slug": "motivations",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "Development",
+          "slug": "development",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "Examples",
+          "slug": "examples",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "Future plans",
+          "slug": "future-plans",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "Thoughts",
+          "slug": "thoughts",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "Coach Artie's Perspective",
+          "slug": "coach-arties-perspective",
+          "level": "h3",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "slug": "2023/how-i-built-coach-artie"
     }
   },
   {

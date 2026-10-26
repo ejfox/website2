@@ -56,7 +56,7 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
-const CACHE_VERSION = '2026-10-12-optimize-raw-images'
+const CACHE_VERSION = '2026-10-26-no-rotated-images'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
