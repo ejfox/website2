@@ -266,7 +266,7 @@ onMounted(() => {
 }
 .cal-back {
   @apply inline-block font-mono text-2xs uppercase tracking-widest;
-  @apply text-zinc-400 transition-colors hover:text-zinc-200;
+  @apply text-zinc-500 dark:text-zinc-400 transition-colors hover:text-zinc-200;
 }
 .cal-title {
   @apply mt-3 text-3xl font-light text-zinc-900 dark:text-zinc-100;

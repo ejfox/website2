@@ -234,7 +234,7 @@ useHead({
             {{ formatShortDate(scrap.created_at) }}
           </span>
           <div class="flex-1 min-w-0">
-            <span class="text-zinc-400">
+            <span class="text-zinc-500 dark:text-zinc-400">
               {{ scrap.title || scrap.summary || scrap.content?.slice(0, 80) }}
             </span>
             <div

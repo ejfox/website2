@@ -153,7 +153,7 @@ useHead({ title: 'Rides — EJ Fox' })
             :points="trackPoints(ride)"
             fill="none"
             stroke="currentColor"
-            class="text-zinc-400 group-hover:text-zinc-900 dark:text-zinc-600 dark:group-hover:text-zinc-100 transition-colors"
+            class="text-zinc-500 group-hover:text-zinc-900 dark:text-zinc-600 dark:group-hover:text-zinc-100 transition-colors"
             stroke-width="0.014"
             stroke-linejoin="round"
             stroke-linecap="round"
@@ -194,7 +194,7 @@ useHead({ title: 'Rides — EJ Fox' })
         </div>
         <div
           v-if="ride.elev?.length || ride.spdHist?.length"
-          class="flex justify-between font-mono text-4xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
+          class="flex justify-between font-mono text-4xs uppercase tracking-wider text-zinc-500 dark:text-zinc-600"
         >
           <span>{{ ride.elev?.length ? 'elev' : '' }}</span>
           <span>{{ ride.spdHist?.length ? 'speed' : '' }}</span>
@@ -206,7 +206,7 @@ useHead({ title: 'Rides — EJ Fox' })
           {{ ride.title }}
         </h2>
         <p
-          class="mt-1 font-mono text-3xs tabular-nums text-zinc-400 dark:text-zinc-600"
+          class="mt-1 font-mono text-3xs tabular-nums text-zinc-500 dark:text-zinc-600"
         >
           {{ formatDate(ride.date) }}
           <template v-if="startClock(ride.startTime)">
@@ -215,7 +215,7 @@ useHead({ title: 'Rides — EJ Fox' })
         </p>
         <p
           v-if="ride.stats"
-          class="mt-0.5 font-mono text-3xs tabular-nums text-zinc-400 dark:text-zinc-600"
+          class="mt-0.5 font-mono text-3xs tabular-nums text-zinc-500 dark:text-zinc-600"
         >
           {{ mi(ride.stats.distanceMeters) }} mi
           <template v-if="ride.stats.elevationGainMeters">
@@ -227,7 +227,7 @@ useHead({ title: 'Rides — EJ Fox' })
         </p>
         <p
           v-if="ride.stats?.avgMovingSpeedMps || ride.momentCount"
-          class="mt-0.5 font-mono text-3xs tabular-nums text-zinc-400 dark:text-zinc-600"
+          class="mt-0.5 font-mono text-3xs tabular-nums text-zinc-500 dark:text-zinc-600"
         >
           <template v-if="ride.stats?.avgMovingSpeedMps">
             {{ mph(ride.stats.avgMovingSpeedMps) }} avg /
@@ -263,14 +263,14 @@ useHead({ title: 'Rides — EJ Fox' })
           stroke="currentColor"
           stroke-width="1"
           stroke-linecap="round"
-          class="text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+          class="text-zinc-500 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
           @click="navigateTo(`/rides/${r.slug}`)"
         >
           <title>{{ r.title }}</title>
         </path>
       </svg>
       <p
-        class="mt-2 font-mono text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600"
+        class="mt-2 font-mono text-3xs uppercase tracking-widest text-zinc-500 dark:text-zinc-600"
       >
         everywhere so far · {{ atlas.rideCount }} rides ·
         {{ Math.round(atlas.totalMeters / 1609.34).toLocaleString() }} miles

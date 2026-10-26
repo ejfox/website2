@@ -231,7 +231,7 @@ useHead({
             esc
           </kbd>
           <button
-            class="text-xs font-mono text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+            class="text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
             @click="saveToPinboard(false)"
           >
             skip &rarr;
@@ -244,7 +244,7 @@ useHead({
         <a
           :href="pageUrl"
           target="_blank"
-          class="text-xs font-mono text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 block truncate"
+          class="text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 block truncate"
           :title="pageUrl"
         >
           {{ truncateUrl(pageUrl, 50) }}
@@ -279,7 +279,7 @@ useHead({
                 'text-xs font-mono transition-colors duration-300',
                 loadingStep >= 1
                   ? 'text-zinc-900 dark:text-zinc-100'
-                  : 'text-zinc-400',
+                  : 'text-zinc-500 dark:text-zinc-400',
               ]"
             >
               {{ loadingStep === 1 ? 'fetching tags...' : 'tags loaded' }}
@@ -299,7 +299,7 @@ useHead({
                 'text-xs font-mono transition-colors duration-300',
                 loadingStep >= 2
                   ? 'text-zinc-900 dark:text-zinc-100'
-                  : 'text-zinc-400',
+                  : 'text-zinc-500 dark:text-zinc-400',
               ]"
             >
               {{
@@ -325,7 +325,7 @@ useHead({
                 'text-xs font-mono transition-colors duration-300',
                 loadingStep >= 3
                   ? 'text-zinc-900 dark:text-zinc-100'
-                  : 'text-zinc-400',
+                  : 'text-zinc-500 dark:text-zinc-400',
               ]"
             >
               {{
@@ -368,13 +368,13 @@ useHead({
             <span class="text-meta">CHOOSE TAGS</span>
             <div class="flex-1"></div>
             <button
-              class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              class="text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
               @click="selectAllSuggested"
             >
               +all
             </button>
             <button
-              class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              class="text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
               @click="clearAllTags"
             >
               clear
@@ -524,7 +524,7 @@ useHead({
         <!-- Similar Items (collapsed by default) -->
         <details v-if="suggestions.similar_scraps?.length" class="group pl-7">
           <summary
-            class="text-xs font-mono text-zinc-400 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+            class="text-xs font-mono text-zinc-500 dark:text-zinc-400 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
           >
             {{ suggestions.similar_scraps.length }} similar items in your
             archive
@@ -540,7 +540,10 @@ useHead({
               @click="copyTagsFromScrap(scrap)"
             >
               {{ scrap.title }}
-              <span v-if="scrap.tags?.length" class="text-zinc-400">
+              <span
+                v-if="scrap.tags?.length"
+                class="text-zinc-500 dark:text-zinc-400"
+              >
                 [{{ scrap.tags.slice(0, 3).join(' ') }}]
               </span>
             </button>
@@ -553,9 +556,9 @@ useHead({
         <div
           class="w-10 h-10 mx-auto rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center"
         >
-          <span class="text-red-500 text-lg">!</span>
+          <span class="text-red-600 dark:text-red-500 text-lg">!</span>
         </div>
-        <p class="text-xs font-mono text-red-500 dark:text-red-400">
+        <p class="text-xs font-mono text-red-600 dark:text-red-400">
           {{ error }}
         </p>
         <button

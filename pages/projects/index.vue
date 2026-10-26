@@ -496,12 +496,12 @@ onMounted(async () => {
       class="rule-dotted-b pb-2 mb-8 flex items-baseline justify-between gap-4"
     >
       <h2
-        class="font-mono text-2xs uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-600"
+        class="font-mono text-2xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-600"
       >
         Archive · by year
       </h2>
       <span
-        class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+        class="font-mono text-3xs text-zinc-500 dark:text-zinc-600 tabular-nums"
       >
         {{ regularProjects.length }}
       </span>
@@ -523,7 +523,7 @@ onMounted(async () => {
           {{ yr.year }}
         </h2>
         <span
-          class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+          class="font-mono text-3xs text-zinc-500 dark:text-zinc-600 tabular-nums"
         >
           {{ yr.count }} project{{ yr.count === 1 ? '' : 's' }}
         </span>
@@ -544,7 +544,7 @@ onMounted(async () => {
               {{ cat.category }}
             </h3>
             <span
-              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+              class="font-mono text-3xs text-zinc-500 dark:text-zinc-600 tabular-nums"
             >
               {{ cat.projects.length }}
             </span>
@@ -581,7 +581,7 @@ onMounted(async () => {
       <teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="font-mono text-3xs">
           <div
-            class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600 mb-1"
+            class="uppercase tracking-wider text-zinc-500 dark:text-zinc-600 mb-1"
           >
             Flagships
           </div>
@@ -593,7 +593,7 @@ onMounted(async () => {
             </li>
           </ul>
           <div
-            class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600 mb-1"
+            class="uppercase tracking-wider text-zinc-500 dark:text-zinc-600 mb-1"
           >
             Archive
           </div>
@@ -604,7 +604,7 @@ onMounted(async () => {
                 class="flex items-baseline justify-between gap-2 text-zinc-600 dark:text-zinc-400"
               >
                 <span class="truncate tabular-nums">{{ yr.year }}</span>
-                <span class="text-zinc-400 dark:text-zinc-600 tabular-nums">
+                <span class="text-zinc-500 dark:text-zinc-600 tabular-nums">
                   {{ yr.count }}
                 </span>
               </a>

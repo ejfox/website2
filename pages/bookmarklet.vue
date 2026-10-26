@@ -99,7 +99,7 @@ useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
         />
         <button
           type="button"
-          class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 text-xs font-mono uppercase tracking-wider transition-colors"
+          class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 text-xs font-mono uppercase tracking-wider transition-colors"
           @click="showPassword = !showPassword"
         >
           {{ showPassword ? 'Hide' : 'Show' }}
@@ -131,14 +131,16 @@ useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
         :key="i"
         class="flex items-start gap-3 text-sm"
       >
-        <span class="font-mono text-zinc-400 tabular-nums">{{ i + 1 }}.</span>
+        <span class="font-mono text-zinc-500 dark:text-zinc-400 tabular-nums"
+          >{{ i + 1 }}.</span
+        >
         <span class="text-zinc-600 dark:text-zinc-400">{{ step }}</span>
       </div>
     </section>
 
     <details class="group">
       <summary
-        class="cursor-pointer text-xs font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+        class="cursor-pointer text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
       >
         Manual installation
       </summary>

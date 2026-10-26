@@ -101,7 +101,7 @@ onBeforeUnmount(teardown)
 
   <div
     v-else-if="loading"
-    class="font-mono text-2xs text-zinc-400 dark:text-zinc-600 px-2 py-1"
+    class="font-mono text-2xs text-zinc-500 dark:text-zinc-600 px-2 py-1"
   >
     …
   </div>
@@ -135,7 +135,7 @@ onBeforeUnmount(teardown)
     </div>
     <p
       v-if="empty"
-      class="font-mono text-2xs text-zinc-400 dark:text-zinc-600 text-center py-6 leading-5"
+      class="font-mono text-2xs text-zinc-500 dark:text-zinc-600 text-center py-6 leading-5"
     >
       ∅ renders no visible DOM here
       <br />

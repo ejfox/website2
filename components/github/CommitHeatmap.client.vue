@@ -171,7 +171,7 @@ watch(selectedYear, (v) => emit('select', { year: v }))
           :key="`m-${m.label}`"
           :x="PADDING_LEFT + m.week * dims.cellSize"
           y="10"
-          class="text-zinc-400 dark:text-zinc-600"
+          class="text-zinc-500 dark:text-zinc-600"
         >
           {{ m.label }}
         </text>
@@ -244,7 +244,7 @@ watch(selectedYear, (v) => emit('select', { year: v }))
           clear
         </button>
       </span>
-      <span v-else class="text-zinc-400 dark:text-zinc-600">
+      <span v-else class="text-zinc-500 dark:text-zinc-600">
         Hover a week · click a cell to filter the list by that year
       </span>
     </div>

@@ -651,7 +651,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
     <header class="px-4 md:px-8 pt-8 pb-12 max-w-screen-xl">
       <NuxtLink
         to="/rides"
-        class="font-mono text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+        class="font-mono text-3xs uppercase tracking-widest text-zinc-500 dark:text-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
       >
         ← rides
       </NuxtLink>
@@ -677,7 +677,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
           class="flex flex-col"
         >
           <dt
-            class="order-2 mt-1 text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600"
+            class="order-2 mt-1 text-3xs uppercase tracking-widest text-zinc-500 dark:text-zinc-600"
           >
             {{ stat.label }}
           </dt>
@@ -685,7 +685,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             class="order-1 text-base tabular-nums text-zinc-700 dark:text-zinc-300"
           >
             {{ stat.value }}
-            <span class="text-xs text-zinc-400 dark:text-zinc-600">
+            <span class="text-xs text-zinc-500 dark:text-zinc-600">
               {{ stat.unit }}
             </span>
           </dd>
@@ -765,7 +765,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 stroke="currentColor"
                 stroke-width="1"
                 stroke-dasharray="7 3 2 3"
-                class="text-zinc-400 dark:text-zinc-500"
+                class="text-zinc-500 dark:text-zinc-500"
                 vector-effect="non-scaling-stroke"
               />
               <!-- ghosts of other rides: where else I've been -->
@@ -784,7 +784,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               <g
                 v-for="p in placeLabels"
                 :key="p.name"
-                class="text-zinc-400 dark:text-zinc-600"
+                class="text-zinc-500 dark:text-zinc-600"
               >
                 <circle
                   :cx="p.x"
@@ -871,7 +871,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               <g
                 v-for="(r, i) in refuelMarkers"
                 :key="'fuel' + i"
-                class="text-zinc-400 dark:text-zinc-600"
+                class="text-zinc-500 dark:text-zinc-600"
                 :opacity="r.passed ? 1 : 0.4"
               >
                 <rect
@@ -901,7 +901,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 :cy="m.y"
                 :r="(m.active ? 5 : 3) / zoom"
                 :fill="m.active ? 'var(--ride-accent)' : 'currentColor'"
-                class="text-zinc-400 dark:text-zinc-600 transition-all duration-300"
+                class="text-zinc-500 dark:text-zinc-600 transition-all duration-300"
               />
               <!-- rider -->
               <circle
@@ -930,7 +930,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 <span class="text-zinc-900 dark:text-zinc-100">
                   {{ mi(progressDist) }}
                 </span>
-                <span class="text-zinc-400 dark:text-zinc-600">
+                <span class="text-zinc-500 dark:text-zinc-600">
                   / {{ mi(totalDist) }} mi
                 </span>
               </span>
@@ -951,7 +951,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               </span>
             </div>
             <div
-              class="mt-1.5 flex flex-wrap items-baseline gap-x-2 text-3xs text-zinc-400 dark:text-zinc-600 whitespace-nowrap"
+              class="mt-1.5 flex flex-wrap items-baseline gap-x-2 text-3xs text-zinc-500 dark:text-zinc-600 whitespace-nowrap"
             >
               <span class="uppercase tracking-widest">fuel</span>
               <span class="tracking-tight text-zinc-600 dark:text-zinc-400">
@@ -991,7 +991,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             </div>
           </div>
           <div
-            class="absolute top-4 right-4 md:top-8 md:right-8 font-mono text-zinc-400 dark:text-zinc-600 text-center select-none"
+            class="absolute top-4 right-4 md:top-8 md:right-8 font-mono text-zinc-500 dark:text-zinc-600 text-center select-none"
           >
             <div style="font-size: 12px">↑</div>
             <div style="font-size: 9px; letter-spacing: 0.2em">N</div>
@@ -1067,7 +1067,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
     <footer class="px-4 md:px-8 py-16 max-w-screen-xl">
       <NuxtLink
         to="/rides"
-        class="font-mono text-sm text-zinc-400 hover:text-zinc-100"
+        class="font-mono text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-100"
       >
         ← all rides
       </NuxtLink>

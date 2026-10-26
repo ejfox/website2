@@ -69,7 +69,9 @@ const dataFormat = computed(() => {
           :key="i"
           class="grid grid-cols-[2ch_1fr_auto] gap-x-3 py-2 items-baseline"
         >
-          <span class="font-mono text-3xs tabular-nums text-zinc-400">
+          <span
+            class="font-mono text-3xs tabular-nums text-zinc-500 dark:text-zinc-400"
+          >
             {{ i + 1 }}
           </span>
           <span
@@ -88,7 +90,11 @@ const dataFormat = computed(() => {
           >
             source ↗
           </a>
-          <span v-else class="font-mono text-3xs text-zinc-400">—</span>
+          <span
+            v-else
+            class="font-mono text-3xs text-zinc-500 dark:text-zinc-400"
+            >—</span
+          >
         </li>
       </ol>
     </div>
@@ -101,7 +107,9 @@ const dataFormat = computed(() => {
           :key="source.url"
           class="grid grid-cols-[2ch_1fr] gap-x-3 items-baseline"
         >
-          <span class="font-mono text-3xs tabular-nums text-zinc-400">
+          <span
+            class="font-mono text-3xs tabular-nums text-zinc-500 dark:text-zinc-400"
+          >
             {{ i + 1 }}
           </span>
           <span class="text-sm leading-6">
@@ -145,6 +153,6 @@ const dataFormat = computed(() => {
 <style scoped>
 .receipts-label {
   @apply font-mono text-3xs uppercase tracking-wider mb-2;
-  @apply text-zinc-400 dark:text-zinc-500;
+  @apply text-zinc-500 dark:text-zinc-500;
 }
 </style>

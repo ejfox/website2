@@ -223,7 +223,7 @@ watch(photoId, () => {
 
         <!-- Identity — for strangers -->
         <div class="pt-4 border-t border-zinc-800 text-center space-y-2">
-          <div class="font-mono text-xs text-zinc-400">
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-400">
             Photo by
             <NuxtLink to="/" class="text-zinc-300 hover:text-zinc-100">
               EJ Fox

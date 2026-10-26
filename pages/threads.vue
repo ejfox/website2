@@ -13,7 +13,7 @@ const INK = {
   primary: 'text-zinc-900 dark:text-zinc-100',
   secondary: 'text-zinc-600 dark:text-zinc-400',
   tertiary: 'text-zinc-500',
-  quaternary: 'text-zinc-400 dark:text-zinc-600',
+  quaternary: 'text-zinc-500 dark:text-zinc-600',
   page: 'text-page', // label halo: knocks edges out behind topic names
 }
 const EDGE_ALPHA = 0.07 // primary ink at low alpha: same weight on black or white
@@ -605,7 +605,7 @@ onBeforeUnmount(() => {
           :class="
             show[type]
               ? 'text-zinc-900 dark:text-zinc-100'
-              : 'text-zinc-400 dark:text-zinc-600 line-through'
+              : 'text-zinc-500 dark:text-zinc-600 line-through'
           "
           @click="show[type] = !show[type]"
         >

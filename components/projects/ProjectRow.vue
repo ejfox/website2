@@ -37,7 +37,7 @@ const contextTag = computed(() => {
       label: 'collaborative',
       class: 'text-zinc-500 dark:text-zinc-300',
     },
-    personal: { label: 'personal', class: 'text-zinc-400 dark:text-zinc-600' },
+    personal: { label: 'personal', class: 'text-zinc-500 dark:text-zinc-600' },
   }
   return map[c] || map.personal
 })
@@ -237,13 +237,13 @@ const toggleHeroVideo = () => {
             </span>
             <span
               v-if="aiInvolvement"
-              class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
+              class="uppercase tracking-wider text-zinc-500 dark:text-zinc-600"
             >
               {{ aiInvolvement }}
             </span>
             <span
               v-if="project.metadata?.draft"
-              class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
+              class="uppercase tracking-wider text-zinc-500 dark:text-zinc-600"
             >
               draft
             </span>
@@ -255,7 +255,7 @@ const toggleHeroVideo = () => {
               :href="projectUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="relative z-10 p-1 -m-1 text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+              class="relative z-10 p-1 -m-1 text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
               :title="`Open ${projectUrl}`"
               :aria-label="`Open ${projectTitle} (opens in new tab)`"
             >

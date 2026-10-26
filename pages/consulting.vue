@@ -689,7 +689,7 @@ usePageSeo({
 }
 
 .section-label-lg {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider mb-8;
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-8;
 }
 
 .hero-label {
@@ -717,7 +717,7 @@ usePageSeo({
 }
 
 .aside {
-  @apply font-mono text-sm text-zinc-400 dark:text-zinc-500;
+  @apply font-mono text-sm text-zinc-500 dark:text-zinc-500;
 }
 
 /* ============================================
@@ -750,7 +750,7 @@ usePageSeo({
 }
 
 .slot-btn-date {
-  @apply text-zinc-400 dark:text-zinc-500 text-xs font-mono;
+  @apply text-zinc-500 dark:text-zinc-500 text-xs font-mono;
 }
 
 .sidebar-cta {
@@ -838,7 +838,7 @@ usePageSeo({
 }
 
 .specialty-proof {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider;
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider;
 }
 
 .testimonial-card {
@@ -893,11 +893,11 @@ usePageSeo({
 }
 
 .sidebar-label {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider;
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider;
 }
 
 .sidebar-status-line {
-  @apply font-mono text-xs text-emerald-600 dark:text-emerald-400;
+  @apply font-mono text-xs text-emerald-700 dark:text-emerald-400;
 }
 
 .sidebar-cta-note {
@@ -939,7 +939,7 @@ usePageSeo({
 }
 
 .floating-cta-sub {
-  @apply text-zinc-400 dark:text-zinc-500 text-3xs tracking-normal;
+  @apply text-zinc-500 dark:text-zinc-500 text-3xs tracking-normal;
 }
 
 /* Transition */

@@ -206,7 +206,8 @@ function step(now) {
 
 function draw(force = false) {
   if (!ctxUnder || !ctxOver) return
-  const rgb = isDark.value ? '244,244,245' : '24,24,27'
+  // Light mode: pale zinc, not near-black. Dark specks on white read as dust.
+  const rgb = isDark.value ? '244,244,245' : '161,161,170'
   const size = Math.max(1, Math.round(PIXEL * dpr)) // whole device pixels
 
   // Two passes: clear every moved star, then draw. A glint's 3×3 clear can

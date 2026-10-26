@@ -258,7 +258,7 @@ const tooltipStyle = computed(() => {
             :x2="e.x2"
             :y2="e.y2"
             stroke="currentColor"
-            class="text-zinc-400 dark:text-zinc-600"
+            class="text-zinc-500 dark:text-zinc-600"
             stroke-width="0.5"
           />
         </g>

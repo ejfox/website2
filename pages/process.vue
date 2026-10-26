@@ -98,7 +98,7 @@ usePageSeo({
           class="grid grid-cols-2 gap-4 text-sm"
         >
           <div class="flex items-start gap-2">
-            <span class="text-red-500 mt-0.5">✗</span>
+            <span class="text-red-600 dark:text-red-500 mt-0.5">✗</span>
             <span
               class="font-serif text-zinc-500 line-through decoration-zinc-300 dark:decoration-zinc-700"
             >
@@ -106,7 +106,7 @@ usePageSeo({
             </span>
           </div>
           <div class="flex items-start gap-2">
-            <span class="text-green-500 mt-0.5">✓</span>
+            <span class="text-green-700 dark:text-green-500 mt-0.5">✓</span>
             <span class="font-serif text-zinc-700 dark:text-zinc-300">
               {{ a.good }}
             </span>
@@ -123,7 +123,9 @@ usePageSeo({
       </p>
       <ol class="space-y-3">
         <li v-for="(q, i) in questions" :key="i" class="flex gap-3 font-serif">
-          <span class="font-mono text-sm text-zinc-400 w-6 shrink-0">
+          <span
+            class="font-mono text-sm text-zinc-500 dark:text-zinc-400 w-6 shrink-0"
+          >
             {{ i + 1 }}.
           </span>
           <span class="text-zinc-700 dark:text-zinc-300">{{ q }}</span>
@@ -136,25 +138,33 @@ usePageSeo({
       <h2 class="heading-2 mb-4">Typical Timeline</h2>
       <div class="font-mono text-sm space-y-3">
         <div class="flex gap-4">
-          <span class="text-zinc-400 w-20 shrink-0">Week 1</span>
+          <span class="text-zinc-500 dark:text-zinc-400 w-20 shrink-0"
+            >Week 1</span
+          >
           <span class="text-zinc-700 dark:text-zinc-300">
             Discovery, data audit, first prototype
           </span>
         </div>
         <div class="flex gap-4">
-          <span class="text-zinc-400 w-20 shrink-0">Week 2-3</span>
+          <span class="text-zinc-500 dark:text-zinc-400 w-20 shrink-0"
+            >Week 2-3</span
+          >
           <span class="text-zinc-700 dark:text-zinc-300">
             Core functionality, design iteration
           </span>
         </div>
         <div class="flex gap-4">
-          <span class="text-zinc-400 w-20 shrink-0">Week 4-5</span>
+          <span class="text-zinc-500 dark:text-zinc-400 w-20 shrink-0"
+            >Week 4-5</span
+          >
           <span class="text-zinc-700 dark:text-zinc-300">
             Polish, edge cases, stress testing
           </span>
         </div>
         <div class="flex gap-4">
-          <span class="text-zinc-400 w-20 shrink-0">Week 6+</span>
+          <span class="text-zinc-500 dark:text-zinc-400 w-20 shrink-0"
+            >Week 6+</span
+          >
           <span class="text-zinc-700 dark:text-zinc-300">
             Launch support, documentation, handoff
           </span>

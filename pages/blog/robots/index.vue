@@ -73,7 +73,7 @@ const getNoteSummary = (note) => {
           </div>
           <div
             v-if="getNoteSummary(note).wordCount"
-            class="text-xs text-zinc-400 dark:text-zinc-600 font-mono"
+            class="text-xs text-zinc-500 dark:text-zinc-600 font-mono"
           >
             {{ getNoteSummary(note).wordCount }} words
           </div>

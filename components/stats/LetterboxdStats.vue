@@ -117,7 +117,7 @@ const renderStars = (rating: number | null) => {
     stars.push({
       id: id++,
       char: '☆',
-      class: 'text-zinc-400 dark:text-zinc-600',
+      class: 'text-zinc-500 dark:text-zinc-600',
     })
   }
 
@@ -228,7 +228,7 @@ const renderStars = (rating: number | null) => {
               {{ film.title }}
               <span
                 v-if="film.isRewatch"
-                class="text-zinc-400 dark:text-zinc-600 ml-1"
+                class="text-zinc-500 dark:text-zinc-600 ml-1"
                 title="Rewatch"
               >
                 ↻

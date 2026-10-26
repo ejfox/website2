@@ -174,7 +174,12 @@ useHead(() => ({
     </header>
 
     <!-- Loading -->
-    <p v-if="pending" class="text-zinc-400 text-sm font-mono">loading...</p>
+    <p
+      v-if="pending"
+      class="text-zinc-500 dark:text-zinc-400 text-sm font-mono"
+    >
+      loading...
+    </p>
 
     <!-- Error state -->
     <p v-else-if="error" class="text-sm">Error loading data for this day.</p>
@@ -189,7 +194,7 @@ useHead(() => ({
       <section v-for="yearData in data.years" :key="yearData.year" class="mb-8">
         <!-- Year header -->
         <h2
-          class="font-mono text-xs text-zinc-400 uppercase tracking-wider mb-4"
+          class="font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4"
         >
           {{ yearData.year }}
           <span class="text-zinc-300 dark:text-zinc-600">/</span>
@@ -201,7 +206,11 @@ useHead(() => ({
           <!-- Posts -->
           <template v-if="yearData.posts?.length">
             <div v-for="post in yearData.posts" :key="post.slug">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">post</dt>
+              <dt
+                class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-0.5"
+              >
+                post
+              </dt>
               <dd>
                 <NuxtLink
                   :to="`/blog/${post.slug}`"
@@ -222,13 +231,17 @@ useHead(() => ({
           <!-- Commits -->
           <template v-if="yearData.commits?.length">
             <div v-for="commit in yearData.commits" :key="commit.sha">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
+              <dt
+                class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-0.5"
+              >
                 commit
                 <span class="text-zinc-300 dark:text-zinc-600">/</span>
                 {{ commit.repo }}
               </dt>
               <dd class="font-mono text-sm">
-                <code class="text-zinc-400 text-xs">{{ commit.sha }}</code>
+                <code class="text-zinc-500 dark:text-zinc-400 text-xs">{{
+                  commit.sha
+                }}</code>
                 {{ commit.message }}
               </dd>
             </div>
@@ -237,7 +250,9 @@ useHead(() => ({
           <!-- Tweets -->
           <template v-if="yearData.tweets?.length">
             <div v-for="tweet in yearData.tweets" :key="tweet.id">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
+              <dt
+                class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-0.5"
+              >
                 tweet
                 <template v-if="tweet.replyTo">
                   <span class="text-zinc-300 dark:text-zinc-600">/</span>
@@ -249,7 +264,7 @@ useHead(() => ({
               </dd>
               <dd
                 v-if="tweet.favorites > 0 || tweet.retweets > 0"
-                class="text-xs font-mono text-zinc-400 mt-1"
+                class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-1"
               >
                 <span v-if="tweet.retweets > 0">{{ tweet.retweets }} rt</span>
                 <span v-if="tweet.retweets > 0 && tweet.favorites > 0">/</span>
@@ -263,7 +278,9 @@ useHead(() => ({
           <!-- Scrobbles -->
           <template v-if="yearData.scrobbles?.length">
             <div v-for="scrobble in yearData.scrobbles" :key="scrobble.date">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
+              <dt
+                class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-0.5"
+              >
                 music
                 <span class="text-zinc-300 dark:text-zinc-600">/</span>
                 {{ scrobble.count }} scrobbles
@@ -275,7 +292,7 @@ useHead(() => ({
               </dd>
               <dd
                 v-if="scrobble.topTracks?.length"
-                class="text-xs text-zinc-400 mt-1 font-mono"
+                class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-mono"
               >
                 <span
                   v-for="(track, i) in scrobble.topTracks.slice(0, 3)"

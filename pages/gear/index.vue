@@ -481,7 +481,9 @@ useHead(() => ({
                 {{ type.symbol }}
               </span>
               <div class="flex-1 min-w-0">
-                <div class="font-mono text-3xs text-zinc-400 truncate">
+                <div
+                  class="font-mono text-3xs text-zinc-500 dark:text-zinc-400 truncate"
+                >
                   {{ type.name }}
                 </div>
                 <div class="text-4xs text-muted tabular">
@@ -814,6 +816,6 @@ useHead(() => ({
 
 .gear-footer-date {
   @apply font-mono text-3xs uppercase tracking-[0.1em] mt-2;
-  @apply text-zinc-400 dark:text-zinc-600;
+  @apply text-zinc-500 dark:text-zinc-600;
 }
 </style>

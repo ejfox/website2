@@ -37,7 +37,7 @@ const conditionClass = (c: string) =>
   ({
     New: 'text-zinc-900 dark:text-zinc-100',
     Good: 'text-zinc-600 dark:text-zinc-400',
-    Fair: 'text-zinc-400 dark:text-zinc-600',
+    Fair: 'text-zinc-500 dark:text-zinc-600',
     Poor: 'text-zinc-300 dark:text-zinc-700',
   })[c] ?? 'text-zinc-500 dark:text-zinc-600'
 
@@ -60,7 +60,7 @@ const ageClass = (lastUsed: string) => {
   if (d === null || d >= 180) return 'text-zinc-300 dark:text-zinc-700'
   if (d < 7) return 'text-zinc-900 dark:text-zinc-100'
   if (d < 30) return 'text-zinc-500 dark:text-zinc-600'
-  return 'text-zinc-400 dark:text-zinc-600'
+  return 'text-zinc-500 dark:text-zinc-600'
 }
 
 // ── Amazon affiliate ─────────────────────────────────────
@@ -146,7 +146,7 @@ const affiliateUrl = (url: string) => {
   @apply hover:text-zinc-500 dark:hover:text-zinc-400;
 }
 .note-dot {
-  @apply text-zinc-400 dark:text-zinc-700 text-3xs;
+  @apply text-zinc-500 dark:text-zinc-700 text-3xs;
 }
 
 .cell-buy {
@@ -167,12 +167,12 @@ const affiliateUrl = (url: string) => {
   @apply tracking-tighter font-mono;
 }
 .empty {
-  @apply text-zinc-400 dark:text-zinc-800 text-3xs;
+  @apply text-zinc-500 dark:text-zinc-800 text-3xs;
 }
 
 .badge-orange-hover {
   @apply font-mono text-3xs uppercase tracking-wider px-1 py-0.5
-         text-orange-600 dark:text-orange-400
+         text-orange-700 dark:text-orange-400
          border border-orange-300 dark:border-orange-700
          hover:bg-orange-50 dark:hover:bg-orange-900/20
          transition-colors duration-150 no-underline;

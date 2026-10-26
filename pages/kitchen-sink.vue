@@ -304,7 +304,7 @@ function focusStep(dir) {
           @click="activeFolder = f.name"
         >
           {{ f.name }}
-          <span class="text-zinc-400 dark:text-zinc-600">{{ f.count }}</span>
+          <span class="text-zinc-500 dark:text-zinc-600">{{ f.count }}</span>
         </button>
         <span class="flex-1" />
         <button
@@ -343,7 +343,7 @@ function focusStep(dir) {
             class="sticky top-0 z-10 flex items-center justify-between px-3 py-0.5 bg-sunken border-b border-zinc-300 dark:border-zinc-700 text-3xs uppercase tracking-wider text-zinc-500"
           >
             <span>{{ group.folder }}</span>
-            <span class="text-zinc-400 dark:text-zinc-600">
+            <span class="text-zinc-500 dark:text-zinc-600">
               {{ group.items.length }}
             </span>
           </div>
@@ -358,7 +358,7 @@ function focusStep(dir) {
             <span class="text-xs truncate flex-1">
               <span
                 v-if="!entry.stories"
-                class="text-zinc-400 dark:text-zinc-600"
+                class="text-zinc-500 dark:text-zinc-600"
                 title="no story — add one in utils/kitchenSinkStories.js"
               >
                 *
@@ -382,7 +382,7 @@ function focusStep(dir) {
           class="h-full flex items-center justify-center px-6"
         >
           <p
-            class="text-2xs text-zinc-400 dark:text-zinc-600 text-center leading-5"
+            class="text-2xs text-zinc-500 dark:text-zinc-600 text-center leading-5"
           >
             hover a component to preview · click to pin
             <br />
@@ -439,7 +439,7 @@ function focusStep(dir) {
                 unpin
               </button>
             </div>
-            <div class="mt-0.5 text-2xs text-zinc-400 dark:text-zinc-600">
+            <div class="mt-0.5 text-2xs text-zinc-500 dark:text-zinc-600">
               <button
                 class="hover:underline underline-offset-2"
                 @click="copy(`components/${active.relPath}`, 'path')"
@@ -454,7 +454,7 @@ function focusStep(dir) {
               v-if="active.stories && active.stories.length > 1"
               class="mt-1 text-2xs text-zinc-500"
             >
-              <span class="text-zinc-400 dark:text-zinc-600">
+              <span class="text-zinc-500 dark:text-zinc-600">
                 variants&nbsp;
               </span>
               <button
@@ -482,7 +482,7 @@ function focusStep(dir) {
               />
               <div
                 v-else
-                class="text-2xs text-zinc-400 dark:text-zinc-600 py-8 text-center"
+                class="text-2xs text-zinc-500 dark:text-zinc-600 py-8 text-center"
               >
                 no story yet — add it in utils/kitchenSinkStories.js
               </div>
@@ -491,7 +491,7 @@ function focusStep(dir) {
             <!-- props -->
             <div v-if="activeStory" class="mt-5">
               <div
-                class="text-3xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600 border-b border-zinc-200 dark:border-zinc-800 pb-0.5 mb-1"
+                class="text-3xs uppercase tracking-wider text-zinc-500 dark:text-zinc-600 border-b border-zinc-200 dark:border-zinc-800 pb-0.5 mb-1"
               >
                 props
               </div>
@@ -503,7 +503,7 @@ function focusStep(dir) {
             <!-- source -->
             <div class="mt-5">
               <button
-                class="w-full text-left flex items-baseline justify-between text-3xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 border-b border-zinc-200 dark:border-zinc-800 pb-0.5"
+                class="w-full text-left flex items-baseline justify-between text-3xs uppercase tracking-wider text-zinc-500 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 border-b border-zinc-200 dark:border-zinc-800 pb-0.5"
                 @click="sourceOpen = !sourceOpen"
               >
                 <span>source · components/{{ active.relPath }}</span>
@@ -543,7 +543,7 @@ function focusStep(dir) {
   @apply hover:bg-zinc-900 dark:hover:bg-zinc-100;
 }
 .meta {
-  @apply text-3xs lowercase text-zinc-400 dark:text-zinc-600 shrink-0;
+  @apply text-3xs lowercase text-zinc-500 dark:text-zinc-600 shrink-0;
 }
 .row.on .meta {
   @apply text-zinc-300 dark:text-zinc-600;

@@ -264,7 +264,7 @@ usePageSeo({
                   .replace(/^https?:\/\//, '')
                   .replace(d.domain, '') || '/'
               }}
-              <span class="text-zinc-400">↗</span>
+              <span class="text-zinc-500 dark:text-zinc-400">↗</span>
             </a>
             <div
               v-if="domainGroups[d.domain].links[0].sources?.length"
@@ -313,7 +313,7 @@ usePageSeo({
                     .replace(/^https?:\/\//, '')
                     .replace(d.domain, '') || '/'
                 }}
-                <span class="text-zinc-400">↗</span>
+                <span class="text-zinc-500 dark:text-zinc-400">↗</span>
               </a>
               <div v-if="link.sources?.length" class="link-sources">
                 <NuxtLink
@@ -392,7 +392,7 @@ usePageSeo({
 
 .expand-icon {
   @apply w-4 h-4 flex items-center justify-center;
-  @apply text-zinc-400 font-mono text-sm;
+  @apply text-zinc-500 dark:text-zinc-400 font-mono text-sm;
 }
 
 .domain-header:hover .expand-icon {
@@ -444,7 +444,7 @@ usePageSeo({
 
 .search-icon {
   @apply absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4;
-  @apply text-zinc-400 pointer-events-none;
+  @apply text-zinc-500 dark:text-zinc-400 pointer-events-none;
 }
 
 .search-input {
@@ -458,7 +458,7 @@ usePageSeo({
 
 .clear-btn {
   @apply absolute right-2 top-1/2 -translate-y-1/2;
-  @apply text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300;
+  @apply text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300;
   @apply text-sm;
 }
 
@@ -494,7 +494,7 @@ usePageSeo({
 }
 
 .filtered-badge {
-  @apply ml-1 text-xs text-zinc-400;
+  @apply ml-1 text-xs text-zinc-500 dark:text-zinc-400;
 }
 
 .btn-ghost {

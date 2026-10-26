@@ -196,7 +196,9 @@ onMounted(() => {})
       <div class="space-y-2">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
           <div class="flex-none">
-            <span class="text-zinc-400 text-2xs tabular-nums">
+            <span
+              class="text-zinc-500 dark:text-zinc-400 text-2xs tabular-nums"
+            >
               {{ formatDateMinimal(test.timestamp) }}
             </span>
           </div>

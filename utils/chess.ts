@@ -6,7 +6,9 @@ export const formatRatingDiff = (diff: number): string => {
 }
 
 export const getRatingDiffClass = (diff: number): string => {
-  return diff > 0 ? 'text-zinc-600 dark:text-zinc-400' : 'text-red-500'
+  return diff > 0
+    ? 'text-zinc-600 dark:text-zinc-400'
+    : 'text-red-600 dark:text-red-500'
 }
 
 export type ChessTimeControl = 'bullet' | 'blitz' | 'rapid'

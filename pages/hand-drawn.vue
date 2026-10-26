@@ -436,7 +436,7 @@ useHead({
       <!-- header -->
       <header class="mb-20 max-w-prose">
         <p
-          class="text-xs uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-3"
+          class="text-xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-500 mb-3"
         >
           Hand-drawn asset kit
         </p>
@@ -447,7 +447,7 @@ useHead({
           <HandDrawn
             name="arrow-right-long"
             size="0.8em"
-            class="text-zinc-400"
+            class="text-zinc-500 dark:text-zinc-400"
           />
           as components
         </h1>
@@ -495,7 +495,7 @@ useHead({
                 <HandDrawn
                   name="arrow-right"
                   size="1.3rem"
-                  class="text-zinc-400 dark:text-zinc-500 mx-1"
+                  class="text-zinc-500 dark:text-zinc-500 mx-1"
                 />
                 <HandDrawnMark>one node process</HandDrawnMark>
               </span>
@@ -520,7 +520,7 @@ useHead({
               <HandDrawn
                 name="arrow-bend-down-right"
                 size="2.1rem"
-                class="text-zinc-400 dark:text-zinc-500 shrink-0"
+                class="text-zinc-500 dark:text-zinc-500 shrink-0"
               />
               <span class="text-base">
                 simple beats complex, working beats perfect
@@ -568,7 +568,7 @@ useHead({
                 v-if="i < flow.length - 1"
                 name="arrow-right"
                 size="1.6rem"
-                class="text-zinc-400"
+                class="text-zinc-500 dark:text-zinc-400"
               />
             </template>
           </div>
@@ -615,7 +615,7 @@ useHead({
               <span class="font-semibold">100</span>
               I want to make this year.
               <span
-                class="block text-3xs uppercase tracking-[0.16em] text-zinc-400 mt-3"
+                class="block text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 mt-3"
               >
                 my notes · 2024-01
               </span>
@@ -690,7 +690,7 @@ useHead({
                 :y="pct(note.cy, 'y')"
                 name="circle-md"
                 size="2.8rem"
-                class="text-zinc-400 dark:text-zinc-500"
+                class="text-zinc-500 dark:text-zinc-500"
               />
             </div>
           </Demo>
@@ -709,7 +709,7 @@ useHead({
                 >.
               </p>
               <div
-                class="hd-divider my-8 flex justify-center text-zinc-400 dark:text-zinc-600"
+                class="hd-divider my-8 flex justify-center text-zinc-500 dark:text-zinc-600"
               >
                 <HandDrawn name="bead-chain" size="14px" style="width: 132px" />
               </div>
@@ -757,14 +757,16 @@ then read the logs and move on.</code></pre>
         <div class="grid md:grid-cols-2 gap-x-12 gap-y-20">
           <!-- stat dashboard card: real blog numbers -->
           <div>
-            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">
+            <p
+              class="text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 mb-5"
+            >
               Stats dashboard
             </p>
             <div
               class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 w-full max-w-xs"
             >
               <div
-                class="text-3xs uppercase tracking-[0.15em] text-zinc-400 mb-5"
+                class="text-3xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400 mb-5"
               >
                 blog posts published
               </div>
@@ -775,7 +777,7 @@ then read the logs and move on.</code></pre>
                 <HandDrawn
                   name="arrow-up-thick"
                   size="1.7rem"
-                  class="text-zinc-400 dark:text-zinc-500"
+                  class="text-zinc-500 dark:text-zinc-500"
                 />
               </div>
               <hr class="my-5 border-zinc-100 dark:border-zinc-800" />
@@ -787,10 +789,12 @@ then read the logs and move on.</code></pre>
 
           <!-- analytics chart with a "what happened" annotation -->
           <div>
-            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">
+            <p
+              class="text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 mb-5"
+            >
               Analytics annotation
             </p>
-            <div class="relative w-full text-zinc-400 dark:text-zinc-500">
+            <div class="relative w-full text-zinc-500 dark:text-zinc-500">
               <svg :viewBox="`0 0 ${TR.w} ${TR.h}`" class="w-full">
                 <path :d="trendPath.area" fill="currentColor" opacity="0.12" />
                 <path
@@ -823,7 +827,9 @@ then read the logs and move on.</code></pre>
 
           <!-- prediction card: circled number as a confidence rating -->
           <div>
-            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">
+            <p
+              class="text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 mb-5"
+            >
               Prediction
             </p>
             <div class="relative px-9 py-8 w-full max-w-md">
@@ -834,7 +840,7 @@ then read the logs and move on.</code></pre>
               />
               <div class="relative">
                 <div
-                  class="text-3xs uppercase tracking-[0.15em] text-zinc-400 mb-3"
+                  class="text-3xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400 mb-3"
                 >
                   Prediction · resolves 2026
                 </div>
@@ -858,7 +864,9 @@ then read the logs and move on.</code></pre>
           <!-- changelog with circled version markers + inline "X → Y"
                arrows -->
           <div>
-            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">
+            <p
+              class="text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 mb-5"
+            >
               Changelog
             </p>
             <ol class="space-y-6 list-none pl-0">
@@ -879,7 +887,7 @@ then read the logs and move on.</code></pre>
                     <HandDrawn
                       name="arrow-right"
                       size="0.95rem"
-                      class="text-zinc-400 mx-1"
+                      class="text-zinc-500 dark:text-zinc-400 mx-1"
                     />
                     {{ r.to }}
                   </div>
@@ -908,13 +916,13 @@ then read the logs and move on.</code></pre>
                 <HandDrawn
                   name="arrow-up-thick"
                   size="1.4rem"
-                  class="text-zinc-400 dark:text-zinc-500 mx-1"
+                  class="text-zinc-500 dark:text-zinc-500 mx-1"
                 />
                 <HandDrawnMark>100</HandDrawnMark> </span
               >.
             </p>
             <figcaption
-              class="mt-6 text-3xs uppercase tracking-[0.16em] text-zinc-400"
+              class="mt-6 text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400"
             >
               my notes · 2024-01
             </figcaption>
@@ -929,7 +937,7 @@ then read the logs and move on.</code></pre>
               .
             </p>
             <figcaption
-              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400"
+              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400"
             >
               Personal APIs
             </figcaption>
@@ -944,7 +952,7 @@ then read the logs and move on.</code></pre>
               movie.
             </p>
             <figcaption
-              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400"
+              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400"
             >
               CLI tools
             </figcaption>
@@ -974,7 +982,7 @@ then read the logs and move on.</code></pre>
               .
             </p>
             <figcaption
-              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400"
+              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400"
             >
               CCRB officer clusters
             </figcaption>
@@ -996,7 +1004,7 @@ then read the logs and move on.</code></pre>
               .
             </blockquote>
             <figcaption
-              class="relative mt-6 text-center text-3xs uppercase tracking-[0.16em] text-zinc-400"
+              class="relative mt-6 text-center text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400"
             >
               Joy-Driven Development
             </figcaption>
@@ -1010,7 +1018,7 @@ then read the logs and move on.</code></pre>
               you need, you can teach yourself almost anything.
             </p>
             <figcaption
-              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400"
+              class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400"
             >
               Everyone Should Code
             </figcaption>
@@ -1031,7 +1039,7 @@ then read the logs and move on.</code></pre>
           <!-- ARROWS — grouped by the direction they actually point -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Arrows · pointed the way they point
             </h3>
@@ -1057,7 +1065,9 @@ then read the logs and move on.</code></pre>
 
             <!-- vertical: a down arrow resolves top→bottom, an up arrow
                  grows bottom→top -->
-            <div class="text-3xs font-medium text-zinc-400 mb-5">
+            <div
+              class="text-3xs font-medium text-zinc-500 dark:text-zinc-400 mb-5"
+            >
               downward · resolves to&nbsp;&nbsp;·&nbsp;&nbsp;upward · grew to
             </div>
             <div class="flex flex-wrap gap-x-9 gap-y-8 mb-12">
@@ -1079,7 +1089,9 @@ then read the logs and move on.</code></pre>
             </div>
 
             <!-- the non-linear rest, shown as themselves -->
-            <div class="text-3xs font-medium text-zinc-400 mb-4">
+            <div
+              class="text-3xs font-medium text-zinc-500 dark:text-zinc-400 mb-4"
+            >
               loops, turns &amp; sketchbook studies
             </div>
             <div class="flex flex-wrap items-end gap-x-8 gap-y-5">
@@ -1095,7 +1107,9 @@ then read the logs and move on.</code></pre>
                     class="text-zinc-700 dark:text-zinc-300"
                   />
                 </span>
-                <figcaption class="text-3xs font-mono text-zinc-400">
+                <figcaption
+                  class="text-3xs font-mono text-zinc-500 dark:text-zinc-400"
+                >
                   {{ name.replace('arrow-', '') }}
                 </figcaption>
               </figure>
@@ -1105,7 +1119,7 @@ then read the logs and move on.</code></pre>
           <!-- NUMERALS — real figures, hand-set digit by digit -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Numerals · real figures, hand-set
             </h3>
@@ -1153,7 +1167,7 @@ then read the logs and move on.</code></pre>
           <!-- NUMBER WORDS — real counts, spelled -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Number words · counts, spelled out
             </h3>
@@ -1179,7 +1193,7 @@ then read the logs and move on.</code></pre>
           <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
             <div>
               <h3
-                class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+                class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
               >
                 Circled · 11 tools shipped
               </h3>
@@ -1200,7 +1214,7 @@ then read the logs and move on.</code></pre>
             </div>
             <div>
               <h3
-                class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+                class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
               >
                 Bold circled · the changelog
               </h3>
@@ -1229,7 +1243,7 @@ then read the logs and move on.</code></pre>
                sheet -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Letters · labels, grades, nodes
             </h3>
@@ -1261,7 +1275,7 @@ then read the logs and move on.</code></pre>
                   v-if="i < boxedNodes.length - 1"
                   name="arrow-right"
                   size="1.2rem"
-                  class="text-zinc-400"
+                  class="text-zinc-500 dark:text-zinc-400"
                 />
               </template>
             </div>
@@ -1278,7 +1292,7 @@ then read the logs and move on.</code></pre>
           <!-- MAGNITUDES & BADGES -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Magnitudes & badges · real orders of magnitude
             </h3>
@@ -1303,7 +1317,7 @@ then read the logs and move on.</code></pre>
           <!-- FRAMES — a real line in every box; squares as labels -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Frames · a real line in every box
             </h3>
@@ -1346,7 +1360,7 @@ then read the logs and move on.</code></pre>
           <!-- TEXTURES & MARKS -->
           <div>
             <h3
-              class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+              class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
             >
               Textures & marks · marginalia
             </h3>
@@ -1386,7 +1400,7 @@ then read the logs and move on.</code></pre>
               <HandDrawn
                 name="mark-dash"
                 size="1.3em"
-                class="text-zinc-400 mx-1"
+                class="text-zinc-500 dark:text-zinc-400 mx-1"
               />
               no orchestration.
             </p>
@@ -1455,7 +1469,9 @@ then read the logs and move on.</code></pre>
             </div>
 
             <!-- bead-chain divider -->
-            <div class="flex justify-center my-9 text-zinc-400">
+            <div
+              class="flex justify-center my-9 text-zinc-500 dark:text-zinc-400"
+            >
               <HandDrawn name="bead-chain" size="14px" style="width: 160px" />
             </div>
 
@@ -1513,7 +1529,7 @@ then read the logs and move on.</code></pre>
 
         <div v-for="group in groups" :key="group.group" class="mb-16">
           <h3
-            class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
+            class="text-xs uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2"
           >
             {{ group.label }}
             <span class="text-zinc-300 dark:text-zinc-600">
@@ -1524,7 +1540,7 @@ then read the logs and move on.</code></pre>
           <div v-for="sg in group.subs" :key="sg.sub" class="mb-7">
             <div
               v-if="group.subs.length > 1"
-              class="text-3xs font-medium text-zinc-400 dark:text-zinc-500 mb-3 pl-1"
+              class="text-3xs font-medium text-zinc-500 dark:text-zinc-500 mb-3 pl-1"
             >
               {{ sg.label }}
             </div>
@@ -1542,7 +1558,7 @@ then read the logs and move on.</code></pre>
                   <HandDrawn :name="a.name" size="2.6rem" />
                 </div>
                 <span
-                  class="text-3xs font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-3 break-all"
+                  class="text-3xs font-mono text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-3 break-all"
                 >
                   {{ copied === a.name ? 'copied!' : a.name }}
                 </span>

@@ -74,7 +74,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         // Add sort indicator
         const sortIndicator = document.createElement('span')
-        sortIndicator.className = 'ml-1 text-zinc-400'
+        sortIndicator.className = 'ml-1 text-zinc-500 dark:text-zinc-400'
         sortIndicator.style.fontFamily = 'monospace'
         sortIndicator.textContent = '↕'
         th.appendChild(sortIndicator)

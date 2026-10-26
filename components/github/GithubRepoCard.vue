@@ -121,7 +121,7 @@ withDefaults(defineProps<Props>(), {
 }
 
 .network-glyph {
-  @apply w-3 h-3 text-zinc-400 dark:text-zinc-500;
+  @apply w-3 h-3 text-zinc-500 dark:text-zinc-500;
   fill: currentColor;
   stroke: currentColor;
   stroke-opacity: 0.6;
@@ -153,6 +153,6 @@ withDefaults(defineProps<Props>(), {
 /* Separator between stats */
 .stat:not(:last-child)::after {
   content: '·';
-  @apply ml-4 text-zinc-400 dark:text-zinc-600;
+  @apply ml-4 text-zinc-500 dark:text-zinc-600;
 }
 </style>
