@@ -8,7 +8,9 @@ import {
   readVueBody,
   statsFromHtml,
   toVueTemplateHtml,
+  fromVueTemplateHtml,
 } from '../vue-body.mjs'
+import { compileTemplate } from '@vue/compiler-sfc'
 import { auditInternalLinks, buildValidRoutes } from '../internal-links.mjs'
 
 const page = (body) =>
@@ -23,7 +25,9 @@ describe('vue-body', () => {
     root = await fs.mkdtemp(path.join(os.tmpdir(), 'vuebody-'))
     contentDir = path.join(root, 'content', 'blog')
     await fs.mkdir(path.join(contentDir, '2025'), { recursive: true })
-    await fs.mkdir(path.join(root, 'pages', 'blog', '2025'), { recursive: true })
+    await fs.mkdir(path.join(root, 'pages', 'blog', '2025'), {
+      recursive: true,
+    })
     await fs.writeFile(
       path.join(contentDir, '2025', 'big.md'),
       '---\ntitle: Big\nbody: vue\n---\n'
@@ -75,6 +79,25 @@ describe('vue-body', () => {
     expect(toVueTemplateHtml('<code>{{ x }}</code>')).toBe(
       '<code>&#123;&#123; x &#125;&#125;</code>'
     )
+  })
+
+  it('binds srcset so Nuxt does not turn Cloudinary commas into imports', () => {
+    const src =
+      '<img srcset="https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,w_640/x.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,w_960/x.png 960w">'
+    const vue = toVueTemplateHtml(src)
+    // Same options Nuxt uses: includeAbsolute turns static srcset into imports
+    const { code } = compileTemplate({
+      source: vue,
+      filename: 'p.vue',
+      id: 'p',
+      transformAssetUrls: { includeAbsolute: true },
+    })
+    expect(code).not.toMatch(/import .* from '(?!vue)/)
+    expect(fromVueTemplateHtml(vue)).toBe(src)
+  })
+
+  it('entity-encodes non-breaking spaces', () => {
+    expect(toVueTemplateHtml('a\u00a0b')).toBe('a&#160;b')
   })
 
   it('audits links in the Vue page and points at the .vue file', async () => {

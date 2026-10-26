@@ -359,7 +359,10 @@ export async function auditInternalLinks(files, contentDir) {
     let lineSource = raw
     let lineOffset = bodyOffset
     if (matter(raw).data.body === 'vue') {
-      const vue = readVueBody(rel.replace(/\.md$/, ''), path.dirname(path.dirname(contentDir)))
+      const vue = readVueBody(
+        rel.replace(/\.md$/, ''),
+        path.dirname(path.dirname(contentDir))
+      )
       if (vue) {
         reportSource = path.relative(process.cwd(), vue.file)
         lineSource = vue.raw

@@ -17,11 +17,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { execFileSync } from 'node:child_process'
 import matter from 'gray-matter'
-import {
-  BODY_END,
-  BODY_START,
-  toVueTemplateHtml,
-} from '../utils/vue-body.mjs'
+import { BODY_END, BODY_START, toVueTemplateHtml } from '../utils/vue-body.mjs'
 
 const slug = process.argv[2]
 if (!slug) {
@@ -66,7 +62,10 @@ const source = readFileSync(mdPath, 'utf8')
 const fm = matter(source).data
 if (fm.body === 'vue') fail('Already crowned (body: vue): ' + mdPath)
 for (const key of ['draft', 'hidden', 'unlisted', 'password', 'passwordHash']) {
-  if (fm[key]) fail(`${mdPath} has ${key}: crowning would publish its text in the JS bundle.`)
+  if (fm[key])
+    fail(
+      `${mdPath} has ${key}: crowning would publish its text in the JS bundle.`
+    )
 }
 const goesLive = fm.publishAt || fm.date
 if (goesLive && new Date(goesLive) > new Date()) {
@@ -74,12 +73,15 @@ if (goesLive && new Date(goesLive) > new Date()) {
 }
 
 const jsonPath = join('content', 'processed', ...slugParts) + '.json'
-if (!existsSync(jsonPath)) fail('No ' + jsonPath + ' yet — run yarn blog:process first.')
+if (!existsSync(jsonPath))
+  fail('No ' + jsonPath + ' yet — run yarn blog:process first.')
 const processed = JSON.parse(readFileSync(jsonPath, 'utf8'))
 let bodyHtml = (processed.html || '').replace(/ class=""/g, '')
 if (!bodyHtml.trim()) fail(jsonPath + ' has no HTML.')
 if (/<script\b/i.test(bodyHtml)) {
-  fail('The post has a <script> tag; Vue templates drop those. Move it into the page by hand.')
+  fail(
+    'The post has a <script> tag; Vue templates drop those. Move it into the page by hand.'
+  )
 }
 // Vue drops <style> in templates too; <component is="style"> renders one.
 bodyHtml = toVueTemplateHtml(bodyHtml)
@@ -94,7 +96,6 @@ const lines = [
   ' * Hue: ' + hue + ' | Scaffolded with: yarn crown ' + slug,
   ' */',
   '',
-  "import { useIntersectionObserver } from '@vueuse/core'",
   "import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'",
   "import PostNav from '~/components/blog/post/PostNav.vue'",
   "import PostRelated from '~/components/blog/post/PostRelated.vue'",
@@ -102,7 +103,7 @@ const lines = [
   '',
   'const {',
   '  post, nextPrevPosts, relatedPosts, readingStats,',
-  '  postTitle, postUrl, articleTags,',
+  '  postUrl, articleTags,',
   '  renderedTitle, startAnimation,',
   '  palette,',
   '} = await useCrownedPost({',
@@ -358,7 +359,13 @@ writeFileSync(
 )
 
 console.log('')
-console.log('  \u2728 Crowned: ' + outPath + '  (prose moved; ' + mdPath + ' is now a stub)')
+console.log(
+  '  \u2728 Crowned: ' +
+    outPath +
+    '  (prose moved; ' +
+    mdPath +
+    ' is now a stub)'
+)
 console.log('')
 console.log('  Hue: ' + hue + '  |  Body class: ' + bodyClass)
 console.log('  Edit the file to add your spectacle.')

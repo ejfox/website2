@@ -45,7 +45,11 @@ import {
 } from '../plugins/index.mjs'
 
 import { getPostType } from '../utils/helpers.mjs'
-import { readVueBody, statsFromHtml } from '../utils/vue-body.mjs'
+import {
+  fromVueTemplateHtml,
+  readVueBody,
+  statsFromHtml,
+} from '../utils/vue-body.mjs'
 import {
   buildValidRoutes,
   auditInternalLinks,
@@ -191,6 +195,19 @@ async function fixLinkInSourceFile(link, source, contentDir) {
 const hashSource = (content) =>
   createHash('sha256').update(content).digest('hex')
 
+const normalizeSlug = (slug) => {
+  // Strip leading 'blog/' prefix if it exists
+  return slug.startsWith('blog/') ? slug.slice(5) : slug
+}
+
+/**
+ * The canonical slug for a source file — the same derivation that names its
+ * processed JSON and its URL. Written out by hand in six places before this,
+ * which is six chances for one of them to disagree about what a post is called.
+ */
+const slugForFile = (filePath) =>
+  normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
+
 /**
  * What a post's cache key covers. For a `body: vue` post the prose lives in
  * its Vue page, so an edit there must invalidate the JSON too.
@@ -259,19 +276,6 @@ async function writeProcessedResult(result, outputPath) {
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
   await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
 }
-
-const normalizeSlug = (slug) => {
-  // Strip leading 'blog/' prefix if it exists
-  return slug.startsWith('blog/') ? slug.slice(5) : slug
-}
-
-/**
- * The canonical slug for a source file — the same derivation that names its
- * processed JSON and its URL. Written out by hand in six places before this,
- * which is six chances for one of them to disagree about what a post is called.
- */
-const slugForFile = (filePath) =>
-  normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
 
 const processor = unified()
   .use(remarkParse)
@@ -463,7 +467,7 @@ function processVueBodyPost(content, filePath, frontmatter) {
   if (frontmatter.password || frontmatter.passwordHash) {
     throw new Error(`${slug}: a body: vue post can't be password-protected`)
   }
-  const html = body.html.trim()
+  const html = fromVueTemplateHtml(body.html.trim())
   const { toc, stats } = statsFromHtml(html)
   const { password: _rawPassword, ...safeFrontmatter } = frontmatter
   return {

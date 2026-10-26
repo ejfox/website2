@@ -4,7 +4,6 @@
  * Hue: 30 | Scaffolded with: yarn crown 2025/hidden-networks-of-warmth
  */
 
-import { useIntersectionObserver } from '@vueuse/core'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
@@ -15,7 +14,6 @@ const {
   nextPrevPosts,
   relatedPosts,
   readingStats,
-  postTitle,
   postUrl,
   articleTags,
   renderedTitle,
@@ -186,10 +184,10 @@ onMounted(() => {
             wood stove. All winter long, warmth has been hard to find. Lately,
             despite how cold it is, I have been resisting the urge to light the
             fire until the sunset lights up the trees. As I feel the temperature
-            drop, I <em>finally</em> let myself light the fire. I apply the
-            lighter to the carefully designed structure of kindling, which is
-            eager to burn, so I only have to hold the flame to it for a few
-            seconds. Then I can sit back and watch the fire grow.
+            drop, I&#160;<em>finally</em>&#160;let myself light the fire. I
+            apply the lighter to the carefully designed structure of kindling,
+            which is eager to burn, so I only have to hold the flame to it for a
+            few seconds. Then I can sit back and watch the fire grow.
           </p>
           <p>
             There is a pride, an inner warmth you gain when you sit by a
@@ -280,12 +278,7 @@ onMounted(() => {
               alt="Gear System"
               loading="lazy"
               decoding="async"
-              srcset="
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1731960044/gear-viz.r1.png   640w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1731960044/gear-viz.r1.png   960w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1731960044/gear-viz.r1.png 1280w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1731960044/gear-viz.r1.png 1920w
-              "
+              :srcset="'https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1731960044/gear-viz.r1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1731960044/gear-viz.r1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1731960044/gear-viz.r1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1731960044/gear-viz.r1.png 1920w'"
               sizes="(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px"
               title="Gear System"
               width="3840"
@@ -357,12 +350,7 @@ onMounted(() => {
               alt="https://res.cloudinary.com/ejf/image/upload/v1733760764/arena/arena-32817026.jpg"
               loading="lazy"
               decoding="async"
-              srcset="
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1733760764/arena/arena-32817026.jpg   640w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1733760764/arena/arena-32817026.jpg   960w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1733760764/arena/arena-32817026.jpg 1280w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1733760764/arena/arena-32817026.jpg 1920w
-              "
+              :srcset="'https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1733760764/arena/arena-32817026.jpg 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1733760764/arena/arena-32817026.jpg 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1733760764/arena/arena-32817026.jpg 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1733760764/arena/arena-32817026.jpg 1920w'"
               sizes="(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px"
               width="1772"
               height="1772"
@@ -419,12 +407,7 @@ onMounted(() => {
               alt="https://res.cloudinary.com/ejf/image/upload/v1733093033/arena/arena-10075114.jpg"
               loading="lazy"
               decoding="async"
-              srcset="
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1733093033/arena/arena-10075114.jpg   640w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1733093033/arena/arena-10075114.jpg   960w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1733093033/arena/arena-10075114.jpg 1280w,
-                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1733093033/arena/arena-10075114.jpg 1920w
-              "
+              :srcset="'https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1733093033/arena/arena-10075114.jpg 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1733093033/arena/arena-10075114.jpg 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1733093033/arena/arena-10075114.jpg 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1733093033/arena/arena-10075114.jpg 1920w'"
               sizes="(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px"
               width="1696"
               height="1280"

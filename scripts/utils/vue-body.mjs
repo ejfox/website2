@@ -47,7 +47,9 @@ const stripTags = (html) =>
 
 /** The same stats processMarkdown computes from markdown, from HTML instead */
 export function statsFromHtml(html) {
-  const headings = [...html.matchAll(/<h([2-4])[^>]*\sid="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/gi)]
+  const headings = [
+    ...html.matchAll(/<h([2-4])[^>]*\sid="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/gi),
+  ]
   const toc = []
   const stack = []
   for (const [, depth, slug, inner] of headings) {
@@ -57,13 +59,15 @@ export function statsFromHtml(html) {
       level: `h${depth}`,
       children: [],
     }
-    while (stack.length && stack[stack.length - 1].level >= item.level) stack.pop()
+    while (stack.length && stack[stack.length - 1].level >= item.level)
+      stack.pop()
     if (stack.length) stack[stack.length - 1].children.push(item)
     else toc.push(item)
     stack.push(item)
   }
   const images = (html.match(/<img\b/gi) || []).length
-  const cloudinary = (html.match(/<img\b[^>]*res\.cloudinary\.com/gi) || []).length
+  const cloudinary = (html.match(/<img\s[^>]*res\.cloudinary\.com/gi) || [])
+    .length
   return {
     toc,
     stats: {
@@ -81,9 +85,34 @@ export function statsFromHtml(html) {
 }
 
 /**
- * Make rendered HTML safe to paste into a Vue <template>: Vue would read
- * `{{ … }}` in prose or code as an expression. An entity renders the same.
+ * Make rendered HTML safe to paste into a Vue <template>:
+ * - `{{ … }}` in prose or code would be read as an expression; an entity
+ *   renders the same.
+ * - Nuxt compiles templates with `includeAbsolute`, so a static `srcset` is
+ *   split on commas and each piece becomes an import. Cloudinary URLs are full
+ *   of commas (`c_scale,f_auto,…`), which broke the build with
+ *   `failed to resolve import "f_auto"`. A bound string isn't transformed.
+ * - Non-breaking/odd spaces trip eslint's no-irregular-whitespace; an entity
+ *   renders the same.
  */
 export function toVueTemplateHtml(html) {
-  return html.replace(/\{\{/g, '&#123;&#123;').replace(/\}\}/g, '&#125;&#125;')
+  return html
+    .replace(/\{\{/g, '&#123;&#123;')
+    .replace(/\}\}/g, '&#125;&#125;')
+    .replace(
+      /\ssrcset="([^"]*)"/g,
+      (_, v) => ` :srcset="'${v.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'"`
+    )
+    .replace(
+      /[\u00A0\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g,
+      (c) => `&#${c.codePointAt(0)};`
+    )
+}
+
+/** Undo the template-only bits so feeds and search get plain HTML */
+export function fromVueTemplateHtml(html) {
+  return html.replace(
+    /\s:srcset="'((?:[^'\\]|\\.)*)'"/g,
+    (_, v) => ` srcset="${v.replace(/\\(.)/g, '$1')}"`
+  )
 }
