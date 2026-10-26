@@ -66,10 +66,18 @@ onMounted(() => {
         const isMedia = ['img', 'figure'].includes(tag)
         const isQuote = tag === 'blockquote'
 
+        // Splayed images rest at a tilt (--splay-rot, global.css). Ease INTO it:
+        // an inline scale() would override the tilt and snap back at the end.
+        const restRot = isMedia
+          ? Number.parseFloat(
+              getComputedStyle(el).getPropertyValue('--splay-rot')
+            ) || 0
+          : 0
+
         el.style.opacity = '0'
         if (isHeading) el.style.transform = 'translateX(-20px)'
         else if (isMedia) {
-          el.style.transform = 'scale(0.97)'
+          el.style.transform = 'rotate(0deg) scale(0.97)'
           el.style.filter = 'blur(4px)'
         } else if (isQuote) el.style.transform = 'translateX(20px)'
         else el.style.transform = 'translateY(12px)'
@@ -96,10 +104,11 @@ onMounted(() => {
             else if (isMedia)
               animate(el, {
                 opacity: [0, 1],
+                rotate: [0, restRot],
                 scale: [0.97, 1],
                 filter: ['blur(4px)', 'blur(0px)'],
-                duration: 600,
-                ease: 'outQuad',
+                duration: 900,
+                ease: 'outCubic',
                 onComplete: cleanup,
               })
             else if (isQuote)
