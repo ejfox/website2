@@ -66,20 +66,12 @@ onMounted(() => {
         const isMedia = ['img', 'figure'].includes(tag)
         const isQuote = tag === 'blockquote'
 
-        // Splayed images rest at a tilt (--splay-rot, global.css). Ease INTO it:
-        // an inline scale() would override the tilt and snap back at the end.
-        const restRot = isMedia
-          ? Number.parseFloat(
-              getComputedStyle(el).getPropertyValue('--splay-rot')
-            ) || 0
-          : 0
-
         el.style.opacity = '0'
+        // Media only fades: images rest at a CSS tilt (--splay-rot), and any
+        // inline transform would fight it and visibly rotate the image.
         if (isHeading) el.style.transform = 'translateX(-20px)'
-        else if (isMedia) {
-          el.style.transform = 'rotate(0deg) scale(0.97)'
-          el.style.filter = 'blur(4px)'
-        } else if (isQuote) el.style.transform = 'translateX(20px)'
+        else if (isMedia) el.style.filter = 'blur(4px)'
+        else if (isQuote) el.style.transform = 'translateX(20px)'
         else el.style.transform = 'translateY(12px)'
 
         const obs = new IntersectionObserver(
@@ -104,11 +96,9 @@ onMounted(() => {
             else if (isMedia)
               animate(el, {
                 opacity: [0, 1],
-                rotate: [0, restRot],
-                scale: [0.97, 1],
                 filter: ['blur(4px)', 'blur(0px)'],
-                duration: 900,
-                ease: 'outCubic',
+                duration: 700,
+                ease: 'outQuad',
                 onComplete: cleanup,
               })
             else if (isQuote)
