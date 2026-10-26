@@ -183,7 +183,11 @@ const linkClasses =
  */
 .layout-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax(0, 1fr), not 1fr (= minmax(auto, 1fr)): a bare 1fr lets no-wrap
+     content set the column's minimum. The post metadata bar's "EDITED …" date
+     did exactly that on phones: it widened the column to ~500px after
+     hydration, overflowing the screen and reflowing the dek (CLS 0.23). */
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto 1fr;
   grid-template-areas:
     'bar'
