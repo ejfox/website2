@@ -44,31 +44,6 @@ export function isJunkAlt(alt) {
 }
 
 // ---------------------------------------------------------------------------
-// Deterministic "splayed on a table" transforms — rotation/scale derived from
-// a stable hash of the image src so each image picks its own angle and stays
-// put across reloads.
-// ---------------------------------------------------------------------------
-
-function hashString(str) {
-  let h = 2166136261
-  for (let i = 0; i < str.length; i++) {
-    h ^= str.charCodeAt(i)
-    h = Math.imul(h, 16777619)
-  }
-  return h >>> 0
-}
-
-function splayTransform(src) {
-  const h = hashString(src)
-  // Rotation: ±3°, biased away from zero so nothing sits perfectly square
-  const rotRaw = ((h & 0xffff) / 0xffff) * 6 - 3
-  const rotation = rotRaw >= 0 ? Math.max(rotRaw, 0.6) : Math.min(rotRaw, -0.6)
-  return {
-    rotation: Number(rotation.toFixed(2)),
-  }
-}
-
-// ---------------------------------------------------------------------------
 // Video embeds — markdown image syntax pointing at a video file becomes a
 // muted looping <video> (gif-replacement, not a player). Without this, the
 // pipeline emits <img src="….mp4"> which browsers render as a broken/blurred
@@ -461,14 +436,7 @@ export function remarkEnhanceImages() {
         }
 
         if (isEnhanced) {
-          const classes = ['img-full', 'my-8', 'rounded-sm', 'img-splay']
-
-          const { rotation } = splayTransform(originalUrl)
-          const splayStyle = `--splay-rot:${rotation}deg;`
-          const currentStyle = node.data.hProperties.style || ''
-          const joiner =
-            currentStyle && !currentStyle.trim().endsWith(';') ? ';' : ''
-          node.data.hProperties.style = `${currentStyle}${joiner}${splayStyle}`
+          const classes = ['img-full', 'my-8', 'rounded-sm']
 
           const width = cloudMeta?.width || enhanced.width
           const height = cloudMeta?.height || enhanced.height
