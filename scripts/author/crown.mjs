@@ -1,14 +1,27 @@
 #!/usr/bin/env node
 /**
- * Crown a blog post — scaffold a Vue page takeover.
+ * Crown a blog post — graduate it into its own Vue page.
+ *
+ * The post's rendered HTML moves into pages/blog/<slug>.vue between
+ * <!-- post-body --> markers, and the .md shrinks to its frontmatter plus
+ * `body: vue`. From then on the Vue file IS the post: write prose, charts and
+ * interactions there. The stub keeps it in listings, tags and feeds
+ * (processMarkdown reads the marked region back out; see utils/vue-body.mjs).
  *
  * Usage:
- *   yarn crown 2024/the-mystery-of-peter-todd
+ *   yarn crown 2025/hidden-networks-of-warmth
  *   yarn crown 2026/my-new-post --hue 200
  */
 
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
+import { execFileSync } from 'node:child_process'
+import matter from 'gray-matter'
+import {
+  BODY_END,
+  BODY_START,
+  toVueTemplateHtml,
+} from '../utils/vue-body.mjs'
 
 const slug = process.argv[2]
 if (!slug) {
@@ -38,10 +51,40 @@ if (existsSync(outPath)) {
   process.exit(1)
 }
 
-const mdPath = join('content', 'blog', ...slugParts) + '.md'
-if (!existsSync(mdPath)) {
-  console.warn('Warning: ' + mdPath + ' not found — post may not exist yet')
+const fail = (msg) => {
+  console.error(msg)
+  process.exit(1)
 }
+
+const mdPath = join('content', 'blog', ...slugParts) + '.md'
+if (!existsSync(mdPath)) fail('No such post: ' + mdPath)
+if (slugParts[0] === 'private') fail('Sealed posts stay sealed; not crowning.')
+
+// The prose ends up in the page's JS bundle, which anyone can read. So only
+// crown a post whose text is already allowed to be public.
+const source = readFileSync(mdPath, 'utf8')
+const fm = matter(source).data
+if (fm.body === 'vue') fail('Already crowned (body: vue): ' + mdPath)
+for (const key of ['draft', 'hidden', 'unlisted', 'password', 'passwordHash']) {
+  if (fm[key]) fail(`${mdPath} has ${key}: crowning would publish its text in the JS bundle.`)
+}
+const goesLive = fm.publishAt || fm.date
+if (goesLive && new Date(goesLive) > new Date()) {
+  fail(`${mdPath} is scheduled for ${goesLive}; crown it after it's live.`)
+}
+
+const jsonPath = join('content', 'processed', ...slugParts) + '.json'
+if (!existsSync(jsonPath)) fail('No ' + jsonPath + ' yet — run yarn blog:process first.')
+const processed = JSON.parse(readFileSync(jsonPath, 'utf8'))
+let bodyHtml = (processed.html || '').replace(/ class=""/g, '')
+if (!bodyHtml.trim()) fail(jsonPath + ' has no HTML.')
+if (/<script\b/i.test(bodyHtml)) {
+  fail('The post has a <script> tag; Vue templates drop those. Move it into the page by hand.')
+}
+// Vue drops <style> in templates too; <component is="style"> renders one.
+bodyHtml = toVueTemplateHtml(bodyHtml)
+  .replace(/<style\b/gi, '<component is="style"')
+  .replace(/<\/style>/gi, '</component>')
 
 // Build the template as an array of lines to avoid template-in-template issues
 const lines = [
@@ -68,6 +111,7 @@ const lines = [
   '  hue: ' + hue + ',',
   "  fallbackTitle: '" + titleCase + "',",
   '})',
+  "if (!post.value) throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })",
   '',
   '// --- Your state here ---',
   'const articleContent = ref(null)',
@@ -150,7 +194,12 @@ const lines = [
   '',
   '      <!-- ===== CONTENT ===== -->',
   '      <div ref="articleContent" class="crowned-body">',
-  '        <div v-if="post?.html" class="blog-post-content e-content font-serif" v-html="post.html" />',
+  '        <!-- The post. Edit the prose here; drop components in anywhere. -->',
+  '        <div class="blog-post-content e-content font-serif">',
+  BODY_START,
+  bodyHtml,
+  BODY_END,
+  '        </div>',
   '      </div>',
   '',
   '      <!-- Tags -->',
@@ -290,9 +339,26 @@ const lines = [
 
 mkdirSync(dirname(outPath), { recursive: true })
 writeFileSync(outPath, lines.join('\n'), 'utf-8')
+try {
+  execFileSync('npx', ['prettier', '--write', outPath], { stdio: 'ignore' })
+} catch {
+  console.warn('  (prettier failed; the page is unformatted but fine)')
+}
+
+// The .md keeps its frontmatter verbatim (no re-serialization drift) plus
+// `body: vue`; the prose now lives only in the page.
+const fmEnd = source.indexOf('\n---', 3)
+writeFileSync(
+  mdPath,
+  source.slice(0, fmEnd) +
+    // A title that came from the body's first heading would vanish with it.
+    (fm.title ? '' : '\ntitle: ' + JSON.stringify(processed.title)) +
+    '\nbody: vue\n---\n',
+  'utf-8'
+)
 
 console.log('')
-console.log('  \u2728 Crowned: ' + outPath)
+console.log('  \u2728 Crowned: ' + outPath + '  (prose moved; ' + mdPath + ' is now a stub)')
 console.log('')
 console.log('  Hue: ' + hue + '  |  Body class: ' + bodyClass)
 console.log('  Edit the file to add your spectacle.')

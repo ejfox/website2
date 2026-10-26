@@ -380,6 +380,28 @@ renders it to inline SVG **at build time** with [Pele](https://pele.run)
 - The processing cache keys on source hash, so a renderer change only reaches
   old posts when they're reprocessed (`yarn blog:process` after clearing their JSON).
 
+## Crowned posts — the Vue page IS the post (2026-10-26)
+
+Big posts graduate out of markdown. `yarn crown 2025/slug [--hue N]` (also
+Dispatch's "Convert to Vue Page" button, which just runs it) moves the post's
+rendered HTML into `pages/blog/<slug>.vue` between `<!-- post-body -->` and
+`<!-- /post-body -->`, and shrinks the `.md` to its frontmatter plus
+`body: vue`. From then on EJ writes prose, charts and interactions directly in
+the `.vue` — there is no markdown copy to drift.
+
+- The stub keeps the post in the manifest, listings, tags, feeds and the
+  `isScheduled()` gates. `processMarkdown` reads the marked region back out
+  (`scripts/utils/vue-body.mjs`) for the feed HTML, word count, TOC and search,
+  and the cache hash covers the Vue region, so editing the page reprocesses it.
+- The internal-link audit scans the region's `href`s and reports lines in the
+  `.vue` file. Keep prose inside the markers or those checks can't see it.
+- Crown refuses drafts, hidden/unlisted/password/sealed and scheduled posts:
+  the prose ships in the page's JS bundle, so only crown public text.
+- `{{`/`}}` in prose are entity-escaped; `<style>` becomes
+  `<component is="style">`; a `<script>` in the body is refused.
+- Peter Todd (`pages/blog/2024/the-mystery-of-peter-todd.vue`) predates this
+  and still loads its `.md` via `v-html`.
+
 ## Dead Internal Link Detection (2026-06-29)
 
 Two separate link-health systems — don't confuse them:

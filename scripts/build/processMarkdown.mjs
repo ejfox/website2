@@ -45,6 +45,7 @@ import {
 } from '../plugins/index.mjs'
 
 import { getPostType } from '../utils/helpers.mjs'
+import { readVueBody, statsFromHtml } from '../utils/vue-body.mjs'
 import {
   buildValidRoutes,
   auditInternalLinks,
@@ -191,6 +192,15 @@ const hashSource = (content) =>
   createHash('sha256').update(content).digest('hex')
 
 /**
+ * What a post's cache key covers. For a `body: vue` post the prose lives in
+ * its Vue page, so an edit there must invalidate the JSON too.
+ */
+const cacheSource = (content, filePath) => {
+  if (!/^body:\s*['"]?vue['"]?\s*$/m.test(content)) return content
+  return content + (readVueBody(slugForFile(filePath))?.html ?? '')
+}
+
+/**
  * Is the processed JSON a valid cache of this source?
  *
  * Keyed on a content hash, NOT mtimes. mtimes are meaningless on a fresh
@@ -205,7 +215,8 @@ function getFileCacheStatus(filePath, outputPath) {
     const cached = JSON.parse(readFileSync(outputPath, 'utf-8'))
     const fresh =
       cached?.cacheVersion === CACHE_VERSION &&
-      cached?.sourceHash === hashSource(readFileSync(filePath, 'utf8'))
+      cached?.sourceHash ===
+        hashSource(cacheSource(readFileSync(filePath, 'utf8'), filePath))
     return fresh ? 'cache' : 'process'
   } catch {
     return 'process'
@@ -308,6 +319,9 @@ async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
+    if (frontmatter.body === 'vue') {
+      return processVueBodyPost(content, filePath, frontmatter)
+    }
     const ast = processor.parse(markdownContent)
     const titleHeading = dropTitleHeading(ast, frontmatter.title)
 
@@ -412,7 +426,7 @@ async function processMarkdown(content, filePath) {
 
     return {
       cacheVersion: CACHE_VERSION,
-      sourceHash: hashSource(content),
+      sourceHash: hashSource(cacheSource(content, filePath)),
       html,
       title: extractedTitle,
       metadata: {
@@ -429,6 +443,41 @@ async function processMarkdown(content, filePath) {
     console.error(chalk.red(`\n[ERROR] Failed processing ${filename}:`))
     console.error(chalk.red(error.message))
     throw error
+  }
+}
+
+/**
+ * A graduated post (`body: vue`, see scripts/utils/vue-body.mjs): the HTML is
+ * whatever EJ wrote between the markers in its Vue page. Same output shape as
+ * processMarkdown, so listings, feeds and search can't tell the difference.
+ */
+function processVueBodyPost(content, filePath, frontmatter) {
+  const slug = slugForFile(filePath)
+  const body = readVueBody(slug)
+  if (!body) {
+    throw new Error(
+      `${slug}: frontmatter says body: vue, but pages/blog/${slug}.vue is missing or has no <!-- post-body --> markers`
+    )
+  }
+  // The prose ships in the page's JS bundle, so a password can't hide it.
+  if (frontmatter.password || frontmatter.passwordHash) {
+    throw new Error(`${slug}: a body: vue post can't be password-protected`)
+  }
+  const html = body.html.trim()
+  const { toc, stats } = statsFromHtml(html)
+  const { password: _rawPassword, ...safeFrontmatter } = frontmatter
+  return {
+    cacheVersion: CACHE_VERSION,
+    sourceHash: hashSource(cacheSource(content, filePath)),
+    html,
+    title: frontmatter.title || formatTitle(path.basename(filePath, '.md')),
+    metadata: {
+      ...safeFrontmatter,
+      ...stats,
+      toc,
+      type: safeFrontmatter.type || getPostType(filePath),
+      ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
+    },
   }
 }
 

@@ -11,6 +11,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import { readVueBody } from './vue-body.mjs'
 
 // ---------------------------------------------------------------------------
 // Wikilink / href resolution (canonical — imported by remarkObsidianSupport)
@@ -204,6 +205,9 @@ export function classifyInternalHref(href) {
 
 const WIKILINK_RE = /\[\[([^\]]+)\]\]/g
 // [text](target) — the (?<!!) skips images (![alt](src)); optional "title" tail.
+/** Root-relative hrefs in rendered HTML (crowned posts) */
+const HREF_RE = /\shref="(\/[^"#?]*)/g
+
 const MD_LINK_RE = /(?<!!)\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 /** Strip a wikilink/md target down to its bare path: drop alias (`|`) and heading (`#`). */
@@ -349,6 +353,24 @@ export async function auditInternalLinks(files, contentDir) {
       if (href) candidates.push({ raw: m[1], href, index: m.index })
     }
 
+    // A crowned post's prose is in its Vue page, already rendered to HTML.
+    // Scan its hrefs, and report lines against the .vue file.
+    let reportSource = rel
+    let lineSource = raw
+    let lineOffset = bodyOffset
+    if (matter(raw).data.body === 'vue') {
+      const vue = readVueBody(rel.replace(/\.md$/, ''), path.dirname(path.dirname(contentDir)))
+      if (vue) {
+        reportSource = path.relative(process.cwd(), vue.file)
+        lineSource = vue.raw
+        lineOffset = vue.offset
+        HREF_RE.lastIndex = 0
+        while ((m = HREF_RE.exec(vue.html)) !== null) {
+          candidates.push({ raw: m[1], href: m[1], index: m.index })
+        }
+      }
+    }
+
     const seen = new Set()
     for (const c of candidates) {
       const { internal, valid } = classifyInternalHref(c.href)
@@ -358,8 +380,8 @@ export async function auditInternalLinks(files, contentDir) {
       if (seen.has(c.href)) continue
       seen.add(c.href)
       dead.push({
-        source: rel,
-        line: lineAt(raw, bodyOffset + c.index),
+        source: reportSource,
+        line: lineAt(lineSource, lineOffset + c.index),
         target: bareTarget(c.raw),
         href: c.href,
         suggestion: suggestRoute(c.href, sourceRoute),
