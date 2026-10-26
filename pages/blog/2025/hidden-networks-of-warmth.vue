@@ -142,7 +142,7 @@ onMounted(() => {
     <!-- Top metadata -->
     <div
       v-if="post"
-      class="fixed top-0 left-0 right-0 z-[100] bg-black/80 backdrop-blur-sm print:hidden"
+      class="crowned-meta fixed top-0 left-0 right-0 z-[100] bg-black/80 backdrop-blur-sm print:hidden"
     >
       <PostMetadataBar
         :date="post?.metadata?.date || post?.date"
@@ -619,6 +619,12 @@ body.hidden-networks-of-warmth-takeover blockquote::before {
   min-height: 100vh;
   background: var(--pt-bg);
   color: var(--pt-text-dim);
+}
+
+/* The bar sits on the takeover black in light mode too */
+.crowned-meta .post-meta-bar,
+.crowned-meta .post-meta-bar * {
+  color: var(--pt-text-dim) !important;
 }
 
 /* Progress */

@@ -20,7 +20,7 @@ function hclToHslAlpha(h: number, c: number, l: number, a: number): string {
  * Composable for crowned posts. Handles data fetching, SEO, palette, etc.
  *
  * IMPORTANT: All Nuxt composable calls (useRuntimeConfig, useHead, etc.)
- * happen BEFORE any await to preserve the Nuxt instance context.
+ * happen BEFORE the single await at the end, to keep the Nuxt instance.
  */
 export async function useCrownedPost(options: CrownedPostOptions) {
   const { slug, bodyClass, hue, fallbackTitle } = options
@@ -73,23 +73,25 @@ export async function useCrownedPost(options: CrownedPostOptions) {
     ],
   })
 
-  // --- Data fetching (await calls) ---
-  const { data: post } = await useAsyncData(`post-${cacheKey}`, () =>
+  // --- Data fetching ---
+  // Started, NOT awaited here: an `await` inside a composable drops the Nuxt
+  // instance, and every useHead/usePageSeo after it throws NUXT_E1001 during
+  // SSR (a 500). The refs exist immediately; we await once, at the very end.
+  const postRequest = useAsyncData(`post-${cacheKey}`, () =>
     $fetch(`/api/posts/${slug}`)
   )
-
-  const { data: nextPrevPosts } = await useAsyncData(
-    `next-prev-${cacheKey}`,
-    () =>
-      processedMarkdown
-        .getNextPrevPosts(slug)
-        .catch(() => ({ next: null, prev: null }))
+  const nextPrevRequest = useAsyncData(`next-prev-${cacheKey}`, () =>
+    processedMarkdown
+      .getNextPrevPosts(slug)
+      .catch(() => ({ next: null, prev: null }))
   )
-
-  const { data: allPosts } = await useAsyncData(
+  const allPostsRequest = useAsyncData(
     `all-posts-for-related-${cacheKey}`,
     () => processedMarkdown.getAllPosts(false).catch(() => [])
   )
+  const post = postRequest.data
+  const nextPrevPosts = nextPrevRequest.data
+  const allPosts = allPostsRequest.data
 
   // --- Computed metadata (after data is available) ---
   const { stats: readingStatsData } = readingStats(post)
@@ -164,6 +166,8 @@ export async function useCrownedPost(options: CrownedPostOptions) {
     tags: articleTags,
     image: heroImage,
   })
+
+  await Promise.all([postRequest, nextPrevRequest, allPostsRequest])
 
   return {
     post,
