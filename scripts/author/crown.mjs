@@ -15,7 +15,7 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { execFileSync } from 'node:child_process'
+import * as prettier from 'prettier'
 import matter from 'gray-matter'
 import { BODY_END, BODY_START, toVueTemplateHtml } from '../utils/vue-body.mjs'
 
@@ -339,12 +339,18 @@ const lines = [
 ]
 
 mkdirSync(dirname(outPath), { recursive: true })
-writeFileSync(outPath, lines.join('\n'), 'utf-8')
+// Prettier as a library, not `npx`: Dispatch runs this with a bare PATH.
+// Formatting matters here; the prose is what EJ edits from now on.
+let page = lines.join('\n')
 try {
-  execFileSync('npx', ['prettier', '--write', outPath], { stdio: 'ignore' })
-} catch {
-  console.warn('  (prettier failed; the page is unformatted but fine)')
+  const options = (await prettier.resolveConfig(outPath)) || {}
+  page = await prettier.format(page, { ...options, filepath: outPath })
+} catch (error) {
+  console.warn(
+    '  (prettier failed, page left unformatted: ' + error.message + ')'
+  )
 }
+writeFileSync(outPath, page, 'utf-8')
 
 // The .md keeps its frontmatter verbatim (no re-serialization drift) plus
 // `body: vue`; the prose now lives only in the page.
