@@ -1678,23 +1678,6 @@ img[data-loading='lazy']::before {
   opacity: 0.8;
 }
 
-/* Splayed-on-a-table image treatment — static rotation from build-time
-   hash, shadow lifts with scroll-proximity to viewport center. Shadow is
-   driven directly by scroll via rAF; NO transition so it tracks 1:1. */
-.blog-post-content img.img-splay {
-  transform: rotate(var(--splay-rot, 0deg));
-  transform-origin: center center;
-  border-radius: 0;
-  box-shadow:
-    0 calc(28px * var(--splay-focal, 0)) calc(52px * var(--splay-focal, 0))
-      calc(-14px + -2px * var(--splay-focal, 0))
-      rgba(0, 0, 0, calc(0.38 * var(--splay-focal, 0))),
-    0 calc(6px * var(--splay-focal, 0)) calc(12px * var(--splay-focal, 0)) -3px
-      rgba(0, 0, 0, calc(0.22 * var(--splay-focal, 0)));
-  padding: 0 !important;
-  background-origin: content-box;
-  background-clip: content-box;
-}
 @media (prefers-reduced-motion: reduce) {
   /* Global safety net: honor an OS-level reduce-motion request site-wide.
      0.01ms (not 0) keeps transition/animation end-events firing, so any JS
@@ -1706,10 +1689,6 @@ img[data-loading='lazy']::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .blog-post-content img.img-splay {
-    transform: none;
   }
 }
 
