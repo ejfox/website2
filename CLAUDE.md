@@ -380,27 +380,28 @@ renders it to inline SVG **at build time** with [Pele](https://pele.run)
 - The processing cache keys on source hash, so a renderer change only reaches
   old posts when they're reprocessed (`yarn blog:process` after clearing their JSON).
 
-## Crowned posts — the Vue page IS the post (2026-10-26)
+## Big posts — a .vue body next to the .md (2026-10-26)
 
-Big posts graduate out of markdown. `yarn crown 2025/slug [--hue N]` (also
-Dispatch's "Convert to Vue Page" button, which just runs it) moves the post's
-rendered HTML into `pages/blog/<slug>.vue` between `<!-- post-body -->` and
-`<!-- /post-body -->`, and shrinks the `.md` to its frontmatter plus
-`body: vue`. From then on EJ writes prose, charts and interactions directly in
-the `.vue` — there is no markdown copy to drift.
+When a post needs custom interactions or viz, EJ writes it as Vue.
+`content/blog/2025/slug.vue` sits next to `slug.md`. The `.vue` is the body:
+prose, components, `<script setup>`, `<style>`. The `.md` keeps only the
+frontmatter. `pages/blog/[...slug].vue` renders the `.vue` in place of the
+markdown HTML, so layout, TOC, footer and mobile are the same as any post.
 
-- The stub keeps the post in the manifest, listings, tags, feeds and the
-  `isScheduled()` gates. `processMarkdown` reads the marked region back out
-  (`scripts/utils/vue-body.mjs`) for the feed HTML, word count, TOC and search,
-  and the cache hash covers the Vue region, so editing the page reprocesses it.
-- The internal-link audit scans the region's `href`s and reports lines in the
-  `.vue` file. Keep prose inside the markers or those checks can't see it.
-- Crown refuses drafts, hidden/unlisted/password/sealed and scheduled posts:
-  the prose ships in the page's JS bundle, so only crown public text.
-- `{{`/`}}` in prose are entity-escaped; `<style>` becomes
-  `<component is="style">`; a `<script>` in the body is refused.
-- Peter Todd (`pages/blog/2024/the-mystery-of-peter-todd.vue`) predates this
-  and still loads its `.md` via `v-html`.
+- `yarn crown 2025/slug` (and Dispatch's "Convert to Vue Page") makes one
+  from an existing post. Prose stays byte-identical.
+- `processMarkdown` reads the `.vue`'s `<template>` back out for feeds,
+  search, word count and TOC, and its cache hash covers the `.vue`. The
+  internal-link audit scans it and reports `.vue` line numbers.
+- Only public posts may have one: the prose ships in the JS bundle. A `.vue`
+  next to a draft/hidden/unlisted/password/sealed/scheduled post (or with no
+  `.md`) fails processing.
+- Gotchas (handled by crown, worth knowing when hand-writing): Nuxt splits a
+  static `srcset` on commas and imports the pieces, so bind it
+  (`:srcset="'…'"`); `{{` in prose needs `&#123;&#123;`; `<style>` inside the
+  template must be `<component is="style">`.
+- Peter Todd (`pages/blog/2024/the-mystery-of-peter-todd.vue`) is an older
+  one-off page that predates this.
 
 ## Dead Internal Link Detection (2026-06-29)
 

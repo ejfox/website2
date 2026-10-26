@@ -10,5 +10,4 @@ tags:
   - process
   - nature
 title: "Preparing For Nothing In Particular"
-body: vue
 ---

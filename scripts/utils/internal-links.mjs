@@ -205,7 +205,7 @@ export function classifyInternalHref(href) {
 
 const WIKILINK_RE = /\[\[([^\]]+)\]\]/g
 // [text](target) — the (?<!!) skips images (![alt](src)); optional "title" tail.
-/** Root-relative hrefs in rendered HTML (crowned posts) */
+/** Root-relative hrefs in rendered HTML (.vue post bodies) */
 const HREF_RE = /\shref="(\/[^"#?]*)/g
 
 const MD_LINK_RE = /(?<!!)\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
@@ -353,24 +353,22 @@ export async function auditInternalLinks(files, contentDir) {
       if (href) candidates.push({ raw: m[1], href, index: m.index })
     }
 
-    // A crowned post's prose is in its Vue page, already rendered to HTML.
-    // Scan its hrefs, and report lines against the .vue file.
+    // A big post's prose is its .vue (vue-body.mjs): already HTML, so scan
+    // its hrefs and report lines against the .vue file.
     let reportSource = rel
     let lineSource = raw
     let lineOffset = bodyOffset
-    if (matter(raw).data.body === 'vue') {
-      const vue = readVueBody(
-        rel.replace(/\.md$/, ''),
-        path.dirname(path.dirname(contentDir))
-      )
-      if (vue) {
-        reportSource = path.relative(process.cwd(), vue.file)
-        lineSource = vue.raw
-        lineOffset = vue.offset
-        HREF_RE.lastIndex = 0
-        while ((m = HREF_RE.exec(vue.html)) !== null) {
-          candidates.push({ raw: m[1], href: m[1], index: m.index })
-        }
+    const vue = readVueBody(
+      rel.replace(/\.md$/, ''),
+      path.dirname(path.dirname(contentDir))
+    )
+    if (vue) {
+      reportSource = path.relative(process.cwd(), vue.file)
+      lineSource = vue.raw
+      lineOffset = vue.offset
+      HREF_RE.lastIndex = 0
+      while ((m = HREF_RE.exec(vue.html)) !== null) {
+        candidates.push({ raw: m[1], href: m[1], index: m.index })
       }
     }
 

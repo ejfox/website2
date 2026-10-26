@@ -46,6 +46,7 @@ import {
 
 import { getPostType } from '../utils/helpers.mjs'
 import {
+  assertVueBodiesArePublic,
   fromVueTemplateHtml,
   readVueBody,
   statsFromHtml,
@@ -208,14 +209,9 @@ const normalizeSlug = (slug) => {
 const slugForFile = (filePath) =>
   normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
 
-/**
- * What a post's cache key covers. For a `body: vue` post the prose lives in
- * its Vue page, so an edit there must invalidate the JSON too.
- */
-const cacheSource = (content, filePath) => {
-  if (!/^body:\s*['"]?vue['"]?\s*$/m.test(content)) return content
-  return content + (readVueBody(slugForFile(filePath))?.html ?? '')
-}
+/** A big post's .vue body is part of what its JSON is a cache of */
+const cacheSource = (content, filePath) =>
+  content + (readVueBody(slugForFile(filePath))?.raw ?? '')
 
 /**
  * Is the processed JSON a valid cache of this source?
@@ -323,9 +319,6 @@ async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
-    if (frontmatter.body === 'vue') {
-      return processVueBodyPost(content, filePath, frontmatter)
-    }
     const ast = processor.parse(markdownContent)
     const titleHeading = dropTitleHeading(ast, frontmatter.title)
 
@@ -428,6 +421,16 @@ async function processMarkdown(content, filePath) {
       : undefined
     const { password: _rawPassword, ...safeFrontmatter } = frontmatter
 
+    // A big post's body is content/blog/<slug>.vue (scripts/utils/vue-body.mjs)
+    const vueBody = readVueBody(slug)
+    if (vueBody) {
+      html = fromVueTemplateHtml(vueBody.html.trim())
+      const fromVue = statsFromHtml(html)
+      stats.words = fromVue.words
+      stats.images = fromVue.images
+      toc.splice(0, toc.length, ...fromVue.toc)
+    }
+
     return {
       cacheVersion: CACHE_VERSION,
       sourceHash: hashSource(cacheSource(content, filePath)),
@@ -447,41 +450,6 @@ async function processMarkdown(content, filePath) {
     console.error(chalk.red(`\n[ERROR] Failed processing ${filename}:`))
     console.error(chalk.red(error.message))
     throw error
-  }
-}
-
-/**
- * A graduated post (`body: vue`, see scripts/utils/vue-body.mjs): the HTML is
- * whatever EJ wrote between the markers in its Vue page. Same output shape as
- * processMarkdown, so listings, feeds and search can't tell the difference.
- */
-function processVueBodyPost(content, filePath, frontmatter) {
-  const slug = slugForFile(filePath)
-  const body = readVueBody(slug)
-  if (!body) {
-    throw new Error(
-      `${slug}: frontmatter says body: vue, but pages/blog/${slug}.vue is missing or has no <!-- post-body --> markers`
-    )
-  }
-  // The prose ships in the page's JS bundle, so a password can't hide it.
-  if (frontmatter.password || frontmatter.passwordHash) {
-    throw new Error(`${slug}: a body: vue post can't be password-protected`)
-  }
-  const html = fromVueTemplateHtml(body.html.trim())
-  const { toc, stats } = statsFromHtml(html)
-  const { password: _rawPassword, ...safeFrontmatter } = frontmatter
-  return {
-    cacheVersion: CACHE_VERSION,
-    sourceHash: hashSource(cacheSource(content, filePath)),
-    html,
-    title: frontmatter.title || formatTitle(path.basename(filePath, '.md')),
-    metadata: {
-      ...safeFrontmatter,
-      ...stats,
-      toc,
-      type: safeFrontmatter.type || getPostType(filePath),
-      ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
-    },
   }
 }
 
@@ -1282,6 +1250,12 @@ async function processAllFiles() {
     // can be skipped is not a guard — that exact bypass is how the previous
     // attempt shipped a post with no protection and a green build.
     await assertNoStraySecretFrontmatter(allFiles)
+    assertVueBodiesArePublic(
+      (await fs.readdir(paths.contentDir, { recursive: true }))
+        .filter((f) => f.endsWith('.vue'))
+        .map((f) => path.join(paths.contentDir, f)),
+      paths.contentDir
+    )
 
     // Week notes were retired from the site on 2026-10-11 (they leaked
     // screenshots and were searchable). They stay private in the vault. A

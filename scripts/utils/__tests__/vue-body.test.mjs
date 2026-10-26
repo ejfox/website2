@@ -2,19 +2,16 @@ import { describe, it, expect, beforeAll } from 'vitest'
 import { promises as fs } from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
+import { compileTemplate } from '@vue/compiler-sfc'
 import {
-  BODY_END,
-  BODY_START,
+  assertVueBodiesArePublic,
+  fromVueTemplateHtml,
   readVueBody,
   statsFromHtml,
   toVueTemplateHtml,
-  fromVueTemplateHtml,
+  vueBodyProblem,
 } from '../vue-body.mjs'
-import { compileTemplate } from '@vue/compiler-sfc'
 import { auditInternalLinks, buildValidRoutes } from '../internal-links.mjs'
-
-const page = (body) =>
-  `<script setup>\n</script>\n<template>\n<div>\n${BODY_START}\n${body}\n${BODY_END}\n</div>\n</template>\n`
 
 describe('vue-body', () => {
   let root
@@ -25,46 +22,45 @@ describe('vue-body', () => {
     root = await fs.mkdtemp(path.join(os.tmpdir(), 'vuebody-'))
     contentDir = path.join(root, 'content', 'blog')
     await fs.mkdir(path.join(contentDir, '2025'), { recursive: true })
-    await fs.mkdir(path.join(root, 'pages', 'blog', '2025'), {
-      recursive: true,
-    })
-    await fs.writeFile(
-      path.join(contentDir, '2025', 'big.md'),
-      '---\ntitle: Big\nbody: vue\n---\n'
+    const write = (f, s) => fs.writeFile(path.join(contentDir, f), s)
+    await write('2025/big.md', '---\ntitle: Big\n---\n')
+    await write(
+      '2025/big.vue',
+      '<script setup>\n</script>\n\n<template>\n  <p>See <a href="/blog/2025/real">this</a>\n  and <a href="/blog/2025/gone">that</a>.</p>\n  <SignalRange />\n</template>\n'
     )
-    await fs.writeFile(
-      path.join(contentDir, '2025', 'real.md'),
-      '---\ntitle: Real\n---\nhi\n'
-    )
-    await fs.writeFile(
-      path.join(root, 'pages', 'blog', '2025', 'big.vue'),
-      page(
-        '<p>See <a href="/blog/2025/real">this</a> and <a href="/blog/2025/gone">that</a>.</p>\n<SignalRange />'
-      )
-    )
-    files = [
-      path.join(contentDir, '2025', 'big.md'),
-      path.join(contentDir, '2025', 'real.md'),
-    ]
+    await write('2025/real.md', '---\ntitle: Real\n---\nhi\n')
+    files = ['2025/big.md', '2025/real.md'].map((f) => path.join(contentDir, f))
     await buildValidRoutes(files, contentDir)
   })
 
-  it('reads only the marked region', () => {
+  it('reads the .vue <template> next to a post', () => {
     const body = readVueBody('2025/big', root)
     expect(body.html).toContain('<SignalRange />')
     expect(body.html).not.toContain('script setup')
-  })
-
-  it('returns null without a page or markers', () => {
     expect(readVueBody('2025/real', root)).toBeNull()
   })
 
+  it('only allows .vue bodies on public posts', () => {
+    expect(vueBodyProblem('2025/x', {})).toBeNull()
+    expect(vueBodyProblem('2025/x', { draft: true })).toMatch(/draft/)
+    expect(vueBodyProblem('private/x', {})).toMatch(/sealed/)
+    expect(vueBodyProblem('2025/x', { date: '2999-01-01' })).toMatch(
+      /scheduled/
+    )
+    expect(() =>
+      assertVueBodiesArePublic(
+        [path.join(contentDir, '2025/nope.vue')],
+        contentDir
+      )
+    ).toThrow(/no 2025\/nope\.md/)
+  })
+
   it('counts words and builds a TOC from rendered headings', () => {
-    const { toc, stats } = statsFromHtml(
+    const { toc, words, images } = statsFromHtml(
       '<h2 id="a">One <em>two</em></h2><p>three four</p><h3 id="b">Five</h3><img src="x">'
     )
-    expect(stats.words).toBe(5)
-    expect(stats.images).toBe(1)
+    expect(words).toBe(5)
+    expect(images).toBe(1)
     expect(toc).toEqual([
       {
         text: 'One two',
@@ -75,44 +71,36 @@ describe('vue-body', () => {
     ])
   })
 
-  it('escapes mustaches so Vue renders them as text', () => {
-    expect(toVueTemplateHtml('<code>{{ x }}</code>')).toBe(
-      '<code>&#123;&#123; x &#125;&#125;</code>'
-    )
-  })
-
-  it('binds srcset so Nuxt does not turn Cloudinary commas into imports', () => {
-    const src =
+  it('makes HTML safe for a Vue template, and back for feeds', () => {
+    const img =
       '<img srcset="https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,w_640/x.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,w_960/x.png 960w">'
-    const vue = toVueTemplateHtml(src)
-    // Same options Nuxt uses: includeAbsolute turns static srcset into imports
-    const { code } = compileTemplate({
+    const vue = toVueTemplateHtml(
+      `<p>{{ x }}\u00A0</p>${img}<style>.x{}</style>`
+    )
+    // Nuxt's options: includeAbsolute would turn a static srcset into imports
+    const { code, errors } = compileTemplate({
       source: vue,
       filename: 'p.vue',
       id: 'p',
       transformAssetUrls: { includeAbsolute: true },
     })
+    expect(errors).toEqual([])
     expect(code).not.toMatch(/import .* from '(?!vue)/)
-    expect(fromVueTemplateHtml(vue)).toBe(src)
-  })
-
-  it('strips components and unwraps styles for feeds', () => {
+    expect(fromVueTemplateHtml(vue)).toBe(
+      `<p>&#123;&#123; x &#125;&#125;&#160;</p>${img}<style>.x{}</style>`
+    )
     expect(
       fromVueTemplateHtml(
-        '<p>a</p><SignalRange :x="1" /><ClientOnly><p>b</p></ClientOnly><component\n  is="style"\n  >.x{}</component\n>'
+        '<p>a</p><Chart :x="1" /><component\n  is="style"\n>.y{}</component\n>'
       )
-    ).toBe('<p>a</p><p>b</p><style\n  >.x{}</style>')
+    ).toBe('<p>a</p><style\n>.y{}</style>')
   })
 
-  it('entity-encodes non-breaking spaces', () => {
-    expect(toVueTemplateHtml('a\u00A0b')).toBe('a&#160;b')
-  })
-
-  it('audits links in the Vue page and points at the .vue file', async () => {
+  it('audits links in the .vue and points at the .vue file', async () => {
     const report = await auditInternalLinks(files, contentDir)
     expect(report.dead).toHaveLength(1)
     expect(report.dead[0].href).toBe('/blog/2025/gone')
-    expect(report.dead[0].source).toMatch(/pages\/blog\/2025\/big\.vue$/)
+    expect(report.dead[0].source).toMatch(/content\/blog\/2025\/big\.vue$/)
     expect(report.dead[0].line).toBe(6)
   })
 })

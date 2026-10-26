@@ -1,389 +1,65 @@
 #!/usr/bin/env node
 /**
- * Crown a blog post — graduate it into its own Vue page.
+ * Crown a post: its body becomes a Vue file you write in directly.
  *
- * The post's rendered HTML moves into pages/blog/<slug>.vue between
- * <!-- post-body --> markers, and the .md shrinks to its frontmatter plus
- * `body: vue`. From then on the Vue file IS the post: write prose, charts and
- * interactions there. The stub keeps it in listings, tags and feeds
- * (processMarkdown reads the marked region back out; see utils/vue-body.mjs).
- *
- * Usage:
  *   yarn crown 2025/hidden-networks-of-warmth
- *   yarn crown 2026/my-new-post --hue 200
+ *
+ * Writes content/blog/<slug>.vue (the post's rendered HTML as a <template>)
+ * and trims <slug>.md to its frontmatter. The post page renders the .vue in
+ * place of the markdown, so add components, a <script setup> or a <style>
+ * right next to the prose. See scripts/utils/vue-body.mjs.
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { dirname, join } from 'node:path'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import * as prettier from 'prettier'
 import matter from 'gray-matter'
-import { BODY_END, BODY_START, toVueTemplateHtml } from '../utils/vue-body.mjs'
-
-const slug = process.argv[2]
-if (!slug) {
-  console.error('Usage: yarn crown <YYYY/slug> [--hue N]')
-  process.exit(1)
-}
-
-let hue = 220
-for (let i = 3; i < process.argv.length; i++) {
-  if (process.argv[i] === '--hue' && process.argv[i + 1]) {
-    hue = Number.parseInt(process.argv[i + 1], 10)
-    i++
-  }
-}
-
-const slugParts = slug.split('/')
-const name = slugParts[slugParts.length - 1]
-const titleCase = name
-  .replace(/-/g, ' ')
-  .replace(/\b\w/g, (c) => c.toUpperCase())
-const bodyClass = name + '-takeover'
-const cssClass = name + '-page'
-const outPath = join('pages', 'blog', ...slugParts) + '.vue'
-
-if (existsSync(outPath)) {
-  console.error('Already exists: ' + outPath)
-  process.exit(1)
-}
+import {
+  toVueTemplateHtml,
+  vueBodyPath,
+  vueBodyProblem,
+} from '../utils/vue-body.mjs'
 
 const fail = (msg) => {
   console.error(msg)
   process.exit(1)
 }
 
-const mdPath = join('content', 'blog', ...slugParts) + '.md'
-if (slugParts[0] === 'private') fail('Sealed posts stay sealed; not crowning.')
-if (!existsSync(mdPath)) fail('No such post: ' + mdPath)
+const slug = process.argv[2] // extra args (Dispatch's old --hue) are ignored
+if (!slug) fail('Usage: yarn crown <YYYY/slug>')
 
-// The prose ends up in the page's JS bundle, which anyone can read. So only
-// crown a post whose text is already allowed to be public.
+const mdPath = `content/blog/${slug}.md`
+const vuePath = vueBodyPath(slug)
+const jsonPath = `content/processed/${slug}.json`
+if (!existsSync(mdPath)) fail(`No such post: ${mdPath}`)
+if (existsSync(vuePath)) fail(`Already crowned: ${vuePath}`)
+
 const source = readFileSync(mdPath, 'utf8')
 const fm = matter(source).data
-if (fm.body === 'vue') fail('Already crowned (body: vue): ' + mdPath)
-for (const key of ['draft', 'hidden', 'unlisted', 'password', 'passwordHash']) {
-  if (fm[key])
-    fail(
-      `${mdPath} has ${key}: crowning would publish its text in the JS bundle.`
-    )
-}
-const goesLive = fm.publishAt || fm.date
-if (goesLive && new Date(goesLive) > new Date()) {
-  fail(`${mdPath} is scheduled for ${goesLive}; crown it after it's live.`)
-}
+const problem = vueBodyProblem(slug, fm)
+if (problem) fail(`Not crowning ${slug}: ${problem}.`)
 
-const jsonPath = join('content', 'processed', ...slugParts) + '.json'
-if (!existsSync(jsonPath))
-  fail('No ' + jsonPath + ' yet — run yarn blog:process first.')
+if (!existsSync(jsonPath)) fail(`No ${jsonPath} yet; run yarn blog:process.`)
 const processed = JSON.parse(readFileSync(jsonPath, 'utf8'))
-let bodyHtml = (processed.html || '').replace(/ class=""/g, '')
-if (!bodyHtml.trim()) fail(jsonPath + ' has no HTML.')
-if (/<script\b/i.test(bodyHtml)) {
-  fail(
-    'The post has a <script> tag; Vue templates drop those. Move it into the page by hand.'
-  )
+if (!processed.html?.trim()) fail(`${jsonPath} has no HTML.`)
+if (/<script\b/i.test(processed.html)) {
+  fail('The post has a <script> tag; move it into the .vue by hand.')
 }
-// Vue drops <style> in templates too; <component is="style"> renders one.
-bodyHtml = toVueTemplateHtml(bodyHtml)
-  .replace(/<style\b/gi, '<component is="style"')
-  .replace(/<\/style>/gi, '</component>')
 
-// Build the template as an array of lines to avoid template-in-template issues
-const lines = [
-  '<script setup>',
-  '/**',
-  ' * CROWNED POST: ' + titleCase,
-  ' * Hue: ' + hue + ' | Scaffolded with: yarn crown ' + slug,
-  ' */',
-  '',
-  "import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'",
-  "import PostNav from '~/components/blog/post/PostNav.vue'",
-  "import PostRelated from '~/components/blog/post/PostRelated.vue'",
-  "import Webmentions from '~/components/blog/Webmentions.vue'",
-  '',
-  'const {',
-  '  post, nextPrevPosts, relatedPosts, readingStats,',
-  '  postUrl, articleTags,',
-  '  renderedTitle, startAnimation,',
-  '  palette,',
-  '} = await useCrownedPost({',
-  "  slug: '" + slug + "',",
-  "  bodyClass: '" + bodyClass + "',",
-  '  hue: ' + hue + ',',
-  "  fallbackTitle: '" + titleCase + "',",
-  '})',
-  "if (!post.value) throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })",
-  '',
-  '// --- Your state here ---',
-  'const articleContent = ref(null)',
-  'const scrollProgress = ref(0)',
-  '',
-  'onMounted(() => {',
-  '  startAnimation()',
-  '',
-  '  const handleScroll = () => {',
-  '    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight',
-  '    scrollProgress.value = scrollHeight <= 0 ? 0 : Math.min((window.scrollY / scrollHeight) * 100, 100)',
-  '  }',
-  "  window.addEventListener('scroll', handleScroll)",
-  "  onUnmounted(() => window.removeEventListener('scroll', handleScroll))",
-  '',
-  '  // Cinematic scroll reveals',
-  '  nextTick(() => {',
-  '    if (!articleContent.value) return',
-  "    const elements = articleContent.value.querySelectorAll('h2, h3, h4, p, blockquote, pre, img, figure, ul, ol')",
-  '',
-  "    import('animejs').then(({ animate }) => {",
-  '      const seen = new WeakSet()',
-  '      elements.forEach((el, idx) => {',
-  '        if (el.getBoundingClientRect().top < window.innerHeight) return',
-  '        const tag = el.tagName.toLowerCase()',
-  "        const isHeading = ['h2', 'h3', 'h4'].includes(tag)",
-  "        const isMedia = ['img', 'figure'].includes(tag)",
-  "        const isQuote = tag === 'blockquote'",
-  '',
-  "        el.style.opacity = '0'",
-  '        // Media only fades: images rest at a CSS tilt (--splay-rot), and any',
-  '        // inline transform would fight it and visibly rotate the image.',
-  "        if (isHeading) el.style.transform = 'translateX(-20px)'",
-  "        else if (isMedia) el.style.filter = 'blur(4px)'",
-  "        else if (isQuote) el.style.transform = 'translateX(20px)'",
-  "        else el.style.transform = 'translateY(12px)'",
-  '',
-  '        const obs = new IntersectionObserver(([entry]) => {',
-  '          if (!entry.isIntersecting || seen.has(el)) return',
-  '          seen.add(el)',
-  '          obs.disconnect()',
-  "          const cleanup = () => { el.style.opacity = ''; el.style.transform = ''; el.style.filter = '' }",
-  '',
-  "          if (isHeading) animate(el, { opacity: [0, 1], translateX: [-20, 0], duration: 500, ease: 'outCubic', onComplete: cleanup })",
-  "          else if (isMedia) animate(el, { opacity: [0, 1], filter: ['blur(4px)', 'blur(0px)'], duration: 700, ease: 'outQuad', onComplete: cleanup })",
-  "          else if (isQuote) animate(el, { opacity: [0, 1], translateX: [20, 0], duration: 500, ease: 'outCubic', onComplete: cleanup })",
-  "          else animate(el, { opacity: [0, 1], translateY: [12, 0], duration: 400, delay: Math.min((idx % 3) * 60, 120), ease: 'outQuad', onComplete: cleanup })",
-  "        }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' })",
-  '        obs.observe(el)',
-  '      })',
-  '    })',
-  '  })',
-  '})',
-  '</script>',
-  '',
-  '<template>',
-  '  <div class="' + cssClass + '">',
-  '    <!-- Progress bar -->',
-  '    <div class="crowned-progress">',
-  '      <div class="crowned-progress-inner" :style="{ width: scrollProgress + \'%\' }" />',
-  '    </div>',
-  '',
-  '    <!-- Top metadata -->',
-  '    <div v-if="post" class="crowned-meta fixed top-0 left-0 right-0 z-[100] bg-black/80 backdrop-blur-sm print:hidden">',
-  '      <PostMetadataBar :date="post?.metadata?.date || post?.date" :stats="readingStats" />',
-  '    </div>',
-  '',
-  '    <article v-if="post" class="h-entry">',
-  '      <!-- ===== HERO — customize this ===== -->',
-  '      <header class="crowned-hero">',
-  '        <h1 class="crowned-title" v-html="renderedTitle" />',
-  '        <p v-if="post?.metadata?.dek || post?.dek" class="crowned-dek">',
-  '          {{ post?.metadata?.dek || post?.dek }}',
-  '        </p>',
-  '        <WidgetsScrollIndicator :color="palette.accentDim" />',
-  '      </header>',
-  '',
-  '      <!-- Microformats -->',
-  '      <time v-if="post?.metadata?.date" :datetime="post.metadata.date" class="dt-published hidden">{{ post.metadata.date }}</time>',
-  '      <div class="p-author h-card hidden"><span class="p-name">EJ Fox</span><a class="u-url" href="https://ejfox.com">ejfox.com</a></div>',
-  '      <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>',
-  '',
-  '      <!-- ===== CONTENT ===== -->',
-  '      <div ref="articleContent" class="crowned-body">',
-  '        <!-- The post. Edit the prose here; drop components in anywhere. -->',
-  '        <div class="blog-post-content e-content font-serif">',
-  BODY_START,
-  bodyHtml,
-  BODY_END,
-  '        </div>',
-  '      </div>',
-  '',
-  '      <!-- Tags -->',
-  '      <div v-if="articleTags.length" class="crowned-tags">',
-  '        <a v-for="tag in articleTags" :key="tag" :href="`/blog/tag/${tag}`" class="crowned-tag">{{ tag }}</a>',
-  '      </div>',
-  '',
-  '      <PostNav class="print:hidden" :prev-post="nextPrevPosts?.prev" :next-post="nextPrevPosts?.next" />',
-  '      <PostRelated class="print:hidden" :related-posts="relatedPosts" />',
-  '      <Webmentions class="print:hidden" :url="postUrl" />',
-  '    </article>',
-  '  </div>',
-  '</template>',
-  '',
-  '<style lang="postcss">',
-  '/* Layout takeover */',
-  'body.' + bodyClass + ' { background: var(--pt-bg) !important; }',
-  'body.' + bodyClass + ' #app-container,',
-  'body.' +
-    bodyClass +
-    ' #app-container > section { background: var(--pt-bg) !important; }',
-  'body.' + bodyClass + ' nav.sticky,',
-  'body.' + bodyClass + ' nav.md\\:hidden { display: none !important; }',
-  'body.' +
-    bodyClass +
-    ' #main-content { width: 100% !important; padding-top: 0 !important; }',
-  'body.' +
-    bodyClass +
-    ' footer { background: var(--pt-bg) !important; border-color: transparent !important; }',
-  'body.' + bodyClass + ' .blog-post-content blockquote::before,',
-  'body.' + bodyClass + ' .prose blockquote::before,',
-  'body.' +
-    bodyClass +
-    ' blockquote::before { content: none !important; display: none !important; }',
-  '',
-  '.' + cssClass + ' {',
-  '  position: relative; min-height: 100vh;',
-  '  background: var(--pt-bg); color: var(--pt-text-dim);',
-  '}',
-  '',
-  '/* The bar sits on the takeover black in light mode too */',
-  '.crowned-meta .post-meta-bar, .crowned-meta .post-meta-bar * { color: var(--pt-text-dim) !important; }',
-  '',
-  '/* Progress */',
-  '.crowned-progress { position: fixed; top: 0; left: 0; right: 0; height: 1px; z-index: 101; }',
-  '.crowned-progress-inner { height: 100%; background: linear-gradient(90deg, var(--pt-accent-dim), var(--pt-accent-glow)); transition: width 75ms ease-out; }',
-  '',
-  '/* Hero */',
-  '.crowned-hero {',
-  '  position: relative; z-index: 1; max-width: 900px; margin: 0 auto;',
-  '  padding: 8rem 2rem 6rem; min-height: 70vh;',
-  '  display: flex; flex-direction: column; justify-content: center;',
-  '}',
-  '@media (min-width: 768px) { .crowned-hero { padding: 10rem 2rem 8rem; min-height: 80vh; } }',
-  '',
-  '.crowned-title {',
-  '  font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; line-height: 1.05;',
-  '  letter-spacing: -0.03em; color: var(--pt-text); overflow-wrap: break-word;',
-  '}',
-  '.crowned-title .typing-char { display: inline; opacity: 0; transition: opacity 0.06s ease-out; }',
-  '.crowned-title .typing-char.typed { opacity: 1; }',
-  '.crowned-title .cursor {',
-  '  display: inline-block; width: 3px; height: 0.85em; margin-left: 1px;',
-  '  background: var(--pt-accent); animation: crowned-blink 0.5s ease-in-out infinite; vertical-align: baseline;',
-  '}',
-  '@keyframes crowned-blink { 0%, 40% { opacity: 0.85; } 50%, 90% { opacity: 0; } 100% { opacity: 0.85; } }',
-  '',
-  '.crowned-dek {',
-  '  margin-top: 1.5rem; font-family: Georgia, serif; font-size: 1.125rem;',
-  '  line-height: 1.6; color: var(--pt-text-muted); max-width: 42em; font-style: italic;',
-  '}',
-  '',
-  '/* Body */',
-  '.crowned-body { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }',
-  '.' + cssClass + ' .blog-post-content { --body-margin: 2rem; }',
-  '',
-  '/* Content colors */',
-  '.' + cssClass + ' .blog-post-content p,',
-  '.' + cssClass + ' .blog-post-content ul,',
-  '.' + cssClass + ' .blog-post-content ol,',
-  '.' + cssClass + ' .blog-post-content li { color: var(--pt-text-dim); }',
-  '',
-  '.' + cssClass + ' .blog-post-content h1,',
-  '.' +
-    cssClass +
-    ' .blog-post-content h2 { color: var(--pt-text); border: none !important; }',
-  '.' + cssClass + ' .blog-post-content h3,',
-  '.' + cssClass + ' .blog-post-content h4 { color: var(--pt-text-dim); }',
-  '',
-  '.' +
-    cssClass +
-    ' .blog-post-content a { color: var(--pt-accent); text-decoration-color: var(--pt-accent-faint); }',
-  '.' +
-    cssClass +
-    ' .blog-post-content a:hover { color: var(--pt-accent-glow); text-shadow: 0 0 12px var(--pt-accent-faint); }',
-  '',
-  '.' + cssClass + ' .blog-post-content blockquote {',
-  '  border-left: 2px solid var(--pt-accent-faint) !important;',
-  '  background: transparent !important; padding: 0.5rem 0 0.5rem 1.5rem !important;',
-  '  color: var(--pt-text-dim);',
-  '}',
-  '',
-  '.' +
-    cssClass +
-    ' .blog-post-content code { background: var(--pt-surface); color: var(--pt-accent-glow); border: 1px solid var(--pt-accent-faint); }',
-  '.' +
-    cssClass +
-    ' .blog-post-content pre { background: var(--pt-surface); border: none; }',
-  '.' +
-    cssClass +
-    ' .blog-post-content pre code { background: transparent; border: none; }',
-  '.' + cssClass + ' .blog-post-content img { border-radius: 6px; }',
-  '.' +
-    cssClass +
-    ' .blog-post-content hr { border: none; height: 1px; margin: 4rem 0; background: linear-gradient(90deg, transparent, var(--pt-accent-dim), transparent); }',
-  '',
-  '/* Tags */',
-  '.crowned-tags { max-width: 900px; margin: 0 auto; padding: 1rem 2rem 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }',
-  '.crowned-tag {',
-  '  font-family: ui-monospace, monospace; font-size: 0.6875rem;',
-  '  padding: 0.25rem 0.75rem; border-radius: 999px;',
-  '  border: 1px solid var(--pt-accent-faint); color: var(--pt-text-muted); text-decoration: none; transition: all 0.15s;',
-  '}',
-  '.crowned-tag:hover { border-color: var(--pt-accent-dim); color: var(--pt-text); }',
-  '',
-  '/* Reduced motion */',
-  '@media (prefers-reduced-motion: reduce) {',
-  '  .crowned-title .typing-char { opacity: 1 !important; transition: none; }',
-  '  .crowned-title .cursor { display: none; }',
-  '}',
-  '',
-  '@media print {',
-  '  .crowned-progress { display: none !important; }',
-  '  .' +
-    cssClass +
-    ' { background: white !important; color: black !important; }',
-  '}',
-  '</style>',
-]
-
-mkdirSync(dirname(outPath), { recursive: true })
-// Prettier as a library, not `npx`: Dispatch runs this with a bare PATH.
-// Formatting matters here; the prose is what EJ edits from now on.
-let page = lines.join('\n')
+const html = toVueTemplateHtml(processed.html.replace(/ class=""/g, ''))
+let vue = `<template>\n${html}\n</template>\n`
 try {
-  const options = (await prettier.resolveConfig(outPath)) || {}
-  page = await prettier.format(page, { ...options, filepath: outPath })
+  // Prettier as a library, not npx: Dispatch runs this with a bare PATH.
+  const options = (await prettier.resolveConfig(vuePath)) || {}
+  vue = await prettier.format(vue, { ...options, filepath: vuePath })
 } catch (error) {
-  console.warn(
-    '  (prettier failed, page left unformatted: ' + error.message + ')'
-  )
+  console.warn(`(prettier failed, left unformatted: ${error.message})`)
 }
-writeFileSync(outPath, page, 'utf-8')
+writeFileSync(vuePath, vue)
 
-// The .md keeps its frontmatter verbatim (no re-serialization drift) plus
-// `body: vue`; the prose now lives only in the page.
+// Frontmatter kept verbatim (no re-serialization drift). A title that came
+// from the body's first heading would vanish with the body, so pin it.
 const fmEnd = source.indexOf('\n---', 3)
-writeFileSync(
-  mdPath,
-  source.slice(0, fmEnd) +
-    // A title that came from the body's first heading would vanish with it.
-    (fm.title ? '' : '\ntitle: ' + JSON.stringify(processed.title)) +
-    '\nbody: vue\n---\n',
-  'utf-8'
-)
+const title = fm.title ? '' : `\ntitle: ${JSON.stringify(processed.title)}`
+writeFileSync(mdPath, `${source.slice(0, fmEnd)}${title}\n---\n`)
 
-console.log('')
-console.log(
-  '  \u2728 Crowned: ' +
-    outPath +
-    '  (prose moved; ' +
-    mdPath +
-    ' is now a stub)'
-)
-console.log('')
-console.log('  Hue: ' + hue + '  |  Body class: ' + bodyClass)
-console.log('  Edit the file to add your spectacle.')
-console.log('')
-console.log('  Palette preview:')
-console.log('    accent:   hcl(' + hue + ', 40, 60)')
-console.log('    warm:     hcl(' + (hue + 40) + ', 30, 55)')
-console.log('    cool:     hcl(' + (hue - 30) + ', 25, 50)')
-console.log('    eerie:    hcl(' + (hue - 60) + ', 35, 45)')
-console.log('')
+console.log(`Crowned: write in ${vuePath} (${mdPath} keeps the frontmatter)`)
