@@ -132,7 +132,7 @@ definePageMeta({
       v-if="relatedPosts?.length"
       class="w-full max-w-sm border-t border-zinc-200 dark:border-zinc-800 pt-6"
     >
-      <div class="label-uppercase mb-4 text-zinc-400 dark:text-zinc-600">
+      <div class="label-uppercase mb-4 text-zinc-500 dark:text-zinc-600">
         Written About This
       </div>
       <ul class="flex flex-col gap-4">
@@ -150,7 +150,7 @@ definePageMeta({
           <div class="flex items-center gap-2">
             <span
               v-if="post.date"
-              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+              class="font-mono text-3xs text-zinc-500 dark:text-zinc-600 tabular-nums"
             >
               {{ formatPostDate(post.date) }}
             </span>

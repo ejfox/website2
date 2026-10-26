@@ -185,7 +185,9 @@ const truncateTitle = (title: string): string => {
           class="submission-row"
         >
           <div class="flex-none">
-            <span class="text-zinc-400 text-2xs tabular-nums">
+            <span
+              class="text-zinc-500 dark:text-zinc-400 text-2xs tabular-nums"
+            >
               {{ formatDateMinimal(submission.timestamp) }}
             </span>
           </div>

@@ -91,7 +91,10 @@ const truncate = (str: string, len: number) => {
         <span class="text-xs text-zinc-600 dark:text-zinc-300">
           {{ ogData?.author || ogData?.siteName || domain }}
         </span>
-        <span v-if="ogData?.published" class="text-xs text-zinc-400">
+        <span
+          v-if="ogData?.published"
+          class="text-xs text-zinc-500 dark:text-zinc-400"
+        >
           · {{ formatDate(ogData.published) }}
         </span>
       </div>

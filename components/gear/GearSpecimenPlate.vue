@@ -64,10 +64,10 @@ const totalLabel = computed(() =>
   @apply border-b border-zinc-200 dark:border-zinc-700;
 }
 .plate-label {
-  @apply font-mono text-3xs uppercase tracking-wider text-zinc-400;
+  @apply font-mono text-3xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
 }
 .plate-total {
-  @apply font-mono text-3xs tabular-nums text-zinc-400;
+  @apply font-mono text-3xs tabular-nums text-zinc-500 dark:text-zinc-400;
 }
 
 .specimens {
@@ -88,7 +88,7 @@ const totalLabel = computed(() =>
   @apply object-cover w-[120px] h-[120px] grayscale opacity-80;
 }
 .specimen-symbol {
-  @apply text-4xl text-zinc-400 dark:text-zinc-600 leading-none;
+  @apply text-4xl text-zinc-500 dark:text-zinc-600 leading-none;
 }
 .specimen-rule {
   @apply w-full mt-3 border-b border-zinc-300 dark:border-zinc-700;
@@ -108,7 +108,7 @@ const totalLabel = computed(() =>
 }
 .specimen-type {
   @apply font-mono text-3xs uppercase text-center;
-  @apply text-zinc-400 dark:text-zinc-600;
+  @apply text-zinc-500 dark:text-zinc-600;
 }
 .specimen-pips {
   @apply font-mono text-3xs text-zinc-500 text-center;

@@ -212,7 +212,7 @@ function getMonthIntensityClass(count) {
       </svg>
       <div
         :class="[
-          'font-mono text-3xs text-zinc-400 dark:text-zinc-600',
+          'font-mono text-3xs text-zinc-500 dark:text-zinc-600',
           'mt-2 flex justify-between',
         ]"
       >
@@ -230,7 +230,7 @@ function getMonthIntensityClass(count) {
           :points="highlightSparklinePoints"
           fill="none"
           stroke="currentColor"
-          class="text-zinc-400 dark:text-zinc-600"
+          class="text-zinc-500 dark:text-zinc-600"
           stroke-width="1"
         />
         <!-- Area fill -->
@@ -249,7 +249,7 @@ function getMonthIntensityClass(count) {
       </svg>
       <div
         :class="[
-          'font-mono text-3xs text-zinc-400 dark:text-zinc-600',
+          'font-mono text-3xs text-zinc-500 dark:text-zinc-600',
           'mt-2 flex justify-between',
         ]"
       >
@@ -273,7 +273,7 @@ function getMonthIntensityClass(count) {
       </div>
       <div
         :class="[
-          'font-mono text-3xs text-zinc-400 dark:text-zinc-600',
+          'font-mono text-3xs text-zinc-500 dark:text-zinc-600',
           'mt-2 flex justify-between',
         ]"
       >

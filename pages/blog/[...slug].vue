@@ -648,7 +648,9 @@ onMounted(() => {
           class="blog-post-content e-content font-serif"
           v-html="post.html"
         ></article>
-        <div v-else class="text-center text-red-500">No content available</div>
+        <div v-else class="text-center text-red-600 dark:text-red-500">
+          No content available
+        </div>
       </div>
 
       <!-- Tags -->

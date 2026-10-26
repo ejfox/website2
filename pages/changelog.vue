@@ -222,14 +222,14 @@ usePageSeo({
                 </span>
                 <span
                   v-if="entry.tags && entry.tags.length"
-                  class="font-mono text-xs text-zinc-400 dark:text-zinc-600"
+                  class="font-mono text-xs text-zinc-500 dark:text-zinc-600"
                 >
                   {{ entry.tags.join(', ') }}
                 </span>
               </div>
               <div
                 v-if="entry.stack && entry.stack.length"
-                class="mt-1 font-mono text-xs text-zinc-400 dark:text-zinc-600"
+                class="mt-1 font-mono text-xs text-zinc-500 dark:text-zinc-600"
               >
                 {{ entry.stack.join(', ') }}
               </div>
@@ -278,7 +278,7 @@ usePageSeo({
                 <div v-for="commit in commits" :key="commit.hash" class="group">
                   <div class="flex items-baseline gap-2">
                     <span
-                      class="font-mono text-xs text-zinc-400 dark:text-zinc-600"
+                      class="font-mono text-xs text-zinc-500 dark:text-zinc-600"
                     >
                       {{ commit.hash }}
                     </span>
@@ -295,7 +295,7 @@ usePageSeo({
                     {{ commit.message }}
                   </p>
                   <p
-                    class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mt-2"
+                    class="font-mono text-xs text-zinc-500 dark:text-zinc-600 mt-2"
                   >
                     {{ commit.author }} · {{ formatTime(commit.date) }}
                   </p>

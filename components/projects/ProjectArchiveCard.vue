@@ -101,7 +101,7 @@ const firstImage = computed(() => props.project.images?.[0] || '')
       />
       <div
         v-else
-        class="w-full h-full grid place-items-center font-mono text-3xs text-zinc-400 dark:text-zinc-600"
+        class="w-full h-full grid place-items-center font-mono text-3xs text-zinc-500 dark:text-zinc-600"
       >
         {{ projectTitle }}
       </div>
@@ -123,7 +123,7 @@ const firstImage = computed(() => props.project.images?.[0] || '')
         :href="projectUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="relative z-10 shrink-0 p-1 -m-1 font-mono text-2xs text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+        class="relative z-10 shrink-0 p-1 -m-1 font-mono text-2xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
         :aria-label="`Open ${projectTitle} (opens in new tab)`"
       >
         ↗
@@ -138,7 +138,7 @@ const firstImage = computed(() => props.project.images?.[0] || '')
         {{ client }}
       </span>
       <span v-else-if="contextTag !== 'personal'">{{ contextTag }}</span>
-      <span v-if="aiInvolvement" class="text-zinc-400 dark:text-zinc-600">
+      <span v-if="aiInvolvement" class="text-zinc-500 dark:text-zinc-600">
         {{ aiInvolvement }}
       </span>
       <!-- separator is part of the tech text node (nbsp-glued) so it can

@@ -321,7 +321,7 @@ p,
    the content pipeline so readers are never sent to a 404. Strikethrough + muted,
    with a small marker so it's legible as "this used to point somewhere". */
 .internal-link-dead {
-  @apply text-zinc-400 dark:text-zinc-600 line-through decoration-1;
+  @apply text-zinc-500 dark:text-zinc-600 line-through decoration-1;
   cursor: not-allowed;
 }
 .internal-link-dead::after {
@@ -1222,7 +1222,7 @@ img[data-loading='lazy'] {
 
 img[data-loading='lazy']::before {
   content: attr(data-dimensions);
-  @apply absolute top-2 left-2 font-mono text-xs text-zinc-400;
+  @apply absolute top-2 left-2 font-mono text-xs text-zinc-500 dark:text-zinc-400;
   font-feature-settings:
     'lnum' 1,
     'tnum' 1;

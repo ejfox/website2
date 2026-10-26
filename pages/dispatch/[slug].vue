@@ -134,7 +134,7 @@ useHead({
             <a class="p-name u-url" href="https://ejfox.com">EJ Fox</a>
           </span>
           <template v-for="tag in piece.tags" :key="tag">
-            <span class="text-zinc-400">·</span>
+            <span class="text-zinc-500 dark:text-zinc-400">·</span>
             <span class="p-category">{{ tag }}</span>
           </template>
         </div>
@@ -168,7 +168,12 @@ useHead({
       >
         <span>Also on</span>
         <template v-for="(s, i) in piece.syndication" :key="s.url">
-          <span v-if="i > 0" class="text-zinc-400" aria-hidden="true">·</span>
+          <span
+            v-if="i > 0"
+            class="text-zinc-500 dark:text-zinc-400"
+            aria-hidden="true"
+            >·</span
+          >
           <a
             :href="s.url"
             class="u-syndication text-zinc-700 dark:text-zinc-300 hover:underline"

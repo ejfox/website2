@@ -49,12 +49,12 @@ const methodClass: Record<ApiMethod, string> = {
   PATCH: 'bg-amber-600 text-white',
 }
 const healthClass: Record<ApiHealth, string> = {
-  ok: 'text-zinc-400',
+  ok: 'text-zinc-500 dark:text-zinc-400',
   'empty-catch': 'text-amber-500',
-  fragile: 'text-red-500',
+  fragile: 'text-red-600 dark:text-red-500',
 }
 const consumerClass: Record<ApiConsumer, string> = {
-  frontend: 'text-zinc-400',
+  frontend: 'text-zinc-500 dark:text-zinc-400',
   aggregated: 'text-sky-400',
   external: 'text-violet-400',
   review: 'text-amber-500',
@@ -75,7 +75,7 @@ function pathFor(r: ApiRoute) {
         >
           ejfox.com API
         </h1>
-        <p class="mt-2 text-sm text-zinc-400 max-w-prose">
+        <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 max-w-prose">
           {{ apiCatalog.length }} routes. Read-only GETs unless noted. Source of
           truth:
           <code class="text-zinc-700 dark:text-zinc-300"
@@ -117,7 +117,7 @@ function pathFor(r: ApiRoute) {
           = swallows upstream errors
         </span>
         <span>
-          <span class="text-red-500">fragile</span>
+          <span class="text-red-600 dark:text-red-500">fragile</span>
           = throws if data missing
         </span>
       </div>
@@ -147,7 +147,9 @@ function pathFor(r: ApiRoute) {
               <code class="text-sm text-zinc-900 dark:text-zinc-100 break-all">
                 {{ pathFor(r) }}
               </code>
-              <span class="text-xs text-zinc-400 flex-1 min-w-[200px]">
+              <span
+                class="text-xs text-zinc-500 dark:text-zinc-400 flex-1 min-w-[200px]"
+              >
                 {{ r.summary }}
               </span>
             </div>

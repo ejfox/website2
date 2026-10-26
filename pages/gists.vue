@@ -218,7 +218,10 @@ const toggleGist = (gistId: string) => {
     </div>
 
     <!-- Error state -->
-    <div v-else-if="error" class="py-4 text-center text-red-500">
+    <div
+      v-else-if="error"
+      class="py-4 text-center text-red-600 dark:text-red-500"
+    >
       Error: {{ error.message }}
     </div>
 

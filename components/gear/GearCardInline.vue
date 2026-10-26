@@ -95,7 +95,7 @@ const conditionColor = computed(() => {
 }
 
 .card-brand {
-  @apply text-3xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest;
+  @apply text-3xs text-zinc-500 dark:text-zinc-600 uppercase tracking-widest;
 }
 
 .card-weight {
@@ -104,7 +104,7 @@ const conditionColor = computed(() => {
 }
 
 .card-weight-unit {
-  @apply text-xs text-zinc-400 dark:text-zinc-600 ml-px;
+  @apply text-xs text-zinc-500 dark:text-zinc-600 ml-px;
 }
 
 .card-note {
@@ -116,7 +116,7 @@ const conditionColor = computed(() => {
 }
 
 .card-tag {
-  @apply text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600
+  @apply text-3xs uppercase tracking-widest text-zinc-500 dark:text-zinc-600
          border border-zinc-200 dark:border-zinc-700 px-1 py-px rounded-sm;
 }
 
@@ -127,14 +127,14 @@ const conditionColor = computed(() => {
   @apply text-zinc-500 dark:text-zinc-500;
 }
 .tag-dim {
-  @apply text-zinc-400 dark:text-zinc-600;
+  @apply text-zinc-500 dark:text-zinc-600;
 }
 .tag-faint {
   @apply text-zinc-300 dark:text-zinc-700;
 }
 
 .card-cta {
-  @apply ml-auto text-3xs text-zinc-400 dark:text-zinc-600
+  @apply ml-auto text-3xs text-zinc-500 dark:text-zinc-600
          hover:text-zinc-700 dark:hover:text-zinc-300
          transition-colors duration-150 no-underline tracking-wide;
 }

@@ -91,7 +91,7 @@ const formatOz = (item) => {
   @apply text-cyan-500 flex-shrink-0;
 }
 .name {
-  @apply text-zinc-400 tracking-[.05em] flex-1;
+  @apply text-zinc-500 dark:text-zinc-400 tracking-[.05em] flex-1;
   @apply overflow-hidden text-ellipsis whitespace-nowrap;
 }
 .wt {

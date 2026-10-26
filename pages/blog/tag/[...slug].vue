@@ -142,13 +142,13 @@ const postSummaryClass =
             class="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2 font-mono text-3xs text-zinc-500 uppercase tracking-wider"
           >
             <span class="flex items-center gap-0.5 whitespace-nowrap">
-              <span class="text-zinc-400">ENTRIES</span>
+              <span class="text-zinc-500 dark:text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ filteredPosts?.length || 0 }}
               </span>
             </span>
             <span class="flex items-center gap-0.5 whitespace-nowrap">
-              <span class="text-zinc-400">WORDS</span>
+              <span class="text-zinc-500 dark:text-zinc-400">WORDS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{
                   Math.floor(
@@ -161,7 +161,7 @@ const postSummaryClass =
               </span>
             </span>
             <span class="flex items-center gap-0.5 whitespace-nowrap">
-              <span class="text-zinc-400">READ</span>
+              <span class="text-zinc-500 dark:text-zinc-400">READ</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{
                   Math.floor(
@@ -179,7 +179,7 @@ const postSummaryClass =
               v-if="tagScraps?.length"
               class="flex items-center gap-0.5 whitespace-nowrap"
             >
-              <span class="text-zinc-400">SCRAPS</span>
+              <span class="text-zinc-500 dark:text-zinc-400">SCRAPS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ tagScraps.length }}
               </span>
@@ -190,7 +190,7 @@ const postSummaryClass =
               </span>
             </template>
             <span class="flex items-center gap-0.5 whitespace-nowrap">
-              <span class="text-zinc-400">TAG</span>
+              <span class="text-zinc-500 dark:text-zinc-400">TAG</span>
               <span class="text-zinc-600 dark:text-zinc-300 lowercase">
                 {{ tag }}
               </span>
@@ -295,7 +295,7 @@ const postSummaryClass =
       <div v-if="tagScraps?.length" class="mt-8 pt-6">
         <div class="section-header-mono mb-3" style="line-height: 16px">
           Scraps
-          <span class="text-zinc-400 dark:text-zinc-600 tabular-nums">
+          <span class="text-zinc-500 dark:text-zinc-600 tabular-nums">
             {{ tagScraps.length }}
           </span>
         </div>

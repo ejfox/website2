@@ -98,7 +98,7 @@ const ledgerPips = computed(() =>
           ? 'text-success'
           : p.status === 'incorrect'
             ? 'text-error'
-            : 'text-zinc-400 dark:text-zinc-600',
+            : 'text-zinc-500 dark:text-zinc-600',
       label: `${p.confidence}% · ${p.status} · ${p.statement}`,
     }))
 )
@@ -265,7 +265,9 @@ usePageSeo({
               <span class="tabular-nums">{{ brier.updated.toFixed(3) }}</span>
               as updated
             </template>
-            <span class="text-zinc-400">(0 = perfect, 0.25 = coin flip)</span>
+            <span class="text-zinc-500 dark:text-zinc-400"
+              >(0 = perfect, 0.25 = coin flip)</span
+            >
           </div>
         </div>
       </header>
@@ -389,7 +391,7 @@ usePageSeo({
                   >
                     ✗
                   </span>
-                  <span v-else class="text-zinc-400">—</span>
+                  <span v-else class="text-zinc-500 dark:text-zinc-400">—</span>
                 </td>
                 <td class="py-3 pr-3 sm:pr-4 align-top tabular-nums">
                   <NuxtLink
@@ -592,10 +594,13 @@ usePageSeo({
             </span>
             <!-- delta = actual − stated: positive means it happened more
                  often than I said, i.e. I was underconfident -->
-            <span v-else-if="bucket.delta > 5" class="text-zinc-400">
+            <span
+              v-else-if="bucket.delta > 5"
+              class="text-zinc-500 dark:text-zinc-400"
+            >
               (underconfident by {{ bucket.delta }}pp)
             </span>
-            <span v-else class="text-zinc-400">
+            <span v-else class="text-zinc-500 dark:text-zinc-400">
               (overconfident by {{ Math.abs(bucket.delta) }}pp)
             </span>
           </div>

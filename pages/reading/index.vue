@@ -180,7 +180,7 @@ function formatDate(dateString) {
             />
             <div
               v-else
-              class="text-zinc-400 dark:text-zinc-600 text-center p-4"
+              class="text-zinc-500 dark:text-zinc-600 text-center p-4"
             >
               <div class="text-2xl mb-2">📖</div>
               <div class="text-sm">No Cover</div>

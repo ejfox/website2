@@ -53,7 +53,7 @@ usePageSeo({
         alt="EJ Fox with the Big Board at 30 Rock"
         class="w-full rounded-lg"
       />
-      <p class="font-mono text-xs text-zinc-400 mt-2">
+      <p class="font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-2">
         Me with the Big Board at 30 Rock, election night 2018
       </p>
     </section>
@@ -102,7 +102,7 @@ usePageSeo({
       </h3>
       <ul class="space-y-3 font-serif text-zinc-700 dark:text-zinc-300">
         <li class="flex gap-3">
-          <span class="text-zinc-400 shrink-0">—</span>
+          <span class="text-zinc-500 dark:text-zinc-400 shrink-0">—</span>
           <span>
             <strong>D3.js + Vue:</strong>
             D3 for the maps and transitions, Vue for the UI state. This combo
@@ -110,7 +110,7 @@ usePageSeo({
           </span>
         </li>
         <li class="flex gap-3">
-          <span class="text-zinc-400 shrink-0">—</span>
+          <span class="text-zinc-500 dark:text-zinc-400 shrink-0">—</span>
           <span>
             <strong>TopoJSON:</strong>
             Compressed geographic data. A 50MB shapefile becomes 2MB. Critical
@@ -118,7 +118,7 @@ usePageSeo({
           </span>
         </li>
         <li class="flex gap-3">
-          <span class="text-zinc-400 shrink-0">—</span>
+          <span class="text-zinc-500 dark:text-zinc-400 shrink-0">—</span>
           <span>
             <strong>Pre-rendered base layers:</strong>
             The map tiles were pre-rendered. Only the data overlays updated in
@@ -126,7 +126,7 @@ usePageSeo({
           </span>
         </li>
         <li class="flex gap-3">
-          <span class="text-zinc-400 shrink-0">—</span>
+          <span class="text-zinc-500 dark:text-zinc-400 shrink-0">—</span>
           <span>
             <strong>Graceful degradation:</strong>
             Every feature had a fallback. If the live data feed died, we could
@@ -179,7 +179,7 @@ usePageSeo({
           >
             10M
           </p>
-          <p class="font-mono text-xs text-zinc-500">
+          <p class="font-mono text-xs text-zinc-600 dark:text-zinc-500">
             watching on NBC and MSNBC
           </p>
         </div>
@@ -189,7 +189,9 @@ usePageSeo({
           >
             0
           </p>
-          <p class="font-mono text-xs text-zinc-500">app crashes</p>
+          <p class="font-mono text-xs text-zinc-600 dark:text-zinc-500">
+            app crashes
+          </p>
         </div>
       </div>
 
@@ -233,14 +235,18 @@ usePageSeo({
       </p>
       <ol class="space-y-3 font-serif text-zinc-700 dark:text-zinc-300">
         <li class="flex gap-3">
-          <span class="font-mono text-zinc-400 shrink-0">1.</span>
+          <span class="font-mono text-zinc-500 dark:text-zinc-400 shrink-0"
+            >1.</span
+          >
           <span>
             <strong>Start with a working prototype.</strong>
             Not a deck. Not a proposal. Something people can touch and react to.
           </span>
         </li>
         <li class="flex gap-3">
-          <span class="font-mono text-zinc-400 shrink-0">2.</span>
+          <span class="font-mono text-zinc-500 dark:text-zinc-400 shrink-0"
+            >2.</span
+          >
           <span>
             <strong>Understand the performer.</strong>
             Steve Kornacki has a specific way of thinking and moving. The app
@@ -248,7 +254,9 @@ usePageSeo({
           </span>
         </li>
         <li class="flex gap-3">
-          <span class="font-mono text-zinc-400 shrink-0">3.</span>
+          <span class="font-mono text-zinc-500 dark:text-zinc-400 shrink-0"
+            >3.</span
+          >
           <span>
             <strong>Design for the failure mode.</strong>
             What happens when things go wrong? Make that graceful, not
@@ -256,7 +264,9 @@ usePageSeo({
           </span>
         </li>
         <li class="flex gap-3">
-          <span class="font-mono text-zinc-400 shrink-0">4.</span>
+          <span class="font-mono text-zinc-500 dark:text-zinc-400 shrink-0"
+            >4.</span
+          >
           <span>
             <strong>Ship something real, then iterate.</strong>
             The app that shipped in November was very different from the January
@@ -279,7 +289,7 @@ usePageSeo({
           >
             NYPD Misconduct Network Analysis
           </h3>
-          <p class="font-mono text-xs text-zinc-500">
+          <p class="font-mono text-xs text-zinc-600 dark:text-zinc-500">
             Messy data, network visualization, investigative journalism
           </p>
         </NuxtLink>
@@ -289,7 +299,7 @@ usePageSeo({
           >
             CMU COVIDcast
           </h3>
-          <p class="font-mono text-xs text-zinc-500">
+          <p class="font-mono text-xs text-zinc-600 dark:text-zinc-500">
             Public health dashboards under pressure
           </p>
         </NuxtLink>

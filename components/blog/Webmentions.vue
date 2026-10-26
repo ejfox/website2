@@ -111,7 +111,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
         @click="showLikes = !showLikes"
       >
         <span>{{ likes.length }}</span>
-        <span class="text-red-500">♥</span>
+        <span class="text-red-600 dark:text-red-500">♥</span>
       </button>
 
       <button
@@ -120,7 +120,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
         @click="showReposts = !showReposts"
       >
         <span>{{ reposts.length }}</span>
-        <span class="text-green-500">↻</span>
+        <span class="text-green-700 dark:text-green-500">↻</span>
       </button>
 
       <span v-if="replies.length > 0" class="flex items-center gap-1">
@@ -203,7 +203,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
               :href="reply.url"
               target="_blank"
               rel="noopener"
-              class="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
+              class="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
             >
               {{ formatTime(reply.published) }}
             </a>

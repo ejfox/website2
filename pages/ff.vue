@@ -102,7 +102,7 @@ onMounted(() => {
   @apply mt-4 font-mono text-sm lowercase text-zinc-500 dark:text-zinc-400;
 }
 .ff-cursor {
-  @apply ml-0.5 text-zinc-400 dark:text-zinc-500;
+  @apply ml-0.5 text-zinc-500 dark:text-zinc-500;
   animation: ff-blink 1.1s steps(1) infinite;
 }
 
@@ -115,7 +115,7 @@ onMounted(() => {
 }
 .ff-meta {
   @apply mt-3 font-mono text-xs uppercase tracking-wider;
-  @apply text-zinc-400 dark:text-zinc-600;
+  @apply text-zinc-500 dark:text-zinc-600;
 }
 
 .ff-cal {

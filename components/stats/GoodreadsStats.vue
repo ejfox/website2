@@ -97,7 +97,7 @@ const formatRating = (rating) => {
           </span>
           <span
             v-if="book.rating && book.rating >= 3"
-            class="text-yellow-500 flex-shrink-0 ml-2 tabular-nums"
+            class="text-amber-600 dark:text-yellow-500 flex-shrink-0 ml-2 tabular-nums"
           >
             {{ '★'.repeat(book.rating) }}
           </span>
