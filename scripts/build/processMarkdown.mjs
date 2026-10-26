@@ -19,13 +19,11 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
-// import rehypeMermaid from 'rehype-mermaid' // DELETED - 64MB bloat
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
 import matter from 'gray-matter'
 import { transformerCopyButton } from '@rehype-pretty/transformers'
 import dotenv from 'dotenv'
-import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
 import { config } from '../config.mjs'
@@ -82,11 +80,6 @@ const paths = {
   outputDir: config.dirs.output,
   backupDir: config.dirs.backup,
 }
-
-const highlighter = await shiki.createHighlighter({
-  themes: ['github-dark'],
-  langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown'],
-})
 
 const formatTitle = (filename) => {
   const baseName = filename.split('/').pop()
@@ -305,13 +298,11 @@ const processor = unified()
     onVisitHighlightedWord(node) {
       node.properties.className = ['word']
     },
-    highlighter,
     transformers: [
       transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 }),
     ],
   })
   .use(rehypeAddClassToParagraphs)
-  // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
   .use(rehypeSlug)
   .use(rehypeStringify, { allowDangerousHtml: true })
 

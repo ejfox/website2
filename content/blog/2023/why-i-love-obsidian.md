@@ -36,7 +36,7 @@ I have also built a customized system that automatically publishes my notes from
 
 In order to synchronize my notes (minus drafts) I use rsync and grab the markdown files from the place where Obsidian keeps them for auto-syncing.
 
-```js[package.json]
+```json
 "scripts": {
     "content:blog": "rsync -avz --delete --exclude='/drafts/' --include='*.md' --exclude='*' ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/EJ\\'s\\ Notes/ ~/code/website/content/blog/",
     "content:reading": "rsync -avz --delete --exclude='/drafts/' --include='*.md' --exclude='*' ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/EJ\\'s\\ Notes/reading/ ~/code/website/content/reading/",

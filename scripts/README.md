@@ -17,14 +17,11 @@ plus the already-coherent `blog/` (Obsidian flow) and `og-image/` folders.
 
 ```bash
 # Content (build/ + blog/)
-yarn blog                  # import + safety lint + process (the full local flow)
-yarn blog:import           # import content from Obsidian (DRY_RUN=true to preview)
+yarn blog                  # safety lint + process + sealed check (the full local flow)
 yarn blog:process          # markdown → structured JSON
 yarn blog:check-links      # process + check external link health (slow, network)
 yarn blog:dead-links       # audit internal/wikilink rot (no network)  [meta/]
 yarn blog:fix-links        # process + auto-fix broken links via archive.org (slowest)
-yarn blog:watch            # rebuild on content change (run alongside `yarn dev`)
-yarn blog:publish          # import → process → commit → push
 
 # Predictions (author/ + meta/)
 yarn predict               # create a cryptographic prediction (PGP)      [author/]
@@ -79,7 +76,6 @@ scripts/
 ├── author/           # interactive tools to make & ship content
 │   ├── predict-pro.mjs          # cryptographic predictions (yarn predict)
 │   ├── crown.mjs                # scaffold a Vue page-takeover
-│   ├── sign-post.sh             # GPG-sign a blog post
 │   ├── capture.mjs              # headless-Chrome screenshot toolkit (:9333)
 │   ├── shoot-queue.mjs          # screenshot forcing-function queue
 │   ├── send-webmentions.mjs     # send outbound webmentions
@@ -114,17 +110,6 @@ Converts raw markdown into the structured JSON Nuxt consumes.
 
 Run via `yarn blog:process` / `blog:check-links` / `blog:fix-links`.
 
-### `blog/import.mjs` — Obsidian import
-
-Copies markdown from the Obsidian vault into `content/blog/`, validating
-frontmatter and skipping unchanged files. `yarn blog:import`
-(`DRY_RUN=true` to preview, or `yarn blog:preview`).
-
-### `blog/watch.sh` / `blog/publish.sh`
-
-`watch.sh` re-runs the processor on content change (run beside `yarn dev`).
-`publish.sh` runs the full import → process → commit → push flow.
-
 ### `author/predict-pro.mjs` — cryptographic predictions (`yarn predict`)
 
 Interactive tool to create tamper-proof, timestamped forecasts. Validates
@@ -144,20 +129,6 @@ change, the current `confidence`). Math lives in `utils/brier.mjs`; writes
 and commit it after resolving a prediction.
 
 ## Content Type Detection Rules
-
-### Week Notes
-
-A post is a week note if ANY of these are true:
-
-1. Type is `weekNote`
-2. Slug starts with `week-notes/`
-3. Slug matches the `YYYY-WW` pattern (e.g. `2024-45`)
-
-Supported formats:
-
-- Modern: `week-notes/2024-45`
-- Legacy: `2024-45` (at root level)
-- Type-based: any post with `type: 'weekNote'`
 
 ### Special Sections
 

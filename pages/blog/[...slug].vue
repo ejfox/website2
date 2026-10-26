@@ -190,7 +190,6 @@ const tocChildren = computed(() => {
 const articleContent = ref(null)
 const activeSection = ref('')
 const scrollProgress = ref(0)
-const showDebugGrid = ref(false)
 const postLinks = ref([])
 
 // How many links to show — adapt to sidebar fullness
@@ -423,19 +422,9 @@ onMounted(() => {
     scrollProgress.value = Math.min((window.scrollY / scrollHeight) * 100, 100)
   }
 
-  // Debug grid toggle (Cmd+G)
-  const handleKeydown = (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'g') {
-      e.preventDefault()
-      showDebugGrid.value = !showDebugGrid.value
-    }
-  }
-
   window.addEventListener('scroll', handleScroll)
-  window.addEventListener('keydown', handleKeydown)
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
-    window.removeEventListener('keydown', handleKeydown)
   })
 
   // TOC intersection observer + link extraction
@@ -566,12 +555,6 @@ onMounted(() => {
       />
     </Head>
 
-    <!-- Debug Grid Overlay -->
-    <div
-      v-show="showDebugGrid"
-      class="pointer-events-none fixed inset-0 z-[999] debug-grid"
-    ></div>
-
     <!-- Top metadata bar — teleported into the layout's #layout-bar slot
          so it lives as a sibling of the navs in the layout grid, not buried
          inside this page. Sticky behavior is on the layout slot itself.
@@ -665,11 +648,6 @@ onMounted(() => {
           class="blog-post-content e-content font-serif"
           v-html="post.html"
         ></article>
-        <div
-          v-else-if="post?.content"
-          class="blog-post-content e-content font-serif"
-          v-html="post.content"
-        ></div>
         <div v-else class="text-center text-red-500">No content available</div>
       </div>
 
@@ -862,28 +840,6 @@ onMounted(() => {
 .tags-container {
   @apply px-4 md:px-6 py-4 md:py-3;
   @apply border-t border-zinc-200 dark:border-zinc-800;
-}
-
-/* Debug grid */
-.debug-grid {
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 7px,
-      rgba(59, 130, 246, 0.1) 7px,
-      rgba(59, 130, 246, 0.1) 8px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 31px,
-      rgba(59, 130, 246, 0.2) 31px,
-      rgba(59, 130, 246, 0.2) 32px
-    );
-  background-size:
-    100% 8px,
-    100% 32px;
 }
 
 /* ===========================================
@@ -1079,23 +1035,6 @@ onMounted(() => {
 .blog-post-content a:hover {
   @apply text-zinc-900 dark:text-zinc-100;
   @apply decoration-zinc-600 dark:decoration-zinc-300;
-}
-
-.blog-post-content .external-link {
-  display: inline;
-}
-
-.blog-post-content .external-link svg {
-  display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  vertical-align: super;
-  margin-left: 2px;
-  opacity: 0.5;
-}
-
-.blog-post-content a:hover .external-link svg {
-  opacity: 0.8;
 }
 
 /* Title typing animation - opacity-based, no layout shift */

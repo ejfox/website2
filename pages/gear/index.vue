@@ -1,18 +1,6 @@
 <script setup>
 import { csvParse } from 'd3-dsv' // Only used CSV parser (~2KB)
 
-const _escapeHtml = (text) => {
-  if (!text) return ''
-  const map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  }
-  return String(text).replace(/[&<>"']/g, (m) => map[m])
-}
-
 const { tocTarget } = useTOC()
 const { revealContainer: gearReveal } = useScrollReveal({
   selector: 'tbody tr',
@@ -57,28 +45,6 @@ const typeSymbols = {
   Creativity: '✧',
 }
 
-const _getTypeSymbol = (type) => typeSymbols[type] || '—'
-
-const _getSortedItemsByType = (items) => {
-  const typeOrder = [
-    'Tech',
-    'Utility',
-    'Comfort',
-    'Sleep',
-    'Bag',
-    'Safety',
-    'Creativity',
-  ]
-  return [...items].sort((a, b) => {
-    const aIndex = typeOrder.indexOf(a.Type)
-    const bIndex = typeOrder.indexOf(b.Type)
-    if (aIndex === -1 && bIndex === -1) return 0
-    if (aIndex === -1) return 1
-    if (bIndex === -1) return -1
-    return aIndex - bIndex
-  })
-}
-
 const PRIORITY_CONTAINERS = [
   'Body',
   'Motorcycle',
@@ -108,9 +74,6 @@ const groupedGear = computed(() => {
   })
   return new Map(sortedEntries)
 })
-
-const _calculateTotalWeightInGrams = (items) =>
-  calculateTotalWeight(items).formatted
 
 const formatWeight = (items) => {
   const weightData = calculateTotalWeight(items)
@@ -196,14 +159,6 @@ const containerCount = computed(
         .filter((c) => c && c.trim() !== '')
     ).size
 )
-const _totalWeightInGrams = computed(() => {
-  const total = calculateTotalWeight(gearItems.value || [])
-  return total.grams || 0
-})
-const _avgWeightInGrams = computed(() => {
-  const avg = calculateAverageWeight(gearItems.value || [])
-  return avg.grams || 0
-})
 
 const displayTotalWeight = computed(() => {
   const totalWeightData = calculateTotalWeight(gearItems.value || [])
@@ -233,25 +188,6 @@ const displayTotalWeight = computed(() => {
     return {
       value: kg > 0 ? `${kg}kg ${grams}g` : `${grams}g`,
       unit: '',
-    }
-  }
-})
-
-const _displayAvgWeight = computed(() => {
-  const avgWeightData = calculateAverageWeight(gearItems.value || [])
-  if (weightUnit.value === 'imperial') {
-    const oz = avgWeightData.ounces
-    const value =
-      typeof oz === 'number' && !Number.isNaN(oz) ? oz.toFixed(1) : '0.0'
-    return {
-      value,
-      unit: 'oz',
-    }
-  } else {
-    const g = avgWeightData.grams
-    return {
-      value: typeof g === 'number' && !Number.isNaN(g) ? g : 0,
-      unit: 'g',
     }
   }
 })
@@ -790,10 +726,6 @@ useHead(() => ({
   @apply flex items-center justify-between;
 }
 
-.flex-gap-3 {
-  @apply flex items-center gap-3;
-}
-
 .flex-gap-0.5 {
   @apply flex items-center gap-0.5;
 }
@@ -874,10 +806,6 @@ useHead(() => ({
 
 .gear-container-card {
   @apply flex flex-col py-1 px-1;
-}
-
-.gear-container-count {
-  @apply text-3xs font-mono tabular-nums text-zinc-500;
 }
 
 .gear-container-header {

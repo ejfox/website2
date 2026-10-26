@@ -19,11 +19,6 @@ interface Gist {
   content?: string
 }
 
-// Fetch GitHub stats for the top section
-const { stats: rawStats, isLoading: _statsLoading } = useStats()
-const stats = computed(() => rawStats.value || {})
-const _hasGithubData = computed(() => !!stats.value?.github?.stats)
-
 const currentPage = ref(1)
 const perPage = 64
 

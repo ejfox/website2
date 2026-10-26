@@ -677,10 +677,6 @@ usePageSeo({
   @apply border-y border-zinc-100 dark:border-zinc-800;
 }
 
-.divider-b {
-  @apply border-b border-zinc-200 dark:border-zinc-800;
-}
-
 .divider-t {
   @apply border-t border-zinc-200 dark:border-zinc-800;
 }
@@ -696,10 +692,6 @@ usePageSeo({
   @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider mb-8;
 }
 
-.section-label-sm {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider mb-4;
-}
-
 .hero-label {
   @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4;
 }
@@ -707,15 +699,6 @@ usePageSeo({
 .hero-title {
   @apply font-serif text-3xl md:text-4xl font-normal mb-6 text-zinc-900 dark:text-zinc-100;
   letter-spacing: -0.02em;
-}
-
-.headline-lg {
-  @apply font-serif text-2xl text-zinc-900 dark:text-zinc-100;
-  letter-spacing: -0.01em;
-}
-
-.headline-md {
-  @apply font-serif text-lg text-zinc-900 dark:text-zinc-100;
 }
 
 /* ============================================
@@ -729,24 +712,12 @@ usePageSeo({
   @apply font-serif text-zinc-600 dark:text-zinc-400;
 }
 
-.body-sm {
-  @apply font-serif text-sm text-zinc-600 dark:text-zinc-400;
-}
-
-.body-sm-muted {
-  @apply font-serif text-sm text-zinc-500 dark:text-zinc-400;
-}
-
 .caption {
   @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
 }
 
 .aside {
   @apply font-mono text-sm text-zinc-400 dark:text-zinc-500;
-}
-
-.caption-success {
-  @apply font-mono text-xs text-emerald-600 dark:text-emerald-400;
 }
 
 /* ============================================

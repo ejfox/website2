@@ -209,10 +209,6 @@ const mainContainers = computed(() => {
 })
 
 const gearStatsRef = ref<HTMLElement | null>(null)
-const _containersRef = ref<HTMLElement | null>(null)
-const _statsGridRef = ref<HTMLElement | null>(null)
-const _distributionRef = ref<HTMLElement | null>(null)
-const _conversionsRef = ref<HTMLElement | null>(null)
 
 onMounted(async () => {
   try {
