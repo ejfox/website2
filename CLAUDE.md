@@ -380,6 +380,29 @@ renders it to inline SVG **at build time** with [Pele](https://pele.run)
 - The processing cache keys on source hash, so a renderer change only reaches
   old posts when they're reprocessed (`yarn blog:process` after clearing their JSON).
 
+## Big posts — a .vue body next to the .md (2026-10-26)
+
+When a post needs custom interactions or viz, EJ writes it as Vue.
+`content/blog/2025/slug.vue` sits next to `slug.md`. The `.vue` is the body:
+prose, components, `<script setup>`, `<style>`. The `.md` keeps only the
+frontmatter. `pages/blog/[...slug].vue` renders the `.vue` in place of the
+markdown HTML, so layout, TOC, footer and mobile are the same as any post.
+
+- `yarn crown 2025/slug` (and Dispatch's "Convert to Vue Page") makes one
+  from an existing post. Prose stays byte-identical.
+- `processMarkdown` reads the `.vue`'s `<template>` back out for feeds,
+  search, word count and TOC, and its cache hash covers the `.vue`. The
+  internal-link audit scans it and reports `.vue` line numbers.
+- Only public posts may have one: the prose ships in the JS bundle. A `.vue`
+  next to a draft/hidden/unlisted/password/sealed/scheduled post (or with no
+  `.md`) fails processing.
+- Gotchas (handled by crown, worth knowing when hand-writing): Nuxt splits a
+  static `srcset` on commas and imports the pieces, so bind it
+  (`:srcset="'…'"`); `{{` in prose needs `&#123;&#123;`; `<style>` inside the
+  template must be `<component is="style">`.
+- Peter Todd (`pages/blog/2024/the-mystery-of-peter-todd.vue`) is an older
+  one-off page that predates this.
+
 ## Dead Internal Link Detection (2026-06-29)
 
 Two separate link-health systems — don't confuse them:

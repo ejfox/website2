@@ -19,6 +19,16 @@ const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { tocTarget } = useTOC()
 
+// Big posts: content/blog/<slug>.vue, when it exists, IS the body — prose,
+// components and all (see `yarn crown`). Everything else about the page is
+// the same as a markdown post.
+const vueBodies = import.meta.glob('../../content/blog/**/*.vue')
+const VueBody = computed(() => {
+  const file = `/content/blog/${route.params.slug.join('/')}.vue`
+  const key = Object.keys(vueBodies).find((k) => k.endsWith(file))
+  return key ? defineAsyncComponent(vueBodies[key]) : null
+})
+
 // --- Data Fetching ---
 const { data: post, error } = await useAsyncData(
   `post-${route.params.slug.join('-')}`,
@@ -647,8 +657,11 @@ onMounted(() => {
 
       <!-- Article Content -->
       <div ref="articleContent" class="pt-3 pb-6">
+        <article v-if="VueBody" class="blog-post-content e-content font-serif">
+          <component :is="VueBody" />
+        </article>
         <article
-          v-if="post?.html"
+          v-else-if="post?.html"
           class="blog-post-content e-content font-serif"
           v-html="post.html"
         ></article>

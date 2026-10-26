@@ -46,6 +46,12 @@ import {
 
 import { getPostType } from '../utils/helpers.mjs'
 import {
+  assertVueBodiesArePublic,
+  fromVueTemplateHtml,
+  readVueBody,
+  statsFromHtml,
+} from '../utils/vue-body.mjs'
+import {
   buildValidRoutes,
   auditInternalLinks,
 } from '../utils/internal-links.mjs'
@@ -190,6 +196,23 @@ async function fixLinkInSourceFile(link, source, contentDir) {
 const hashSource = (content) =>
   createHash('sha256').update(content).digest('hex')
 
+const normalizeSlug = (slug) => {
+  // Strip leading 'blog/' prefix if it exists
+  return slug.startsWith('blog/') ? slug.slice(5) : slug
+}
+
+/**
+ * The canonical slug for a source file — the same derivation that names its
+ * processed JSON and its URL. Written out by hand in six places before this,
+ * which is six chances for one of them to disagree about what a post is called.
+ */
+const slugForFile = (filePath) =>
+  normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
+
+/** A big post's .vue body is part of what its JSON is a cache of */
+const cacheSource = (content, filePath) =>
+  content + (readVueBody(slugForFile(filePath))?.raw ?? '')
+
 /**
  * Is the processed JSON a valid cache of this source?
  *
@@ -205,7 +228,8 @@ function getFileCacheStatus(filePath, outputPath) {
     const cached = JSON.parse(readFileSync(outputPath, 'utf-8'))
     const fresh =
       cached?.cacheVersion === CACHE_VERSION &&
-      cached?.sourceHash === hashSource(readFileSync(filePath, 'utf8'))
+      cached?.sourceHash ===
+        hashSource(cacheSource(readFileSync(filePath, 'utf8'), filePath))
     return fresh ? 'cache' : 'process'
   } catch {
     return 'process'
@@ -248,19 +272,6 @@ async function writeProcessedResult(result, outputPath) {
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
   await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
 }
-
-const normalizeSlug = (slug) => {
-  // Strip leading 'blog/' prefix if it exists
-  return slug.startsWith('blog/') ? slug.slice(5) : slug
-}
-
-/**
- * The canonical slug for a source file — the same derivation that names its
- * processed JSON and its URL. Written out by hand in six places before this,
- * which is six chances for one of them to disagree about what a post is called.
- */
-const slugForFile = (filePath) =>
-  normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
 
 const processor = unified()
   .use(remarkParse)
@@ -410,9 +421,19 @@ async function processMarkdown(content, filePath) {
       : undefined
     const { password: _rawPassword, ...safeFrontmatter } = frontmatter
 
+    // A big post's body is content/blog/<slug>.vue (scripts/utils/vue-body.mjs)
+    const vueBody = readVueBody(slug)
+    if (vueBody) {
+      html = fromVueTemplateHtml(vueBody.html.trim())
+      const fromVue = statsFromHtml(html)
+      stats.words = fromVue.words
+      stats.images = fromVue.images
+      toc.splice(0, toc.length, ...fromVue.toc)
+    }
+
     return {
       cacheVersion: CACHE_VERSION,
-      sourceHash: hashSource(content),
+      sourceHash: hashSource(cacheSource(content, filePath)),
       html,
       title: extractedTitle,
       metadata: {
@@ -1229,6 +1250,12 @@ async function processAllFiles() {
     // can be skipped is not a guard — that exact bypass is how the previous
     // attempt shipped a post with no protection and a green build.
     await assertNoStraySecretFrontmatter(allFiles)
+    assertVueBodiesArePublic(
+      (await fs.readdir(paths.contentDir, { recursive: true }))
+        .filter((f) => f.endsWith('.vue'))
+        .map((f) => path.join(paths.contentDir, f)),
+      paths.contentDir
+    )
 
     // Week notes were retired from the site on 2026-10-11 (they leaked
     // screenshots and were searchable). They stay private in the vault. A

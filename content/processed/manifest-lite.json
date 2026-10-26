@@ -3403,7 +3403,26 @@
         "text": "My Profound Love of Bags, Containers, and Minimalism",
         "slug": "my-profound-love-of-bags-containers-and-minimalism",
         "level": "h3",
-        "children": []
+        "children": [
+          {
+            "text": "Aesthetically Minimalist",
+            "slug": "aesthetically-minimalist",
+            "level": "h4",
+            "children": []
+          },
+          {
+            "text": "Philosophically Minimalist",
+            "slug": "philosophically-minimalist",
+            "level": "h4",
+            "children": []
+          },
+          {
+            "text": "Pragmatically Minimalist",
+            "slug": "pragmatically-minimalist",
+            "level": "h4",
+            "children": []
+          }
+        ]
       },
       {
         "text": "Hidden Communities",
@@ -3430,18 +3449,17 @@
         "process",
         "nature"
       ],
-      "words": 2091,
+      "title": "Preparing For Nothing In Particular",
+      "words": 2082,
       "images": 3,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 0,
+        "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 0,
       "codeBlocks": 0,
-      "headers": {
-        "h3": 4
-      },
+      "headers": {},
       "toc": [
         {
           "text": "Preparation",
@@ -3453,7 +3471,26 @@
           "text": "My Profound Love of Bags, Containers, and Minimalism",
           "slug": "my-profound-love-of-bags-containers-and-minimalism",
           "level": "h3",
-          "children": []
+          "children": [
+            {
+              "text": "Aesthetically Minimalist",
+              "slug": "aesthetically-minimalist",
+              "level": "h4",
+              "children": []
+            },
+            {
+              "text": "Philosophically Minimalist",
+              "slug": "philosophically-minimalist",
+              "level": "h4",
+              "children": []
+            },
+            {
+              "text": "Pragmatically Minimalist",
+              "slug": "pragmatically-minimalist",
+              "level": "h4",
+              "children": []
+            }
+          ]
         },
         {
           "text": "Hidden Communities",
