@@ -53,8 +53,8 @@ const fail = (msg) => {
 }
 
 const mdPath = join('content', 'blog', ...slugParts) + '.md'
-if (!existsSync(mdPath)) fail('No such post: ' + mdPath)
 if (slugParts[0] === 'private') fail('Sealed posts stay sealed; not crowning.')
+if (!existsSync(mdPath)) fail('No such post: ' + mdPath)
 
 // The prose ends up in the page's JS bundle, which anyone can read. So only
 // crown a post whose text is already allowed to be public.

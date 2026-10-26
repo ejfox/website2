@@ -109,10 +109,18 @@ export function toVueTemplateHtml(html) {
     )
 }
 
-/** Undo the template-only bits so feeds and search get plain HTML */
+/**
+ * Undo the template-only bits so feeds and search get plain HTML. Component
+ * tags (<SignalRange />, <ClientOnly>) mean nothing in a feed reader, so they
+ * go; any prose they wrap stays.
+ */
 export function fromVueTemplateHtml(html) {
-  return html.replace(
-    /\s:srcset="'((?:[^'\\]|\\.)*)'"/g,
-    (_, v) => ` srcset="${v.replace(/\\(.)/g, '$1')}"`
-  )
+  return html
+    .replace(/<\/?[A-Z][\w.]*(?:\s[^>]*)?>/g, '')
+    .replace(/<component\s+is="style"/g, '<style')
+    .replace(/<\/component\s*>/g, '</style>')
+    .replace(
+      /\s:srcset="'((?:[^'\\]|\\.)*)'"/g,
+      (_, v) => ` srcset="${v.replace(/\\(.)/g, '$1')}"`
+    )
 }

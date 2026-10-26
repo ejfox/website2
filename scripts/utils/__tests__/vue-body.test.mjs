@@ -96,8 +96,16 @@ describe('vue-body', () => {
     expect(fromVueTemplateHtml(vue)).toBe(src)
   })
 
+  it('strips components and unwraps styles for feeds', () => {
+    expect(
+      fromVueTemplateHtml(
+        '<p>a</p><SignalRange :x="1" /><ClientOnly><p>b</p></ClientOnly><component\n  is="style"\n  >.x{}</component\n>'
+      )
+    ).toBe('<p>a</p><p>b</p><style\n  >.x{}</style>')
+  })
+
   it('entity-encodes non-breaking spaces', () => {
-    expect(toVueTemplateHtml('a\u00a0b')).toBe('a&#160;b')
+    expect(toVueTemplateHtml('a\u00A0b')).toBe('a&#160;b')
   })
 
   it('audits links in the Vue page and points at the .vue file', async () => {
