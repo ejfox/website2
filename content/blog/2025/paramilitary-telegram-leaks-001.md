@@ -70,7 +70,7 @@ The compression with Snappy ensures it's both compact and fast to decompress.
 
 To make the data available globally with minimal latency (and cost to me) we throw it on Cloudflare R2 for hosting
 
-```
+```dotenv
 # R2 Configuration
 R2_PARQUET_URL=https://r2.ejfox.com/para-leaks/telegram_chats.r5.parquet
 ```

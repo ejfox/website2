@@ -50,11 +50,6 @@
   @apply active:scale-[0.99];
 }
 
-.interactive-subtle {
-  transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
-  @apply active:scale-[0.995];
-}
-
 /* Utility Classes - Common Patterns */
 .sr-only {
   position: absolute;
@@ -79,23 +74,11 @@
   white-space: normal;
 }
 
-.max-w-content {
-  max-width: 65ch;
-}
-
 .tabular-nums {
   font-variant-numeric: tabular-nums;
   font-feature-settings:
     'lnum' 1,
     'tnum' 1;
-}
-
-.letter-tight {
-  letter-spacing: -0.02em;
-}
-
-.letter-tighter {
-  letter-spacing: -0.035em;
 }
 
 /* Base Typography */
@@ -285,38 +268,6 @@ p,
   letter-spacing: 0.01em;
 }
 
-.text-heading {
-  @apply font-serif text-2xl md:text-3xl font-normal tracking-tight leading-snug text-zinc-900 dark:text-zinc-100;
-}
-
-.text-body {
-  @apply font-serif text-base leading-relaxed text-zinc-700 dark:text-zinc-300;
-}
-
-.text-data {
-  @apply font-mono text-sm text-zinc-600 dark:text-zinc-400;
-  /* Lining figures for data */
-  font-feature-settings:
-    'lnum' 1,
-    'tnum' 1;
-}
-
-.text-mono {
-  @apply font-mono text-sm;
-  /* Tabular lining figures for monospace */
-  font-feature-settings:
-    'lnum' 1,
-    'tnum' 1;
-}
-
-.text-small {
-  @apply font-serif text-sm leading-normal text-zinc-600 dark:text-zinc-400;
-}
-
-.text-caption {
-  @apply font-mono text-xs leading-normal text-zinc-500 dark:text-zinc-400;
-}
-
 .text-meta {
   @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
 }
@@ -365,15 +316,6 @@ p,
   @apply text-zinc-500 dark:text-zinc-400;
 }
 
-/* Links - Minimal */
-/* a { */
-/*   @apply text-inherit border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors duration-200; */
-/* } */
-/**/
-/* a.link-plain { */
-/*   @apply border-none; */
-/* } */
-
 /* Dead internal links — target post is missing, a draft, or otherwise unpublished.
    Rendered as a non-clickable <span class="internal-link internal-link-dead"> by
    the content pipeline so readers are never sent to a 404. Strikethrough + muted,
@@ -413,18 +355,8 @@ p,
   @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
 }
 
-/* Project Components */
-.project-grid {
-  @apply grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 scroll-mt-8;
-  --stagger-delay: 0ms;
-  animation-delay: var(--stagger-delay);
-}
-
 /* Mobile touch-friendly layout */
 @media (max-width: 767px) {
-  .project-grid {
-    @apply -mx-4 px-4 py-4 rounded-lg;
-  }
 }
 
 .project-content {
@@ -475,15 +407,8 @@ p,
   @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
 }
 
-.project-github-link {
-  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
-}
-
 /* Mobile touch-friendly GitHub links - 48px minimum for Android */
 @media (max-width: 767px) {
-  .project-github-link {
-    @apply min-h-[48px] inline-flex items-center px-4 py-3;
-  }
 }
 
 /* Constrain inline GitHub/YouTube SVG icons to prevent them from growing */
@@ -538,55 +463,9 @@ p,
   }
 }
 
-.skeleton-text {
-  @apply h-4 w-full bg-zinc-100 dark:bg-zinc-900 rounded;
-}
-
-.skeleton-title {
-  @apply h-8 w-3/4 bg-zinc-100 dark:bg-zinc-900 rounded;
-}
-
-/* Grid System */
-.container-grid {
-  @apply grid grid-cols-12 gap-x-4 px-6 md:px-8;
-}
-
-/* Image grid layouts - 2-4-8 columns */
-.image-grid-2 {
-  @apply grid grid-cols-2 gap-2; /* 2-unit gaps */
-}
-
-.image-grid-4 {
-  @apply grid grid-cols-2 md:grid-cols-4 gap-4; /* 4-unit gaps */
-}
-
-.image-grid-auto {
-  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
-}
-
-.image-grid-2 img,
-.image-grid-4 img,
-.image-grid-auto img {
-  @apply object-cover w-full;
-  aspect-ratio: 1 / 1;
-}
-
-.content-grid {
-  @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
-}
-
 /* Spacing System - True 8px Baseline Grid */
 .section-spacing {
   @apply py-24; /* 3 * 8px baseline units */
-}
-
-.element-spacing {
-  @apply mb-16; /* 2 * 8px baseline units */
-}
-
-/* Borders - Minimal */
-.border-default {
-  @apply border-zinc-200 dark:border-zinc-800;
 }
 
 /* Cards - Flat Design */
@@ -645,9 +524,6 @@ p,
 }
 
 /* Row layouts */
-.stat-row {
-  @apply flex items-center justify-between text-sm;
-}
 
 .stat-item {
   @apply space-y-1;
@@ -672,37 +548,10 @@ p,
   line-height: 12px;
 }
 
-/* Velocity/performance metrics */
-.velocity-label {
-  @apply text-zinc-600 dark:text-zinc-400 tracking-[0.1em];
-  font-size: 9px;
-  line-height: 10px;
-}
-
-.velocity-value {
-  @apply text-zinc-800 dark:text-zinc-200 tabular-nums font-mono;
-  font-size: 10px;
-  line-height: 12px;
-}
-
-.velocity-row {
-  @apply flex items-center justify-between;
-}
-
 /* Deprecated - use .stat-label instead */
 .metric-label {
   @apply font-mono text-xs tracking-wider text-zinc-500 dark:text-zinc-400 font-medium uppercase;
 }
-
-.status-indicator {
-  @apply w-2 h-2 rounded-full;
-}
-
-/* Removed anime.js transitions - causing flickering */
-
-/* Typography Scale - Modular & Rhythmic */
-/* Uses a 1.250 ratio (Major Third) for harmonious sizing */
-/* Line heights decrease as font size increases for optimal readability */
 
 /* Prose/Article Content Typography */
 .prose {
@@ -1115,13 +964,6 @@ blockquote a {
 }
 
 /* Mobile layout utilities */
-.scrollbar-hide {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
-}
 
 /* Mobile-specific layout fixes */
 @media (max-width: 640px) {
@@ -1262,12 +1104,6 @@ p.font-serif.text-xl {
   font-variant-numeric: oldstyle-nums;
 }
 
-/* Drop caps for articles */
-.prose-dropcap p:first-of-type::first-letter {
-  @apply float-left text-6xl leading-none mr-2 mt-1 font-light;
-  line-height: 0.8;
-}
-
 /* Data Tables - Consistent Swiss/Tufte style */
 .data-table {
   @apply w-full font-mono text-sm;
@@ -1293,12 +1129,6 @@ p.font-serif.text-xl {
   @apply px-2 py-2 text-zinc-700 dark:text-zinc-300;
 }
 
-/* Dense table variant */
-.data-table-dense td,
-.data-table-dense th {
-  @apply py-1;
-}
-
 /* Numeric columns */
 .data-table .numeric {
   @apply text-right tabular-nums;
@@ -1320,23 +1150,6 @@ p.font-serif.text-xl {
   @apply overflow-x-auto -mx-4 px-4;
 }
 
-/* Minimal list/table hybrid */
-.data-list {
-  @apply space-y-0 font-mono text-sm;
-}
-
-.data-list-item {
-  @apply flex items-baseline justify-between py-2 border-b border-zinc-100 dark:border-zinc-900;
-}
-
-.data-list-key {
-  @apply text-zinc-600 dark:text-zinc-400;
-}
-
-.data-list-value {
-  @apply text-zinc-900 dark:text-zinc-100 tabular-nums;
-}
-
 /* Image Grid System - 2-4-8 rhythm */
 .prose img,
 .blog-post-content img {
@@ -1347,17 +1160,6 @@ p.font-serif.text-xl {
 }
 
 /* Grid-based image sizing */
-.img-small {
-  aspect-ratio: 16 / 9;
-  max-width: 50%;
-  @apply mb-4; /* 4-unit spacing */
-}
-
-.img-medium {
-  aspect-ratio: 16 / 9;
-  max-width: 75%;
-  @apply my-6; /* Between 4 and 8 */
-}
 
 .img-large,
 .img-full {
@@ -1369,12 +1171,6 @@ p.font-serif.text-xl {
 .img-square {
   @apply my-8;
   aspect-ratio: 1 / 1;
-}
-
-.img-portrait {
-  @apply my-8;
-  aspect-ratio: 3 / 4;
-  max-width: 66.666667%; /* 2/3 width */
 }
 
 /* Figure with caption - Tufte style */
@@ -1405,16 +1201,14 @@ figcaption {
 }
 
 /* Inline images in text */
-.prose p img:not(.img-full):not(.img-large):not(.img-medium):not(.img-small) {
+.prose p img:not(.img-full) {
   @apply inline-block align-baseline my-0 mx-1;
   height: 1em;
   width: auto;
 }
 
 /* Override for full-size images in paragraphs */
-.prose p img.img-full,
-.prose p img.img-large,
-.prose p img.img-medium {
+.prose p img.img-full {
   @apply block my-8;
   width: 100%;
   height: auto;
@@ -1433,8 +1227,6 @@ img[data-loading='lazy']::before {
     'lnum' 1,
     'tnum' 1;
 }
-
-/* Cloudinary placeholder — gradient bg shows while image loads, no blur */
 
 /* ========================================
    SIDENOTES - Static CSS (prevents CLS)

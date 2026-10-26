@@ -1,11 +1,11 @@
 # EJ Fox's Website
 
-Personal website + blog: Nuxt 3 • Vue 3 • Tailwind
+Personal website + blog: Nuxt 4 • Vue 3 • Tailwind
 
 ## Quick Start
 
 ```bash
-yarn install && yarn blog:import && yarn blog:process && yarn dev
+yarn install && yarn blog:process && yarn dev
 ```
 
 ## Commands
@@ -14,9 +14,8 @@ yarn install && yarn blog:import && yarn blog:process && yarn dev
 | --------------------- | ------------------------------- |
 | `yarn dev`            | Dev server (port 3006)          |
 | `yarn build`          | Production build                |
-| `yarn blog:import`    | Import from Obsidian            |
 | `yarn blog:process`   | Process MD → JSON               |
-| `yarn predict`        | Create cryptographic prediction |
+| `yarn predict`        | Create a prediction             |
 | `yarn webmention`     | Send webmentions (last 7 days)  |
 | `yarn webmention:all` | Send all webmentions            |
 

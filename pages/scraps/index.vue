@@ -42,13 +42,6 @@ const { revealContainer: scrapsReveal } = useScrollReveal({
   duration: 100,
 })
 
-const _stats = computed(() => {
-  if (!scraps.value?.length) return null
-  return {
-    total: scraps.value.length,
-  }
-})
-
 const uniqueTags = computed(() => {
   const tags = new Set<string>()
   scraps.value?.forEach((s) => {

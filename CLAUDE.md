@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal website and digital publishing system built with Nuxt 3. Primary purpose: publishing blog posts, predictions, and stats from multiple APIs. Content originates in Obsidian, gets processed to structured JSON, then served via Vue components.
+Personal website and digital publishing system built with Nuxt 4. Primary purpose: publishing blog posts, predictions, and stats from multiple APIs. Content originates in Obsidian, gets processed to structured JSON, then served via Vue components.
 
 ## Current Status: ✅ Production Ready
 
@@ -85,8 +85,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 - `pages/threads.vue` - D3 force-directed graph visualization
 - `pages/tag/[...slug].vue` - Tag detail pages
 - `components/gear/GearItem.vue` - Individual gear row component
-- `components/gear/GearTableRow.client.vue` - Client-side gear display
-- `composables/useWeightCalculations.ts` - Weight conversion utilities
+- `utils/weight.ts` - Weight conversion utilities
 
 ### Configuration Files
 
@@ -272,7 +271,7 @@ ssh vps 'pm2 reload website2'
 
 **Problem**: Weights showing as 0 or NaN
 **Cause**: CSV column name mismatch (`Weight_oz` vs `Base Weight ()`)
-**Solution**: Update `composables/useWeightCalculations.ts` to use correct column name
+**Solution**: Update `utils/weight.ts` to use correct column name
 
 **Problem**: Vue template errors with inline SVGs
 **Solution**: Use simpler HTML entities or Unicode characters instead of complex SVGs in templates

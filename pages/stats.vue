@@ -401,53 +401,6 @@ const validBlogStats = computed(() => blogStats.value || undefined)
 // Data-driven gonzo summary sentence generator (pure logic in utils/statsSummary.ts)
 const summaryData = computed(() => buildStatsSummary(stats.value))
 
-// Health data transformation
-const _transformedHealthStats = computed(() => {
-  if (!stats.value?.health) return null
-  const healthData = JSON.parse(JSON.stringify(stats.value.health))
-
-  if (healthData.dailyActivity && Array.isArray(healthData.dailyActivity)) {
-    const weekMap = new Map()
-    const sortedActivities = [...healthData.dailyActivity].sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    )
-
-    sortedActivities.forEach((day) => {
-      if (!day.date) return
-      const date = new Date(day.date)
-      const weekStart = new Date(date)
-      weekStart.setDate(date.getDate() - date.getDay())
-      const weekKey = weekStart.toISOString().split('T')[0]
-
-      if (!weekMap.has(weekKey)) {
-        weekMap.set(weekKey, {
-          startDate: weekStart.toISOString().split('T')[0],
-          endDate: new Date(weekStart.getTime() + 6 * 24 * 60 * 60 * 1000)
-            .toISOString()
-            .split('T')[0],
-          steps: 0,
-          activeMinutes: 0,
-          days: 0,
-        })
-      }
-
-      const weekData = weekMap.get(weekKey)
-      weekData.steps += day.steps || 0
-      weekData.activeMinutes += day.activeMinutes || 0
-      weekData.days++
-    })
-
-    healthData.weeklyActivity = Array.from(weekMap.values())
-      .sort(
-        (a, b) =>
-          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
-      )
-      .slice(0, 10)
-  }
-
-  return healthData
-})
-
 // TOC and navigation
 const tocTarget = ref<Element | null>(null)
 const activeSection = ref('overview')

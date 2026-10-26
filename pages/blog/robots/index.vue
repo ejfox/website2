@@ -1,6 +1,5 @@
 <script setup>
 // Animation handled via global anime.js from CDN
-import { useWindowSize } from '@vueuse/core'
 
 const processedMarkdown = useProcessedMarkdown()
 const { data: robotNotes } = await useAsyncData('robot-notes', () =>
@@ -18,23 +17,6 @@ const metadataClass =
   'post-metadata text-sm text-zinc-500 dark:text-zinc-400 font-mono'
 
 const robotElements = ref([])
-const _activeSection = ref('')
-const { width } = useWindowSize()
-const _isMobile = computed(() => width.value < 768)
-
-// Group notes by tag for the TOC
-const _notesByTag = computed(() => {
-  if (!robotNotes.value) return {}
-
-  const grouped = {}
-  robotNotes.value.forEach((note) => {
-    note.tags?.forEach((tag) => {
-      if (!grouped[tag]) grouped[tag] = []
-      grouped[tag].push(note)
-    })
-  })
-  return grouped
-})
 
 // Get all TOC headers for a note and calculate total word count
 const getNoteSummary = (note) => {

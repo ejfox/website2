@@ -97,13 +97,6 @@ const sectionWordCounts = computed(() => {
   return counts
 })
 
-// Helper to check if a string looks like a date
-const _isDateString = (str) => {
-  if (typeof str !== 'string') return false
-  const date = new Date(str)
-  return date instanceof Date && !Number.isNaN(date)
-}
-
 // Computed property to get all metadata fields
 const metadataFields = computed(() => {
   if (!note.value?.metadata) return {}

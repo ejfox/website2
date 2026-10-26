@@ -69,14 +69,6 @@ interface ManifestItem extends Post {
   _isManifestItem?: true
 }
 
-// Utility functions
-const _debug = (_msg: string, _data?: unknown) => {
-  const config = useRuntimeConfig()
-  if (config.public.debugContent) {
-    // Debug logging disabled
-  }
-}
-
 function compareDates(a: string, b: string): number {
   return new Date(b).getTime() - new Date(a).getTime()
 }
@@ -250,8 +242,6 @@ function filterAndSortPosts(
 }
 
 export const useProcessedMarkdown = () => {
-  const _config = useRuntimeConfig()
-
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {
       // Cast the URL to string to bypass Nitro's typed-route inference, which

@@ -360,7 +360,7 @@ MATCH (o:Officer) WHERE NOT (o)-[:CO_OCCURANCE]-() RETURN count(o)
 
 Let's run a standard centrality analysis algorithm called ["Eigenvector Centrality"](https://neo4j.com/docs/graph-data-science/current/algorithms/eigenvector-centrality/)
 
-```
+```cypher
 CALL gds.alpha.eigenvector.write({
   nodeProjection: 'Officer',
   relationshipProjection: 'CO_OCCURANCE',
