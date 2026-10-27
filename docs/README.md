@@ -19,6 +19,7 @@ them.
 | doc | what |
 |---|---|
 | [HANDOFF-SEALED-POSTS-2026-09-16.md](HANDOFF-SEALED-POSTS-2026-09-16.md) | sealed posts ship handoff |
+| [AUDIT-2026-10-27.md](AUDIT-2026-10-27.md) | bugs + security smells found during the comment pass, unfixed |
 | [PERF-CSS-FINDINGS-2026-09-21.md](PERF-CSS-FINDINGS-2026-09-21.md) | mobile Lighthouse: what moved the score |
 
 Elsewhere: `server/README.md` (API routes), `data/README.md` (every data file

@@ -548,7 +548,10 @@ Link-protected posts on a public repo. Full design + threat model:
   manifest-derived surface (feeds, sitemap, search, tags, prerender) is clean
   without a per-surface filter. Orphan cleanup is exempted for sealed JSON —
   the source doesn't exist on CI, and without the exemption the envelope would
-  be deleted on every run.
+  be deleted on every run. (As of 2026-10-27 the orphan sweep itself never
+  fires: `getFilesRecursively` ignores its `.json` argument and returns only
+  `.md`. A fix must also spare `goodreads-stats.json`, `rides/` and
+  `index.json`, which other scripts write into `content/processed/`.)
 - **A post must be born sealed.** Moving an already-committed post into
   `private/` leaves its plaintext in a public repo's history forever.
 
@@ -575,7 +578,8 @@ going forward.
 
 Run `node scripts/meta/frontmatter-sync-report.mjs` if you need the current
 vault/repo drift numbers (used by `scripts/meta/vault-repo-merge.mjs`, a
-read-only diff/merge helper — unaffected by this removal).
+diff/merge helper that is dry-run by default; `--apply` writes BOTH the vault
+and `content/blog/`. Unaffected by this removal).
 
 Sealed posts remain separate: `yarn seal:import` touches only the one
 gitignored `content/blog/private/` directory and was never part of this.
