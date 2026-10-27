@@ -1,9 +1,12 @@
 /**
  * @file umami/stats.get.ts
- * @description Last-30-day Umami pageviews for one path, plus site-wide stats
- * @endpoint GET /api/umami/stats
- * @params url: string - site path to fetch page view statistics for (e.g. /now)
- * @returns Daily pageviews for that path and overall website stats from Umami
+ * @description GET /api/umami/stats?url=/path. Last-30-day Umami pageviews for one
+ *   site path plus site-wide stats: { url, days, pageViews, overallStats,
+ *   lastUpdated }. Logs in per call with env UMAMI_USERNAME / UMAMI_PASSWORD
+ *   against umami.tools.ejfox.com (the HTTP-API path; reach.get.ts and
+ *   website-stats.get.ts read the same data from Postgres).
+ *   Cached 5 min per url. Throws 400 without url, 500 without creds, 502 if Umami
+ *   fails. overallStats is null if only that half fails.
  */
 
 const UMAMI = 'https://umami.tools.ejfox.com'
@@ -54,6 +57,7 @@ export default defineCachedEventHandler(
             path: url,
           },
         }),
+        // Site-wide stats are garnish: don't fail the per-path answer over them.
         $fetch(`${site}/stats`, { headers, query: range }).catch(() => null),
       ])
 

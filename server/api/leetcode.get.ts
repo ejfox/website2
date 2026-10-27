@@ -1,8 +1,11 @@
 /**
  * @file leetcode.get.ts
- * @description Fetches LeetCode user statistics including problem submissions, contest ranking, and recent activity
- * @endpoint GET /api/leetcode
- * @returns LeetCode data with contest stats, submission counts by difficulty (easy/medium/hard), and recent submissions
+ * @description GET /api/leetcode. LeetCode stats for user ejfox from the public,
+ *   keyless GraphQL endpoint: { contestStats, recentSubmissions,
+ *   submissionStats: { easy, medium, hard: { count, submissions } },
+ *   lastUpdated }. Imported by stats.get.ts. No time-based cache, 10s timeout.
+ *   On failure serves the last good response held in memory (stale-while-error);
+ *   throws 500 only if there has never been a good one since boot.
  */
 import { defineEventHandler, createError } from 'h3'
 
@@ -80,9 +83,11 @@ interface LeetCodeResponse {
 // instead of failing the whole stats aggregator when that happens.
 let lastGoodResponse: LeetCodeResponse | null = null
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (): Promise<LeetCodeResponse> => {
   const username = 'ejfox'
 
+  // The username is a constant, so interpolating it into the query is safe.
   const makeRequest = async <T>(_url: string): Promise<T> => {
     const query = `
     {

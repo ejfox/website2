@@ -1,10 +1,11 @@
 /**
  * @file apps.get.ts
- * @description The apps EJ has made, from data/apps.json, with live App Store
- * details (version, icon, last update) for the ones that are in the store.
- * Cached 6h with swr: the store changes slowly and Apple's lookup API is
- * free but shouldn't be hit per request.
- * @endpoint GET /api/apps
+ * @description GET /api/apps. The apps EJ has made, from data/apps.json, each with
+ *   `store` = live App Store details ({ url, version, updated, icon }) or null.
+ *   Used by pages/apps and pages/projects/[slug].
+ *   Cached 6h with swr: the store changes slowly and Apple's iTunes lookup API is
+ *   free but shouldn't be hit per request. A failed lookup just nulls `store`;
+ *   a missing or bad apps.json throws.
  */
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -31,6 +32,7 @@ async function lookup(id: string): Promise<StoreDetails | null> {
   try {
     const res = await $fetch<{ results?: any[] }>(
       'https://itunes.apple.com/lookup',
+      // Apple serves this JSON as text/javascript, so force a JSON parse.
       { query: { id }, timeout: 8000, parseResponse: JSON.parse }
     )
     const app = res.results?.[0]

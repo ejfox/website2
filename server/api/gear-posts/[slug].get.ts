@@ -1,8 +1,10 @@
 /**
  * @file gear-posts/[slug].get.ts
- * @description Returns blog posts tagged with a specific gear item slug
- * @endpoint GET /api/gear-posts/:slug
- * @returns Array of matching post summaries (slug, title, date, dek, tags) or empty array
+ * @description GET /api/gear-posts/:slug. Listable posts whose frontmatter `gear`
+ *   (string or array) names this gear slug: [{ slug, title, date, dek, tags }].
+ *   Reads manifest-lite.json via server/utils/manifest.ts. No cache.
+ *   Throws 400 without a slug; [] if the manifest doesn't exist yet; 500 on other
+ *   read errors.
  */
 import { readManifest, isListable } from '~/server/utils/manifest'
 

@@ -1,9 +1,14 @@
 import { serverEnv } from '~/server/utils/serverEnv'
 /**
  * @file cal/availability.get.ts
- * @description Returns quarterly availability status from Cal.com
- * @endpoint GET /api/cal/availability
- * @returns Current quarter, available slots count, and booking status
+ * @description GET /api/cal/availability. Quarterly capacity from Cal.com
+ *   bookings: { quarter, slotsTotal (3), slotsBooked, slotsAvailable, status,
+ *   message, nextQuarter, lastUpdated }. Counts non-cancelled bookings this
+ *   quarter as clients. Env CAL_COM_API_KEY. No cache.
+ *   No caller: superseded by available-slots.get.ts and kept deliberately
+ *   (allowlisted in no-orphan-routes.test.ts).
+ *   Never throws, but fails OPEN: no key or an API error reports all 3 slots
+ *   available (compare availability.get.ts, which fails closed).
  */
 export default defineEventHandler(async () => {
   // Quarterly capacity - adjust based on your actual capacity

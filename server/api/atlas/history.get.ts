@@ -1,14 +1,16 @@
 /**
- * @file history.get.ts
- * @description The Revolution in the valley, for the Valley Atlas (/atlas):
- * battles, forts and positions, troop and courier routes, and NPS battlefield
- * study areas, from EJ's hudsonmaps app.
- * @endpoint GET /api/atlas/history
+ * @file atlas/history.get.ts
+ * @description GET /api/atlas/history. The Revolution in the valley, for the
+ *   Valley Atlas: { battles, positions, routes, fields, fetched, errors? }, each a
+ *   FeatureCollection, from EJ's hudsonmaps smallweb app. Used by
+ *   utils/atlas/layers/revolution.ts. Cached 30 min with swr, over a per-source
+ *   6h in-process cache. Never throws.
  *
  * Sources: hudsonmaps.tools.ejfox.com /api/battles, /api/positions,
  * /api/routes and /api/boundaries (ABPP study-area polygons). Geometry is
  * kept to the atlas bounds and only whitelisted fields leave this route.
- * Each source fails on its own: an empty collection plus an `errors` entry.
+ * Each source fails on its own: last good copy if there is one, else an empty
+ * collection plus an `errors` entry.
  */
 import { fetchSmallweb } from '~/server/utils/smallweb'
 
@@ -27,6 +29,7 @@ const collection = (features: Feature[] = []) => ({
   features,
 })
 
+// ── Helpers ──────────────────────────────────────────────
 const CACHE_MS = 6 * 3600e3
 const BOUNDS = { west: -75.6, east: -72.6, south: 40.7, north: 42.9 }
 
@@ -58,6 +61,7 @@ const yearOf = (s: string) => {
   return y ? +y[0] : null
 }
 
+// ── Shapers: upstream JSON → whitelisted GeoJSON ─────────
 export function shapeBattles(raw: any): Feature[] {
   return (raw?.battles ?? []).flatMap((b: any) => {
     const c = coord(b.coords)
@@ -168,6 +172,7 @@ export function shapeFields(raw: any): Feature[] {
   })
 }
 
+// ── Loading + handler ────────────────────────────────────
 const SOURCES = {
   battles: ['/api/battles', shapeBattles],
   positions: ['/api/positions', shapePositions],

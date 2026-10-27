@@ -1,9 +1,12 @@
 /**
  * @file posts/[...slug].ts
- * @description Fetches blog post content from pre-processed JSON files with support for nested paths and year-based organization
- * @endpoint GET /api/posts/{slug}
- * @params slug: string[] - Dynamic path segments representing post location (e.g., ["2025", "post-name"])
- * @returns Post data with HTML content, metadata, title, and table of contents
+ * @description GET /api/posts/<slug...>, e.g. /api/posts/2025/post-name. One post's
+ *   processed JSON (html, metadata, toc) from content/processed/<slug>.json, as
+ *   written by scripts/build/processMarkdown.mjs. Sealed posts come back as their
+ *   opaque { slug, sealed, envelope }. No cache.
+ *   Throws 400 on a malformed slug; 404 for missing files, non-post JSON, and (in
+ *   production) draft/hidden/password/scheduled posts. Dev previews all of those.
+ *   Every 404 has the same generic message so nothing leaks a filesystem path.
  */
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
@@ -29,6 +32,7 @@ interface PostData {
   toc?: TocItem[]
 }
 
+// ── Slug validation ──────────────────────────────────────
 /**
  * Validate slug to prevent malformed requests
  * Rejects slugs with pipe characters, double dots, or other invalid patterns
@@ -48,6 +52,7 @@ function isValidSlug(slug: string): boolean {
   return true
 }
 
+// ── Handler ──────────────────────────────────────────────
 /**
  * Endpoint handler to fetch and return post content by slug.
  * Post content is read from pre-processed JSON files
@@ -153,6 +158,7 @@ export default defineEventHandler(async (event) => {
   }
 })
 
+// ── Privacy predicates ───────────────────────────────────
 /**
  * True only for JSON that is actually a post: a plain object carrying rendered
  * body content. Arrays and bare data files (manifest-lite, ride indexes,
@@ -196,6 +202,9 @@ function isProtectedContent(data: unknown): boolean {
   )
 }
 
+// ── Unused ───────────────────────────────────────────────
+// _readPost and validatePostData have no callers (the handler reads the
+// file inline).
 async function _readPost(slug: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'content/processed', `${slug}.json`)
 

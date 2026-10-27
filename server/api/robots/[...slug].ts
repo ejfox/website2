@@ -1,9 +1,10 @@
 /**
  * @file robots/[...slug].ts
- * @description Dynamic router for robot notes with shareable AI-readable content, supports both list view and individual note retrieval
- * @endpoint GET /api/robots/ - Lists all robot notes, GET /api/robots/{slug} - Gets individual robot note
- * @params slug: string[] - Dynamic path segments for nested robot note structure
- * @returns Robot note data with metadata and shareable content from content/processed/robots or content/blog/robots
+ * @description GET /api/robots lists robot notes (getRobotNotes() from
+ *   composables/useProcessedMarkdown.ts); GET /api/robots/<slug...> returns one
+ *   note's processed JSON from content/processed/robots/, falling back to
+ *   content/blog/robots/. A note is served only if metadata.share is true and
+ *   it isn't scheduled. No cache. Throws 400 without a slug, 404 otherwise.
  */
 import { createRouter, defineEventHandler, useBase, createError } from 'h3'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
@@ -26,6 +27,8 @@ router.get(
   '/*',
   defineEventHandler(async (event) => {
     // Get the full path from the URL
+    // Raw event.path: not decoded, includes any query string, and isn't
+    // checked for '..'. The share flag below is what keeps other JSON from serving.
     const fullPath = event.path?.replace('/api/robots/', '') || ''
 
     if (!fullPath) {
@@ -59,6 +62,7 @@ router.get(
 
       const data = JSON.parse(rawData)
 
+      // share is opt-in per note; draft/hidden flags aren't checked here.
       if (!data || !data.metadata?.share || isScheduled(data)) {
         throw createError({
           statusCode: 404,

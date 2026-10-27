@@ -1,9 +1,8 @@
 /**
  * @file reading/[slug].get.ts
- * @description Retrieves individual book data with highlights and metadata from processed reading collection
- * @endpoint GET /api/reading/{slug}
- * @params slug: string - URL-encoded book slug
- * @returns Complete book data including Kindle highlights, metadata, and sync information
+ * @description GET /api/reading/:slug. One book's processed JSON from
+ *   content/processed/reading/<slug>.json, merged with Kindle sync data. No cache.
+ *   Throws 400 without a slug; 404 if missing or (in production) scheduled.
  */
 import { defineEventHandler, getRouterParam, createError } from 'h3'
 import { readFile } from 'node:fs/promises'

@@ -1,8 +1,13 @@
 /**
  * @file github.get.ts
- * @description Fetches GitHub user statistics including contributions, repositories, followers, and recent commits with conventional commit type parsing
- * @endpoint GET /api/github
- * @returns GitHubStats with user stats, contribution history, commit details, and commit type distribution
+ * @description GET /api/github. GitHub stats via GraphQL (env GITHUB_TOKEN,
+ *   runtimeConfig githubToken): { stats: { totalRepos, totalContributions,
+ *   followers, following }, contributions, dates, detail: { commits (last 15 on
+ *   the default branch of each public repo contributed to in 30 days),
+ *   commitTypes } }. Used by the homepage, /github, now and stats.
+ *   Cached 10 min with swr. 10s timeout, 3 retries with backoff.
+ *   Throws notConfigured without a token, 429 when rate-limited, else the
+ *   upstream status (errors throw, so failures aren't cached).
  */
 import { createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
@@ -97,6 +102,7 @@ interface RateLimitResponse {
   }
 }
 
+// ── GraphQL requests ─────────────────────────────────────
 async function makeGitHubRequest<T>(
   token: string,
   query: string,
@@ -243,6 +249,7 @@ async function checkRateLimit(token: string) {
   }
 }
 
+// ── Handler ──────────────────────────────────────────────
 // Cached: the live fetch takes 3-5s, and / (SSR since scheduled posts went
 // request-time) calls it on every render. swr serves the last good copy while
 // refreshing in the background. Errors throw, so failures aren't cached.
@@ -331,6 +338,7 @@ export default defineCachedEventHandler(
       }
       const repoList = contributionCollection.commitContributionsByRepository
       const commits = (repoList as RepoContribution[])
+        // Privacy: the token sees private repos; never list their commits.
         .filter((repo) => !repo.repository.isPrivate)
         .flatMap((repo) => {
           const branch = repo.repository.defaultBranchRef

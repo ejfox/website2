@@ -1,8 +1,10 @@
 /**
- * @file live.get.ts
- * @description Live Hudson layer for the Valley Atlas (/atlas): river gauges,
- * tides, and Metro-North Hudson Line trains, as display-ready GeoJSON.
- * @endpoint GET /api/atlas/live
+ * @file atlas/live.get.ts
+ * @description GET /api/atlas/live. Live Hudson layer for the Valley Atlas:
+ *   { gauges, tides, trains, fetched, errors? }, each a display-ready GeoJSON
+ *   FeatureCollection. Station list in data/atlas/live-stations.json.
+ *   Response cached 30s with swr; per-source memo 5 min (water) / 30s (trains).
+ *   Never throws.
  *
  * Sources (all keyless):
  * - USGS Water Data OGC API (api.waterdata.usgs.gov): stage, discharge, temp.
@@ -35,6 +37,7 @@ const point = (coordinates: Coord, properties: Props): Feature => ({
   properties,
 })
 
+// ── Helpers ──────────────────────────────────────────────
 const getJson = async (url: string, ms = 12000) => {
   const res = await fetchWithTimeout(
     url,
@@ -70,9 +73,11 @@ const ARROW: Record<string, string> = {
   steady: '→',
 }
 
-// ---------------------------------------------------------------- gauges
+// ── Gauges ───────────────────────────────────────────────
 
 const USGS = 'https://api.waterdata.usgs.gov/ogcapi/v0/collections'
+// USGS parameter codes below: 00065 gage height, 62620 water surface
+// elevation (NAVD88), 00060 discharge, 00010 water temperature.
 const FLOOD_LABEL: Record<string, string> = {
   no_flooding: 'below flood stage',
   action: 'action stage',
@@ -96,6 +101,7 @@ export async function getGauges() {
         '&bbox.xmin=-74.4&bbox.ymin=40.9&bbox.xmax=-73.5&bbox.ymax=42.9'
     ),
   ])
+  // Either source alone is enough to draw gauges; fail only if both do.
   if (usgs.status === 'rejected' && nwps.status === 'rejected')
     throw usgs.reason
 
@@ -197,7 +203,7 @@ export async function getGauges() {
   return collection(features)
 }
 
-// ----------------------------------------------------------------- tides
+// ── Tides ────────────────────────────────────────────────
 
 const COOPS =
   'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter' +
@@ -273,7 +279,7 @@ export async function getTides() {
   return collection(features)
 }
 
-// ---------------------------------------------------------------- trains
+// ── Trains ───────────────────────────────────────────────
 
 // Minimal protobuf reader: field number → list of raw values. Enough for
 // GTFS-realtime without a dependency (wire types 0, 1, 2, 5)
@@ -391,6 +397,8 @@ export async function getTrains() {
     const tu = msgAt(ent, 3)
     if (!tu) continue
     const trip = msgAt(tu, 1)
+    // GTFS-rt field numbers: FeedMessage.entity=2, FeedEntity.trip_update=3,
+    // vehicle=4, TripUpdate.trip=1, TripDescriptor.route_id=5.
     if (strAt(trip, 5) !== HUDSON_ROUTE) continue
     const vp = msgAt(ent, 4)
 
@@ -399,6 +407,7 @@ export async function getTrains() {
         const st = pb(s as Uint8Array)
         const arr = msgAt(st, 2)
         const dep = msgAt(st, 3)
+        // 1005 = MTA's Metro-North extension (track + status).
         const ext = msgAt(st, 1005)
         const a = numAt(arr, 2) ?? numAt(dep, 2)
         return {
@@ -474,7 +483,7 @@ export async function getTrains() {
   return collection(features)
 }
 
-// --------------------------------------------------------------- handler
+// ── Handler ──────────────────────────────────────────────
 
 // Per-source memo, so slow-moving water data isn't refetched every time the
 // whole response (cached 30s for the trains) expires. Failures aren't kept

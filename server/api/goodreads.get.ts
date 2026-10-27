@@ -1,8 +1,12 @@
 /**
  * @file goodreads.get.ts
- * @description Fetches Goodreads reading data via RSS feed parsing to extract books, ratings, and reading statistics
- * @endpoint GET /api/goodreads
- * @returns Book data with currently reading, recently read, ratings, and calculated statistics
+ * @description GET /api/goodreads. Reading data for Goodreads user 9273959 from
+ *   its public shelf RSS (keyless): { currentlyReading, recentlyRead (10),
+ *   stats: { totalRead, booksThisYear, booksThisMonth, averageRating,
+ *   pagesReadThisYear, currentlyReading, profileUrl }, lastUpdated, source }.
+ *   Imported by stats.get.ts. No cache in this file: one call is the
+ *   currently-reading feed plus up to 20 read-shelf pages.
+ *   Never throws: any error returns empty shelves, zeroed stats and `error`.
  */
 
 interface GoodreadsBook {
@@ -29,6 +33,7 @@ interface GoodreadsStats {
   profileUrl: string
 }
 
+// ── RSS parsing (regex; the feed shape is stable) ────────
 // Strip CDATA wrappers from a string
 function stripCdata(str: string | null): string | null {
   if (!str) return null
@@ -115,6 +120,7 @@ async function fetchAllReadPages(userId: string): Promise<GoodreadsBook[]> {
   return books
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (_event) => {
   const userId = '9273959' // EJ Fox's Goodreads ID
   const profileUrl = `https://www.goodreads.com/user/show/${userId}`

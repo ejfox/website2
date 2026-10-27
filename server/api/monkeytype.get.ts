@@ -1,8 +1,13 @@
 /**
  * @file monkeytype.get.ts
- * @description Fetches MonkeyType typing test statistics including WPM, accuracy, and test completion data
- * @endpoint GET /api/monkeytype
- * @returns Typing statistics with best WPM, average WPM, tests completed, accuracy, consistency, and recent test results
+ * @description GET /api/monkeytype. Typing stats from the MonkeyType ApeKey API
+ *   (env MONKEYTYPE_TOKEN): { typingStats: { bestWPM, averageWpm,
+ *   averageAccuracy, testsCompleted, recentTests, languageBreakdown, ... },
+ *   lastUpdated, stale? }. Imported by stats.get.ts.
+ *   Fresh for 5 min in memory; the last good response never expires and is
+ *   persisted to .cache/monkeytype-last-good.json (or env MONKEYTYPE_CACHE_PATH)
+ *   so restarts keep it. Never throws: no token, rate limits or errors serve
+ *   the stale copy, else { typingStats: null }.
  */
 import { defineEventHandler, createError } from 'h3'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
@@ -62,6 +67,7 @@ interface MonkeyTypeHistory {
 
 // Unused interface MonkeyTypeResponse removed
 
+// ── Cache (memory + disk) ────────────────────────────────
 // Stale-while-error cache + 5-minute TTL.
 // MonkeyType ApeKey rate-limits aggressively (HTTP 479) when we hit /users/*
 // from every request — caching keeps us under the threshold and survives
@@ -122,6 +128,7 @@ const staleOrNull = (reason: string) => {
   }
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async () => {
   // First request after process start: hydrate in-memory cache from disk so
   // container restarts don't drop us back to null until the next successful

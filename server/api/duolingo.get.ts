@@ -1,8 +1,9 @@
 /**
  * @file duolingo.get.ts
- * @description Fetches Duolingo language learning stats via unofficial public API
- * @endpoint GET /api/duolingo
- * @returns User streak, XP, languages learned, and current courses
+ * @description GET /api/duolingo. Duolingo stats for user ejfox2 from the
+ *   unofficial, keyless public users endpoint: { username, streak, totalXp,
+ *   courses (by XP), currentCourse, creationDate, lastUpdated }. Imported by
+ *   stats.get.ts. No cache. Returns null on any upstream error.
  */
 
 interface DuolingoUser {

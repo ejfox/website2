@@ -1,8 +1,12 @@
 /**
  * @file temporal-context.get.ts
- * @description Returns cross-referenced context for a given date: what was being read,
- *   active predictions, scraps saved, and git activity from the same period.
- * @endpoint GET /api/temporal-context?date=2023-10-15
+ * @description GET /api/temporal-context?date=2023-10-15. What else was going on
+ *   around a date, for composables/useTemporalContext.ts: { reading (top 3 books
+ *   annotated within 60 days), predictions (up to 3 public ones active then),
+ *   scraps (5 saved within 30 days), commits (count for that month) }.
+ *   Reads content/processed/reading, content/predictions, Supabase (env
+ *   SUPABASE_URL, SUPABASE_KEY) and data/github-commits.json. No cache.
+ *   Never throws: a bad/missing date returns { error }; each source fails silently.
  */
 import { defineEventHandler, getQuery } from 'h3'
 import { promises as fs } from 'node:fs'
@@ -103,6 +107,7 @@ export default defineEventHandler(async (event) => {
       try {
         const raw = await fs.readFile(join(predictionsDir, file), 'utf-8')
         const { data } = matter(raw)
+        // Only public predictions; a missing visibility field also skips the file.
         if (data.visibility !== 'public') continue
 
         const created = data.created

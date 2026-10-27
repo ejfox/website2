@@ -1,8 +1,12 @@
 /**
  * @file predictions.get.ts
- * @description Parses all prediction markdown files from content/predictions/ with frontmatter metadata
- * @endpoint GET /api/predictions
- * @returns Array of prediction objects with statement, confidence, deadline, resolution status, and evidence
+ * @description GET /api/predictions. Every prediction in every .md under content/predictions/
+ *   (gray-matter frontmatter + body as `evidence`): [{ id, slug, statement,
+ *   confidence, deadline, categories, visibility, status, resolution, updates,
+ *   gitCommit, ... }]. No cache. Throws 500 if the directory can't be globbed;
+ *   an unreadable file is skipped.
+ *   `visibility` is passed through but not filtered on: a non-public prediction
+ *   would still be listed.
  */
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'

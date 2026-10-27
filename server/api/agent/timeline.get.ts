@@ -1,9 +1,12 @@
 /**
  * @file agent/timeline.get.ts
- * @description Chronological aggregation of all life events including blog posts, predictions, prediction updates, and reading annotations
- * @endpoint GET /api/agent/timeline
- * @params from: string - Start date (YYYY-MM-DD), to: string - End date (YYYY-MM-DD), limit: number - Maximum events (default: 100)
- * @returns Sorted timeline events with stats grouped by type and year
+ * @description GET /api/agent/timeline?from=YYYY-MM-DD&to=YYYY-MM-DD&limit=100.
+ *   Chronological feed for AI agents: { meta, events: [{ timestamp, type, title,
+ *   description, url, tags?, metadata }], stats: { byType, byYear } }, newest
+ *   first. Events = listable posts (manifest-lite.json), predictions + their
+ *   updates + resolutions (content/predictions), and last-annotated dates of
+ *   books (content/processed/reading). No cache. Never throws: each source fails
+ *   silently. stats count all events, before from/to/limit.
  */
 
 import { promises as fs } from 'node:fs'
@@ -84,6 +87,8 @@ export default defineEventHandler(async (event) => {
     // Silent fail
   }
 
+  // ── Predictions ──────────────────────────────────────────
+  // No visibility filter (all current files are public).
   // Get all predictions
   try {
     const predictionsDir = join(process.cwd(), 'content/predictions')
@@ -147,6 +152,9 @@ export default defineEventHandler(async (event) => {
     // Silent fail
   }
 
+  // ── Reading ──────────────────────────────────────────────
+  // No isScheduled check here, unlike reading.get.ts: a scheduled book's
+  // title would appear early.
   // Get reading annotations as events
   try {
     const readingDir = join(process.cwd(), 'content/processed/reading')
@@ -184,6 +192,7 @@ export default defineEventHandler(async (event) => {
     // Silent fail
   }
 
+  // ── Filter + respond ─────────────────────────────────────
   // Sort chronologically
   events.sort(
     (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()

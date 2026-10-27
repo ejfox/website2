@@ -1,10 +1,10 @@
 /**
  * @file dispatch.get.ts
- * @description Lists Dispatch pieces (content/dispatch/*.md), newest first.
- * Public pieces only in production; dev also lists drafts/unlisted/scheduled
- * (each flagged) so they can be previewed locally.
- * @endpoint GET /api/dispatch
- * @returns Array of piece metadata (no body HTML)
+ * @description GET /api/dispatch. Dispatch pieces (content/dispatch/*.md),
+ *   newest first, metadata only (no body HTML). Logic in server/utils/dispatch.ts.
+ *   Production lists public pieces only; dev (import.meta.dev) also lists
+ *   drafts/unlisted/scheduled, each flagged, for local preview.
+ *   Throws 500 if the directory can't be read.
  */
 import { defineEventHandler, createError } from 'h3'
 import { listDispatches } from '~/server/utils/dispatch'

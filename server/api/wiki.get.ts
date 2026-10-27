@@ -1,8 +1,10 @@
 /**
  * @file wiki.get.ts
- * @description Stats for the personal MediaWiki at archive.ejfox.com — the second
- * brain. Site totals + how much it's been tended in the last 30 days.
- * @endpoint GET /api/wiki
+ * @description GET /api/wiki. Stats for the personal MediaWiki at
+ *   archive.ejfox.com: site totals plus edits/new pages in the last 30 days
+ *   ({ pages, articles, editsAllTime, images, edits30d, newPages30d, capped,
+ *   lastUpdated }). Two public MediaWiki API calls, no key. Imported by stats.get.ts,
+ *   fetched by now.get.ts. No cache in this file. Returns null on any error.
  */
 const API = 'https://archive.ejfox.com/api.php'
 

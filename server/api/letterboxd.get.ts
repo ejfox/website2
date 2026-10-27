@@ -1,8 +1,11 @@
 /**
  * @file letterboxd.get.ts
- * @description Fetches Letterboxd film diary via RSS feed (the official data access method)
- * @endpoint GET /api/letterboxd
- * @returns Film data with watched films, ratings, poster images, TMDB IDs, and computed statistics
+ * @description GET /api/letterboxd. EJ's film diary from the Letterboxd RSS feed:
+ *   { films: [{ title, year, slug, rating, liked, isRewatch, watchedDate,
+ *   letterboxdUrl, tmdbId, posterUrl }], stats, lastUpdated, source }.
+ *   Imported by stats and stats-lite; fetched by now.get.ts.
+ *   In-process node-cache 15 min. Never throws: an error returns empty films,
+ *   zeroed stats and `error` (not cached, so the next call retries).
  *
  * Letterboxd API is invite-only and not available for personal projects.
  * RSS feed at https://letterboxd.com/ejfox/rss/ is the supported access method.
@@ -37,6 +40,7 @@ interface LetterboxdFilm {
   posterUrl: string | null
 }
 
+// ── Parsing ──────────────────────────────────────────────
 function extractPosterFromHtml(description: string | undefined): string | null {
   if (!description || typeof description !== 'string') return null
   // The description CDATA contains an <img> tag with the poster
@@ -117,6 +121,7 @@ function computeStats(films: LetterboxdFilm[]) {
   }
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (_event) => {
   const cached = cache.get(CACHE_KEY)
   if (cached) return cached

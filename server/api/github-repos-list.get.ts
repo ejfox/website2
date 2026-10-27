@@ -1,9 +1,9 @@
 /**
  * @file github-repos-list.get.ts
- * @description Serves pre-cached GitHub repository list from JSON file, annotated
- *              with `hasNetwork` so the listing UI can flag repos with code-network data.
- * @endpoint GET /api/github-repos-list
- * @returns Parsed JSON array of repositories, each with optional hasNetwork boolean
+ * @description GET /api/github-repos-list. The pre-cached repo list from
+ *   data/github-repos-list.json, each repo annotated with `hasNetwork` (whether
+ *   data/github-repos/<name>.network.json exists) so the listing can flag repos
+ *   with code-network data. Built once at module load. Returns [] on any error.
  */
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'

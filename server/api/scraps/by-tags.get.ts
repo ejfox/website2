@@ -1,7 +1,10 @@
 /**
- * @file by-tags.get.ts
- * @description Returns scraps matching any of the provided tags
- * @endpoint GET /api/scraps/by-tags?tags=journalism,osint&limit=8
+ * @file scraps/by-tags.get.ts
+ * @description GET /api/scraps/by-tags?tags=journalism,osint&limit=8. Shared
+ *   scraps whose tags overlap the list: [{ title, url, tags, hostname, created_at }].
+ *   Used for related-scraps on blog and tag pages. Reads Supabase (env
+ *   SUPABASE_URL, SUPABASE_KEY). No cache in this file, so each call pulls
+ *   500 rows. Returns [] on no tags, missing creds or any error.
  */
 import { defineEventHandler, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
@@ -66,6 +69,7 @@ export default defineEventHandler(async (event) => {
     const { data, error } = await supabase
       .from('scraps')
       .select('title, url, tags, concept_tags, summary, created_at')
+      // Privacy gate: only scraps EJ marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)
@@ -98,6 +102,7 @@ export default defineEventHandler(async (event) => {
       return {
         title: cleanTitle(s.title, s.url),
         url: s.url,
+        // !-prefixed tags are special meta tags (see server/routes/tags.json.ts).
         tags: (s.tags || []).filter((t: string) => !t.startsWith('!')),
         hostname,
         created_at: s.created_at,

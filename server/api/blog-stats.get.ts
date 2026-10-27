@@ -1,8 +1,10 @@
 /**
  * @file blog-stats.get.ts
- * @description Aggregates blog writing statistics from words-this-month endpoint into a stats-friendly format
- * @endpoint GET /api/blog-stats
- * @returns Blog statistics with post count, word count, recent posts, and monthly writing metrics
+ * @description GET /api/blog-stats. words-this-month.get.ts reshaped for the stats
+ *   page: { posts: { thisMonth, total }, words: { thisMonth, avgPerPost },
+ *   recentPosts, month, year }. Fetches that route over internal $fetch.
+ *   Imported by stats and stats-lite. No cache. Never throws: an error returns
+ *   zeros for the current month.
  */
 interface RecentPost {
   title?: string

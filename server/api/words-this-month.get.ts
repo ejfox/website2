@@ -1,8 +1,11 @@
 /**
  * @file words-this-month.get.ts
- * @description Calculates monthly writing statistics from manifest including word count, post count, and averages
- * @endpoint GET /api/words-this-month
- * @returns Current month's writing stats with total words, post count, average words per post, and post details
+ * @description GET /api/words-this-month. This calendar month's writing from
+ *   manifest-lite.json: { month, year, totalWords, postCount, totalPosts,
+ *   avgWordsPerPost, posts: [{ title, slug, date, words }] }. Counts only
+ *   listable posts in year folders (YYYY/), never drafts/. Fetched by
+ *   blog-stats.get.ts. No cache. Never throws: an error returns
+ *   { error, details }.
  */
 import { defineEventHandler } from 'h3'
 import { readManifest, isListable } from '~/server/utils/manifest'

@@ -1,8 +1,10 @@
 /**
- * @file remediation.get.ts
- * @description NYS DEC environmental remediation sites (State Superfund,
- * Brownfield Cleanup, etc.) inside the Valley Atlas bbox.
- * @endpoint GET /api/atlas/remediation
+ * @file atlas/remediation.get.ts
+ * @description GET /api/atlas/remediation. NYS DEC environmental remediation
+ *   sites (State Superfund, Brownfield Cleanup, etc.) inside the atlas bbox:
+ *   { sites: FeatureCollection, fetched, errors? }, one point per site with an
+ *   `open` flag. In-process cache 24h, one shared in-flight fetch, 20s timeout.
+ *   On failure serves the last good data (or empty) plus `errors`; never throws.
  *
  * Source: NY Open Data "Environmental Remediation Sites" (data.ny.gov
  * c6ci-rzpg), the dataset anomalywatch's socrata:nys-remediation-sites

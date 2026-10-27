@@ -1,8 +1,10 @@
 /**
  * @file scraps.get.ts
- * @description Fetches digital scrapbook entries from Supabase database with full metadata including tags, location, and relationships
- * @endpoint GET /api/scraps
- * @returns Array of scrap objects with content, tags, source info, geolocation, screenshots, and metadata, sorted by creation date descending
+ * @description GET /api/scraps. The 500 newest SHARED scraps from Supabase (env
+ *   SUPABASE_URL, SUPABASE_KEY), full rows minus embeddings: content, tags, source,
+ *   location + lat/long, screenshot, relationships, metadata. Newest first.
+ *   Used by /scraps, /scraps/tag/* and now.get.ts. Cached 1h.
+ *   Returns [] without creds; throws 502 on a query error.
  *
  * Explicit columns + 1h cache, never select('*'): the scraps table carries three
  * jsonb embedding columns (~13MB of a 17MB 500-row pull). Uncached select('*')
@@ -79,6 +81,7 @@ export default defineCachedEventHandler(
     const { data, error } = await supabase
       .from('scraps')
       .select(COLUMNS)
+      // Privacy gate: only scraps EJ marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)
@@ -115,6 +118,7 @@ export default defineCachedEventHandler(
       relationships: (scrap.relationships as unknown[]) || null,
       extraction_confidence:
         (scrap.extraction_confidence as Record<string, unknown>) || null,
+      // Never selected (not in COLUMNS); kept in the shape as null on purpose.
       financial_analysis: null,
       metadata: (scrap.metadata as Record<string, unknown>) || null,
     }))

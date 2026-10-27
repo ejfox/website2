@@ -1,8 +1,8 @@
 /**
  * @file keymap.get.ts
- * @description EJ's ZSA Voyager keymap, live from Oryx (latest revision),
- * normalized to display glyphs. Powers /keymap.
- * @endpoint GET /api/keymap
+ * @description GET /api/keymap. EJ's ZSA Voyager keymap, live from Oryx (latest
+ *   revision), normalized to display glyphs by server/utils/oryx.ts. Powers /keymap.
+ *   Cached 1h with swr. Throws 502 if Oryx is unreachable.
  */
 import { createError } from 'h3'
 import { fetchOryxLayout } from '~/server/utils/oryx'

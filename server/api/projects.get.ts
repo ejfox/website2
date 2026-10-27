@@ -1,8 +1,11 @@
 /**
  * @file projects.get.ts
- * @description Loads project posts from manifest and enriches with full content from processed JSON files
- * @endpoint GET /api/projects
- * @returns Array of project posts with slug, title, HTML content, and metadata, sorted by date descending
+ * @description GET /api/projects[?slim]. Listable projects/* posts from
+ *   manifest-lite.json, each with its processed JSON (title, html, metadata),
+ *   newest first. ?slim returns card shapes (images, excerpt, counts, no html)
+ *   for the /projects index. Dev also lists draft projects. No cache.
+ *   Never throws: returns [] on a manifest error; a project whose JSON is
+ *   missing or bad comes back with empty html.
  */
 import { defineEventHandler, getQuery } from 'h3'
 import { readFile } from 'node:fs/promises'
@@ -101,6 +104,8 @@ export default defineEventHandler(async (event) => {
     const manifest = await readManifest()
 
     // Filter for project posts, excluding drafts, hidden, unlisted, password-protected, and those starting with !
+    // Privacy filter: isListable drops hidden/unlisted/password/scheduled (and
+    // drafts outside dev). Slugs containing /! are skipped too.
     const projectPosts = manifest.filter((post: ManifestPost) => {
       // Show drafts on the local dev server so works-in-progress are
       // previewable; production still hides them.

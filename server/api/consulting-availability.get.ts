@@ -1,8 +1,11 @@
 /**
  * @file consulting-availability.get.ts
- * @description Serves hand-edited consulting availability data
- * @endpoint GET /api/consulting-availability
- * @returns Quarterly availability, current client count, and booking status
+ * @description GET /api/consulting-availability. Hand-edited consulting capacity
+ *   from data/consulting-availability.json, for pages/consulting: active client
+ *   COUNT and hours (never client names), next-available date, current/next
+ *   quarter status + message, all quarters. Read per request, no cache.
+ *   Never throws: a missing or bad file returns status 'unknown' with a
+ *   hardcoded fallback quarter name.
  */
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -44,6 +47,7 @@ export default defineEventHandler(async () => {
     const nextQuarter = `Q${quarter === 4 ? 1 : quarter + 1} ${quarter === 4 ? year + 1 : year}`
 
     // Get active clients (no end date or end date in future)
+    // Client names stay server-side; only the count and summed hours ship.
     const activeClients = data.currentClients.filter(
       (c) => !c.endDate || new Date(c.endDate) > now
     )
@@ -98,6 +102,7 @@ export default defineEventHandler(async () => {
   } catch (error) {
     console.error('Error reading consulting availability:', error)
     return {
+      // These fallback quarter names are hardcoded and go stale.
       error: 'Could not load availability data',
       currentQuarter: {
         name: 'Q1 2025',

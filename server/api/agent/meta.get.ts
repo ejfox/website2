@@ -1,8 +1,10 @@
 /**
  * @file agent/meta.get.ts
- * @description Machine-readable API schema and capabilities discovery for AI agents to query personal data
- * @endpoint GET /api/agent/meta
- * @returns Complete API documentation including available endpoints, schemas, data availability, usage guidelines, and philosophical principles
+ * @description GET /api/agent/meta. Hand-written discovery doc for AI agents:
+ *   identity, the endpoints worth calling, event schemas, data availability,
+ *   usage guidelines. Static object (only `updated` changes per request), no
+ *   cache, never throws. Allowlisted in no-orphan-routes.test.ts as external.
+ *   Keep it in step with agent/timeline.get.ts when that shape changes.
  */
 
 export default defineEventHandler(async () => {

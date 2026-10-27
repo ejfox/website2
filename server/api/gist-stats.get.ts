@@ -1,8 +1,11 @@
 /**
  * @file gist-stats.get.ts
- * @description Aggregates GitHub Gist statistics including language usage, file counts, and temporal distribution
- * @endpoint GET /api/gist-stats
- * @returns Gist statistics with total counts, top languages, year distribution, and recent gists with metadata
+ * @description GET /api/gist-stats. Aggregates gists.get.ts (fetched over internal
+ *   $fetch): { stats: { totalGists, totalFiles, totalSize, averageFilesPerGist,
+ *   topLanguages (8), yearStats }, recentGists (5), lastUpdated }.
+ *   Imported by stats.get.ts. No cache, so each call refetches every gist.
+ *   Never throws: errors return zeroed stats plus `error`; a missing
+ *   GITHUB_TOKEN isn't logged as an error.
  */
 import { isNotConfigured } from '~/server/utils/notConfigured'
 
@@ -57,6 +60,7 @@ export default defineEventHandler(async () => {
         const fileList = Object.values(gist.files)
         const firstFileName = Object.keys(gist.files)[0] || null
         const totalLines = fileList.reduce((sum, file) => {
+          // gists.get.ts puts content on the gist, not the file, so this is always 0.
           const f = file as { content?: string }
           return sum + (f.content?.split('\n').length || 0)
         }, 0)

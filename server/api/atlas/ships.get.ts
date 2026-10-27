@@ -1,8 +1,10 @@
 /**
- * @file ships.get.ts
- * @description Commercial and government vessels on the Hudson for the Valley
- * Atlas (/atlas), from EJ's riverwatch AIS app.
- * @endpoint GET /api/atlas/ships
+ * @file atlas/ships.get.ts
+ * @description GET /api/atlas/ships. Commercial and government vessels on the
+ *   Hudson seen in the last 2h, from EJ's riverwatch AIS smallweb app:
+ *   { ships: FeatureCollection, fetched, errors? }, deduped by MMSI.
+ *   In-process cache 60s, one shared in-flight fetch. On failure serves the last
+ *   good positions (or empty) plus `errors`; never throws.
  *
  * Only working boats: pleasure craft, untyped and "Other" vessels are
  * dropped, and only display fields leave this route (no callsigns, owners,

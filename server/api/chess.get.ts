@@ -1,8 +1,12 @@
 /**
  * @file chess.get.ts
- * @description Fetches Chess.com player statistics including ratings, games played, win rates, and puzzle stats across all time controls
- * @endpoint GET /api/chess
- * @returns ChessStats with current/best ratings, games played, win rates, puzzle stats, and recent game results
+ * @description GET /api/chess. Chess.com stats for env CHESS_USERNAME from the
+ *   public, keyless API: { currentRating, bestRating, gamesPlayed, winRate (per
+ *   time control + overall), puzzleStats, recentGames (10, from the latest
+ *   monthly archive), lastUpdated }. Imported by stats, stats-lite and
+ *   weekly-summary. No cache, 10s timeout per request.
+ *   Throws notConfigured without a username; a failed stats or games request
+ *   just zeroes that half; throws on a processing error.
  */
 import { defineEventHandler, createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
@@ -112,6 +116,7 @@ export default defineEventHandler(async () => {
     throw notConfigured('Chess.com', 'CHESS_USERNAME')
   }
 
+  // ── Fetching ─────────────────────────────────────────────
   const makeRequest = async <T>(url: string): Promise<T> => {
     // 10s timeout so a slow/hung Chess.com can't stall the /api/stats aggregator.
     const controller = new AbortController()
@@ -199,6 +204,8 @@ export default defineEventHandler(async () => {
         lowestRating: stats.tactics?.lowest?.rating || 0,
         lastUpdated: stats.tactics?.highest?.date,
       },
+      // Monthly archives list games oldest first, so this takes the month's first
+      // 10 games, not the latest 10.
       recentGames: games.games.slice(0, 10).map((game: ChessGame) => ({
         id: game.uuid,
         opponent:
@@ -244,6 +251,7 @@ export default defineEventHandler(async () => {
   }
 })
 
+// ── Helpers ──────────────────────────────────────────────
 function calculateWinRate(
   record: { win: number; loss: number; draw: number } | undefined
 ): number {

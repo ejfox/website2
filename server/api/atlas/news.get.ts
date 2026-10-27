@@ -1,12 +1,14 @@
 /**
- * @file news.get.ts
- * @description Local news by town for the Valley Atlas (/atlas): the last two
- * weeks of countywatch headlines, grouped by the town they were geocoded to.
- * @endpoint GET /api/atlas/news
+ * @file atlas/news.get.ts
+ * @description GET /api/atlas/news. Local news by town for the Valley Atlas: the
+ *   last two weeks of countywatch headlines grouped by the town they were geocoded
+ *   to: FeatureCollection (one point per town, top 5 headlines, count) + { days,
+ *   fetched, error? }. Cached 5 min with swr, over an in-process 15-min upstream
+ *   memo. On failure serves the last good data (or empty) plus `error`; never throws.
  *
  * Source: countywatch.tools.ejfox.com/api/news/geo, which pins each item to a
  * town or county centroid and says why (`geo_reason`, e.g. `hv:kingston`).
- * Only whitelisted fields leave this route. Stale data is served on failure.
+ * Only whitelisted fields leave this route.
  */
 import { fetchSmallweb } from '~/server/utils/smallweb'
 
@@ -27,6 +29,7 @@ interface Item {
   geo_reason?: unknown
 }
 
+// ── Text cleaning ────────────────────────────────────────
 const ENTITIES: Record<string, string> = {
   amp: '&',
   lt: '<',
@@ -67,6 +70,7 @@ const httpUrl = (u: unknown) => {
 
 const titleCase = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase())
 
+// ── Grouping ─────────────────────────────────────────────
 export function newsByTown(items: Item[], now = Date.now()) {
   const since = new Date(now - DAYS * 86400e3).toISOString().slice(0, 10)
   const towns = new Map<
@@ -126,6 +130,7 @@ export function newsByTown(items: Item[], now = Date.now()) {
   return { type: 'FeatureCollection' as const, features }
 }
 
+// ── Handler ──────────────────────────────────────────────
 let last: { at: number; data: ReturnType<typeof newsByTown> } | null = null
 
 export default defineCachedEventHandler(
@@ -134,6 +139,7 @@ export default defineCachedEventHandler(
       try {
         const res = await fetchSmallweb<{ news?: Item[] }>(
           'countywatch',
+          // exclude_generic: skip items only pinned to the whole region.
           `/api/news/geo?days=${DAYS}&limit=200&exclude_generic=true`,
           15000
         )

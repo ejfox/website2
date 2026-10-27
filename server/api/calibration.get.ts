@@ -1,8 +1,11 @@
 /**
  * @file calibration.get.ts
- * @description Serves pre-generated prediction calibration analysis including Brier scores and accuracy metrics
- * @endpoint GET /api/calibration
- * @returns Calibration analysis with Brier scores as signed (published confidence) and as updated (last logged change), accuracy rates, category breakdown, and market comparison data (regenerate with scripts/meta/calibration-analysis.mjs)
+ * @description GET /api/calibration. Pre-generated prediction calibration from
+ *   data/calibration-analysis.json (regenerate with
+ *   scripts/meta/calibration-analysis.mjs): Brier scores as signed (published
+ *   confidence) and as updated (last logged change), accuracy, category breakdown,
+ *   market comparison. Used by composables/useCalibration.ts.
+ *   Never throws: a missing or bad file returns the same shape, zeroed/null.
  */
 
 import { readFile } from 'node:fs/promises'

@@ -1,7 +1,10 @@
 /**
  * @file photos.get.ts
- * @description Fetches photo-blog tagged photos from Cloudinary
- * @endpoint GET /api/photos
+ * @description GET /api/photos. Cloudinary images tagged `photo-blog`, newest
+ *   first (max 500): { photos: [{ id, url, date, width, height, format, bytes,
+ *   aspect, tags, description }], total }. Env CLOUDINARY_CLOUD_NAME,
+ *   CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET. Cached 10 min.
+ *   Throws notConfigured without the key, 500 if the search fails.
  */
 import { v2 as cloudinary } from 'cloudinary'
 import { notConfigured } from '~/server/utils/notConfigured'
@@ -40,6 +43,7 @@ export default defineCachedEventHandler(
           aspect: (r.width as number) / (r.height as number),
           tags: tags.filter((t) => t !== 'photo-blog'),
           description:
+            // The AI description wins over a hand caption when both exist.
             ctx?.custom?.ai_description || ctx?.custom?.caption || null,
         }
       })

@@ -1,8 +1,8 @@
 /**
  * @file flashcards.get.ts
- * @description Serves all flashcard decks with metadata
- * @endpoint GET /api/flashcards
- * @returns Array of deck objects with name, course, cards
+ * @description GET /api/flashcards. Every deck with metadata and cards, from
+ *   public/data/flashcards/*.csv via server/utils/flashcards.ts. No cache.
+ *   Throws 500 if the decks can't be read.
  */
 import { loadAllDecks } from '~/server/utils/flashcards'
 

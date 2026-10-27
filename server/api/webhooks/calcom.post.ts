@@ -1,6 +1,11 @@
 /**
- * Cal.com Webhook Endpoint
- * Receives booking events from Cal.com for funnel analytics.
+ * @file webhooks/calcom.post.ts
+ * @description POST /api/webhooks/calcom. Receives Cal.com booking events
+ *   (created / cancelled / rescheduled) for funnel analytics and returns
+ *   { received, event }. Verifies HMAC-SHA256 of the raw body (header
+ *   x-cal-signature-256) against env CALCOM_WEBHOOK_SECRET.
+ *   Throws 401 on a missing/bad signature, 400 on malformed JSON. Logs loudly
+ *   when the secret env is unset.
  *
  * Setup in Cal.com:
  * 1. Go to Settings → Developer → Webhooks
@@ -12,6 +17,8 @@
  * data/calcom-events.jsonl (relative to the pm2 cwd, so it survives deploys the
  * same way monkeytype's cache does) AND logged to stdout for `pm2 logs website2`.
  * Read the funnel with: `jq . data/calcom-events.jsonl` on the VPS.
+ * The record includes the attendee's email and booking answers, so that file
+ * and the pm2 logs hold PII.
  */
 import { createHmac, timingSafeEqual } from 'node:crypto'
 import { appendFile, mkdir } from 'node:fs/promises'
@@ -59,6 +66,7 @@ function verifySignature(
 }
 
 export default defineEventHandler(async (event) => {
+  // ── Verify ───────────────────────────────────────────────
   // Read the raw body first — signature verification needs the exact bytes.
   const rawBody = (await readRawBody(event)) || ''
   const signature = getHeader(event, 'x-cal-signature-256')
@@ -86,6 +94,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, statusMessage: 'Invalid signature' })
   }
 
+  // ── Record ───────────────────────────────────────────────
   let body: CalcomBookingPayload
   try {
     body = JSON.parse(rawBody)

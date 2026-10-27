@@ -1,10 +1,12 @@
 /**
  * @file website-stats.get.ts
- * @description Site-wide Umami stats for ejfox.com, read straight from the
- * co-located Umami Postgres (the HTTP API creds were stale — same reason
- * reach.get.ts reads the DB). Returns last-30-days totals with the previous
- * 30 days as `prev`, in the shape components/stats/UmamiStats.vue expects.
- * @endpoint GET /api/website-stats
+ * @description GET /api/website-stats. Last-30-day Umami totals for ejfox.com with
+ *   the previous 30 days as `prev`, in the shape components/stats/UmamiStats.vue
+ *   expects: { stats: { pageviews, visitors, visits, bounces, totaltime: { value,
+ *   prev } }, websiteId, shareUrl, lastUpdated }. Read straight from the
+ *   co-located Umami Postgres (env UMAMI_DATABASE_URL; same reason reach.get.ts
+ *   reads the DB). Imported by stats and stats-lite. No cache.
+ *   Returns { error, stats: null } without the env or on a DB error.
  */
 import { Pool } from 'pg'
 import { warnNotConfigured } from '~/server/utils/notConfigured'

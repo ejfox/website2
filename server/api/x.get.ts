@@ -1,11 +1,11 @@
 /**
  * @file x.get.ts
- * @description Latest original posts from x.com/mrejfox (no replies, no reposts).
- * Dormant until X_BEARER_TOKEN is set in the VPS .env. Without it, this returns
- * an empty list and /now hides the X rows. X bills per read, so the cache is
- * long: about one timeline read an hour, however much traffic /now gets.
- * @endpoint GET /api/x
- * @returns { account, posts: [{ id, text, url, at }] }
+ * @description GET /api/x. Latest original posts from x.com/mrejfox (no replies,
+ *   no reposts): { account, posts: [{ id, text, url, at }] }. Used by now.get.ts.
+ *   Dormant until env X_BEARER_TOKEN is set in the VPS .env. Without it, this
+ *   returns an empty list and /now hides the X rows.
+ *   Cached 1h with swr because X bills per read: about one timeline read an hour,
+ *   however much traffic /now gets. Never throws; failures return posts: [].
  */
 import { serverEnv } from '~/server/utils/serverEnv'
 

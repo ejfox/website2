@@ -1,12 +1,13 @@
 /**
  * @file cal/available-slots.get.ts
- * @description Fetches next available calendar slots from Cal.com API for booking meetings
- * @endpoint GET /api/cal/available-slots
- * @query duration - '30min' or '1hr' (default: '1hr')
- * @query days - number of days to look ahead (default: 14)
- * @query spread - 'day' = the earliest slot on each of the next 3 open days,
- *   instead of the next 3 slots (which are usually back-to-back on one day)
- * @returns Formatted calendar slots with natural time display and booking URLs
+ * @description GET /api/cal/available-slots?duration=30min|1hr&days=14&spread=day.
+ *   The next 3 open Cal.com slots for /calendar, /consulting and
+ *   NextAvailableSlot.vue: { slots: [{ time, day, date, relative, naturalTime,
+ *   datetime, bookingUrl }], lastUpdated }. spread=day takes the earliest slot
+ *   on each of the next 3 open days instead of the next 3 (usually
+ *   back-to-back) slots. Times formatted in America/New_York.
+ *   Env CAL_COM_API_KEY (runtimeConfig calcomApiKey). Cached 2 min with swr.
+ *   Never throws: no key or an API error returns { slots: [], error }.
  */
 // Cached briefly: /calendar, /consulting and the homepage all hit this, and
 // each miss is a live Cal.com API call. Keyed on the full URL (query incl.).

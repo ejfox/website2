@@ -1,8 +1,10 @@
 /**
  * @file reading.get.ts
- * @description Loads and serves Kindle book highlights from processed reading collection with random highlight extraction
- * @endpoint GET /api/reading
- * @returns Array of books with metadata, random highlights, and Kindle sync information, sorted by annotation date
+ * @description GET /api/reading. Every book in content/processed/reading/*.json,
+ *   merged with Kindle sync data (withKindleSync, data/reading-kindle.json) and a
+ *   random highlight (<= 200 chars), most recently annotated first.
+ *   Scheduled books are dropped. No cache. Returns [] if the directory can't be
+ *   read; an unreadable book file is skipped.
  */
 import { defineEventHandler } from 'h3'
 import { readdir, readFile } from 'node:fs/promises'
@@ -15,6 +17,8 @@ function extractRandomHighlight(htmlContent) {
   if (!htmlContent) return null
 
   // Find all paragraphs that contain highlights (have location links)
+  // Matches the HTML the reading processor emits for each Kindle highlight;
+  // change both together.
   // eslint-disable-next-line regexp/no-super-linear-backtracking
   const highlightRegex = /<p class="mb-4">([^<]+).*?— location:/g
   const highlights = []

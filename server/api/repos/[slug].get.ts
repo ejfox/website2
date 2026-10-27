@@ -1,9 +1,12 @@
 /**
  * @file repos/[slug].get.ts
- * @description Retrieves pre-generated GitHub repository data with stats, readme, and language information from cached JSON files
- * @endpoint GET /api/repos/{slug}
- * @params slug: string - Repository name (validated against whitelist)
- * @returns Complete repository data including stars, forks, languages, readme HTML, and timestamps
+ * @description GET /api/repos/:slug. One repo for pages/github/[slug] and
+ *   CodeNetwork.client.vue: data/github-repos/<slug>.json (stats, languages,
+ *   readme with absolutized URLs, topics) plus `commits` (from
+ *   data/github-commits.json: totals, recent 20, by week, by conventional
+ *   type) and `network` (<slug>.network.json if present). All pre-generated
+ *   by scripts; no GitHub call at request time. Index + commits load once at
+ *   module start. Throws 400 on a bad slug, 404 if unknown, 500 on bad JSON.
  */
 import { defineEventHandler, createError } from 'h3'
 import { readFileSync, existsSync } from 'node:fs'
@@ -103,6 +106,7 @@ interface RepoData {
   fileTree?: { files?: Array<{ path: string }> }
 }
 
+// ── Module-level data (loaded once per process) ──────────
 // Load index once at module level for validation
 const INDEX_PATH = join(process.cwd(), 'data/github-repos-index.json')
 let validRepos: string[] = []
@@ -138,6 +142,7 @@ try {
   console.error('Failed to load commits index:', error)
 }
 
+// ── Commit metadata ──────────────────────────────────────
 // Bucket the last 52 weeks of commits for sparkline rendering
 function buildWeeklyBuckets(commits: CommitEntry[]): WeekBucket[] {
   const WEEKS = 52
@@ -234,6 +239,7 @@ function buildCommitMeta(repoName: string): CommitMeta {
   }
 }
 
+// ── Handler ──────────────────────────────────────────────
 function isValidSlug(slug: string): boolean {
   // Only allow alphanumeric, hyphens, underscores, dots (GitHub repo names)
   return /^[\w.-]+$/.test(slug)
@@ -258,6 +264,8 @@ export default defineEventHandler(async (event): Promise<RepoData> => {
   }
 
   // Validate slug is in whitelist (prevent arbitrary file access)
+  // The whitelist only applies when the index file loaded; without it, any
+  // slug that passes isValidSlug falls through to the existsSync check.
   if (validRepos.length > 0 && !validRepos.includes(slug)) {
     throw createError({
       statusCode: 404,

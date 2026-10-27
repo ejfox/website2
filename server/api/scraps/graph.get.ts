@@ -1,9 +1,11 @@
 /**
- * @file graph.get.ts
- * @description Slim, cached scraps list for /threads and /tag/* — only the
- * fields those pages render. /api/scraps returns full rows (~3.5MB) and both
- * pages SSR-serialized all of it into their HTML payload.
- * @endpoint GET /api/scraps/graph
+ * @file scraps/graph.get.ts
+ * @description GET /api/scraps/graph. Slim scraps list for /threads and /tag/*:
+ *   [{ id, title, summary (120 chars), content (80 chars, only when no title or
+ *   summary), tags, concept_tags, created_at }], newest 500. The full scraps
+ *   route returns whole rows (~3.5MB) and both pages SSR-serialized all of it into
+ *   their HTML payload. Reads Supabase (env SUPABASE_URL, SUPABASE_KEY).
+ *   Cached 10 min. Returns [] without creds; throws 502 on a query error.
  */
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
@@ -20,6 +22,7 @@ export default defineCachedEventHandler(
     const { data, error } = await supabase
       .from('scraps')
       .select('id, title, summary, content, tags, concept_tags, created_at')
+      // Privacy gate: only scraps EJ marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)

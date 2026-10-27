@@ -1,8 +1,11 @@
 /**
  * @file lastfm.get.ts
- * @description Fetches Last.fm scrobbling statistics including recent tracks, top artists, albums, and listening habits
- * @endpoint GET /api/lastfm
- * @returns Last.fm data with recent tracks, top artists/albums/tracks for the month, user info, and calculated listening statistics
+ * @description GET /api/lastfm. Last.fm listening for user pseudoplacebo (env
+ *   LASTFM_API_KEY): { recentTracks (5), topArtists (5, past month),
+ *   topTracks (3, past month), userInfo, stats, lastUpdated }. Imported by stats,
+ *   stats-lite and weekly-summary. No cache ("Cache disabled" below); 250ms
+ *   spacing, 10s timeout and 3 retries per request.
+ *   Never throws: no key or any error returns the empty fallback shape.
  */
 import { notConfigured, isNotConfigured } from '~/server/utils/notConfigured'
 
@@ -98,6 +101,7 @@ export default defineEventHandler(async () => {
   //   username
   // })
 
+  // ── Requests ─────────────────────────────────────────────
   const makeRequest = async <T>(
     method: string,
     params: Record<string, string> = {}
@@ -237,6 +241,8 @@ export default defineEventHandler(async () => {
 
     // Test the API connection first
     try {
+      // Redundant: user.getinfo is fetched again in the batch below, and this
+      // result is discarded.
       const _testResponse = await makeRequest<UserInfoResponse>('user.getinfo')
       // console.log(
       //   'Last.fm API test successful:',
@@ -249,6 +255,7 @@ export default defineEventHandler(async () => {
       // Don't throw here, continue with other requests
     }
 
+    // ── Fetch + shape ────────────────────────────────────────
     // Fetch all data in parallel with error recovery
     // PERF: Limits match actual component usage (5 recent, 5 artists, 3 tracks)
     // PERF: topAlbums removed - not used by LastFmStats component

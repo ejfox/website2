@@ -1,11 +1,13 @@
 /**
- * @file sky.get.ts
- * @description PRIVATE Valley Atlas layer: aircraft over the valley, from
- * EJ's skywatch app. Two GeoJSON collections:
+ * @file atlas/private/sky.get.ts
+ * @description GET /api/atlas/private/sky. PRIVATE Valley Atlas layer: aircraft
+ *   over the valley, from EJ's skywatch smallweb app: { density, notable,
+ *   positions (count), fetched }. 404 unless the atlas is unlocked
+ *   (server/utils/atlasPrivate.ts). Upstream memoized in-process 5 min.
+ *   Throws 502 if skywatch positions or notable fail (archive is optional).
  * - density: 7 days of position reports binned into ~3 km flat-top hexes
  * - notable: military / government / law-enforcement aircraft seen in the
  *   last 24h, one point per aircraft at its last known position
- * @endpoint GET /api/atlas/private/sky (404 unless the atlas is unlocked)
  *
  * Minimized on purpose. Skywatch also knows EJ's live location (OwnTracks)
  * and a list of watched POIs, one of which is his neighborhood; none of that
@@ -61,7 +63,7 @@ const utc = (s: string) => Date.parse(`${s.replace(' ', 'T')}Z`)
 
 const round = (n: number, d = 5) => +n.toFixed(d)
 
-// ------------------------------------------------------------- hex binning
+// ── Hex binning ──────────────────────────────────────────
 
 // Flat-top hexes ~3 km across (flat side to flat side), on a local
 // equirectangular projection centred on the valley
@@ -133,7 +135,7 @@ export function densityGrid(positions: Position[]) {
   return { type: 'FeatureCollection' as const, features }
 }
 
-// ---------------------------------------------------------------- notable
+// ── Notable ──────────────────────────────────────────────
 
 const stripHtml = (s: string) =>
   s
@@ -248,7 +250,7 @@ export function notableAircraft(
   return { type: 'FeatureCollection' as const, features }
 }
 
-// ---------------------------------------------------------------- handler
+// ── Handler ──────────────────────────────────────────────
 
 async function load() {
   const now = Date.now()
@@ -256,6 +258,7 @@ async function load() {
   const [pos, notable, archive] = await Promise.all([
     fetchSmallweb<{ positions: Position[] }>(
       'skywatch',
+      // Up to 500k rows held in memory at once; the pm2 cap is 1G.
       `/api/positions?start=${encodeURIComponent(start)}&limit=500000`,
       45000
     ),
@@ -288,10 +291,12 @@ let cached: {
 } | null = null
 
 export default defineEventHandler(async (event) => {
+  // Must run first, before any cache read: the gate is the whole point.
   requireAtlasPrivate(event)
   if (!cached || Date.now() - cached.at > CACHE_MS) {
     const value = load()
     cached = { at: Date.now(), value }
+    // Don't memoize a failure; the next request retries.
     value.catch(() => {
       cached = null
     })

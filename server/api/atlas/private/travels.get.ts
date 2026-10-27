@@ -1,8 +1,11 @@
 /**
- * @file travels.get.ts
- * @description PRIVATE Valley Atlas layer: "where I've been", a coarse heat
- * of time spent on EJ's trips, from his travels app.
- * @endpoint GET /api/atlas/private/travels (404 unless the atlas is unlocked)
+ * @file atlas/private/travels.get.ts
+ * @description GET /api/atlas/private/travels. PRIVATE Valley Atlas layer:
+ *   "where I've been", a coarse heat of time spent on EJ's trips, from his
+ *   travels smallweb app: { travels: FeatureCollection of { minutes } points,
+ *   trips, excluded, fetched }. 404 unless the atlas is unlocked (see
+ *   server/utils/atlasPrivate.ts). Upstream memoized in-process for 1h.
+ *   Throws 502 if travels fails or ATLAS_HOME_EXCLUDE is unset.
  *
  * travels' own /api/heatmap has no timestamps (and ~500 m cells), so this
  * rebuilds the heat from each trip's timestamped path instead:
@@ -31,6 +34,7 @@ const HOME_RADIUS_KM = 3
 const CELL_KM = 2
 const LAT_STEP = CELL_KM / 110.574
 
+// ── Geometry ─────────────────────────────────────────────
 export const parseHomes = (env: string): [number, number][] =>
   env
     .split(';')
@@ -59,6 +63,7 @@ const cellOf = (lon: number, lat: number) => {
   return { key: `${row},${col}`, lon: col * lonStep, lat: cLat }
 }
 
+// ── Heat ─────────────────────────────────────────────────
 export function travelHeat(
   trips: TripPath[],
   homes: [number, number][],
@@ -111,6 +116,7 @@ export function travelHeat(
   }
 }
 
+// ── Loading + handler ────────────────────────────────────
 async function load() {
   const homes = parseHomes(serverEnv('ATLAS_HOME_EXCLUDE'))
   // Fail closed: no home reference, no heat
@@ -144,10 +150,12 @@ let cached: {
 } | null = null
 
 export default defineEventHandler(async (event) => {
+  // Must run first, before any cache read: the gate is the whole point.
   requireAtlasPrivate(event)
   if (!cached || Date.now() - cached.at > CACHE_MS) {
     const value = load()
     cached = { at: Date.now(), value }
+    // Don't memoize a failure for an hour; the next request retries.
     value.catch(() => {
       cached = null
     })

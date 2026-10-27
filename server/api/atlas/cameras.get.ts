@@ -1,8 +1,10 @@
 /**
- * @file cameras.get.ts
- * @description Public NYSDOT / 511NY traffic cameras for the Valley Atlas
- * (/atlas), from EJ's camwatch app.
- * @endpoint GET /api/atlas/cameras
+ * @file atlas/cameras.get.ts
+ * @description GET /api/atlas/cameras. Public NYSDOT / 511NY traffic cameras in
+ *   the atlas bbox, from EJ's camwatch smallweb app (server/utils/smallweb.ts):
+ *   { cameras: FeatureCollection, fetched, errors? }.
+ *   In-process cache 10 min, with one shared in-flight fetch. On upstream failure
+ *   serves the last good data (or empty) plus `errors`; never throws.
  *
  * DOT cameras only (camwatch's private webcams list is skipped). A snapshot
  * URL is passed on only when it's https on a public DOT/511 host and camwatch
@@ -102,6 +104,7 @@ let pending: Promise<Cameras> | null = null
 export default defineEventHandler(async () => {
   if (cache && Date.now() - cache.at < CACHE_MS)
     return { cameras: cache.data, fetched: new Date(cache.at).toISOString() }
+  // Coalesce concurrent cache misses into one upstream request.
   pending ??= fetchSmallweb<{ cameras?: Camera[] }>('camwatch', '/api/cameras')
     .then((r) => toCameras(r.cameras ?? []))
     .finally(() => (pending = null))

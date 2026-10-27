@@ -1,10 +1,10 @@
 /**
  * @file dispatch/[slug].get.ts
- * @description One Dispatch piece with its markdown body rendered to HTML.
- * Unlisted pieces are served (the page marks them noindex); draft, hidden,
- * password-protected and scheduled pieces 404 in production. Dev previews all.
- * @endpoint GET /api/dispatch/{slug}
- * @params slug: string - lowercase-hyphenated file name without .md
+ * @description GET /api/dispatch/:slug. One Dispatch piece with its markdown body
+ *   rendered to HTML. Unlisted pieces are served (the page marks them noindex);
+ *   draft, hidden, password-protected and scheduled pieces 404 in production.
+ *   Dev previews all. Throws 400 on a malformed slug (isValidDispatchSlug), 404
+ *   if missing or gated.
  */
 import { defineEventHandler, getRouterParam, createError } from 'h3'
 import { getDispatch, isValidDispatchSlug } from '~/server/utils/dispatch'

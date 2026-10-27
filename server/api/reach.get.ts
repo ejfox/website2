@@ -1,9 +1,11 @@
 /**
  * @file reach.get.ts
- * @description Site-wide reach for ejfox.com, read straight from the co-located
- * Umami postgres (the HTTP API creds were stale). Visitors, pageviews, and the
- * posts people actually read — a mirror of who's listening.
- * @endpoint GET /api/reach
+ * @description GET /api/reach. Site-wide reach for ejfox.com, read straight from
+ *   the co-located Umami Postgres (env UMAMI_DATABASE_URL; the HTTP API creds
+ *   were stale): { week: { pageviews, visitors }, month: {...}, topPosts (5
+ *   paths, 30 days), lastUpdated }. Imported by stats.get.ts. No cache; a
+ *   2-connection pool per process. Returns null without the env or on any DB
+ *   error. Queries are parameterized.
  */
 import { Pool } from 'pg'
 import { warnNotConfigured } from '~/server/utils/notConfigured'
@@ -28,6 +30,7 @@ export default defineEventHandler(async () => {
 
   try {
     // event_type = 1 is a pageview in Umami v2 (2 is a custom event).
+    // Umami v2 has no separate pageview table: filter website_event by type.
     const summarize = async (days: number) => {
       const { rows } = await db.query(
         `SELECT COUNT(*)::int AS pageviews,

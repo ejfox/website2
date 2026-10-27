@@ -1,11 +1,10 @@
 /**
  * @file build-info.get.ts
- * @description Returns build metadata (commit, branch, build date) baked into
- *   the bundle at build time via runtimeConfig — see getBuildInfo() in
- *   nuxt.config.ts. No longer reads a .build-info.json file (the deploy never
- *   shipped it, so that path returned a stale commit).
- * @endpoint GET /api/build-info
- * @returns Build information with commit hash, branch name, and build date
+ * @description GET /api/build-info. Commit, branch and build date baked into the
+ *   bundle at build time via runtimeConfig.buildInfo (getBuildInfo() in
+ *   nuxt.config.ts), plus meta.timestamp. Used by Footer.vue. Never throws.
+ *   Doesn't read a .build-info.json file: the deploy never shipped it, so that
+ *   path returned a stale commit.
  */
 
 export default defineEventHandler((event) => {

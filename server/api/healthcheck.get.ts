@@ -1,8 +1,10 @@
 /**
  * @file healthcheck.get.ts
- * @description System health check endpoint with uptime, memory usage, and manifest validation
- * @endpoint GET /api/healthcheck
- * @returns Health status object with system metrics, version info, and service status (returns 503 if degraded, 500 if error)
+ * @description GET /api/healthcheck. Uptime/health for the deploy workflow and
+ *   external monitors: { status, uptime, node, commit, env, memory, manifest }.
+ *   The deploy polls this until `commit` matches the built SHA and `manifest`
+ *   is "ok" (see .github/workflows/deploy.yml). No cache in this file.
+ *   Responds 503 when degraded (manifest fetch failed), 500 on an internal error.
  */
 import { setResponseStatus } from 'h3'
 

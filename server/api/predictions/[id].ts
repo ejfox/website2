@@ -1,8 +1,10 @@
 /**
  * @file predictions/[id].ts
- * @description Single prediction with SSR markdown (read-only)
- * @endpoint GET /api/predictions/{id} - Fetch single prediction with rendered markdown
- * @params id: string - Prediction ID/slug (supports both flat and year-based structures)
+ * @description GET /api/predictions/:id. One prediction with its evidence and
+ *   resolution rendered to HTML (remark + GFM), plus relatedPredictions
+ *   enriched with statements. Looks up content/predictions/<id>.md, then
+ *   <year>/<rest>.md for year-prefixed ids. No cache.
+ *   Read-only: any non-GET is 405. Throws 400 without an id, 404 if not found.
  */
 import { defineEventHandler, getRouterParam, createError, getMethod } from 'h3'
 import { promises as fs } from 'node:fs'
@@ -91,6 +93,7 @@ export default defineEventHandler(async (event) => {
     const { data, content: body } = matter(content)
 
     // SSR markdown processing
+    // allowDangerousHtml: prediction files are EJ's own committed markdown.
     const processor = unified()
       .use(remarkParse)
       .use(remarkGfm)

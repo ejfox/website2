@@ -1,8 +1,10 @@
 /**
  * @file gear-stats.get.ts
- * @description Calculates statistics from gear.csv including total weight, item counts, and type distribution
- * @endpoint GET /api/gear-stats
- * @returns Gear statistics with total items, total weight (oz), container count, and type distribution
+ * @description GET /api/gear-stats. LighterPack-style weights from data/gear.csv
+ *   (all oz, Weight_oz x Qty): { stats: { totalItems, totalWeight, containerCount },
+ *   weightCategories: { base, worn, consumable, totalPack, skinOut }, starred,
+ *   typeDistribution, lastUpdated }. Imported by stats and stats-lite.
+ *   No cache. Throws 500 if the CSV can't be read.
  */
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -59,6 +61,7 @@ export default defineEventHandler(async (_event) => {
       .reduce((sum, item) => sum + getItemWeight(item), 0)
 
     // Calculate base weight (total - worn - consumable)
+    // An item marked both Worn and Consumable is subtracted twice.
     const baseWeight = totalWeight - wornWeight - consumableWeight
 
     // Calculate total pack weight (base + consumable, excludes worn)

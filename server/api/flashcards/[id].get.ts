@@ -1,7 +1,8 @@
 /**
- * @file [id].get.ts
- * @description Returns a single deck by ID
- * @endpoint GET /api/flashcards/:id
+ * @file flashcards/[id].get.ts
+ * @description GET /api/flashcards/:id. One deck: { id, name, course, cardCount,
+ *   cards[] }, read from public/data/flashcards/<id>.csv by loadDeck().
+ *   Throws 400 without an id, 404 if the CSV doesn't exist.
  */
 import { loadDeck, cardToFlashcard } from '~/server/utils/flashcards'
 import { getRouterParam } from 'h3'
@@ -16,6 +17,8 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  // No slug whitelist here: loadDeck() resolves <id>.csv under the decks dir,
+  // so only .csv files are reachable and the router doesn't decode %2F.
   const deck = await loadDeck(id)
 
   if (!deck) {

@@ -1,10 +1,12 @@
 /**
- * @file activity.get.ts
- * @description Derives a year × week activity grid from data/github-commits.json:
- *              for each calendar week we compute the total commit count and the
- *              "top" repo (the one with the most commits that week), so the /github
- *              hero heatmap can color cells by the dominant repo's language.
- * @endpoint GET /api/github/activity
+ * @file github/activity.get.ts
+ * @description GET /api/github/activity. A year x week commit grid from
+ *   data/github-commits.json: { years, weeks: [{ year, week, weekStart, commits,
+ *   topRepo, topRepoLang }], totalCommits, totalRepos }. topRepo is the repo
+ *   with the most commits that week; its language (from data/github-repos/*.json)
+ *   lets the /github hero heatmap color cells. Weeks are Sunday-anchored UTC.
+ *   Computed ONCE at module load, so new data needs a process reload.
+ *   Never throws: missing or bad data returns an empty payload.
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
@@ -40,6 +42,8 @@ interface ActivityPayload {
 const REPOS_DIR = join(process.cwd(), 'data/github-repos')
 const COMMITS_PATH = join(process.cwd(), 'data/github-commits.json')
 
+// ── Week math ────────────────────────────────────────────
+// Despite the name, weeks start on Sunday (matches the GitHub-style grid).
 function isoWeekStart(d: Date): Date {
   // anchor to Sunday UTC
   const start = new Date(
@@ -78,6 +82,7 @@ function loadRepoLanguages(): Map<string, string> {
   return map
 }
 
+// ── Build once ───────────────────────────────────────────
 const payload: ActivityPayload = (() => {
   const empty: ActivityPayload = {
     years: [],

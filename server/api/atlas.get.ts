@@ -1,11 +1,13 @@
 /**
  * @file atlas.get.ts
- * @description Overlay data for the Valley Atlas (/atlas): OSM places, the
- * repeater list, and published ride tracks.
- * @endpoint GET /api/atlas
+ * @description GET /api/atlas. Base overlays for the Valley Atlas (/atlas):
+ *   { places, repeaters, rides }, each a GeoJSON FeatureCollection.
+ *   places = data/atlas/places.geojson (OSM); repeaters = data/atlas/repeaters.csv;
+ *   rides = every non-draft content/processed/rides/*.json as a LineString.
+ *   Sets Cache-Control 1h itself. Never throws: a missing file is an empty layer.
  *
  * Rides come from the same processed JSON /rides serves, so they carry the
- * same salted privacy trim — and drafts are never included.
+ * same salted privacy trim, and drafts are never included.
  */
 import { defineEventHandler } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
@@ -23,6 +25,7 @@ const readJson = async (path: string) => {
 
 // Minimal CSV parsing: quoted fields (with commas and "" escapes), and
 // either \n or \r\n line endings
+// No CSV dependency on purpose: the repeater list is small and simple.
 const parseCsv = (text: string) => {
   const rows: string[][] = []
   for (const line of text.split(/\r?\n/)) {
@@ -96,6 +99,7 @@ export default defineEventHandler(async (event) => {
       geometry: {
         type: 'LineString',
         coordinates: ride.points
+          // Every other point: halves the payload, invisible at atlas zoom.
           .filter((_: unknown, i: number) => i % 2 === 0)
           .map((p: number[]) => [p[0], p[1]]),
       },

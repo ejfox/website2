@@ -1,9 +1,11 @@
 /**
  * @file gists.get.ts
- * @description Fetches GitHub Gists with pagination support and automatically fetches content for single-file gists
- * @endpoint GET /api/gists
- * @params per_page: number - Items per page (default: 64), page: number - Page number (default: 1)
- * @returns Array of Gist objects with metadata and content for single-file gists
+ * @description GET /api/gists?per_page=64&page=1. EJ's PUBLIC gists from the GitHub
+ *   API (env GITHUB_TOKEN, runtimeConfig githubToken); single-file gists also
+ *   carry their raw `content`. Used by pages/gists, gist-stats.get.ts and
+ *   now.get.ts. No cache: each call is 1 list request plus one raw fetch per
+ *   single-file gist. Throws notConfigured without a token, else the upstream
+ *   status (or 500).
  */
 import { defineEventHandler, createError, getQuery } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
@@ -69,6 +71,7 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
     )
 
     // Filter out secret gists - only show public ones
+    // Privacy: the token can see secret gists; never return them.
     const publicGists = response.filter((gist) => gist.public)
 
     // For single-file gists, fetch the content

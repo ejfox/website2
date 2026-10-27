@@ -1,8 +1,9 @@
 /**
  * @file umami/auth.post.ts
- * @description Authenticates with Umami analytics platform and returns access token
- * @endpoint POST /api/umami/auth
- * @returns Authentication token for Umami API access
+ * @description POST /api/umami/auth. Logs in to Umami (umami.tools.ejfox.com)
+ *   with env UMAMI_USERNAME / UMAMI_PASSWORD and returns { success, token }.
+ *   No on-site caller (allowlisted in no-orphan-routes.test.ts). No cache.
+ *   Throws 500 if login fails or times out (5s).
  */
 import { fetchWithTimeout } from '~/server/utils/fetch'
 import { serverEnv } from '~/server/utils/serverEnv'

@@ -1,8 +1,12 @@
 /**
  * @file stats.get.ts
- * @description Aggregates statistics from multiple third-party APIs (GitHub, Chess.com, Last.fm, MonkeyType, LeetCode, RescueTime, Letterboxd, Discogs, etc.) into a single unified response
- * @endpoint GET /api/stats
- * @returns Comprehensive StatsResponse object containing data from all integrated services with graceful error handling for individual service failures
+ * @description GET /api/stats. Everything on /stats in one response: StatsResponse
+ *   (composables/useStats.ts) plus StatsHorizons (server/utils/statsHorizons.ts).
+ *   Calls 18 source handlers directly (imports below, not HTTP), passing this
+ *   request's event through; each failure is logged via logStatsError and that
+ *   section is just missing. GitHub falls back to the last good result held in
+ *   memory. Cached 10 min, swr, stale up to 1h (a cold run takes 2-3s).
+ *   Throws only if the aggregation itself fails.
  */
 import type { StatsResponse } from '~/composables/useStats'
 import { logStatsError } from '~/server/utils/notConfigured'
@@ -27,6 +31,7 @@ import wikiHandler from './wiki.get'
 import reachHandler from './reach.get'
 import photosHandler from './photos.get'
 
+// ── Types + adapters ─────────────────────────────────────
 // Chess types (matching chess.get.ts)
 interface ChessGameResult {
   id: string
@@ -131,6 +136,7 @@ interface CommitType {
   percentage: number
 }
 
+// Unused (underscore-prefixed, no callers).
 function _processCommits(commits: GitHubCommit[]): {
   commits: GitHubCommit[]
   commitTypes: CommitType[]
@@ -237,6 +243,7 @@ function getValue<T>(result: PromiseSettledResult<T>): T | null {
   return result.status === 'fulfilled' ? result.value : null
 }
 
+// ── Handler ──────────────────────────────────────────────
 // Cached: this fans out to ~17 upstream handlers (2–3s cold). With swr a
 // visitor gets the last result instantly while a refresh runs behind it.
 export default defineCachedEventHandler(

@@ -1,8 +1,11 @@
 /**
  * @file rescuetime.get.ts
- * @description Fetches RescueTime productivity tracking data for the current week and month with activity breakdowns
- * @endpoint GET /api/rescuetime
- * @returns Time tracking data with categories, activities, and productivity summary (productive/distracting/neutral time)
+ * @description GET /api/rescuetime. RescueTime activity for this week (from
+ *   Monday) and this month (env RESCUETIME_TOKEN): { week, month: {
+ *   categories, activities, summary: { total, productive, distracting,
+ *   neutral } }, lastUpdated }. Imported by stats and stats-lite. No cache.
+ *   Throws notConfigured without a token; a failed week or month request
+ *   just yields empty rows for it; throws 500 on a processing error.
  */
 import { defineEventHandler, createError } from 'h3'
 import { serverEnv } from '~/server/utils/serverEnv'
@@ -73,6 +76,8 @@ export default defineEventHandler(async () => {
     }
 
     // Fetch week and month data in parallel with error recovery
+    // The API takes the key as a query param, so a rejected request's message
+    // holds it. allSettled drops those reasons; keep it that way (no logging them).
     const results = await Promise.allSettled([
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {

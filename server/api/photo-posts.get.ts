@@ -1,9 +1,12 @@
 /**
  * @file photo-posts.get.ts
- * @description Returns photo-type blog posts with stack-preview image URLs.
- *   Body HTML is NOT included — consumers fetch it on demand via
- *   /api/posts/[slug] when a stack is expanded.
- * @endpoint GET /api/photo-posts
+ * @description GET /api/photo-posts. Listable photo-type posts with up to 3
+ *   stack-preview image URLs each: { total, posts: [{ slug, title, dek, date, year,
+ *   tags, images, imageCount }] }, newest year first. Body HTML is NOT included;
+ *   consumers fetch it on demand from posts/[...slug].ts when a stack is expanded.
+ *   Reads manifest-lite.json + each post's content/processed JSON.
+ *   Cached 1h, so a scheduled photo post can appear up to an hour late.
+ *   Throws 500 if the manifest can't be read.
  */
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
@@ -48,6 +51,7 @@ export default defineCachedEventHandler(
       const manifest = await readManifest()
 
       const photoPosts = manifest.filter(
+        // Privacy filter: isListable drops draft/hidden/unlisted/password/scheduled.
         (p) => (p.type === 'photos' || p.type === 'photo') && isListable(p)
       )
 

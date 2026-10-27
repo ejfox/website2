@@ -1,10 +1,10 @@
 /**
  * @file paperclip.get.ts
- * @description EJ's current Paperclip presence emoji, for SSR. The browser
- *   upgrades it to a live SSE stream straight from Paperclip (see
- *   composables/usePaperclipStatus.ts) — this route only seeds first paint.
- * @endpoint GET /api/paperclip
- * @returns { emoji, updated_at } or null when Paperclip is down / profile not public
+ * @description GET /api/paperclip. EJ's current Paperclip presence emoji, for SSR.
+ *   The browser upgrades it to a live SSE stream straight from Paperclip (see
+ *   composables/usePaperclipStatus.ts); this route only seeds first paint.
+ *   Returns { emoji, updated_at }, or null when Paperclip is down or the profile
+ *   isn't public. Cached 60s, no swr (see below). Never throws.
  */
 
 const STATUS_URL = 'https://getpaperclipped.com/api/users/ejfox/status'

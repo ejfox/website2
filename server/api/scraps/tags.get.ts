@@ -1,8 +1,8 @@
 /**
  * @file scraps/tags.get.ts
- * @description Extracts and deduplicates all unique tags from Supabase scraps collection
- * @endpoint GET /api/scraps/tags
- * @returns Sorted array of unique tag strings from all scraps
+ * @description GET /api/scraps/tags. Sorted, deduped tag vocabulary from Supabase
+ *   scraps (env SUPABASE_URL, SUPABASE_KEY). Public API, no on-site caller
+ *   (allowlisted). No cache. Returns [] on missing creds or any error.
  */
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'

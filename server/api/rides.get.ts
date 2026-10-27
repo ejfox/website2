@@ -1,8 +1,8 @@
 /**
- * @file index.get.ts
- * @description Serves the processed rides index (non-draft rides only —
- * drafts are excluded at process time by scripts/build/process-rides.mjs).
- * @endpoint GET /api/rides
+ * @file rides.get.ts
+ * @description GET /api/rides. The processed rides index,
+ *   content/processed/rides/index.json. Drafts are already excluded at process
+ *   time by scripts/build/process-rides.mjs. Returns [] if the file is missing.
  */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'

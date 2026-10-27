@@ -1,7 +1,10 @@
 /**
  * @file photo-exif.get.ts
- * @description Fetches EXIF metadata for a single photo from Cloudinary
- * @endpoint GET /api/photo-exif?id=<public_id>
+ * @description GET /api/photo-exif?id=<cloudinary public_id>. EXIF for one photo:
+ *   { camera, lens, aperture, iso, shutter, focalLength, dateTaken, colors }.
+ *   Cloudinary Admin API (env CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY,
+ *   CLOUDINARY_API_SECRET). Cached 24h. Throws 400 without id; any Cloudinary
+ *   error returns the same shape, all null.
  */
 import { v2 as cloudinary } from 'cloudinary'
 

@@ -1,8 +1,10 @@
 /**
- * @file signals.get.ts
- * @description PRIVATE Valley Atlas layer: the last 7 days of geolocated
- * signals from EJ's anomalywatch app, as GeoJSON points.
- * @endpoint GET /api/atlas/private/signals (404 unless the atlas is unlocked)
+ * @file atlas/private/signals.get.ts
+ * @description GET /api/atlas/private/signals. PRIVATE Valley Atlas layer: the
+ *   last 7 days of geolocated signals from EJ's anomalywatch smallweb app:
+ *   { signals: FeatureCollection, excluded, fetched }. 404 unless the atlas is
+ *   unlocked (server/utils/atlasPrivate.ts). Upstream memoized in-process 5 min.
+ *   Throws 502 if anomalywatch fails or ATLAS_HOME_EXCLUDE is unset.
  *
  * Minimized: only title, a short plain-text summary, source, type, time and
  * an http(s) link leave the server. raw_data (which can hold names and
@@ -10,9 +12,9 @@
  *
  * Home-area exclusion: any signal within HOME_RADIUS_KM of a point in the
  * ATLAS_HOME_EXCLUDE env var ("lat,lon;lat,lon"), or whose text mentions
- * EJ's neighborhood / home / location tracking, is dropped. The points live
- * in env, not here, because this repo is public. Without them the route
- * fails closed and returns nothing.
+ * EJ's neighborhood (env ATLAS_HOME_TERMS) / home / location tracking, is
+ * dropped. The points live in env, not here, because this repo is public.
+ * Without them the route fails closed and returns nothing.
  *
  * Not defineCachedEventHandler: a cached handler can answer without running
  * requireAtlasPrivate. The upstream fetch is memoized in-process instead.
@@ -33,6 +35,7 @@ interface Signal {
   raw_data: string | null
 }
 
+// ── Home-area exclusion ──────────────────────────────────
 const DAY = 864e5
 const CACHE_MS = 5 * 60e3
 const HOME_RADIUS_KM = 2
@@ -77,6 +80,7 @@ const km = (lat1: number, lon1: number, lat2: number, lon2: number) => {
   return 12742 * Math.asin(Math.sqrt(a))
 }
 
+// ── Minimizing a signal ──────────────────────────────────
 const isHttp = (s: unknown): s is string =>
   typeof s === 'string' && /^https?:\/\/[^\s"'<>]+$/i.test(s)
 
@@ -158,6 +162,7 @@ export function signalsToGeojson(
   }
 }
 
+// ── Loading + handler ────────────────────────────────────
 async function load() {
   const homes = parseHomes(serverEnv('ATLAS_HOME_EXCLUDE'))
   // Fail closed: no home reference, no signals
@@ -183,10 +188,12 @@ let cached: {
 } | null = null
 
 export default defineEventHandler(async (event) => {
+  // Must run first, before any cache read: the gate is the whole point.
   requireAtlasPrivate(event)
   if (!cached || Date.now() - cached.at > CACHE_MS) {
     const value = load()
     cached = { at: Date.now(), value }
+    // Don't memoize a failure; the next request retries.
     value.catch(() => {
       cached = null
     })

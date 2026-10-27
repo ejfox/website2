@@ -1,9 +1,12 @@
 /**
  * @file search.get.ts
- * @description Full-text search across processed blog content with TF-IDF relevance scoring and snippet extraction
- * @endpoint GET /api/search
- * @params q: string - Search query, limit: number - Maximum results (default: 20, max: 50)
- * @returns Search results with snippets, relevance scores, tags, and metadata, sorted by relevance
+ * @description GET /api/search?q=code&limit=20. Full-text search over every post
+ *   JSON in content/processed, ranked by BM25 plus title/tag boosts:
+ *   { query, results: [{ title, slug, url, snippet, score, date, tags, type,
+ *   words }], total, searchTerms, message }. limit defaults to 20, max 50.
+ *   Public API, no on-site caller (allowlisted). No cache: walks and parses
+ *   the whole processed tree on every request.
+ *   Never throws: a short query, no terms or any error returns results: [].
  */
 import { defineEventHandler, getQuery } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
@@ -11,6 +14,7 @@ import path from 'node:path'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
+// ── Helpers ──────────────────────────────────────────────
 /**
  * Format a slug into a display title
  * Handles date-based slugs (YYYY-MM-DD) specially - keeps dashes
@@ -40,6 +44,8 @@ function formatTitleFromSlug(slug: string): string {
     .join(' ')
 }
 
+// ── Scoring ──────────────────────────────────────────────
+// Standard BM25 defaults: k1 = term-frequency saturation, b = length norm.
 const BM25_CONFIG = {
   k1: 1.5,
   b: 0.75,
@@ -155,6 +161,7 @@ function extractSnippet(
 
   // Highlight search terms (simple bold markup)
   lowerTerms.forEach((term) => {
+    // Safe to build a RegExp from the term: tokenize() leaves only \w chars.
     const regex = new RegExp(`(${term})`, 'gi')
     snippet = snippet.replace(regex, '**$1**')
   })
@@ -162,6 +169,7 @@ function extractSnippet(
   return snippet
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (event) => {
   try {
     const query = getQuery(event)
@@ -231,6 +239,7 @@ export default defineEventHandler(async (event) => {
         if (item.isDirectory()) {
           // Skip certain directories - be more restrictive
           if (
+            // Privacy: never index these directories (backups, drafts, stale copies, etc).
             ['backup', 'drafts', '_stale', 'robots', 'prompts'].includes(
               item.name
             )

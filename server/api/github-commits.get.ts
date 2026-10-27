@@ -1,8 +1,8 @@
 /**
  * @file github-commits.get.ts
- * @description Serves pre-cached GitHub commit data from JSON file
- * @endpoint GET /api/github-commits
- * @returns Parsed JSON data containing GitHub commit history
+ * @description GET /api/github-commits. Pre-cached GitHub commit history from
+ *   data/github-commits.json (written by a script, not fetched live).
+ *   No cache, re-read per request. Throws (500) if the file is missing or bad JSON.
  */
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'

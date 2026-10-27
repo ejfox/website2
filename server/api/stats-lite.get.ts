@@ -1,8 +1,12 @@
 /**
  * @file stats-lite.get.ts
- * @description Lightweight stats API optimized for iOS Shortcuts and slow cellular connections
- * @endpoint GET /api/stats-lite
- * @returns Minimal, top-level summary stats from all services - no arrays, no verbose nested objects
+ * @description GET /api/stats-lite. Tiny flat stats object (~345 bytes) for iOS
+ *   Shortcuts, widgets and slow cellular links: top-level numbers/strings only,
+ *   e.g. { lastUpdated, cached, githubContributionsAllTime, chessRatingRapid,
+ *   blogPostsCalMonth, musicTopArtistAllTime, ... }. Calls 9 source handlers
+ *   directly (imports below, not HTTP), passing this request's event through.
+ *   In-process node-cache 5 min (`cached: true` on a hit). Never throws: a
+ *   failed source just leaves its fields out.
  *
  * Design Philosophy:
  * - Single numbers only, no arrays or complex nested objects
@@ -28,6 +32,7 @@ const cache = new NodeCache({
   checkperiod: 60,
 })
 
+// ── Response shape ───────────────────────────────────────
 interface StatsLiteResponse {
   // Meta
   lastUpdated: string
@@ -76,6 +81,7 @@ interface StatsLiteResponse {
   discogsValueTotalUsd?: number
 }
 
+// ── Helpers ──────────────────────────────────────────────
 // Helper to safely extract a value with type checking
 function safeNumber(value: unknown): number | undefined {
   if (typeof value === 'number' && !Number.isNaN(value)) return value
@@ -91,6 +97,7 @@ function safeString(value: unknown): string | undefined {
   return undefined
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (event): Promise<StatsLiteResponse> => {
   // Check cache first
   const cacheKey = 'stats-lite'

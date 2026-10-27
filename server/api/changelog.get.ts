@@ -1,12 +1,11 @@
 /**
  * @file changelog.get.ts
- * @description Serves git changelog from a build-time-generated static file
- *              (data/changelog.json). The runtime container has no `git` binary,
- *              so this avoids shelling out at request time.
- * @endpoint GET /api/changelog
- * @params limit: number - Number of commits (default: 50, max: 500)
- *         since: string - ISO date string; only return commits on or after
- * @returns Git commits grouped by date and type with stats including commit counts by type
+ * @description GET /api/changelog?limit=50&since=ISO-date. The site's git log for
+ *   pages/changelog from data/changelog.json, generated at build time so no
+ *   request shells out to git: { meta, commits: [{ hash, author, email, date,
+ *   message, type }], grouped: { byDate, byType }, stats }. limit max 500.
+ *   The file is read once and memoized for the life of the process.
+ *   Throws 500 if the file is missing.
  */
 
 import { promises as fs } from 'node:fs'
@@ -121,6 +120,7 @@ export default defineEventHandler(async (event) => {
   }
 })
 
+// Conventional-commit prefix if present, else a guess from the first word.
 function parseCommitType(message: string): string {
   const match = message.match(/^(\w+)(\(.+\))?:/)
   if (match) return match[1]

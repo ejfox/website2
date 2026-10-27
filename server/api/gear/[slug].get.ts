@@ -1,3 +1,9 @@
+/**
+ * @file gear/[slug].get.ts
+ * @description GET /api/gear/:slug. One gear item by slug (slugifyGear of Name,
+ *   the same function pages link with). Reads data/gear.csv via loadGearItems().
+ *   Throws 400 without a slug, 404 if no item matches.
+ */
 export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
   if (!slug)

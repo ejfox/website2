@@ -1,11 +1,17 @@
 /**
  * @file weekly-summary.get.ts
- * @description Aggregates data from multiple services for a specific ISO week
- * @endpoint GET /api/weekly-summary?week=2026-05 or ?week=2026-W05
- * @returns Comprehensive weekly data for Sunday Interview skill
+ * @description GET /api/weekly-summary?week=2026-W05 (also 2026-05 or 05). One
+ *   ISO week across GitHub, RescueTime, Last.fm, Letterboxd, Goodreads, Apple
+ *   Health, Chess.com, blog stats and Duolingo, for the Sunday Interview skill:
+ *   { week, days[7], github, rescuetime, music, films, books, health, chess,
+ *   blog, duolingo, lastUpdated }. Several fields are placeholders (see the
+ *   "Would need" comments). Fetches 9 sibling routes over HTTP; each failure
+ *   just nulls that section. No cache. Allowlisted as external.
+ *   Defaults to the current week when `week` is omitted.
  */
 import { defineEventHandler, getQuery, createError } from 'h3'
 
+// ── Types ────────────────────────────────────────────────
 interface WeekRange {
   weekNumber: number
   year: number
@@ -126,6 +132,8 @@ interface WeeklySummary {
  * Parse week parameter and return date range
  * Accepts: "2026-05", "2026-W05", "05" (assumes current year)
  */
+// Never throws: a garbage week gives NaN dates, and the handler's 400 branch
+// is unreachable (toISOString on an Invalid Date throws a 500 instead).
 function parseWeekParam(weekParam: string): WeekRange {
   const now = new Date()
   let year: number
@@ -175,6 +183,8 @@ function parseWeekParam(weekParam: string): WeekRange {
 /**
  * Get current ISO week number
  */
+// Not a true ISO week number (Jan 1 based), so near year boundaries it can
+// disagree with parseWeekParam's ISO math.
 function getCurrentWeek(): string {
   const now = new Date()
   const jan1 = new Date(now.getFullYear(), 0, 1)
@@ -207,6 +217,7 @@ function getDayName(dateStr: string): string {
   return days[new Date(dateStr).getDay()]
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (event): Promise<WeeklySummary> => {
   const query = getQuery(event)
   const weekParam = (query.week as string) || getCurrentWeek()
@@ -222,6 +233,8 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
   }
 
   // Fetch all data sources in parallel
+  // Production loops out through the public hostname (Cloudflare) rather than
+  // localhost. The dev URL assumes port 3000; the dev server runs on 3006.
   const baseUrl =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
@@ -239,6 +252,7 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
     $fetch(`${baseUrl}/api/duolingo`).catch(() => null),
   ])
 
+  // ── Per-source shaping ───────────────────────────────────
   // Extract results with fallbacks
   const github = (
     results[0].status === 'fulfilled' ? results[0].value : null

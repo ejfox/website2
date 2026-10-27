@@ -1,7 +1,8 @@
 /**
  * @file rides-atlas.get.ts
- * @description Serves the combined all-rides atlas plate (ghosts + states).
- * @endpoint GET /api/rides-atlas
+ * @description GET /api/rides-atlas. The combined all-rides atlas plate (ghosts +
+ *   states) from content/processed/rides/atlas.json, for pages/rides.
+ *   Returns null if the file is missing.
  */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'

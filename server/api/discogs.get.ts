@@ -1,8 +1,11 @@
 /**
  * @file discogs.get.ts
- * @description Fetches Discogs vinyl/record collection data with value analysis, genre distribution, and artist statistics
- * @endpoint GET /api/discogs
- * @returns Collection data with stats (total items, value, median), top genres, decade breakdown, top artists, and a random record
+ * @description GET /api/discogs. EJ's Discogs record collection (env DISCOGS_TOKEN,
+ *   DISCOGS_USERNAME): { stats (count, total/median/highest value), topGenres,
+ *   decadeBreakdown, topArtists, randomRecord, collection[], lastUpdated }.
+ *   Imported by stats and stats-lite. No cache in this file: every call walks
+ *   every collection page (250 per page, 500ms apart, 3 retries with backoff).
+ *   Never throws: no token or any error returns the zeroed shape plus `error`.
  */
 import { warnNotConfigured } from '~/server/utils/notConfigured'
 
@@ -72,6 +75,7 @@ export default defineEventHandler(async () => {
     }
   }
 
+  // ── Fetching (retry + backoff) ───────────────────────────
   const makeRequest = async <T>(
     endpoint: string,
     params: Record<string, string> = {}
@@ -83,6 +87,7 @@ export default defineEventHandler(async () => {
     while (attempt < maxRetries) {
       try {
         const url = new URL(`https://api.discogs.com${endpoint}`)
+        // Discogs accepts the personal token as a query param; don't log `url`.
         url.searchParams.append('token', token)
         url.searchParams.append('per_page', '250')
 
@@ -146,6 +151,7 @@ export default defineEventHandler(async () => {
   }
 
   try {
+    // ── Collection + stats ───────────────────────────────────
     // Fetch collection data with pagination
     let allItems: DiscogsRelease[] = []
     let page = 1

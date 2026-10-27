@@ -1,15 +1,19 @@
 /**
  * @file webmentions.get.ts
- * @description Fetches and filters webmentions from webmention.io with spam/abuse moderation using blocklists
- * @endpoint GET /api/webmentions
- * @params target: string - Target URL to fetch webmentions for
- * @returns Filtered array of webmention objects excluding blocked domains, authors, and spam content
+ * @description GET /api/webmentions?target=<post url>. Webmentions for one post
+ *   from webmention.io (env WEBMENTION_IO_TOKEN), moderated with
+ *   data/webmention-moderation.json (blocked domains/urls/authors, spam
+ *   keywords, trusted domains) and sanitized for v-html. Used by
+ *   Webmentions.vue. Cached 5 min per target.
+ *   Throws 400 without target; returns [] without a token; throws 500 if
+ *   webmention.io fails.
  */
 
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import sanitizeHtml from 'sanitize-html'
 
+// ── Sanitizing ───────────────────────────────────────────
 // Webmention content is arbitrary HTML from any site on the internet that sends
 // us a webmention — fully untrusted. The client renders content.html via
 // v-html, so we sanitize HERE, at the boundary, to a tiny allowlist. Strips
@@ -69,6 +73,7 @@ function sanitizeMention(m: Webmention): Webmention {
   return m
 }
 
+// ── Moderation ───────────────────────────────────────────
 interface Webmention {
   url?: string
   'wm-source'?: string
@@ -172,6 +177,7 @@ function isBlocked(mention: Webmention, config: ModerationConfig): boolean {
   return false
 }
 
+// ── Handler ──────────────────────────────────────────────
 // Cached: this proxies webmention.io, and now that the component renders on
 // every post, an uncached handler meant one upstream call per post view — a new
 // rate-limit and latency surface on a third party. Keyed by target so each post
@@ -214,6 +220,8 @@ export default defineCachedEventHandler(
       throw createError({
         statusCode: 500,
         statusMessage: 'Failed to fetch webmentions',
+        // ofetch error messages include the request URL, and this one carries the
+        // token in its query string, so an upstream failure can echo it to the client.
         message: err.message,
       })
     }

@@ -1,8 +1,13 @@
 /**
  * @file now.get.ts
- * @description The /now page as data: one line per thing, one thing per route,
- * newest first. The page renders this list as-is, so the rules live here:
+ * @description GET /api/now. The /now page as data: { generated, lines: [{ label,
+ *   href, text, at }] }, one line per thing, one thing per route, newest first.
+ *   Fans out to 15 sibling routes over HTTP ($fetch, 15s timeout each). Cached
+ *   5 min with swr. Never throws: each source fails alone and a dead vendor
+ *   just drops its line. Dev-only env NOW_DATA_ORIGIN points the fan-out at
+ *   production data.
  *
+ * The page renders this list as-is, so the rules live here:
  *  1. One line per thing. `text` is a single line; the page truncates, never wraps.
  *  2. One thing per route. `label` is the route it links to (/blog, /rides…),
  *     or the service name for off-site sources (last.fm, mastodon…). The one
@@ -13,8 +18,7 @@
  *     and the page dims them, because quiet is also news.
  *
  * /now is SSR per request; this cached handler (swr) is the only thing it
- * waits on, and each source fails alone: a dead vendor drops its line.
- * @endpoint GET /api/now
+ * waits on.
  */
 
 export interface NowLine {
@@ -48,6 +52,7 @@ const get = (path: string, local = false) =>
 
 export default defineCachedEventHandler(
   async () => {
+    // ── Fan-out ──────────────────────────────────────────────
     const results = await Promise.allSettled([
       get('/api/manifest'),
       get('/api/stats'),
@@ -83,6 +88,7 @@ export default defineCachedEventHandler(
       dispatch,
     ] = results.map(value)
 
+    // ── Lines ────────────────────────────────────────────────
     const lines: NowLine[] = []
     const add = (line: NowLine | null | false | undefined) => {
       if (line && line.text) lines.push(line)
@@ -229,6 +235,7 @@ export default defineCachedEventHandler(
       .filter(
         (p) =>
           !p.resolved &&
+          // Only public bets: predictions.get.ts doesn't filter on visibility.
           (p.visibility || 'public') === 'public' &&
           Date.parse(p.deadline) > now
       )

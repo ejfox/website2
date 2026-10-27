@@ -1,8 +1,10 @@
 /**
  * @file blogroll.get.ts
- * @description Parses newsboat RSS feeds from ~/.newsboat/urls and returns categorized feed list
- * @endpoint GET /api/blogroll
- * @returns RSS feeds grouped by category with stats including total count and category distribution
+ * @description GET /api/blogroll. EJ's RSS subscriptions for pages/following, in
+ *   newsboat `urls` format: { meta: { stats }, feeds[], byCategory }.
+ *   Reads data/blogroll.urls (the committed snapshot); falls back to
+ *   ~/.newsboat/urls whenever that file is missing. No cache. Throws 500 if neither file can be read,
+ *   or if a line has an unparseable URL.
  */
 
 import { promises as fs } from 'node:fs'

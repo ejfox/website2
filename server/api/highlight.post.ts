@@ -1,15 +1,20 @@
 /**
  * @file highlight.post.ts
- * @description Server-side syntax highlighting using Shiki with support for multiple languages and themes
- * @endpoint POST /api/highlight
- * @params code: string - Code to highlight, language: string - Language name (default: 'text'), theme: string - Theme name (default: 'github-light')
- * @returns Highlighted HTML code with language detection and fallback handling
+ * @description POST /api/highlight. Server-side Shiki highlighting for
+ *   GistPreview.vue, so the client never bundles Shiki.
+ *   Body: { code, language = 'text', theme = 'github-light' }.
+ *   Returns { html, language, theme, originalLanguage }. An unloaded language
+ *   falls back to 'text'. Missing code or a Shiki error (e.g. an unknown
+ *   theme) returns 200 with { error, html } (escaped plain <pre>); a
+ *   non-string `code` throws a 500 from the fallback itself.
  */
 // SERVER-SIDE SYNTAX HIGHLIGHTING - Zeus almighty, no bundlin'
 // Pre-calculate, pre-render, hit em with the flow slide
 
 import { createHighlighter, type Highlighter } from 'shiki'
 
+// One highlighter per process: createHighlighter loads every grammar and theme
+// below, which is slow, so it's built on first request and reused.
 let highlighterInstance: Highlighter | null = null
 
 async function getHighlighter() {
@@ -69,6 +74,7 @@ export default defineEventHandler(async (event) => {
 
     // Check if language is supported, fallback to 'text' if not
     const supportedLanguages = highlighter.getLoadedLanguages()
+    // codeToHtml throws on an unloaded language; degrade to plain text instead.
     const langToUse = supportedLanguages.includes(language) ? language : 'text'
 
     const html = highlighter.codeToHtml(code, {

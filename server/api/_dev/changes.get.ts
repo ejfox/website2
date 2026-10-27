@@ -1,3 +1,12 @@
+/**
+ * @file _dev/changes.get.ts
+ * @description GET /api/_dev/changes?base=session|branch (dev only). Returns
+ *   { base, generatedAt, count, routableCount, files: [{ file, status,
+ *   additions, deletions, route, title, addedSnippets }] }. No cache. A git
+ *   failure returns { error, files: [] }. The import.meta.dev check in the
+ *   handler 404s it in a production build, and api-catalog.test.ts keeps
+ *   /api/_dev/* out of the public catalog. Details in the block below.
+ */
 import { execFileSync } from 'node:child_process'
 
 /**

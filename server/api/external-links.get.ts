@@ -1,8 +1,12 @@
 /**
  * @file external-links.get.ts
- * @description Parses external_links_final.csv to extract and deduplicate external links with source tracking
- * @endpoint GET /api/external-links
- * @returns Array of external links with domain, TLD, sources, and usage counts, sorted by domain
+ * @description GET /api/external-links. Every outbound link cited on the site,
+ *   deduped, for pages/external-links: { links: [{ url, domain, tld, sources,
+ *   count }], stats: { totals, http/https, topDomains (15), tldBreakdown,
+ *   oldestSource, newestSource } }, sorted by domain then URL.
+ *   Reads data/external_links_final.csv (url,sources with ;-separated post
+ *   slugs). No cache. Returns [] (not the object shape) if the CSV is
+ *   missing; any other error returns the object shape, empty.
  */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
@@ -66,6 +70,7 @@ function parseCSVLine(line: string): [string, string] {
   return [url, sources]
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async () => {
   try {
     const csvPath = resolve(process.cwd(), 'data/external_links_final.csv')
@@ -123,6 +128,7 @@ export default defineEventHandler(async () => {
 
         // Drop drafts sources: they can hold private material
         const allSources = sourcesStr ? sourcesStr.split(';') : []
+        // Only drafts/ is filtered; sources from hidden or unlisted posts still show.
         const sources = allSources.filter((s) => !s.startsWith('drafts/'))
 
         // Skip links that ONLY appeared in drafts (no other sources)
@@ -157,6 +163,7 @@ export default defineEventHandler(async () => {
       return a.domain.localeCompare(b.domain)
     })
 
+    // ── Aggregate stats ──────────────────────────────────────
     // Compute aggregate stats
     const domainMap = new Map<
       string,

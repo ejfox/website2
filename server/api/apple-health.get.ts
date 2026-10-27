@@ -1,8 +1,13 @@
 /**
  * @file apple-health.get.ts
- * @description Fetches Apple Health statistics from health-webhook.tools.ejfox.com
- * @endpoint GET /api/apple-health
- * @returns Health stats including steps, heart rate, exercise, sleep data
+ * @description GET /api/apple-health. Apple Health stats shaped for /stats:
+ *   { today, thisWeek, heart, sleep, trends (daily / weekly / monthly), ...,
+ *   lastUpdated }, from the last 30 days of health-webhook.tools.ejfox.com
+ *   (header x-webhook-secret = env HEALTH_WEBHOOK_SECRET; must match the
+ *   webhook app's own secret). Days are America/New_York calendar days.
+ *   Imported by stats and weekly-summary. No cache.
+ *   Throws notConfigured without the secret; throws if the webhook fails.
+ *   Public: every field returned here (heart rate, sleep stages) is world-readable.
  */
 import { defineEventHandler } from 'h3'
 import { notConfigured } from '~/server/utils/notConfigured'
@@ -104,6 +109,7 @@ interface MetricRecord {
   raw?: string
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (): Promise<HealthStats> => {
   const HEALTH_API = 'https://health-webhook.tools.ejfox.com'
   const config = useRuntimeConfig()

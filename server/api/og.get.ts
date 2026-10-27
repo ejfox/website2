@@ -1,9 +1,12 @@
 /**
  * @file og.get.ts
- * @description Fetches Open Graph metadata from URLs for rich link previews with 5-minute in-memory caching
- * @endpoint GET /api/og
- * @params url: string - URL to fetch Open Graph data from
- * @returns OGData object with title, description, image, siteName, favicon, author, and published date
+ * @description GET /api/og?url=https://... Open Graph metadata for link previews
+ *   (ReplyContextItem.vue, plugins/link-previews.client.ts): { url, title,
+ *   description, image, siteName, favicon, author, published, type }.
+ *   Fetches the page server-side (10s timeout) and regex-scrapes meta tags.
+ *   In-process Map cache: 5 min per url, failures 1 min (never evicted).
+ *   Throws 400 on a missing/invalid url; a failed fetch returns a minimal
+ *   { url, siteName, favicon }.
  */
 import { decodeEntities } from '~/server/utils/decodeEntities'
 
@@ -76,6 +79,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  // ── Fetch + scrape ───────────────────────────────────────
   // Check cache
   const cached = cache.get(url)
   if (cached && cached.expires > Date.now()) {
@@ -178,6 +182,8 @@ export default defineEventHandler(async (event) => {
     }
 
     // Try to find a better favicon
+    // Second favicon pass: overrides extractFavicon() above whenever it matches,
+    // and its relative-URL handling is cruder (protocol-relative //host breaks).
     const faviconPatterns = [
       /rel="icon"[^>]*href="([^"]+)"/i,
       /rel="shortcut icon"[^>]*href="([^"]+)"/i,

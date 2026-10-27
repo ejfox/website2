@@ -1,9 +1,10 @@
 /**
  * @file mastodon.get.ts
- * @description Latest public, top-level posts from mastodon.social/@ejfox
- * (no replies, no boosts). Mastodon's public API needs no key.
- * @endpoint GET /api/mastodon
- * @returns { account, posts: [{ id, text, url, at, image }] }
+ * @description GET /api/mastodon. Latest public, top-level posts from
+ *   mastodon.social/@ejfox (no replies, no boosts, no content-warned posts):
+ *   { account, posts: [{ id, text, url, at, image }] }. Mastodon's public API
+ *   needs no key. Used by now.get.ts. Cached 15 min with swr. Throws if
+ *   Mastodon is down (8s timeout).
  */
 import { decodeEntities } from '~/server/utils/decodeEntities'
 import { stripHtml } from '~/server/utils/text-processing'

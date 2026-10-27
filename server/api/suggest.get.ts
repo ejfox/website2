@@ -1,9 +1,15 @@
 /**
  * @file suggest.get.ts
- * @description AI-powered content suggestion engine using OpenAI GPT-4 to suggest tags, generate summaries, and find similar content for digital scrapbook entries
- * @endpoint GET /api/suggest
- * @params url: string - Source URL, title: string - Content title, text: string - Content text, auth: string - Authentication token
- * @returns Suggested tags, AI-generated summary, similar blog posts, and active thematic threads with relevance scoring
+ * @description GET /api/suggest?url=&title=&text=&description=&auth=. Tag and
+ *   summary suggestions for a page being saved as a scrap, for
+ *   pages/bookmarklet-popup.vue: { suggested_tags, summary, similar_scraps (top 5
+ *   similar processed posts), active_threads, processing_time_ms, cache_hit }.
+ *   Calls OpenRouter (model openai/gpt-4o-mini) with runtimeConfig
+ *   OPENROUTER_API_KEY, server-only; without a key it falls back to keyword
+ *   matching against the tag vocabulary.
+ *   Auth: `auth` must equal SCRAP_ENLIGHTENER_AUTH when that env is set.
+ *   Caches in-process (node-cache): results 30 min, posts 30 min, tags 1h.
+ *   Never throws: every error (including 401/400) becomes a 200 with empty tags.
  */
 import { defineEventHandler, getQuery, createError } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
@@ -45,6 +51,7 @@ interface BlogPost {
   }
 }
 
+// ── Similarity + context loading ─────────────────────────
 // Calculate content similarity - THIS IS WHERE THE MAGIC HAPPENS! ⚡
 function calculateSimilarity(inputText: string, blogPost: BlogPost): number {
   const inputTokens = tokenize(inputText)
@@ -78,6 +85,8 @@ function calculateSimilarity(inputText: string, blogPost: BlogPost): number {
 }
 
 // Load EJ's existing tags vocabulary *ZOOM*
+// Vocabulary: public/tags.json if it exists, else the live site's tags.json,
+// else the hardcoded list below.
 async function loadTagsVocabulary(): Promise<string[]> {
   const cacheKey = 'tags_vocabulary'
   let tags = cache.get<string[]>(cacheKey)
@@ -238,6 +247,7 @@ interface ContentContext {
   selectedText?: string
 }
 
+// ── OpenRouter call ──────────────────────────────────────
 // AI-powered suggestion using OpenRouter
 async function generateAISuggestions(
   content: string,
@@ -390,6 +400,7 @@ Respond ONLY with valid JSON:
   }
 }
 
+// ── Handler ──────────────────────────────────────────────
 export default defineEventHandler(async (event): Promise<SuggestResponse> => {
   const startTime = Date.now()
 
@@ -402,6 +413,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     const expectedAuth =
       config.scrapEnlightenerAuth || process.env.SCRAP_ENLIGHTENER_AUTH
 
+    // The 401 thrown here is caught by the outer try and returned as 200.
     if (expectedAuth && auth !== expectedAuth) {
       throw createError({
         statusCode: 401,
@@ -422,6 +434,8 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     const combinedContent = [title, text].filter(Boolean).join('\n\n')
 
     // Create cache key for this exact request
+    // Only the first 32 base64 chars (24 bytes) key the cache, so inputs
+    // that share a 24-byte prefix share a cached answer.
     const cacheKey = `suggest:${Buffer.from(combinedContent + (url || ''))
       .toString('base64')
       .substring(0, 32)}`
