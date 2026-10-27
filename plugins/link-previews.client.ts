@@ -1,7 +1,15 @@
 /**
- * Link preview popovers for external links in blog posts.
- * Shows OG metadata on hover using the /api/og endpoint.
- * Pure DOM manipulation — works inside v-html content.
+ * @file link-previews.client.ts
+ * @description Client-only. Link preview popovers for external links in blog
+ *   posts. Shows OG metadata on hover using the /api/og endpoint.
+ *   Pure DOM manipulation — works inside v-html content.
+ *   Targets `.blog-post-content a[data-preview-url]` (the attribute comes from
+ *   scripts/plugins/remarkEnhanceLinks.mjs), only on (hover: hover) devices.
+ *   Runs 200ms after onNuxtReady and after every router.afterEach; appends
+ *   one fixed `div.link-preview-popover` to <body> at a time. OG responses
+ *   are cached in memory per page session.
+ *   Gotcha: title/description are escaped, but siteName and the image/favicon
+ *   URLs are interpolated into innerHTML as-is.
  */
 export default defineNuxtPlugin(() => {
   if (import.meta.server) return
@@ -11,6 +19,7 @@ export default defineNuxtPlugin(() => {
   let enterTimeout: ReturnType<typeof setTimeout> | null = null
   let leaveTimeout: ReturnType<typeof setTimeout> | null = null
 
+  // ── Popover DOM ─────────────────────────────────────────────
   const removePopover = () => {
     if (activePopover) {
       activePopover.remove()
@@ -139,6 +148,7 @@ export default defineNuxtPlugin(() => {
     })
   }
 
+  // ── OG fetch (in-memory cache) ──────────────────────────────
   const fetchOg = async (url: string) => {
     if (ogCache.has(url)) return ogCache.get(url)
     try {
@@ -153,6 +163,7 @@ export default defineNuxtPlugin(() => {
     }
   }
 
+  // ── Hover wiring ────────────────────────────────────────────
   const initializePreviews = () => {
     // Only on hover-capable devices
     if (!window.matchMedia('(hover: hover)').matches) return

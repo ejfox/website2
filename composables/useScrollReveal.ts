@@ -1,5 +1,9 @@
 /**
- * useScrollReveal — subtle scroll-triggered animations via IntersectionObserver + anime.js
+ * @file useScrollReveal.ts
+ * @description Subtle scroll-triggered animations via IntersectionObserver +
+ * anime.js (lazy-imported). Used by the index, blog, reading, predictions,
+ * scraps and gear listing pages. Does nothing under prefers-reduced-motion,
+ * and never hides children already above the fold (that hurt LCP).
  *
  * First appearance: translateY + opacity + scale (the full entrance)
  * Re-entry: opacity only (subtle breathing, no bouncing)

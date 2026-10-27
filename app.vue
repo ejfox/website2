@@ -1,3 +1,13 @@
+<!--
+  @file app.vue
+  @description Root component: site-wide default <head> (title template,
+    OG/Twitter fallbacks, theme-color, canonical, Person JSON-LD), a small
+    inline critical-CSS block, and the per-page `.json` alternate link
+    (utils/jsonTwin.ts). Pages override these defaults via
+    composables/usePageSeo.ts.
+    Gotcha: the critical CSS styles bare `main` and [data-page-main];
+    layouts/default.vue resets its own <main> so that rule only hits pages.
+-->
 <script setup>
 const route = useRoute()
 const runtimeConfig = useRuntimeConfig()
@@ -42,6 +52,7 @@ const structuredPerson = computed(() => ({
   description: defaultDescription,
 }))
 
+// ── Site-wide head defaults ─────────────────────────────────
 // Inline critical CSS (dark mode handling moved to plugins/dark-mode.client.js)
 useHead({
   title: defaultTitle,
@@ -137,6 +148,7 @@ useHead({
   ],
 })
 
+// ── JSON twin link ──────────────────────────────────────────
 // Pages in sections the twin can answer for advertise their `.json` twin
 // (server/middleware/json-twin.ts, utils/jsonTwin.ts). Function form so
 // `route.path` stays correct across client-side navigation.

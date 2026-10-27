@@ -1,5 +1,9 @@
-// Public-records sites: agencies and facilities from the FOIL docket on
-// archive.ejfox.com, baked by scripts/build/atlas-records.mjs
+/**
+ * @file records.ts
+ * @description Public-records sites: agencies and facilities from the FOIL docket on
+ *   archive.ejfox.com, baked by scripts/build/atlas-records.mjs
+ *   Static data imported at build time; loaded by pages/atlas.vue.
+ */
 import type { FeatureCollection, Point } from 'geojson'
 import records from '~/data/atlas/records.json'
 import { VULPES, type AtlasLayerModule } from '../types'

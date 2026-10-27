@@ -1,4 +1,9 @@
-// NYSDOT / 511NY traffic cameras from /api/atlas/cameras (camwatch)
+/**
+ * @file cameras.ts
+ * @description NYSDOT / 511NY traffic cameras from /api/atlas/cameras (camwatch)
+ *   Loaded by pages/atlas.vue. Popup snapshots go through an https host
+ *   allowlist (safeSnapshot) even though the server route filters too.
+ */
 import type { Map as MaplibreMap } from 'maplibre-gl'
 import { VULPES, type AtlasContext, type AtlasLayerModule } from '../types'
 

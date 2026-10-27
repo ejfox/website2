@@ -1,3 +1,10 @@
+/**
+ * @file kitchenSinkStories.js
+ * @description Mock props for pages/kitchen-sink.vue (rendered through
+ *   components/dev/StoryRenderer.vue). See CLAUDE.md "Component Kitchen Sink".
+ *   Gotcha: keys must match component base names exactly; a rename leaves an
+ *   orphaned story (the page warns about both missing and orphaned keys).
+ */
 // Kitchen-sink stories: hand-written mock props for EVERY reusable component, so
 // every tile in /kitchen-sink renders a real live preview. Keyed by the
 // component's base name (filename without dir/.client/.vue). Each entry is an

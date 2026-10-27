@@ -1,6 +1,9 @@
 /**
- * Keep /stats live in place. The page server-renders a cached snapshot
- * (/api/stats is an swr handler, ≤10 min old). While the tab is visible this
+ * @file useLiveStats.ts
+ * @description Used by pages/stats.vue (and components/stats/StatSection.vue
+ * for the flash state). Keep /stats live in place. The page server-renders a
+ * cached snapshot (/api/stats is an swr handler, ≤10 min old). While the tab
+ * is visible this
  * quietly refetches, and when the aggregate's `generated` stamp is newer it
  * swaps the data in and flashes the sections whose numbers changed (EJ chose
  * a visible "updated" flash, 2026-10-20).
@@ -45,6 +48,8 @@ export function isNewer(prev?: string | null, next?: string | null): boolean {
   return new Date(next).getTime() > new Date(prev).getTime()
 }
 
+// Poll every 5 min; a tab coming back into view refetches only if the last
+// check was over a minute ago, so tab-flipping doesn't hammer /api/stats.
 export const LIVE_INTERVAL_MS = 5 * 60_000
 export const LIVE_MIN_GAP_MS = 60_000
 export const FLASH_MS = 1600

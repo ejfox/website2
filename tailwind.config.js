@@ -1,3 +1,14 @@
+/**
+ * @file tailwind.config.js
+ * @description Tailwind 3 theme for the site, loaded by @nuxtjs/tailwindcss
+ *   (which adds its own default content paths on top of the list below).
+ *   Typography scale + 8px spacing + font stacks + the bg-* layer tokens;
+ *   see CLAUDE.md "Typography System" / "Background Layer Tokens".
+ *   Gotchas: theme changes here need a `yarn dev` restart (no HMR). The
+ *   spacing scale is overridden inside `extend`, so the listed keys are 8px
+ *   steps (p-1 = 8px, p-4 = 32px) while unlisted keys (5, 7, 9, …) keep
+ *   Tailwind's 4px defaults: p-5 (20px) is smaller than p-4.
+ */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -97,7 +108,8 @@ module.exports = {
       },
       // Semantic background-layer tokens (CSS vars defined in assets/css/global.css).
       // bg-page/bg-sunken/bg-surface/bg-raised auto-switch light↔dark, replacing the
-      // old `bg-white dark:bg-zinc-9xx` pairs. Dark-first elevation hierarchy.
+      // old `bg-white dark:bg-zinc-9xx` pairs. In dark mode all four are OLED
+      // black now; separate layers with borders, not fills.
       colors: {
         page: 'var(--bg-page)',
         sunken: 'var(--bg-sunken)',

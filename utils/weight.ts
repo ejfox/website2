@@ -1,6 +1,11 @@
 /**
- * Centralized weight calculations for gear inventory
- * Handles conversions between ounces, grams, and pounds with smart formatting
+ * @file weight.ts
+ * @description Weight calculations for the gear inventory: oz → g/lb
+ *   conversion, display formatting (grams up to 10 lb, pounds above) and
+ *   totals/averages over CSV rows. Reads the `Weight_oz` column only (see
+ *   CLAUDE.md "Gear Page Issues" if weights show as 0).
+ *   Auto-imported as weightCalculations(); used by pages/gear/index.vue and
+ *   the components/gear 3D / specimen views.
  */
 
 export interface GearItem {
@@ -61,6 +66,7 @@ export const weightCalculations = () => {
     return `${grams}g`
   }
 
+  // ── Per-item + aggregate ────────────────────────────────────
   /**
    * Get weight in grams from gear item
    */

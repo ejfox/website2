@@ -1,6 +1,10 @@
-// Local news by town: two weeks of countywatch headlines from
-// /api/atlas/news, one circle per town sized by how many stories it got.
-// Hollow rings are county/region-wide stories pinned to a centroid
+/**
+ * @file news.ts
+ * @description Local news by town: two weeks of countywatch headlines from
+ *   /api/atlas/news, one circle per town sized by how many stories it got.
+ *   Hollow rings are county/region-wide stories pinned to a centroid
+ *   Loaded by pages/atlas.vue.
+ */
 import type { FeatureCollection, Point } from 'geojson'
 import { VULPES, type AtlasLayerModule } from '../types'
 

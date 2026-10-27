@@ -3,7 +3,9 @@
  * @description The gonzo "This week I've …" sentence at the top of /stats,
  * built from the /api/stats payload. Pure: same stats + same `now` → same
  * string. Clauses link to the page's section anchors, so the result is HTML
- * (rendered with v-html).
+ * (rendered with v-html). Used by pages/stats.vue.
+ * Gotcha: values are interpolated into that HTML unescaped (e.g. the
+ * Last.fm artist name).
  */
 import type { StatsResponse } from '~/types/stats'
 import { formatNumber } from '~/utils/numberFormat'
@@ -47,6 +49,7 @@ export function buildStatsSummary(
   const rescueTime = stats.rescueTime?.week
   const website = stats.website?.stats
 
+  // ── One clause per source, each limited to the last 7 days ──
   const clauses = []
 
   // Writing activity - check recent posts (last 7 days)
@@ -200,6 +203,7 @@ export function buildStatsSummary(
   // Gear optimization - only if added items in past month
   // Skip for now - no temporal data available to determine recent additions
 
+  // ── Join into a sentence ────────────────────────────────────
   if (clauses.length === 0) {
     return {
       text: 'Monitoring systems, collecting data, optimizing workflows.',

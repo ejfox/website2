@@ -81,6 +81,7 @@ const KEY_BYTES = 32
  */
 export const SEALED_PUBLIC_FIELDS = ['slug', 'sealed', 'envelope']
 
+// ── Encoding + keys ─────────────────────────────────────────
 const enc = new TextEncoder()
 const dec = new TextDecoder()
 
@@ -129,6 +130,7 @@ async function importKey(keyB64url, usage) {
   )
 }
 
+// ── Seal / unseal ───────────────────────────────────────────
 /**
  * Seal a payload. Build-time.
  *
@@ -201,6 +203,7 @@ export async function unsealPost(envelope, keyB64url, slug) {
   }
 }
 
+// ── Namespace + links ───────────────────────────────────────
 /** True if a processed post is a sealed envelope rather than a rendered post. */
 export function isSealedPost(data) {
   const env = data?.envelope

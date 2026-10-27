@@ -1,6 +1,7 @@
 /**
- * "Maybe you meant" for the 404 page: match the missing path's words against
- * each published post's slug and title.
+ * @file notFoundSuggestions.ts
+ * @description "Maybe you meant" for the 404 page (error.vue): match the
+ * missing path's words against each published post's slug and title.
  *
  * Path structure (blog, projects, years) is not content: counting it is what
  * made every dead /projects/* URL suggest three random projects. A suggestion
@@ -61,6 +62,7 @@ const STOPWORDS = new Set([
   'some',
 ])
 
+// ── Tokens + fuzzy word match ───────────────────────────────
 export function tokenize(text: string): string[] {
   return (text || '')
     .toLowerCase()
@@ -100,6 +102,7 @@ function wordMatch(q: string, t: string): number {
   return 0
 }
 
+// ── Scoring ─────────────────────────────────────────────────
 export function itemPath(slug: string): string {
   if (slug.startsWith('projects/') || slug.startsWith('reading/'))
     return `/${slug}`

@@ -1,4 +1,12 @@
-// Client-side plugin to highlight active TOC items when scrolling
+/**
+ * @file toc-highlight.client.ts
+ * @description Client-only. Scroll-spy for the table of contents: adds/removes
+ *   `.active` on links in #nav-toc-container (the teleport target in
+ *   layouts/default.vue, filled via composables/useTOC.ts) to match the
+ *   last h2[id]/h3[id] whose top is within 150px of the viewport top.
+ *   One global passive scroll listener, attached on app:mounted and never
+ *   removed; it bails cheaply on pages without a TOC.
+ */
 export default defineNuxtPlugin((nuxtApp) => {
   // Function to update active TOC item based on scroll position
   const updateActiveTocItem = () => {
@@ -54,7 +62,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     })
   }
 
-  // Return a cleanup function that Nuxt will call automatically
+  // Not a cleanup hook: an empty provide. The scroll listener above lives for
+  // the life of the page.
   return {
     provide: {
       // Empty provide object to satisfy plugin requirements

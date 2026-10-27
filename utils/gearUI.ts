@@ -1,5 +1,11 @@
-// Shared UI constants and helpers for gear components.
-// Auto-imported by Nuxt — no explicit import needed in components.
+/**
+ * @file gearUI.ts
+ * @description Shared UI constants and helpers for gear components: type
+ *   glyphs, priority pips, and slugifyGear (the gear URL slug).
+ *   Auto-imported by Nuxt — components/gear/* call gearUI() or the bare
+ *   exports. server/utils/gear-data.ts imports slugifyGear by path, so the
+ *   page URLs and the API agree on slugs; change it and /gear/<slug> links move.
+ */
 
 export const TYPE_SYMBOLS: Record<string, string> = {
   Tech: '▲',

@@ -1,7 +1,9 @@
 /**
- * Calibration helpers for prediction pages. The buckets come from
- * data/calibration-analysis.json (scripts/utils/brier.mjs), each with an
- * inclusive `min`/`max`.
+ * @file calibration.ts
+ * @description Calibration helpers for prediction pages
+ *   (pages/predictions/[slug].vue). The buckets come from
+ *   data/calibration-analysis.json (scripts/utils/brier.mjs), each with an
+ *   inclusive `min`/`max`.
  */
 
 export interface CalibrationBucket {

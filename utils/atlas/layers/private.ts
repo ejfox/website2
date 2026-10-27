@@ -1,14 +1,21 @@
-// PRIVATE layers (EJ only, after unlocking the atlas): aircraft density and
-// notable aircraft from skywatch, geolocated anomalywatch signals, and a
-// coarse "where I've been" heat from travels. Everything comes from the
-// /api/atlas/private/* routes, which 404 for anyone else and already strip
-// home-area data; this module only draws what they return.
+/**
+ * @file private.ts
+ * @description PRIVATE layers (EJ only, after unlocking the atlas): aircraft density and
+ *   notable aircraft from skywatch, geolocated anomalywatch signals, and a
+ *   coarse "where I've been" heat from travels. Everything comes from the
+ *   /api/atlas/private/* routes, which 404 for anyone else and already strip
+ *   home-area data; this module only draws what they return.
+ *   Loaded by pages/atlas.vue only when unlocked (`private: true`).
+ *   Gotcha: never point this at a public route; the privacy lives
+ *   server-side.
+ */
 import type { Map as MaplibreMap } from 'maplibre-gl'
 import { VULPES, type AtlasContext, type AtlasLayerModule } from '../types'
 
 type FC = { type: 'FeatureCollection'; features: any[] }
 const empty = (): FC => ({ type: 'FeatureCollection', features: [] })
 
+// ── Palettes + helpers ──────────────────────────────────────
 const NOTABLE_COLORS: Record<string, string> = {
   military: VULPES.magenta,
   foreign_military: '#ff7a3d',
@@ -60,6 +67,7 @@ const hover = (map: MaplibreMap, id: string) => {
 
 const hidden = { visibility: 'none' as const }
 
+// ── Layer module ────────────────────────────────────────────
 export const privateLayer: AtlasLayerModule = {
   private: true,
   toggles: [

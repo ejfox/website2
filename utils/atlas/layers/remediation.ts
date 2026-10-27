@@ -1,5 +1,9 @@
-// NYS DEC environmental remediation sites (State Superfund, Brownfield,
-// etc.) from /api/atlas/remediation: amber while open, olive once closed out
+/**
+ * @file remediation.ts
+ * @description NYS DEC environmental remediation sites (State Superfund, Brownfield,
+ *   etc.) from /api/atlas/remediation: amber while open, olive once closed out
+ *   Loaded by pages/atlas.vue.
+ */
 import type { Map as MaplibreMap } from 'maplibre-gl'
 import { VULPES, type AtlasContext, type AtlasLayerModule } from '../types'
 

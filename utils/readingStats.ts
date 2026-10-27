@@ -1,6 +1,9 @@
 /**
  * @file readingStats.ts
- * @description Computes reading statistics from post HTML content
+ * @description Computes reading statistics for a post (pages/blog/[...slug].vue).
+ *   words/images/links come from the processed metadata; paragraph and
+ *   heading counts are regex counts over the HTML. readingTime assumes
+ *   200 wpm.
  */
 
 import { type Ref, type ComputedRef, computed, unref } from 'vue'

@@ -1,3 +1,11 @@
+/**
+ * @file usePageSeo.ts
+ * @description One call per page for title/description, canonical, OG +
+ *   Twitter meta, article:* tags and (unless `schema: false`) a JSON-LD
+ *   WebPage/Article. Used by nearly every page in pages/. OG image dimensions
+ *   come from utils/ogImage.ts. Base URL is the public runtime config
+ *   `baseUrl`, falling back to the production origin.
+ */
 import { useSeoMeta } from '#imports'
 import { computed, unref, type MaybeRef } from 'vue'
 import { ogImageFor } from '~/utils/ogImage'

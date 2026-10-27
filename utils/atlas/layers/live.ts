@@ -1,5 +1,10 @@
-// Live Hudson layer: river gauges, tides, and Hudson Line trains from
-// /api/atlas/live, refreshed every minute while the map is open
+/**
+ * @file live.ts
+ * @description Live Hudson layer: river gauges, tides, and Hudson Line trains from
+ *   /api/atlas/live, refreshed every minute while the map is open
+ *   Loaded by pages/atlas.vue, which attaches stopLive() as this module's
+ *   dispose() to clear the refresh timer on unmount.
+ */
 import type {
   GeoJSONSource,
   Map as MaplibreMap,
@@ -16,6 +21,7 @@ interface LiveData {
   errors?: Record<string, string>
 }
 
+// ── Constants + popups ──────────────────────────────────────
 const KEYS = ['gauges', 'tides', 'trains'] as const
 const REFRESH_MS = 60_000
 const FLOODING = ['action', 'minor', 'moderate', 'major']
@@ -94,6 +100,7 @@ const popupHtml = (
   return `<strong>${esc(title)}</strong><br>${rows.join('<br>')}`
 }
 
+// ── Layer module ────────────────────────────────────────────
 export const liveLayer: AtlasLayerModule = {
   toggles: [
     {
@@ -204,6 +211,7 @@ export const liveLayer: AtlasLayerModule = {
     }
 
     stopLive()
+    // ── Refresh every REFRESH_MS ────────────────────────────────
     timer = setInterval(async () => {
       const next = await load().catch(() => null)
       if (!next) return

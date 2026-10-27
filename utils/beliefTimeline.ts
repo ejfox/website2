@@ -1,5 +1,6 @@
 /**
- * Belief changelog: turns prediction frontmatter into timeline rows for
+ * @file beliefTimeline.ts
+ * @description Belief changelog: turns prediction frontmatter into timeline rows for
  * components/predictions/BeliefTimeline.vue. Pure, so it's testable.
  */
 

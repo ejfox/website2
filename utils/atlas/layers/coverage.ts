@@ -1,7 +1,11 @@
-// Repeater coverage: terrain line-of-sight rasters baked by
-// scripts/build/atlas-coverage.mjs. Each PNG carries two tiers in one hue:
-// solid = reachable from a 2 m handheld, faint = only from a 10 m base/mast
-// antenna. Not an RF model; see coverage.json `caveat` and `excluded`.
+/**
+ * @file coverage.ts
+ * @description Repeater coverage: terrain line-of-sight rasters baked by
+ *   scripts/build/atlas-coverage.mjs. Each PNG carries two tiers in one hue:
+ *   solid = reachable from a 2 m handheld, faint = only from a 10 m base/mast
+ *   antenna. Not an RF model; see coverage.json `caveat` and `excluded`.
+ *   Loaded by pages/atlas.vue; images are static files under public/atlas/coverage.
+ */
 import { VULPES, type AtlasLayerModule } from '../types'
 
 const BASE = '/atlas/coverage'

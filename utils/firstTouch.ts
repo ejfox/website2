@@ -1,5 +1,8 @@
 /**
- * First-touch attribution for the consulting pipeline.
+ * @file firstTouch.ts
+ * @description First-touch attribution for the consulting pipeline. Callers:
+ * plugins/first-touch.client.ts (store + rewrite Cal.com links at click
+ * time), utils/calEmbed.ts and pages/consulting.vue (inline embeds).
  *
  * On the first page load of a browser that has never been here, store
  * `ej_first_touch` = {source, medium, campaign, landing, ts} in localStorage.
@@ -93,6 +96,7 @@ export function classifyReferrer(
   return host
 }
 
+// ── Capture + storage ───────────────────────────────────────
 function clean(value: string | null | undefined, max = 64): string {
   return (value || '').trim().slice(0, max)
 }
@@ -144,6 +148,7 @@ export function rememberFirstTouch(): FirstTouch | null {
   return ft
 }
 
+// ── Cal.com params ──────────────────────────────────────────
 /** Query params Cal.com understands: utm_* (shown on booking) + metadata[*] (webhook). */
 export function calParams(ft: FirstTouch | null): Record<string, string> {
   if (!ft) return {}

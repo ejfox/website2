@@ -1,3 +1,14 @@
+<!--
+  @file default.vue
+  @description The site shell for every page that doesn't opt out
+    (definePageMeta layout: 'bookmarklet' or layout: false). Grid of sticky
+    #layout-bar (posts teleport PostMetadataBar into it), mobile nav, desktop
+    sidebar (nav from utils/navigation.ts, #nav-toc-container for useTOC) and
+    the single <main id="main-content">; footer sits outside the grid.
+    ?simple on /stats drops the bar, nav and sidebar (footer stays).
+    Gotcha: plugins key off these ids (#main-content in markdownTable,
+    #nav-toc-container in toc-highlight). Rename them and they go quiet.
+-->
 <script setup>
 import { getPrimaryNav } from '~/utils/navigation'
 
@@ -61,7 +72,7 @@ const linkClasses =
         :class="{ 'layout-bar--post': reservesPostBar }"
       ></header>
 
-      <!-- Mobile nav -->
+      <!-- ── Mobile nav ─────────── -->
       <nav
         v-if="!isStatsSimple"
         class="layout-mobile-nav md:hidden print:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline"
@@ -87,7 +98,7 @@ const linkClasses =
         </template>
       </nav>
 
-      <!-- Desktop sidebar -->
+      <!-- ── Desktop sidebar ─────────── -->
       <nav
         v-if="!isStatsSimple"
         class="layout-sidebar hidden md:flex md:flex-col w-[200px] px-3 py-4 font-mono sticky top-0 self-start max-h-screen overflow-y-auto z-50"

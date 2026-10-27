@@ -1,6 +1,12 @@
-// Shape of the aggregated /api/stats response (built in server/api/stats.get.ts).
-// Extracted from useStats.ts — the big response types live here; the composable
-// (logic) stays in composables/useStats.ts.
+/**
+ * @file stats.ts
+ * @description Shape of the aggregated /api/stats response (built in
+ *   server/api/stats.get.ts). Extracted from useStats.ts — the big response
+ *   types live here; the composable (logic) stays in composables/useStats.ts.
+ *   Imported by composables/useStats.ts and utils/statsSummary.ts.
+ *   Gotcha: hand-written, not generated, so a change in a stats source can
+ *   drift from these types without a type error.
+ */
 
 interface TimeBreakdown {
   seconds: number
@@ -10,7 +16,7 @@ interface TimeBreakdown {
   formatted: string
 }
 
-// Define the HealthDataRecord interface
+// Unused here (underscore-prefixed to satisfy the linter).
 interface _HealthDataRecord {
   id?: string
   record_id?: number
@@ -74,6 +80,7 @@ export interface WeeklySummary {
 
 export interface StatsResponse {
   weeklySummary?: WeeklySummary
+  // ── Music (Last.fm) ───────────────────────────────────────
   lastfm?: {
     recentTracks: {
       tracks: Array<{
@@ -159,6 +166,7 @@ export interface StatsResponse {
     }
     lastUpdated: string
   }
+  // ── Productivity (RescueTime) ─────────────────────────────
   rescueTime?: {
     week: {
       categories: Array<{
@@ -222,6 +230,7 @@ export interface StatsResponse {
     }
     lastUpdated: string
   }
+  // ── Typing + code ─────────────────────────────────────────
   monkeyType?: {
     typingStats: {
       bestWPM: number
@@ -269,6 +278,7 @@ export interface StatsResponse {
       }>
     }
   }
+  // ── Photos + health ───────────────────────────────────────
   photos?: {
     stats: {
       totalPhotos: number
@@ -365,6 +375,7 @@ export interface StatsResponse {
     }
     lastUpdated: string
   }
+  // ── Puzzles + games ───────────────────────────────────────
   leetcode?: {
     contestStats?: {
       rating: number
@@ -426,6 +437,7 @@ export interface StatsResponse {
     }>
     lastUpdated: string
   }
+  // ── Gear, gists, website analytics ────────────────────────
   gear?: {
     stats: {
       totalItems: number
@@ -471,6 +483,7 @@ export interface StatsResponse {
     lastUpdated: string
     shareUrl: string
   }
+  // ── Films, writing, records, learning, books ──────────────
   letterboxd?: {
     films: Array<{
       title: string

@@ -1,6 +1,11 @@
 /**
  * @file numberFormat.ts
  * @description Centralized number formatting utilities using d3-format
+ *   (plus a few Intl/toFixed helpers). Auto-imported; mostly used by
+ *   components/stats/*, pages/stats.vue and utils/statsSummary.ts, either as
+ *   bare exports or via the numberFormat() bundle.
+ *   Gotcha: the "mobile-optimized" currency/Brier/confidence helpers and the
+ *   class-string constants have no callers outside this file today.
  * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
  */
 import { format } from 'd3-format'

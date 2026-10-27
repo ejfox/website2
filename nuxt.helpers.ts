@@ -1,3 +1,14 @@
+/**
+ * @file nuxt.helpers.ts
+ * @description Build-time helpers for nuxt.config.ts: getBlogRoutes() (the
+ *   /blog/* routes to prerender, from content/processed/manifest-lite.json)
+ *   and getBuildInfo() (the commit/branch baked into runtimeConfig.buildInfo
+ *   for /api/healthcheck). Runs at config-eval time, so no `~` aliases and
+ *   no Nuxt imports.
+ *   Gotcha: a prerendered page ignores runtime gates and beats middleware,
+ *   so anything that must stay dynamic (scheduled posts, redirected
+ *   sections) has to be filtered out here.
+ */
 import { execSync } from 'node:child_process'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'

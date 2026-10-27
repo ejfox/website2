@@ -1,12 +1,15 @@
 /**
- * Gear card inline mounter.
+ * @file gear-cards.client.ts
+ * @description Client-only. Gear card inline mounter.
  *
- * The remark pipeline outputs placeholder divs inside rendered blog post HTML:
+ * The remark pipeline (scripts/plugins/remarkGearCard.mjs) outputs
+ * placeholder divs inside rendered blog post HTML:
  *   <div class="gear-card-inline" data-gear-slug="SLUG"></div>
  *
  * This plugin finds those placeholders after navigation and mounts a
- * GearCardInline Vue app on each one. Apps are tracked and unmounted before
- * the next route change to prevent memory leaks.
+ * GearCardInline Vue app on each one (onNuxtReady, then every
+ * router.afterEach). Apps are tracked and unmounted in router.beforeEach to
+ * prevent memory leaks.
  */
 
 import { createApp, defineAsyncComponent, h } from 'vue'

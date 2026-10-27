@@ -1,4 +1,14 @@
-// Auto-enhance markdown tables in place: data-table class, numeric columns, sorting
+/**
+ * @file markdownTable.client.ts
+ * @description Client-only. Enhances tables in place: adds `.data-table`,
+ *   marks numeric columns `.numeric` (judged from the first body row only),
+ *   wraps each in `div.table-container` for mobile scroll, and makes every
+ *   header click-to-sort with a ↕/↑/↓ indicator.
+ *   Runs on window load and after every page:finish.
+ *   Gotcha: matches `.prose table` AND any table under the layout's
+ *   <main id="main-content">, so app-built tables must opt out with
+ *   `data-plain`. Already-enhanced tables are skipped via `.data-table`.
+ */
 export default defineNuxtPlugin((nuxtApp) => {
   if (!import.meta.client) return
 

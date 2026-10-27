@@ -1,8 +1,12 @@
-// Notes: places from EJ's own writing, baked by scripts/build/atlas-notes.mjs.
-// Roads he writes about riding, the towns New York City drowned for its
-// reservoirs, and hidden-history sites from his Hudson Valley book notes.
-// Quotes come only from his published posts on ejfox.com. pages/atlas.vue
-// applies each toggle's initial visibility
+/**
+ * @file notes.ts
+ * @description Notes: places from EJ's own writing, baked by scripts/build/atlas-notes.mjs.
+ *   Roads he writes about riding, the towns New York City drowned for its
+ *   reservoirs, and hidden-history sites from his Hudson Valley book notes.
+ *   Quotes come only from his published posts on ejfox.com. pages/atlas.vue
+ *   applies each toggle's initial visibility
+ *   Static data imported at build time; loaded by pages/atlas.vue.
+ */
 import type {
   FeatureCollection,
   LineString,
@@ -38,6 +42,7 @@ const byKind = (kind: NoteProps['kind']) => ({
   features: data.features.filter((f) => f.properties.kind === kind),
 })
 
+// ── Helpers ─────────────────────────────────────────────────
 // content/blog/2025/foo.md → https://ejfox.com/blog/2025/foo
 const postUrl = (source: string) =>
   `https://ejfox.com/blog/${source.replace(/^content\/blog\//, '').replace(/\.md$/, '')}`
@@ -62,6 +67,7 @@ const label = (id: string, source: string, color: string, minzoom: number) => ({
   },
 })
 
+// ── Layer module ────────────────────────────────────────────
 export const notesLayer: AtlasLayerModule = {
   toggles: [
     {

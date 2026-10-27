@@ -9,6 +9,9 @@
  * that flipped headlines between 3 and 4 lines (105px jumps). The cursor and
  * typo glyphs are therefore absolutely-positioned overlays (see the
  * .post-title-hero styles), never inline content.
+ *
+ * Used for post titles in pages/blog/[...slug].vue and the Peter Todd post.
+ * renderedHtml is meant for v-html; every glyph goes through escapeHtml().
  */
 
 import { type Ref, type ComputedRef, computed, reactive, unref } from 'vue'
@@ -64,6 +67,7 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
       .join('')
   })
 
+  // ── Typing loop ─────────────────────────────────────────────
   async function animate() {
     if (state.hasStarted) return
 
@@ -161,6 +165,7 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
     state.isAnimating = false
   }
 
+  // ── Keyboard model (typos + hand alternation) ───────────────
   // Get an adjacent key on QWERTY for realistic typos
   function getAdjacentKey(char: string): string {
     const adjacentKeys: Record<string, string[]> = {

@@ -1,7 +1,15 @@
-// Shared plumbing for the hand-drawn kit, used by <HandDrawn>, <HandDrawnAnnotation>,
-// and the content-enhancement plugin. The 500KB of traced geometry lives once in
-// /public/hand-drawn/sprite.svg as <g id="hd-ink">; every mark is a viewBox crop
-// that <use>s it and inherits currentColor.
+/**
+ * @file handDrawn.ts
+ * @description Shared plumbing for the hand-drawn kit, used by <HandDrawn>,
+ *   <HandDrawnAnnotation> (components/hand-drawn/) and
+ *   plugins/hand-drawn.client.ts. The 500KB of traced geometry lives once in
+ *   public/hand-drawn/sprite.svg as <g id="hd-ink">; every mark is a viewBox
+ *   crop that <use>s it and inherits currentColor. Crop boxes come from
+ *   assets/hand-drawn/manifest.json.
+ *   Gotcha: ensureHandDrawnSprite() injects the sprite into <body> as
+ *   #hd-sprite-root once per page; a mark rendered before it lands is blank
+ *   until then.
+ */
 import manifest from '~/assets/hand-drawn/manifest.json'
 
 export interface HandDrawnAsset {

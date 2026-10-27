@@ -1,6 +1,8 @@
 /**
  * @file useFlashcards.ts
  * @description Composable for flashcard study logic - shuffle, navigation, flip state
+ *   Pure client state; the caller (pages/flashcards/study.vue) parses the CSV
+ *   and hands rows to setCards(). Row shape: [front, back, ...hints].
  */
 
 export interface Flashcard {

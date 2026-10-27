@@ -1,5 +1,7 @@
 /**
- * First-touch attribution → Cal.com (see utils/firstTouch.ts).
+ * @file first-touch.client.ts
+ * @description Client-only. First-touch attribution → Cal.com (see
+ *   utils/firstTouch.ts and CLAUDE.md "First-touch → Cal.com").
  *
  * 1. On the first page load ever, store `ej_first_touch` (never overwritten).
  * 2. At CLICK time, not at SSR, append the first-touch utm_* + metadata[*]

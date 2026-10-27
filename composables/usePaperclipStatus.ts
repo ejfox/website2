@@ -1,5 +1,7 @@
 /**
- * EJ's live Paperclip presence emoji.
+ * @file usePaperclipStatus.ts
+ * @description EJ's live Paperclip presence emoji, rendered by
+ * components/PaperclipStatus.vue (twice in layouts/default.vue).
  *
  * SSR seeds the value from /api/paperclip (cached 60s server-side). In the
  * browser, ONE EventSource per tab is shared by every component that calls
@@ -21,6 +23,7 @@ export interface PaperclipStatus {
 
 const STREAM_URL = 'https://getpaperclipped.com/api/stream?users=ejfox'
 
+// Module-level on purpose: one stream per tab, ref-counted by mounted callers.
 let source: EventSource | null = null
 let subscribers = 0
 

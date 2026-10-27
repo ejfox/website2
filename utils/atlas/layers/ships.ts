@@ -1,5 +1,10 @@
-// Ships on the Hudson: commercial and government AIS positions from
-// /api/atlas/ships (riverwatch), as arrows pointed along their course
+/**
+ * @file ships.ts
+ * @description Ships on the Hudson: commercial and government AIS positions from
+ *   /api/atlas/ships (riverwatch), as arrows pointed along their course
+ *   Loaded by pages/atlas.vue. Refreshes every 60s; dispose() clears
+ *   the timer.
+ */
 import type { GeoJSONSource, Map as MaplibreMap } from 'maplibre-gl'
 import { VULPES, type AtlasContext, type AtlasLayerModule } from '../types'
 
@@ -18,6 +23,7 @@ const stop = () => {
   timer = null
 }
 
+// ── Icons + popup ───────────────────────────────────────────
 // Canvas-drawn icons at 2x: a dart for vessels with a course, a dot without
 const icon = (draw: (c: CanvasRenderingContext2D) => void) => {
   const canvas = document.createElement('canvas')
@@ -85,6 +91,7 @@ const popupHtml = (p: Record<string, any>, esc: AtlasContext['escapeHtml']) => {
   return `<strong>${esc(p.name)}</strong><br>${rows.join('<br>')}`
 }
 
+// ── Layer module ────────────────────────────────────────────
 export const shipsLayer: AtlasLayerModule = {
   toggles: [
     {
@@ -147,6 +154,7 @@ export const shipsLayer: AtlasLayerModule = {
     })
 
     stop()
+    // ── Refresh every REFRESH_MS ────────────────────────────────
     timer = setInterval(async () => {
       const next = await load().catch(() => null)
       if (!next) return

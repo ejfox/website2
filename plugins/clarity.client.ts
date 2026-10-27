@@ -1,6 +1,10 @@
 /**
- * Microsoft Clarity - Free session replay + heatmaps
- * Deferred until after LCP to avoid competing with critical rendering
+ * @file clarity.client.ts
+ * @description Client-only. Injects Microsoft Clarity (session replay +
+ *   heatmaps) on requestIdleCallback (3s timeout; 2s setTimeout fallback) so
+ *   it doesn't compete with first paint. A no-op unless the public runtime
+ *   config `clarityId` is set (nuxt.config.ts). Separate from Umami's own
+ *   replay (plugins/umami.client.js).
  */
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()

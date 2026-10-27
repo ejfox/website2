@@ -1,6 +1,9 @@
 /**
  * @file languageColors.ts
- * @description Maps programming languages to consistent colors using d3 turbo scale
+ * @description Maps programming languages to consistent colors: a fixed table
+ *   pre-baked from d3's turbo scale (no d3 import at runtime), and a hashed
+ *   HSL hue for anything not in it. Used by components/github/* and
+ *   pages/github/[slug].vue.
  * @returns { getColor, LANGUAGE_ORDER } - Color function and language ordering
  */
 // Fixed order of languages for consistent colors across all charts

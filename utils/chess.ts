@@ -1,4 +1,8 @@
-// Chess/gaming display helpers — rating diffs + the primary time control.
+/**
+ * @file chess.ts
+ * @description Chess display helpers — rating diffs + the primary time
+ *   control. Used by components/stats/ChessStats.vue and TopStats.vue.
+ */
 
 export const formatRatingDiff = (diff: number): string => {
   if (diff === 0) return '±0'

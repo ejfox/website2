@@ -1,3 +1,9 @@
+/**
+ * @file navigation.ts
+ * @description The primary nav items, rendered by layouts/default.vue (sidebar
+ *   + mobile nav) via getPrimaryNav(). `umamiEvent` becomes the link's
+ *   data-umami-event (see CLAUDE.md "Umami funnel events").
+ */
 export interface NavItem {
   label: string
   href: string

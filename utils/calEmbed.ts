@@ -1,9 +1,14 @@
+/**
+ * @file calEmbed.ts
+ * @description Cal.com inline-embed loader, used by pages/calendar.vue and
+ *   pages/ff.vue. Isolates Cal.com's official bootstrap snippet so
+ *   page/component code stays readable. Client-only — touches
+ *   window/document, so call it from onMounted (or behind <ClientOnly>).
+ *   Gotcha: mutates the `config` object you pass (resolves theme 'auto').
+ */
 import { calParams, readFirstTouch } from './firstTouch'
 
-// Cal.com inline-embed loader. Isolates Cal.com's official bootstrap snippet so
-// page/component code stays readable. Client-only — touches window/document, so
-// call it from onMounted (or behind <ClientOnly>).
-//
+// Usage:
 //   loadCalInline({
 //     namespace: 'ff',
 //     calLink: 'ejfox/ff',

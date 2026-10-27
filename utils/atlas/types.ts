@@ -1,6 +1,11 @@
-// Contract for Valley Atlas layer modules (utils/atlas/layers/*.ts).
-// pages/atlas.vue owns the map; each module adds its own sources, layers
-// and click popups, and describes its legend rows.
+/**
+ * @file types.ts
+ * @description Contract for Valley Atlas layer modules (utils/atlas/layers/*.ts).
+ *   pages/atlas.vue owns the map; each module adds its own sources, layers
+ *   and click popups, and describes its legend rows.
+ *   Imported by pages/atlas.vue and every layer module. VULPES is a
+ *   local copy of the vulpes palette, not imported from it.
+ */
 import type { Map as MaplibreMap } from 'maplibre-gl'
 
 export const VULPES = {

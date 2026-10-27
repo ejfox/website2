@@ -1,7 +1,14 @@
 /**
- * Attribution tracking for marketing channels
- * Captures UTM parameters, referrer, and landing page on first visit
- * Persists through localStorage for first-touch attribution
+ * @file attribution.ts
+ * @description Older, broader attribution store: UTMs, referrer and landing
+ *   page into localStorage under `ejfox_attribution` (last touch, only
+ *   rewritten when a visit has UTMs) and `ejfox_attribution_first` (never
+ *   overwritten), plus a derived channel and an `attribution_captured` Umami
+ *   event when UTMs are present (only if Umami has already loaded).
+ *   Only caller: plugins/attribution.client.ts → initAttribution(). The
+ *   form/Cal.com getters below have no callers; Cal.com attribution runs
+ *   through utils/firstTouch.ts instead.
+ *   Gotcha: unlike firstTouch.ts this stores the full referrer URL.
  */
 
 export interface AttributionData {
@@ -87,6 +94,7 @@ function deriveChannel(data: AttributionData): string {
   return 'other'
 }
 
+// ── Composable-style API ────────────────────────────────────
 export function attribution() {
   /**
    * Parse UTM parameters from URL

@@ -1,5 +1,7 @@
 /**
- * apiCatalog — the single source of truth for what the site's API exposes.
+ * @file apiCatalog.ts
+ * @description The single source of truth for what the site's API exposes:
+ * one ApiRoute entry per route, grouped by `apiGroups`. Data only, no logic.
  *
  * Consumed by:
  *   - pages/api-docs.vue        (the human-readable Swagger-style page)
@@ -11,6 +13,7 @@
  * See server/README.md for the same information as prose.
  */
 
+// ── Types ───────────────────────────────────────────────────
 export type ApiMethod = 'GET' | 'POST' | 'PATCH'
 export type ApiHealth = 'ok' | 'empty-catch' | 'fragile'
 /** Who calls it: a page/component, the stats aggregator (direct import), or outside the app. */
@@ -32,6 +35,7 @@ export interface ApiRoute {
   note?: string
 }
 
+// ── Groups (section order on /api-docs) ─────────────────────
 export const apiGroups = [
   'Content & blog',
   'Photos & gear',

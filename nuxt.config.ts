@@ -1,9 +1,22 @@
+/**
+ * @file nuxt.config.ts
+ * @description Nuxt 4 config (node-server preset, run by pm2 in prod). The
+ *   parts that bite:
+ *   - routeRules: which routes are prerendered vs SSR, their Cache-Control,
+ *     redirects and noindex headers. The prod-only cache block is at the end.
+ *   - LIVE_LISTINGS: listings stay SSR so scheduled posts appear on time.
+ *   - runtimeConfig: top level is server-only; `public` ships to every
+ *     browser. Secrets must NEVER go under `public`.
+ *   Build helpers live in nuxt.helpers.ts; the dev content watcher in
+ *   scripts/dev/content-watch.mjs.
+ */
 import { fileURLToPath } from 'node:url'
 import { getBlogRoutes, getBuildInfo } from './nuxt.helpers'
 import { watchContentAndReload } from './scripts/dev/content-watch.mjs'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
+// ── Cache policy + route groups ─────────────────────────────
 // Shared Cache-Control values (referenced in nitro.routeRules below)
 // max-age=0: browsers revalidate (cheap 304s) instead of holding a page for
 // an hour — an unpublished/edited post used to linger in browser caches.
@@ -73,7 +86,7 @@ export default defineNuxtConfig({
     inlineStyles: true,
   },
 
-  // Aggressive router prefetching for instant navigation
+  // Router: only renames the active-link classes (no prefetch tuning here).
   router: {
     options: {
       linkActiveClass: 'router-link-active',
@@ -164,15 +177,17 @@ export default defineNuxtConfig({
     port: 3006,
   },
 
-  // Add blog routes to prerender at build time
+  // ── Build + dev hooks ───────────────────────────────────────
+  // Add blog routes to prerender at build time (filtered in nuxt.helpers.ts)
   hooks: {
     async 'prerender:routes'(ctx) {
       const blogRoutes = await getBlogRoutes()
       blogRoutes.forEach((route) => ctx.routes.add(route))
     },
 
-    // Dev only: watch content/blog for .md edits, reprocess, then force a
-    // full browser reload via Vite's HMR websocket. Editing a project/blog
+    // Dev only: watch content/blog for .md edits, reprocess, then send a
+    // custom `content:updated` HMR event; plugins/content-hmr.client.ts
+    // refetches page data in place (no full reload). Editing a project/blog
     // source file in nvim now updates the open tab with no manual steps.
     'vite:serverCreated'(viteServer, env) {
       if (!isDev || !env.isClient) return
@@ -180,9 +195,16 @@ export default defineNuxtConfig({
     },
   },
 
-  // Runtime config - CRITICAL for preventing process.env in client bundle
+  // ── Runtime config ──────────────────────────────────────────
+  // Runtime config - CRITICAL for preventing process.env in client bundle.
+  // The process.env reads below run when this file is evaluated (build time,
+  // on CI), so most of these are empty in the build. Server code reads them
+  // through server/utils/serverEnv.ts: the config value if non-empty, else
+  // the plain env var at runtime (pm2 loads the gitignored .env).
   runtimeConfig: {
-    // Private server-only vars
+    // Private server-only vars. Never readable in the browser. Keep key
+    // defaults empty: a baked default ships in the server bundle and can
+    // shadow the real env value (see the Umami note below).
     GITHUB_TOKEN: process.env.GITHUB_TOKEN || '',
     CHESS_USERNAME: process.env.CHESS_USERNAME || '',
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
@@ -207,7 +229,9 @@ export default defineNuxtConfig({
     X_BEARER_TOKEN: process.env.X_BEARER_TOKEN || '',
     buildInfo: getBuildInfo(),
 
-    // Public client-accessible vars
+    // Public client-accessible vars. Everything here is serialized into every
+    // page's HTML payload: NO secrets, tokens or paid-API keys, ever. Only
+    // values that are public anyway. Paid-API calls go through server routes.
     public: {
       baseUrl:
         process.env.NUXT_PUBLIC_BASE_URL ||
@@ -221,6 +245,7 @@ export default defineNuxtConfig({
     },
   },
 
+  // ── Nitro (server build, static assets, routeRules) ─────────
   // Performance-optimized Nitro config for Nuxt 4
   nitro: {
     preset: 'node-server',
@@ -265,6 +290,12 @@ export default defineNuxtConfig({
     // local manual build can't carry sealed-post plaintext (gitignored
     // content/blog/private) into .output.
     routeRules: {
+      // Rules merge per path; when several patterns match, the more specific
+      // one wins (that's why LIVE_LISTINGS can carve /blog out of /blog/**).
+      // Order of groups below: one-off redirects → private/noindex tools →
+      // dev no-cache → production cache policy.
+      //
+      // ── One-off legacy redirects (server/middleware/ holds the pattern ones)
       // Legacy URL from the pre-website2 site: "How I Use GPT" was published at
       // the year-less /blog/how-i-use-gpt3. website2 organizes posts by year, so
       // its canonical URL is now /blog/2022/how-i-use-gpt3 — redirect the old one
@@ -303,6 +334,8 @@ export default defineNuxtConfig({
       },
       // (The legacy /blog/williams-the%20dead%20emcee%20scrolls link is handled
       // in server/middleware/blog-reading-redirect.ts — its encoding varies.)
+      //
+      // ── Hidden tools + private pages: noindex, some no-store / ssr:false
       // Bookmarklet setup page: a personal tool behind a password, not content.
       // The popup's query string carries page text and the auth passphrase:
       // never let an edge cache key on (or store) those URLs.
@@ -324,22 +357,20 @@ export default defineNuxtConfig({
       '/ff': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // The Hour (/live): hidden until EJ announces the show
       '/live': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
-      // Kitchen Sink (/kitchen-sink) — private in-house component browser.
-      // Hidden like /ff: noindex header + in-page meta, not in nav or sitemap.
-      // ssr:false — it's a pure client-side dev tool that dynamically renders
-      // arbitrary components; skipping SSR avoids hydration mismatches and keeps
-      // its ?raw source bundles out of the server render path.
       // Valley Atlas (/atlas) — hidden v0 until EJ signs off. Client-only (MapLibre).
       '/atlas': {
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },
       },
+      // Kitchen Sink (/kitchen-sink) — private in-house component browser.
+      // Hidden like /ff: noindex header + in-page meta, not in nav or sitemap.
+      // ssr:false — it's a pure client-side dev tool that dynamically renders
+      // arbitrary components; skipping SSR avoids hydration mismatches and keeps
+      // its ?raw source bundles out of the server render path.
       '/kitchen-sink': {
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },
       },
-      // API Docs (/api-docs) — private OpenAPI-style route browser, like
-      // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
       // Redirector for YouTube cards. Never cache (the destination varies by
       // `to` and is meant to be changeable) and keep it out of search results.
       '/from-youtube/**': {
@@ -355,6 +386,8 @@ export default defineNuxtConfig({
           'Cache-Control': 'no-store',
         },
       },
+      // API Docs (/api-docs) — private OpenAPI-style route browser, like
+      // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
       '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // public/README.md (asset provenance notes) serves at /README.md — noindex it.
@@ -366,10 +399,12 @@ export default defineNuxtConfig({
       '/.well-known/openpgpkey/**': {
         headers: { 'Access-Control-Allow-Origin': '*' },
       },
+      // ── Dev: never cache anything
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
       }),
+      // ── Production cache policy (NODE_ENV=production builds only)
       // Production caching for sub-1s LCP
       ...(process.env.NODE_ENV === 'production' && {
         // Prerendered pages (see PRERENDERED_ROUTES) — long cache
@@ -402,7 +437,9 @@ export default defineNuxtConfig({
         // /_nuxt/** these filenames aren't content-hashed, so replacing a font
         // needs a NEW filename — rename, don't overwrite.
         '/fonts/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
-        // API routes
+        // API routes. Gotcha: this is the default for EVERY /api route in prod
+        // (5 min browser, 1 h edge); a route that must be fresher sets its
+        // own Cache-Control.
         '/api/**': {
           cors: true,
           headers: {
@@ -410,7 +447,8 @@ export default defineNuxtConfig({
             'CDN-Cache-Control': 'max-age=3600, stale-if-error=86400',
           },
         },
-        // Pre-rendered tag pages — cache aggressively
+        // Scraps tag pages — cache aggressively. (Not in PRERENDERED_ROUTES;
+        // these are SSR with a long edge cache.)
         '/scraps/**': {
           headers: {
             'Cache-Control': 'public, max-age=86400, s-maxage=604800',
@@ -421,7 +459,7 @@ export default defineNuxtConfig({
     },
   },
 
-  // Ultra-optimized Vite config for sub-1s FCP
+  // ── Vite + watcher ignores ──────────────────────────────────
   // Keep the dev watcher off data/content churn. Watching these burned 10k+
   // fds, and macOS posix_spawn EBADFs once pipe fds land above ~10240 — which
   // broke nitro's esbuild service mid-startup. None of these need HMR.
@@ -434,6 +472,7 @@ export default defineNuxtConfig({
     'public/images/**',
   ],
 
+  // Ultra-optimized Vite config for sub-1s FCP
   vite: {
     // ES-module workers (MapLibre v6's worker imports a shared chunk)
     worker: { format: 'es' },

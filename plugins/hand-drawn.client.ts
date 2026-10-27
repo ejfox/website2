@@ -1,5 +1,7 @@
 /**
- * Hand-drawn marks in rendered content — two organic paths:
+ * @file hand-drawn.client.ts
+ * @description Client-only. Hand-drawn marks in rendered content — two
+ * organic paths:
  *
  *   1. Intentional: `:hd{name="arrow-right"}` in markdown becomes
  *      <span data-hd="arrow-right"> (via remarkHandDrawn) — hydrated here.
@@ -8,6 +10,8 @@
  *      become circled numbers ①②③.
  *
  * Sibling to footnotes-to-sidenotes.client.ts; same onNuxtReady + router hook.
+ * Elements it has handled get `data-hd-done` so re-runs skip them. Sprite
+ * loading + mark building live in utils/handDrawn.ts.
  */
 import { createHandDrawnEl, ensureHandDrawnSprite } from '~/utils/handDrawn'
 

@@ -1,5 +1,7 @@
 /**
- * When to load Umami's session-replay recorder (rrweb, ~190 KB).
+ * @file replayPolicy.ts
+ * @description When to load Umami's session-replay recorder (rrweb, ~190 KB).
+ * Pure functions so they're testable; the caller is plugins/umami.client.js.
  *
  * Recording every visit cost real main-thread time: Lighthouse measured
  * recorder.js at 0.24s on /, 0.9s on /blog and 1.6s on /stats (mobile).

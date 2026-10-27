@@ -1,3 +1,14 @@
+/**
+ * @file prediction-refs.client.ts
+ * @description Client-only. Replaces the `[data-prediction-ref]` placeholders
+ *   that scripts/plugins/remarkPredictionRef.mjs leaves in post HTML with live
+ *   components: components/blog/PredictionCard.vue for
+ *   data-prediction-ref="block", components/blog/PredictionRef.vue otherwise.
+ *   Props come from the element's JSON `data-payload`.
+ *   Runs on onNuxtReady and after every router.afterEach (nextTick).
+ *   Gotcha: each mount is a standalone createApp() with no Nuxt context or
+ *   router, and those apps are never unmounted (compare gear-cards.client.ts).
+ */
 import { createApp, h } from 'vue'
 
 export default defineNuxtPlugin(() => {

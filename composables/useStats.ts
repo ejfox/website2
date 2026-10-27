@@ -1,7 +1,11 @@
 /**
  * @file useStats.ts
- * @description Stats aggregation composable for fetching and computing personal metrics
- * @returns Stats data, loading states, and computed time breakdowns
+ * @description Stats aggregation composable for fetching personal metrics:
+ *   the full /api/stats aggregate plus /api/stats-lite for instant top-line
+ *   numbers, seeded from sessionStorage (stale-while-revalidate).
+ *   Used by pages/stats.vue and components/stats/* (TopStats, LeetCode,
+ *   RescueTime, Duolingo). Response types live in types/stats.ts.
+ * @returns stats, liteStats, isLoading, errors, hasStaleData and has*Data flags
  */
 import { shallowRef, computed } from 'vue'
 

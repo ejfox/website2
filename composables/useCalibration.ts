@@ -1,7 +1,8 @@
 /**
- * Calibration Analysis Composable
- *
- * Fetches meta-analysis data for prediction performance
+ * @file useCalibration.ts
+ * @description useFetch wrapper for /api/calibration (prediction calibration
+ *   / Brier analysis). Shared key 'calibration-analysis' so the predictions
+ *   index and [slug] pages reuse one payload.
  */
 
 export const useCalibration = () => {

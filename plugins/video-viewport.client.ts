@@ -1,6 +1,6 @@
 /**
- * @file plugins/video-viewport.client.ts
- * @description Viewport-driven playback for autoplay videos (the muted looping
+ * @file video-viewport.client.ts
+ * @description Client-only. Viewport-driven playback for autoplay videos (the muted looping
  *   demo clips remarkEnhanceImages emits, plus any video with data-autoplay).
  *   Videos play only while ≥20% visible and pause offscreen — a page with a
  *   dozen demo loops decodes only the ones actually being looked at.
@@ -16,6 +16,9 @@
  *
  *   Progressive enhancement: the markup keeps the native autoplay attribute,
  *   so with JS disabled videos simply autoplay as before.
+ *
+ *   Runs 250ms after window load and after every page:finish; each scan
+ *   disconnects the previous play observer and rebuilds it.
  */
 export default defineNuxtPlugin((nuxtApp) => {
   let observer: IntersectionObserver | null = null

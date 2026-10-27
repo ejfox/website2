@@ -1,5 +1,12 @@
-// Global type definitions for the website
-// Most DOM/Web API types come from TypeScript's lib.dom.d.ts
+/**
+ * @file globals.d.ts
+ * @description Ambient types for the whole project: an optional `d3` global,
+ *   the process.env names server code reads (names only; values live in the
+ *   gitignored .env), and $router/$route on NuxtApp and component instances.
+ *   Most DOM/Web API types come from TypeScript's lib.dom.d.ts.
+ *   Gotcha: the ProcessEnv list is not exhaustive; it isn't checked against
+ *   what the server actually reads.
+ */
 
 import type { Router, RouteLocationNormalizedLoaded } from 'vue-router'
 

@@ -1,3 +1,12 @@
+<!--
+  @file error.vue
+  @description Nuxt's error page (every 404/500), inside the default layout.
+    Client-side, it fetches /api/manifest and shows up to three "Maybe you
+    meant" links from utils/notFoundSuggestions.ts.
+    Gotcha: `data-not-found` is what umami-plus keys its `not-found` event on
+    (plugins/umami.client.js); keep the attribute. The page shows the same
+    404 text whatever the status code.
+-->
 <script setup lang="ts">
 import {
   suggestForPath,

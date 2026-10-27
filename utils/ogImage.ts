@@ -1,5 +1,7 @@
 /**
- * og:image URL + the dimensions we can honestly declare for it.
+ * @file ogImage.ts
+ * @description og:image URL + the dimensions we can honestly declare for it.
+ * Used by composables/usePageSeo.ts.
  *
  * Scrapers trust og:image:width/height. Project pages used to declare
  * 1200x630 for Cloudinary `c_scale,w_1280` originals that were really

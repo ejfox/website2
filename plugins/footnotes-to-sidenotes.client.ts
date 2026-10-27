@@ -1,6 +1,14 @@
 /**
- * Ultra-simple sidenotes - Tufte CSS approach
- * CSS is now in global.css to prevent CLS
+ * @file footnotes-to-sidenotes.client.ts
+ * @description Client-only. Copies each Markdown footnote
+ *   (a[data-footnote-ref] → section[data-footnotes]) into a `span.sidenote`
+ *   right after its <sup>, Tufte-style. Styling lives in assets/css/global.css
+ *   so the margin notes don't cause layout shift. On viewports ≥1280px it
+ *   also hides the original footnote section (checked once, at run time; no
+ *   resize handling).
+ *   Runs on onNuxtReady and after every router.afterEach (nextTick).
+ *   Shares footnote markers with hand-drawn.client.ts, which swaps the
+ *   marker text for circled numbers.
  */
 export default defineNuxtPlugin(() => {
   if (import.meta.server) return

@@ -1,7 +1,7 @@
 /**
- * atprotoRkey.mjs
- *
- * The one place that knows how a post maps to its AT-Proto record.
+ * @file atprotoRkey.mjs
+ * @description The one place that knows how a post maps to its AT-Proto
+ * record (rkey, URI, mirror eligibility).
  *
  * Both sides import this: `scripts/author/mirror-to-atproto.mjs` uses it to
  * decide what to write and under what key, and the blog post page uses it to
@@ -39,6 +39,7 @@ export const PUB_RKEY = '3mw2wa5qk2222'
 // authenticated session's DID, which is why ATPROTO_DID must match that account.
 export const PUBLICATION_URI = `at://${ATPROTO_DID}/site.standard.publication/${PUB_RKEY}`
 
+// ── TID encoding ────────────────────────────────────────────
 const TID_ALPHABET = '234567abcdefghijklmnopqrstuvwxyz'
 
 /** FNV-1a, folded to the 10 bits a TID reserves for a clock id. */
@@ -59,6 +60,7 @@ const encodeTid = (micros, clockId) => {
   return out
 }
 
+// ── Per-post mapping ────────────────────────────────────────
 /**
  * The timestamp the record carries, and the one its key encodes.
  * Returns null when a post has no usable date — callers must treat that as

@@ -1,6 +1,16 @@
 /**
- * Post filtering utilities: one visibility predicate for every listing,
- * feed, sitemap and search surface.
+ * @file postFilters.ts
+ * @description Post filtering utilities: one visibility predicate for every
+ *   listing, feed, sitemap and search surface. isScheduled() is THE embargo
+ *   gate (CLAUDE.md "Scheduled Posts"); isHiddenFromListings() covers
+ *   draft/hidden/unlisted/password/sealed. Imported by pages, server/ routes
+ *   and utils, and loaded by path from scripts/meta/check-urls.mjs, so keep
+ *   it free of Nuxt/Vue imports. scripts/build/processMarkdown.mjs and
+ *   nuxt.helpers.ts carry hand-copied mirrors of isScheduled(): change the
+ *   rule here and update them too.
+ *   Gotcha: composables/useProcessedMarkdown.ts keeps its own older
+ *   isHidden/isUnlisted/isPasswordProtected checks (no `sealed`) alongside
+ *   isScheduled from here.
  */
 
 export interface Post {

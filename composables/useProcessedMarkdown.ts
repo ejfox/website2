@@ -1,22 +1,23 @@
 /**
- * Content Processing Pipeline
- * =========================
+ * @file useProcessedMarkdown.ts
+ * @description Runtime read side of the content pipeline: fetches
+ *   /api/manifest and /api/posts/<slug> (or /api/robots/<slug>) and returns
+ *   filtered, date-sorted post lists. Markdown → JSON happens earlier, in
+ *   scripts/build/processMarkdown.mjs; posts reach the repo via Dispatch.
+ *   Used by pages (index, blog, stats, tags, robots) AND by server routes
+ *   (rss.xml, feed.json, archive.epub), so it must stay SSR/Nitro-safe.
  *
- * Stage 1: Import (import.mjs) - Reads markdown files from Obsidian vault
- * Stage 2: Process (processMarkdown.mjs) - Converts markdown to HTML
- * Stage 3: Runtime (useProcessedMarkdown.ts) - Final filtering and processing
- *
- * Content Type Detection Rules:
- * - Week Notes: retired 2026-10-11, never processed (410 via
+ * Content type rules:
+ * - Special sections (kept out of getAllPosts): reading/, projects/, robots/,
+ *   drafts/, study-notes/, prompts/ — with or without a blog/ or YYYY/ prefix
+ * - System files: slug 'index' OR starts with '!' or '_'
+ * - Week notes are retired and never processed (410 via
  *   server/middleware/week-notes-gone.ts)
- * - Special Sections: reading/, projects/, robots/, drafts/,
- *   study-notes/, prompts/
- * - System Files: slug='index' OR starts with '!' or '_'
  *
- * Visibility Rules:
- * - hidden: true -> Post is hidden everywhere
- * - In drafts/robots/ -> hidden by default unless share: true
- * - Week notes -> never auto-hidden, respect hidden: true from frontmatter
+ * Visibility (isExcludedFromListings): hidden/draft, unlisted, password, or
+ * scheduled (utils/postFilters.ts isScheduled) posts are left out of every
+ * listing and feed unless a caller passes includeDrafts. Drafts and robot
+ * notes are listed only when `share: true`.
  */
 
 import {
@@ -28,7 +29,7 @@ import {
 } from 'date-fns'
 import { isScheduled } from '~/utils/postFilters'
 
-// Type definitions
+// ── Types ───────────────────────────────────────────────────
 interface PostMetadata {
   slug: string
   title: string
@@ -69,10 +70,14 @@ interface ManifestItem extends Post {
   _isManifestItem?: true
 }
 
+// ── Helpers ─────────────────────────────────────────────────
+// Newest first.
 function compareDates(a: string, b: string): number {
   return new Date(b).getTime() - new Date(a).getTime()
 }
 
+// Gotcha: an unparseable or missing date becomes "now", so a bad post date
+// sorts to the top rather than throwing.
 function getValidDate(date: string | Date | undefined): string {
   try {
     if (!date) return new Date().toISOString()
@@ -114,7 +119,7 @@ function formatTitle(filename: string): string {
     .join(' ')
 }
 
-// Core filtering functions
+// ── Visibility + section rules ──────────────────────────────
 function isSpecialSection(slug: string): boolean {
   const pathParts = slug.split('/')
   // Handle both old format (YYYY/...) and new format (blog/YYYY/...)
@@ -241,6 +246,7 @@ function filterAndSortPosts(
     .sort((a: Post, b: Post) => compareDates(a.date, b.date))
 }
 
+// ── Public API ──────────────────────────────────────────────
 export const useProcessedMarkdown = () => {
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {

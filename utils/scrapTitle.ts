@@ -1,8 +1,12 @@
 /**
- * Display title for a scrap/bookmark. Pinboard stores untitled bookmarks as
- * the literal "[no title]", so treat that (and blank) as missing and fall
- * back to the bare hostname. Shared by the scraps feed, /scraps and the post
- * sidebar's Research list so every surface agrees.
+ * @file scrapTitle.ts
+ * @description Display title for a scrap/bookmark. Pinboard stores untitled
+ *   bookmarks as the literal "[no title]", so treat that (and blank) as
+ *   missing and fall back to the bare hostname. Imported by
+ *   server/routes/scraps-rss.xml.ts and pages/scraps/index.vue.
+ *   Gotcha: server/api/scraps/by-tags.get.ts (the post sidebar's Research
+ *   list) and server/api/temporal-context.get.ts re-implement the same
+ *   "[no title]" check inline rather than calling this.
  */
 export function scrapHostname(url: string | null | undefined): string {
   if (!url) return ''

@@ -1,3 +1,16 @@
+/**
+ * @file umami.client.js
+ * @description Client-only. Loads the self-hosted Umami tracker (with Web
+ *   Vitals), the shared umami-plus helper, and, when earned, the session
+ *   replay recorder. The "when" rules are pure functions in
+ *   utils/replayPolicy.ts.
+ *   Skips entirely for automation (navigator.webdriver), any host other than
+ *   ejfox.com (dev, PR previews), and /bookmarklet.
+ *   Scripts load on requestIdleCallback (3s timeout; 2s fallback) so they
+ *   don't compete with LCP. Custom events live in umami-events.client.ts;
+ *   bump the `?v=` query strings when the remote scripts change (Cloudflare
+ *   caches them).
+ */
 import {
   isFunnelPath,
   deviceAllowsReplay,

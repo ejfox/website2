@@ -1,5 +1,7 @@
 /**
- * Centralized date utilities — the single date-fns entry point for the app.
+ * @file date.ts
+ * @description Centralized date utilities — the single date-fns entry point
+ * for the app. Auto-imported; used across pages/ and components/.
  *
  * Consolidates the former dateUtils.ts (date-fns barrel), useDateFormat.ts
  * (wrapper), and the date helpers that were living in numberFormat.ts. Import
@@ -51,6 +53,7 @@ export {
   isThisYear,
 }
 
+// ── Named formatters ────────────────────────────────────────
 type DateInput = string | Date | null | undefined
 
 // Base formatter: parse (ISO strings) then format; empty string on bad input.
@@ -92,6 +95,7 @@ export const formatRelative = (date: DateInput): string => {
 // Alias kept for former useDateFormat().formatRelativeTime callers
 export const formatRelativeTime = formatRelative
 
+// ── Stats-component helpers ─────────────────────────────────
 // Epoch-seconds or date-string → "MM.dd" (dense stats components).
 export const formatDateMinimal = (timestamp: string | number): string => {
   try {

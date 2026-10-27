@@ -1,5 +1,8 @@
 /**
- * Site-wide Umami funnel events (see CLAUDE.md "Umami funnel events").
+ * @file umami-events.client.ts
+ * @description Client-only. Site-wide Umami funnel events (see CLAUDE.md
+ * "Umami funnel events"). One capture-phase click listener on document, plus
+ * a read sentinel re-armed on every page:finish.
  *
  * Umami itself (plugins/umami.client.js) auto-tracks any element carrying
  * `data-umami-event`. This plugin covers the behaviour that can't be expressed

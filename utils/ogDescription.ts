@@ -1,5 +1,7 @@
 /**
- * Build a clean meta / og:description.
+ * @file ogDescription.ts
+ * @description Build a clean meta / og:description. Used by the blog, project
+ * and dispatch [slug] pages and scripts/author/mirror-to-atproto.mjs.
  *
  * Prefer a hand-written dek. Otherwise take the content, strip its markup,
  * decode its entities, collapse its whitespace, and cut on a whole word —

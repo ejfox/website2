@@ -1,3 +1,9 @@
+<!--
+  @file bookmarklet.vue
+  @description Bare padded layout for pages/bookmarklet.vue and
+    pages/bookmarklet-popup.vue (the save-a-link popup): no nav, sidebar or
+    footer. Uses its own gray palette, not the bg-* tokens.
+-->
 <template>
   <div class="simple-layout p-4 sm:p-8 md:p-8">
     <slot />

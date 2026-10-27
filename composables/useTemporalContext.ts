@@ -1,6 +1,10 @@
 /**
- * Fetches "around this time" context for a given date.
- * Returns reading, predictions, and commit count from the same period.
+ * @file useTemporalContext.ts
+ * @description Fetches "around this time" context for a given date from
+ *   /api/temporal-context: reading, predictions, scraps and commit count from
+ *   the same period. Used by pages/blog/[...slug].vue.
+ *   Client-only and lazy, so it never blocks the post's SSR. An `{ error }`
+ *   response is ignored (context keeps its previous value, null at first).
  */
 export function useTemporalContext(
   date: Ref<string | undefined> | ComputedRef<string | undefined>
