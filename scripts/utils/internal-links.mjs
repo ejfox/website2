@@ -6,6 +6,15 @@
  *   real, published routes. Internal links cost nothing to verify (no network),
  *   so this runs on every `blog:process` and catches links to missing posts and
  *   excluded drafts — the kind the external CHECK_LINKS pass never sees.
+ *   Also imported by scripts/meta/check-internal-links.mjs (`yarn blog:dead-links`),
+ *   scripts/meta/check-urls.mjs via url-stability.mjs, and
+ *   scripts/meta/seed-published-urls.mjs. Report: data/internal-linkrot-report.json.
+ * Gotchas: the valid-route set is MODULE STATE. classifyInternalHref() calls
+ *   everything "valid" until buildValidRoutes() has filled it, so any pipeline
+ *   that skips that call (e.g. a preview) never marks a link dead.
+ *   processMarkdown builds it from non-sealed files only, so a link to a sealed
+ *   post counts as dead. fileToRoute / buildInternalHref must agree with the
+ *   real page routing in pages/. Tests: scripts/utils/__tests__/internal-links.test.mjs.
  */
 
 import { promises as fs } from 'node:fs'
@@ -13,9 +22,7 @@ import path from 'node:path'
 import matter from 'gray-matter'
 import { readVueBody } from './vue-body.mjs'
 
-// ---------------------------------------------------------------------------
-// Wikilink / href resolution (canonical — imported by remarkObsidianSupport)
-// ---------------------------------------------------------------------------
+// ── Wikilink / href resolution (canonical — imported by remarkObsidianSupport) ───
 
 export function generateSlug(str) {
   return str
@@ -77,10 +84,9 @@ export function buildInternalHref(target) {
   return `/blog/${encodePath(normalized)}`
 }
 
-// ---------------------------------------------------------------------------
-// Validity: the set of routes that actually resolve to published content
-// ---------------------------------------------------------------------------
+// ── Validity: the set of routes that actually resolve to published content ────
 
+// Filled by buildValidRoutes(), read by classifyInternalHref(). See header.
 const validRoutes = new Set()
 
 /** Canonical key for a route: drop hash/query, decode, lowercase, no trailing slash. */
@@ -199,15 +205,13 @@ export function classifyInternalHref(href) {
   return { internal: true, valid: validRoutes.has(key) }
 }
 
-// ---------------------------------------------------------------------------
-// Audit pass: scan raw markdown for dead internal links (report-only)
-// ---------------------------------------------------------------------------
+// ── Audit pass: scan raw markdown for dead internal links (report-only) ───────
 
 const WIKILINK_RE = /\[\[([^\]]+)\]\]/g
-// [text](target) — the (?<!!) skips images (![alt](src)); optional "title" tail.
 /** Root-relative hrefs in rendered HTML (.vue post bodies) */
 const HREF_RE = /\shref="(\/[^"#?]*)/g
 
+// [text](target) — the (?<!!) skips images (![alt](src)); optional "title" tail.
 const MD_LINK_RE = /(?<!!)\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 /** Strip a wikilink/md target down to its bare path: drop alias (`|`) and heading (`#`). */

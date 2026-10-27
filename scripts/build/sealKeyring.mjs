@@ -1,7 +1,11 @@
 /**
  * @file sealKeyring.mjs
  * @description The local, never-committed keyring for sealed posts, and the
- *   build-time seal step that uses it.
+ *   build-time seal step that uses it. Imported by
+ *   scripts/build/processMarkdown.mjs (sealResult, during `yarn seal` /
+ *   `yarn blog:process`) and scripts/author/seal-links.mjs (allSealKeys, for
+ *   `yarn seal:links`). Crypto lives in utils/postSeal.mjs; the full design
+ *   is docs/SEALED-POSTS.md.
  *
  * ## Where the key lives, and why it lives there
  *
@@ -42,6 +46,8 @@ import {
   unsealPost,
   isSealedPost,
 } from '../../utils/postSeal.mjs'
+
+// ── Keyring (.postkeys.json) ────────────────────────────────────────────────
 
 /**
  * Resolved per call rather than once at import, so the keyring always belongs
@@ -108,6 +114,8 @@ export async function allSealKeys() {
   return { ...(await loadKeyring()) }
 }
 
+// ── Sealing + leak check ────────────────────────────────────────────────────
+
 /**
  * Turn a fully rendered post into the envelope-only object that gets committed.
  *
@@ -118,8 +126,10 @@ export async function allSealKeys() {
  *
  * Re-seals only when the payload actually changed. Without that check the
  * envelope would be rewritten with a fresh IV on every single `blog:process`
- * — and `import.mjs` wipes and rebuilds `content/blog/` on every run, which
- * refreshes every mtime, so "every run" means "every run". The repo would fill
+ * — and a sealed post is re-rendered on every run (its envelope JSON carries
+ * no cacheVersion/sourceHash, so the sourceHash cache never hits), so "every
+ * run" means "every run". (This was first written for the old `import.mjs`,
+ * which refreshed every mtime; same outcome.) The repo would fill
  * with diffs that say nothing, and a real change to a sealed post would be
  * indistinguishable from noise in review.
  */
@@ -170,6 +180,8 @@ async function readExistingSeal(outputPath) {
  */
 function assertNoPlaintext(json, result, slug) {
   const serialised = JSON.stringify(json)
+  // Needles under 8 chars are skipped (filter below), so a short tag is never
+  // checked. Body/HTML needles are only the first 120 chars of text.
   const needles = [
     ...[result?.html, result?.content].map((s) =>
       typeof s === 'string' ? stripTags(s).slice(0, 120) : null

@@ -1,6 +1,13 @@
 /**
  * @file utils/helpers.mjs
- * @description Utility helper functions for content processing, file operations, and data transformations
+ * @description Grab-bag of content-pipeline helpers.
+ *   Live callers: scripts/build/processMarkdown.mjs (getPostType),
+ *   scripts/plugins/remarkObsidianSupport.mjs (getTitleFromFrontmatter),
+ *   scripts/utils/stats.mjs (formatFileSize).
+ * Gotchas: most other exports (scrap ids, word/photo/link counters, the SVG
+ *   constants, a local socialPlatforms copy, formatCloudinaryUrl, …) have no
+ *   importer in the repo. The live socialPlatforms map is the one in
+ *   scripts/plugins/remarkEnhanceLinks.mjs.
  * @usage import { getPostType, formatFileSize, calculateWordCount } from './scripts/utils/helpers.mjs'
  */
 
@@ -8,6 +15,7 @@ import { createHash } from 'node:crypto'
 import path from 'node:path'
 import chalk from 'chalk'
 
+// ── Constants ───────────────────────────────────────────────────────────────
 // Constants
 const scrapTypeSymbols = {
   pinboard: '■', // U+25A0
@@ -122,6 +130,7 @@ const headerStar =
   `.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z"/>
 </svg>`
 
+// ── Helper functions ────────────────────────────────────────────────────────
 // Helper Functions
 function generateShortId(data, length = 8) {
   const hash = createHash('sha256').update(data).digest('base64')
@@ -272,6 +281,8 @@ function generatePassword(titleSlug) {
   return `${year}-${month}-${day}-${title}`
 }
 
+// remarkObsidianSupport passes a wikilink target string here, which takes the
+// first branch: title-case the slug. No file is read.
 function getTitleFromFrontmatter(frontmatter, filePath = '') {
   // Handle case where frontmatter is a string (filename)
   if (typeof frontmatter === 'string') {
@@ -299,6 +310,8 @@ function getTitleFromFrontmatter(frontmatter, filePath = '') {
   return String(frontmatter || 'Untitled')
 }
 
+// Expects a path relative to content/blog ("projects/foo"). An absolute path
+// never matches a prefix and falls through to 'post'.
 function getPostType(relativePath) {
   // Check path prefixes first
   if (relativePath.startsWith('drafts/')) return 'draft'
@@ -436,6 +449,7 @@ function log(message, type = 'info') {
   }
 }
 
+// ── Exports ─────────────────────────────────────────────────────────────────
 // Single export statement for everything
 export {
   // Constants

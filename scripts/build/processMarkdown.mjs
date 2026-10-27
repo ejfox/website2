@@ -1,14 +1,37 @@
 /**
  * @file processMarkdown.mjs
- * @description Main content processing pipeline - converts Markdown to HTML with smart caching, link health checking, and on-this-day index generation
- * @usage yarn blog:process OR node scripts/processMarkdown.mjs
- * @env OBSIDIAN_VAULT_PATH - Path to Obsidian vault (optional)
- * @env CHECK_LINKS - Enable link health checking (optional)
- * @env AUTO_FIX_LINKS - Auto-replace broken links with archive.org versions (optional)
- * @env DEBUG - Enable debug output (optional)
+ * @description The heart of the content pipeline: content/blog/**.md →
+ *   content/processed/<slug>.json (+ manifest-lite.json). The Vue site reads
+ *   only the JSON, never the markdown. Run by `yarn blog:process` (and
+ *   blog:check-links / blog:fix-links / `yarn seal` / `yarn blog`), and by CI
+ *   in .github/workflows/deploy.yml, which ships the JSON it produces to prod.
+ *
+ * Stages, in order (processAllFiles):
+ *   1. Back up content/processed/ (scripts/utils/backup.mjs), scan content/blog.
+ *   2. Tripwires that fail the build: secret-looking frontmatter on a public
+ *      post, a .vue body on a non-public post, any week-notes/ file.
+ *   3. Public-files-only reports: data/external_links_final.csv, optional
+ *      external link health (CHECK_LINKS), the valid-route set + internal
+ *      dead-link report (scripts/utils/internal-links.mjs).
+ *   4. Per file: reuse the JSON if its sourceHash matches, skip+delete drafts,
+ *      else render through the unified pipeline below. Sealed posts are
+ *      encrypted (sealKeyring.mjs) and only the envelope is written.
+ *   5. Orphan sweep (currently a no-op; see the NOTE there), then manifest-lite.json with
+ *      drafts/sealed omitted and protected posts' descriptive fields stripped.
+ *   6. Static artifacts that skip scheduled posts: public/content-tags.json and
+ *      data/on-this-day/MM-DD.json.
+ *
+ * Gotchas: output JSON must never carry sourcePath/sourceDir (PII; see
+ *   CLAUDE.md "Security & Privacy"). Bump CACHE_VERSION when a render change
+ *   must reach every post, since the cache otherwise only keys on source bytes.
+ * @env CHECK_LINKS - HEAD-check every external link (slow, network)
+ * @env AUTO_FIX_LINKS - with CHECK_LINKS, rewrite broken links in the SOURCE
+ *   markdown to archive.org snapshots (review the git diff afterwards)
+ * @env SITE_ORIGIN - origin for printed sealed-post links (default ejfox.com)
+ * @env DEBUG - set to true by the yarn scripts; not read in this file
  */
 
-// Markdown → HTML Processing Pipeline
+// ── Imports & setup ─────────────────────────────────────────────────────────
 import { promises as fs, existsSync, readFileSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import path from 'node:path'
@@ -60,6 +83,8 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
+// Part of every cache key (see getFileCacheStatus). Changing it forces a full
+// re-render on the next run, which is how a plugin change reaches old posts.
 const CACHE_VERSION = '2026-10-26-no-rotated-images'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
@@ -81,6 +106,9 @@ const paths = {
   backupDir: config.dirs.backup,
 }
 
+// ── Small helpers ───────────────────────────────────────────────────────────
+
+// Fallback title from a filename when there's no frontmatter title or H1.
 const formatTitle = (filename) => {
   const baseName = filename.split('/').pop()
 
@@ -111,10 +139,6 @@ const formatTitle = (filename) => {
 }
 
 /**
- * Hash a password using SHA-256
- * Matches the client-side hashing in PasswordGate.vue
- */
-/**
  * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
  * plain .mjs build script that can't import the TS helper. Build artifacts
  * (the tag cloud, the on-this-day index) are baked into static files the
@@ -128,13 +152,17 @@ const isScheduledEntry = (entry) => {
   return Number.isFinite(t) && t > Date.now()
 }
 
+/**
+ * SHA-256 of a frontmatter `password:` so the plaintext never reaches JSON.
+ * Downstream code treats a present passwordHash as "protected" (see
+ * utils/postFilters.ts); it is stripped from manifest-lite.json below.
+ */
 const hashPassword = (password) => {
   return createHash('sha256').update(password).digest('hex')
 }
 
-// ============================================================================
-// Helper functions to reduce nesting depth (extracted for ESLint max-depth)
-// ============================================================================
+// ── Link auto-fix (AUTO_FIX_LINKS) ──────────────────────────────────────────
+// Extracted out of autoFixBrokenLinks to satisfy ESLint max-depth.
 
 /**
  * Fix a single broken link in a source file by replacing with archived version
@@ -185,6 +213,8 @@ async function fixLinkInSourceFile(link, source, contentDir) {
   }
 }
 
+// ── Slugs & the sourceHash cache ────────────────────────────────────────────
+
 /** sha256 of a source file's exact bytes (as read: utf8 incl. frontmatter) */
 const hashSource = (content) =>
   createHash('sha256').update(content).digest('hex')
@@ -230,7 +260,9 @@ function getFileCacheStatus(filePath, outputPath) {
 }
 
 /**
- * Try to load a processed result from cache
+ * Try to load a processed result from cache. Only called after
+ * getFileCacheStatus said 'cache', so this re-checks the version and nothing
+ * else.
  * @returns {{ result: object, cached: boolean } | null} cached result or null if cache miss
  */
 async function tryLoadCachedResult(outputPath, cacheVersion) {
@@ -266,6 +298,22 @@ async function writeProcessedResult(result, outputPath) {
   await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
 }
 
+// ── The unified pipeline (markdown → HTML) ──────────────────────────────────
+// ORDER MATTERS. remark-* plugins run on the markdown AST (mdast), then
+// remarkRehype converts to the HTML AST (hast) for the rehype-* plugins.
+//   - remarkGfm and remarkDirective are parser extensions, so they act at
+//     parse time wherever they sit: footnote/table/directive nodes already
+//     exist when the first transformer runs. Listing them first just reads
+//     right. (Footnotes become sidenotes client-side.)
+//   - remarkMermaid before remarkRehype: it turns `code` nodes into `html`
+//     nodes, which only survive conversion with allowDangerousHtml.
+//   - rehypeRaw right after remarkRehype: it parses every raw-HTML string
+//     (author <img>, plugin output) into real hast nodes, so the rehype
+//     plugins after it can see them.
+//   - rehypeSlug near the end: heading ids must slug the same final text
+//     remarkExtractToc slugged (both use github-slugger), or TOC anchors break.
+// scripts/author/markdownToHtml.mjs repeats this chain for Dispatch previews.
+// Keep the two in step (it currently has no rehypeOptimizeImages).
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm) // Process footnotes FIRST before other plugins
@@ -306,11 +354,15 @@ const processor = unified()
   .use(rehypeSlug)
   .use(rehypeStringify, { allowDangerousHtml: true })
 
+// ── Render one file ─────────────────────────────────────────────────────────
+
 async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
     const ast = processor.parse(markdownContent)
+    // parse → mutate → run → stringify (not processor.process) so the opening
+    // title heading can be dropped from the mdast before any plugin sees it.
     const titleHeading = dropTitleHeading(ast, frontmatter.title)
 
     // Create vfile to hold data from plugins
@@ -399,7 +451,9 @@ async function processMarkdown(content, filePath) {
       `\r${chalk.gray(`Processing: ${filename.padEnd(40)}`)}${badges}${' '.repeat(Math.max(0, 20 - badges.length))}${pct}%`
     )
 
-    // sourcePath/sourceDir stripped for privacy — no filesystem paths in output
+    // sourcePath/sourceDir stripped for privacy — no filesystem paths in output.
+    // processed JSON is committed to a public repo and served by the API, so
+    // only the repo-relative slug is kept. Do not add path fields back.
     const slug = normalizeSlug(
       path
         .relative(path.join(process.cwd(), 'content', 'blog'), filePath)
@@ -422,6 +476,8 @@ async function processMarkdown(content, filePath) {
       toc.splice(0, toc.length, ...fromVue.toc)
     }
 
+    // cacheVersion + sourceHash are the cache key getFileCacheStatus checks on
+    // the next run; both must be computed exactly the same way there.
     return {
       cacheVersion: CACHE_VERSION,
       sourceHash: hashSource(cacheSource(content, filePath)),
@@ -444,6 +500,10 @@ async function processMarkdown(content, filePath) {
   }
 }
 
+// ── File discovery ──────────────────────────────────────────────────────────
+
+// Every .md under dir. Skips dot-directories and files starting with `!`.
+// Takes ONE argument: it always filters to .md, whatever a caller passes.
 async function getFilesRecursively(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
@@ -470,6 +530,9 @@ async function getFilesRecursively(dir) {
   return files.flat().filter(Boolean)
 }
 
+// ── External links: CSV + optional health check ─────────────────────────────
+
+// ejfox.com and Cloudinary URLs are ours, so they aren't "external".
 const extractExternalLinks = (content) => {
   const urlRegex = /https?:\/\/[^\s)\]"<>`]+/g
   const urls = content.match(urlRegex) || []
@@ -830,6 +893,8 @@ async function autoFixBrokenLinks(brokenLinks) {
   }
 }
 
+// ── Console summary ─────────────────────────────────────────────────────────
+
 const printSummary = (files) => {
   // Sealed entries carry no metadata at all — word counts, tags and headings
   // are inside the envelope, which is the whole point. They're reported
@@ -911,6 +976,8 @@ const printSummary = (files) => {
     .slice(0, 10)
     .forEach(([tag, count]) => console.log(`${tag.padEnd(20)} ${count}`))
 }
+
+// ── On-this-day index ───────────────────────────────────────────────────────
 
 // Build on-this-day index from tweets + blog posts + scrobbles + commits
 // Outputs 366 individual JSON files for fast loading
@@ -1051,6 +1118,8 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
         index[key].posts.push({
           slug,
           title: result.metadata?.title || result.title,
+          // NOTE: local-time year, unlike the UTC month/day key above; a
+          // Jan 1 post west of UTC gets the previous year.
           year: date.getFullYear(),
           date: dateStr,
           dek: result.metadata?.dek || null,
@@ -1119,6 +1188,9 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
   }
 }
 
+// ── Sealed posts & frontmatter tripwire ─────────────────────────────────────
+// Design + threat model: docs/SEALED-POSTS.md
+
 /** True if a processed JSON on disk is a sealed envelope. */
 async function isSealedOutput(outputFile) {
   try {
@@ -1132,9 +1204,9 @@ async function isSealedOutput(outputFile) {
 /**
  * Print the capability link for every post sealed this run.
  *
- * This is the only moment the key is ever shown. It is not written to any log
- * file, not committed, and not recoverable from the site — `.postkeys.json`
- * and the links already sent are the only copies.
+ * The key is not written to any log file, not committed, and not recoverable
+ * from the site — `.postkeys.json` and the links already sent are the only
+ * copies. (`yarn seal:links` reprints them from `.postkeys.json`.)
  */
 function printSealedReport(sealedReport) {
   if (!sealedReport.length) return
@@ -1216,6 +1288,8 @@ async function assertNoStraySecretFrontmatter(allFiles) {
   process.exit(1)
 }
 
+// ── Main: processAllFiles ───────────────────────────────────────────────────
+
 async function processAllFiles() {
   const spinner = ora('Processing markdown files...').start()
 
@@ -1235,9 +1309,10 @@ async function processAllFiles() {
     // Tripwire, deliberately the FIRST thing that touches the file list.
     //
     // It must live here rather than inside processMarkdown() because of the
-    // mtime cache: on a fresh clone every processed JSON is newer than its
-    // source, so `getFileCacheStatus` returns 'cache' for essentially every
-    // file and the per-file path may never execute in CI at all. A guard that
+    // cache: `getFileCacheStatus` returns 'cache' for every file whose source
+    // hash is unchanged, so the per-file path may never execute in CI at all.
+    // (Written when the cache keyed on mtimes; the reasoning still holds for
+    // the sourceHash cache.) A guard that
     // can be skipped is not a guard — that exact bypass is how the previous
     // attempt shipped a post with no protection and a green build.
     await assertNoStraySecretFrontmatter(allFiles)
@@ -1286,6 +1361,7 @@ async function processAllFiles() {
     await buildValidRoutes(publicFiles, paths.contentDir)
     await reportDeadInternalLinks(publicFiles, paths.contentDir)
 
+    // ── Pre-flight: count cached / to-process / drafts (console only) ──
     // 📊 PRE-FLIGHT CHECK: Analyze what will be cached vs processed
     console.log('\n📊 Pre-flight cache analysis...')
     let willCache = 0
@@ -1323,6 +1399,11 @@ async function processAllFiles() {
 
     console.log('\nProcessing files...\n')
 
+    // ── Per-file loop ──
+    // `results[i]` must stay index-aligned with `allFiles[i]`: the manifest
+    // and on-this-day steps below pair them by index. Every success branch
+    // pushes exactly one entry. NOTE: the catch pushes nothing, so one failed
+    // file shifts every later result against its file (and so its slug).
     const results = []
     const sealedReport = []
     let cachedCount = 0
@@ -1445,8 +1526,15 @@ async function processAllFiles() {
       (_, index) => !isScheduledEntry(nonDraftResults[index])
     )
 
+    // ── Orphan cleanup ──
     // Clean up orphaned processed files
     // (files that exist in output but not in source)
+    // NOTE: getFilesRecursively only returns .md files (the '.json' argument is
+    // ignored), so as written this finds nothing in content/processed and never
+    // deletes. Stale draft JSON is removed per file instead (see the draft
+    // branch above and writeProcessedResult). Before "fixing" it: other
+    // writers share this dir (goodreads-stats.json from fetch-goodreads.mjs,
+    // rides/ from process-rides.mjs), and a working sweep would delete them.
     const currentSlugs = new Set()
     allFiles.forEach((filePath) => {
       const slug = normalizeSlug(
@@ -1483,6 +1571,9 @@ async function processAllFiles() {
       }
     }
 
+    // ── manifest-lite.json ──
+    // Every listing, feed, sitemap and tag surface reads this file; the
+    // server re-filters draft/hidden/unlisted/password/scheduled at request time.
     const manifestResults = nonDraftResults.map((entry, index) => {
       const cleanEntry = { ...entry }
       const originalFilePath = nonDraftFiles[index]
@@ -1547,6 +1638,7 @@ async function processAllFiles() {
         `(${cacheHitRate}% cache hit)`
     )
 
+    // ── Static artifacts (scheduled posts excluded) ──
     // Extract tags with usage counts from content
     // and write to public/content-tags.json
     // Same reasoning as the on-this-day index: public/content-tags.json is a

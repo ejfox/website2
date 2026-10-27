@@ -1,6 +1,15 @@
 /**
  * @file utils/stats.mjs
- * @description Processing statistics tracking for content pipeline - real-time progress, word counts, content analysis
+ * @description Shared mutable counters for a `yarn blog:process` run.
+ *   scripts/build/processMarkdown.mjs uses processStats for its progress %
+ *   (filesProcessed / totalFiles) and pushes per-file failures to
+ *   processStats.errors.
+ * Gotchas: processMarkdown never calls updateRealTimeStats,
+ *   printRealTimeStats or printProcessingReport, so most fields stay at their
+ *   initial values and processStats.errors is never printed. Failures thrown
+ *   inside processMarkdown() still log via its own console.error; others
+ *   caught by the per-file loop (e.g. a failed write) are silent, and the
+ *   run exits 0.
  * @usage import { processStats, updateRealTimeStats, printProcessingReport } from './scripts/utils/stats.mjs'
  */
 
@@ -59,6 +68,8 @@ export const processStats = {
     external: 0,
   },
 }
+
+// ── Updaters & reports (currently uncalled) ─────────────────────────────────
 
 export function updateRealTimeStats(result) {
   if (!result || !result.metadata) return

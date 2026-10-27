@@ -1,6 +1,8 @@
 /**
  * @file plugins/index.mjs
- * @description Aggregates and exports all remark/rehype plugins for markdown processing
+ * @description Barrel for the remark/rehype plugins. The ORDER they run in is
+ *   set by the `.use()` chain in scripts/build/processMarkdown.mjs (and
+ *   scripts/author/markdownToHtml.mjs), not by this file.
  * @usage import { remarkEnhanceLinks, rehypeAddClassToParagraphs } from './scripts/plugins/index.mjs'
  */
 
@@ -19,6 +21,7 @@ export { rehypeAddClassToParagraphs } from './rehypeAddClassToParagraphs.mjs'
 export { rehypeOptimizeImages } from './rehypeOptimizeImages.mjs'
 
 // Plugin configurations
+// NOTE: nothing imports DEFAULT_PLUGINS; it does not drive the pipeline.
 export const DEFAULT_PLUGINS = [
   'remarkEnhanceLinks',
   'remarkObsidianSupport',

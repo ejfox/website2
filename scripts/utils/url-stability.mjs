@@ -19,6 +19,10 @@
  *   2. Bare wikilinks to posts. `[[how-i-built-coach-artie]]` has no folder,
  *      so it routes to /tag/how-i-built-coach-artie, not the post. The dead-link
  *      audit treats tag links as always valid, so this is flagged here instead.
+ *
+ *   Runs from .githooks/pre-commit and .github/workflows/lint.yml (via
+ *   check-urls.mjs); `yarn check:urls` runs it by hand. Tests:
+ *   scripts/utils/__tests__/url-stability.test.mjs.
  */
 
 import path from 'node:path'
@@ -29,6 +33,8 @@ import {
   isPublicSource,
   routeKey,
 } from './internal-links.mjs'
+
+// ── Parsing + which routes are public ──────────────────────────────────────
 
 /**
  * Parse raw source entries ({ rel, text }; rel relative to content/blog, with
@@ -94,6 +100,8 @@ export function goneReason(route, gone) {
   return null
 }
 
+// ── Resolving required URLs ────────────────────────────────────────────────
+
 /**
  * Build a resolver over the HEAD tree: route → { ok, via, target? }.
  * `legacy` is { buildSlugIndex, legacySlugTarget } from
@@ -151,6 +159,8 @@ export function findBrokenUrls(required, headPosts, opts = {}) {
   }
   return broken.sort((a, b) => a.route.localeCompare(b.route))
 }
+
+// ── Bare wikilinks to posts ────────────────────────────────────────────────
 
 const WIKILINK_RE = /(?<!!)\[\[([^\]]+)\]\]/g
 

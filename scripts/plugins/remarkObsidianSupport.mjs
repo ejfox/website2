@@ -1,6 +1,16 @@
 /**
  * @file plugins/remarkObsidianSupport.mjs
- * @description Remark plugin that converts Obsidian [[wikilinks]] to standard markdown links with proper routing
+ * @description Remark plugin that converts Obsidian [[wikilinks]] to standard
+ *   markdown links. Supports [[target|alias]], [[target#heading]] and bare
+ *   [[target]]. Without an alias the link text is the target title-cased
+ *   (getTitleFromFrontmatter is handed the target STRING, so despite its name
+ *   it never reads the target post's frontmatter).
+ *   Route rules live in scripts/utils/internal-links.mjs (buildInternalHref):
+ *   a bare [[name]] with no folder goes to /tag/name, not to a post.
+ * Gotchas: dead-link styling depends on buildValidRoutes() having run first
+ *   (processMarkdown does it before rendering); otherwise every link is
+ *   "valid". Dead/alive is baked into cached JSON, so a link only restyles
+ *   when its SOURCE post is reprocessed. Must run before remarkExtractToc.
  * @usage .use(remarkObsidianSupport)
  */
 

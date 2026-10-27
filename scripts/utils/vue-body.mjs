@@ -6,6 +6,12 @@
  *
  * The content pipeline reads the .vue's <template> back out so feeds, search,
  * word counts and the link audit still see the prose. `yarn crown` makes one.
+ * Imported by scripts/build/processMarkdown.mjs, scripts/utils/internal-links.mjs
+ * and scripts/author/crown.mjs.
+ *
+ * Gotchas: the .vue ships in the site's JS bundle, so a non-public post with
+ * one fails the build (assertVueBodiesArePublic). Its bytes are part of the
+ * post's sourceHash, so editing only the .vue still invalidates the cache.
  */
 
 import { existsSync, readFileSync } from 'node:fs'

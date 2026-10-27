@@ -1,11 +1,17 @@
 /**
- * Brier + calibration math for `yarn calibrate`, on two bases:
+ * @file utils/brier.mjs
+ * @description Brier + calibration math for `yarn calibrate`
+ *   (scripts/meta/calibration-analysis.mjs) and utils/calibration.ts, on two bases:
  *
  * - as signed:  the confidence each prediction was published (and hashed) with
  * - as updated: the last logged change, i.e. the current top-level `confidence`
  *
  * `confidence` in frontmatter is overwritten on update, so the signed number is
  * the first update's `confidenceBefore` — beliefSignedConfidence owns that rule.
+ *
+ * "Signed" is the house name for "as first committed": predictions are not
+ * PGP-signed (CLAUDE.md, Predictions). Buckets are integer ranges, so a
+ * fractional confidence like 9.5 falls between two and is not counted.
  */
 
 import { beliefSignedConfidence } from '../../utils/beliefTimeline.ts'

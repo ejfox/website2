@@ -4,7 +4,10 @@
  * @description For each JS/TS/Vue repo, shallow-clones it and runs ejfox/code-network-gen
  *              to produce a function-call graph. Output goes to data/github-repos/<name>.network.json.
  *              Smart-cached on pushedAt so re-runs only re-process changed repos.
- * @usage node scripts/export-github-networks.mjs
+ *              Needs data/github-repos/ from export-github-repos.mjs first. Clones
+ *              the tool into data/_tool-cache/. `yarn github:networks`; also
+ *              local `prebuild` (skipped on CI, failure falls back to cache).
+ * @usage node scripts/build/export-github-networks.mjs
  */
 
 import {
@@ -20,6 +23,7 @@ import { fileURLToPath } from 'node:url'
 import { execSync, spawnSync } from 'node:child_process'
 import { tmpdir } from 'node:os'
 
+// Named __dirname but it's scripts/ (one up from scripts/build/), hence '../data'.
 const __dirname = join(dirname(fileURLToPath(import.meta.url)), '..')
 const REPOS_DIR = join(__dirname, '../data/github-repos')
 const TOOL_CACHE = join(__dirname, '../data/_tool-cache/code-network-gen')
@@ -33,6 +37,8 @@ const ELIGIBLE_LANGUAGES = new Set([
   'Vue',
   'Svelte',
 ])
+
+// ── Tool setup ─────────────────────────────────────────────────────────────
 
 function ensureTool() {
   if (existsSync(join(TOOL_CACHE, 'index.js'))) {
@@ -87,6 +93,8 @@ function parseCsv(text) {
     return row
   })
 }
+
+// ── Analyze one repo ───────────────────────────────────────────────────────
 
 function analyzeRepo(repoName, pushedAt) {
   const outPath = join(REPOS_DIR, `${repoName}.network.json`)
@@ -164,6 +172,8 @@ function analyzeRepo(repoName, pushedAt) {
     if (existsSync(cloneDir)) rmSync(cloneDir, { recursive: true, force: true })
   }
 }
+
+// ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
   console.log('GitHub Code Network Export')

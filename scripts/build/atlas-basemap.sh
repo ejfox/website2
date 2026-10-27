@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# @file atlas-basemap.sh
 # Refresh the Valley Atlas basemap: cut a Hudson Valley extract from the
 # latest Protomaps planet build and upload it to the ejfox-tiles R2 bucket.
 #   yarn atlas:basemap

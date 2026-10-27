@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @file atlas-records.mjs
 // Builds data/atlas/records.json for the Valley Atlas records layer:
 // public institutions and sites from the FOIL docket on archive.ejfox.com.
 //
@@ -9,6 +10,7 @@
 // Pin agencies and public facilities only, never a person: a request about an
 // officer is pinned at the department. Coordinates already in the output are
 // reused, so Nominatim is only hit for new entries (1 req/s, per its policy).
+// Drawn by utils/atlas/layers/records.ts. Run by hand; no yarn script.
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
@@ -18,6 +20,8 @@ const UA = 'ejfox-valley-atlas/0.1 (https://ejfox.com)'
 const BOUNDS = { west: -75.6, east: -72.6, south: 40.7, north: 42.9 }
 
 const wikiUrl = (title) => WIKI + encodeURIComponent(title.replaceAll(' ', '_'))
+
+// ── Curated sites ──────────────────────────────────────────────────────────
 
 const SITES = [
   {
@@ -199,6 +203,8 @@ const SITES = [
   },
 ]
 
+// ── Geocode + build ────────────────────────────────────────────────────────
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 const geocode = async (q) => {
@@ -240,6 +246,8 @@ const build = async (refresh) => {
   )
   console.log(`wrote ${features.length} records → ${OUT}`)
 }
+
+// ── Check ──────────────────────────────────────────────────────────────────
 
 const status = async (url) => {
   const res = await fetch(url, { headers: { 'User-Agent': UA } })
@@ -290,6 +298,8 @@ const check = async () => {
     process.exit(1)
   }
 }
+
+// ── CLI ────────────────────────────────────────────────────────────────────
 
 const args = process.argv.slice(2)
 if (!args.includes('--check')) await build(args.includes('--refresh'))

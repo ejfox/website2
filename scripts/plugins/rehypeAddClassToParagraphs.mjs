@@ -1,6 +1,13 @@
 /**
  * @file plugins/rehypeAddClassToParagraphs.mjs
- * @description Rehype plugin that adds Tailwind CSS classes to HTML elements (blockquotes, code blocks, tables, footnotes)
+ * @description Rehype plugin that adds Tailwind / `md-*` classes to rendered
+ *   post HTML (blockquotes, code, tables, lists, links, footnotes) and swaps
+ *   every <hr> for a dotted-line SVG. Despite the name, it leaves <p> alone.
+ *   The `md-*` classes are styled in assets/css/global.css.
+ *   Used by scripts/build/processMarkdown.mjs (and scripts/author/markdownToHtml.mjs).
+ * Gotchas: runs after rehypePrettyCode, and tells code blocks from inline code
+ *   by the data-language attribute pretty-code adds. Classes are baked into
+ *   cached JSON, so a change here needs CACHE_VERSION bumped to reach old posts.
  * @usage .use(rehypeAddClassToParagraphs)
  */
 
@@ -76,6 +83,9 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'code':
+          // NOTE: on an array className, includes('language-') is an exact
+          // element match and never hits 'language-js'; the data-language
+          // checks are what actually detect code blocks.
           if (
             node.properties?.className?.includes('language-') ||
             node.properties?.dataLanguage ||

@@ -1,8 +1,15 @@
 /**
  * @file plugins/remarkEnhanceImages.mjs
- * @description Adds lazy-loading, Cloudinary srcset/sizing, placeholder data,
- *   semantic figure/figcaption wrapping, and alt text fallback from Cloudinary
- *   context metadata.
+ * @description Markdown images → lazy, sized, captioned HTML. Cloudinary URLs
+ *   get a srcset, width/height from Cloudinary's fl_getinfo, and a
+ *   <figure>/<figcaption> when the alt is real; junk alts ("IMG_1234",
+ *   "Screenshot…") fall back to the Cloudinary-context alt. Image syntax
+ *   pointing at a video becomes a muted looping <video>.
+ *   Used by scripts/build/processMarkdown.mjs and scripts/author/markdownToHtml.mjs.
+ * Gotchas: NETWORK + WRITES. Uncached URLs are fetched from Cloudinary
+ *   (rate-limited below), and data/cloudinary-image-cache.json is rewritten on
+ *   every run, so processing a post can dirty that file. Alt text model:
+ *   alt = THE description (see `yarn images:unify`).
  * @usage .use(remarkEnhanceImages)
  */
 
@@ -16,9 +23,7 @@ const CACHE_PATH = path.resolve(
   'cloudinary-image-cache.json'
 )
 
-// ---------------------------------------------------------------------------
-// Junk alt text detection (same patterns as generate-alt-text.mjs)
-// ---------------------------------------------------------------------------
+// ── Junk alt text detection (same patterns as generate-alt-text.mjs) ───────
 
 const JUNK_ALT_PATTERNS = [
   /^Screenshot/i,
@@ -43,12 +48,11 @@ export function isJunkAlt(alt) {
   return JUNK_ALT_PATTERNS.some((p) => p.test(alt.trim()))
 }
 
-// ---------------------------------------------------------------------------
-// Video embeds — markdown image syntax pointing at a video file becomes a
+// ── Video embeds ───────────────────────────────────────────────────────────
+// Markdown image syntax pointing at a video file becomes a
 // muted looping <video> (gif-replacement, not a player). Without this, the
 // pipeline emits <img src="….mp4"> which browsers render as a broken/blurred
 // image.
-// ---------------------------------------------------------------------------
 
 const VIDEO_URL_RE = /\.(?:mp4|webm|mov)(?:\?.*)?$/i
 
@@ -86,9 +90,7 @@ function buildVideoHtml(url, alt, { withFigure = true } = {}) {
   return `<figure role="figure" aria-label="${escapeAttr(caption)}">${videoTag}<figcaption>${caption}</figcaption></figure>`
 }
 
-// ---------------------------------------------------------------------------
-// Cloudinary URL helpers
-// ---------------------------------------------------------------------------
+// ── Cloudinary URL helpers ─────────────────────────────────────────────────
 
 const enhanceImageUrl = (url) => {
   if (!url.includes('res.cloudinary.com/')) return url
@@ -125,9 +127,7 @@ const enhanceImageUrl = (url) => {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Cache
-// ---------------------------------------------------------------------------
+// ── Cache ──────────────────────────────────────────────────────────────────
 
 async function loadCache() {
   try {
@@ -143,9 +143,7 @@ async function saveCache(cache) {
   await fs.writeFile(CACHE_PATH, JSON.stringify(cache, null, 2))
 }
 
-// ---------------------------------------------------------------------------
-// Cloudinary metadata extraction
-// ---------------------------------------------------------------------------
+// ── Cloudinary metadata extraction ─────────────────────────────────────────
 
 function isTransformSegment(segment) {
   // A Cloudinary transform segment is a comma-joined list of `key_value`
@@ -184,9 +182,7 @@ function buildGetInfoUrl(url) {
   return `https://res.cloudinary.com/${info.cloudName}/image/upload/fl_getinfo/${info.publicPath}`
 }
 
-// ---------------------------------------------------------------------------
-// Palette + placeholder
-// ---------------------------------------------------------------------------
+// ── Palette + placeholder ──────────────────────────────────────────────────
 
 function pickPalette(colors) {
   if (!Array.isArray(colors) || colors.length === 0) return null
@@ -196,9 +192,7 @@ function pickPalette(colors) {
   return { primary, secondary }
 }
 
-// ---------------------------------------------------------------------------
-// Rate limiter
-// ---------------------------------------------------------------------------
+// ── Rate limiter ───────────────────────────────────────────────────────────
 
 const limiter = (() => {
   const queue = []
@@ -238,10 +232,11 @@ const limiter = (() => {
   return schedule
 })()
 
-// ---------------------------------------------------------------------------
-// LQIP — fetch a 20px blurred JPEG from Cloudinary, inline as base64 so it
+// ── LQIP ───────────────────────────────────────────────────────────────────
+// Fetch a 20px blurred JPEG from Cloudinary, inline as base64 so it
 // paints instantly before the real image loads. Cached per-URL.
-// ---------------------------------------------------------------------------
+// NOTE: only the cache stores `lqip` today; nothing in this plugin or the
+// site reads it back into HTML, so these fetches currently buy nothing.
 
 function buildLqipUrl(url) {
   if (!url.includes('res.cloudinary.com/')) return null
@@ -277,9 +272,7 @@ function hasMeaningfulMeta(meta) {
   )
 }
 
-// ---------------------------------------------------------------------------
-// Cloudinary metadata fetch (dimensions, colors, AND context alt/caption)
-// ---------------------------------------------------------------------------
+// ── Cloudinary metadata fetch (dimensions, colors, AND context alt/caption) ───
 
 async function fetchCloudinaryMeta(url, cache) {
   const cached = cache[url]
@@ -327,9 +320,7 @@ async function fetchCloudinaryMeta(url, cache) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// The remark plugin
-// ---------------------------------------------------------------------------
+// ── The remark plugin ──────────────────────────────────────────────────────
 
 export function remarkEnhanceImages() {
   return async (tree) => {

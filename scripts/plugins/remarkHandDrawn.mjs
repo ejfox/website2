@@ -3,6 +3,7 @@
  * @description Remark plugin that converts :hd{} directives into inline SVG
  *   placeholders. The client plugin (plugins/hand-drawn.client.ts) swaps in the
  *   actual hand-drawn mark at runtime — no Vue mount needed, it's decoration.
+ *   Invalid names are skipped with a warning; bad sizes are dropped silently.
  * @usage .use(remarkDirective).use(remarkHandDrawn)
  *
  * Markdown syntax (inline text directive):

@@ -2,7 +2,9 @@
  * @file plugins/remarkGearCard.mjs
  * @description Remark plugin that converts ::gear{slug="..."} directives
  *   into HTML placeholder divs. A client-side plugin mounts Vue components
- *   on these placeholders at runtime.
+ *   on these placeholders at runtime (plugins/gear-cards.client.ts →
+ *   components/gear/GearCardInline.vue). Invalid slugs are skipped with a
+ *   warning and the directive is left as-is.
  * @usage .use(remarkDirective).use(remarkGearCard)
  *
  * Directive syntax in Markdown:

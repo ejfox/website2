@@ -1,6 +1,12 @@
 /**
  * @file plugins/remarkExtractToc.mjs
- * @description Remark plugin that extracts table of contents from headings and stores in vfile.data
+ * @description Remark plugin that builds a nested table of contents from
+ *   h1–h3 into file.data.toc (read by processMarkdown → metadata.toc). Also
+ *   exports dropTitleHeading, which processMarkdown runs on the mdast first.
+ * Gotchas: slugs come from github-slugger, the same library rehype-slug uses
+ *   for heading ids, and must match them. That's why it runs after
+ *   remarkObsidianSupport (wikilinks resolved to their final text) and why
+ *   inlineCode text is kept below.
  * @usage .use(remarkExtractToc, { maxDepth: 3 })
  */
 

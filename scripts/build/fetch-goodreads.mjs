@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 /**
  * @file fetch-goodreads.mjs
- * @description Fetch Goodreads reading data from RSS feeds and generate comprehensive stats (books read, ratings, reading pace, top authors)
- * @usage node scripts/fetch-goodreads.mjs
+ * @description Fetch the public Goodreads shelf RSS feeds (currently-reading,
+ *   read, to-read) and write books + stats to content/processed/goodreads-stats.json.
+ *   `yarn goodreads:fetch`; also every `prebuild` (a failure keeps the
+ *   existing file).
+ * Gotchas: it writes into content/processed/, next to post JSON, but is not
+ *   a post; processMarkdown's orphan sweep must not touch it.
+ * @usage node scripts/build/fetch-goodreads.mjs
  * @env None required - uses public Goodreads RSS feeds
  */
 
@@ -10,6 +15,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+// Named __dirname but it's scripts/ (one up from scripts/build/), hence '../content'.
 const __dirname = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'

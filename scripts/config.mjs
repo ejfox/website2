@@ -1,9 +1,16 @@
 /**
  * @file config.mjs
- * @description Processing configuration for content pipeline - directories, batch sizes, Cloudinary settings, and file patterns
+ * @description Content-pipeline paths and settings. Every path resolves from
+ *   process.cwd(), so run scripts from the repo root.
+ *   Imported by scripts/build/processMarkdown.mjs (dirs: content/blog →
+ *   content/processed, backup in content/backup), scripts/meta/check-internal-links.mjs
+ *   and scripts/blog/import-sealed.mjs.
+ * Gotchas: only `dirs` is read anywhere today. processing, cloudinary,
+ *   defaultFrontmatter, patterns and getConfig have no callers, so changing
+ *   them does nothing.
  * @usage import { config, dirs, processing } from './scripts/config.mjs'
- * @env DEBUG_PROCESS - Enable debug mode for processing (optional)
- * @env CLOUDINARY_CLOUD_NAME - Cloudinary cloud name for image optimization (optional)
+ * @env DEBUG_PROCESS - sets processing.debugMode (unread)
+ * @env CLOUDINARY_CLOUD_NAME - builds cloudinary.baseUrl (unread)
  */
 
 import path from 'node:path'

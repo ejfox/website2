@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Valley Atlas: terrain line-of-sight coverage for the valley's emergency
+ * @file atlas-coverage.mjs
+ * @description Valley Atlas: terrain line-of-sight coverage for the valley's emergency
  * (ARES/RACES + SKYWARN primary) repeaters.
  *
  * For each repeater: a radial sweep over AWS Terrarium elevation (z11, ~57 m/px)
@@ -18,6 +19,7 @@
  * OS temp dir; the output is deterministic for a given set of tiles.
  *
  * This is terrain line-of-sight, not RF propagation.
+ * Drawn by utils/atlas/layers/coverage.ts. Input: data/atlas/repeaters.csv.
  */
 import { readFile, writeFile, mkdir, stat, readdir, rm } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
@@ -119,7 +121,7 @@ const COLORS = {
 // alpha per tier: 0 none, 1 base (10 m), 2 handheld (2 m)
 const TIER_ALPHA = [0, 100, 220]
 
-// --- CSV ---------------------------------------------------------------------
+// ── CSV ────────────────────────────────────────────────────────────────────
 
 const parseCsv = (text) => {
   const rows = []
@@ -146,7 +148,7 @@ const parseCsv = (text) => {
   )
 }
 
-// --- PNG (8-bit RGB/RGBA decode, palette encode) --------------------------------
+// ── PNG (8-bit RGB/RGBA decode, palette encode) ────────────────────────────
 
 const decodePng = (buf) => {
   let pos = 8
@@ -230,7 +232,7 @@ const encodeTierPng = (tiers, w, h, rgb) => {
   ])
 }
 
-// --- Web Mercator, global pixel coords at zoom Z ---------------------------------
+// ── Web Mercator, global pixel coords at zoom Z ────────────────────────────
 
 const WORLD = 256 * 2 ** Z
 const lonToX = (lon) => ((lon + 180) / 360) * WORLD
@@ -242,7 +244,7 @@ const xToLon = (x) => (x / WORLD) * 360 - 180
 const yToLat = (y) =>
   (Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / WORLD))) * 180) / Math.PI
 
-// --- Terrain mosaic --------------------------------------------------------------
+// ── Terrain mosaic ─────────────────────────────────────────────────────────
 
 const tx0 = Math.floor(lonToX(BOUNDS.west) / 256)
 const tx1 = Math.floor(lonToX(BOUNDS.east) / 256)
@@ -316,7 +318,7 @@ const sampler = (elev) => (lon, lat) => {
   return top * (1 - fy) + bot * fy
 }
 
-// --- Viewshed --------------------------------------------------------------------
+// ── Viewshed ───────────────────────────────────────────────────────────────
 
 const NSTEPS = Math.floor(MAX_RANGE_M / STEP_M)
 const M_PER_DEG_LAT = 110540
@@ -348,7 +350,7 @@ const sweep = (elevAt, site, mastM) => {
   return { tiers, ground, hAnt, mLon }
 }
 
-// --- Output grid -----------------------------------------------------------------
+// ── Output grid ────────────────────────────────────────────────────────────
 
 const X0 = lonToX(BOUNDS.west)
 const X1 = lonToX(BOUNDS.east)
@@ -399,7 +401,7 @@ const slug = (s) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
 
-// --- Main ------------------------------------------------------------------------
+// ── Main ───────────────────────────────────────────────────────────────────
 
 const rows = parseCsv(await readFile(CSV, 'utf8'))
 const findRow = ({ freq, loc }) => {

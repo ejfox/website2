@@ -10,6 +10,12 @@
  *
  * A diagram that fails to parse renders as its escaped source plus the error,
  * and logs a warning — it never breaks the build.
+ *
+ * Gotchas: output is baked into cached JSON, so a Pele upgrade or a change
+ * here only reaches a post when it's reprocessed. Inline Mermaid style /
+ * classDef colors are fixed and don't follow dark mode. Theme vars and the
+ * .diagram-wide / .diagram-narrow swap live in assets/css/global.css. Tested
+ * by scripts/utils/__tests__/diagrams.test.mjs.
  * @usage .use(remarkMermaid) — must be before remarkRehype
  */
 
@@ -35,6 +41,7 @@ const BASE = {
 
 export function renderDiagram(source, idPrefix) {
   const wide = render(source, { ...BASE, maxWidth: WIDE, idPrefix })
+  // Narrow enough to stay legible on a phone: ship one SVG, skip the re-layout.
   if (wide.width <= NARROW * 1.5) {
     return `<figure class="diagram" data-diagram="${wide.type}">${wide.svg}</figure>`
   }
@@ -58,6 +65,8 @@ export function remarkMermaid() {
       if (node.lang !== 'mermaid') return
       const source = node.value
       const hash = createHash('sha256').update(source).digest('hex').slice(0, 8)
+      // Unique per diagram so two SVGs on one page don't collide on
+      // marker/gradient ids (hash of source + position in the post).
       const idPrefix = `d${hash}${index++}-`
       try {
         node.value = renderDiagram(source, idPrefix)
@@ -70,6 +79,8 @@ export function remarkMermaid() {
           `<pre class="diagram-error" data-error="${escapeHtml(error.message.split('\n')[0]).replace(/"/g, '&quot;')}">` +
           `${escapeHtml(source)}</pre>`
       }
+      // code → html node: remarkRehype passes it through as raw HTML
+      // (allowDangerousHtml) instead of escaping it into a <pre>.
       node.type = 'html'
       delete node.lang
       delete node.meta

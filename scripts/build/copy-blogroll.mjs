@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 /**
  * @file copy-blogroll.mjs
- * @description Snapshot the developer's local newsboat URLs file into data/blogroll.urls
- *              at build time, so the runtime container (which has no $HOME/.newsboat)
- *              can serve /api/blogroll from a static file.
- * @usage node scripts/copy-blogroll.mjs
+ * @description Snapshot ~/.newsboat/urls into data/blogroll.urls during
+ *   `prebuild`, so /api/blogroll (server/api/blogroll.get.ts → pages/following)
+ *   works on machines without newsboat, like the server.
+ * Gotchas: with no ~/.newsboat/urls (CI), the existing snapshot is kept, or
+ *   a stub is written so the endpoint returns 0 feeds instead of a 500.
+ * @usage node scripts/build/copy-blogroll.mjs
  * @output data/blogroll.urls
  */
 

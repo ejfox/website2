@@ -8,6 +8,10 @@
  *     no transformation (already-transformed URLs are left exactly as-is)
  *   - adds loading="lazy" decoding="async" to every image except the first
  *     in the post (the likely LCP), never overriding values already set
+ *   Used by scripts/build/processMarkdown.mjs.
+ * Gotchas: it sees EVERY <img> after rehypeRaw, including ones
+ *   remarkEnhanceImages already sized; those carry a transform segment, so
+ *   they're left alone. "First image" means first in document order.
  * @usage .use(rehypeRaw).use(rehypeOptimizeImages) — must run after rehypeRaw
  */
 

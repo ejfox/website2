@@ -2,7 +2,13 @@
  * @file plugins/remarkPredictionRef.mjs
  * @description Remark plugin that converts :prediction{id="..."} / ::prediction{id="..."} directives
  *   into HTML with embedded payload + static readable fallback. Client-side plugin upgrades
- *   these into mounted Vue components.
+ *   these into mounted Vue components (plugins/prediction-refs.client.ts →
+ *   components/blog/PredictionRef.vue / PredictionCard.vue). Reads
+ *   content/predictions/<id>.md or content/predictions/<year>/<rest>.md.
+ * Gotchas: the prediction's state is BAKED into the post's cached JSON, and
+ *   the cache keys on the post's own source hash. Resolving or updating a
+ *   prediction doesn't change the post, so it shows stale until reprocessed.
+ *   Unknown ids render a visible "[prediction: id not found]" and warn.
  * @usage .use(remarkDirective).use(remarkPredictionRef)
  */
 
@@ -40,6 +46,8 @@ async function loadPrediction(id) {
   predictionCache.set(id, null)
   return null
 }
+
+// ── HTML rendering ──────────────────────────────────────────────────────────
 
 function escapeHtml(str = '') {
   return String(str)
@@ -126,6 +134,8 @@ function renderMissingHtml(id, display) {
   const tag = display === 'block' ? 'aside' : 'span'
   return `<${tag} class="prediction-ref-missing">[prediction: ${escapeHtml(id)} not found]</${tag}>`
 }
+
+// ── The remark plugin ───────────────────────────────────────────────────────
 
 export function remarkPredictionRef() {
   return async (tree, file) => {

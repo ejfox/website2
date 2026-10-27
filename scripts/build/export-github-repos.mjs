@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 /**
  * @file export-github-repos.mjs
- * @description Export GitHub repository data including READMEs, language breakdown, file trees, and metadata with smart caching
- * @usage node scripts/export-github-repos.mjs
+ * @description Export ejfox's GitHub repos (README rendered to HTML, language
+ *   breakdown, file tree, metadata) to data/github-repos/<name>.json plus
+ *   data/github-repos-index.json and data/github-repos-list.json.
+ *   `yarn github:export`; also `prebuild` on local builds only (skipped when
+ *   $CI is set, and a failure falls back to the committed data).
+ *   A repo whose pushedAt is unchanged (and whose JSON has every current
+ *   field) is reused rather than refetched.
+ *   export-github-networks.mjs reads its output.
+ * @usage node scripts/build/export-github-repos.mjs
  * @env GITHUB_TOKEN - GitHub personal access token (required)
  * @env githubToken - Alternative env var name for GitHub token (optional)
  */
@@ -22,6 +29,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+// Named __dirname but it's scripts/ (one up from scripts/build/), hence '../data'.
 const __dirname = join(dirname(fileURLToPath(import.meta.url)), '..')
 const OUTPUT_DIR = join(__dirname, '../data/github-repos')
 const INDEX_FILE = join(__dirname, '../data/github-repos-index.json')
@@ -48,6 +56,8 @@ const markdownProcessor = unified()
   .use(rehypeRaw)
   .use(rehypeSlug)
   .use(rehypeStringify, { allowDangerousHtml: true })
+
+// ── GitHub API ─────────────────────────────────────────────────────────────
 
 async function makeGitHubRequest(query, variables = {}) {
   const response = await fetch('https://api.github.com/graphql', {
@@ -303,6 +313,8 @@ async function fetchRepositories() {
   return allRepos
 }
 
+// ── README rendering ───────────────────────────────────────────────────────
+
 async function processReadme(readmeText) {
   if (!readmeText) {
     return {
@@ -364,6 +376,8 @@ async function processReadme(readmeText) {
     }
   }
 }
+
+// ── Export one repo ────────────────────────────────────────────────────────
 
 function sanitizeFilename(filename) {
   // Only allow alphanumeric, hyphens, underscores, dots (GitHub repo names)
@@ -460,6 +474,8 @@ async function exportRepository(repo) {
     cached: false,
   }
 }
+
+// ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
   console.log('GitHub Repository Export')

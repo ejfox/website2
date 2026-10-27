@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 /**
- * Fetch the Valley Atlas point layers from OpenStreetMap (Overpass) and write
+ * @file fetch-atlas-places.mjs
+ * @description Fetch the Valley Atlas point layers from OpenStreetMap (Overpass) and write
  * a compact GeoJSON snapshot to data/atlas/places.geojson.
  *
  * Run by hand (`yarn atlas:fetch`), not on every build: Overpass is a shared
  * public service, and the snapshot is committed so the site never depends on it.
+ * Served by server/api/atlas.get.ts to pages/atlas.vue.
  */
 import { writeFile, mkdir } from 'node:fs/promises'
 import { resolve } from 'node:path'

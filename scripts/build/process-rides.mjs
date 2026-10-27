@@ -11,6 +11,12 @@
  * - Simplifies the track (Douglas-Peucker) to keep payloads small.
  * - Resolves "moments" (photos / audio / tweet-sized notes) onto the track
  *   by timestamp or by km marker.
+ *
+ * Also writes content/processed/rides/atlas.json. Read by server/api/rides*.ts
+ * and server/api/rides/[slug].get.ts (pages/rides/). `yarn rides:process`.
+ * Basemap + fuel stops come from ./ride-basemap.mjs (Overpass, cached in
+ * data/cache/). Refuses to run without RIDE_PRIVACY_SALT (from 1Password),
+ * because the trim jitter must not be recomputable from the public repo.
  */
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
@@ -35,7 +41,7 @@ const PRIVACY_SALT = process.env.RIDE_PRIVACY_SALT || ''
 const SIMPLIFY_TOLERANCE_DEG = 0.00008 // ~9m; keeps curves, drops jitter
 const MAX_POINTS = 2000
 
-// ---------------------------------------------------------------- geometry
+// ── geometry ───────────────────────────────────────────────────────────────
 
 const R_EARTH = 6371000
 function haversine(a, b) {
@@ -84,7 +90,7 @@ function douglasPeucker(points, tolerance) {
   return points.filter((_, i) => keep[i])
 }
 
-// ---------------------------------------------------------------- gpx
+// ── gpx ────────────────────────────────────────────────────────────────────
 
 async function parseGpx(gpxPath) {
   const xml = await readFile(gpxPath, 'utf8')
@@ -300,7 +306,7 @@ function computeTrack(rawPoints, trimMeters, slug) {
   }
 }
 
-// ---------------------------------------------------------------- frontmatter
+// ── frontmatter ────────────────────────────────────────────────────────────
 
 function parseFrontmatter(md) {
   const match = md.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/)
@@ -346,7 +352,7 @@ function parseScalar(raw) {
   return v
 }
 
-// ---------------------------------------------------------------- moments
+// ── moments ────────────────────────────────────────────────────────────────
 
 function nearestIndexByTime(enriched, t0, isoTime) {
   const target = Date.parse(isoTime)
@@ -437,7 +443,7 @@ function resolveMoments(moments, track) {
   })
 }
 
-// ---------------------------------------------------------------- main
+// ── main ───────────────────────────────────────────────────────────────────
 
 async function processRide(slug, states) {
   const dir = join(RIDES_DIR, slug)
@@ -718,7 +724,7 @@ function extentMeters(ride) {
   return Math.round(Math.max(wM, hM))
 }
 
-// ------------------------------------------------------- state outlines
+// ── state outlines ─────────────────────────────────────────────────────────
 
 const STATES_URL =
   'https://cdn.jsdelivr.net/gh/PublicaMundi/MappingAPI@master/data/geojson/us-states.json'
@@ -792,6 +798,8 @@ function stateOutlines(ride, states) {
   const xf = thumbTransform(ride)
   return segs.map((seg) => seg.map(xf))
 }
+
+// ── Index-card summaries (thumb, ghost trace, histograms) ──────────────────
 
 /** lon/lat → normalized 0–1 thumb space (aspect-true, y flipped). */
 function thumbTransform(ride) {

@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 /**
  * @file generate-changelog.mjs
- * @description Pre-generate git changelog at build time so the runtime container
- *              (which has no `git` binary) can serve /api/changelog from a static file.
- * @usage node scripts/generate-changelog.mjs
+ * @description Write the last 500 commits to data/changelog.json, which
+ *   /api/changelog serves (pages/changelog). Runs in `prebuild` and again on
+ *   the VPS during deploy (.github/workflows/deploy.yml): the file is
+ *   gitignored, so CI's copy never ships and prod regenerates its own.
+ * Gotchas: needs full git history; a shallow clone yields a short changelog.
+ * @usage node scripts/build/generate-changelog.mjs
  * @output data/changelog.json
  */
 

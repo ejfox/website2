@@ -1,7 +1,10 @@
+// @file atlas-live-stations.mjs
 // Regenerates data/atlas/live-stations.json (Hudson Line stops + track shape
 // from Metro-North static GTFS, plus the curated gauges/tides).
 // Usage: node scripts/build/atlas-live-stations.mjs <unzipped-mnr-gtfs-dir> data/atlas/live-stations.json
 // MNR static GTFS: https://rrgtfsfeeds.s3.amazonaws.com/gtfsmnr.zip
+// Read by server/api/atlas/live.get.ts. Run by hand; no yarn script. The CSV
+// parser is a plain split(','): a quoted field containing a comma breaks it.
 import { readFileSync, writeFileSync } from 'node:fs'
 const G = process.argv[2]
 const csv = (f) => {

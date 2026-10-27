@@ -4,7 +4,13 @@
  *   Icons come from data/link-icons.json, raw Iconify SVGs vendored by
  *   `yarn icons:vendor`, so processing needs no network. A live fetch was
  *   fragile: a 404 or 429 baked a post's JSON without its icons, and the
- *   cache never retried.
+ *   cache never retried. Also sets target=_blank, rel and the
+ *   `external-link` class on every http(s) link.
+ *   Used by scripts/build/processMarkdown.mjs; scripts/build/vendor-link-icons.mjs
+ *   imports socialPlatforms / iconUrl / isSafeSvg from here.
+ * Gotchas: an icon missing from data/link-icons.json falls back to a live
+ *   Iconify fetch (with a warning); vendor it instead. The SVG is baked into
+ *   cached post JSON, so a changed icon only shows after that post reprocesses.
  * @usage .use(remarkEnhanceLinks)
  */
 
@@ -12,7 +18,9 @@ import { readFileSync } from 'node:fs'
 import { visit } from 'unist-util-visit'
 import NodeCache from 'node-cache'
 
-// Cache for fetched icons
+// ── Icon sources ────────────────────────────────────────────────────────────
+
+// Cache for fetched icons (per process; one blog:process run)
 const iconCache = new NodeCache({ stdTTL: 3600 })
 
 const VENDORED_ICONS = (() => {
@@ -25,7 +33,7 @@ const VENDORED_ICONS = (() => {
   }
 })()
 
-// Social platform icons mapping
+// Social platform icons mapping. Adding a domain? Run `yarn icons:vendor`.
 export const socialPlatforms = {
   'wikipedia.org': 'simple-icons:wikipedia',
   'github.com': 'simple-icons:github',
@@ -117,6 +125,9 @@ const decorate = (svg) =>
       'transition-opacity align-text-bottom"'
   )
 
+// ── Icon loading ────────────────────────────────────────────────────────────
+
+// Vendored SVG first; live Iconify fetch with backoff only as a fallback.
 const fetchIcon = async (name, retries = 2) => {
   const cached = iconCache.get(name)
   if (cached) return cached
@@ -167,6 +178,8 @@ const fetchIcon = async (name, retries = 2) => {
   }
   return null
 }
+
+// ── The remark plugin ───────────────────────────────────────────────────────
 
 export function remarkEnhanceLinks() {
   return async (tree) => {

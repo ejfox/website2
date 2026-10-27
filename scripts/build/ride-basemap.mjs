@@ -8,6 +8,10 @@
  * and town labels. No tiles, no runtime map service — just coordinates.
  *
  * OSM data © OpenStreetMap contributors (ODbL) — the page shows attribution.
+ *
+ * Library, not a CLI: imported by ./process-rides.mjs (buildBasemap,
+ * fetchFuelStations). Overpass responses are cached per ride slug under
+ * data/cache/; delete that file to re-pull.
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
@@ -109,7 +113,7 @@ export async function fetchFuelStations(bbox, cacheDir, slug) {
   throw lastErr
 }
 
-// ---------------------------------------------------------------- geometry
+// ── geometry ───────────────────────────────────────────────────────────────
 
 function perpDist(p, a, b) {
   const dx = b[0] - a[0]
@@ -182,7 +186,7 @@ function stitchRings(members) {
   return rings
 }
 
-// ---------------------------------------------------------------- build
+// ── build ──────────────────────────────────────────────────────────────────
 
 export async function buildBasemap(bbox, cacheDir, slug) {
   // > ~0.8° of extent (~55mi) → coarse plate + heavier simplification

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @file atlas-notes.mjs
 // Builds data/atlas/notes-places.json for the Valley Atlas notes layer: the
 // roads EJ writes about riding, the towns New York City drowned for its
 // reservoirs, and the hidden-history sites from his Hudson Valley book notes.
@@ -12,6 +13,7 @@
 // (content/blog, not drafts/private/robots, not draft/hidden/unlisted/password).
 // His Obsidian vault and agent-vault are private: use them to find places, never
 // quote them. Never pin his home, neighborhood, storage, studio or mesh nodes.
+// Drawn by utils/atlas/layers/notes.ts. Run by hand; no yarn script.
 import { existsSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -46,7 +48,10 @@ const LAYER_KEYS = new Set([
   'notes-drowned',
   'notes-history',
 ])
+// A `source` matching any of these is a private note and fails the check.
 const PRIVATE_PATHS = [/obsidian/i, /agent-vault/i, /Mobile Documents/i]
+
+// ── Curated places: roads, drowned towns, history ──────────────────────────
 
 // Roads: an Overpass way filter, plus an optional longitude clip so a long
 // state route only draws the stretch that is actually the ride
@@ -328,6 +333,8 @@ const HISTORY = [
   },
 ]
 
+// ── Overpass + geometry helpers ────────────────────────────────────────────
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const round = (c) => [+c[0].toFixed(5), +c[1].toFixed(5)]
 
@@ -450,6 +457,8 @@ const props = (s, kind) => {
   return p
 }
 
+// ── Build ──────────────────────────────────────────────────────────────────
+
 const build = async (refresh) => {
   const cached = new Map()
   if (!refresh) {
@@ -479,6 +488,8 @@ const build = async (refresh) => {
   )
   console.log(`wrote ${features.length} features → ${OUT}`)
 }
+
+// ── Checks: bounds, verbatim quotes, story chapters ────────────────────────
 
 const inBounds = ([lon, lat]) =>
   lon >= BOUNDS.west &&
@@ -589,6 +600,8 @@ const checkStory = async () => {
   console.table(rows)
   return bad
 }
+
+// ── CLI ────────────────────────────────────────────────────────────────────
 
 const args = process.argv.slice(2)
 if (!args.includes('--check')) await build(args.includes('--refresh'))
