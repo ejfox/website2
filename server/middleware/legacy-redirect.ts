@@ -7,6 +7,11 @@
  *
  *   Runs before every /blog and /projects page render, so the manifest-derived
  *   index is rebuilt only when manifest-lite.json's mtime changes, not per hit.
+ *
+ *   Order: fourth in filename order, after json-twin (which has already
+ *   answered any `.json` path) and before markdown-twin; legacySlugTarget
+ *   refuses extension-bearing segments anyway, so `.md` falls through to it.
+ *   Tests: server/utils/__tests__/legacyRedirect.test.ts.
  */
 import { readFile, stat } from 'node:fs/promises'
 import { getRequestURL, sendRedirect } from 'h3'
@@ -47,6 +52,8 @@ export default defineEventHandler(async (event) => {
   if (!pathname.startsWith('/blog/') && !pathname.startsWith('/projects/'))
     return
 
+  // Cheap regex check first: the srcset fragments are the bulk of the 404s
+  // and need no manifest read.
   const image = cloudinaryFragmentTarget(pathname)
   if (image) return sendRedirect(event, image, 301)
 

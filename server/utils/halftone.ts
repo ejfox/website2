@@ -35,6 +35,10 @@
  *
  * Self-contained on purpose (no `~/` imports, no Nuxt auto-imports) so it runs
  * under vitest and plain `node` scripts as well as Nitro.
+ *
+ * Importers: server/utils/epubImages.ts, server/utils/epubCache.ts (cache dir),
+ * server/routes/photos.epub.ts. Tests: server/utils/__tests__/halftone.test.ts.
+ * Change the algorithm → bump ALGO_VERSION, or old PNGs keep being served.
  */
 import zlib from 'node:zlib'
 import { createHash } from 'node:crypto'
@@ -82,7 +86,7 @@ export function cloudinaryTransform(url: string, transform: string): string {
   return `${head}${transform}/${segs.slice(i).join('/')}`
 }
 
-// ------------------------------------------------------------------ screen
+// ── Screen ──────────────────────────────────────────────────────────────────
 
 /**
  * Rank-normalise to (0,1): stable argsort, rank r -> (r + 0.5) / n.
@@ -140,6 +144,7 @@ export function lineScreen(
   }
   const r = rank01(s)
   for (let i = 0; i < r.length; i++) r[i] = 1 - r[i]
+  // Bounded: evict the oldest of 8 screens (each is w*h floats, ~7.7 MB max).
   if (SCREENS.size >= 8) SCREENS.delete(SCREENS.keys().next().value!)
   SCREENS.set(key, r)
   return r
@@ -183,8 +188,9 @@ export function autoLevel(g: Float32Array): [number, number] {
   return [lo, hi]
 }
 
-// ------------------------------------------------------------------ PNG
+// ── PNG ─────────────────────────────────────────────────────────────────────
 
+// zlib.crc32 exists only on newer Node; the table fallback covers older ones.
 let CRC_TABLE: Uint32Array | null = null
 function crc32(buf: Buffer): number {
   const native = (zlib as unknown as { crc32?: (b: Buffer) => number }).crc32
@@ -242,7 +248,7 @@ export function encodePng1(bits: Uint8Array, w: number, h: number): Buffer {
   ])
 }
 
-// ------------------------------------------------------------------ fetch + cache
+// ── Fetch + cache ───────────────────────────────────────────────────────────
 
 const CACHE_DIR =
   process.env.EPUB_HALFTONE_CACHE ||

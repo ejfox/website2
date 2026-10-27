@@ -1,8 +1,22 @@
+/**
+ * @file gists-rss.xml.ts
+ * @description GET /gists-rss.xml — EJ's 100 most recently pushed PUBLIC
+ *   GitHub gists as RSS, with each file's source inlined (capped) as HTML.
+ *   Live from the GitHub GraphQL API on every uncached request; needs the
+ *   GitHub token (serverEnv, server/utils/serverEnv.ts).
+ *
+ * Failure mode: on any error it serves the last good XML from disk
+ *   (data/cache/, header X-Gists-Cache: stale-on-error), else a 503 stub.
+ *   FEED_FORMAT_VERSION keys both that file and the ETag; bump it whenever
+ *   the XML shape changes.
+ */
 import { defineEventHandler } from 'h3'
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { escapeXml, cdata } from '~/server/utils/xml'
 import { serverEnv } from '~/server/utils/serverEnv'
+
+// ── Types + config ──────────────────────────────────────────────────────────
 
 // GraphQL response types
 interface GistFile {
@@ -66,6 +80,8 @@ const DISK_CACHE_PATH = join(
   `data/cache/gists-rss.${FEED_FORMAT_VERSION}.xml`
 )
 
+// ── Disk cache ──────────────────────────────────────────────────────────────
+
 function readDiskCache(): string | null {
   try {
     return existsSync(DISK_CACHE_PATH)
@@ -85,6 +101,8 @@ function writeDiskCache(xml: string): void {
   }
 }
 
+// ── Handler ─────────────────────────────────────────────────────────────────
+
 export default defineEventHandler(async (event): Promise<string> => {
   try {
     // Add cache control headers
@@ -96,6 +114,7 @@ export default defineEventHandler(async (event): Promise<string> => {
     const token =
       serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
 
+    // Thrown, not returned: the catch below turns it into stale-on-error.
     if (!token) {
       throw new Error('GitHub token not configured')
     }
@@ -173,6 +192,7 @@ export default defineEventHandler(async (event): Promise<string> => {
     // which don't change when the serializer does. Without this, a reader or
     // CDN holding an ETag from the old broken output gets a 304 and keeps
     // serving that body even though the feed has been fixed.
+    // Computed after the GitHub fetch, so a 304 saves bandwidth, not the call.
     const etag = `"${FEED_FORMAT_VERSION}-${lastBuildDate.getTime()}"`
     event.node.res.setHeader('ETag', etag)
     if (event.node.req.headers['if-none-match'] === etag) {

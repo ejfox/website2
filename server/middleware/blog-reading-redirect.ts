@@ -11,6 +11,9 @@
  *   Also handles one legacy inbound link (aocr.org) to a year-less, lowercased
  *   reading-note URL. Matching that here rather than in routeRules because the
  *   link arrives as `%20`, `%2520` or a literal space depending on the client.
+ *
+ *   Order: second in filename order, after blog-projects-redirect and before
+ *   json-twin, so /blog/reading/x.json is 301'd to /reading/x.json first.
  */
 import { sendRedirect } from 'h3'
 
@@ -19,6 +22,8 @@ const LEGACY: Record<string, string> = {
     '/reading/Williams-The%20Dead%20Emcee%20Scrolls',
 }
 
+// Up to three rounds covers `%2520` (double-encoded) → `%20` → space. Stops
+// early on a malformed escape rather than throwing.
 function fullyDecode(s: string): string {
   let prev = s
   for (let i = 0; i < 3; i++) {

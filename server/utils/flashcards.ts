@@ -1,6 +1,12 @@
 /**
  * @file flashcards.ts
  * @description Shared utilities for flashcard API endpoints
+ *   (server/api/flashcards.get.ts, server/api/flashcards/[id].get.ts).
+ *   Decks are headerless CSVs in public/data/flashcards/ (front, back, hints…);
+ *   course and display name are parsed from the filename.
+ *
+ * Paths resolve against process.cwd(), like the rest of server/.
+ * loadDeck() joins the id into a path; callers validate it.
  */
 import { readFile, readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -23,6 +29,8 @@ export interface Flashcard {
   deckName: string
   course: string
 }
+
+// ── Parsing ─────────────────────────────────────────────────────────────────
 
 // Parse deck info from filename
 export function parseDeckName(filename: string): {
@@ -55,7 +63,8 @@ function formatWeekName(s: string): string {
     .replace(/([a-z])(\d)/gi, '$1 $2')
 }
 
-// Parse CSV rows (no header assumed)
+// Parse CSV rows (no header assumed). Hand-rolled RFC 4180-ish: quoted
+// fields may hold commas/newlines, `""` is a literal quote, blank rows drop.
 export function parseCSV(content: string): string[][] {
   const rows: string[][] = []
   let current = ''
@@ -94,6 +103,8 @@ export function parseCSV(content: string): string[][] {
 
   return rows
 }
+
+// ── Loading ─────────────────────────────────────────────────────────────────
 
 // Load all decks
 export async function loadAllDecks(): Promise<FlashcardDeck[]> {

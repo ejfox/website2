@@ -1,12 +1,18 @@
 /**
- * Pure sitemap builders (no nitro/h3 imports) so the privacy rules are
- * unit-testable: server/utils/__tests__/sitemapEntries.test.ts.
+ * @file sitemapEntries.ts
+ * @description Pure sitemap builders behind server/routes/sitemap.xml.ts (its
+ *   only importer). No nitro/h3 imports, so the privacy rules are
+ *   unit-testable: server/utils/__tests__/sitemapEntries.test.ts.
  *
  * Privacy: a post is advertised only if it is NOT draft / hidden / unlisted /
  * password-protected / scheduled (isScheduled) / a special section. Sealed
  * posts never reach manifest-lite.json at all (see docs/SEALED-POSTS.md).
  * Tag pages are counted from the posts that PASS that filter only, so a tag
  * used only on drafts never leaks into the sitemap.
+ *
+ * Gotcha: isSitemapEligible spells the flags out by hand rather than calling
+ * the shared isHiddenFromListings (utils/postFilters.ts), and has no `sealed`
+ * check. A new visibility flag must be added here too.
  */
 import { isScheduled, type Post } from '~/utils/postFilters'
 import { escapeXml } from './xml'

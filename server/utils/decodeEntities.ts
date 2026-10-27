@@ -1,7 +1,10 @@
 /**
  * @file decodeEntities.ts
  * @description Decode HTML entities in text scraped from other sites' <meta>
- * tags (used by /api/og link previews).
+ * tags (used by /api/og link previews). Also used by server/api/mastodon.get.ts,
+ * server/utils/feedHtml.ts (excerpts) and server/routes/feed.json.ts (plain-text
+ * summary). Output is plain text: never put it back into HTML unescaped.
+ * Tests: server/utils/__tests__/decodeEntities.test.ts.
  */
 
 // Named entities that actually turn up in titles/descriptions. Numeric

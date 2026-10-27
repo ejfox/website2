@@ -1,3 +1,16 @@
+/**
+ * @file tags.json.ts
+ * @description GET /tags.json — the tag vocabulary in "journalist pyramid"
+ *   order: `!`-special tags, then content tags by usage count, then unused
+ *   base tags. Merges public/tags.json (base vocabulary) with
+ *   public/content-tags.json (usage counts written by `yarn blog:process`).
+ *   Read by pages/bookmarklet-popup.vue and pages/sitemap.vue.
+ *
+ * Gotcha: public/tags.json lives at the SAME URL. In production the response
+ *   looks like that static file (alphabetical, with static-file etag /
+ *   last-modified, no `max-age=3600`), so this handler appears to be shadowed
+ *   by Nitro's public-asset serving. Check before relying on the ordering.
+ */
 import { defineEventHandler, setHeader } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
@@ -51,6 +64,8 @@ export default defineEventHandler(async (event) => {
 
     return [...specialTags, ...usedTags, ...unusedTags]
   } catch (error) {
+    // Degrade, don't fail: unordered base tags, then a hardcoded stub, so the
+    // bookmarklet's tag list (pages/bookmarklet-popup.vue) never gets a 500.
     console.error('Error loading tags:', error)
     try {
       const baseTagsPath = path.join(process.cwd(), 'public/tags.json')

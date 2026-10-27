@@ -5,6 +5,10 @@
  *   route happily rendered them at /blog/projects/* too — a full duplicate of
  *   every project page, each self-canonicalizing, with the sitemap formerly
  *   promoting the wrong twin. One canonical home: /projects/<slug>.
+ *
+ *   Order: Nitro runs server/middleware/* in filename order, so this is first.
+ *   `event.path` includes the query string, so `?x` rides along inside `rest`.
+ *   Sitemap side of the same rule: sitemapPostPath in server/utils/sitemapEntries.ts.
  */
 import { sendRedirect } from 'h3'
 

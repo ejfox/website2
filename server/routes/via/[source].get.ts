@@ -14,6 +14,9 @@
  * Open-redirect protection is the SAME two-step check as /from-youtube (see
  * CLAUDE.md): validate the `to` input, then re-validate the EMITTED Location,
  * because `new URL()` normalisation can turn `/..//evil.com` into `//evil.com`.
+ * The full walk-through is in server/routes/from-youtube/[videoId].get.ts.
+ * Keep BOTH checks: neither is sufficient alone. If you touch one route,
+ * touch the other.
  */
 import { defineEventHandler, getQuery, sendRedirect, setHeader } from 'h3'
 
@@ -42,7 +45,12 @@ function token(value: unknown): string | null {
   return TOKEN.test(v) ? v : null
 }
 
-/** Input check: a single-leading-slash, backslash-free path, else `/`. */
+/**
+ * Input check: a single-leading-slash, backslash-free path, else `/`.
+ * Rejects absolute URLs, protocol-relative `//host`, and `\` (browsers treat
+ * `/\host` like `//host`). It can't see what `new URL()` does next; that's
+ * the output check's job below.
+ */
 function safePath(to: unknown): string {
   if (typeof to !== 'string' || !to) return '/'
   if (!to.startsWith('/')) return '/'
@@ -66,6 +74,9 @@ export default defineEventHandler(async (event) => {
 
   // Output check — the one that actually matters. Must start with exactly one
   // slash and stay on our origin, whatever the normaliser did to the input.
+  // `/..//evil.com` passes safePath(), then `new URL()` collapses the `..`
+  // and the pathname becomes `//evil.com`: a network-path reference the
+  // browser would follow off-site. Only checking the emitted string catches it.
   setHeader(event, 'Cache-Control', 'no-store')
   setHeader(event, 'X-Robots-Tag', 'noindex, nofollow')
   if (url.origin !== ORIGIN || !/^\/(?!\/)/.test(location)) {

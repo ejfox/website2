@@ -1,3 +1,11 @@
+/**
+ * @file gear-data.ts
+ * @description Load data/gear.csv as typed rows with a URL slug, sorted by
+ *   Name. Called (Nitro auto-import, no explicit import) by
+ *   server/api/gear.get.ts and server/api/gear/[slug].get.ts.
+ *   Rows without a Name are dropped. Column names are the CSV's own headers
+ *   (Weight_oz, 'Parent Container' …); rename one there and fix GearItem here.
+ */
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as d3 from 'd3'

@@ -35,6 +35,8 @@ import { serveBook } from '~/server/utils/epubCache'
 // images and must not hold a request past Cloudflare's timeout.
 const TTL_SECONDS = 3600
 
+// ── HTML → e-reader HTML ────────────────────────────────────────────────────
+
 /**
  * Strip everything an e-reader can't render or shouldn't be asked to.
  *
@@ -112,6 +114,8 @@ function toEbookHtml(html: string): string {
     exclusiveFilter: (frame) => frame.tag === 'img' && !frame.attribs.src,
   })
 }
+
+// ── Build + serve ───────────────────────────────────────────────────────────
 
 async function buildArchive() {
   const { getPostsWithContent } = useProcessedMarkdown()

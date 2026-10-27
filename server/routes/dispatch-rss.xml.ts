@@ -1,9 +1,13 @@
 /**
  * @file dispatch-rss.xml.ts
- * @description RSS feed of public Dispatch pieces at /dispatch-rss.xml (named
+ * @description GET /dispatch-rss.xml — RSS feed of public Dispatch pieces (named
  * like the other secondary feeds: gists-rss.xml). Drafts,
  * unlisted, password and still-scheduled pieces never appear — the shared
  * `listDispatches()` gate handles all of them.
+ *
+ * Each listed piece is then re-read with getDispatch() for its HTML, which
+ * applies its own (direct-URL) gate; both live in server/utils/dispatch.ts.
+ * An undated piece is stamped with the request time (rss.xml skips those).
  */
 import RSS from 'rss'
 import { defineEventHandler, setHeader } from 'h3'

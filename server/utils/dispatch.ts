@@ -11,6 +11,12 @@
  *   - direct URL: unlisted is served (with noindex); draft / hidden /
  *     password and scheduled 404 in production. Dev previews everything,
  *     mirroring server/api/posts/[...slug].ts.
+ *
+ * Importers: server/api/dispatch.get.ts, server/api/dispatch/[slug].get.ts,
+ * server/routes/dispatch-rss.xml.ts, server/routes/sitemap.xml.ts.
+ *
+ * Markdown is rendered with allowDangerousHtml: raw HTML in a piece passes
+ * through unsanitised. Fine for EJ-authored files; never feed it other input.
  */
 import { promises as fs } from 'node:fs'
 import { join, resolve, sep } from 'node:path'
@@ -21,6 +27,8 @@ import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+
+// ── Types ───────────────────────────────────────────────────────────────────
 
 export interface DispatchLink {
   title: string
@@ -61,6 +69,8 @@ export interface DispatchMeta {
 export interface DispatchPiece extends DispatchMeta {
   html: string
 }
+
+// ── Slugs + frontmatter normalising ─────────────────────────────────────────
 
 const DISPATCH_DIR = join(process.cwd(), 'content', 'dispatch')
 
@@ -141,6 +151,8 @@ function normalize(slug: string, data: Record<string, unknown>): DispatchMeta {
   }
 }
 
+// ── Visibility ──────────────────────────────────────────────────────────────
+
 /** Raw frontmatter flags, for the shared visibility predicates. */
 type Flags = Record<string, unknown>
 
@@ -161,6 +173,8 @@ function isProtectedDispatch(flags: Flags): boolean {
   )
 }
 
+// Dates normalised to ISO strings first: gray-matter hands back Date objects
+// for unquoted timestamps, and the shared predicates are typed for strings.
 function flagsOf(data: Record<string, unknown>): Flags {
   return {
     ...data,
@@ -168,6 +182,8 @@ function flagsOf(data: Record<string, unknown>): Flags {
     publishAt: isoOrNull(data.publishAt) ?? undefined,
   }
 }
+
+// ── Reading + rendering ─────────────────────────────────────────────────────
 
 async function readSource(slug: string) {
   const filePath = resolve(DISPATCH_DIR, `${slug}.md`)
@@ -192,6 +208,8 @@ export async function renderDispatchMarkdown(
 ): Promise<string> {
   return markdown.trim() ? String(await processor.process(markdown)) : ''
 }
+
+// ── Public API ──────────────────────────────────────────────────────────────
 
 /**
  * All pieces, newest first. Public only unless `preview` (dev), which also

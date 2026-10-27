@@ -10,6 +10,9 @@
  *   is the same bare 404, so a .md URL never reveals that a draft exists.
  *
  *   Only acts on /blog/**.md; everything else falls straight through.
+ *   Order: fifth in filename order (after legacy-redirect, before
+ *   week-notes-gone). Rules + tests: server/utils/markdownTwin.ts,
+ *   server/utils/__tests__/markdownTwin.test.ts.
  */
 import {
   defineEventHandler,
@@ -44,6 +47,8 @@ export default defineEventHandler(async (event) => {
   }
   if (!isMarkdownSlug(slug)) return notFound(event)
 
+  // Through /api/posts, never a direct file read: that route owns slug
+  // validation and the visibility 404s, and this file must not re-implement them.
   let data: unknown
   try {
     data = await $fetch(`/api/posts/${encodeURI(slug)}`)

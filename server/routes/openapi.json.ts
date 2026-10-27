@@ -1,7 +1,9 @@
 /**
- * /openapi.json — OpenAPI 3.1 spec generated from utils/apiCatalog.ts.
- * Machine-readable twin of the /api-docs page. Kept in sync with the real routes
- * by server/api/__tests__/api-catalog.test.ts.
+ * @file openapi.json.ts
+ * @description GET /openapi.json — OpenAPI 3.1 spec generated from
+ *   utils/apiCatalog.ts. Machine-readable twin of the /api-docs page. Kept in
+ *   sync with the real routes by server/api/__tests__/api-catalog.test.ts.
+ *   Listed in json-twin's RESERVED set so that middleware leaves it alone.
  */
 import { apiCatalog } from '~/utils/apiCatalog'
 

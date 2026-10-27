@@ -1,12 +1,15 @@
 /**
  * @file scraps-rss.xml.ts
- * @description RSS feed of the public link log at /scraps-rss.xml (named like
+ * @description GET /scraps-rss.xml — RSS feed of the public link log (named like
  * the other secondary feeds: dispatch-rss.xml, gists-rss.xml).
  *
  * Reads /api/scraps rather than querying Supabase itself, so the feed exposes
  * exactly what /scraps already shows (the `shared === true` filter lives in one
  * place) and rides that handler's 1h cache — a feed poller can't add Supabase
  * egress on top of the page's.
+ *
+ * On top of that filter, FEED_SKIP_HOSTS keeps shopping and lodging saves out
+ * of the feed only (they still show on /scraps).
  */
 import RSS from 'rss'
 import { defineEventHandler, setHeader } from 'h3'

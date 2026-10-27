@@ -1,5 +1,13 @@
 /**
- * The one place server code reads `content/processed/manifest-lite.json`.
+ * @file manifest.ts
+ * @description The one place server code reads
+ *   `content/processed/manifest-lite.json`. Importers: server/middleware/
+ *   legacy-redirect.ts (MANIFEST_PATH only), server/routes/sitemap.xml.ts,
+ *   server/routes/robots-rss.xml.ts and several server/api routes (manifest,
+ *   projects, photo-posts, agent/timeline, gear-posts, words-this-month).
+ *   Tests: server/utils/__tests__/manifest.test.ts.
+ *   Sealed posts are omitted from the manifest at write time, so no reader
+ *   here ever sees one.
  *
  * Nine routes used to read and parse it themselves, and each carried its own
  * copy of the "is this post public?" checks. Two of those copies were
@@ -28,7 +36,11 @@ export type ManifestEntry = Post & {
 export const MANIFEST_PATH = () =>
   join(process.cwd(), 'content/processed/manifest-lite.json')
 
-/** Parsed manifest-lite.json. Throws if it's missing or unreadable. */
+/**
+ * Parsed manifest-lite.json. Throws if it's missing or unreadable.
+ * UNFILTERED: it includes draft/hidden/unlisted entries. Filter with
+ * isListable before anything reaches a response.
+ */
 export async function readManifest(): Promise<ManifestEntry[]> {
   return JSON.parse(await readFile(MANIFEST_PATH(), 'utf8'))
 }

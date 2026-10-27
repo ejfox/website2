@@ -1,5 +1,8 @@
 /**
- * Private mode for the Valley Atlas: layers only EJ can load.
+ * @file atlasPrivate.ts
+ * @description Private mode for the Valley Atlas: layers only EJ can load.
+ *   Used by server/api/atlas/unlock|lock.get.ts and every route under
+ *   server/api/atlas/private/.
  *
  * Visiting /api/atlas/unlock?key=<ATLAS_PRIVATE_TOKEN> sets an httpOnly
  * cookie holding an HMAC of the token (never the token itself). Private
@@ -18,6 +21,8 @@ const token = () => serverEnv('ATLAS_PRIVATE_TOKEN')
 export const cookieValue = () =>
   createHmac('sha256', token()).update('atlas-private-v1').digest('hex')
 
+// timingSafeEqual throws on unequal lengths, so check length first. That
+// leaks only the length, which is fixed (64 hex chars) for the cookie.
 const safeEqual = (a: string, b: string) => {
   const ab = Buffer.from(a)
   const bb = Buffer.from(b)
@@ -27,12 +32,15 @@ const safeEqual = (a: string, b: string) => {
 export const keyMatches = (key: string) => !!token() && safeEqual(key, token())
 
 export const isAtlasPrivate = (event: H3Event) => {
+  // No token configured = private mode off. Without this, an empty-key HMAC
+  // would be a guessable constant cookie.
   if (!token()) return false
   const got = getCookie(event, ATLAS_COOKIE) || ''
   return safeEqual(got, cookieValue())
 }
 
 export function requireAtlasPrivate(event: H3Event) {
+  // Headers go on BEFORE the check, so the 404 is uncacheable too.
   setHeader(event, 'Cache-Control', 'private, no-store')
   setHeader(event, 'X-Robots-Tag', 'noindex, nofollow')
   if (!isAtlasPrivate(event)) {

@@ -1,3 +1,13 @@
+/**
+ * @file feed.json.ts
+ * @description GET /feed.json — JSON Feed 1.1 twin of server/routes/rss.xml.ts
+ *   (latest 50 posts, full HTML). Same visibility rules: getPostsWithContent()
+ *   applies isExcludedFromListings, then the shared isHiddenFromListings +
+ *   isScheduled (utils/postFilters.ts). Listed in json-twin's RESERVED set.
+ *
+ * Divergence from rss.xml: an undated post is kept here (no date_published)
+ *   where rss.xml skips it.
+ */
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
 import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'

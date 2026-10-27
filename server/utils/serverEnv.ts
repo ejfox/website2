@@ -1,4 +1,10 @@
 /**
+ * @file serverEnv.ts
+ * @description serverEnv(key): read a server-only secret, runtime config first,
+ *   then process.env. Used by most credentialed server/api routes, plus
+ *   server/utils/atlasPrivate.ts and server/routes/gists-rss.xml.ts.
+ *   Server-only: never call it from anything that ships to the browser.
+ *
  * Read a server-only secret: runtime config first, then process.env.
  *
  * Production is built on the GitHub Actions runner, which has none of these

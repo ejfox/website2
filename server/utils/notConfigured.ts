@@ -1,4 +1,9 @@
 /**
+ * @file notConfigured.ts
+ * @description Quiet "credential not set" handling for the vendor stats
+ *   handlers (server/api/{github,lastfm,chess,monkeytype,…}.get.ts) and the
+ *   /api/stats aggregator that fans out to them.
+ *
  * Missing credentials are expected in local dev (the real keys live in the VPS
  * .env), so they shouldn't read like an outage. Log ONE quiet line per service
  * per process, and tag the error so the /api/stats aggregator can skip it.
@@ -11,6 +16,7 @@ export function warnNotConfigured(service: string, what: string): void {
   console.warn(`[${service}] ${what} not set, skipping`)
 }
 
+/** A 503 H3Error tagged `data.notConfigured`, for a handler to throw. */
 export function notConfigured(service: string, what: string) {
   warnNotConfigured(service, what)
   return createError({

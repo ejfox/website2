@@ -1,6 +1,11 @@
 /**
- * Text processing utilities for search and content analysis
- * Shared by search.get.ts and suggest.get.ts
+ * @file text-processing.ts
+ * @description Text processing utilities for search and content analysis.
+ *   Shared by server/api/search.get.ts, suggest.get.ts and mastodon.get.ts
+ *   (stripHtml only).
+ *
+ * stripHtml is for indexing, not sanitising: it leaves entities encoded and
+ *   is no defence against hostile HTML.
  */
 
 /**

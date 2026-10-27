@@ -12,11 +12,16 @@
  *
  * Umami already captures UTM params from the query string client-side, so there
  * is no server-side event to send and no Umami credentials involved here.
+ *
+ * Open-redirect defence is two checks, input (safePath) and output (the emitted
+ * Location). Both stay; the reason is spelled out above the output check.
+ * server/routes/via/[source].get.ts carries the same pair; change them together.
  */
 import { defineEventHandler, getQuery, sendRedirect, createError } from 'h3'
 
 // Video ids are YouTube's own format: 11 chars of [A-Za-z0-9_-]. Keeping this
 // strict stops the id being used to smuggle anything into the UTM values.
+// (The regex below allows 6–20 chars of slack; ORIGIN is unrelated.)
 const ORIGIN = 'https://ejfox.com'
 
 const VIDEO_ID = /^[\w-]{6,20}$/
@@ -29,6 +34,10 @@ const VIDEO_ID = /^[\w-]{6,20}$/
  * it looks like a path). Without this the route is an open redirect, which is
  * worth real money to phishers precisely because the link starts with a domain
  * people trust.
+ *
+ * Backslashes are refused because browsers treat `/\evil.com` as `//evil.com`.
+ * This is the INPUT half only; it cannot see the normalisation `new URL()`
+ * applies afterwards, which is why the handler re-checks its output.
  */
 function safePath(to: unknown): string {
   if (typeof to !== 'string' || !to) return '/'

@@ -16,6 +16,10 @@
  *      alone, so a hidden post stays a plain 404 rather than a 301 that
  *      confirms it exists. No fuzzy/prefix matching: a typo matcher at request
  *      time is how hidden posts leak.
+ *
+ *   Also imported by scripts/meta/check-urls.mjs (via jiti), so the URL check
+ *   sees exactly the redirects prod does. Tests:
+ *   server/utils/__tests__/legacyRedirect.test.ts.
  */
 import {
   isHiddenFromListings,
@@ -124,6 +128,8 @@ export function legacySlugTarget(
   if (index.all.has(section === 'projects' ? `projects/${rest}` : rest))
     return null
 
+  // Exactly one public match, or nothing: two posts sharing a final segment
+  // is ambiguous, and guessing would be a fuzzy match by another name.
   const routes = index.byFinal.get(norm(last))
   if (!routes || routes.length !== 1) return null
   return decodeURIComponent(routes[0]) === path ? null : routes[0]

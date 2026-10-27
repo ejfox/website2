@@ -12,6 +12,9 @@
  * Image failures never fail the book: the image is dropped and its caption
  * (or alt text) stays behind as a small caption, so the reader still knows
  * something was there.
+ *
+ * Only importer: server/routes/archive.epub.ts (photos.epub builds its own
+ * figures). Every http(s) <img> in the book is fetched server-side.
  */
 import { halftoneImage, halftoneKey, mapLimit } from './halftone'
 import type { EpubImage } from './epub'
@@ -97,6 +100,8 @@ export async function embedHalftones(htmls: string[]): Promise<EmbedResult> {
 
   // 2. Rewrite each chapter.
   const out = htmls.map((html) => {
+    // Finished figures are parked behind Private Use Area placeholders (U+E000)
+    // so the later <p>/<img> passes can't rewrite them a second time.
     const held: string[] = []
     const hold = (s: string) => `\uE000${held.push(s) - 1}\uE000`
 

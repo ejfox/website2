@@ -16,6 +16,9 @@
  *
  * Per-image results are cached on disk too (halftone.ts), so after the first
  * cold build a rebuild is mostly reading small PNGs back.
+ *
+ * Used by server/routes/archive.epub.ts and photos.epub.ts via serveBook().
+ * State is per process: in-memory maps, so a pm2 reload falls back to disk.
  */
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
@@ -106,6 +109,7 @@ export async function serveBook(
   if (!entry) {
     state = 'miss'
     const p = rebuild(name, build)
+    // unref: a pending wait timer must not keep the process alive on shutdown.
     const timer = new Promise<null>((r) =>
       setTimeout(() => r(null), WAIT_MS).unref?.()
     )
@@ -118,6 +122,7 @@ export async function serveBook(
     })
     if (!entry) {
       // Still building: don't hold the connection past Cloudflare's timeout.
+      // Swallow a later rejection so it isn't an unhandled-rejection crash.
       p.catch(() => {})
       setHeaders(event, {
         'Retry-After': '60',

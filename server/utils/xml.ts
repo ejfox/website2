@@ -1,5 +1,8 @@
 /**
- * XML-safety primitives shared by the hand-rolled feed routes.
+ * @file xml.ts
+ * @description XML-safety primitives shared by the hand-rolled feed routes:
+ *   server/routes/{gists,robots,scraps,dispatch}-rss.xml.ts and
+ *   server/utils/sitemapEntries.ts. (rss.xml and feed.json use feedHtml.ts.)
  *
  * These live together because each one guards against a failure mode where the
  * whole document becomes unparseable — not a degraded feed, a broken one — and

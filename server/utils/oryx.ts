@@ -6,7 +6,14 @@
  * Privacy: macros can type arbitrary text, so their key sequences are NEVER
  * emitted. A macro shows its Oryx customLabel (which EJ writes as a label) or
  * the word "macro". Only the layout itself is public on Oryx.
+ *
+ * Importers: server/api/keymap.get.ts (fetchOryxLayout); pages/keymap.vue and
+ * components/keymap/KeymapBoard.vue import TYPES only. Keep it free of
+ * server-only imports so those type imports stay harmless.
+ * Tests: server/utils/__tests__/oryx.test.ts.
  */
+
+// ── Output + Oryx shapes ────────────────────────────────────────────────────
 
 export interface KeymapKey {
   t?: string // tap
@@ -45,6 +52,9 @@ export interface OryxKey {
   customLabel?: string | null
 }
 
+// ── Glyph tables ────────────────────────────────────────────────────────────
+
+// QMK keycode (KC_ prefix stripped) → what the board shows.
 const GLYPHS: Record<string, string> = {
   LEFT: '←',
   RIGHT: '→',
@@ -141,7 +151,10 @@ const MODS: [string[], string][] = [
   [['leftGui', 'rightGui'], '⌘'],
 ]
 
+// Layer-switch codes: these get no glyph, the switch is reported in `L`.
 const LAYER_OPS = new Set(['MO', 'TT', 'TG', 'TO', 'LT', 'OSL', 'DF', ''])
+
+// ── Normalising ─────────────────────────────────────────────────────────────
 
 function code(a?: OryxAction | null) {
   return (a?.code || '').replace(/^KC_/, '')
@@ -199,6 +212,8 @@ export function normalizeKey(k: OryxKey | null): KeymapKey | null {
   return Object.keys(out).length ? out : { x: true }
 }
 
+// ── Fetch ───────────────────────────────────────────────────────────────────
+
 const QUERY = `query($hashId:String!,$geometry:String!){
   layout(hashId:$hashId,geometry:$geometry,revisionId:"latest"){
     title hashId geometry
@@ -240,6 +255,8 @@ export async function fetchOryxLayout(
     title: layout.title,
     geometry: layout.geometry,
     revision: revision.hashId,
+    // createdAt is space-separated with a trailing " UTC", not ISO; rewrite
+    // it so Date parses it as UTC everywhere.
     updated: new Date(
       revision.createdAt.replace(' UTC', 'Z').replace(' ', 'T')
     ).toISOString(),

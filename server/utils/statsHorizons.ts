@@ -10,9 +10,16 @@
  *  - Units live in the field name (_bpm, _min, _wpm, _hours, _lbs).
  *  - null ≠ 0. null means "no signal / unknown"; 0 means "genuinely nothing".
  *  - Silence is named, not hidden: `quiet` lists domains with no signal this window.
- *  - No vendor exhaust. Raw detail stays at its own endpoints; `_sources` is a
- *    transitional escape-hatch for consumers still on the old shape.
+ *  - No vendor exhaust. Raw detail stays at its own endpoints; this object
+ *    carries no raw passthrough (no `_sources` field is emitted).
+ *
+ * Only importer: server/api/stats.get.ts, which passes its merged vendor
+ * results as `d`. Three fields break the null≠0 rule (a truthiness test turns
+ * a real 0 into null): week.screen.productive_hours and productivity_pct, and
+ * year.books.reading_now.
  */
+
+// ── Helpers ─────────────────────────────────────────────────────────────────
 
 // A number if finite, otherwise null (preserves the null≠0 distinction).
 const num = (x: unknown): number | null =>
@@ -41,6 +48,8 @@ export interface StatsHorizons {
   year: Record<string, unknown>
   ever: Record<string, unknown>
 }
+
+// ── Composition ─────────────────────────────────────────────────────────────
 
 export function buildStatsHorizons(
   d: Record<string, any>,
@@ -87,6 +96,7 @@ export function buildStatsHorizons(
   }
   const sensory = health?.sensory ?? null
 
+  // ── Horizons ──
   const now = {
     heartbeat_bpm: round(health?.heartRate?.current),
     breathing_rate: round(sensory?.respiratoryRate),
@@ -215,6 +225,7 @@ export function buildStatsHorizons(
     online_since: 2009,
   }
 
+  // ── Quiet list ──
   // Name the silence. A domain is quiet when its signal is absent or zero.
   const quiet: string[] = []
   if (!num(discogs?.stats?.totalItems)) quiet.push('records')

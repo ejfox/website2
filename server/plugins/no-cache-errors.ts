@@ -1,5 +1,7 @@
 /**
- * Never let an edge cache keep an error page.
+ * @file no-cache-errors.ts
+ * @description Nitro plugin: never let an edge cache keep an error page.
+ *   Hooks every response (rendered pages AND server/API routes).
  *
  * routeRules stamp s-maxage on whole path patterns (/blog/** etc.), and those
  * headers ride along on a 404 too. With Cloudflare honouring origin headers,
@@ -16,6 +18,7 @@ export default defineNitroPlugin((nitroApp) => {
         ...response.headers,
         'cache-control': 'no-store',
       }
+      // CDN-Cache-Control would override no-store at Cloudflare; drop it too.
       delete response.headers['cdn-cache-control']
     }
   })

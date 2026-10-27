@@ -1,3 +1,17 @@
+/**
+ * @file rss.xml.ts
+ * @description GET /rss.xml — the main blog feed: latest 50 posts, full HTML
+ *   in content:encoded. Twin of server/routes/feed.json.ts; keep the two in step.
+ *
+ * Visibility: getPostsWithContent() (composables/useProcessedMarkdown.ts)
+ *   already applies isExcludedFromListings; the loop below re-checks with the
+ *   shared isHiddenFromListings + isScheduled (utils/postFilters.ts) so this
+ *   feed can't drift from the others. Item HTML goes through feedHtml(), and
+ *   sendFeed() adds a timestamp-insensitive ETag (server/utils/feedHtml.ts).
+ *
+ * Gotcha: the 50 is taken BEFORE the feed-shape skips below, so a feed can
+ *   carry fewer than 50 items.
+ */
 import RSS from 'rss'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
@@ -42,7 +56,8 @@ export default defineEventHandler(async (event) => {
   })
 
   // Get all published posts WITH FULL CONTENT and sort by date (newest first)
-  // Use getPostsWithContent to fetch full HTML for each post
+  // Use getPostsWithContent to fetch full HTML for each post.
+  // Signature is (limit, offset, includeDrafts): 50 posts, no drafts.
   const posts = await getPostsWithContent(50, 0, false)
   const sortedPosts = posts.sort((a, b) => {
     const dateA = parseISO(a.metadata?.date || a.date || '')

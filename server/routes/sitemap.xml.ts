@@ -1,3 +1,18 @@
+/**
+ * @file sitemap.xml.ts
+ * @description GET /sitemap.xml — static pages, posts/projects/reading notes,
+ *   tag hubs, predictions and Dispatch pieces, with up to 3 image entries per
+ *   post. Built per request (cached 1h browser / 1d edge).
+ *
+ * Visibility lives elsewhere, on purpose:
+ *   - posts + tags: buildSitemapPostEntries() in server/utils/sitemapEntries.ts
+ *     (draft/hidden/unlisted/password/scheduled/special, unit-tested). Sealed
+ *     posts never reach manifest-lite.json.
+ *   - predictions: whatever /api/predictions returns.
+ *   - Dispatch: listDispatches({ preview: false }), public only, even in dev.
+ * STATIC_SECTIONS is hand-kept in step with pages/sitemap.vue; noindex pages
+ * stay out of it.
+ */
 import { defineEventHandler, setHeader, type H3Event } from 'h3'
 import { listDispatches } from '~/server/utils/dispatch'
 import { readManifest } from '~/server/utils/manifest'
@@ -9,7 +24,12 @@ import {
 } from '~/server/utils/sitemapEntries'
 
 // Nuxt auto-imports $fetch at runtime
+// NB: the real global is ofetch (returns parsed JSON), not window.fetch; this
+// declaration is only loose enough to compile. The Array.isArray guard below
+// is what actually keeps the predictions block safe.
 declare const $fetch: typeof globalThis.fetch
+
+// ── Helpers + static pages ──────────────────────────────────────────────────
 
 // Extract unique cloudinary image URLs from HTML content
 function extractImageUrls(html: string): string[] {
@@ -123,6 +143,10 @@ const byLastmodDesc = (
   (b.lastmod || '').localeCompare(a.lastmod || '') ||
   a.slug.localeCompare(b.slug)
 
+// ── Handler ─────────────────────────────────────────────────────────────────
+// Each dynamic block has its own try/catch: one failing source drops its
+// section, never the whole sitemap.
+
 export default defineEventHandler(async (event: H3Event) => {
   const baseUrl = 'https://ejfox.com'
 
@@ -169,6 +193,7 @@ export default defineEventHandler(async (event: H3Event) => {
         .filter((e) => group.match(e.path))
         .sort(byLastmodDesc)) {
         const post = bySlug.get(entry.slug)
+        // Only open the post JSON when the manifest says it has images.
         const images =
           (post?.metadata?.images || 0) > 0
             ? await getPostImages(entry.slug, fs, path)

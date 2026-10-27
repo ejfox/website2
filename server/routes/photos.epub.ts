@@ -127,6 +127,9 @@ async function buildPhotos(origin: string) {
 }
 
 export default defineEventHandler((event) => {
+  // Derived from the incoming request (its Host header), and the built book is
+  // cached for every later visitor: whichever request triggers a build decides
+  // where /api/photos is fetched from. Behind Cloudflare that is ejfox.com.
   const origin = getRequestURL(event).origin
   return serveBook(event, {
     name: 'photos',

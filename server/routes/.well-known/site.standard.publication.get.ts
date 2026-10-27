@@ -1,3 +1,9 @@
+/**
+ * @file site.standard.publication.get.ts
+ * @description GET /.well-known/site.standard.publication → the AT-URI of the
+ *   site's publication record, as text/plain. The URI comes from
+ *   utils/atprotoRkey.mjs, shared with the mirror script so they can't disagree.
+ */
 import { defineEventHandler, setHeader } from 'h3'
 import { PUBLICATION_URI } from '~/utils/atprotoRkey.mjs'
 

@@ -27,8 +27,14 @@
  * `mimetype` MUST be the first entry in the zip and MUST be stored
  * uncompressed — readers identify the file by reading those bytes at a fixed
  * offset. JSZip honours per-file compression, hence the explicit STORE.
+ *
+ * Importers: server/routes/archive.epub.ts, server/routes/photos.epub.ts,
+ * server/utils/epubImages.ts (types only). Chapter `html` is inserted raw into
+ * XHTML, so it must already be well-formed and escaped.
  */
 import JSZip from 'jszip'
+
+// ── Types ───────────────────────────────────────────────────────────────────
 
 export interface EpubChapter {
   /** Used for the ToC and the chapter's <h1>. */
@@ -60,6 +66,8 @@ export interface EpubOptions {
   /** Cover image path, must also appear in `images`. */
   coverPath?: string
 }
+
+// ── Stylesheet + chapter template ───────────────────────────────────────────
 
 const esc = (s: string) =>
   String(s ?? '')
@@ -145,6 +153,8 @@ ${source}
 </body>
 </html>`
 }
+
+// ── Zip assembly ────────────────────────────────────────────────────────────
 
 export async function buildEpub(opts: EpubOptions): Promise<Buffer> {
   const lang = opts.language || 'en'

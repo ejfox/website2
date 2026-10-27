@@ -1,3 +1,13 @@
+/**
+ * @file robots-rss.xml.ts
+ * @description GET /robots-rss.xml — RSS of the 20 newest `robots/` posts
+ *   (AI/automation experiments, kept out of the main /rss.xml).
+ *
+ * Visibility: readManifest() + isListable() (server/utils/manifest.ts), the
+ *   shared draft/hidden/unlisted/password/sealed + embargo rule. Bodies are
+ *   read straight from content/processed/<slug>.json and are NOT passed
+ *   through feedHtml(), so relative links stay relative in readers.
+ */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -22,6 +32,10 @@ export default defineEventHandler(async (event) => {
       )
       .slice(0, 20)
 
+    // NB: the channel <link> below is /robots, but no such page exists; the
+    // listing page is /blog/robots (pages/sitemap.vue links it there).
+    // Items: allSettled + a per-item catch, so one unreadable post JSON drops
+    // that item, not the feed.
     const rssNamespaces =
       'xmlns:atom="http://www.w3.org/2005/Atom" ' +
       'xmlns:content="http://purl.org/rss/1.0/modules/content/"'

@@ -1,4 +1,9 @@
 /**
+ * @file readmeUrls.ts
+ * @description absolutizeReadmeUrls(): make a repo README's relative links and
+ *   images absolute GitHub URLs. Called (Nitro auto-import) by
+ *   server/api/repos/[slug].get.ts. Tests: server/utils/__tests__/readmeUrls.test.ts.
+ *
  * READMEs are written for github.com, where `./docs/x.md`, `/LICENSE` and
  * `screenshots/1.png` resolve against the repo. Served on /github/<repo> the
  * same hrefs resolve against ejfox.com and 404. Rewrite them the way GitHub
@@ -19,6 +24,9 @@ export function absolutizeReadmeUrls(html: string, repoUrl: string): string {
   const blob = `https://github.com/${owner}/${repo}/blob/HEAD/`
   const raw = `https://raw.githubusercontent.com/${owner}/${repo}/HEAD/`
 
+  // Regex, not a parser: the README HTML went through sanitize-html in
+  // scripts/build/export-github-repos.mjs, which always double-quotes attributes. Absolute, protocol-relative and #anchor values
+  // pass through untouched.
   return html.replace(
     /(<(a|img)\b[^>]*?\s(href|src)=")([^"]*)"/gi,
     (whole, pre: string, tag: string, attr: string, value: string) => {

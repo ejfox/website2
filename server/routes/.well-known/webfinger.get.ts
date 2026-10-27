@@ -1,3 +1,9 @@
+/**
+ * @file webfinger.get.ts
+ * @description GET /.well-known/webfinger?resource=… → a JRD pointing at the
+ *   mastodon.social account, so `@ejfox@ejfox.com` resolves on the fediverse.
+ *   Static: only the four resources in `accepted` answer; anything else 404s.
+ */
 import { defineEventHandler, getQuery, setHeader, createError } from 'h3'
 
 export default defineEventHandler((event) => {
@@ -23,6 +29,8 @@ export default defineEventHandler((event) => {
 
   setHeader(event, 'content-type', 'application/jrd+json')
   setHeader(event, 'cache-control', 'public, max-age=86400')
+  // WebFinger clients are often browser apps on other origins; RFC 7033 asks
+  // for CORS here.
   setHeader(event, 'access-control-allow-origin', '*')
 
   return {

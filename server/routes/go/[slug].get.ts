@@ -12,7 +12,9 @@
  *
  * The destination is a fixed host plus a slug restricted to [a-z0-9-], so this
  * can't be turned into an open redirect. Unknown slugs 404 at Umami, so we
- * don't need to know the link list here.
+ * don't need to know the link list here. (Unlike /via and /from-youtube, no
+ * free-form path reaches the Location and nothing is URL-normalised, so
+ * there's no output re-check.)
  */
 import { createError, defineEventHandler, sendRedirect, setHeader } from 'h3'
 

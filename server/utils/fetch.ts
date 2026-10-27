@@ -1,4 +1,15 @@
 /**
+ * @file fetch.ts
+ * @description Native fetch with an AbortController timeout (default 10s), and
+ *   a fetchJSON wrapper that returns null instead of throwing. Used by
+ *   server/utils/smallweb.ts, server/api/umami/auth.post.ts and
+ *   server/api/atlas/{live,remediation}.get.ts.
+ *
+ * Errors carry the URL in their message, so don't pass URLs with secrets in
+ *   the query string (they would land in pm2 logs).
+ */
+
+/**
  * Fetch with timeout and better error handling
  * Prevents network errors from becoming uncaught exceptions
  */
@@ -15,6 +26,8 @@ export async function fetchWithTimeout(
       ...options,
       signal: controller.signal,
     })
+    // Cleared once headers arrive, so the timeout does NOT bound reading the
+    // body (fetchJSON's response.json() can still hang on a slow stream).
     clearTimeout(timeoutId)
     return response
   } catch (error) {

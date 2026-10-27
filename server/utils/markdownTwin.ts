@@ -11,6 +11,8 @@
  *
  * Frontmatter is a WHITELIST of four keys: title, date, tags, canonical.
  * Adding a frontmatter field to a post must never make it appear here.
+ *
+ * Tests: server/utils/__tests__/markdownTwin.test.ts.
  */
 import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'

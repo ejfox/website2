@@ -8,9 +8,17 @@
  *   draft/hidden/unlisted/password filtering is inherited for free. Response is
  *   wrapped in a consistent envelope: { kind, url, generator, data, _links }.
  *
- *   Runs as the first (and currently only) server middleware. It only ever acts
- *   on requests whose path ends in `.json` and is NOT already a real endpoint;
- *   everything else falls straight through untouched.
+ *   It only ever acts on requests whose path ends in `.json` and is NOT already
+ *   a real endpoint; everything else falls straight through untouched.
+ *
+ *   Order: third of six (Nitro runs server/middleware/* in filename order).
+ *   The two blog-*-redirect 301s run before it, so /blog/reading/x.json has
+ *   already become /reading/x.json. It answers EVERY other `.json` path itself,
+ *   so legacy-redirect and markdown-twin never see a twin request.
+ *
+ *   Gotcha: internal `$fetch` goes back through the full middleware stack, so
+ *   an upstream 410 (week-notes-gone) would surface here as a 502
+ *   `upstream_error` (only 404 is passed through as-is).
  */
 import { defineEventHandler, getRequestURL, setResponseHeader } from 'h3'
 
@@ -30,6 +38,8 @@ const RESERVED = new Set([
 
 // Path prefixes that are never page routes (assets, api, build output, etc).
 const SKIP_PREFIXES = ['/api/', '/_', '/.well-known/', '/__']
+
+// ── Request handler ─────────────────────────────────────────────────────────
 
 interface Twin {
   kind: string
@@ -111,6 +121,7 @@ export default defineEventHandler(async (event) => {
   )
 
   return {
+    // No file backs this URL (there is no public/schema/); it is an identifier.
     $schema: `${siteUrl}/schema/page-twin@1.json`,
     kind: twin.kind,
     url: `${siteUrl}${pagePath}`,
@@ -124,6 +135,8 @@ export default defineEventHandler(async (event) => {
     },
   }
 })
+
+// ── Page path → API route ───────────────────────────────────────────────────
 
 /**
  * Map a page path to the structured data behind it, reusing the same API routes

@@ -1,5 +1,7 @@
 /**
- * Post HTML → HTML that survives a feed reader.
+ * @file feedHtml.ts
+ * @description Post HTML → HTML that survives a feed reader, plus the excerpt
+ *   and ETag/304 helpers. Tests: server/utils/__tests__/feedHtml.test.ts.
  *
  * A reader renders an item's HTML with no page around it, so anything that
  * leans on the page breaks:
@@ -13,7 +15,7 @@
  * - `<video>` was stripped too. It's allowed now, with controls, because
  *   readers that can't play it fall back to the poster/link.
  *
- * Shared by rss.xml and feed.json so the two can't drift.
+ * Shared by server/routes/rss.xml.ts and feed.json.ts so the two can't drift.
  */
 import { createHash } from 'node:crypto'
 import sanitizeHtml from 'sanitize-html'
@@ -24,6 +26,8 @@ import {
   setHeader,
   setResponseStatus,
 } from 'h3'
+
+// ── URL helpers ─────────────────────────────────────────────────────────────
 
 /**
  * Resolve `url` the way a browser on `pageUrl` would. Already-absolute URLs
@@ -51,6 +55,8 @@ function embedToPageUrl(src: string): string {
   if (vimeo) return `https://vimeo.com/${vimeo[1]}`
   return src
 }
+
+// ── Sanitise for readers ────────────────────────────────────────────────────
 
 // `rb` is in sanitize-html's defaults but isn't HTML5 (the W3C validator
 // flags it); dropping the tag keeps its text.
@@ -104,6 +110,8 @@ export function feedHtml(html: string, pageUrl: string): string {
     },
   })
 }
+
+// ── Excerpt + send ──────────────────────────────────────────────────────────
 
 /**
  * Tag-free excerpt for an item's <description>. Still HTML-escaped (`&amp;`),
