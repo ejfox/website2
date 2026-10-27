@@ -5,18 +5,21 @@
  *              (`blog/<year>/`, `blog/projects/`) and the tracked repo copies in
  *              `content/blog/`. Answers: which keys drift, how often, and — the question
  *              that actually decides the sync strategy — whether any BODIES differ.
- * @usage node scripts/meta/frontmatter-sync-report.mjs [--verbose] [--limit N]
+ * @usage yarn meta:frontmatter-sync [--verbose] [--limit N]
+ *        (= node scripts/meta/frontmatter-sync-report.mjs)
  *
  * WHY THIS EXISTS
- *   `scripts/blog/import.mjs` writes the vault file's raw bytes to `content/blog/`
- *   (`fs.writeFile(outputPath, content)`) — it never re-serializes the frontmatter it
- *   parses. So any repo-side frontmatter edit (e.g. commit 33b0879a, "frontmatter
- *   hygiene") is silently reverted by the next `yarn blog:import`. Before picking a
- *   reconciliation strategy we need to know whether the vault also carries body text
- *   the repo lacks — because if it does, "repo wins" is destructive.
+ *   The old `scripts/blog/import.mjs` (removed 2026-09-26, replaced by Dispatch)
+ *   wrote the vault file's raw bytes to `content/blog/` — it never re-serialized the
+ *   frontmatter it parsed. So any repo-side frontmatter edit (e.g. commit 33b0879a,
+ *   "frontmatter hygiene") was silently reverted by the next `yarn blog:import`. Before
+ *   picking a reconciliation strategy we needed to know whether the vault also carries
+ *   body text the repo lacks — because if it does, "repo wins" is destructive.
  *
  * READ-ONLY BY CONSTRUCTION: this script opens files for reading and prints. It writes
  * nothing — not to the vault (someone's personal notes), not to content/, not to data/.
+ * Reads the iCloud Obsidian vault at a hardcoded path (VAULT_ROOT), so it only works
+ * on EJ's Mac; runs `git ls-files` (read-only). No network.
  */
 
 import { promises as fs } from 'node:fs'
@@ -31,8 +34,9 @@ const execFileAsync = promisify(execFile)
 const ROOT = process.cwd()
 const VAULT_ROOT =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox'
-// Only the two vault namespaces that map into content/blog/. `private/`, `robots/`,
-// `reading/` etc. have different (or gitignored) destinations and aren't in scope.
+// Only the vault's `blog/` tree (`blog/<year>/`, `blog/projects/`) maps into
+// content/blog/. `private/`, `robots/`, `reading/` etc. have different (or
+// gitignored) destinations and aren't in scope.
 const VAULT_SUBDIRS = ['blog']
 
 const args = process.argv.slice(2)
@@ -44,8 +48,10 @@ const LIMIT = (() => {
 
 /**
  * Vault `blog/2019/foo.md` → repo `2019/foo.md`. Mirrors `contentRelativePath()` in
- * scripts/blog/import.mjs — the leading `blog/` segment is stripped on import.
+ * the removed scripts/blog/import.mjs — the leading `blog/` segment was stripped on import.
  */
+
+// ── File discovery ──────────────────────────────────────────
 const contentRelativePath = (relPath) =>
   relPath.startsWith(`blog${path.sep}`) ? relPath.slice(5) : relPath
 
@@ -88,6 +94,8 @@ async function trackedRepoPosts() {
       .map((f) => path.relative('content/blog', f))
   )
 }
+
+// ── Comparison ──────────────────────────────────────────────
 
 /**
  * Canonical value form for comparison. gray-matter turns YAML dates into Date objects
@@ -163,6 +171,8 @@ const short = (v) => {
       ? s.slice(0, 37) + '…'
       : s
 }
+
+// ── Main: scan, aggregate, print ────────────────────────────
 
 async function main() {
   const tracked = await trackedRepoPosts()

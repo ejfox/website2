@@ -1,16 +1,21 @@
 #!/usr/bin/env node
 /**
- * Schema-driven gear.csv linter
+ * @file lint-gear.mjs
+ * @description Schema-driven gear.csv linter. `yarn gear:lint` / `yarn gear:fix`.
  *
  * Validates data/gear.csv against the vendored contract data/gear-schema.json
  * (the canonical schema lives in the `gear` repo and is mirrored here by
- * sync-gear.js — see CLAUDE.md "Gear Inventory System").
+ * sync-gear.js, which is not in this repo). Paths resolve from cwd, so run it
+ * from the repo root.
  *
  * Checks: required fields, enum values, numeric/integer/date formats, column
  * coverage, and orphan physical containers. Because every rule is derived from
  * the schema, the linter can never drift from the contract.
  *
- * Usage: node scripts/lint-gear.mjs [--fix]
+ * Gotcha: --fix REWRITES data/gear.csv in place (re-quoted, LF line endings).
+ * It only writes when it changed something. No network, no git.
+ *
+ * Usage: node scripts/meta/lint-gear.mjs [--fix]
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -48,6 +53,8 @@ const DATES = Object.entries(props)
 const isEmpty = (v) => !v || !v.trim()
 
 // Parse CSV (handles quoted fields with commas, escaped quotes, newlines).
+// Hand-rolled rather than d3.csvParse because --fix has to write the rows
+// back as arrays, in their original column order.
 function parseCSV(text) {
   const rows = []
   let field = []
@@ -98,6 +105,7 @@ function lintGear() {
   const issues = []
   const fixes = []
 
+  // ── Columns ───────────────────────────────────────────────
   const headers = rows[0].map((h) => h.trim())
   rows[0] = headers
   const col = {}
@@ -120,6 +128,7 @@ function lintGear() {
       .filter(Boolean)
   )
 
+  // ── Rows ──────────────────────────────────────────────────
   console.info('🔍 Checking rows...')
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i]
@@ -240,6 +249,7 @@ function lintGear() {
     }
   }
 
+  // ── Report + write ────────────────────────────────────────
   console.info('\n' + '='.repeat(50))
   if (issues.length === 0) console.info('✅ No issues found!')
   else {

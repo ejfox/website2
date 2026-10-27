@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Crown a post: its body becomes a Vue file you write in directly.
+ * @file crown.mjs
+ * @description Crown a post: its body becomes a Vue file you write in directly.
  *
  *   yarn crown 2025/hidden-networks-of-warmth
  *
@@ -8,6 +9,10 @@
  * and trims <slug>.md to its frontmatter. The post page renders the .vue in
  * place of the markdown, so add components, a <script setup> or a <style>
  * right next to the prose. See scripts/utils/vue-body.mjs.
+ *
+ * Reads content/processed/<slug>.json, so run `yarn blog:process` first.
+ * Rewrites the .md in place (the body is gone from it afterwards); no git,
+ * no network. Dispatch also calls it.
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'

@@ -1,32 +1,39 @@
 #!/usr/bin/env node
 /**
- * generate-alt-text.mjs
+ * @file generate-alt-text.mjs
+ * @description Scans content/blog/**.md for images with bad alt text (empty,
+ *   filenames, timestamps) and asks a vision model for a content-focused one.
+ *   No yarn script. Network: one Anthropic or OpenAI call per Cloudinary image
+ *   (non-Cloudinary and video URLs are skipped). Needs ANTHROPIC_API_KEY, or
+ *   OPENAI_API_KEY with --provider openai / ALT_TEXT_PROVIDER=openai — checked
+ *   at startup, even for --apply-review.
  *
- * Scans blog markdown for images with bad alt text (empty, filenames, timestamps)
- * and uses multimodal AI to generate real, content-focused descriptions.
+ * Usage (the script's own messages still say scripts/; it lives in scripts/meta/):
+ *   node scripts/meta/generate-alt-text.mjs                    # dry-run (default)
+ *   node scripts/meta/generate-alt-text.mjs --write             # modify files
+ *   node scripts/meta/generate-alt-text.mjs --file path         # single file
+ *   node scripts/meta/generate-alt-text.mjs --empty-only        # only empty alt text
+ *   node scripts/meta/generate-alt-text.mjs --apply-review      # apply edited review file
+ *   node scripts/meta/generate-alt-text.mjs --provider openai   # use OpenAI (default: anthropic)
  *
- * Usage:
- *   node scripts/generate-alt-text.mjs                    # dry-run (default)
- *   node scripts/generate-alt-text.mjs --write             # modify files
- *   node scripts/generate-alt-text.mjs --file path         # single file
- *   node scripts/generate-alt-text.mjs --empty-only        # only empty alt text
- *   node scripts/generate-alt-text.mjs --apply-review      # apply edited review file
- *   node scripts/generate-alt-text.mjs --provider openai   # use OpenAI (default: anthropic)
+ * --write rewrites markdown in content/blog/ in place (review the git diff).
+ * Answers under 80% confidence go to data/alt-text-review.json instead;
+ * --apply-review writes those and then deletes the review file.
+ * EJ's own alt text beats AI alts (see unify-cloudinary-text.mjs rule 1).
  */
 
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+// Despite the name, this is scripts/ (one level up), so `..` below is the repo root.
 const __dirname = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'
 )
 const CONTENT_DIR = path.resolve(__dirname, '..', 'content', 'blog')
 
-// ---------------------------------------------------------------------------
-// Provider config
-// ---------------------------------------------------------------------------
+// ── Provider config ────────────────────────────────────────
 
 const args = process.argv.slice(2)
 const providerIdx = args.indexOf('--provider')
@@ -60,9 +67,7 @@ if (!API_KEY) {
   process.exit(1)
 }
 
-// ---------------------------------------------------------------------------
-// Shared prompt
-// ---------------------------------------------------------------------------
+// ── Shared prompt ──────────────────────────────────────────
 
 const ALT_TEXT_PROMPT = `Write alt text for this image. Return JSON only:
 {"alt": "...", "confidence": 0.95}
@@ -84,9 +89,7 @@ Your job is to describe the CONTENT — what is this about, what does it show, w
 - Never hedge: no "appears", "seems", "looks like"
 - confidence: 0-1. Low if blurry or too small to read the actual content.`
 
-// ---------------------------------------------------------------------------
-// Provider-specific API calls
-// ---------------------------------------------------------------------------
+// ── Provider-specific API calls ────────────────────────────
 
 async function callAnthropic(imageUrl) {
   const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -145,9 +148,7 @@ async function callOpenAI(imageUrl) {
 
 const callProvider = PROVIDER === 'openai' ? callOpenAI : callAnthropic
 
-// ---------------------------------------------------------------------------
-// Image handling
-// ---------------------------------------------------------------------------
+// ── Image handling ─────────────────────────────────────────
 
 const WRITE_MODE = args.includes('--write')
 const EMPTY_ONLY = args.includes('--empty-only')
@@ -158,6 +159,7 @@ const ALL_IMAGES_RE = /!\[([^\]]*)\]\(([^)]+)\)/g
 const CONFIDENCE_THRESHOLD = 0.8
 const DELAY_MS = 600
 
+// A local copy; scripts/plugins/remarkEnhanceImages.mjs exports its own isJunkAlt.
 const JUNK_ALT_PATTERNS = [
   /^Screenshot/i,
   /^Screen Shot/i,
@@ -193,6 +195,7 @@ function isVideoUrl(url) {
   )
 }
 
+// Send the model a 1280px-wide JPEG derivative, not the original upload.
 function getImageUrl(url) {
   if (!isCloudinaryUrl(url)) return url
   url = url.replace(/^http:\/\//i, 'https://')
@@ -208,6 +211,7 @@ function parseAltResponse(raw) {
       .replace(/\n?```$/, '')
       .trim()
     const parsed = JSON.parse(cleaned)
+    // Brackets would end the markdown `![alt]` early, so swap them for parens.
     const altText = parsed.alt.trim().replace(/\[/g, '(').replace(/\]/g, ')')
     const confidence =
       typeof parsed.confidence === 'number' ? parsed.confidence : 0.5
@@ -226,9 +230,7 @@ async function generateAltText(imageUrl) {
   return parseAltResponse(raw)
 }
 
-// ---------------------------------------------------------------------------
-// File processing
-// ---------------------------------------------------------------------------
+// ── File processing ────────────────────────────────────────
 
 async function findMarkdownFiles(dir) {
   const files = []
@@ -346,9 +348,7 @@ async function processFile(filePath) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Main + review apply
-// ---------------------------------------------------------------------------
+// ── Main + review apply ────────────────────────────────────
 
 async function main() {
   console.log(`\n🖼  Alt Text Generator`)
@@ -439,6 +439,7 @@ async function applyReview() {
     let content = await fs.readFile(filePath, 'utf8')
     for (const item of fileItems) {
       if (!item.suggested || item.suggested.startsWith('SKIP')) continue
+      // item.url was truncated to 100 chars, so match it as a prefix.
       const escapedUrl = item.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       const re = new RegExp(`!\\[[^\\]]*\\]\\(${escapedUrl}[^)]*\\)`)
       const match = content.match(re)

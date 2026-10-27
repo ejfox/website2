@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /**
  * @file lint-frontmatter-safety.mjs
- * @description Safety linter to catch accidental exposure risks in blog frontmatter
- * @usage yarn lint:safety OR node scripts/lint-frontmatter-safety.mjs
+ * @description Safety linter to catch accidental exposure risks in blog frontmatter.
+ *   Reads content/blog/**.md (skips dot-dirs and `!` files). Read-only, no
+ *   network. Gates deploys: runs first in `yarn blog`, in deploy.yml and in
+ *   guard-sealed.yml. Errors exit 1; warnings never fail.
+ * @usage yarn lint:safety OR node scripts/meta/lint-frontmatter-safety.mjs
  *
  * Checks for:
  * - Typos in visibility fields (unlsted, pasword, drat, etc.)
@@ -49,7 +52,8 @@ const VALID_FIELDS = new Set([
   'ai-involvement',
 ])
 
-// Common typos for visibility fields
+// Common typos for visibility fields. These are errors, not warnings: a
+// misspelled `draft` is silently ignored, which publishes the post.
 const TYPO_PATTERNS = {
   unlsted: 'unlisted',
   unlited: 'unlisted',
@@ -120,7 +124,8 @@ async function lintFile(filePath) {
     }
   }
 
-  // Check for YAML gotchas (string vs boolean)
+  // Check for YAML gotchas (string vs boolean). `draft: "false"` is a
+  // truthy string, so any quoted value is flagged whatever it says.
   for (const [key, value] of Object.entries(frontmatter)) {
     if (['unlisted', 'draft', 'hidden', 'share'].includes(key)) {
       if (typeof value === 'string') {
@@ -246,4 +251,5 @@ async function main() {
   process.exit(0)
 }
 
+// NB: a crash is logged but exits 0, so it does not block the deploy.
 main().catch(console.error)

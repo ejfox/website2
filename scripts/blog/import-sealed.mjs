@@ -5,23 +5,25 @@
  *   into `content/blog/private/`. Nothing else, and nothing destructive.
  * @usage yarn seal:import  (or `yarn seal`, which also processes)
  * @env DRY_RUN - list what would be copied, write nothing
- * @env OBSIDIAN_VAULT_PATH - override the vault location
+ * @env OBSIDIAN_VAULT_PATH - override the vault location (the fallback is
+ *   EJ's iCloud Obsidian vault, hardcoded below)
+ *
+ * Reads the vault (local filesystem, no network, no git). Writes and prunes
+ * only content/blog/private/. Next step is `yarn blog:process`, which seals.
  *
  * ## Why this exists instead of `yarn blog:import`
  *
- * `blog:import` does `fs.rm(content/blog, {recursive:true})` and rebuilds the
- * whole tree from the vault. That is fine in principle — the vault is meant to
- * be the source of truth — but as of 2026-09 the two have drifted badly: the
- * vault keeps posts under `blog/<year>/`, so the importer's
- * `path.join('content/blog', 'blog/2022/x.md')` writes `content/blog/blog/2022/`,
- * one level deeper than the 366 files actually committed. Running it today
- * deletes every `reading/` note and most years, then rebuilds ~169 files in the
- * wrong shape.
+ * `blog:import` (removed 2026-09-26, replaced by the Dispatch app for public
+ * posts; see CLAUDE.md) did `fs.rm(content/blog, {recursive:true})` and
+ * rebuilt the whole tree from the vault. As of 2026-09 the two had drifted
+ * badly: the vault keeps posts under `blog/<year>/`, so the importer's
+ * `path.join('content/blog', 'blog/2022/x.md')` wrote `content/blog/blog/2022/`,
+ * one level deeper than the files actually committed, after deleting every
+ * `reading/` note and most years.
  *
- * Publishing a sealed post must not require fixing that first. This script
+ * Publishing a sealed post must not depend on any of that. This script
  * touches exactly one directory, never deletes a post it did not just consider,
- * and cannot affect any public content — so the sealed workflow is safe to use
- * while `blog:import` stays broken.
+ * and cannot affect any public content. Do not use Dispatch for sealed posts.
  *
  * `content/blog/private/` is gitignored, so everything written here stays out
  * of the public repo. Only the sealed envelope in `content/processed/private/`
@@ -41,6 +43,9 @@ const SOURCE = path.join(VAULT, 'private')
 const DEST = path.join(dirs.content, 'private')
 const isDryRun = process.env.DRY_RUN === 'true'
 
+// Recursive .md walk returning { full, rel } pairs. A missing dir yields [],
+// which is how an absent DEST is handled. Skips dot-dirs and Obsidian
+// `.canvas.md` files.
 async function markdownFilesIn(dir, base = '') {
   const out = []
   let entries

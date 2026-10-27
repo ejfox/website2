@@ -1,6 +1,14 @@
 #!/usr/bin/env node
 /**
- * mirror-to-atproto.mjs
+ * @file mirror-to-atproto.mjs
+ * @description Mirror published posts to AT-Proto (Bluesky PDS) as
+ *   standard.site records. `yarn blog:mirror-atproto` (dry run). CI runs it
+ *   `--live` from .github/workflows/mirror-atproto.yml after a successful
+ *   deploy, on the processed-content artifact. Reads content/processed/
+ *   (manifest-lite.json + per-post JSON); writes nothing locally. Never
+ *   deletes, so a post later drafted stays on the PDS until removed by hand
+ *   (prune-atproto-orphans.mjs only removes old non-TID keys).
+ *   Eligibility + record keys: utils/atprotoRkey.mjs.
  *
  * One-way, fire-and-forget mirror of published blog posts into an AT-Proto
  * repo as standard.site records — a `site.standard.publication` for the blog
@@ -11,9 +19,9 @@
  * Dry run (default, needs no credentials) — prints what it WOULD write:
  *   yarn blog:mirror-atproto
  *
- * Live (writes to your repo) — needs an AT-Proto identity + app password:
- *   ATPROTO_HANDLE=ejfox.com ATPROTO_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx \
- *     yarn blog:mirror-atproto --live
+ * Live (writes to your repo) — needs an AT-Proto identity + app password in
+ * env ATPROTO_HANDLE and ATPROTO_APP_PASSWORD:
+ *   yarn blog:mirror-atproto --live
  *
  * Note on the `content` field: standard.site's content union is still open
  * and undefined (no block format published yet), so we send plain
@@ -39,6 +47,8 @@ const SITE_DESCRIPTION =
 const PDS = 'https://bsky.social'
 const LIVE = process.argv.includes('--live')
 const PROCESSED = path.join(process.cwd(), 'content/processed')
+
+// ── Record building ─────────────────────────────────────────
 
 const stripTags = (s) =>
   striptags(s || '')
@@ -115,7 +125,7 @@ const publicationRecord = () => ({
   description: SITE_DESCRIPTION,
 })
 
-// ---- AT-Proto wire calls (raw XRPC, no SDK) ----
+// ── AT-Proto wire calls (raw XRPC, no SDK) ──────────────────
 
 async function createSession() {
   const identifier = process.env.ATPROTO_HANDLE
@@ -159,6 +169,8 @@ async function putRecord(session, collection, rkey, record, tries = 4) {
   }
 }
 
+// ── Main ────────────────────────────────────────────────────
+
 async function main() {
   const posts = await loadPublishedPosts()
 
@@ -185,7 +197,8 @@ async function main() {
   const session = await createSession()
   console.log(`🔑 authed as ${session.handle || session.did}`)
 
-  // 1. the publication the documents belong to
+  // 1. the publication the documents belong to (written first: every
+  // document's `site` field points at its AT-URI)
   await putRecord(
     session,
     'site.standard.publication',

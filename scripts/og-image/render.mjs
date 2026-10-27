@@ -1,14 +1,18 @@
 /**
- * Main renderer — composes floating content cards in a 3D room onto a canvas.
+ * @file render.mjs
+ * @description Compose a layout.mjs scene into a 1200×630 OG PNG buffer with
+ *   @napi-rs/canvas. Called by scripts/og-image/index.mjs. Network: fetches
+ *   each image card from Cloudinary (resized + grayscaled via URL
+ *   transform); a failed fetch just leaves an empty frame.
  *
  * Pipeline:
  *   1. Background (noise gradient)
  *   2. Grid floor (vanishing perspective lines)
  *   3. Connections (thin lines between cards)
- *   4. Cards back-to-front (images get frames, text floats naked)
- *   5. Title (always last, always on top)
- *   6. Post-process: god rays → dither → vignette
- *   7. URL watermark
+ *   4. Cards back-to-front (images get frames, text floats naked);
+ *      title cards drawn after all others so they stay on top
+ *   5. Post-process: vignette → god rays → dither
+ *   6. URL watermark
  */
 
 import { createCanvas, loadImage } from '@napi-rs/canvas'
@@ -33,6 +37,8 @@ async function preloadImages(cards) {
     .map(async (card) => {
       try {
         let url = card.imageUrl.replace(/^http:\/\//i, 'https://')
+        // Splice a Cloudinary transform after /upload/ so we download a
+        // small grayscale JPEG instead of the full-size original.
         const parts = url.split('/upload/')
         if (parts.length === 2) {
           url = `${parts[0]}/upload/c_fill,w_320,h_220,f_jpg,q_auto,e_grayscale/${parts[1]}`
@@ -305,6 +311,8 @@ export async function renderScene(content, scene, slug, variant = 0) {
     const cx = proj.screenX - w / 2
     const cy = proj.screenY - h / 2
 
+    // Skip cards too small to read or fully off-canvas (80px slack for
+    // rotation/skew pushing corners back in).
     if (w < 12 || h < 6) continue
     if (cx + w < -80 || cx > WIDTH + 80 || cy + h < -80 || cy > HEIGHT + 80)
       continue

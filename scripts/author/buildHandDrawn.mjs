@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * Build the hand-drawn asset kit.
+ * @file buildHandDrawn.mjs
+ * @description Build the hand-drawn asset kit. No yarn script; run by hand
+ *   after editing catalog.json. Local files only: no network, no git.
  *
  * Source of truth: assets/hand-drawn/master.svg — a single sheet of notebook
  * marginalia (arrows, circled numbers, badges, boxes, numerals) traced in
@@ -18,7 +20,9 @@
  *   - assets/hand-drawn/manifest.json : the catalog padded + sorted (imported by the component)
  *   - public/hand-drawn/sprite.svg    : the shared geometry, recolored to currentColor
  *
- * Add/rename an asset: edit catalog.json, then `node scripts/buildHandDrawn.mjs`.
+ * Add/rename an asset: edit catalog.json, then `node scripts/author/buildHandDrawn.mjs`.
+ * manifest.json is read by utils/handDrawn.ts; the :hd{} markdown directive
+ * (scripts/plugins/remarkHandDrawn.mjs) names assets from it.
  * (regions.csv / element bounding boxes came from the browser via element.getBBox().)
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'

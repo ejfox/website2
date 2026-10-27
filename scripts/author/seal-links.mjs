@@ -5,6 +5,10 @@
  * @usage yarn seal:links [slug-substring]
  * @env SITE_ORIGIN - override https://ejfox.com (optional)
  *
+ * Reads the local keyring (.postkeys.json via scripts/build/sealKeyring.mjs)
+ * and checks content/processed/ for each envelope. Prints secrets-equivalent
+ * links to the terminal; writes nothing, no network, no git.
+ *
  * `yarn blog:process` prints these when it seals a post, but that scrolls away
  * and the link is the only thing that opens the post. This reads the same
  * keyring back, so you can re-send a link without re-sealing — re-sealing
@@ -31,6 +35,8 @@ const slugs = Object.keys(keys)
   .sort()
 
 if (!slugs.length) {
+  // NB: the hint below names `yarn blog:import`, which was removed; the
+  // current flow is `yarn seal` (seal:import + blog:process + check:sealed).
   console.log(
     chalk.yellow(
       filter

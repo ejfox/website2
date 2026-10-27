@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 /**
- * Fails when a public URL stops resolving, or a wikilink meant for a post
- * points at a tag page. The rules live in scripts/utils/url-stability.mjs.
+ * @file check-urls.mjs
+ * @description Fails when a public URL stops resolving, or a wikilink meant
+ *   for a post points at a tag page. The rules live in
+ *   scripts/utils/url-stability.mjs. Reads content/blog via git (ref, index or
+ *   worktree), data/published-urls.json (seed, see seed-published-urls.mjs) and
+ *   data/gone-urls.json. Read-only, no network. Exit 1 = broken, 2 = crashed.
  *
+ *   yarn check:urls                                     # = --base origin/main
  *   node scripts/meta/check-urls.mjs                    # working tree vs Wayback seed
  *   node scripts/meta/check-urls.mjs --base origin/main # + everything public at that ref
  *   node scripts/meta/check-urls.mjs --staged --base HEAD   # pre-commit
@@ -42,7 +47,11 @@ const git = (argv, input) =>
     maxBuffer: 256 * 1024 * 1024,
   })
 
-/** Read blobs by sha in one `git cat-file --batch` call. */
+/**
+ * Read blobs by sha in one `git cat-file --batch` call. One process instead
+ * of one `git show` per post is what keeps the pre-commit hook fast. Output
+ * is "<sha> blob <size>\n<content>\n" per item, in request order.
+ */
 function readBlobs(items) {
   if (!items.length) return []
   const out = git(['cat-file', '--batch'], items.map((i) => i.sha).join('\n'))
@@ -121,6 +130,8 @@ const readJson = async (rel) =>
   JSON.parse(await fs.readFile(path.join(ROOT, rel), 'utf8'))
 
 async function main() {
+  // Load the app's real TS rules (not copies), so this can't drift from what
+  // prod does with a redirect or a scheduled post.
   const jiti = createJiti(import.meta.url, { alias: { '~': ROOT } })
   const legacy = await jiti.import(
     path.join(ROOT, 'server/utils/legacyRedirect.ts')

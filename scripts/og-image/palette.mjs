@@ -1,6 +1,9 @@
 /**
- * Monochrome palette with optional single red accent.
- * The accent is used ONCE — on the most important element only.
+ * @file palette.mjs
+ * @description Zinc monochrome palette + single red accent for the OG image
+ *   generator (scripts/og-image/index.mjs). Colors are [r,g,b] arrays; rgb()/
+ *   rgba() turn them into canvas fill strings. The accent is used ONCE, on
+ *   the most important element (the title card in render.mjs).
  */
 
 export const ZINC = {

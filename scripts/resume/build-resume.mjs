@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 /**
- * Build public/resume.pdf FROM public/resume.json — the JSON is the single
- * source of truth. The PDF used to be hand-made in Apple Pages (no source file
- * survives), so the two drifted: resume.json stopped at 2019.
+ * @file build-resume.mjs
+ * @description Build public/resume.pdf FROM public/resume.json — the JSON is
+ *   the single source of truth. The PDF used to be hand-made in Apple Pages (no
+ *   source file survives), so the two drifted: resume.json stopped at 2019.
  *
  *   yarn resume:build            # writes public/resume.pdf
  *   yarn resume:build --html     # also keeps the intermediate HTML for tweaking
  *
  * Renders an HTML page styled after the original Pages design (teal name,
  * illustration + contact column, uppercase section labels) and prints it with
- * headless Chrome. No new dependencies.
+ * headless Chrome. No new dependencies, no network, no git.
+ *
+ * Gotchas: needs a local Chrome/Chromium (CHROME_PATH env var overrides the
+ * lookup). --html writes public/resume.html, which is publicly served if it
+ * gets committed. The phone number in resume.json is intentionally public.
  */
 import {
   readFile,
@@ -67,6 +72,7 @@ try {
   // no sips: embed the full-size image
 }
 
+// ── HTML ────────────────────────────────────────────────────
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <style>
   @page { size: Letter; margin: 0.5in 0.65in 0.5in 0.65in; }
@@ -152,6 +158,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   </div>
 </body></html>`
 
+// ── Print with headless Chrome ──────────────────────────────
 const CHROME = [
   process.env.CHROME_PATH,
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',

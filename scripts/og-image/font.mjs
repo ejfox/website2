@@ -1,6 +1,10 @@
 /**
- * Minimal 5x7 pixel font renderer.
- * Draws text pixel-by-pixel onto a canvas context.
+ * @file font.mjs
+ * @description Minimal 5x7 bitmap font for the OG image generator: draws
+ *   text as filled squares on a canvas context (the title card and the
+ *   ejfox.com watermark in render.mjs). Uppercase only (input is
+ *   upper-cased); glyphs missing from GLYPHS render as a gap. Each char
+ *   advances 6 × pixelSize.
  */
 
 // 5x7 bitmap font — each char is a 5-wide, 7-tall grid encoded as 7 rows of 5 bits

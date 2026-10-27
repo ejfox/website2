@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 /**
- * Simple prediction CLI
+ * @file predict-pro.mjs
+ * @description Interactive prediction CLI (inquirer prompts).
  *
  * yarn predict                          — create new prediction
  * yarn predict --update <filename.md>   — update confidence
  * yarn predict --resolve <filename.md>  — resolve prediction
+ *
+ * Writes content/predictions/<slug>.md and runs `git commit` itself on every
+ * create/update/resolve (no push). Not signed: the stored `hash` is SHA-256 of
+ * a gray-matter serialization that later rewrites change, so it doesn't
+ * reproduce; the git commit is the only checkable proof (see CLAUDE.md,
+ * Predictions). Scoring: scripts/meta/calibration-analysis.mjs.
  */
 
 import { promises as fs } from 'node:fs'
@@ -15,7 +22,10 @@ import matter from 'gray-matter'
 import { consola } from 'consola'
 import inquirer from 'inquirer'
 
+// Relative to cwd: run from the repo root (yarn does).
 const predictionsDir = join(process.cwd(), 'content', 'predictions')
+
+// ── Helpers ─────────────────────────────────────────────────
 
 function makeSlug(statement) {
   return statement
@@ -29,6 +39,9 @@ function hashContent(content) {
   return createHash('sha256').update(content).digest('hex')
 }
 
+// Plain `git commit` commits the whole index, not just `filepath`: anything
+// already staged rides along. The message is interpolated into a shell string,
+// so a `"` or `$` in the statement can break or alter the command.
 function gitCommit(filepath, message) {
   try {
     execSync(`git add "${filepath}"`)
@@ -39,6 +52,8 @@ function gitCommit(filepath, message) {
     return null
   }
 }
+
+// ── Create ──────────────────────────────────────────────────
 
 async function createPrediction() {
   const answers = await inquirer.prompt([
@@ -118,6 +133,8 @@ ${answers.resolutionCriteria}
 ${answers.evidence || '_No reasoning provided._'}
 `
 
+  // Hash covers the file as it is BEFORE `hash` (and later `gitCommit`) are
+  // added, so re-hashing the saved file never matches.
   const content = matter.stringify(body, frontmatter)
   const hash = hashContent(content)
   frontmatter.hash = hash
@@ -136,6 +153,8 @@ ${answers.evidence || '_No reasoning provided._'}
     `predict: ${answers.statement.substring(0, 60)}`
   )
 
+  // Writing the SHA back happens after the commit, so it leaves the file
+  // modified and uncommitted; the next commit picks it up.
   if (commitHash) {
     frontmatter.gitCommit = commitHash
     const withGit = matter.stringify(body, frontmatter)
@@ -143,6 +162,8 @@ ${answers.evidence || '_No reasoning provided._'}
     consola.success(`Committed: ${commitHash.substring(0, 8)}`)
   }
 }
+
+// ── Update confidence ───────────────────────────────────────
 
 async function updatePrediction(filename) {
   const filepath = join(predictionsDir, filename)
@@ -181,6 +202,8 @@ async function updatePrediction(filename) {
     },
   ])
 
+  // updates[0].confidenceBefore is what calibration treats as the confidence
+  // the prediction was published with ("as signed" in calibration-analysis).
   const timestamp = new Date().toISOString()
   const update = {
     timestamp,
@@ -212,6 +235,8 @@ async function updatePrediction(filename) {
     await fs.writeFile(filepath, withGit)
   }
 }
+
+// ── Resolve ─────────────────────────────────────────────────
 
 async function resolvePrediction(filename) {
   const filepath = join(predictionsDir, filename)
@@ -277,7 +302,7 @@ async function resolvePrediction(filename) {
   )
 }
 
-// Main
+// ── Main ────────────────────────────────────────────────────
 const args = process.argv.slice(2)
 const updateIndex = args.indexOf('--update')
 const resolveIndex = args.indexOf('--resolve')

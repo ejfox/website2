@@ -1,8 +1,12 @@
 /**
- * 3D → 2D perspective projection.
- * Pure math, no GL. The whole pseudo-3D engine.
+ * @file project.mjs
+ * @description 3D → 2D perspective projection for the OG image generator.
+ *   Pure math, no GL: the whole pseudo-3D engine. render.mjs uses
+ *   project3D, perspectiveSkew and sortByDepth; depthBlur is exported but
+ *   currently unused.
  */
 
+// Larger = flatter perspective. Scale falls off as FOV / (FOV + z * 80).
 const FOV = 200
 
 /**

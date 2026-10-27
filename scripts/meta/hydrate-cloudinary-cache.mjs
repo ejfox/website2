@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 /**
  * @file hydrate-cloudinary-cache.mjs
- * @description Populate data/cloudinary-image-cache.json with real metadata
- * @usage node scripts/hydrate-cloudinary-cache.mjs
+ * @description Fill data/cloudinary-image-cache.json with width, height and
+ *   dominant colors for every Cloudinary URL found in content/blog/**.md.
+ *   Run by hand: `node scripts/meta/hydrate-cloudinary-cache.mjs` (no yarn
+ *   script). Network: one public `fl_getinfo` GET per uncached URL, no API key.
+ *   Only fetches URLs with no meaningful entry yet, so re-runs are cheap.
+ *   Writes the cache in place (checkpoints every 50 URLs); resolves paths from
+ *   process.cwd(), so run it from the repo root.
  */
 
 import { promises as fs } from 'node:fs'
@@ -15,6 +20,10 @@ const CACHE_PATH = path.join(ROOT, 'data', 'cloudinary-image-cache.json')
 const CLOUDINARY_URL_RE =
   /https?:\/\/res\.cloudinary\.com\/[^/\s"'<>]+\/image\/upload\/[^\s"'<>]+/gi
 
+// ── URL parsing ─────────────────────────────────────────────
+
+// A leading path segment like `c_fill,w_800` or `f_auto` is a transformation,
+// not part of the asset's public path.
 function isTransformSegment(segment) {
   return segment.includes(',') || /^[cwhfqget]_[^/]+/.test(segment)
 }
@@ -44,6 +53,9 @@ function buildGetInfoUrl(url) {
   return `https://res.cloudinary.com/${info.cloudName}/image/upload/fl_getinfo/${info.publicPath}`
 }
 
+// ── Cache + content scan ────────────────────────────────────
+
+// colors is Cloudinary's [[hex, percent], ...]; take the two most common.
 function pickPalette(colors) {
   if (!Array.isArray(colors) || colors.length === 0) return null
   const sorted = [...colors].sort((a, b) => (b[1] || 0) - (a[1] || 0))
@@ -105,6 +117,8 @@ async function collectUrls() {
     const matches = raw.match(CLOUDINARY_URL_RE)
     if (!matches) continue
     for (const match of matches) {
+      // The regex over-captures in markdown (`url](next-url)`, trailing `)`),
+      // so trim back to the URL itself before using it as a cache key.
       const normalized = match
         .replace(/^http:\/\//i, 'https://')
         .split('](')[0]
@@ -116,6 +130,10 @@ async function collectUrls() {
   return Array.from(urls)
 }
 
+// ── Fetching (rate-limited) ─────────────────────────────────
+
+// At most 3 requests in flight and ≥150ms between starts, to stay polite to
+// Cloudinary's public delivery endpoint.
 const limiter = (() => {
   const queue = []
   let activeCount = 0
@@ -178,6 +196,7 @@ async function fetchWithRetry(url, attempts = 3) {
     try {
       const res = await fetch(url)
       if (res.ok) return res
+      // Only rate limits and server errors are worth retrying; a 404 won't heal.
       if (![429, 500, 502, 503, 504].includes(res.status)) return null
     } catch (error) {
       lastError = error
@@ -193,9 +212,12 @@ function isLikelyValidUrl(url) {
   if (!url.includes('/image/upload/')) return false
   const info = extractCloudinaryInfo(url)
   if (!info || !info.publicPath) return false
+  // A trailing dash is a URL the regex cut short, not a real asset.
   if (info.publicPath.endsWith('-')) return false
   return true
 }
+
+// ── Main ────────────────────────────────────────────────────
 
 async function main() {
   const cache = await loadCache()

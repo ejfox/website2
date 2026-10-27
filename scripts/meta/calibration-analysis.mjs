@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /**
- * Calibration Analysis for Predictions
- *
- * Reads prediction markdown files directly and calculates:
- * - Brier score (lower is better, 0 = perfect), on two bases:
- *     as signed  = the confidence each prediction was published with
- *     as updated = the last logged change (current `confidence`)
- * - Calibration by confidence bucket, on both bases
- * - Category breakdown
- *
- * Run: yarn calibrate
- * Output: data/calibration-analysis.json
+ * @file calibration-analysis.mjs
+ * @description Score resolved predictions. `yarn calibrate`.
+ *   Reads content/predictions/*.md frontmatter directly and calculates:
+ *   - Brier score (lower is better, 0 = perfect), on two bases:
+ *       as signed  = the confidence each prediction was published with
+ *                    ("signed" is the repo's name for it; nothing is PGP-signed)
+ *       as updated = the last logged change (current `confidence`)
+ *   - Calibration by confidence bucket, on both bases
+ *   - Category breakdown
+ *   Math lives in scripts/utils/brier.mjs. Writes data/calibration-analysis.json,
+ *   which /api/calibration serves as-is: re-run and commit after resolving one.
+ *   Local only: no network, no git.
  */
 
 import { readFile, writeFile, readdir } from 'node:fs/promises'
@@ -25,6 +26,7 @@ import {
 } from '../utils/brier.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
+// Misnamed: this is scripts/, so the '..' joins below land at the repo root.
 const __dirname = join(dirname(__filename), '..')
 
 const predictionsDir = join(__dirname, '..', 'content', 'predictions')
@@ -43,6 +45,8 @@ async function loadPredictions() {
   return predictions
 }
 
+// Plain hit rate per category, not Brier. A prediction with several
+// categories counts once in each.
 function analyzeByCategory(predictions) {
   const resolved = predictions.filter(
     (p) => p.resolved && (p.status === 'correct' || p.status === 'incorrect')

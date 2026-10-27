@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 /**
- * (Re)build data/published-urls.json from the Wayback Machine: every
- * /blog, /projects and /reading page it captured returning 200, in the
- * current site's URL shapes. scripts/meta/check-urls.mjs then requires each
- * one to still resolve (or be listed in data/gone-urls.json).
+ * @file seed-published-urls.mjs
+ * @description (Re)build data/published-urls.json from the Wayback Machine:
+ *   every /blog, /projects and /reading page it captured returning 200, in the
+ *   current site's URL shapes. scripts/meta/check-urls.mjs then requires each
+ *   one to still resolve (or be listed in data/gone-urls.json).
+ *   `yarn check:urls:seed`. NETWORK: hits the public web.archive.org CDX API
+ *   (no key; slow, retries with backoff). Writes the JSON; no git.
  *
  * This is the history from before check-urls existed. After that, the
  * base-vs-head check in the pre-commit hook and CI covers new losses, so this
@@ -35,6 +38,8 @@ const SHAPES = [
 ]
 const NOT_A_PAGE = /\.[a-z0-9]{1,5}$|^\d{1,2}$/i // assets, twins, month dirs
 
+// The CDX API sometimes answers 200 with an HTML error page, hence the
+// body-starts-with-'[' test, not just res.ok. Row 0 is the field header.
 async function cdx(prefix) {
   const url =
     `https://web.archive.org/cdx/search/cdx?url=ejfox.com/${prefix}/*` +
@@ -74,6 +79,7 @@ async function main() {
       const last = key.split('/').pop()
       if (!SHAPES.some((re) => re.test(key)) || NOT_A_PAGE.test(last)) continue
       const date = `${ts.slice(0, 4)}-${ts.slice(4, 6)}-${ts.slice(6, 8)}`
+      // Keep the earliest capture date: `seen` means first seen live.
       if (!seen.has(key) || date < seen.get(key)) seen.set(key, date)
       kept++
     }

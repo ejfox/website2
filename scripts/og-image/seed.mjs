@@ -1,6 +1,9 @@
 /**
- * Deterministic seeded PRNG from a slug string.
- * Same slug always produces the same sequence of random numbers.
+ * @file seed.mjs
+ * @description Deterministic seeded PRNG (djb2 hash → mulberry32) for the OG
+ *   image generator. Same seed string always yields the same sequence, so a
+ *   slug + variant number always re-renders the same picture. Used by
+ *   layout.mjs and render.mjs.
  */
 
 /** Hash a string to a 32-bit integer (djb2) */

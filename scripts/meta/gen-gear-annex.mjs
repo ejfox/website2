@@ -6,12 +6,17 @@
  * d3.csvParse) and writes a markdown annex into the agent-vault. Re-run before trips;
  * never hand-edit the output.
  *
+ * Gotcha: WRITES INTO THE OBSIDIAN VAULT (iCloud agent-vault) by default, via a
+ * hardcoded path below; set GEAR_ANNEX_OUT to write elsewhere. No yarn script,
+ * no network, no git. Archived/HomeBase rows are skipped.
+ *
  * Classification:
- *   - charge / capture / riding  -> driven by the freeform `Tags` field (powered/capture/riding|atgatt)
+ *   - charge / capture  -> `Powered` / `HasStorage` column = yes, OR a powered/capture tag
+ *   - riding            -> the freeform `Tags` field (riding|atgatt)
  *   - waterproof / sleep / restock -> driven by existing structured columns (Waterproof, Type, Consumable)
  *   - "needs tagging" -> Type=Tech items missing a `powered` tag, so coverage stays honest
  *
- * Usage: node scripts/gen-gear-annex.mjs   (override output with GEAR_ANNEX_OUT=/path)
+ * Usage: node scripts/meta/gen-gear-annex.mjs
  */
 import * as d3 from 'd3'
 import { readFile, writeFile } from 'node:fs/promises'
@@ -39,6 +44,8 @@ const tagsOf = (r) =>
 const has = (r, t) => tagsOf(r).includes(t)
 const yes = (r, f) => (r[f] || '').trim().toLowerCase() === 'yes'
 
+// [anchor, checklist heading, row predicate]. Anchors become `## <anchor>`
+// headings the runbooks link to, so renaming one breaks those links.
 const BUCKETS = [
   [
     'charge',

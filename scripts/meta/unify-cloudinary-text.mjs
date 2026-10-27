@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 /**
- * unify-cloudinary-text.mjs
+ * @file unify-cloudinary-text.mjs
+ * @description `yarn images:unify` (dry run unless --write). Network: lists
+ *   every Cloudinary image via the Admin API even on a dry run, calls
+ *   OpenRouter for rule 4, and writes context on --write. Reads
+ *   content/blog/**.md (skipping private/ and backup/). No git, no vault.
  *
  * One description model for every Cloudinary image, and the repo's
  * data/cloudinary-image-cache.json kept in step with it.
@@ -30,15 +34,16 @@
  * alt/caption := the image's final alt.
  *
  * Writes use the context API's `add` command, which MERGES keys — nothing
- * else on the asset (ocr_*, scrap_id, geo…) is touched. Any other existing
- * value is never overwritten.
+ * else on the asset (ocr_*, scrap_id, geo…) is touched. Only alt, caption and
+ * description are ever set, per the rules above.
  *
  * Usage:
  *   node scripts/meta/unify-cloudinary-text.mjs            # dry run + samples
  *   node scripts/meta/unify-cloudinary-text.mjs --write    # apply
  *   add --no-llm to skip rule 4; UNIFY_PLAN_OUT=plan.json dumps the plan to review
  * Needs CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET (+ OPENROUTER_API_KEY for rule 4).
- * Writes a before/after log to data/_tool-cache/unify-log-<date>.json.
+ * Writes a before/after log to data/_tool-cache/unify-log-<date>.json, and
+ * rewrites data/cloudinary-image-cache.json when its alts changed.
  */
 
 import { promises as fs } from 'node:fs'
@@ -69,6 +74,9 @@ const readJson = async (f, d) => {
 }
 const norm = (s) => (s || '').replace(/\s+/g, ' ').trim()
 
+// ── Sources: Cloudinary, markdown, LLM ──────────────────────
+
+// Admin API, 500 per page; `context=true` so each resource carries its alt etc.
 async function listAllImages() {
   const all = []
   let cursor = null
@@ -90,8 +98,8 @@ async function listAllImages() {
 }
 
 /**
- * public_id -> { own: [alt], any: [alt] } from every markdown image.
- * `own` is EJ's own words: project pages first, then any other post that
+ * public_id -> { project: [alt], essay: [alt], any: [alt] } from every
+ * markdown image. project + essay are EJ's own words: project pages first, then any other post that
  * isn't a week note (week notes carry the 2025 AI alt-text batch). Drafts
  * count — this is asset metadata, not publishing — but sealed posts don't.
  */
@@ -171,6 +179,7 @@ async function summarize(long) {
   return norm(j.choices?.[0]?.message?.content).replace(/^["'“]|["'”]$/g, '')
 }
 
+// Run fn over items with n concurrent workers sharing one cursor.
 async function pool(items, n, fn) {
   let i = 0
   await Promise.all(
@@ -179,6 +188,8 @@ async function pool(items, n, fn) {
     })
   )
 }
+
+// ── Main ────────────────────────────────────────────────────
 
 async function main() {
   for (const k of [
@@ -251,6 +262,7 @@ async function main() {
       console.log(
         `rule 4 skipped for ${needLlm.length} (${LLM ? 'no OPENROUTER_API_KEY' : '--no-llm'})`
       )
+      // Keep entries that still have a caption/description change to make.
       for (const id of needLlm)
         if (!Object.keys(plan.get(id).set).length) plan.delete(id)
     } else {

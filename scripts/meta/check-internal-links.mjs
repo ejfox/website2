@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 /**
- * @file scripts/check-internal-links.mjs
- * @description Standalone dead-internal-link audit. Scans every blog markdown
+ * @file check-internal-links.mjs
+ * @description Standalone dead-internal-link audit. `yarn blog:dead-links`.
+ *   Scans every blog markdown
  *   file for wikilinks / relative md links and checks each against the set of
  *   real published routes — no network, no full content rebuild. Writes
  *   data/internal-linkrot-report.json and prints a summary.
+ *   Rules live in scripts/utils/internal-links.mjs; `yarn blog:process` runs
+ *   the same audit on every build. Report-only unless --strict.
  *
  *   Usage:
- *     node scripts/check-internal-links.mjs           # report only
- *     node scripts/check-internal-links.mjs --strict  # exit 1 if any dead links
+ *     yarn blog:dead-links           # report only
+ *     yarn blog:dead-links --strict  # exit 1 if any dead links
  */
 
 import { promises as fs } from 'node:fs'
@@ -44,6 +47,7 @@ async function getMarkdownFiles(dir) {
 
 async function main() {
   const files = await getMarkdownFiles(contentDir)
+  // Must run first: it fills the route set auditInternalLinks checks against.
   await buildValidRoutes(files, contentDir)
   const report = await auditInternalLinks(files, contentDir)
 

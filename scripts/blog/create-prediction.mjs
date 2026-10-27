@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /**
  * @file blog/create-prediction.mjs
- * @description Simple CLI tool to create prediction files with frontmatter (statement, confidence, deadline, categories)
- * @usage node scripts/blog/create-prediction.mjs
+ * @description Older, bare-readline prediction creator (statement, confidence,
+ *   deadline, categories, evidence). `yarn create-prediction`.
+ *   Writes content/predictions/<year>/<slug>.md. No hash, no git commit, no
+ *   network. Prefer `yarn predict` (scripts/author/predict-pro.mjs), which
+ *   writes to content/predictions/ (no year folder) and commits.
  * @env None required
  */
 

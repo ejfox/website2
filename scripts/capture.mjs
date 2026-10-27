@@ -1,6 +1,15 @@
 #!/usr/bin/env node
-/*
- * capture.mjs — autonomous screenshot toolkit for the /projects portfolio.
+/**
+ * @file capture.mjs
+ * @description Autonomous screenshot/recording toolkit for the /projects
+ *   portfolio. `yarn capture <cmd> ...` (or `node scripts/capture.mjs`); also
+ *   reused by scripts/author/shoot-queue.mjs (`yarn shoot`). Writes only the
+ *   output paths you name, plus scratch files under /tmp. Network: loads the
+ *   target URL; `upload` and `shoot` push to Cloudinary with overwrite: true.
+ *   Never touches git or content files: `shoot` only PRINTS the markdown line.
+ *   Gotchas: the headless Chrome it launches is detached and keeps running
+ *   after the command exits (reused next time); `record` needs ffmpeg,
+ *   `sheet` needs ImageMagick `montage`, `tui` needs vhs, all on PATH.
  *
  * ONE tool, no new deps (built-in fetch + WebSocket, plus the cloudinary +
  * dotenv packages the project already has). It manages its OWN headless Chrome
@@ -24,13 +33,20 @@
  *   shoot  <slug> <url> [--click "Text"] [--wait 5000]
  *          # convenience: page-capture -> upload projects/<slug>/landing ->
  *          #   print the ready-to-paste markdown image line
+ *   tui    "<command>" <out.png> [--wait 3] [--cd dir] [--theme "Name"] [--type "keys"]
+ *          # render a CLI/TUI to PNG through vhs (default theme: vulpes)
+ *
+ * Other flags: --size WxH, --webgl (SwiftShader, see ensureChrome),
+ *   --key <k> (page/shoot), --eval "<js>" / --speed N / --fps N (record).
  *
  * Env:
  *   CAPTURE_PORT   chrome debug port (default 9333 — NOT 9222, to dodge clashes)
  *   CHROME_BIN     override the Chrome binary path
- *   Cloudinary creds come from .env (CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET)
+ *   Cloudinary creds come from .env (CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET,
+ *   or CLOUDINARY_URL)
  *
- * See scripts/capture.README.md for recipes and the embeddings-search workflow.
+ * See scripts/author/capture.README.md for recipes and the embeddings-search
+ * workflow. (The HELP text below still says scripts/capture.README.md.)
  */
 import { spawn } from 'node:child_process'
 import { writeFileSync, existsSync } from 'node:fs'
@@ -43,7 +59,7 @@ const WebSocketCtor = globalThis.WebSocket || (await import('ws')).default
 const PORT = Number.parseInt(process.env.CAPTURE_PORT || '9333', 10)
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
-// ---- arg parsing -----------------------------------------------------------
+// ── Arg parsing ─────────────────────────────────────────────────────────
 function parseArgs(argv) {
   const pos = []
   const flags = {}
@@ -62,7 +78,7 @@ function parseArgs(argv) {
   return { pos, flags }
 }
 
-// ---- chrome lifecycle ------------------------------------------------------
+// ── Chrome lifecycle ────────────────────────────────────────────────────
 function findChrome() {
   if (process.env.CHROME_BIN && existsSync(process.env.CHROME_BIN))
     return process.env.CHROME_BIN
@@ -146,7 +162,9 @@ async function ensureChrome(size = '1440,900', webgl = false) {
   process.exit(1)
 }
 
-// ---- minimal CDP client ----------------------------------------------------
+// ── Minimal CDP client ──────────────────────────────────────────────────
+// Raw DevTools protocol over one WebSocket: `send` resolves by message id,
+// `once` resolves on the next matching event, `on` is a persistent listener.
 async function connect() {
   const targets = await (await fetch(`http://localhost:${PORT}/json`)).json()
   let page = targets.find((t) => t.type === 'page')
@@ -220,7 +238,7 @@ async function goto(cdp, url, settleMs = 1500) {
   await sleep(settleMs)
 }
 
-// ---- commands --------------------------------------------------------------
+// ── Commands ────────────────────────────────────────────────────────────
 async function cmdPage({ pos, flags }) {
   const [url, out] = pos
   if (!url || !out) die('page <url> <out.png> [--click "Text"] [--wait ms]')
@@ -638,7 +656,7 @@ async function cmdPageInline(url, out, flags) {
   cdp.close()
 }
 
-// ---- helpers ---------------------------------------------------------------
+// ── Helpers ─────────────────────────────────────────────────────────────
 // Dispatch a single keystroke to the page (for viz keyboard toggles, etc.)
 async function pressKey(cdp, key) {
   const code =
@@ -660,6 +678,8 @@ async function pressKey(cdp, key) {
   console.log('pressed key ->', key)
 }
 
+// Click by visible text: exact (case-insensitive) match first, then
+// substring. Broad selector list because app UIs often use clickable divs.
 function clickExpr(text) {
   return `(() => {
     const t = ${JSON.stringify(text)};
@@ -766,7 +786,7 @@ const HELP = `capture.mjs — autonomous screenshot toolkit (see scripts/capture
 Chrome is auto-launched on port ${PORT} (override CAPTURE_PORT). It is dedicated
 to this tool and never touches the dev server — do NOT pkill node to clean up.`
 
-// ---- dispatch --------------------------------------------------------------
+// ── Dispatch ────────────────────────────────────────────────────────────
 const [cmd, ...rest] = process.argv.slice(2)
 const parsed = parseArgs(rest)
 const table = {

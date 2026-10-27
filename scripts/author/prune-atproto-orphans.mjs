@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 /**
- * prune-atproto-orphans.mjs
+ * @file prune-atproto-orphans.mjs
+ * @description Delete pre-TID AT-Proto records left behind by the mirror.
+ *   No yarn script. CI runs it from .github/workflows/mirror-atproto.yml only
+ *   on a manual workflow_dispatch with `prune` set (dry run, then --live).
+ *   Network: bsky.social XRPC. DELETES records with --live; no local writes.
  *
  * One-off cleanup after the 2026-09-22 rkey migration.
  *
@@ -22,7 +26,7 @@
  * the current mirror writes uses a TID, so the live set cannot be touched even
  * if this is run twice, or run before a mirror instead of after.
  *
- *   ATPROTO_HANDLE=… ATPROTO_APP_PASSWORD=… node scripts/author/prune-atproto-orphans.mjs
+ *   node scripts/author/prune-atproto-orphans.mjs   (env: ATPROTO_HANDLE, ATPROTO_APP_PASSWORD)
  *
  * Dry run by default; pass --live to actually delete.
  */

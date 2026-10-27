@@ -1,20 +1,23 @@
 #!/usr/bin/env node
 /**
- * content-report.mjs
+ * @file content-report.mjs
+ * @description Content health report card: letter-grades every
+ *   content/blog/**.md (drafts included) on
+ *   - image alt text quality (empty, junk, good)
+ *   - local (non-http) image refs
+ *   - frontmatter completeness (date, tags, dek)
+ *   - obviously broken links: empty, `#`, or containing "undefined" (no network)
+ *   - word count (very short posts)
  *
- * Unified content health report card. Audits every blog post for:
- *   - Image alt text quality (empty, junk, good)
- *   - Dead/broken images (local refs, missing Cloudinary)
- *   - Frontmatter completeness (date, tags, dek)
- *   - Link health (dead external, broken internal)
- *   - Semantic quality (has title, has TOC, word count)
+ * Reads data/cloudinary-image-cache.json. Writes data/content-report.json and a
+ * self-contained viewer, data/content-report.html (JSON inlined). Offline: no
+ * network, no git, no vault.
  *
- * Outputs: data/content-report.json (machine-readable)
- *          Terminal summary with letter grades
+ * Usage (no yarn script):
+ *   node scripts/meta/content-report.mjs            # report, then `open`s the HTML
+ *   node scripts/meta/content-report.mjs --no-open  # don't open a browser window
  *
- * Usage:
- *   node scripts/content-report.mjs            # full report
- *   node scripts/content-report.mjs --quick     # skip link checking
+ * Gotcha: without --no-open it runs macOS `open` on the HTML, which steals focus.
  */
 
 import { promises as fs } from 'node:fs'
@@ -34,9 +37,7 @@ const REPORT_HTML_PATH = path.join(ROOT, 'data', 'content-report.html')
 
 const args = process.argv.slice(2)
 
-// ---------------------------------------------------------------------------
-// Junk alt patterns (shared with generate-alt-text.mjs)
-// ---------------------------------------------------------------------------
+// ── Junk alt patterns (a copy of generate-alt-text.mjs's list, plus URL alts) ────
 const JUNK_ALT_PATTERNS = [
   /^Screenshot/i,
   /^Screen Shot/i,
@@ -60,9 +61,7 @@ function isJunkAlt(alt) {
   return JUNK_ALT_PATTERNS.some((p) => p.test(alt.trim()))
 }
 
-// ---------------------------------------------------------------------------
-// File walking
-// ---------------------------------------------------------------------------
+// ── File walking ───────────────────────────────────────────
 async function walk(dir) {
   const files = []
   const entries = await fs.readdir(dir, { withFileTypes: true })
@@ -74,13 +73,12 @@ async function walk(dir) {
   return files
 }
 
-// ---------------------------------------------------------------------------
-// Per-file audit
-// ---------------------------------------------------------------------------
+// ── Per-file audit ─────────────────────────────────────────
 const IMAGE_RE = /!\[([^\]]*)\]\(([^)]+)\)/g
 const LINK_RE = /(?<!!)\[([^\]]+)\]\(([^)]+)\)/g
 const VIDEO_RE = /\/video\/upload\/|\.mp4|\.webm|\.mov|\.gif(?:\?|$)/i
 
+// Strip code first so markdown-looking examples aren't audited as real images/links.
 function stripCodeBlocks(text) {
   return text.replace(/```[\s\S]*?```/g, '').replace(/`[^`]+`/g, '')
 }
@@ -252,9 +250,7 @@ function auditFile(filePath, content, cloudCache) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
+// ── Main ───────────────────────────────────────────────────
 async function main() {
   console.log('\n📋 Content Report Card\n')
 
@@ -380,7 +376,8 @@ async function main() {
       console.log(`    ... and ${failing.length - 10} more`)
   }
 
-  // Write self-contained HTML report (inline the JSON)
+  // Write self-contained HTML report (inline the JSON). Both branches below
+  // regenerate the whole file; the existing HTML is never used as a template.
   const htmlTemplate = await fs
     .readFile(REPORT_HTML_PATH, 'utf8')
     .catch(() => null)
@@ -404,6 +401,7 @@ async function main() {
   }
 }
 
+// ── HTML viewer (inline CSS + vanilla JS; data injected as JSON) ────
 function buildReportHtml(report) {
   const html =
     '<!doctype html>' +

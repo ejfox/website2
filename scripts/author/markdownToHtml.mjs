@@ -4,6 +4,10 @@
  *              unified pipeline as processMarkdown.mjs, but without the
  *              full content processing (on-this-day index, link checking, etc.)
  * @usage Import and call convertMarkdown(content, filename)
+ *
+ * Library, not a CLI. Imported by scripts/author/preview-convert.mjs (the
+ * Dispatch preview). Pure: no file writes, no network, no git. Top-level
+ * awaits load the theme and shiki highlighter once at import time.
  */
 
 import { promises as fs } from 'node:fs'

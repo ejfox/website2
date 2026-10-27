@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 /**
- * Layout review — screenshots + measured checks across routes, viewports and
- * light/dark. Started as a topbar review; now covers the whole page.
+ * @file layout-review.mjs
+ * @description Layout review: Playwright screenshots + measured checks across
+ *   routes, viewports and light/dark. Started as a topbar review; now covers
+ *   the whole page. Read-only against the target site (it only loads pages
+ *   and /api/healthcheck); writes only to the output dir.
+ *   Gotcha: the output dir (.qa/layout/, gitignored, or --out=) is
+ *   `rm -rf`'d at the start of every run, so never point --out at anything
+ *   you want to keep. scripts/qa/pr-eval.mjs links to its report.
  *
  *   yarn qa:layout                 # headless, against localhost:3006
  *   yarn qa:layout --watch         # show the lockstep windows (they take focus)
@@ -36,6 +42,7 @@
  *   broken-image  — an <img> that finished loading with no pixels
  *   js-error      — an uncaught exception, or a Vue hydration mismatch
  *   http-5xx      — a same-origin request that failed server-side
+ *   error         — the visit itself threw (navigation timeout etc.)
  * Warnings:
  *   contrast-aa   — text in view between 2:1 and WCAG AA (4.5:1; 3:1 large)
  *   tap-target    — on touch viewports, a control under 24×24px (WCAG 2.5.8);
@@ -47,6 +54,8 @@ import { chromium } from 'playwright'
 import { execSync } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+
+// ── Config: flags, routes, viewports ────────────────────────────────────
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -142,6 +151,8 @@ const VIEWPORTS = args.viewports
   : ALL_VIEWPORTS
 const isTouch = (vp) => vp.touch ?? vp.width < 768
 
+// ── Window placement (--watch) ──────────────────────────────────────────
+
 /** Find a portrait display (macOS); fall back to the main screen's origin. */
 function portraitSlot() {
   if (process.env.WINDOW_X) {
@@ -164,7 +175,13 @@ function portraitSlot() {
   }
 }
 
-/** Runs in the page: measure the top chrome and the visible page. */
+// ── In-page measurement ─────────────────────────────────────────────────
+
+/**
+ * Runs in the page: measure the top chrome and the visible page.
+ * Serialized by page.evaluate, so it can't reference anything at module
+ * scope; every helper it uses is defined inside it.
+ */
 function measure({ touch }) {
   const ctx = document.createElement('canvas').getContext('2d', {
     willReadFrequently: true,
@@ -511,6 +528,8 @@ function measure({ touch }) {
   }
 }
 
+// ── Measurements → issues ───────────────────────────────────────────────
+
 function findIssues(m, ctx) {
   const issues = []
   if (m.scrollWidth > m.innerWidth + 1) {
@@ -594,6 +613,8 @@ function findIssues(m, ctx) {
   }
   return issues
 }
+
+// ── Browser driving ─────────────────────────────────────────────────────
 
 const slug = (s) =>
   s.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'home'
@@ -788,6 +809,8 @@ async function discoverRoutes() {
   return found
 }
 
+// ── Report (contact sheet) ──────────────────────────────────────────────
+
 function contactSheet(results) {
   const esc = (s) =>
     String(s).replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`)
@@ -835,6 +858,8 @@ figcaption{color:#888}
 <ul>${summary}</ul>
 ${cards}`
 }
+
+// ── Main ────────────────────────────────────────────────────────────────
 
 await fs.rm(OUT, { recursive: true, force: true })
 await fs.mkdir(OUT, { recursive: true })

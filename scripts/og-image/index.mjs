@@ -1,9 +1,17 @@
 #!/usr/bin/env node
 /**
- * Generative OG image generator.
- *
- * Renders floating content cards in pseudo-3D space for each blog post.
- * Monochrome with dithering, god rays, and depth of field.
+ * @file index.mjs
+ * @description Generative OG image CLI: renders a post's content as floating
+ *   cards in pseudo-3D (extract.mjs → layout.mjs → render.mjs), monochrome
+ *   with dithering and god rays. No yarn script; run with node. The Dispatch
+ *   app drives it too, passing `--slug <slug>:batchN` to reroll.
+ *   Writes 4 variants + preview.html to data/og-previews/<slug-with-dashes>/
+ *   (gitignored); --pick N without --upload writes <slug>-final.png there.
+ *   --upload sends the picked variant to Cloudinary as og/<slug> (network,
+ *   overwrites; needs env CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY,
+ *   CLOUDINARY_API_SECRET). Nothing writes the result into post frontmatter.
+ *   Gotcha: --all is parsed and listed in usage but not implemented; main()
+ *   only handles --slug.
  *
  * Usage:
  *   node scripts/og-image/index.mjs --slug 2025/personal-apis              # 4 variants, preview

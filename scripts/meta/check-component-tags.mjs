@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 /**
- * Fail on component tags that resolve to nothing.
+ * @file check-component-tags.mjs
+ * @description Fail on component tags that resolve to nothing.
+ *   `yarn check:components`; also a step in .github/workflows/lint.yml.
+ *   Read-only, no network. Exit 1 = unknown tags, exit 2 = no .nuxt yet.
  *
  * Nuxt auto-imports components by folder + filename
  * (components/gear/Gear3DGallery.client.vue → <GearGear3DGallery>). A tag
@@ -88,6 +91,7 @@ for (const file of DIRS.flatMap(vueFiles)) {
   }
 
   const lines = template.split('\n')
+  // Line number of <template> in the file, so reports point at real lines.
   const offset = src.slice(0, src.indexOf(template)).split('\n').length - 1
   lines.forEach((line, i) => {
     // PascalCase tags, plus kebab tags that map onto a registered component.

@@ -1,6 +1,11 @@
 /**
- * Extract content fragments from a processed post JSON for rendering
- * as floating cards in 3D space.
+ * @file extract.mjs
+ * @description Pull title, headings, blockquotes, Cloudinary image URLs, tags
+ *   and stats out of a post for the OG image generator's floating cards.
+ *   Reads content/processed/<slug>.json; if that doesn't exist (drafts), falls
+ *   back to the source markdown under content/blog/ and, when the env var
+ *   DISPATCH_VAULT_PATH is set (the Dispatch app sets it), the Obsidian vault.
+ *   Read-only. Only res.cloudinary.com/ejf image URLs are picked up.
  */
 
 import { promises as fs } from 'node:fs'
@@ -46,10 +51,8 @@ function dedupe(arr) {
   return [...new Set(arr)]
 }
 
-/**
- * Best-effort fragment extraction from a raw markdown file. Used when the
- * processed JSON doesn't exist yet (drafts, in-progress posts).
- */
+// ── Markdown fallback (no processed JSON yet) ──────────────────────────
+
 /**
  * Try multiple candidate paths for a slug's source markdown. Posts live in
  * `blog/`, `blog/YYYY/`, or `blog/week-notes/` depending on type — and the
@@ -126,6 +129,10 @@ async function findMarkdownInTree(root, filename) {
   return null
 }
 
+/**
+ * Best-effort fragment extraction from a raw markdown file. Used when the
+ * processed JSON doesn't exist yet (drafts, in-progress posts).
+ */
 async function extractFromMarkdown(slug) {
   const { raw } = await readMarkdownForSlug(slug)
   const { data: fm, content } = matter(raw)
@@ -193,6 +200,8 @@ async function extractFromMarkdown(slug) {
     },
   }
 }
+
+// ── Processed JSON (the normal path) ───────────────────────────────────
 
 /**
  * Load and extract content fragments from a post slug.

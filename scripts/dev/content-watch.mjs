@@ -1,3 +1,11 @@
+/**
+ * @file content-watch.mjs
+ * @description Dev-server content HMR: rerun processMarkdown on .md edits,
+ *   then ping the browser. Not a CLI and no yarn script: nuxt.config.ts
+ *   imports watchContentAndReload() and calls it from its vite:serverCreated
+ *   hook (client build) during `yarn dev`. Client half: plugins/content-hmr.client.ts.
+ *   Writes content/processed/ (via the processor); no network, no git.
+ */
 import { spawn } from 'node:child_process'
 import { watch } from 'node:fs'
 import path from 'node:path'
@@ -7,6 +15,7 @@ const rootDir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '../..'
 )
+// One watcher per process, even if vite:serverCreated is called again.
 let started = false
 
 /**
@@ -28,6 +37,7 @@ export function watchContentAndReload(viteServer) {
   let running = false
   let pending = false
 
+  // One processor run at a time; edits during a run queue exactly one rerun.
   function runProcess() {
     if (running) {
       pending = true

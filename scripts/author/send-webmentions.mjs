@@ -1,20 +1,27 @@
 #!/usr/bin/env node
 /**
- * Send Webmentions Script
- *
- * Scans blog posts for external links and sends webmentions
- * to sites that support them. Run after publishing new content.
+ * @file send-webmentions.mjs
+ * @description Scans blog posts for external links and sends webmentions
+ *   to sites that support them. Run after publishing new content.
  *
  * Usage:
- *   yarn webmentions          # Send for posts modified in last 7 days
- *   yarn webmentions --all    # Send for all posts (careful - rate limits!)
- *   yarn webmentions --dry    # Show what would be sent without sending
+ *   yarn webmention          # Send for posts dated in the last 7 days
+ *   yarn webmention:all      # Send for all posts (careful - rate limits!)
+ *   yarn webmention:dry      # Show what would be sent without sending
+ *
+ * CI runs it LIVE from .github/workflows/send-webmentions.yml after each
+ * successful deploy. Network: GETs every linked page to discover its
+ * endpoint, then POSTs to third-party sites; no auth or env needed. Reads
+ * content/processed/<year>/*.json; writes the dedupe cache
+ * .webmentions-sent.json at the repo root (skipped on --dry; CI persists it
+ * with actions/cache).
  */
 
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+// Despite the name, this is scripts/ (one up), so '../content' is the repo's.
 const __dirname = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'
@@ -35,6 +42,8 @@ console.log(
   `   Scope: ${sendAll ? 'All posts' : `Posts from last ${days} days`}\n`
 )
 
+// ── Sent cache ──────────────────────────────────────────────
+
 // Load already-sent webmentions to avoid duplicates
 function loadSentWebmentions() {
   try {
@@ -50,6 +59,8 @@ function loadSentWebmentions() {
 function saveSentWebmentions(sent) {
   fs.writeFileSync(SENT_FILE, JSON.stringify(sent, null, 2))
 }
+
+// ── Links + endpoint discovery ──────────────────────────────
 
 // Extract external links from HTML
 function extractExternalLinks(html) {
@@ -134,7 +145,12 @@ async function sendWebmention(endpoint, source, target) {
   }
 }
 
-// Get recent posts from processed JSON
+// ── Post selection ──────────────────────────────────────────
+
+// Get recent posts from processed JSON. Only top-level <year>/ dirs, so
+// projects/, reading/ etc. are never scanned. No draft/hidden/unlisted or
+// scheduled (`publishAt`) check here: any processed JSON in a year dir is
+// fair game, including a scheduled post that is not public yet.
 function getRecentPosts(daysAgo) {
   const posts = []
   const cutoff = Date.now() - daysAgo * 24 * 60 * 60 * 1000
@@ -184,7 +200,7 @@ function getRecentPosts(daysAgo) {
   return posts.sort((a, b) => b.date - a.date)
 }
 
-// Main
+// ── Main ────────────────────────────────────────────────────
 async function main() {
   const sent = loadSentWebmentions()
   const posts = getRecentPosts(days)
@@ -236,7 +252,8 @@ async function main() {
       const endpoint = await discoverWebmentionEndpoint(targetUrl)
 
       if (!endpoint) {
-        // No webmention support - skip silently
+        // No webmention support - skip silently. Not cached, so the target
+        // is fetched again on every run.
         continue
       }
 

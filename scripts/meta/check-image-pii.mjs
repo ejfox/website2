@@ -32,8 +32,8 @@
  * ## Cache
  *
  * OCR is slow, so verdicts are cached in data/image-pii-scan.json, keyed by
- * image URL and invalidated by RULES_VERSION. It stores verdicts and rule ids
- * only — never OCR text, which would republish exactly what this guards. CI
+ * image URL and invalidated by RULES_VERSION. It stores verdicts, rule ids and
+ * redacted snippets only — never OCR text, which would republish exactly what this guards. CI
  * also keeps its own copy in .cache/ (actions/cache) so images added since
  * the last local `yarn check:images` aren't re-OCR'd on every deploy. Bump
  * RULES_VERSION when you change RULES, then run `yarn check:images` locally
@@ -50,6 +50,16 @@
  *
  * Drafts and sealed posts (content/blog/private/) are skipped: they aren't
  * published. Hidden/unlisted/password posts ARE scanned — they're reachable.
+ *
+ * ## Environment
+ *
+ * Needs the `tesseract` binary whenever there's something to OCR (fails closed
+ * without it). Network: downloads each un-cached image from Cloudinary. Env
+ * vars read: SKIP_IMAGE_GUARD=true (the workflow's manual override), CI (no
+ * local OCR text; download errors fail instead of warn), GITHUB_ACTIONS and
+ * GITHUB_STEP_SUMMARY (annotations, run summary, .cache/image-guard-alert.txt
+ * for the Discord step). No git, no vault. RULES / scanText / extractImages are
+ * exported for the tests in scripts/meta/__tests__/.
  */
 
 import { promises as fs } from 'node:fs'
@@ -76,7 +86,7 @@ const CONCURRENCY = Math.max(2, Math.min(6, os.cpus().length))
 // capture is ~10x slower at full size.
 const OCR_WIDTH = 2400
 
-// --- Rules ------------------------------------------------------------------
+// ── Rules ──────────────────────────────────────────────────
 
 function luhn(digits) {
   let sum = 0
@@ -108,8 +118,8 @@ export const RULES = [
     id: 'private-key',
     re: /BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY/,
   },
-  // Credentials — assignments. The value must look like a secret (6+ chars,
-  // not a placeholder), so prose like "password manager" doesn't trip it.
+  // Credentials — assignments. The value must look like a secret (not a
+  // placeholder), so prose like "password manager" doesn't trip it.
   // `password=` / `password:` followed by a value. Prefix may be an env-var
   // name (`DB_PASSWORD=`, `_password=`). 4+ chars, because OCR often clips
   // the end of a value; prose ("password manager") has no `=`/`:` after it.
@@ -246,7 +256,7 @@ export function redact(s) {
   )
 }
 
-// --- Collect published images -----------------------------------------------
+// ── Collect published images ───────────────────────────────
 
 async function* walk(dir) {
   for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
@@ -301,7 +311,7 @@ async function collectPublishedImages() {
   return images
 }
 
-// --- OCR --------------------------------------------------------------------
+// ── OCR ────────────────────────────────────────────────────
 
 /** Ask Cloudinary for a width-capped PNG: smaller download, faster OCR. */
 function ocrFetchUrl(url) {
@@ -342,6 +352,7 @@ async function saveOcrText(texts) {
   )
 }
 
+// A plain alias; nothing wraps ocrUrlUncached any more.
 const ocrUrl = ocrUrlUncached
 
 async function ocrUrlUncached(url, tmpDir) {
@@ -406,7 +417,7 @@ async function hasTesseract() {
   }
 }
 
-// --- Failing loudly ---------------------------------------------------------
+// ── Failing loudly ─────────────────────────────────────────
 //
 // A guard that blocks deploys will, one day, block one for a dumb reason.
 // When it does, the failure has to say — in the log, as a red annotation on
@@ -462,7 +473,7 @@ async function fail({ title, why, items, fix }) {
   process.exit(1)
 }
 
-// --- Main -------------------------------------------------------------------
+// ── Main ───────────────────────────────────────────────────
 
 async function scanLocal(files) {
   let bad = 0

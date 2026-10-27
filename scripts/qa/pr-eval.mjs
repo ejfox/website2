@@ -1,20 +1,31 @@
 #!/usr/bin/env node
 /**
- * PR eval — one page for a batch of PRs: what each changed, its CI and preview,
- * and before/after screenshots of the routes it touches.
+ * @file pr-eval.mjs
+ * @description PR eval: one page for a batch of PRs: what each changed, its
+ *   CI and preview, and before/after Playwright screenshots of the routes it
+ *   touches (phone + desktop, dark + light). No yarn script; run with node
+ *   from the repo root (output paths resolve against cwd).
  *
  *   BEFORE=https://ejfox.com AFTER=http://127.0.0.1:3036 \
  *     node scripts/qa/pr-eval.mjs --prs=73,74,75 [--routes=/,/blog/] [--watch]
  *
  * BEFORE is what main serves; AFTER is a local build of main with the PRs
- * merged in. --watch drives two windows in lockstep on the portrait
+ * merged in. This script does not build or serve AFTER; start it yourself.
+ * --watch drives two windows in lockstep on the portrait
  * monitor: before on top, after below. Output: .qa/eval/index.html, which
  * links the layout review at .qa/layout/ if one has been run.
+ *
+ * Gotchas: wipes .qa/eval/ (gitignored) on every run. Reads PR metadata and
+ * checks via the `gh` CLI (network; needs gh auth); a failed gh call just
+ * leaves that PR's row sparse. Window placement uses osascript (macOS only,
+ * falls back to a default slot). Read-only against GitHub and both sites.
  */
 import { chromium } from 'playwright'
 import { execSync } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+
+// ── Config ──────────────────────────────────────────────────────────────
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -54,6 +65,10 @@ const SHOTS = [
 ]
 const SCHEMES = ['dark', 'light']
 
+// ── Helpers ─────────────────────────────────────────────────────────────
+
+// Swallows failures (missing gh, no auth, unknown PR) and returns '' so one
+// bad PR doesn't sink the whole report.
 const sh = (cmd) => {
   try {
     return execSync(cmd, {
@@ -80,6 +95,9 @@ function prInfo(n) {
   return { ...pr, checks, preview: `https://pr-${n}.preview.ejfox.com` }
 }
 
+// Find the portrait monitor via AppKit (JXA). Converts Cocoa's bottom-left
+// origin to the top-left coords Chrome's --window-position expects; the 25px
+// leaves room for the macOS menu bar.
 function portraitSlot() {
   try {
     const out = execSync(
@@ -94,6 +112,8 @@ function portraitSlot() {
   }
 }
 
+// Both pages wait here before screenshotting, so before/after frames are
+// taken at the same moment (and --watch windows move in lockstep).
 function barrier(parties) {
   let arrived = 0
   let open
@@ -118,6 +138,8 @@ async function shoot(page, base, route, file, ready) {
   await page.screenshot({ path: path.join(OUT, file) })
   return file
 }
+
+// ── Screenshots ─────────────────────────────────────────────────────────
 
 await fs.rm(OUT, { recursive: true, force: true })
 await fs.mkdir(OUT, { recursive: true })
@@ -169,6 +191,8 @@ for (const scheme of SCHEMES) {
   }
 }
 await Promise.all([bBrowser.close(), aBrowser.close()])
+
+// ── Report ──────────────────────────────────────────────────────────────
 
 // Layout review summary, if one has been run against AFTER
 let layout = null

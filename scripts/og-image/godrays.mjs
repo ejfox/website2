@@ -1,7 +1,10 @@
 /**
- * Radial god rays post-process.
- * Simulates volumetric light streaming through gaps between cards.
- * Works on raw pixel data — no GL needed.
+ * @file godrays.mjs
+ * @description Radial god-rays post-process for the OG image generator.
+ *   Simulates volumetric light streaming through gaps between cards by
+ *   marching each pixel toward a light point and adding the brightness it
+ *   passes. Mutates ImageData in place, no GL. Called from render.mjs.
+ *   Cost is width × height × samples, so keep `samples` small.
  */
 
 /**

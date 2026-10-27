@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 /**
- * Smoke-test the live site: the pages, feeds, APIs, redirects and guardrails
- * that matter most, plus (with --browser) a headless pass for JS errors.
+ * @file smoke-prod.mjs
+ * @description Smoke-test the live site: the pages, feeds, APIs, redirects and
+ *   guardrails that matter most, plus (with --browser) a headless pass for JS errors.
  *
- *   yarn smoke                       # https://ejfox.com, HTTP checks
- *   yarn smoke --browser             # + headless Chromium on key pages
+ *   node scripts/meta/smoke-prod.mjs              # https://ejfox.com, HTTP checks only
+ *   yarn smoke                                    # same + --browser (package.json adds it)
  *   node scripts/meta/smoke-prod.mjs https://pr-123.preview.ejfox.com
  *
  * One request at a time, ~150ms apart: a concurrent crawl once pushed pm2 past
  * its 1G cap and 502'd the site. Read-only: GETs only, no forms, no webhooks.
- * Exits 1 if any check fails; slow pages warn but don't fail.
+ * Network only; writes no files, no git, no env vars. --browser imports
+ * `playwright` lazily and reports a failed check if it can't be loaded.
+ * Exits 1 if any check fails, 2 if the script itself crashes; slow pages warn
+ * but don't fail. Some checks pin specific slugs (coach-artie, hacker-culture);
+ * update them when those posts change status.
  */
 
 const args = process.argv.slice(2)
@@ -23,6 +28,9 @@ const PAUSE_MS = 150
 const results = []
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
+// ── Check helpers ───────────────────────────────────────────
+
+// redirect: 'manual' so redirect and open-redirect checks see the raw 30x + Location.
 async function get(path, { redirect = 'manual' } = {}) {
   await sleep(PAUSE_MS)
   const t0 = performance.now()
@@ -83,6 +91,8 @@ const onSite = (loc) => {
     return false
   }
 }
+
+// ── Main: HTTP checks ───────────────────────────────────────
 
 async function main() {
   console.log(`smoke: ${BASE}${BROWSER ? ' (+browser)' : ''}\n`)
@@ -297,6 +307,8 @@ async function main() {
 
   report()
 }
+
+// ── Browser pass + report ───────────────────────────────────
 
 /** Headless Chromium: console errors, failed requests, hydration mismatches. */
 async function browserPass(newest) {

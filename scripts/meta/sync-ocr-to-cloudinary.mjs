@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * sync-ocr-to-cloudinary.mjs
+ * @file sync-ocr-to-cloudinary.mjs
+ * @description `yarn images:sync-ocr` (dry run unless --write). Network: signed
+ *   Cloudinary context API POSTs on --write. No git, no vault.
  *
  * Pushes the OCR text that `yarn check:images` keeps locally
  * (data/_tool-cache/image-ocr.json) onto each Cloudinary asset as contextual
@@ -20,8 +22,9 @@
  *   node scripts/meta/sync-ocr-to-cloudinary.mjs --write   # push
  *   node scripts/meta/sync-ocr-to-cloudinary.mjs --write --limit 1   # try one first
  *
- * Needs CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET.
- * Already-pushed text is remembered in data/_tool-cache/ocr-cloudinary-synced.json
+ * --write needs CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET (the cloud name
+ * comes from each image URL). Reads data/image-pii-scan.json and
+ * data/image-pii-allow.json for the guard verdicts. Already-pushed text is remembered in data/_tool-cache/ocr-cloudinary-synced.json
  * (by content hash), so re-runs only push what's new or changed.
  */
 
@@ -50,6 +53,8 @@ const readJson = async (f, fallback) => {
     return fallback
   }
 }
+
+// ── Pure helpers (exported for tests) ───────────────────────
 
 /** https://res.cloudinary.com/ejf/image/upload/v123/folder/name.png → { cloud, publicId } */
 export function parseCloudinary(url) {
@@ -119,6 +124,8 @@ export function toContext(text, at) {
   return pairs.join('|')
 }
 
+// ── Cloudinary API ──────────────────────────────────────────
+
 export async function addContext({ cloud, publicId }, context) {
   const { CLOUDINARY_API_KEY: key, CLOUDINARY_API_SECRET: secret } = process.env
   const ts = Math.floor(Date.now() / 1000)
@@ -138,6 +145,7 @@ export async function addContext({ cloud, publicId }, context) {
     .update(toSign + secret)
     .digest('hex')
   const body = new URLSearchParams({ ...params, api_key: key, signature })
+  // Signed as `public_ids`, but the endpoint wants the array form on the wire.
   body.delete('public_ids')
   body.append('public_ids[]', publicId)
   const res = await fetch(
@@ -150,6 +158,8 @@ export async function addContext({ cloud, publicId }, context) {
   if (!res.ok)
     throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`)
 }
+
+// ── Main ────────────────────────────────────────────────────
 
 async function main() {
   const texts = await readJson(OCR_TEXT, null)
@@ -261,4 +271,5 @@ async function main() {
   }
 }
 
+// Run only as a CLI, so tests can import the helpers without side effects.
 if (import.meta.url === `file://${process.argv[1]}`) main()

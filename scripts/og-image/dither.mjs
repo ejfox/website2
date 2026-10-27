@@ -1,6 +1,9 @@
 /**
- * Bayer 8x8 ordered dithering post-process.
- * Applies partially (blended) for texture without destroying readability.
+ * @file dither.mjs
+ * @description Bayer 8x8 ordered-dither post-process for the OG image
+ *   generator. Mutates an ImageData buffer in place, blended with the
+ *   original at `strength` so it adds texture without wrecking legibility.
+ *   Called from render.mjs (at strength 0.18).
  */
 
 // Bayer 8x8 threshold matrix (normalized to 0-1 range)

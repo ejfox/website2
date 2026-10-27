@@ -9,10 +9,16 @@
  *        node scripts/meta/vault-repo-merge.mjs --apply    # actually write both sides
  *        node scripts/meta/vault-repo-merge.mjs --only 2022/art-setup
  *        node scripts/meta/vault-repo-merge.mjs --diff 2022/art-setup   # print unified diff
+ *        add --verbose for a per-file change list. No yarn script.
+ *
+ * TOUCHES: reads the iCloud Obsidian vault at a hardcoded path (VAULT_ROOT, EJ's Mac
+ *   only) and git-tracked content/blog/**.md (`git ls-files`). --apply WRITES BOTH the
+ *   vault and content/blog/ in place. --diff stages temp copies in .merge-diff-tmp/
+ *   (deleted after) and shells out to `git diff --no-index`. No network.
  *
  * WHY THIS EXISTS
- *   `scripts/blog/import.mjs` copies vault→repo as RAW BYTES, so every repo-side edit is
- *   reverted by the next import. The two copies have diverged, and — this is the whole
+ *   The old `scripts/blog/import.mjs` (removed 2026-09-26; Dispatch replaced it) copied
+ *   vault→repo as RAW BYTES, so every repo-side edit was reverted by the next import. The two copies have diverged, and — this is the whole
  *   problem — each side is better in DIFFERENT, mechanically-identifiable ways. Neither
  *   wholesale direction is safe:
  *
@@ -74,6 +80,8 @@ const argValue = (flag) => {
 const ONLY = argValue('--only')
 const DIFF_TARGET = argValue('--diff')
 
+// ── CLI + file discovery ────────────────────────────────────
+
 /** Normalize `--only 2022/art-setup` / `2022/art-setup.md` / `content/blog/2022/…`. */
 const normalizeRel = (s) => {
   if (!s) return null
@@ -84,7 +92,8 @@ const normalizeRel = (s) => {
 
 /**
  * Vault `blog/2019/foo.md` → repo `2019/foo.md`. Mirrors `contentRelativePath()` in
- * scripts/blog/import.mjs — the leading `blog/` segment is stripped on import.
+ * the removed scripts/blog/import.mjs — the leading `blog/` segment was stripped on import.
+ * walk() and trackedRepoPosts() below are copies of frontmatter-sync-report.mjs's.
  */
 const contentRelativePath = (relPath) =>
   relPath.startsWith(`blog${path.sep}`) ? relPath.slice(5) : relPath

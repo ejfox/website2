@@ -1,14 +1,18 @@
 /**
- * Generate 3D positions for floating content cards.
- * Uses seeded PRNG so the same slug always produces the same layout.
+ * @file layout.mjs
+ * @description Place a post's content fragments (from extract.mjs) as cards
+ *   in a pseudo-3D "room" for the OG image generator. Seeded by the string
+ *   index.mjs passes (`<slug>:v<n>`, plus `:batchN` for rerolls), so the
+ *   same seed always yields the same layout. Pure; no I/O.
  */
 
 import { createRng, randRange, randPick } from './seed.mjs'
 
 /**
- * @param {string} slug
+ * @param {string} slug - seed string, not necessarily a bare slug
  * @param {object} content - from extract.mjs
- * @returns {Array} cards with 3D positions
+ * @returns {{cards: Array, connections: Array<{from:number,to:number}>}}
+ *   cards with 3D positions, plus index pairs for the dashed link lines
  */
 export function layoutCards(slug, content) {
   const rng = createRng(slug)
@@ -81,6 +85,8 @@ export function layoutCards(slug, content) {
       z: wall.z + randRange(rng, 0, wall.zSpread),
     }
   }
+
+  // ── Cards ───────────────────────────────────────────────────────────────
 
   // Title card — front and center on the back wall
   cards.push({
@@ -167,6 +173,8 @@ export function layoutCards(slug, content) {
       importance: 0.1,
     })
   }
+
+  // ── Connections ─────────────────────────────────────────────────────────
 
   // Connecting lines between nearby cards (thin network edges)
   const connections = []

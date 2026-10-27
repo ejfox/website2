@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 /**
- * CLI wrapper for markdownToHtml - used by website-dispatch preview server
- * Usage: node scripts/preview-convert.mjs <filepath>
- * Output: JSON with { html, title }
+ * @file preview-convert.mjs
+ * @description Render one markdown file to HTML for the Dispatch app's live
+ *   preview (content/blog/projects/website-dispatch.md). No yarn script; the
+ *   app shells out: `node scripts/author/preview-convert.mjs <filepath>`.
+ *   Prints JSON `{ html, title, toc }` on stdout, or `{ error }` on stderr
+ *   with exit 1. Read-only: no network, git or writes.
+ *   Pipeline lives in scripts/author/markdownToHtml.mjs.
  */
 
 import { promises as fs } from 'node:fs'

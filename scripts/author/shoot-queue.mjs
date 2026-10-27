@@ -1,6 +1,15 @@
 #!/usr/bin/env node
-/*
- * shoot-queue.mjs — the screenshot FORCING FUNCTION for the /projects portfolio.
+/**
+ * @file shoot-queue.mjs
+ * @description The screenshot FORCING FUNCTION for the /projects portfolio.
+ *   `yarn shoot`. Interactive (readline). Edits content/blog/projects/*.md in
+ *   place (a .bak is left beside each), uploads to Cloudinary via
+ *   scripts/capture.mjs, and `open`s URLs + Finder windows (they take focus;
+ *   --no-open stops that). No git.
+ *
+ *   KNOWN BREAK: seed() and upload() spawn `scripts/author/capture.mjs`, but
+ *   the file lives at scripts/capture.mjs, so both fail until the path is
+ *   fixed (upload prints "upload failed" and wires nothing).
  *
  * The problem it solves: ~75 project pages ship with only 1–2 images. They want
  * 4–5 visually-interesting ones each. The blocker is never the plumbing — it's
@@ -23,6 +32,8 @@
  *
  * Drop folder: ~/Desktop/projectshots/<slug>/  (PNG/JPG/GIF you put there get wired in)
  * Needs Cloudinary creds in .env for the upload step (CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET).
+ * This file doesn't load .env itself (capture.mjs does), so the "no creds"
+ * warning below only sees variables exported in your shell.
  */
 import {
   readFileSync,
@@ -42,7 +53,7 @@ const PROJ_DIR = join(ROOT, 'content/blog/projects')
 const DROP_ROOT = join(homedir(), 'Desktop/projectshots')
 const CLOUD = process.env.CLOUDINARY_CLOUD_NAME || 'ejf'
 
-// ---- args ------------------------------------------------------------------
+// ── Args ────────────────────────────────────────────────────
 const argv = process.argv.slice(2)
 const flag = (name, def = false) => {
   const i = argv.indexOf('--' + name)
@@ -64,7 +75,7 @@ const SEED = flag('seed') === true
 const DRY = flag('dry-run') === true
 const NO_OPEN = flag('no-open') === true
 
-// ---- tiny ansi -------------------------------------------------------------
+// ── Tiny ANSI ───────────────────────────────────────────────
 const c = (n, s) => `\x1B[${n}m${s}\x1B[0m`
 const bold = (s) => c(1, s),
   dim = (s) => c(2, s),
@@ -73,7 +84,8 @@ const bold = (s) => c(1, s),
   yellow = (s) => c(33, s),
   red = (s) => c(31, s)
 
-// ---- frontmatter + image parsing ------------------------------------------
+// ── Frontmatter + image parsing ─────────────────────────────
+// Hand-rolled, flat `key: value` only (no gray-matter): enough for title/url.
 function parse(file) {
   const text = readFileSync(file, 'utf8')
   const slug = file.replace(PROJ_DIR + '/', '').replace(/\.md$/, '')
@@ -122,7 +134,7 @@ function firstProse(body) {
   return ''
 }
 
-// ---- queue -----------------------------------------------------------------
+// ── Queue ───────────────────────────────────────────────────
 function buildQueue() {
   let files = readdirSync(PROJ_DIR).filter(
     (f) => f.endsWith('.md') && !f.startsWith('!')
@@ -134,7 +146,7 @@ function buildQueue() {
   return list.sort((a, b) => a.count - b.count || a.slug.localeCompare(b.slug))
 }
 
-// ---- helpers ---------------------------------------------------------------
+// ── Helpers ─────────────────────────────────────────────────
 const sh = (cmd, args, opts = {}) =>
   spawnSync(cmd, args, { stdio: 'inherit', cwd: ROOT, ...opts })
 function openThing(target) {
@@ -188,6 +200,8 @@ function upload(localFile, publicId) {
     console.log(red('  upload failed: ') + out.trim().split('\n').pop())
     return null
   }
+  // capture.mjs prints a .png URL; swap in the source extension so GIFs etc.
+  // keep their format in the markdown.
   return m[0].replace(/\.png$/, extOf(localFile))
 }
 const caption = (f) =>
@@ -213,7 +227,7 @@ function wire(p, lines) {
   writeFileSync(p.file, out)
 }
 
-// ---- interactive prompt ----------------------------------------------------
+// ── Interactive prompt ──────────────────────────────────────
 const rl = createInterface({ input: process.stdin, output: process.stdout })
 const ask = (q) =>
   new Promise((res) => rl.question(q, (a) => res(a.trim().toLowerCase())))
@@ -287,6 +301,8 @@ async function run() {
       continue
     }
 
+    // Number new uploads after the existing images so public IDs don't
+    // collide with earlier shots (projects/<slug>/01, 02, …).
     const start = p.count
     const newLines = []
     let n = start

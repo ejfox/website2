@@ -1,9 +1,16 @@
 #!/usr/bin/env node
 /**
- * @file export-all-contributions.mjs
+ * @file export-github-commits.mjs
  * @description Fetch ALL GitHub contributions using GraphQL API - includes commits to personal, org, and forked repos
- * @usage node scripts/export-all-contributions.mjs
+ * @usage node scripts/author/export-github-commits.mjs  (no yarn script, not in prebuild)
  * @env None required - uses gh CLI which must be authenticated
+ *
+ * Network: one `gh api graphql` call per contribution year, 1s apart.
+ * Overwrites data/github-commits.json (read by server/api/github-commits.get.ts
+ * among others). GraphQL gives only per-day counts, so each entry is
+ * synthetic: `sha` is `<timestamp>-<n>` and the message is generic. The query
+ * takes `contributions(first: 100)` per repo per year with no paging, so a
+ * repo with commits on more than 100 days in a year is undercounted.
  */
 
 import { execSync } from 'node:child_process'
@@ -11,6 +18,7 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+// Despite the name, this is scripts/ (one level up), so ../data is repo data/.
 const __dirname = join(dirname(fileURLToPath(import.meta.url)), '..')
 const OUTPUT_FILE = join(__dirname, '../data/github-commits.json')
 const USERNAME = 'ejfox'

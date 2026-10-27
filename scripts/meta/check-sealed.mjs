@@ -3,7 +3,10 @@
  * @file check-sealed.mjs
  * @description Assert that nothing about a sealed post has leaked into the
  *   public repository. Run by the pre-commit hook (against the STAGED tree)
- *   and by .github/workflows/guard-sealed.yml (against HEAD, on every branch).
+ *   and by .github/workflows/guard-sealed.yml (against HEAD, on every branch),
+ *   plus the deploy workflow and the tail of `yarn blog` / `yarn seal`.
+ *   Read-only: shells out to `git` (ls-files / diff --cached / show), no network.
+ *   Design + threat model: docs/SEALED-POSTS.md.
  * @usage yarn check:sealed [--staged]
  *
  * ## Why this exists even though the plaintext is gitignored
@@ -57,8 +60,9 @@ const failures = []
 //    forever — a later `git rm` does not un-publish anything.
 //
 //    `content/backup/private` is checked alongside it because `blog:import`
-//    copies `content/blog/` to `content/backup/` before rebuilding, which
-//    quietly produces a second plaintext copy of every sealed post. Both
+//    (removed 2026-09-26; see CLAUDE.md) copied `content/blog/` to
+//    `content/backup/` before rebuilding, which quietly produced a second
+//    plaintext copy of every sealed post; old copies may still exist. Both
 //    directories are gitignored today and `content/backup/**` has never had a
 //    tracked file — but the plaintext is only one careless .gitignore edit
 //    away from being committable, and the backup copy is the one nobody would
