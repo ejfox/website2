@@ -31,6 +31,10 @@ Vue SFCs put the header as an HTML comment at the very top, before
 -->
 ```
 
+`@file` is the bare filename, except where that name repeats across folders
+(`index.vue`, `[slug].vue`): there, write the path, e.g.
+`@file blog/tag/[...slug].vue` under `pages/`.
+
 Keep shebangs (`#!/usr/bin/env node`) on line 1. The header goes after them.
 
 ## 2. Section dividers in long files
