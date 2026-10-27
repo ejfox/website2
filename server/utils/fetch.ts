@@ -2,8 +2,7 @@
  * @file fetch.ts
  * @description Native fetch with an AbortController timeout (default 10s), and
  *   a fetchJSON wrapper that returns null instead of throwing. Used by
- *   server/utils/smallweb.ts, server/api/umami/auth.post.ts and
- *   server/api/atlas/{live,remediation}.get.ts.
+ *   server/utils/smallweb.ts and server/api/atlas/{live,remediation}.get.ts.
  *
  * Errors carry the URL in their message, so don't pass URLs with secrets in
  *   the query string (they would land in pm2 logs).

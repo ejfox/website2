@@ -30,7 +30,6 @@ const ALLOWLIST: Record<string, string> = {
   // Public API surface: works, reachable, no on-site caller by design.
   '/api/search': 'external — public TF-IDF search API, no on-site UI yet',
   '/api/scraps/tags': 'external — public scrap-tag vocabulary API',
-  '/api/umami/auth': 'external — HTTP-API analytics auth helper',
   '/api/umami/stats': 'external — HTTP-API per-page analytics',
   '/api/weekly-summary': 'external — consumed by the Sunday Interview skill',
   // Not "external by design" like the rest — this one is genuinely WIP and the

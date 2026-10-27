@@ -131,7 +131,6 @@ have no URL caller but are very much alive.
 | `reach` | Site visitors/pageviews | `stats` (import) | `UMAMI_DATABASE_URL` (Postgres) |
 | `website-stats` | Site-wide analytics | `stats`, `stats-lite` (import), `UmamiStats.vue` | `UMAMI_DATABASE_URL` (Postgres) |
 | `umami/stats` | Per-page views (`?url=`) | public API | `UMAMI_*` → umami.tools.ejfox.com |
-| `umami/auth` (POST) | Umami access token | public API | `UMAMI_*` → umami.tools.ejfox.com |
 | `weekly-summary` | Per-week aggregate (`?week=`) | Sunday Interview skill | calls 9 other routes |
 
 ## Availability, consulting & infra
@@ -159,9 +158,11 @@ in the orphan test with a reason so they don't read as accidental orphans.
   processed content. No on-site search box wired yet; the API is live.
 - **`scraps/tags`** — sorted, deduped scrap tag vocabulary (companion to
   `scraps/by-tags`). Empty locally only because Supabase creds aren't set in dev.
-- **`umami/stats` + `umami/auth`** — the HTTP-API analytics path against the live
+- **`umami/stats`** — the HTTP-API analytics path against the live
   `umami.tools.ejfox.com` instance (heartbeat OK). Parallel to the Postgres
   `reach`/`website-stats` path; both are valid, they just read the same data two
-  ways. Need `UMAMI_USERNAME/PASSWORD`.
+  ways. Logs in server-side; the token never leaves the server. Needs
+  `UMAMI_USERNAME/PASSWORD`. (`umami/auth`, which returned that token to any
+  caller, was deleted 2026-10-27.)
 - **`weekly-summary`** — `GET /api/weekly-summary?week=2026-W05` aggregates a
   week across GitHub/RescueTime/health/chess/… for the **Sunday Interview skill**.

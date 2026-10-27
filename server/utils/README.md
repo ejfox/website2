@@ -54,7 +54,7 @@ function name, not just the path).
 | `epubCache.ts` | stale-while-revalidate for the EPUBs | `routes/*.epub.ts` |
 | `epubImages.ts` | swap chapter `<img>`s for embedded halftones | `routes/archive.epub.ts` |
 | `feedHtml.ts` | post HTML → feed-reader HTML, excerpt, ETag/304 | `routes/rss.xml.ts`, `routes/feed.json.ts` |
-| `fetch.ts` | fetch with timeout; `fetchJSON` returns null on failure | `smallweb.ts`, `api/umami/auth`, `api/atlas/{live,remediation}` |
+| `fetch.ts` | fetch with timeout; `fetchJSON` returns null on failure | `smallweb.ts`, `api/atlas/{live,remediation}` |
 | `flashcards.ts` | parse/load flashcard CSV decks | `api/flashcards*` |
 | `gear-data.ts` | load `data/gear.csv` with slugs | `api/gear`, `api/gear/[slug]` (auto-import) |
 | `halftone.ts` | 1-bit line-halftone PNGs + disk cache | `epubImages.ts`, `epubCache.ts`, `routes/photos.epub.ts` |

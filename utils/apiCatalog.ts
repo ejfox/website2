@@ -740,17 +740,6 @@ export const apiCatalog: ApiRoute[] = [
     note: 'HTTP-API analytics path; parallels the Postgres reach/website-stats',
   },
   {
-    method: 'POST',
-    path: '/api/umami/auth',
-    group: 'Stats & metrics',
-    summary: 'Umami access token (HTTP API helper)',
-    consumer: 'external',
-    consumedBy: 'public API',
-    deps: 'UMAMI_USERNAME/PASSWORD → umami.tools.ejfox.com',
-    health: 'ok',
-    note: 'Auth helper for the HTTP-API analytics path',
-  },
-  {
     method: 'GET',
     path: '/api/weekly-summary',
     group: 'Stats & metrics',
