@@ -140,7 +140,9 @@ async function loadCache() {
 
 async function saveCache(cache) {
   await fs.mkdir(path.dirname(CACHE_PATH), { recursive: true })
-  await fs.writeFile(CACHE_PATH, JSON.stringify(cache, null, 2))
+  // Trailing newline matches scripts/meta/unify-cloudinary-text.mjs, the other
+  // writer; without it every process run dirtied this tracked file.
+  await fs.writeFile(CACHE_PATH, JSON.stringify(cache, null, 2) + '\n')
 }
 
 // ── Cloudinary metadata extraction ─────────────────────────────────────────

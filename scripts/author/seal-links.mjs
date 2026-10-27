@@ -35,15 +35,13 @@ const slugs = Object.keys(keys)
   .sort()
 
 if (!slugs.length) {
-  // NB: the hint below names `yarn blog:import`, which was removed; the
-  // current flow is `yarn seal` (seal:import + blog:process + check:sealed).
   console.log(
     chalk.yellow(
       filter
         ? `No sealed post matching "${filter}".`
         : 'No sealed posts yet.\n\n' +
             'To make one: write it in the vault under private/, then\n' +
-            '  yarn blog:import && yarn blog:process\n'
+            '  yarn seal\n'
     )
   )
   process.exit(0)

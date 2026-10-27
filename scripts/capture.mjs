@@ -772,7 +772,7 @@ ${typeof flags.type === 'string' ? `Type ${JSON.stringify(flags.type)}\nSleep 15
   process.exit(0)
 }
 
-const HELP = `capture.mjs — autonomous screenshot toolkit (see scripts/capture.README.md)
+const HELP = `capture.mjs — autonomous screenshot toolkit (see scripts/author/capture.README.md)
 
   page   <url> <out.png>            [--click "Text"] [--key p] [--wait 5000] [--size 1440,900]
   record <url> <out.mp4>            [--secs 12] [--scroll] [--click "Text"] 10-30s demo clip

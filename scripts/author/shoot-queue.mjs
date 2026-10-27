@@ -4,12 +4,9 @@
  * @description The screenshot FORCING FUNCTION for the /projects portfolio.
  *   `yarn shoot`. Interactive (readline). Edits content/blog/projects/*.md in
  *   place (a .bak is left beside each), uploads to Cloudinary via
- *   scripts/capture.mjs, and `open`s URLs + Finder windows (they take focus;
- *   --no-open stops that). No git.
- *
- *   KNOWN BREAK: seed() and upload() spawn `scripts/author/capture.mjs`, but
- *   the file lives at scripts/capture.mjs, so both fail until the path is
- *   fixed (upload prints "upload failed" and wires nothing).
+ *   scripts/capture.mjs. Opens nothing by default: --open opens each
+ *   project's URL + drop folder in the background (`open -g`), and the `o`
+ *   key opens them on request. No git.
  *
  * The problem it solves: ~75 project pages ship with only 1–2 images. They want
  * 4–5 visually-interesting ones each. The blocker is never the plumbing — it's
@@ -28,7 +25,7 @@
  *   yarn shoot --only moto-gpx,sstory
  *   yarn shoot --seed                # auto-capture live web URLs into the drop folder first
  *   yarn shoot --dry-run             # capture + preview markdown, but DON'T upload/write
- *   yarn shoot --no-open             # don't auto-open browser/Finder
+ *   yarn shoot --open                # auto-open URL + drop folder (background)
  *
  * Drop folder: ~/Desktop/projectshots/<slug>/  (PNG/JPG/GIF you put there get wired in)
  * Needs Cloudinary creds in .env for the upload step (CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET).
@@ -73,7 +70,7 @@ const ONLY =
     : null
 const SEED = flag('seed') === true
 const DRY = flag('dry-run') === true
-const NO_OPEN = flag('no-open') === true
+const AUTO_OPEN = flag('open') === true
 
 // ── Tiny ANSI ───────────────────────────────────────────────
 const c = (n, s) => `\x1B[${n}m${s}\x1B[0m`
@@ -149,9 +146,9 @@ function buildQueue() {
 // ── Helpers ─────────────────────────────────────────────────
 const sh = (cmd, args, opts = {}) =>
   spawnSync(cmd, args, { stdio: 'inherit', cwd: ROOT, ...opts })
+// `open -g` keeps focus in the terminal; this is an interactive tool.
 function openThing(target) {
-  if (!NO_OPEN)
-    spawn('open', [target], { stdio: 'ignore', detached: true }).unref()
+  spawn('open', ['-g', target], { stdio: 'ignore', detached: true }).unref()
 }
 function hasCreds() {
   return !!(process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET)
@@ -164,7 +161,7 @@ function seed(slug, url, drop) {
   sh(
     'node',
     [
-      'scripts/author/capture.mjs',
+      'scripts/capture.mjs',
       'scroll',
       url,
       join(drop, 'seed'),
@@ -191,7 +188,7 @@ function upload(localFile, publicId) {
     )
   const r = spawnSync(
     'node',
-    ['scripts/author/capture.mjs', 'upload', localFile, publicId],
+    ['scripts/capture.mjs', 'upload', localFile, publicId],
     { cwd: ROOT, encoding: 'utf8' }
   )
   const out = (r.stdout || '') + (r.stderr || '')
@@ -273,14 +270,16 @@ async function run() {
     )
     console.log(`  drop into: ${bold(drop)}`)
 
-    if (p.fm.url) openThing(p.fm.url)
-    openThing(drop)
+    if (AUTO_OPEN) {
+      if (p.fm.url) openThing(p.fm.url)
+      openThing(drop)
+    }
     if (SEED) seed(p.slug, p.fm.url, drop)
 
     let answer
     do {
       answer = await ask(
-        `\n  ${bold('ENTER')}=wire dropped shots · ${bold('s')}=skip · ${bold('o')}=re-open · ${bold('q')}=quit  › `
+        `\n  ${bold('ENTER')}=wire dropped shots · ${bold('s')}=skip · ${bold('o')}=open · ${bold('q')}=quit  › `
       )
       if (answer === 'o') {
         if (p.fm.url) openThing(p.fm.url)

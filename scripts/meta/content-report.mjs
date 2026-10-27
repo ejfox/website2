@@ -14,10 +14,8 @@
  * network, no git, no vault.
  *
  * Usage (no yarn script):
- *   node scripts/meta/content-report.mjs            # report, then `open`s the HTML
- *   node scripts/meta/content-report.mjs --no-open  # don't open a browser window
- *
- * Gotcha: without --no-open it runs macOS `open` on the HTML, which steals focus.
+ *   node scripts/meta/content-report.mjs         # write the report (opens nothing)
+ *   node scripts/meta/content-report.mjs --open  # also open the HTML (`open -g`)
  */
 
 import { promises as fs } from 'node:fs'
@@ -376,28 +374,16 @@ async function main() {
       console.log(`    ... and ${failing.length - 10} more`)
   }
 
-  // Write self-contained HTML report (inline the JSON). Both branches below
-  // regenerate the whole file; the existing HTML is never used as a template.
-  const htmlTemplate = await fs
-    .readFile(REPORT_HTML_PATH, 'utf8')
-    .catch(() => null)
-  if (!htmlTemplate) {
-    // Generate the HTML viewer with inline data
-    const html = buildReportHtml(report)
-    await fs.writeFile(REPORT_HTML_PATH, html)
-  } else {
-    // Update existing HTML with fresh data
-    const html = buildReportHtml(report)
-    await fs.writeFile(REPORT_HTML_PATH, html)
-  }
+  // Write self-contained HTML report (inline the JSON), regenerated whole.
+  await fs.writeFile(REPORT_HTML_PATH, buildReportHtml(report))
 
   console.log(`\n  Report: data/content-report.json`)
   console.log(`  Viewer: data/content-report.html`)
 
-  // Auto-open in browser
-  if (!args.includes('--no-open')) {
-    const { exec } = await import('node:child_process')
-    exec(`open ${REPORT_HTML_PATH}`)
+  // Opt-in, and in the background (-g) so the terminal keeps focus.
+  if (args.includes('--open')) {
+    const { execFile } = await import('node:child_process')
+    execFile('open', ['-g', REPORT_HTML_PATH])
   }
 }
 
@@ -583,10 +569,11 @@ render()
 </body>
 </html>`
 
-  // Inject the JSON data safely — replace placeholder OUTSIDE the template literal
-  // so $ and backticks in the JSON don't break anything
+  // Inject the JSON OUTSIDE the template literal so backticks and ${} in it
+  // are inert, and with a replacer FUNCTION: a string replacement expands
+  // `$&`, `$'` etc. inside the JSON (an alt text containing "$'", say).
   const safeJson = JSON.stringify(report).replaceAll('</', '<\\/')
-  return html.replace('REPORT_JSON_PLACEHOLDER', safeJson)
+  return html.replace('REPORT_JSON_PLACEHOLDER', () => safeJson)
 }
 
 main().catch((err) => {

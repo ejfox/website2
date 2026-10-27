@@ -318,6 +318,15 @@ export default defineNuxtConfig({
       '/blog/projects/subway-builder-mods': {
         redirect: { to: '/projects/subway-builder', statusCode: 301 },
       },
+      // Two Flipper project pages were merged into flipper-zero-tools
+      // (1ff061c6). Their stale JSON kept serving until the orphan sweep was
+      // fixed; send the old URLs to the merged page.
+      '/projects/flipper-generative-art': {
+        redirect: { to: '/projects/flipper-zero-tools', statusCode: 301 },
+      },
+      '/projects/flipper-space-calculators': {
+        redirect: { to: '/projects/flipper-zero-tools', statusCode: 301 },
+      },
       // The Cloudinary backup tool's project page is a draft, but Google still
       // sends visitors to it; the published write-up is the honest target.
       '/projects/cloudinary-backup-tool': {

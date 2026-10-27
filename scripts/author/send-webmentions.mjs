@@ -14,7 +14,8 @@
  * endpoint, then POSTs to third-party sites; no auth or env needed. Reads
  * content/processed/<year>/*.json; writes the dedupe cache
  * .webmentions-sent.json at the repo root (skipped on --dry; CI persists it
- * with actions/cache).
+ * with actions/cache). Exits 1 if any send failed (failed targets aren't
+ * cached, so they retry next run); the workflow saves the cache regardless.
  */
 
 import fs from 'node:fs'
@@ -62,6 +63,22 @@ function saveSentWebmentions(sent) {
 
 // ── Links + endpoint discovery ──────────────────────────────
 
+// Our own hosts. Compared by hostname: the old `url.includes('ejfox.com')`
+// also dropped any page whose path or query merely mentioned ejfox.com.
+const OWN_HOSTS = new Set(['ejfox.com', 'www.ejfox.com', 'localhost'])
+
+function isExternalUrl(url) {
+  try {
+    const { protocol, hostname } = new URL(url)
+    return (
+      (protocol === 'http:' || protocol === 'https:') &&
+      !OWN_HOSTS.has(hostname.toLowerCase())
+    )
+  } catch {
+    return false
+  }
+}
+
 // Extract external links from HTML
 function extractExternalLinks(html) {
   if (!html) return []
@@ -72,13 +89,7 @@ function extractExternalLinks(html) {
   while ((match = linkRegex.exec(html)) !== null) {
     const url = match[1]
     // Only external links, skip internal/anchor/mailto/tel
-    if (
-      url.startsWith('http') &&
-      !url.includes('ejfox.com') &&
-      !url.includes('localhost')
-    ) {
-      links.push(url)
-    }
+    if (isExternalUrl(url)) links.push(url)
   }
 
   return [...new Set(links)] // Dedupe
@@ -147,10 +158,35 @@ async function sendWebmention(endpoint, source, target) {
 
 // ── Post selection ──────────────────────────────────────────
 
+// Mirrors publishTime()/isScheduled() and isHiddenFromListings() in
+// utils/postFilters.ts — keep them in step. Mirrored rather than imported
+// because that file is TypeScript and the workflow runs this with plain node
+// and no `yarn install`.
+function publishTime(post) {
+  // `||` not `??`: an empty publishAt must fall through to date.
+  const m = post?.metadata || {}
+  const when = post?.publishAt || m.publishAt || post?.date || m.date
+  if (!when) return null
+  const t = new Date(when).getTime()
+  return Number.isFinite(t) ? t : null
+}
+
+function isScheduled(post, now = Date.now()) {
+  const t = publishTime(post)
+  return t !== null && t > now
+}
+
+function isHiddenFromListings(post) {
+  const both = (key) => Boolean(post?.[key] ?? post?.metadata?.[key])
+  return ['draft', 'hidden', 'unlisted', 'password', 'passwordHash', 'sealed']
+    .map(both)
+    .some(Boolean)
+}
+
 // Get recent posts from processed JSON. Only top-level <year>/ dirs, so
-// projects/, reading/ etc. are never scanned. No draft/hidden/unlisted or
-// scheduled (`publishAt`) check here: any processed JSON in a year dir is
-// fair game, including a scheduled post that is not public yet.
+// projects/, reading/ etc. are never scanned. Anything not public right now
+// (draft/hidden/unlisted/password/sealed, or still embargoed) is skipped:
+// a webmention announces a URL that has to resolve for the receiver.
 function getRecentPosts(daysAgo) {
   const posts = []
   const cutoff = Date.now() - daysAgo * 24 * 60 * 60 * 1000
@@ -167,6 +203,7 @@ function getRecentPosts(daysAgo) {
         const content = JSON.parse(
           fs.readFileSync(path.join(yearDir, file), 'utf-8')
         )
+        if (isHiddenFromListings(content) || isScheduled(content)) continue
         const postDate = new Date(
           content.metadata?.date || content.metadata?.modified || 0
         )
@@ -294,6 +331,18 @@ async function main() {
   if (dryRun) {
     console.log(`\n   Run without --dry to actually send webmentions`)
   }
+
+  return totalFailed
 }
 
-main().catch(console.error)
+main()
+  .then((failed) => {
+    if (failed > 0) {
+      console.error(`\n✗ ${failed} webmention send(s) failed`)
+      process.exit(1)
+    }
+  })
+  .catch((error) => {
+    console.error(error)
+    process.exit(1)
+  })

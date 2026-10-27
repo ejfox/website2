@@ -7,7 +7,8 @@
  * never hand-edit the output.
  *
  * Gotcha: WRITES INTO THE OBSIDIAN VAULT (iCloud agent-vault) by default, via a
- * hardcoded path below; set GEAR_ANNEX_OUT to write elsewhere. No yarn script,
+ * the agent-vault (AGENT_VAULT_PATH, else the iCloud one under ~; see
+ * scripts/utils/vault.mjs); set GEAR_ANNEX_OUT to write elsewhere. No yarn script,
  * no network, no git. Archived/HomeBase rows are skipped.
  *
  * Classification:
@@ -22,12 +23,13 @@ import * as d3 from 'd3'
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { AGENT_VAULT_ROOT } from '../utils/vault.mjs'
 
 const __dirname = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const CSV = resolve(__dirname, '../data/gear.csv')
 const OUT =
   process.env.GEAR_ANNEX_OUT ||
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/agent-vault/anytime/gear-annex.md'
+  resolve(AGENT_VAULT_ROOT, 'anytime/gear-annex.md')
 
 const rows = d3
   .csvParse(await readFile(CSV, 'utf-8'))

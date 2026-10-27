@@ -16,7 +16,8 @@
  *   4. Per file: reuse the JSON if its sourceHash matches, skip+delete drafts,
  *      else render through the unified pipeline below. Sealed posts are
  *      encrypted (sealKeyring.mjs) and only the envelope is written.
- *   5. Orphan sweep (currently a no-op; see the NOTE there), then manifest-lite.json with
+ *   5. Orphan sweep (post JSON whose .md is gone; exemptions in
+ *      scripts/utils/orphan-sweep.mjs), then manifest-lite.json with
  *      drafts/sealed omitted and protected posts' descriptive fields stripped.
  *   6. Static artifacts that skip scheduled posts: public/content-tags.json and
  *      data/on-this-day/MM-DD.json.
@@ -78,6 +79,10 @@ import {
 } from '../utils/internal-links.mjs'
 import { processStats } from '../utils/stats.mjs'
 import { backupProcessedContent } from '../utils/backup.mjs'
+import {
+  findOrphanCandidates,
+  looksLikePostJson,
+} from '../utils/orphan-sweep.mjs'
 import { isSealedSlug, capabilityLink } from '../../utils/postSeal.mjs'
 import { sealResult } from './sealKeyring.mjs'
 
@@ -487,7 +492,9 @@ async function processMarkdown(content, filePath) {
         ...safeFrontmatter,
         ...stats,
         toc,
-        type: safeFrontmatter.type || getPostType(filePath),
+        // getPostType matches on the slug ("projects/foo"); an absolute path
+        // never matches and every post came out 'post'.
+        type: safeFrontmatter.type || getPostType(slug),
         ...(passwordHash && { passwordHash }),
         // OG image from data/og-images.json (set by Dispatch OG picker)
         ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
@@ -502,9 +509,9 @@ async function processMarkdown(content, filePath) {
 
 // ── File discovery ──────────────────────────────────────────────────────────
 
-// Every .md under dir. Skips dot-directories and files starting with `!`.
-// Takes ONE argument: it always filters to .md, whatever a caller passes.
-async function getFilesRecursively(dir) {
+// Every file ending in `ext` under dir. Skips dot-directories and files
+// starting with `!`.
+async function getFilesRecursively(dir, ext = '.md') {
   const entries = await fs.readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
     entries.map(async (entry) => {
@@ -516,10 +523,10 @@ async function getFilesRecursively(dir) {
           entry.name.startsWith('.')
         )
           return null
-        return getFilesRecursively(fullPath)
+        return getFilesRecursively(fullPath, ext)
       } else if (
         entry.isFile() &&
-        entry.name.endsWith('.md') &&
+        entry.name.endsWith(ext) &&
         !entry.name.startsWith('!')
       ) {
         return fullPath
@@ -1401,9 +1408,9 @@ async function processAllFiles() {
 
     // ── Per-file loop ──
     // `results[i]` must stay index-aligned with `allFiles[i]`: the manifest
-    // and on-this-day steps below pair them by index. Every success branch
-    // pushes exactly one entry. NOTE: the catch pushes nothing, so one failed
-    // file shifts every later result against its file (and so its slug).
+    // and on-this-day steps below pair them by index. Every branch pushes
+    // exactly one entry; a failed file pushes `null`, which isListable drops
+    // (together with its file) before anything pairs them.
     const results = []
     const sealedReport = []
     let cachedCount = 0
@@ -1497,6 +1504,7 @@ async function processAllFiles() {
         // that is to stop the build — not to add a line to a summary.
         if (error?.fatalContentError) throw error
         processStats.errors.push({ file: filePath, error: error.message })
+        results.push(null) // keep results[i] ↔ allFiles[i]
       }
     }
 
@@ -1513,8 +1521,13 @@ async function processAllFiles() {
     // here also sanitises everything downstream of the manifest for free —
     // /tags.json, the sitemap, both feeds, search, suggest, and the prerender
     // route list — rather than needing a filter in each.
+    // Reject the null first: a failed file's placeholder is null, and
+    // `null?.metadata?.draft !== true` is true.
     const isListable = (entry) =>
-      entry?.metadata?.draft !== true && entry?.sealed !== true
+      entry !== null &&
+      entry !== undefined &&
+      entry.metadata?.draft !== true &&
+      entry.sealed !== true
     const nonDraftResults = results.filter(isListable)
     const nonDraftFiles = allFiles.filter((_, index) =>
       isListable(results[index])
@@ -1527,47 +1540,52 @@ async function processAllFiles() {
     )
 
     // ── Orphan cleanup ──
-    // Clean up orphaned processed files
-    // (files that exist in output but not in source)
-    // NOTE: getFilesRecursively only returns .md files (the '.json' argument is
-    // ignored), so as written this finds nothing in content/processed and never
-    // deletes. Stale draft JSON is removed per file instead (see the draft
-    // branch above and writeProcessedResult). Before "fixing" it: other
-    // writers share this dir (goodreads-stats.json from fetch-goodreads.mjs,
-    // rides/ from process-rides.mjs), and a working sweep would delete them.
-    const currentSlugs = new Set()
-    allFiles.forEach((filePath) => {
-      const slug = normalizeSlug(
-        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
-      )
-      currentSlugs.add(slug)
-    })
+    // Delete post JSON whose source .md is gone (a renamed, merged or deleted
+    // post), so the API stops serving it. Other writers share this dir, and CI
+    // rsyncs it to prod with --delete, so what may be deleted is decided in
+    // scripts/utils/orphan-sweep.mjs: private/ (sealed envelopes), rides/,
+    // manifest*, goodreads-stats.json and index.json are never candidates.
+    // Drafts keep their slug in currentSlugs; their stale JSON is removed per
+    // file instead (the draft branch above and writeProcessedResult).
+    const currentSlugs = new Set(allFiles.map(slugForFile))
+    const outputRelPaths = (
+      await getFilesRecursively(paths.outputDir, '.json')
+    ).map((f) => path.relative(paths.outputDir, f))
 
-    // Find and remove orphaned processed files
-    const outputFiles = await getFilesRecursively(paths.outputDir, '.json')
-    for (const outputFile of outputFiles) {
-      const relativePath = path.relative(paths.outputDir, outputFile)
-      const outputSlug = relativePath.replace(/\.json$/, '')
+    for (const relativePath of findOrphanCandidates(
+      outputRelPaths,
+      currentSlugs
+    )) {
+      const outputFile = path.join(paths.outputDir, relativePath)
 
       // A sealed post's SOURCE is gitignored, so on CI (and on any clone that
       // isn't EJ's laptop) it does not exist — but its committed envelope JSON
       // does. Without this exemption orphan cleanup would delete that envelope
       // on every CI run, the build would ship without it, and the post would
-      // 404 forever. Checked by reading the file rather than by slug, so a
-      // genuinely stale envelope still has to be deleted by hand knowingly.
+      // 404 forever. Checked by content as well as by the private/ path, so an
+      // envelope anywhere is safe and a stale one is deleted by hand knowingly.
       if (await isSealedOutput(outputFile)) continue
 
-      if (
-        !currentSlugs.has(outputSlug) &&
-        !relativePath.includes('manifest-lite.json')
-      ) {
-        try {
-          await fs.unlink(outputFile)
-          console.log(`🗑️  Removed orphaned: ${relativePath}`)
-        } catch (error) {
-          const warnMsg = `⚠️  Could not remove ${relativePath}:`
-          console.warn(warnMsg, error.message)
-        }
+      // Only delete what processMarkdown itself writes. Anything else is some
+      // other writer's file: report it and leave it.
+      let parsed = null
+      try {
+        parsed = JSON.parse(await fs.readFile(outputFile, 'utf8'))
+      } catch {
+        // unreadable or not JSON: treated as not ours
+      }
+      if (!looksLikePostJson(parsed)) {
+        console.warn(
+          `⚠️  Not post JSON, left in place (no source .md): ${relativePath}`
+        )
+        continue
+      }
+
+      try {
+        await fs.unlink(outputFile)
+        console.log(`🗑️  Removed orphaned (source .md gone): ${relativePath}`)
+      } catch (error) {
+        console.warn(`⚠️  Could not remove ${relativePath}:`, error.message)
       }
     }
 
@@ -1684,9 +1702,24 @@ async function processAllFiles() {
   }
 }
 
-processAllFiles().catch((error) => {
-  console.error('Fatal error:', error)
-  process.exit(1)
-})
+// A failed post still lets the manifest and artifacts be written (minus that
+// post), but the run exits 1 so CI's deploy fails instead of shipping a site
+// with a post silently missing.
+processAllFiles()
+  .then(() => {
+    const { errors } = processStats
+    if (errors.length === 0) return
+    console.error(chalk.red(`\n✗ ${errors.length} post(s) failed to process:`))
+    for (const { file, error } of errors) {
+      console.error(
+        chalk.red(`  ${path.relative(process.cwd(), file)}: ${error}`)
+      )
+    }
+    process.exit(1)
+  })
+  .catch((error) => {
+    console.error('Fatal error:', error)
+    process.exit(1)
+  })
 
 export { processAllFiles, processMarkdown, getFilesRecursively }

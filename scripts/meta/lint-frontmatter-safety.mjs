@@ -205,7 +205,9 @@ async function main() {
     await fs.access(CONTENT_DIR)
   } catch {
     console.log(
-      chalk.yellow('No content/blog directory found. Run after import.')
+      chalk.yellow(
+        'No content/blog directory found. Publish posts into it with Dispatch.'
+      )
     )
     process.exit(0)
   }
@@ -251,5 +253,8 @@ async function main() {
   process.exit(0)
 }
 
-// NB: a crash is logged but exits 0, so it does not block the deploy.
-main().catch(console.error)
+// A crash means nothing was checked, so it must fail the gate, not pass it.
+main().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})

@@ -5,9 +5,10 @@
  *   routes, viewports and light/dark. Started as a topbar review; now covers
  *   the whole page. Read-only against the target site (it only loads pages
  *   and /api/healthcheck); writes only to the output dir.
- *   Gotcha: the output dir (.qa/layout/, gitignored, or --out=) is
- *   `rm -rf`'d at the start of every run, so never point --out at anything
- *   you want to keep. scripts/qa/pr-eval.mjs links to its report.
+ *   The default output dir (.qa/layout/, gitignored) is cleared at the start
+ *   of every run; a custom --out= dir only loses the files this tool writes
+ *   (*__top.png, *__scrolled.png, report.json, index.html).
+ *   scripts/qa/pr-eval.mjs links to its report.
  *
  *   yarn qa:layout                 # headless, against localhost:3006
  *   yarn qa:layout --watch         # show the lockstep windows (they take focus)
@@ -67,7 +68,8 @@ const BASE = process.env.BASE_URL || 'http://localhost:3006'
 // Headless unless asked: every headed window takes focus on macOS, once per
 // viewport, which yanks you out of the terminal mid-run
 const HEADLESS = !args.watch
-const OUT = path.resolve(args.out || '.qa/layout')
+const DEFAULT_OUT = path.resolve('.qa/layout')
+const OUT = path.resolve(args.out || DEFAULT_OUT)
 const ERROR_KINDS = new Set([
   'overflow',
   'contrast',
@@ -144,10 +146,18 @@ const ALL_VIEWPORTS = {
   desktop: { width: 1440, height: 900 },
   wide: { width: 1920, height: 1080 },
 }
-const VIEWPORTS = args.viewports
-  ? Object.fromEntries(
-      args.viewports.split(',').map((k) => [k, ALL_VIEWPORTS[k]])
-    )
+const viewportNames =
+  typeof args.viewports === 'string' ? args.viewports.split(',') : null
+const unknownViewports = (viewportNames || []).filter((k) => !ALL_VIEWPORTS[k])
+if (args.viewports && (!viewportNames || unknownViewports.length)) {
+  console.error(
+    `Unknown --viewports: ${unknownViewports.join(', ') || '(none given)'}\n` +
+      `Known: ${Object.keys(ALL_VIEWPORTS).join(', ')}`
+  )
+  process.exit(2)
+}
+const VIEWPORTS = viewportNames
+  ? Object.fromEntries(viewportNames.map((k) => [k, ALL_VIEWPORTS[k]]))
   : ALL_VIEWPORTS
 const isTouch = (vp) => vp.touch ?? vp.width < 768
 
@@ -861,7 +871,19 @@ ${cards}`
 
 // ── Main ────────────────────────────────────────────────────────────────
 
-await fs.rm(OUT, { recursive: true, force: true })
+// Only the default dir is wiped wholesale. A user-supplied --out may hold
+// other things, so there only the files a previous run wrote are removed.
+const isOwnOutput = (name) =>
+  /__(?:top|scrolled)\.png$/.test(name) ||
+  name === 'report.json' ||
+  name === 'index.html'
+if (OUT === DEFAULT_OUT) {
+  await fs.rm(OUT, { recursive: true, force: true })
+} else {
+  const existing = await fs.readdir(OUT).catch(() => [])
+  for (const name of existing.filter(isOwnOutput))
+    await fs.rm(path.join(OUT, name), { force: true })
+}
 await fs.mkdir(OUT, { recursive: true })
 const routes = args.routes
   ? args.routes.split(',')

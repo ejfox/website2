@@ -7,8 +7,9 @@
  * yarn predict --update <filename.md>   — update confidence
  * yarn predict --resolve <filename.md>  — resolve prediction
  *
- * Writes content/predictions/<slug>.md and runs `git commit` itself on every
- * create/update/resolve (no push). Not signed: the stored `hash` is SHA-256 of
+ * Writes content/predictions/<slug>.md and runs `git commit -- <that file>`
+ * itself on every create/update/resolve (no push); create/update add a second
+ * commit recording the first one's SHA in frontmatter. Not signed: the stored `hash` is SHA-256 of
  * a gray-matter serialization that later rewrites change, so it doesn't
  * reproduce; the git commit is the only checkable proof (see CLAUDE.md,
  * Predictions). Scoring: scripts/meta/calibration-analysis.mjs.
@@ -16,7 +17,7 @@
 
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
-import { execSync } from 'node:child_process'
+import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import matter from 'gray-matter'
 import { consola } from 'consola'
@@ -39,18 +40,29 @@ function hashContent(content) {
   return createHash('sha256').update(content).digest('hex')
 }
 
-// Plain `git commit` commits the whole index, not just `filepath`: anything
-// already staged rides along. The message is interpolated into a shell string,
-// so a `"` or `$` in the statement can break or alter the command.
+// Commits ONLY `filepath` (`git commit -- <path>`), so anything else already
+// staged stays staged and out of the prediction's commit. execFileSync with an
+// args array, never a shell string: the message carries the statement, and a
+// `"`, `$` or backtick in it must stay text.
 function gitCommit(filepath, message) {
+  const git = (...args) =>
+    execFileSync('git', args, { encoding: 'utf8', stdio: 'pipe' })
   try {
-    execSync(`git add "${filepath}"`)
-    execSync(`git commit -m "${message}"`)
-    return execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+    git('add', '--', filepath)
+    git('commit', '-m', message, '--', filepath)
+    return git('rev-parse', 'HEAD').trim()
   } catch (error) {
     consola.warn('Git commit failed:', error.message)
     return null
   }
+}
+
+// A commit can't contain its own SHA (amending changes it), so the SHA of the
+// prediction's commit is written back and recorded in a second commit scoped
+// to the same file. The FIRST commit is the proof; this one just indexes it.
+async function recordCommitSha(filepath, content, label) {
+  await fs.writeFile(filepath, content)
+  return gitCommit(filepath, `predict: record commit sha for ${label}`)
 }
 
 // ── Create ──────────────────────────────────────────────────
@@ -153,12 +165,13 @@ ${answers.evidence || '_No reasoning provided._'}
     `predict: ${answers.statement.substring(0, 60)}`
   )
 
-  // Writing the SHA back happens after the commit, so it leaves the file
-  // modified and uncommitted; the next commit picks it up.
   if (commitHash) {
     frontmatter.gitCommit = commitHash
-    const withGit = matter.stringify(body, frontmatter)
-    await fs.writeFile(filepath, withGit)
+    await recordCommitSha(
+      filepath,
+      matter.stringify(body, frontmatter),
+      commitHash.substring(0, 8)
+    )
     consola.success(`Committed: ${commitHash.substring(0, 8)}`)
   }
 }
@@ -231,8 +244,11 @@ async function updatePrediction(filename) {
 
   if (commitHash) {
     updatedData.updates[updatedData.updates.length - 1].gitCommit = commitHash
-    const withGit = matter.stringify(parsed.content, updatedData)
-    await fs.writeFile(filepath, withGit)
+    await recordCommitSha(
+      filepath,
+      matter.stringify(parsed.content, updatedData),
+      commitHash.substring(0, 8)
+    )
   }
 }
 
@@ -307,10 +323,15 @@ const args = process.argv.slice(2)
 const updateIndex = args.indexOf('--update')
 const resolveIndex = args.indexOf('--resolve')
 
+const fail = (error) => {
+  console.error(error)
+  process.exit(1)
+}
+
 if (resolveIndex !== -1 && args[resolveIndex + 1]) {
-  resolvePrediction(args[resolveIndex + 1]).catch(console.error)
+  resolvePrediction(args[resolveIndex + 1]).catch(fail)
 } else if (updateIndex !== -1 && args[updateIndex + 1]) {
-  updatePrediction(args[updateIndex + 1]).catch(console.error)
+  updatePrediction(args[updateIndex + 1]).catch(fail)
 } else {
-  createPrediction().catch(console.error)
+  createPrediction().catch(fail)
 }

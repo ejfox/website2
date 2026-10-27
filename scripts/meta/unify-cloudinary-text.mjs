@@ -257,6 +257,9 @@ async function main() {
   }
 
   // --- Summaries (rule 4) ----------------------------------------------
+  // Up front: the every-50 checkpoint and the unify log both write into
+  // data/_tool-cache/, which a fresh clone doesn't have.
+  await fs.mkdir(path.dirname(SHORT_ALTS), { recursive: true })
   if (needLlm.length) {
     if (!LLM || !env.OPENROUTER_API_KEY) {
       console.log(
@@ -290,7 +293,6 @@ async function main() {
           )
         }
       })
-      await fs.mkdir(path.dirname(SHORT_ALTS), { recursive: true })
       await fs.writeFile(SHORT_ALTS, JSON.stringify(shortAlts, null, 1) + '\n')
     }
   }

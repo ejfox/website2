@@ -10,14 +10,13 @@
  *   --upload sends the picked variant to Cloudinary as og/<slug> (network,
  *   overwrites; needs env CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY,
  *   CLOUDINARY_API_SECRET). Nothing writes the result into post frontmatter.
- *   Gotcha: --all is parsed and listed in usage but not implemented; main()
- *   only handles --slug.
+ *   One post per run (--slug); there is no batch mode.
  *
  * Usage:
  *   node scripts/og-image/index.mjs --slug 2025/personal-apis              # 4 variants, preview
  *   node scripts/og-image/index.mjs --slug 2025/personal-apis --pick 2     # use variant 2
  *   node scripts/og-image/index.mjs --slug 2025/personal-apis --pick 2 --upload  # upload to Cloudinary
- *   node scripts/og-image/index.mjs --all                                  # generate for all posts
+ *   node scripts/og-image/index.mjs --slug 2025/personal-apis --open       # also open preview.html (background)
  */
 
 import { promises as fs } from 'node:fs'
@@ -35,7 +34,6 @@ const SLUG = slugIdx !== -1 ? args[slugIdx + 1] : null
 const pickIdx = args.indexOf('--pick')
 const PICK = pickIdx !== -1 ? Number.parseInt(args[pickIdx + 1]) : null
 const UPLOAD = args.includes('--upload')
-const ALL = args.includes('--all')
 const VARIANTS = 4
 
 /**
@@ -136,11 +134,11 @@ async function uploadToCloudinary(slug, pngBuffer) {
 }
 
 async function main() {
-  if (!SLUG && !ALL) {
+  if (!SLUG) {
     console.error(
-      'Usage: node scripts/og-image/index.mjs --slug 2025/post-name'
+      'Usage: node scripts/og-image/index.mjs --slug 2025/post-name ' +
+        '[--pick N [--upload]] [--open]'
     )
-    console.error('       node scripts/og-image/index.mjs --all')
     process.exit(1)
   }
 
@@ -169,10 +167,10 @@ async function main() {
       const { htmlPath } = await saveVariants(slug, variants)
       console.log(`\n  Preview: ${htmlPath}`)
 
-      // Auto-open only with --open flag
+      // Only with --open, and in the background (-g) so focus stays put.
       if (args.includes('--open')) {
-        const { exec } = await import('node:child_process')
-        exec(`open "${htmlPath}"`)
+        const { execFile } = await import('node:child_process')
+        execFile('open', ['-g', htmlPath])
       }
     }
   }

@@ -6,10 +6,8 @@
  *   processStats.errors.
  * Gotchas: processMarkdown never calls updateRealTimeStats,
  *   printRealTimeStats or printProcessingReport, so most fields stay at their
- *   initial values and processStats.errors is never printed. Failures thrown
- *   inside processMarkdown() still log via its own console.error; others
- *   caught by the per-file loop (e.g. a failed write) are silent, and the
- *   run exits 0.
+ *   initial values. processMarkdown.mjs prints processStats.errors itself at
+ *   the end of a run and exits 1 if there are any.
  * @usage import { processStats, updateRealTimeStats, printProcessingReport } from './scripts/utils/stats.mjs'
  */
 

@@ -18,8 +18,8 @@
  *
  * READ-ONLY BY CONSTRUCTION: this script opens files for reading and prints. It writes
  * nothing — not to the vault (someone's personal notes), not to content/, not to data/.
- * Reads the iCloud Obsidian vault at a hardcoded path (VAULT_ROOT), so it only works
- * on EJ's Mac; runs `git ls-files` (read-only). No network.
+ * Reads the Obsidian vault (VAULT_ROOT from scripts/utils/vault.mjs: env
+ * OBSIDIAN_VAULT_PATH, else the iCloud vault under ~); runs `git ls-files` (read-only). No network.
  */
 
 import { promises as fs } from 'node:fs'
@@ -28,12 +28,11 @@ import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import matter from 'gray-matter'
 import chalk from 'chalk'
+import { VAULT_ROOT } from '../utils/vault.mjs'
 
 const execFileAsync = promisify(execFile)
 
 const ROOT = process.cwd()
-const VAULT_ROOT =
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox'
 // Only the vault's `blog/` tree (`blog/<year>/`, `blog/projects/`) maps into
 // content/blog/. `private/`, `robots/`, `reading/` etc. have different (or
 // gitignored) destinations and aren't in scope.

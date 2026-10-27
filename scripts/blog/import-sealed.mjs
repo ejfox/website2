@@ -6,7 +6,7 @@
  * @usage yarn seal:import  (or `yarn seal`, which also processes)
  * @env DRY_RUN - list what would be copied, write nothing
  * @env OBSIDIAN_VAULT_PATH - override the vault location (the fallback is
- *   EJ's iCloud Obsidian vault, hardcoded below)
+ *   the iCloud Obsidian vault under ~; see scripts/utils/vault.mjs)
  *
  * Reads the vault (local filesystem, no network, no git). Writes and prunes
  * only content/blog/private/. Next step is `yarn blog:process`, which seals.
@@ -34,10 +34,9 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import chalk from 'chalk'
 import { dirs } from '../config.mjs'
+import { VAULT_ROOT } from '../utils/vault.mjs'
 
-const VAULT =
-  process.env.OBSIDIAN_VAULT_PATH ||
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox'
+const VAULT = VAULT_ROOT
 
 const SOURCE = path.join(VAULT, 'private')
 const DEST = path.join(dirs.content, 'private')

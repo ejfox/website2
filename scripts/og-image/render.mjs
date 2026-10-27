@@ -20,7 +20,7 @@ import { createNoise2D } from 'simplex-noise'
 import { createRng } from './seed.mjs'
 import { project3D, sortByDepth, perspectiveSkew } from './project.mjs'
 import { ZINC, rgba, rgb } from './palette.mjs'
-import { drawPixelText } from './font.mjs'
+import { drawPixelText, measurePixelText } from './font.mjs'
 import { applyDither } from './dither.mjs'
 import { applyGodRays } from './godrays.mjs'
 
@@ -344,11 +344,13 @@ export async function renderScene(content, scene, slug, variant = 0) {
   applyDither(imgData, 0.18, ZINC.bg, ZINC.text)
   ctx.putImageData(imgData, 0, 0)
 
-  // 7. URL watermark
+  // 7. URL watermark, 16px from the right edge. Width comes from the font
+  // (6px advance × pixelSize 2 = 12px/char); the old `9 * 18` assumed 18px
+  // per char and sat the mark ~54px further left than intended.
   drawPixelText(
     ctx,
     'ejfox.com',
-    WIDTH - 9 * 18 - 16,
+    WIDTH - measurePixelText('ejfox.com', 2) - 16,
     HEIGHT - 28,
     2,
     rgba(ZINC.dim, 0.4)

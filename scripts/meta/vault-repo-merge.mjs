@@ -11,8 +11,8 @@
  *        node scripts/meta/vault-repo-merge.mjs --diff 2022/art-setup   # print unified diff
  *        add --verbose for a per-file change list. No yarn script.
  *
- * TOUCHES: reads the iCloud Obsidian vault at a hardcoded path (VAULT_ROOT, EJ's Mac
- *   only) and git-tracked content/blog/**.md (`git ls-files`). --apply WRITES BOTH the
+ * TOUCHES: reads the Obsidian vault (VAULT_ROOT from scripts/utils/vault.mjs;
+ *   env OBSIDIAN_VAULT_PATH, else the iCloud vault under ~) and git-tracked content/blog/**.md (`git ls-files`). --apply WRITES BOTH the
  *   vault and content/blog/ in place. --diff stages temp copies in .merge-diff-tmp/
  *   (deleted after) and shells out to `git diff --no-index`. No network.
  *
@@ -60,12 +60,11 @@ import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import matter from 'gray-matter'
 import chalk from 'chalk'
+import { VAULT_ROOT } from '../utils/vault.mjs'
 
 const execFileAsync = promisify(execFile)
 
 const ROOT = process.cwd()
-const VAULT_ROOT =
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox'
 // Only the vault namespace that maps into content/blog/. `private/`, `reading/` etc.
 // have different (or gitignored) destinations and aren't in scope.
 const VAULT_SUBDIRS = ['blog']
