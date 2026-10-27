@@ -5,12 +5,10 @@
     also fetches content for single-file gists). Prerendered at build
     (PRERENDERED_ROUTES in nuxt.config.ts), so page 1 is frozen at the last
     deploy; Previous/Next refetch from the browser.
-    Gotcha: the header stats (gists, files, KB, languages) count the current
-    page only, not the whole account.
+    Gotcha: the API returns no account totals, so the header stats (gists,
+    files, KB, languages) are labeled as this page's.
 -->
 <script setup lang="ts">
-// Nuxt 4 auto-imports all composables!
-
 // ── Data ────────────────────────────────────────────────────
 interface GistFile {
   filename: string
@@ -33,11 +31,11 @@ interface Gist {
 const currentPage = ref(1)
 const perPage = 64
 
+// The URL getter is reactive, so changing currentPage refetches on its own.
 const {
   data: gists,
   pending,
   error,
-  refresh,
 } = await useFetch<Gist[]>(
   () => `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
@@ -47,14 +45,12 @@ const {
 const nextPage = () => {
   if (gists.value?.length === perPage) {
     currentPage.value++
-    refresh()
   }
 }
 
 const prevPage = () => {
   if (currentPage.value > 1) {
     currentPage.value--
-    refresh()
   }
 }
 
@@ -129,7 +125,7 @@ const gistsDescription = computed(() => {
     .map(([lang, count]) => `${lang} (${count})`)
     .join(' • ')
 
-  return `${gistCount} gists • ${fileCount} files • ${sizeKB}KB • ${topLangs}`
+  return `Latest ${gistCount} gists • ${fileCount} files • ${sizeKB}KB • ${topLangs}`
 })
 
 usePageSeo({
@@ -145,7 +141,7 @@ usePageSeo({
   section: 'Code',
   tags: ['GitHub', 'Gists', 'Code snippets', 'Data visualization'],
   label1: 'Gists',
-  data1: computed(() => `${totalGists.value} live`),
+  data1: computed(() => `${totalGists.value} latest`),
   label2: 'Top languages',
   data2: computed(
     () => languageCountsFormatted.value || 'Loading languages...'
@@ -189,9 +185,6 @@ const toggleGist = (gistId: string) => {
     expandedGists.value.add(gistId)
   }
 }
-
-// Removed client-side syntax highlighting - now handled server-side
-// Old highlightCode and getPreviewLines functions removed
 </script>
 
 <template>
@@ -205,15 +198,15 @@ const toggleGist = (gistId: string) => {
         GitHub Gists
       </h1>
       <p class="text-zinc-600 dark:text-zinc-400 text-base mb-2 max-w-prose">
-        {{ totalGists }} gists with {{ totalFiles }} files ({{
+        This page: {{ totalGists }} gists with {{ totalFiles }} files ({{
           Math.round(totalSize / 1024)
-        }}KB total)
+        }}KB)
       </p>
       <p
         v-if="languageCountsFormatted"
         class="text-zinc-500 dark:text-zinc-500 text-sm mb-2"
       >
-        Languages: {{ languageCountsFormatted }}
+        Languages on this page: {{ languageCountsFormatted }}
       </p>
       <p class="text-zinc-500 dark:text-zinc-500 font-mono text-xs">
         Updated {{ lastUpdated || 'live' }}

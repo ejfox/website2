@@ -3,20 +3,19 @@
   @description Inline "next free slot" link for the homepage.
     Appends a " (9am Monday?)"-style booking link to the homepage's "grab
     some time on my calendar" sentence (pages/index.vue teleports it in).
-    Fetches /api/cal/available-slots; re-fetches when the tab regains focus.
+    Fetches /api/cal/available-slots; re-fetches every 5 min and when the
+    tab regains focus.
   @props mock?: { slots } - kitchen-sink only; skips the live data
 -->
 <script setup>
 import { computed } from 'vue'
+import { useEventListener, useIntervalFn } from '@vueuse/core'
 
 // Optional: inject a slots payload to preview/test (kitchen-sink) without the
 // live cal.com fetch. Production never passes this.
 const props = defineProps({ mock: { type: Object, default: null } })
 
 const { data, refresh } = await useLazyFetch('/api/cal/available-slots', {
-  // NOTE: `refresh` is not a documented useFetch option, so this interval
-  // probably does nothing; the focus listener below is what re-fetches.
-  refresh: 5 * 60 * 1000, // Refresh every 5 minutes
   default: () => ({ slots: [] }),
 })
 
@@ -26,22 +25,21 @@ const nextSlot = computed(() => {
   return slots[0] // First slot is the earliest
 })
 
-// Refresh on window focus (when user returns to tab)
+// ── Refresh: every 5 min, and on tab focus ──────────────────
+// Started in onMounted, not at setup, so SSR never holds an interval open.
+const { resume } = useIntervalFn(() => refresh(), 5 * 60 * 1000, {
+  immediate: false,
+})
 onMounted(() => {
-  const handleFocus = () => {
-    // Don't refresh immediately, add a small delay to prevent spam
-    setTimeout(() => {
-      if (document.hasFocus()) {
-        refresh()
-      }
-    }, 1000)
-  }
+  if (!props.mock) resume()
+})
 
-  window.addEventListener('focus', handleFocus)
-
-  onUnmounted(() => {
-    window.removeEventListener('focus', handleFocus)
-  })
+// The 1s delay keeps a quick alt-tab from firing a fetch.
+useEventListener('focus', () => {
+  if (props.mock) return
+  setTimeout(() => {
+    if (document.hasFocus()) refresh()
+  }, 1000)
 })
 </script>
 

@@ -96,7 +96,6 @@ const affiliateUrl = (url: string) => {
           v-tooltip="item.Notes"
           :to="`/gear/${slugifyGear(item.Name)}`"
           class="name-link"
-          @click.stop
         >
           {{ item.Name }}
         </NuxtLink>
@@ -111,7 +110,6 @@ const affiliateUrl = (url: string) => {
         target="_blank"
         rel="nofollow noopener"
         class="badge-orange-hover"
-        @click.stop
       >
         BUY
       </a>
@@ -142,7 +140,7 @@ const affiliateUrl = (url: string) => {
 
 <style scoped>
 .row {
-  @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40 cursor-pointer;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40;
   @apply even:bg-zinc-50 dark:even:bg-zinc-900/20 relative;
 }
 

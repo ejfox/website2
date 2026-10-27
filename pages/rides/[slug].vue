@@ -445,11 +445,11 @@ const riderClock = computed(() => {
   const t = ride.value?.points[riderIndex.value]?.[3]
   const start = ride.value?.startTime
   if (t === null || t === undefined || !start) return null
-  // NOTE: no timeZone here (rides/index.vue pins America/New_York), so this
-  // renders in the server's zone on SSR and the viewer's in the browser.
+  // Pinned like rides/index.vue, so SSR and the browser agree.
   return new Date(Date.parse(start) + t * 1000).toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
+    timeZone: 'America/New_York',
   })
 })
 

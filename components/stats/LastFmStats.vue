@@ -1,7 +1,7 @@
 <!--
   @file LastFmStats.vue
   @description MUSIC section of /stats (pages/stats.vue): five recent tracks,
-    top artists, top genres and top tracks from Last.fm (last month).
+    top artists and top tracks from Last.fm (last month).
     Data: stats.lastfm from /api/stats, built by server/api/lastfm.get.ts.
   @props stats?: LastFmStats | null - stats.lastfm
 -->
@@ -27,11 +27,6 @@ interface Artist {
   playcount: string
 }
 
-interface Genre {
-  name: string
-  count: number
-}
-
 interface LastFmStats {
   recentTracks?: {
     tracks?: Track[]
@@ -45,9 +40,6 @@ interface LastFmStats {
     tracks?: Track[]
     month?: Track[]
     year?: Track[]
-  }
-  stats?: {
-    topGenres?: Genre[]
   }
 }
 
@@ -67,18 +59,11 @@ const topTracks = computed(() => {
   return props.stats?.topTracks?.tracks || props.stats?.topTracks?.month || []
 })
 
-// server/api/lastfm.get.ts always sends [] here (Last.fm has no genre data),
-// so the genres block below doesn't render today.
-const topGenres = computed(() => {
-  return props.stats?.stats?.topGenres || []
-})
-
 const hasData = computed(() => {
   return !!(
     props.stats?.recentTracks?.tracks?.length ||
     topArtists.value?.length ||
-    topTracks.value?.length ||
-    topGenres.value?.length
+    topTracks.value?.length
   )
 })
 
@@ -104,8 +89,8 @@ const formatTrackTime = (track: Track): string => {
       <StatsSectionHeader title="LAST.FM RECENT TRACKS" />
       <div class="space-y-2">
         <div
-          v-for="track in (stats?.recentTracks?.tracks || []).slice(0, 5)"
-          :key="track.name + track.date"
+          v-for="(track, i) in (stats?.recentTracks?.tracks || []).slice(0, 5)"
+          :key="`${i}-${track.name}-${track.date?.uts ?? 'now'}`"
           class="flex items-baseline justify-between text-xs"
         >
           <div class="flex items-baseline gap-2 min-w-0 flex-1">
@@ -162,35 +147,6 @@ const formatTrackTime = (track: Track): string => {
       </div>
     </div>
 
-    <div v-if="topGenres?.length">
-      <h4 class="section-label-tracked">LAST.FM TOP GENRES</h4>
-      <div class="space-y-2">
-        <div
-          v-for="(genre, index) in topGenres.slice(0, 3)"
-          :key="genre.name"
-          class="flex items-baseline justify-between text-xs"
-        >
-          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
-            <HandDrawn
-              :name="`circled-bold-${index + 1}`"
-              size="1.3em"
-              class="align-text-bottom mr-1"
-            />
-            {{ genre.name }}
-          </span>
-          <span class="text-zinc-500 tabular-nums text-xs">
-            <AnimatedNumber
-              :value="genre.count"
-              format="default"
-              :duration="400"
-              priority="tertiary"
-            />
-            artists
-          </span>
-        </div>
-      </div>
-    </div>
-
     <div v-if="topTracks?.length">
       <h4 class="section-label-tracked">LAST.FM TOP TRACKS</h4>
       <div class="space-y-2">
@@ -225,9 +181,5 @@ const formatTrackTime = (track: Track): string => {
       </div>
     </div>
   </div>
-  <StatsDataState
-    v-else
-    state="unavailable"
-    message="LASTFM_DATA_UNAVAILABLE"
-  />
+  <StatsDataState v-else type="unavailable" message="LASTFM_DATA_UNAVAILABLE" />
 </template>

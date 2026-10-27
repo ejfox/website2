@@ -265,10 +265,7 @@ const { stop: stopCommitsWatch } = useIntersectionObserver(
 const allCommits = computed(() => allCommitsData.value || [])
 
 // ── Simple mode + year progress ─────────────────────────────
-// Simple mode refs
-const sectionRef = ref(null)
-const headerRef = ref(null)
-const progressRef = ref(null)
+// Set on mount, so SSR and hydration agree (0 until then).
 const displayDayOfYear = ref(0)
 
 // Calculate the day of year and year progress
@@ -291,7 +288,6 @@ interface BlogStatsData {
   firstPost: string | null
   lastPost: string | null
   postsThisMonth: number
-  wordsThisMonth: number
   topTags: string[]
   uniqueTags: number
   averageReadingTime: number
@@ -299,8 +295,6 @@ interface BlogStatsData {
 }
 const blogStats = ref<BlogStatsData | null>(null)
 const cachedPosts = shallowRef<any[] | null>(null)
-
-// DELETED: Heavy external service data - components load on-demand
 
 // Helper function to format date to YYYY-MM
 const formatDateToMonth = (date: Date) => {
@@ -325,7 +319,6 @@ onMounted(async () => {
         firstPost: null,
         lastPost: null,
         postsThisMonth: 0,
-        wordsThisMonth: 0,
         topTags: [],
         uniqueTags: 0,
         averageReadingTime: 0,
@@ -400,7 +393,6 @@ onMounted(async () => {
       firstPost: firstDate?.toISOString() || null,
       lastPost: lastDate?.toISOString() || null,
       postsThisMonth: postsByMonth[currentMonth] || 0,
-      wordsThisMonth: 0,
       topTags,
       uniqueTags: allTags.size,
       averageReadingTime:
@@ -413,9 +405,6 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error calculating blog stats:', error)
   }
-
-  // DELETED: Heavy external API calls that block performance
-  // External data will be loaded on-demand by individual components
 })
 
 const validBlogStats = computed(() => blogStats.value || undefined)
@@ -427,7 +416,6 @@ const summaryData = computed(() => buildStatsSummary(stats.value))
 // TOC and navigation
 const tocTarget = ref<Element | null>(null)
 const activeSection = ref('overview')
-// route already defined above on line 492
 const isSimpleMode = computed(() => route.query.simple !== undefined)
 
 // ids must match the StatSection ids in the template (TOC anchors).
@@ -541,15 +529,11 @@ definePageMeta({
 
     <!-- ── Simple mode (?simple) ─────────── -->
     <!-- Simple Mode -->
-    <section
-      v-if="isSimpleMode"
-      ref="sectionRef"
-      class="space-y-2 text-xs pt-8"
-    >
+    <section v-if="isSimpleMode" class="space-y-2 text-xs pt-8">
       <!-- Minimal header -->
-      <div ref="headerRef" class="simple-mode-header">
+      <div class="flex justify-between px-2">
         <div>FOX_STATS</div>
-        <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
+        <div>{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
       <div class="text-3xs text-zinc-500 dark:text-zinc-500 px-2">
         Updated {{ statsUpdated || 'live' }} · sources: GitHub, Chess.com,
@@ -1089,17 +1073,6 @@ definePageMeta({
 </template>
 
 <style scoped>
-/* ── Transitions ──────── */
-.fade-enter-active,
-.fade-leave-active {
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
 /* ── Layout ──────── */
 /* Section stack: was an undefined class, so sections butted together and
    on phone each inline label read as the tail of the section above. */

@@ -7,18 +7,15 @@
   Gotchas:
     - Canonical home for reading notes: /blog/reading/<slug> 301s here
       (server/middleware/blog-reading-redirect.ts).
-    - The highlights body renders `book.content`, but processed reading JSON
-      stores it as `html` (the listing API reads `book.content || book.html`).
-      Check that the body actually shows.
-    - The pending/error branches in the template are effectively unreachable:
-      setup awaits the fetch and throws a fatal 404 on error.
+    - Processed reading JSON stores the highlights body as `html` (older
+      notes may carry `content`); render whichever exists.
+    - No loading/error branches: setup awaits the fetch and throws a fatal 404,
+      so error.vue owns the not-found state.
 -->
 <script setup>
 const route = useRoute()
 
 // CSS Classes
-const backLinkClass =
-  'interactive-link inline-block mt-4 text-blue-600 dark:text-blue-400'
 const metadataContainerClass =
   'flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400'
 const linkClass = 'interactive-link text-blue-600 dark:text-blue-400 text-sm'
@@ -27,11 +24,9 @@ const navLinkClass =
 
 // ── Data loading ────────────────────────────────────────────
 // Fetch book data
-const {
-  data: book,
-  pending,
-  error,
-} = await useFetch(`/api/reading/${route.params.slug}`)
+const { data: book, error } = await useFetch(
+  `/api/reading/${route.params.slug}`
+)
 
 // A missing book is a real 404, not a 200 "Book Not Found" soft-404.
 if (error.value || !book.value) {
@@ -89,7 +84,8 @@ const bookSchema = computed(() => ({
   name: bookTitle.value,
   author: bookAuthor.value,
   image: bookCover.value,
-  url: book.value ? `https://ejfox.com/reading/${book.value.slug}` : '',
+  // The processed JSON has no slug field; route.path is already URL-encoded.
+  url: `https://ejfox.com${route.path}`,
   about: (bookTags.value || []).map((tag) => ({ '@type': 'Thing', name: tag })),
   workExample: {
     '@type': 'CreativeWork',
@@ -122,29 +118,9 @@ function formatDate(dateString) {
 <template>
   <div class="min-h-screen">
     <div class="max-w-4xl mx-auto px-4 pt-8">
-      <!-- Loading State -->
-      <div v-if="pending" class="animate-pulse">
-        <div class="h-8 bg-zinc-200 dark:bg-raised rounded w-3/4 mb-4"></div>
-        <div class="h-4 bg-zinc-200 dark:bg-raised rounded w-1/2 mb-8"></div>
-      </div>
-
-      <!-- Error State -->
-      <div v-else-if="error" class="text-center py-8">
-        <h1 class="text-2xl font-light text-red-600 dark:text-red-400 mb-4">
-          Book Not Found
-        </h1>
-        <p class="text-secondary">
-          The book "{{ route.params.slug }}" doesn't exist in the reading
-          collection.
-        </p>
-        <NuxtLink to="/reading" :class="backLinkClass">
-          ← Back to Reading List
-        </NuxtLink>
-      </div>
-
       <!-- ── Book ─────────── -->
       <!-- Book Content -->
-      <div v-else-if="book">
+      <div v-if="book">
         <!-- Header -->
         <div class="mb-8">
           <div class="flex items-start gap-8">
@@ -223,7 +199,7 @@ function formatDate(dateString) {
 
         <!-- Book Content (Highlights) -->
         <div class="prose prose-lg dark:prose-invert max-w-none">
-          <div v-html="book.content"></div>
+          <div v-html="book.html || book.content"></div>
         </div>
 
         <!-- Tags -->

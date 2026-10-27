@@ -35,8 +35,14 @@ const bookmarkletCode = computed(() => {
   // Old-browser selection fallbacks (getSelection → document.selection).
   // Page text is capped at 5000 chars to keep the popup URL a sane length.
   // The trailing replace() strips newlines so it survives as one bookmark URL.
-  // The passphrase is interpolated raw into a JS string literal, so a quote
-  // or backslash in it breaks the bookmarklet.
+  // The passphrase is URL-encoded here, then JSON.stringify'd into a safe JS
+  // string literal (quotes/backslashes can't break out). Browsers
+  // percent-decode a javascript: URL once before running it, so `%` is
+  // escaped as %25 to make the encoding survive that pass.
+  const authParam = JSON.stringify(
+    encodeURIComponent(passphrase.value)
+  ).replace(/%/g, '%25')
+
   return `javascript:(function(){
   var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,
   s=(e?e():(k)?k():(x?x.createRange().text:'')),
@@ -53,7 +59,7 @@ const bookmarkletCode = computed(() => {
     'url='+encodeURIComponent(l)+
     '&title='+encodeURIComponent(d.title)+
     '&text='+encodeURIComponent(truncatedText)+
-    '&auth='+encodeURIComponent('${passphrase.value}');
+    '&auth='+${authParam};
 
   if(s)popupUrl+='&description='+encodeURIComponent(s);
 

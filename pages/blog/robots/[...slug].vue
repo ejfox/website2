@@ -8,23 +8,18 @@
   Gotchas:
     - This static robots/ folder beats pages/blog/[...slug].vue for these
       URLs. getBlogRoutes() skips robots/, so it isn't in the prerender list.
-    - Body and word counts read note.content, but getPostBySlug() copies
-      result.content while processed JSON carries `html`. Check before relying
-      on the body rendering.
-    - Title chars render with `opacity-0` and the animation that revealed them
-      was removed (see onMounted), so the h1 is invisible.
+    - Processed JSON carries the body as `html` (noteHtml falls back to
+      `content` for older notes); body, word counts and description read it.
     - The TOC <Teleport> targets #toc-target, which exists only when
       !isMobile; it isn't wrapped in <ClientOnly>.
 -->
 <script setup>
-// Animation handled via global anime.js from CDN
 import {
   useWindowSize,
   useEventListener,
   useIntersectionObserver,
 } from '@vueuse/core'
 import { formatNumber } from '~/utils/numberFormat'
-// DELETED: import { useAnimations } from '~/composables/useAnimations'
 
 // ── Data loading ────────────────────────────────────────────
 const route = useRoute()
@@ -32,7 +27,6 @@ const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
 const _activeSection = ref('')
-// DELETED: const { timing, easing, staggers } = useAnimations()
 
 const { data: note } = await useAsyncData(
   `robot-${route.params.slug.join('/')}`,
@@ -46,6 +40,9 @@ if (!note.value || !note.value.metadata?.share) {
     message: 'Robot note not found',
   })
 }
+
+// Processed JSON stores the rendered body as `html`.
+const noteHtml = computed(() => note.value?.html || note.value?.content || '')
 
 // ── TOC + word counts ───────────────────────────────────────
 // Helper function to generate slug from text
@@ -106,7 +103,7 @@ const trimmedToc = computed(() => {
 
 // Update the word count logic to work with our structure
 const sectionWordCounts = computed(() => {
-  if (import.meta.server || !note.value?.content) return {}
+  if (import.meta.server || !noteHtml.value) return {}
 
   const counts = {}
   const sections = note.value.metadata?.toc || []
@@ -114,7 +111,7 @@ const sectionWordCounts = computed(() => {
   sections.forEach((section) => {
     if (section.depth <= 3) {
       const slug = generateSlug(section.text)
-      counts[slug] = getSectionWordCount(note.value.content, slug)
+      counts[slug] = getSectionWordCount(noteHtml.value, slug)
     }
   })
 
@@ -145,8 +142,7 @@ const metadataFields = computed(() => {
 })
 
 const noteDescription = computed(() => {
-  const html = note.value?.content || ''
-  const text = html
+  const text = noteHtml.value
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -177,19 +173,15 @@ usePageSeo({
 // Add scroll progress tracking
 const scrollProgress = ref(0)
 
-// Add these computed properties and refs for the animation
-const titleChars = computed(() => note.value?.title.split(''))
-const titleRefs = ref([])
-
 // Add this to process the content and add IDs to headings
 const processedContent = computed(() => {
-  if (!note.value?.content) return ''
+  if (!noteHtml.value) return ''
 
   // Simple regex-based approach that works on both client and server
   // Replaces each h2/h3's existing attributes (any processor-assigned id
   // included) with a generateSlug() id. Non-greedy and single-line, so a
   // heading whose inner HTML spans lines isn't matched.
-  return note.value.content.replace(
+  return noteHtml.value.replace(
     /<(h[23])[^>]*>(.*?)<\/\1>/g,
     (match, tag, content) => {
       const slug = generateSlug(content.replace(/<[^>]+>/g, ''))
@@ -222,8 +214,6 @@ onMounted(() => {
 
   // useEventListener auto-cleans on unmount (no manual removeEventListener)
   useEventListener(window, 'scroll', updateProgress)
-
-  // Title animation removed - delete-driven development
 })
 
 // ── Copy + class strings ────────────────────────────────────
@@ -350,17 +340,8 @@ const proseClasses =
 
         <!-- ── Title + body ─────────── -->
         <header class="mb-8">
-          <!-- Hero title with animation -->
-          <h1 class="text-4xl md:text-6xl font-light mb-4 flex flex-wrap">
-            <span
-              v-for="(char, i) in titleChars"
-              :key="i"
-              ref="titleRefs"
-              class="inline-block opacity-0"
-              :class="{ 'mr-[0.2em]': char === ' ' }"
-            >
-              {{ char }}
-            </span>
+          <h1 class="text-4xl md:text-6xl font-light mb-4">
+            {{ note.title }}
           </h1>
           <p
             v-if="note.description"

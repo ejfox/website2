@@ -353,7 +353,7 @@ const sortedCategories = computed(() => {
   </div>
   <StatsDataState
     v-else
-    state="unavailable"
+    type="unavailable"
     message="RESCUETIME_DATA_UNAVAILABLE"
   />
 </template>

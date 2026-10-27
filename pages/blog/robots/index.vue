@@ -11,8 +11,6 @@
     - Robot notes are a special section, kept out of getAllPosts() and /blog.
 -->
 <script setup>
-// Animation handled via global anime.js from CDN
-
 const processedMarkdown = useProcessedMarkdown()
 const { data: robotNotes } = await useAsyncData('robot-notes', () =>
   processedMarkdown.getRobotNotesWithContent()
@@ -28,11 +26,11 @@ const robotsLinkUrl = (note, child) => {
 const metadataClass =
   'post-metadata text-sm text-zinc-500 dark:text-zinc-400 font-mono'
 
-const robotElements = ref([])
-
 // Get all TOC headers for a note and calculate total word count
 const getNoteSummary = (note) => {
-  if (!note.content) return { headers: [], wordCount: 0 }
+  // Processed JSON stores the body as `html`; `content` is the older field.
+  const body = note.html || note.content
+  if (!body) return { headers: [], wordCount: 0 }
 
   // Get all headers from TOC
   const headers =
@@ -45,9 +43,7 @@ const getNoteSummary = (note) => {
     ) || []
 
   // Calculate total word count
-  // `content` comes from getPostBySlug(); processed JSON stores the body as
-  // `html`, so this may be empty and the early return above wins.
-  const wordCount = note.content
+  const wordCount = body
     .replace(/<[^>]*>/g, '') // Remove HTML tags
     .trim()
     .split(/\s+/).length
@@ -77,7 +73,6 @@ const getNoteSummary = (note) => {
         v-for="note in robotNotes"
         :id="note.slug.replace('robots/', '')"
         :key="note.slug"
-        ref="robotElements"
         class="border-b border-zinc-200 dark:border-zinc-700 py-4 my-8 xl:my-16"
       >
         <!-- Metadata row -->

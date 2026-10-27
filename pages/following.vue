@@ -123,7 +123,7 @@ usePageSeo({
       <footer class="mt-12 pt-4 border-t border-zinc-200 dark:border-zinc-800">
         <p class="label-xs">
           Source:
-          <code>~/.newsboat/urls</code>
+          <code>data/blogroll.urls</code>
           ·
           <a href="/api/blogroll" class="interactive-link">JSON</a>
         </p>

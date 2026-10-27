@@ -99,12 +99,16 @@ const maxWeekCount = computed(() => {
   return Math.max(...weeks.map((w) => w.count), 1)
 })
 
-// px, scaled to the busiest week. Note 36 is taller than .activity-bars' h-4
-// (32px on this repo's 8px spacing scale). The 2px floor keeps empty weeks
-// visible as a baseline.
+// px, scaled to the busiest week and capped at .activity-bars' h-4 (32px on
+// this repo's 8px spacing scale) so no bar overflows its container. The 2px
+// floor keeps empty weeks visible as a baseline.
+const BAR_MAX_PX = 32
 const barHeight = (count) => {
   if (count === 0) return 2
-  return Math.max(2, (count / maxWeekCount.value) * 36)
+  return Math.min(
+    BAR_MAX_PX,
+    Math.max(2, (count / maxWeekCount.value) * BAR_MAX_PX)
+  )
 }
 
 const weekTooltip = (week) =>

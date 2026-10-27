@@ -30,7 +30,7 @@ interface MonkeyTypeStats {
     testsCompleted: number
     bestAccuracy: number
     bestConsistency: number
-    averageWPM?: number
+    averageWpm?: number
     recentTests?: Array<MonkeyTypeTest>
     testTypeDistribution?: Record<string, number>
     languageBreakdown?: Array<{
@@ -83,14 +83,10 @@ const formatDateMinimal = (timestamp: string): string => {
 }
 
 // WPM form strip: recent tests as word-sized bars, oldest → newest, scaled
-// against all-time best. The API spells the average field both ways.
-const averageWpm = computed(() => {
-  const t = props.stats.typingStats as {
-    averageWPM?: number
-    averageWpm?: number
-  }
-  return Math.round(t?.averageWPM ?? t?.averageWpm ?? 0)
-})
+// against all-time best. server/api/monkeytype.get.ts sends `averageWpm`.
+const averageWpm = computed(() =>
+  Math.round(props.stats.typingStats?.averageWpm ?? 0)
+)
 
 const wpmStrip = computed(() => {
   const tests = props.stats.typingStats?.recentTests
@@ -269,13 +265,11 @@ onMounted(() => {})
           </div>
         </div>
 
-        <!-- reads averageWPM only; the server sends averageWpm (see the
-             averageWpm computed above), so this tile is usually hidden -->
-        <div v-if="stats.typingStats.averageWPM" class="stat-item">
+        <div v-if="averageWpm" class="stat-item">
           <div class="stat-label">AVG WPM</div>
           <div class="stat-value">
             <AnimatedNumber
-              :value="Math.round(stats.typingStats.averageWPM)"
+              :value="averageWpm"
               format="default"
               :duration="800"
               priority="secondary"

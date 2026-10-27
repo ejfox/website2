@@ -68,7 +68,7 @@ const typeSymbols = {
 const PRIORITY_CONTAINERS = [
   'Body',
   'Motorcycle',
-  'WLF Enduro Backpack',
+  'WLF Enduro Pack Vest',
   '5.11 Rush 24 Backpack',
 ]
 
@@ -132,33 +132,19 @@ const containerComparison = computed(() => {
 })
 
 // ── Data loading ────────────────────────────────────────────
-// NOTE: the CSV column is `Amazon_URL`, not `amazon`, so this never fires;
-// the affiliate tag is actually added per row in components/gear/GearItem.vue.
-const addAffiliateCode = (url) => {
-  if (!url?.includes('amazon.com')) return url
-  const amazonUrl = new URL(url)
-  amazonUrl.searchParams.set('tag', 'ejfox0c-20')
-  return amazonUrl.toString()
-}
-
-const processGearItem = (item) => {
-  if (item.amazon) item.amazon = addAffiliateCode(item.amazon)
-  return item
-}
-
+// The Amazon affiliate tag is added per row (Amazon_URL) in
+// components/gear/GearItem.vue.
 const { data: csvText, error: csvError } = await useFetch('/api/gear-csv')
 
 watchEffect(() => {
   if (csvText.value) {
     try {
-      gearItems.value = csvParse(csvText.value)
-        .filter((item) => {
-          // Filter out empty rows and comment lines
-          return (
-            item.Name && item.Name.trim() !== '' && !item.Name.startsWith('#')
-          )
-        })
-        .map(processGearItem)
+      gearItems.value = csvParse(csvText.value).filter((item) => {
+        // Filter out empty rows and comment lines
+        return (
+          item.Name && item.Name.trim() !== '' && !item.Name.startsWith('#')
+        )
+      })
     } catch (error) {
       console.error('Error parsing gear data:', error)
     }
@@ -421,9 +407,7 @@ const getWeightHistogram = (items) => {
 // last edit.
 const currentDate = new Date().toISOString().split('T')[0]
 
-// NOTE: the CSV has no `Slug` column, so these URLs fall back to the row
-// index (/gear/0…). Real item slugs come from slugifyGear(Name) in
-// server/utils/gear-data.ts.
+// Same slug as /api/gear/:slug (server/utils/gear-data.ts) and GearItem links.
 const gearSchema = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -432,7 +416,7 @@ const gearSchema = computed(() => ({
   itemListElement: gearItems.value.slice(0, 30).map((item, index) => ({
     '@type': 'ListItem',
     position: index + 1,
-    url: `https://ejfox.com/gear/${item.Slug || index}`,
+    url: `https://ejfox.com/gear/${slugifyGear(item.Name)}`,
     name: item.Name,
   })),
 }))

@@ -47,8 +47,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 const displayValue = ref(props.value) // Show final value immediately
 
-const numberRef = ref<HTMLElement | null>(null)
-
 /**
  * Number formatter factory - D3-powered for data visualization
  *
@@ -121,7 +119,6 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
 
 <template>
   <span
-    ref="numberRef"
     :class="props.class"
     :style="props.style"
     :aria-live="debug ? 'polite' : 'off'"

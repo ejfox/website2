@@ -131,7 +131,7 @@ const getLanguageFlag = (language: string): string => {
   </div>
   <StatsDataState
     v-else
-    state="unavailable"
+    type="unavailable"
     message="DUOLINGO_DATA_UNAVAILABLE"
   />
 </template>

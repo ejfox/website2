@@ -147,10 +147,7 @@ useHead({
             >
               {{ post.title || post.metadata?.title }}
             </NuxtLink>
-            <div
-              class="font-mono text-zinc-600 truncate"
-              style="font-size: 9px; line-height: 1.2"
-            >
+            <div class="font-mono text-4xs text-zinc-600 truncate">
               ejfox.com/blog/{{ post.slug }}
             </div>
           </div>
@@ -186,11 +183,8 @@ useHead({
             >
               {{ post.title || post.metadata?.title }}
             </NuxtLink>
-            <div
-              class="font-mono text-zinc-600 truncate"
-              style="font-size: 9px; line-height: 1.2"
-            >
-              ejfox.com/blog/{{ post.slug }}
+            <div class="font-mono text-4xs text-zinc-600 truncate">
+              ejfox.com/{{ post.slug }}
             </div>
           </div>
           <span class="font-mono text-xs text-zinc-600 shrink-0">
@@ -223,11 +217,8 @@ useHead({
             >
               {{ post.title || post.metadata?.title }}
             </NuxtLink>
-            <div
-              class="font-mono text-zinc-600 truncate"
-              style="font-size: 9px; line-height: 1.2"
-            >
-              ejfox.com/blog/{{ post.slug }}
+            <div class="font-mono text-4xs text-zinc-600 truncate">
+              ejfox.com/{{ post.slug }}
             </div>
           </div>
           <span class="font-mono text-xs text-zinc-600 shrink-0">
@@ -257,10 +248,7 @@ useHead({
             <span class="text-zinc-500 dark:text-zinc-400">
               {{ scrap.title || scrap.summary || scrap.content?.slice(0, 80) }}
             </span>
-            <div
-              class="font-mono text-zinc-600 truncate"
-              style="font-size: 9px; line-height: 1.2"
-            >
+            <div class="font-mono text-4xs text-zinc-600 truncate">
               scrap/{{ scrap.id }}
             </div>
           </div>
@@ -270,7 +258,16 @@ useHead({
 
     <!-- ── Empty + loading ─────────── -->
     <!-- Empty state -->
-    <div v-if="!posts.length && !scraps.length && !pending" class="py-12">
+    <div
+      v-if="
+        !posts.length &&
+        !projects.length &&
+        !reading.length &&
+        !scraps.length &&
+        !pending
+      "
+      class="py-12"
+    >
       <p class="text-zinc-500">No content found with tag "{{ tag }}"</p>
       <NuxtLink
         to="/threads"

@@ -12,7 +12,6 @@
 -->
 <script setup lang="ts">
 import * as d3 from 'd3'
-import _StatsSectionHeader from './StatsSectionHeader.vue'
 
 interface GearItem {
   Name?: string
@@ -102,10 +101,11 @@ const ouncesToPounds = computed(() => {
   return pounds
 })
 
-const gramsPerItem = computed(() => {
-  if (totalItems.value === 0) return 0
-  return (totalWeight.value * 28.35) / totalItems.value
-})
+const ozPerItem = computed(() =>
+  totalItems.value ? totalWeight.value / totalItems.value : 0
+)
+
+const gramsPerItem = computed(() => ozPerItem.value * 28.35)
 
 // Smart weight formatter: grams for <300g (10.5oz), pounds for heavy,
 // oz otherwise
@@ -114,11 +114,10 @@ const formatWeight = (oz: number) => {
   if (grams < 300) {
     return `${grams.toFixed(0)}g`
   } else if (oz >= 16) {
-    const lbs = oz / 16
+    // Whole pounds plus the remainder: 30oz → "1lb 14.0oz", not "2lb 14.0oz".
+    const lbs = Math.floor(oz / 16)
     const remainingOz = oz % 16
-    return remainingOz > 0
-      ? `${lbs.toFixed(0)}lb ${remainingOz.toFixed(1)}oz`
-      : `${lbs.toFixed(0)}lb`
+    return remainingOz > 0 ? `${lbs}lb ${remainingOz.toFixed(1)}oz` : `${lbs}lb`
   } else {
     return `${oz.toFixed(1)}oz`
   }
@@ -225,8 +224,6 @@ const mainContainers = computed(() => {
     .sort((a, b) => Number.parseFloat(b.weight) - Number.parseFloat(a.weight))
 })
 
-const gearStatsRef = ref<HTMLElement | null>(null)
-
 // ── CSV load ────────────────────────────────────────────────
 
 // Client-only (onMounted). pages/stats.vue lazy-hydrates this section on
@@ -243,10 +240,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div
-    ref="gearStatsRef"
-    class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-4"
-  >
+  <div class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-4">
     <!-- ── Summary grid ─────────── -->
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
       <div class="flex justify-between">
@@ -288,14 +282,13 @@ onMounted(async () => {
       <div class="flex justify-between">
         <span class="text-zinc-500">OZ/ITEM</span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ (totalWeight / totalItems).toFixed(1) }}
+          {{ ozPerItem.toFixed(1) }}
         </span>
       </div>
       <div class="flex justify-between">
-        <!-- Total weight / container count, i.e. per container, not per item -->
         <span class="text-zinc-500">AVG WT</span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ (totalWeight / containerCount).toFixed(1) }}oz
+          {{ formatWeight(ozPerItem) }}
         </span>
       </div>
     </div>
@@ -456,19 +449,3 @@ onMounted(async () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-/* None of these three classes appear in the template above. */
-.text-2xl {
-  font-feature-settings: 'tnum';
-}
-
-.container-item {
-  @apply transition-all duration-300;
-}
-
-/* Type bar animation base */
-.type-bar {
-  @apply transition-all duration-300 rounded-sm;
-}
-</style>

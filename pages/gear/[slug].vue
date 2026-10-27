@@ -129,7 +129,7 @@ definePageMeta({
     </ClientOnly>
 
     <!-- Main gear card -->
-    <GearCard3D v-if="data" :gear-item="data" class="gear-card-entrance" />
+    <GearCard3D v-if="data" :gear-item="data" />
 
     <!-- Not found state -->
     <div v-else class="text-center max-w-md mx-auto">
@@ -192,12 +192,6 @@ definePageMeta({
   @apply text-zinc-700 dark:text-zinc-300;
   @apply hover:bg-zinc-100 dark:hover:bg-zinc-800;
   @apply transition-colors duration-150 no-underline rounded-sm;
-}
-
-/* BLOODHOUND FIX: Gear card now visible immediately - no animation */
-.gear-card-entrance {
-  opacity: 1;
-  transform: none;
 }
 
 /* ── Page transition: 3D card-flip slide ──────────────────── */

@@ -51,41 +51,39 @@ const VueBody = computed(() => {
 
 // ── Data loading ────────────────────────────────────────────
 // --- Data Fetching ---
-// Errors are swallowed to null here, so `error` stays empty and the 404 path
-// is the createError() below, not the template's `v-else-if="error"` branch.
+// Fetch errors propagate to `error`; both failure paths below throw a fatal
+// createError, so error.vue renders them with the real status (404 for a
+// missing/draft/scheduled post, 5xx for a broken API) instead of a soft 404.
 const { data: post, error } = await useAsyncData(
   `post-${route.params.slug.join('-')}`,
   async () => {
     try {
       const response = await $fetch(`/api/posts/${route.params.slug.join('/')}`)
-      if (response.redirect && route.path !== response.redirect) {
-        return { redirect: response.redirect }
-      }
-      return response.error ? null : response
+      return response?.error ? null : response
     } catch (e) {
       // A 404 is expected — crawlers and stale links hit nonexistent posts
-      // (often image paths resolved as blog routes). Only surface the
-      // unexpected failures; the missing-post case is handled below.
+      // (often image paths resolved as blog routes). Only log the
+      // unexpected failures.
       if (e?.statusCode !== 404 && e?.response?.status !== 404) {
         console.error('Error fetching post:', e)
       }
-      return null
+      throw e
     }
   }
 )
 
-// Handle redirect
-if (post.value?.redirect && route.path !== post.value.redirect) {
-  navigateTo(post.value.redirect, { replace: true })
-}
-// No post found (missing slug or a swallowed fetch error) → render the 404
-// page instead of hanging forever on the "Loading…" state.
-else if (!post.value) {
+const notFound = `Post not found: ${route.params.slug.join('/')}`
+if (error.value) {
+  const statusCode = error.value.statusCode || 500
   throw createError({
-    statusCode: 404,
-    statusMessage: `Post not found: ${route.params.slug.join('/')}`,
+    statusCode,
+    statusMessage: statusCode === 404 ? notFound : 'Failed to load post',
     fatal: true,
   })
+}
+// No post (empty payload) → 404 instead of hanging on "Loading…".
+if (!post.value) {
+  throw createError({ statusCode: 404, statusMessage: notFound, fatal: true })
 }
 
 // Temporal cross-reference: "around this time" context (must be after post fetch)
@@ -377,62 +375,6 @@ useHead(() => ({
   htmlAttrs: { lang: 'en' },
 }))
 
-// ── 404 suggestions ─────────────────────────────────────────
-// --- Smart 404 Suggestions ---
-// Levenshtein match of the requested path against manifest slugs/titles.
-// Note: `error` is never set (see Data loading) and nothing in the template
-// reads smartSuggestions, so this currently never shows.
-const smartSuggestions = ref([])
-
-watch(
-  error,
-  async (err) => {
-    if (!err) return
-    try {
-      const posts = await $fetch('/api/manifest')
-      const path = route.path.replace(/^\/blog\//, '').toLowerCase()
-      const distance = (a, b) => {
-        if (!a || !b) return 999
-        const [l1, l2] = [a.length, b.length]
-        if (!l1) return l2
-        if (!l2) return l1
-        let prev = Array.from({ length: l2 + 1 }, (_, i) => i)
-        for (let i = 1; i <= l1; i++) {
-          const curr = [i]
-          for (let j = 1; j <= l2; j++) {
-            curr[j] =
-              a[i - 1] === b[j - 1]
-                ? prev[j - 1]
-                : Math.min(prev[j - 1], prev[j], curr[j - 1]) + 1
-          }
-          prev = curr
-        }
-        return prev[l2]
-      }
-      const matches =
-        posts
-          ?.filter((p) => !p.hidden && !p.draft)
-          .map((p) => ({
-            title: p.title,
-            path: `/blog/${p.slug}`,
-            score: Math.max(
-              50 - distance(p.slug || '', path),
-              30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
-            ),
-          }))
-          .filter((p) => p.score > 10)
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 3) || []
-      smartSuggestions.value = matches.length
-        ? matches
-        : [{ title: 'Blog Archive', path: '/blog' }]
-    } catch {
-      smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
-    }
-  },
-  { immediate: true }
-)
-
 // ── Lifecycle (client only) ─────────────────────────────────
 // --- Lifecycle ---
 // Registered synchronously at setup scope: inside nextTick there is no active
@@ -598,7 +540,7 @@ onMounted(() => {
          #teleports), so the server sent an empty bar and every post logged
          a hydration mismatch when the client filled it. -->
     <ClientOnly>
-      <Teleport v-if="post && !post.redirect" to="#layout-bar">
+      <Teleport v-if="post" to="#layout-bar">
         <div
           class="bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800"
         >
@@ -620,7 +562,7 @@ onMounted(() => {
     </ClientOnly>
 
     <!-- Reading progress bar -->
-    <div v-if="post && !post.redirect" class="progress-bar print:hidden">
+    <div v-if="post" class="progress-bar print:hidden">
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
@@ -628,14 +570,14 @@ onMounted(() => {
     <!-- Sealed post: nothing below this has anything to render until the key
          from the link's fragment opens the envelope, client-side. -->
     <SealedPost
-      v-if="post && !post.redirect && isSealed && !isUnsealed"
+      v-if="post && isSealed && !isUnsealed"
       :envelope="post.envelope"
       :slug="sealedSlug"
       @unsealed="handleUnsealed"
     />
 
     <article
-      v-if="post && !post.redirect && showContent"
+      v-if="post && showContent"
       :class="['h-entry w-full px-4 md:px-8 xl:px-16', { 'is-draft': isDraft }]"
     >
       <!-- Title -->
@@ -723,15 +665,6 @@ onMounted(() => {
       <!-- Renders nothing when a post has no webmentions -->
       <Webmentions class="print:hidden" :url="postUrl" />
     </article>
-
-    <div v-else-if="error" class="p-8 text-center">
-      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-4">
-        Post not found
-      </p>
-      <NuxtLink to="/blog" class="text-zinc-500 hover:text-zinc-700 underline">
-        browse all posts
-      </NuxtLink>
-    </div>
 
     <!-- `!isSealed`: a sealed post is not loading, it is waiting for a key, and
          SealedPost above owns that state. Without this the locked page renders

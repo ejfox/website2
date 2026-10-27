@@ -6,7 +6,7 @@
     /api/github. SSR per request (LIVE_LISTINGS in nuxt.config.ts), not
     prerendered. Homepage redesigns have been rejected; change copy in
     index.md, not here.
-    Gotcha: "today" and the INDEX date use UTC (toISOString), not Eastern.
+    Gotcha: "today" and the INDEX date are Eastern calendar days, not UTC.
 -->
 <script setup>
 const NextAvailableSlot = defineAsyncComponent(
@@ -25,10 +25,15 @@ const { data: indexContent } = await useAsyncData('index-content', () =>
   getPostBySlug('index')
 )
 
+// YYYY-MM-DD in Eastern time (en-CA formats as ISO dates). Post dates mix
+// offsets and Z, so compare calendar days, not string prefixes.
+const easternDay = (d) =>
+  new Date(d).toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+const todayEastern = easternDay(new Date())
+
 const { data: todaysPost } = await useAsyncData('todays-post', async () => {
   const posts = await getAllPosts()
-  const today = new Date().toISOString().split('T')[0]
-  const post = posts.find((p) => p.date && p.date.startsWith(today))
+  const post = posts.find((p) => p.date && easternDay(p.date) === todayEastern)
   return post || null
 })
 
@@ -100,7 +105,7 @@ usePageSeo({
         <div class="mono-xs text-secondary mb-4 tabular">
           <span>INDEX</span>
           <span class="mx-2 text-divider">·</span>
-          <span>{{ new Date().toISOString().split('T')[0] }}</span>
+          <span>{{ todayEastern }}</span>
         </div>
         <h1
           class="font-serif text-4xl md:text-6xl font-light section-spacing-lg"

@@ -328,10 +328,10 @@ onMounted(async () => {
     'bottom-right'
   )
 
-  // Fetched before the 'load' listener is attached: this relies on the style
-  // (pmtiles, glyphs, sprites) taking longer than /api/atlas, since MapLibre
-  // doesn't replay 'load' to late listeners.
-  const data = await $fetch<any>('/api/atlas').catch(() => null)
+  // Start the overlay fetch now, but attach 'load' synchronously and await
+  // the data inside it: MapLibre doesn't replay 'load' to late listeners, so
+  // awaiting first would drop every overlay whenever the style won the race.
+  const dataPromise = $fetch<any>('/api/atlas').catch(() => null)
 
   map.on('load', async () => {
     const m = map!
@@ -428,6 +428,7 @@ onMounted(async () => {
     })
 
     // ── Built-in overlays (/api/atlas) ──
+    const data = await dataPromise
     if (data) {
       m.addSource('rides', { type: 'geojson', data: data.rides })
       m.addLayer({
