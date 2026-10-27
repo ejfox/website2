@@ -2,6 +2,11 @@
 
 Create cryptographically verifiable predictions with built-in quality guidance.
 
+> **Reality check (2026-10-05):** the git commit is the only proof that checks
+> out today. The stored SHA-256 hashes don't reproduce (predict-pro.mjs hashes a
+> gray-matter re-serialization that drifts), and `signed:` is a timestamp, not a
+> PGP signature. Treat "cryptographic" below as the goal, not the current state.
+
 > **Note:** These are intellectual exercises, not rigorous forecasts. The cryptographic verification ensures I can't change past predictions, but vague resolution criteria mean some outcomes remain subjective.
 
 ## Quick Start
