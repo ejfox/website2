@@ -4,6 +4,8 @@
   A plain HTML form, no JS: it POSTs straight to listmonk's public subscription
   endpoint, which shows its own (on-brand) confirmation page and sends a
   double-opt-in email. Nothing is stored on ejfox.com.
+  Used by pages/blog/[...slug].vue, pages/dispatch/[slug].vue and the one-off
+  pages/blog/2024/the-mystery-of-peter-todd.vue.
   @props listId?: string - listmonk list UUID (defaults to the "ejfox.com" list)
   @props location?: string - Umami `newsletter-signup` prop (post-footer, dispatch-footer…)
 -->

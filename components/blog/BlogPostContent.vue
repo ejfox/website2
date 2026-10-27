@@ -1,7 +1,10 @@
 <!--
   @file BlogPostContent.vue
-  @description Simple wrapper component for rendering blog post HTML content with prose styling
-  @props content: string - HTML content to render
+  @description <article> that v-html's pre-rendered post HTML with Tailwind
+    prose styling. Used by pages/projects/[slug].vue (blog posts render their
+    own article markup). The HTML comes from our own build pipeline
+    (scripts/build/processMarkdown.mjs), which is why v-html is acceptable.
+  @props content: string - HTML to render
 -->
 <script setup lang="ts">
 interface Props {

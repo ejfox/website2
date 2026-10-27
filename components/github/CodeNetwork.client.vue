@@ -1,7 +1,11 @@
 <!--
   @file CodeNetwork.client.vue
   @description d3-force visualization of a code function-call graph (from ejfox/code-network-gen)
-  @props nodes: Array - { id, label, type, lines, file }
+    Used by pages/github/[slug].vue inside <ClientOnly>. Data is
+    data/github-repos/<slug>.network.json, served by server/api/repos/[slug].get.ts,
+    which also resolves each node's filePath / filePaths from the repo file tree.
+    d3 only computes positions; Vue renders the SVG from reactive copies on each tick.
+  @props nodes: Array - { id, label, type, lines, file, filePath?, filePaths? }
   @props edges: Array - { source, target, type }
 -->
 <script setup>
@@ -23,16 +27,18 @@ const props = defineProps({
   edges: { type: Array, required: true },
 })
 
+// ── Setup ───────────────────────────────────────────────────
 const container = ref(null)
 const svgWrap = ref(null)
 const { width } = useElementSize(container)
-const height = 480
+const height = 480 // fixed; only width follows the container
 const hovered = ref(null)
 const tooltipPos = ref({ x: 0, y: 0 })
 const { getColor } = languageColors()
 
 const fileColor = (file) => getColor(file || 'Unknown')
 
+// ── Tooltip path label ──────────────────────────────────────
 const MAX_PATH = 60
 function displayPath(node) {
   // Prefer resolved full path (single match); fall back to basename or list
@@ -58,6 +64,7 @@ function displayPath(node) {
   return node.file
 }
 
+// ── Graph enrichment (missing nodes + call depth) ───────────
 // Synthesize any missing nodes referenced by edges (CSV omits :global anchors).
 // Then compute a "call depth" for each node — distance from the nearest :global root
 // via BFS — so entry points stay on the left and deeply-called leaves drift right.
@@ -114,6 +121,7 @@ const enriched = computed(() => {
   return { nodes, edges: props.edges.map((e) => ({ ...e })) }
 })
 
+// ── Force simulation ────────────────────────────────────────
 const simNodes = computed(() => enriched.value.nodes)
 const simEdges = computed(() => enriched.value.edges)
 
@@ -131,6 +139,9 @@ function runSim() {
   const padX = 32
   const usableX = Math.max(1, w - padX * 2)
 
+  // forceLink(...).id() swaps edge.source/target from id strings to node
+  // objects in place, which is why the tick handler can read e.source.x.
+  // enriched clones both arrays, so the props themselves aren't mutated.
   simulation = forceSimulation(simNodes.value)
     .force(
       'link',
@@ -152,6 +163,8 @@ function runSim() {
     .alpha(1)
     .alphaDecay(0.04)
 
+  // Copy into fresh arrays each tick: d3 mutates node objects in place, which
+  // Vue wouldn't see. Clamp 8px inside the box so nodes never render clipped.
   simulation.on('tick', () => {
     positionedNodes.value = simNodes.value.map((n) => ({
       ...n,
@@ -169,9 +182,12 @@ function runSim() {
   })
 }
 
+// Re-run on width change too: depth→x targets are in pixels. runSim bails
+// while width is 0 (before useElementSize has measured).
 watch([() => props.nodes, width], runSim, { immediate: true })
 onBeforeUnmount(() => simulation?.stop())
 
+// ── Node styling + stats ────────────────────────────────────
 // `index.*` files are the public face of their dir — promote them so they
 // pop out of the cluster a bit.
 const isIndexFile = (n) => /(?:^|\/)index\./i.test(n.file || '')
@@ -196,6 +212,7 @@ const indexNodes = computed(() =>
   positionedNodes.value.filter((n) => isIndexFile(n))
 )
 
+// ── Hover tooltip ───────────────────────────────────────────
 function onNodeEnter(node, evt) {
   hovered.value = node
   updateTooltip(evt)
@@ -221,6 +238,7 @@ const tooltipStyle = computed(() => {
   const left = tooltipPos.value.x + offset
   const top = tooltipPos.value.y + offset
   // Flip to the other side of the cursor near the right/bottom edges.
+  // 220 ≈ widest tooltip (MAX_PATH chars of text-3xs mono), 60 ≈ its height.
   const flipX = left > wMax - 220
   const flipY = top > height - 60
   return {
@@ -234,6 +252,7 @@ const tooltipStyle = computed(() => {
 
 <template>
   <div ref="container" class="w-full">
+    <!-- ── Caption ─────────── -->
     <div class="flex items-baseline justify-between mb-1">
       <span class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
         Function-call graph
@@ -248,6 +267,7 @@ const tooltipStyle = computed(() => {
       class="relative border border-zinc-200 dark:border-zinc-800"
       @mousemove="updateTooltip"
     >
+      <!-- ── Graph ─────────── -->
       <svg v-if="width" :width="width" :height="height" class="block">
         <g class="edges" stroke-opacity="0.35">
           <line

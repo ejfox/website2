@@ -1,3 +1,11 @@
+<!--
+  @file GearItem.vue
+  @description One <tr> of the dense gear inventory table on
+    pages/gear/index.vue: name (links to /gear/<slug>, notes in a tooltip),
+    Amazon buy link, type symbol, category, waterproof, priority, condition,
+    time since last use, weight. Must render inside a <table>.
+  @props item: gear CSV row, weightUnit: 'metric' | 'imperial' (metric)
+-->
 <script setup lang="ts">
 const props = defineProps({
   item: { type: Object, required: true },
@@ -12,6 +20,7 @@ const formatWeight = (weightOz) => {
   if (!oz || oz <= 0) return '—'
   if (props.weightUnit === 'imperial')
     return oz >= 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
+  // 28.3495 g per ounce.
   const g = Math.round(oz * 28.3495)
   return g >= 1000 ? `${(g / 1000).toFixed(1)}kg` : `${g}g`
 }
@@ -43,6 +52,7 @@ const conditionClass = (c: string) =>
 
 // ── Age since last use ───────────────────────────────────
 const daysSince = (d: string) =>
+  // 86400000 ms per day.
   d ? Math.floor((Date.now() - +new Date(d)) / 86400000) : null
 
 const ageLabel = (lastUsed: string) => {
@@ -68,6 +78,8 @@ const affiliateUrl = (url: string) => {
   if (!url?.includes('amazon.com')) return url
   try {
     const u = new URL(url)
+    // EJ's Amazon Associates tag (public by design). Matches amazon.com
+    // only; GearCard3D.client.vue matches any amazon.* host.
     u.searchParams.set('tag', 'ejfox0c-20')
     return u.toString()
   } catch {

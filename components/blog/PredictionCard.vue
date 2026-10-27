@@ -1,3 +1,15 @@
+<!--
+  @file PredictionCard.vue
+  @description Block form of an embedded prediction (`::prediction{id=…}` in a
+    post): glyph, confidence, statement, a confidence-over-time sparkline,
+    resolution and provenance footer. Not used in templates: the client plugin
+    plugins/prediction-refs.client.ts mounts it over the static HTML fallback
+    that scripts/plugins/remarkPredictionRef.mjs writes (data-prediction-ref="block").
+    The inline form is PredictionRef.vue.
+  @props payload: the trimmed prediction frontmatter from buildPayload() in
+    remarkPredictionRef.mjs (id, statement, confidence, resolved, status,
+    updates[], deadline, resolved_date, resolution, hash, gitCommit)
+-->
 <script setup>
 import { computed } from 'vue'
 
@@ -31,6 +43,7 @@ const sparkPath = computed(() => {
   const points = [initial, ...updates.map((u) => u.confidenceAfter)]
   if (points.length < 2) return null
 
+  // Fixed 120×24 box on a 0–100 confidence axis, so two cards' lines compare.
   const w = 120
   const h = 24
   const minY = 0
@@ -117,6 +130,8 @@ const href = computed(() => `/predictions/${props.payload.id}`)
       <span v-if="payload.resolved && resolvedDate">
         resolved {{ resolvedDate }}
       </span>
+      <!-- The stored hash doesn't reproduce (see CLAUDE.md "Predictions");
+           the git commit is the only checkable proof. -->
       <span v-if="hashShort" class="card__hash">sha256 · {{ hashShort }}</span>
       <span v-if="payload.gitCommit" class="card__commit">
         git · {{ payload.gitCommit.slice(0, 7) }}
@@ -126,6 +141,8 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 </template>
 
 <style scoped>
+/* State sets `color`; everything inside draws in currentColor, so the border,
+   tint, sparkline and glyph all follow it. */
 .prediction-card {
   display: grid;
   gap: 0.75rem;
@@ -155,6 +172,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   color: #9ca3af;
 }
 
+/* ── Header row ──────── */
 .card__header {
   display: flex;
   align-items: baseline;
@@ -207,6 +225,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   color: var(--tw-prose-body, inherit);
 }
 
+/* ── Sparkline, resolution, footer ──────── */
 .card__sparkline {
   display: flex;
   align-items: center;

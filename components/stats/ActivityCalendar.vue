@@ -1,10 +1,16 @@
 <!--
   @file ActivityCalendar.vue
-  @description Activity calendar heatmap showing daily activity over a period
-  @props title: string - Calendar title (optional)
-  @props activityData: Array - Array of daily activity data with active boolean
-  @props days: number - Number of days to display
-  @props activeColor: string - Color for active days
+  @description One-row strip of the last N days, each cell lit if that day had
+    activity, with a hover tooltip and an "N ACTIVE DAYS" count. Used by
+    components/stats/GitHubStats.vue (commit days) and RescueTimeStats.vue.
+  @props days: number - window length ending today (default 30)
+  @props title: string - header text; '' hides it (default 'ACTIVITY')
+  @props activeColor: string - inline bg for active cells (default zinc-500)
+  @props activeDates: string[] - 'yyyy-MM-dd' days to light up
+  @props customActivityData: { date, active }[] - used verbatim instead of
+    days/activeDates when given
+  Gotcha: the grid is hard-coded to 30 columns (15×2 on phones), so a `days`
+  other than 30 wraps or leaves gaps.
 -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
@@ -66,6 +72,8 @@ const activityData = computed<ActivityDay[]>(() => {
   const days = Array(props.days)
     .fill(null)
     .map((_, i) => {
+      // Oldest first, so the last cell (i = days-1) is today. Local time,
+      // so "today" is the viewer's day (the server's day during SSR).
       const date = new Date()
       date.setDate(date.getDate() - (props.days - 1 - i))
       return {
@@ -125,6 +133,7 @@ const activeCount = computed(() => {
 
 .activity-grid {
   @apply grid gap-0.5 h-4;
+  /* Fixed at 30 to match the default `days`; not derived from the prop. */
   grid-template-columns: repeat(30, minmax(0, 1fr));
   overflow: visible;
 }
@@ -142,6 +151,8 @@ const activeCount = computed(() => {
   @apply bg-zinc-200/30 dark:bg-zinc-800/30;
 }
 
+/* Inverted (dark in both modes) on purpose; the grid and calendar are
+   overflow: visible so it can rise above the 16px-tall strip. */
 .tooltip-custom {
   position: absolute;
   bottom: calc(100% + 8px);

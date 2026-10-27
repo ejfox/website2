@@ -1,3 +1,11 @@
+<!--
+  @file GalleryCell.vue
+  @description One lazy cell of the /kitchen-sink?gallery=1 contact sheet.
+    Rendered by pages/kitchen-sink.vue as <DevGalleryCell>; previews the
+    first story via DevStoryRenderer. A "*" before the name = no story yet.
+  @props entry: catalog entry from pages/kitchen-sink.vue
+    ({ name, loader, stories, isClient, isServer })
+-->
 <script setup>
 // One cell of the kitchen-sink contact sheet. Mounts its live preview only when
 // scrolled into view, so a page full of D3/canvas/3D components doesn't try to
@@ -12,6 +20,7 @@ const show = ref(false)
 const { stop } = useIntersectionObserver(el, ([e]) => {
   if (e?.isIntersecting) {
     show.value = true
+    // One-shot: once mounted, scrolling away must not unmount the preview.
     stop()
   }
 })

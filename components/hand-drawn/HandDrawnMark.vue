@@ -1,3 +1,11 @@
+<!--
+  @file HandDrawnMark.vue
+  @description Inline hand-drawn ring around (or scribble under) a word in
+    prose. Auto-picks and varies the loop per instance; see the script block.
+    Used on pages/hand-drawn.vue and pages/stats.vue.
+  @props name ('auto'), placement ('around' | 'under'), inkClass, tone
+  @slot the marked text
+-->
 <script setup>
 /**
  * Lay a hand-drawn mark tightly over or under a word/phrase — the marked-up-draft
@@ -35,6 +43,8 @@ const { width } = useElementSize(root)
 // and uses it to vary ITSELF — different loop, tilt, mirror and thinning — so no two
 // marks on a page look like the same stamp pasted twice. Fully automatic: a caller
 // just writes <HandDrawnMark>. This IS the hand-drawn illusion; don't hand-tune it.
+// Module-level, so the count runs across every mark in the session (it never
+// resets on navigation; that only shifts which variant a mark starts on).
 let _seq = 0
 const seq = ref(0)
 onMounted(() => {
@@ -72,6 +82,7 @@ const recipe = computed(() => VARIANTS[seq.value % VARIANTS.length])
 const resolvedName = computed(() => {
   if (props.name !== 'auto') return props.name
   if (props.placement === 'under') return 'scribble'
+  // width is 0 during SSR and before the first measure; 90 picks the md pool.
   const pool = ringPool(width.value || 90)
   return pool[recipe.value.ring % pool.length]
 })

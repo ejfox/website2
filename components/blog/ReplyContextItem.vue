@@ -1,6 +1,10 @@
 <!--
   @file ReplyContextItem.vue
-  @description Individual reply context item with favicon, title, description, and OG metadata
+  @description One "in reply to" card: favicon, author/site, relative date,
+    title, description and preview image, metadata from our own /api/og
+    scraper (server/api/og.get.ts). The link
+    carries u-in-reply-to h-cite so webmention receivers see the reply.
+    Rendered by ReplyContext.vue.
   @props url: string - URL to fetch OpenGraph data for
   @props showLabel: boolean - Show "In reply to" label (default: false)
 -->
@@ -35,6 +39,8 @@ const domain = computed(() => {
   }
 })
 
+// Top-level await: makes this an async-setup component, so the parent needs
+// a Suspense boundary (Nuxt pages provide one).
 const { data: ogData } = await useFetch<OGData>('/api/og', {
   query: { url: props.url },
   immediate: !!props.url,

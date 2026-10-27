@@ -1,3 +1,11 @@
+<!--
+  @file GearCard3D.client.vue
+  @description The gear item "card" on pages/gear/[slug].vue: symbol, name,
+    photo, weight, H2O/priority, container, notes, buy link and a raw details
+    table. The whole card tilts in 3D with the mouse (desktop) or the phone's
+    orientation (touch), off for prefers-reduced-motion.
+  @props gearItem: one gear CSV row from /api/gear/<slug>
+-->
 <script setup>
 import { useMouse, useWindowSize, useRafFn } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -7,6 +15,7 @@ const props = defineProps({ gearItem: { type: Object, default: () => ({}) } })
 const { getItemWeightInGrams } = weightCalculations()
 const { TYPE_SYMBOLS, PRIORITY_PIPS } = gearUI()
 
+// ── 3D tilt ─────────────────────────────────────────────────
 // Mouse-tracking 3D tilt.
 //
 // Three things used to conflict and produce visible jitter:
@@ -67,6 +76,8 @@ let baseBeta = null // calibrate "flat" to however the phone is first held
 function handleOrientation(e) {
   if (e.gamma === null || e.beta === null) return
   if (baseBeta === null) baseBeta = e.beta
+  // Clamp to ±40° of real tilt and map that onto ±18° of card rotation;
+  // tz (lift toward the viewer) grows with total tilt, up to 12px.
   const ry = (clamp(e.gamma, -40, 40) / 40) * 18 // left-right
   const rx = (clamp(-(e.beta - baseBeta), -40, 40) / 40) * 18 // front-back
   oTarget.rx = rx
@@ -121,6 +132,8 @@ useRafFn(() => {
     const cx = winW.value / 2
     const cy = winH.value / 2
     if (!cx || !cy) return
+    // Cursor offset from window centre, normalised to -1..1, maps to
+    // ±20° rotation; tz lifts the card up to 30px toward the corners.
     const rx = -((my.value - cy) / cy) * 20
     const ry = ((mx.value - cx) / cx) * 20
     const tz =
@@ -134,6 +147,7 @@ useRafFn(() => {
   }
   // Touch: smooth toward the orientation target (accelerometer is noisy).
   if (motionActive.value) {
+    // 0.12 = per-frame lerp factor: a low-pass filter on sensor jitter.
     oCurrent.rx += (oTarget.rx - oCurrent.rx) * 0.12
     oCurrent.ry += (oTarget.ry - oCurrent.ry) * 0.12
     oCurrent.tz += (oTarget.tz - oCurrent.tz) * 0.12
@@ -148,6 +162,7 @@ useRafFn(() => {
 // Backward-compatible name for the template binding.
 const tilt = tiltStyle
 
+// ── Item fields ─────────────────────────────────────────────
 const photoUrl = computed(() => props.gearItem.Photo_URL?.trim() || null)
 
 const displayWeight = computed(() => {
@@ -162,6 +177,7 @@ const buyUrl = computed(() => {
     const url = new URL(raw)
     // Only Amazon links get the affiliate tag; other retailers pass through.
     if (url.hostname.includes('amazon.'))
+      // EJ's Amazon Associates tag (public by design, appears in every link).
       url.searchParams.set('tag', 'ejfox0c-20')
     return url.toString()
   } catch {
@@ -225,6 +241,7 @@ const formatDetailValue = (key, value) => {
       ↗ tilt to explore
     </button>
 
+    <!-- ── Identity + photo ─────────── -->
     <div class="card-header">
       <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
       <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
@@ -245,6 +262,7 @@ const formatDetailValue = (key, value) => {
       </div>
     </div>
 
+    <!-- ── Stats ─────────── -->
     <!-- Weight hero -->
     <div class="section text-center">
       <div class="stat-value">{{ displayWeight }}g</div>
@@ -290,6 +308,7 @@ const formatDetailValue = (key, value) => {
       </a>
     </div>
 
+    <!-- ── Raw CSV details ─────────── -->
     <div class="details-section">
       <h3 class="label-tracked-md">Item Details</h3>
       <div

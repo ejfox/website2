@@ -1,7 +1,11 @@
 <!--
   @file DuolingoStats.vue
-  @description Duolingo language learning statistics
-  @props stats: Object - Stats data from API
+  @description LANGUAGES section of /stats: day streak, total XP, the course
+    being studied, and up to 5 courses by XP, each with a flag emoji.
+    Data: server/api/duolingo.get.ts (courses arrive sorted by XP;
+    currentCourse falls back to the top-XP course). Wired in pages/stats.vue.
+  @props stats: StatsResponse - the WHOLE /api/stats response, not
+    stats.duolingo (unlike most siblings); this file reads .duolingo itself.
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -16,6 +20,8 @@ const props = defineProps<{
 
 const duolingo = computed(() => props.stats.duolingo)
 
+// Keyed by Duolingo's course title (the language name in English). Unknown
+// titles get 🌐 via getLanguageFlag.
 const languageFlags: Record<string, string> = {
   Spanish: '🇪🇸',
   French: '🇫🇷',
@@ -101,6 +107,7 @@ const getLanguageFlag = (language: string): string => {
       </div>
     </div>
 
+    <!-- Only worth a list when there's more than the one course shown above -->
     <div v-if="duolingo.courses?.length > 1">
       <StatsSectionHeader title="DUOLINGO LANGUAGES" />
       <div class="space-y-2 mt-2">

@@ -1,3 +1,10 @@
+<!--
+  @file BeliefTimeline.vue
+  @description Prediction timeline SVG on pages/predictions/index.vue. Row data
+    comes from buildBeliefRows in utils/beliefTimeline.ts; rows link to
+    /predictions/<slug>.
+  @props predictions: BeliefPrediction[]
+-->
 <script setup lang="ts">
 /**
  * Belief changelog: every prediction from signing to deadline, with each
@@ -12,10 +19,11 @@ const props = defineProps<{
 
 // Geometry. Fixed width to fit the content column; on phones the wrapper
 // scrolls, never the page.
+// ── Geometry + time scale ───────────────────────────────────
 const W = 760
 const L = 270 // label column
-const R = 24
-const T = 34
+const R = 24 // right padding
+const T = 34 // top band for year labels
 const ROW = 26
 const DAY = 86_400_000
 
@@ -59,6 +67,7 @@ const fmt = (t: number) =>
     timeZone: 'UTC',
   })
 
+// ── Rows ────────────────────────────────────────────────────
 const plotted = computed(() =>
   rows.value.map((r, i) => {
     const y = T + i * ROW + ROW / 2
@@ -82,7 +91,9 @@ const plotted = computed(() =>
           ...u,
           ux,
           held,
+          // 10px diamond centred on (ux, y)
           d: `M${ux} ${y - 5} L${ux + 5} ${y} L${ux} ${y + 5} L${ux - 5} ${y} Z`,
+          // Held labels sit right of the mark, changes left (see template)
           text: held ? `held ${u.after}` : `${u.before}→${u.after}`,
         }
       }),
@@ -101,6 +112,7 @@ const plotted = computed(() =>
       role="img"
       :aria-label="`Timeline of ${rows.length} predictions from signing to deadline, with confidence updates and resolutions`"
     >
+      <!-- ── Axes ─────────── -->
       <!-- year gridlines -->
       <g v-for="yr in years" :key="yr">
         <line
@@ -139,6 +151,7 @@ const plotted = computed(() =>
         today
       </text>
 
+      <!-- ── Rows ─────────── -->
       <!-- Rows are <g role="link">, not SVG <a>: Cloudflare Email
            Obfuscation's decoder calls a.href.indexOf() on every <a>, and an
            SVG anchor's href is an SVGAnimatedString, so each one threw. -->

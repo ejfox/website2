@@ -1,9 +1,16 @@
 <!--
   @file CommitHeatmap.client.vue
   @description Year × week activity heatmap. Rows = years (top-to-bottom),
-               columns = ISO weeks (left-to-right, Jan → Dec). Each cell is
-               colored by the language of the repo with the most commits that
-               week, opacity scaled by commit count.
+               columns = Sunday-anchored weeks of the year, 0-indexed
+               (left-to-right, Jan → Dec). Each cell is colored by the
+               language of the repo with the most commits that week, opacity
+               scaled by commit count (log).
+    Data: server/api/github/activity.get.ts (from data/github-commits.json).
+    Used by pages/github/index.vue (async import inside <ClientOnly>).
+  @props years: number[]; weeks: { year, week, weekStart, commits, topRepo, topRepoLang }[];
+    totalCommits, totalRepos: numbers for the caption
+  @emits hover(cell | null), select({ year: number | null }); clicking a cell
+    toggles a year filter on the caller's repo list
 -->
 <script setup>
 import { ref, computed, watch } from 'vue'
@@ -25,6 +32,7 @@ const { width } = useElementSize(container)
 const hoveredCell = ref(null)
 const selectedYear = ref(null)
 
+// ── Scales + layout ─────────────────────────────────────────
 const weeksByYearKey = computed(() => {
   const map = new Map()
   for (const w of props.weeks) {
@@ -44,6 +52,7 @@ const cellOpacity = (commits) => {
   return 0.15 + t * 0.85
 }
 
+// 53 columns: a year spans 52 full weeks plus a partial one.
 const WEEKS_PER_YEAR = 53
 const MIN_CELL = 10
 const MAX_CELL = 26
@@ -53,6 +62,8 @@ const PADDING_TOP = 18 // for month column labels
 const cellSize = computed(() => {
   if (!width.value) return MIN_CELL
   const available = width.value - PADDING_LEFT
+  // Fill the width, clamped so cells stay hoverable on phones (the SVG then
+  // overflows) and don't balloon on wide screens.
   const size = available / WEEKS_PER_YEAR
   return Math.max(MIN_CELL, Math.min(MAX_CELL, Math.floor(size)))
 })
@@ -79,7 +90,7 @@ const cells = computed(() => {
         key: `${y}-${w}`,
         x: PADDING_LEFT + w * cs,
         y: PADDING_TOP + yi * cs,
-        size: cs - 1,
+        size: cs - 1, // 1px gutter between cells
         year: y,
         week: w,
         commits: data?.commits || 0,
@@ -104,6 +115,7 @@ const monthMarkers = [
   { week: 43, label: 'Nov' },
 ]
 
+// ── Interaction ─────────────────────────────────────────────
 function onCellEnter(cell) {
   if (!cell.commits) {
     hoveredCell.value = null
@@ -138,6 +150,8 @@ const yearTotals = computed(() => {
   return totals
 })
 
+// Note: onCellClick and clearSelection already emit 'select', and this watch
+// emits it again on the same change, so callers receive each selection twice.
 watch(selectedYear, (v) => emit('select', { year: v }))
 </script>
 
@@ -193,6 +207,7 @@ watch(selectedYear, (v) => emit('select', { year: v }))
         </text>
       </g>
 
+      <!-- ── Cells ─────────── -->
       <g>
         <rect
           v-for="cell in cells"
@@ -215,7 +230,8 @@ watch(selectedYear, (v) => emit('select', { year: v }))
       </g>
     </svg>
 
-    <!-- Tooltip / current selection -->
+    <!-- Tooltip / current selection. Text-only readout below the grid rather
+         than a floating tooltip, so it never covers neighbouring cells. -->
     <div
       class="mt-2 flex items-baseline justify-between gap-4 font-mono text-2xs text-zinc-600 dark:text-zinc-400 min-h-4"
     >

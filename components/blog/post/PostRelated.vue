@@ -1,7 +1,9 @@
 <!--
   @file PostRelated.vue
-  @description Related posts section based on overlapping tags
-  @props relatedPosts - array of { post, overlappingTags }
+  @description "Related Posts" list with the tags each post shares with this
+    one. Only the one-off pages/blog/2024/the-mystery-of-peter-todd.vue uses
+    it; regular posts get related posts inside PostFooter.vue.
+  @props relatedPosts: [{ post, overlappingTags }] - title/date fall back to post.metadata
 -->
 <script setup lang="ts">
 defineProps<{

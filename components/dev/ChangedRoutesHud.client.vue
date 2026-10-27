@@ -1,3 +1,12 @@
+<!--
+  @file ChangedRoutesHud.client.vue
+  @description Dev-only right-rail HUD of changed content routes, from
+    GET /api/_dev/changes (server/api/_dev/changes.get.ts). Mounted as
+    <DevChangedRoutesHud v-if="isDev"> in layouts/default.vue (isDev =
+    import.meta.dev). Base, open state and highlight toggle persist in
+    localStorage (useStorage). Details in the script comment below.
+  @props none
+-->
 <script setup>
 /**
  * Dev-only "what changed" HUD. Fixed right-side rail listing every changed
@@ -13,6 +22,7 @@ import { useStorage, useEventListener } from '@vueuse/core'
 
 const route = useRoute()
 
+// ── State + fetch ───────────────────────────────────────────
 const base = useStorage('dev-changes-base', 'session') // 'session' | 'branch'
 const open = useStorage('dev-changes-open', true)
 const highlight = useStorage('dev-changes-highlight', true)
@@ -76,6 +86,7 @@ function toggleExpand(file) {
   expanded.value = next
 }
 
+// ── Hotkey ──────────────────────────────────────────────────
 useEventListener(window, 'keydown', (e) => {
   // ignore while typing in a field
   const t = e.target
@@ -90,6 +101,7 @@ useEventListener(window, 'keydown', (e) => {
   }
 })
 
+// ── In-page highlight ───────────────────────────────────────
 // Best-effort: find the first added snippet from the current route's diff in the
 // rendered content and scroll to it with a temporary flash. Defensive — only
 // acts on an exact substring match, so it silently no-ops when markdown source
@@ -107,6 +119,8 @@ function highlightCurrent() {
       .filter((c) => !mdChars.has(c))
       .join('')
       .trim()
+    // Short needles (< 8 chars) match all over the page; skip them. Only the
+    // first 40 chars are matched, since a text node rarely holds a whole line.
     if (needle.length < 8) continue
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT)
     let node
@@ -161,6 +175,7 @@ function highlightCurrent() {
         nothing changed {{ base === 'branch' ? 'vs main' : 'in working tree' }}
       </p>
 
+      <!-- ── Routable files (link to their page) ─────────── -->
       <ul class="dev-hud__list">
         <li
           v-for="f in routableFiles"
@@ -186,6 +201,8 @@ function highlightCurrent() {
               {{ expanded.has(f.file) ? '▾' : '▸' }}
             </button>
           </div>
+          <!-- Odd wrapping is deliberate: inside <pre>, any whitespace
+               between the tags would render as blank lines. -->
           <pre v-if="expanded.has(f.file)" class="dev-hud__diff"><span
             v-for="(s, i) in f.addedSnippets"
             :key="i"
@@ -195,6 +212,7 @@ function highlightCurrent() {
         </li>
       </ul>
 
+      <!-- ── Other changed files (no route) ─────────── -->
       <template v-if="otherFiles.length">
         <div class="dev-hud__section">other files</div>
         <ul class="dev-hud__list dev-hud__list--muted">
@@ -225,6 +243,7 @@ function highlightCurrent() {
 </template>
 
 <style scoped>
+/* ── Rail + tab ──────── */
 .dev-hud {
   position: fixed;
   top: 64px;
@@ -264,6 +283,7 @@ function highlightCurrent() {
   border-right: none;
   border-radius: 4px 0 0 4px;
 }
+/* ── Panel header ──────── */
 .dev-hud__head {
   display: flex;
   align-items: center;
@@ -315,6 +335,7 @@ function highlightCurrent() {
   padding: 8px;
   color: #52525b;
 }
+/* ── File list + status badges ──────── */
 .dev-hud__list {
   list-style: none;
   margin: 0;
@@ -410,6 +431,7 @@ a.dev-hud__link:hover {
   color: #71717a;
   font-size: 10px;
 }
+/* ── Footer ──────── */
 .dev-hud__foot {
   display: flex;
   justify-content: space-between;

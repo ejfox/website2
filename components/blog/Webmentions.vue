@@ -1,7 +1,13 @@
 <!--
   @file Webmentions.vue
-  @description Webmentions display showing likes, reposts, replies, and mentions from external sites
-  @props url: string - URL to fetch webmentions for
+  @description Likes, reposts, replies and mentions of a post, from
+    /api/webmentions (server/api/webmentions.get.ts, a webmention.io proxy).
+    Likes/reposts collapse to counts that expand into avatar rows; replies
+    render in full; bare mentions show only when there are no replies.
+    Renders nothing until something arrives. Used by pages/blog/[...slug].vue
+    and the one-off pages/blog/2024/the-mystery-of-peter-todd.vue.
+  @props url: string - the post's canonical URL (webmention target)
+  @props mock?: Webmention[] - kitchen-sink preview data; skips the fetch result
 -->
 <script setup lang="ts">
 import { formatDistanceToNow } from '~/utils/date'
@@ -46,6 +52,7 @@ interface Webmention {
   published?: string
 }
 
+// ── Bucket by wm-property ───────────────────────────────────
 const likes = computed(() =>
   (webmentions.value || []).filter((w: Webmention) =>
     ['like-of', 'favorite'].includes(w['wm-property'])
@@ -87,6 +94,8 @@ const getDomain = (url: string) => {
   }
 }
 
+// Over the limit it returns the tag-stripped TEXT, not truncated HTML, so a
+// long reply never renders with a dangling open tag.
 const truncateHtml = (html: string, maxLength = 280) => {
   // Strip tags for length check
   const text = html.replace(/<[^>]*>/g, '')
@@ -129,6 +138,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
       </span>
     </div>
 
+    <!-- ── Expanded avatar rows ─────────── -->
     <div
       v-if="showLikes && likes.length > 0"
       class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-black/50 rounded"
@@ -171,6 +181,7 @@ const truncateHtml = (html: string, maxLength = 280) => {
       </a>
     </div>
 
+    <!-- ── Replies ─────────── -->
     <div v-if="replies.length > 0" class="space-y-3">
       <div
         v-for="reply in replies"
@@ -208,6 +219,8 @@ const truncateHtml = (html: string, maxLength = 280) => {
               {{ formatTime(reply.published) }}
             </a>
           </div>
+          <!-- v-html of third-party content: safe only because
+               server/api/webmentions.get.ts sanitizes it to an allowlist -->
           <p
             class="text-zinc-700 dark:text-zinc-300 mt-0.5 break-words"
             v-html="

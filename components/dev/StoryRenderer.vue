@@ -1,3 +1,10 @@
+<!--
+  @file StoryRenderer.vue
+  @description Error-isolated live preview for the kitchen sink. Rendered by
+    pages/kitchen-sink.vue and GalleryCell.vue as <DevStoryRenderer>. Stories
+    (mock props) live in utils/kitchenSinkStories.js.
+  @props loader, componentProps, wrapper ('table' | 'list' | null), slotText
+-->
 <script setup>
 // Renders one component (lazily loaded via a glob importer) with a set of mock
 // props, fully isolated: an async-load failure or a render-time throw is caught
@@ -40,6 +47,8 @@ watch(
     resolved.value = null
     try {
       const mod = await loader()
+      // markRaw + shallowRef: a component definition must not be made deeply
+      // reactive (Vue warns, and it's wasted work).
       resolved.value = markRaw(mod.default || mod)
     } catch (err) {
       error.value = err

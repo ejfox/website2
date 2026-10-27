@@ -1,7 +1,12 @@
 <!--
   @file WebVitalsReporter.vue
-  @description Web vitals performance overlay showing LCP, FID, CLS metrics (dev/debug mode only)
-  @props None - listens to window web-vitals events
+  @description Dev/debug overlay (bottom-left) listing web-vitals readings.
+    Enabled when runtimeConfig.public.debug (DEBUG=true) or nodeEnv is
+    development. Mounted in layouts/default.vue as <UiWebVitalsReporter>.
+    It listens for a window `web-vitals` CustomEvent ({ name, value, rating });
+    nothing in this repo currently dispatches one, so it stays empty.
+    (Production vitals go to Umami via umami-plus; see plugins/umami.client.js.)
+  @props none
 -->
 <script setup>
 const vitals = ref([])

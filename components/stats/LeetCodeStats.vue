@@ -1,7 +1,11 @@
 <!--
   @file LeetCodeStats.vue
-  @description LeetCode coding challenge statistics
-  @props stats: Object - LeetCode stats from API
+  @description LEETCODE section of /stats (pages/stats.vue): total solved with
+    an easy/medium/hard split bar, top languages and the last three accepted
+    solutions. The page only mounts it when at least one count is > 0.
+    Data: stats.leetcode from /api/stats, built by server/api/leetcode.get.ts
+    (LeetCode's public GraphQL).
+  @props stats: StatsResponse['leetcode'] - stats.leetcode
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -27,6 +31,7 @@ const totalSolved = computed(() => {
 })
 
 const difficultyPercentages = computed(() => {
+  // Even thirds so the bar still draws (and nothing divides by 0) at zero.
   if (totalSolved.value === 0) return { easy: 33.3, medium: 33.3, hard: 33.3 }
 
   return {
@@ -37,7 +42,8 @@ const difficultyPercentages = computed(() => {
   }
 })
 
-// Language statistics - top 3 only
+// Top 3 languages, counted over the recent-submissions list only (whatever
+// LeetCode's recentSubmissionList returns), not all-time solves.
 const topLanguages = computed(() => {
   const stats: Record<string, number> = {}
 
@@ -63,6 +69,7 @@ const recentAcceptedSubmissions = computed(() => {
     .slice(0, 3)
 })
 
+// LeetCode timestamps are unix seconds as strings.
 const formatDateMinimal = (timestamp: string): string => {
   const date = new Date(Number.parseInt(timestamp) * 1000)
   return format(date, 'MM.dd')

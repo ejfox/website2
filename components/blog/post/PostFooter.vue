@@ -1,3 +1,12 @@
+<!--
+  @file PostFooter.vue
+  @description Three-column foot of a blog post (Previous · Related · Next)
+    plus the "grab some time on my calendar" line. Used by pages/blog/[...slug].vue.
+    Renders nothing when there are no neighbours and no related posts.
+  @props prevPost, nextPost: { slug, title, date } | null
+  @props relatedPosts: [{ post, overlappingTags? }] (only the first 6 render;
+    title/date fall back to post.metadata)
+-->
 <script setup lang="ts">
 defineProps<{
   prevPost?: { slug: string; title: string; date: string } | null
@@ -61,6 +70,7 @@ defineProps<{
       </section>
     </div>
 
+    <!-- Umami nav-calendar funnel event; see CLAUDE.md "Umami funnel events" -->
     <p class="post-footer__talk">
       Want to talk about this?
       <NuxtLink

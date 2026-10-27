@@ -1,10 +1,13 @@
 <!--
   @file StatRow.vue
-  @description Simple stat row with label and formatted value
+  @description One label → value line. Used by the ?simple text-only mode
+    of /stats (pages/stats.vue) inside StatsStatSection. Formats with the
+    numberFormat() helpers (utils/numberFormat). A default slot replaces the
+    formatted value for custom content.
   @props label: string - Stat label
-  @props value: string | number - Stat value
-  @props format: string - Format type (number, percentage, decimal, raw)
-  @props decimals: number - Decimal places (default: 0)
+  @props value: string | number - Stat value (null/undefined renders empty)
+  @props format: 'number' | 'percentage' | 'decimal' | 'raw' (default: number)
+  @props decimals: number - Decimal places for format="decimal" (default: 0)
 -->
 <script setup>
 const props = defineProps({

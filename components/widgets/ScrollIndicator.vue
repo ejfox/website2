@@ -1,3 +1,11 @@
+<!--
+  @file ScrollIndicator.vue
+  @description Pulsing vertical hairline that hints "scroll down", absolutely
+    positioned at the bottom centre of its (position:relative) parent. Only
+    used by the one-off pages/blog/2024/the-mystery-of-peter-todd.vue as
+    <WidgetsScrollIndicator>. Static under reduced motion.
+  @props color: string - the line's gradient end colour (default faint white)
+-->
 <script setup>
 defineProps({
   color: { type: String, default: 'rgba(255,255,255,0.2)' },

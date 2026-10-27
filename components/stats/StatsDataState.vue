@@ -1,8 +1,11 @@
 <!--
   @file StatsDataState.vue
-  @description Data state message component for unavailable/loading/error states
-  @props message: string - Custom message (default: DATA_UNAVAILABLE)
-  @props type: string - State type: unavailable, loading, error
+  @description One-line mono placeholder for a stats block with no data
+    ("DATA_UNAVAILABLE", "LOADING_DATA...", "DATA_ERROR"). Used across the
+    components/stats/* sections and pages/stats.vue.
+  @props message: string - Custom text; overrides `type` unless left at the
+    default 'DATA_UNAVAILABLE'
+  @props type: 'unavailable' | 'loading' | 'error' (default: unavailable)
 -->
 <script setup lang="ts">
 interface Props {

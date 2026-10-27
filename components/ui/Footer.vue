@@ -1,7 +1,9 @@
 <!--
   @file Footer.vue
-  @description Site footer with h-card microformat, navigation links, PGP key, and build info
-  @props None - fetches build info from /api/build-info endpoint
+  @description Site footer: avatar h-card (IndieWeb identity), secondary nav,
+    rel="me" profile links, PGP fingerprint and the deployed commit. Mounted
+    once in layouts/default.vue as <UiFooter>.
+  @props none - fetches /api/build-info (server/api/build-info.get.ts) during SSR
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -35,7 +37,8 @@ const buildTitle = computed(() => {
 <template>
   <footer class="py-8 mt-8 print:hidden">
     <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
-      <!-- Avatar with h-card microformat -->
+      <!-- h-card microformat: parsers (webmention receivers, IndieAuth) read
+           these classes; the hidden spans are for them, not for readers. -->
       <div class="h-card">
         <img
           :src="avatarUrl"
@@ -70,6 +73,7 @@ const buildTitle = computed(() => {
         <a href="https://ejfox.com/archive.epub" :class="navLinkClasses">
           /epub
         </a>
+        <!-- rel="me authn": IndieAuth may use these to verify ejfox.com -->
         <a
           href="https://github.com/ejfox"
           rel="me authn"

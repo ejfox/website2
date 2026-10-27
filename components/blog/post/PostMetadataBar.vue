@@ -1,7 +1,11 @@
 <!--
   @file PostMetadataBar.vue
-  @description Top ticker bar with reading stats for blog posts
-  @props date, stats - post date and reading statistics
+  @description One-line mono bar at the top of a blog post: date, "edited"
+    link to the git history, reading time, words/images/links, and archive
+    links (github source, AT-Proto record, Wayback). Used by
+    pages/blog/[...slug].vue, which reserves a fixed height for it.
+  @props date, modified?, stats { readingTime, words, images, links },
+    slug? (blog path without /blog/, e.g. 2024/foo), atprotoUrl?
 -->
 <script setup lang="ts">
 const props = defineProps<{

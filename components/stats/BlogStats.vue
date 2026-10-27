@@ -1,7 +1,10 @@
 <!--
   @file BlogStats.vue
-  @description Blog statistics showing post counts, word counts, and writing metrics
-  @props stats: Object - Blog statistics data from API
+  @description WRITING section of /stats: total posts, posts and words this
+    month, avg words/post, and the 5 most recent posts this month.
+    Data: stats.blog from /api/stats, built by server/api/blog-stats.get.ts on
+    top of /api/words-this-month. Wired in pages/stats.vue.
+  @props stats: BlogStats - { posts, words, recentPosts, month, year }
 -->
 <script setup lang="ts">
 import { numberFormat } from '../../utils/numberFormat'
@@ -80,6 +83,8 @@ interface BlogStats {
       </div>
     </div>
 
+    <!-- recentPosts is words-this-month's post list, so "recent" means this
+         month; titles are plain text, not links. -->
     <StatsSectionHeader title="RECENT BLOG POSTS" />
     <div class="space-y-2">
       <div

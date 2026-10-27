@@ -1,7 +1,14 @@
 <!--
   @file GearStats.vue
-  @description Gear inventory statistics
-  @props stats: Object - Gear statistics from CSV data
+  @description GEAR section of /stats (full width): totals, bags with their
+    contents' weight, weight/count by type, essentials, recently used.
+    Two sources: the headline totals + type counts come from the gearStats
+    prop (stats.gear from /api/stats, server/api/gear-stats.get.ts); every
+    per-item list is computed here from data/gear.csv, fetched client-side
+    from /api/gear-csv on mount. Until that lands (and during SSR) the lists
+    are empty and the totals fall back to the prop. Wired in pages/stats.vue.
+  @props gearStats?: { stats: { totalItems, totalWeight, containerCount },
+    typeDistribution } - totalWeight is in ounces
 -->
 <script setup lang="ts">
 import * as d3 from 'd3'
@@ -29,6 +36,8 @@ const props = defineProps<{
 }>()
 
 const gearItems = ref<GearItem[]>([])
+
+// ── Totals (prop first, CSV fallback) ───────────────────────
 
 // Computed stats - use API data if available, fall back to CSV data
 const totalItems = computed(() => {
@@ -86,6 +95,8 @@ const maxTypeCount = computed(() => {
   return Math.max(...Object.values(typeDistribution.value))
 })
 
+// ── Unit conversions (28.35 g/oz, 16 oz/lb) ─────────────────
+
 const ouncesToPounds = computed(() => {
   const pounds = Number(totalWeight.value) / 16
   return pounds
@@ -113,6 +124,10 @@ const formatWeight = (oz: number) => {
   }
 }
 
+// ── Per-item lists (CSV only) ───────────────────────────────
+
+// Weights are summed from the CSV, but count/avg divide by typeDistribution,
+// which is the API's count when the prop is present.
 const weightPerType = computed(() => {
   if (!gearItems.value?.length) return []
 
@@ -168,7 +183,9 @@ const recentlyUsed = computed(() => {
     })
 })
 
-// Main containers - top-level bags and carrying systems
+// Main containers - top-level bags and carrying systems. "Top-level" = a Bag
+// whose parent is Body, Motorcycle or blank. Weight counts direct children
+// only, not bags nested inside the bag.
 const mainContainers = computed(() => {
   if (!gearItems.value?.length) return []
 
@@ -210,6 +227,10 @@ const mainContainers = computed(() => {
 
 const gearStatsRef = ref<HTMLElement | null>(null)
 
+// ── CSV load ────────────────────────────────────────────────
+
+// Client-only (onMounted). pages/stats.vue lazy-hydrates this section on
+// visibility, so the CSV is only fetched once GEAR scrolls into view.
 onMounted(async () => {
   try {
     const response = await fetch('/api/gear-csv')
@@ -226,6 +247,7 @@ onMounted(async () => {
     ref="gearStatsRef"
     class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-4"
   >
+    <!-- ── Summary grid ─────────── -->
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
       <div class="flex justify-between">
         <span class="text-zinc-500">ITEMS</span>
@@ -270,6 +292,7 @@ onMounted(async () => {
         </span>
       </div>
       <div class="flex justify-between">
+        <!-- Total weight / container count, i.e. per container, not per item -->
         <span class="text-zinc-500">AVG WT</span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
           {{ (totalWeight / containerCount).toFixed(1) }}oz
@@ -279,7 +302,7 @@ onMounted(async () => {
 
     <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
-    <!-- Containers -->
+    <!-- ── Containers ─────────── -->
     <div class="space-y-0.5">
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         BAGS
@@ -334,7 +357,8 @@ onMounted(async () => {
 
     <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
-    <!-- Type Distribution -->
+    <!-- Type Distribution: bar is 0–20px scaled to the top type, 4px floor so
+         a count of 1 is still visible -->
     <div class="space-y-0.5">
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         TYPE COUNTS
@@ -434,6 +458,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+/* None of these three classes appear in the template above. */
 .text-2xl {
   font-feature-settings: 'tnum';
 }

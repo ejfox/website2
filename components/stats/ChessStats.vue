@@ -1,7 +1,12 @@
 <!--
   @file ChessStats.vue
-  @description Chess.com statistics showing ratings, games, and performance metrics
-  @props stats: Object - Chess statistics from Chess.com API
+  @description CHESS section of /stats: headline rating for one time control
+    (utils/chess.ts primaryTimeControl), peak + win rate, a bar per
+    bullet/blitz/rapid, performance rows, and this month's games.
+    Data: stats.chess from /api/stats (server/api/chess.get.ts, Chess.com).
+    Wired in pages/stats.vue.
+  @props stats: ChessStats | null - ratings are either plain numbers (old
+    format) or { bullet, blitz, rapid } objects (current format); both handled.
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -15,6 +20,8 @@ import {
   getRatingDiffClass,
   primaryTimeControl,
 } from '~/utils/chess'
+
+// ── Types ───────────────────────────────────────────────────
 
 interface ChessGame {
   id?: string
@@ -66,6 +73,8 @@ const props = defineProps<{
   stats?: ChessStats | null
 }>()
 
+// ── Ratings (old vs new API shape) ──────────────────────────
+
 const isNewFormat = computed(() => {
   return typeof props.stats?.currentRating === 'object'
 })
@@ -100,6 +109,7 @@ const bestRating = computed(() => {
     const control = primaryControl.value
     if (!control) return 0
     const best = (props.stats.bestRating as NewFormatRatings)[control] || 0
+    // Clamp so PEAK is never below the current rating shown right above it.
     return Math.max(best, getRating(control))
   }
   return props.stats.bestRating as number
@@ -119,6 +129,7 @@ const gamesPlayed = computed(() => {
     : (props.stats.gamesPlayed as number)
 })
 
+// Same value as winRate above; kept as a separate name for performanceMetrics.
 const overallWinRate = computed(() => {
   if (!props.stats) return 0
   return isNewFormat.value
@@ -131,6 +142,10 @@ const hasGameStats = computed(() => {
   return gamesPlayed.value > 0 && bestRating.value > 0
 })
 
+// ── Recent games ────────────────────────────────────────────
+
+// Current calendar month in local time; timestamps are Chess.com unix
+// seconds, hence the * 1000.
 const thisMonthGames = computed(() => {
   if (!props.stats?.recentGames) return []
 
@@ -161,12 +176,19 @@ const formatTimeAgo = (timestamp: number) => {
   return `${Math.floor(diffDays / 30)}mo ago`
 }
 
-// Variant ratings with stats (win rate, games, delta)
+// ── Per-variant small multiples ─────────────────────────────
+
+// Variant ratings with stats (win rate, games, delta). delta is current minus
+// that variant's best, so it is ≤ 0 unless current > best: the template
+// shows it as distance below peak (red), and 0 renders as a blank cell.
+// Old format has one rating, so all three rows would show the same number.
 const variantStats = computed(() => {
   if (!props.stats) return []
 
   const variants = ['bullet', 'blitz', 'rapid'] as const
 
+  // The final filter drops unrated variants. `current` is already a
+  // formatted string ("1,234"), so it strips commas before parsing.
   return variants
     .map((variant) => {
       const current = getRating(variant)
@@ -198,6 +220,8 @@ const variantStatsWithBars = computed(() => {
   const ratings = stats.map(
     (s) => Number.parseInt(s.current.replace(/,/g, '')) || 0
   )
+  // Bars are relative to the best variant (not 0–3000), and the 1 floor
+  // avoids dividing by zero.
   const maxRating = Math.max(...ratings, 1)
   return stats.map((s, i) => ({
     ...s,
@@ -217,6 +241,7 @@ const performanceMetrics = computed(() => [
 
 <template>
   <div v-if="stats" class="space-y-2 font-mono">
+    <!-- ── Headline rating ─────────── -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <HandDrawnMark>
@@ -284,6 +309,7 @@ const performanceMetrics = computed(() => [
       </div>
     </div>
 
+    <!-- ── Performance + recent games ─────────── -->
     <div v-if="hasGameStats">
       <StatsSectionHeader title="CHESS PERFORMANCE" />
       <div class="space-y-2">

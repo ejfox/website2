@@ -3,7 +3,7 @@
   @description The receipts block under a Dispatch piece: sources list, a
   numbered claims ledger (each claim → its source), and a data download.
   Tufte-dense: mono labels, serif claim text, hostnames as provenance hints.
-  Renders nothing if all three are empty.
+  Renders nothing if all three are empty. Used by pages/dispatch/[slug].vue.
   @props sources?: {title, url}[]
   @props claims?: {text, source}[]
   @props data?: string - URL to a CSV/JSON download
@@ -36,12 +36,14 @@ const hasAny = computed(
 function host(url?: string): string {
   if (!url) return ''
   try {
+    // Base URL so a relative source (/data/x.csv) still parses, as ejfox.com.
     return new URL(url, 'https://ejfox.com').hostname.replace(/^www\./, '')
   } catch {
     return ''
   }
 }
 
+// File extension of the data URL (query/hash stripped) as a badge: CSV, JSON…
 const dataFormat = computed(() => {
   const m = props.data?.split(/[?#]/)[0]?.match(/\.([a-z0-9]+)$/i)
   return m?.[1] ? m[1].toUpperCase() : 'DATA'
@@ -61,6 +63,7 @@ const dataFormat = computed(() => {
       Receipts
     </h2>
 
+    <!-- ── Claims ledger ─────────── -->
     <div v-if="claims.length" class="mb-6">
       <h3 class="receipts-label">Claims</h3>
       <ol class="divide-y divide-zinc-200 dark:divide-zinc-800">
@@ -99,6 +102,7 @@ const dataFormat = computed(() => {
       </ol>
     </div>
 
+    <!-- ── Sources ─────────── -->
     <div v-if="sources.length" class="mb-6">
       <h3 class="receipts-label">Sources</h3>
       <ol class="space-y-1">
@@ -133,6 +137,7 @@ const dataFormat = computed(() => {
       </ol>
     </div>
 
+    <!-- ── Data download ─────────── -->
     <div v-if="data">
       <h3 class="receipts-label">Data</h3>
       <a

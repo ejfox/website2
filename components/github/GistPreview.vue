@@ -1,6 +1,9 @@
 <!--
   @file GistPreview.vue
   @description Expandable code preview with server-side syntax highlighting and theme support
+    Used by pages/gists.vue, which owns the expanded state (one Set of ids) and
+    passes the gist's first file. Highlighting is a POST to /api/highlight; the
+    collapsed view sends only the first 10 lines.
   @props gist: Gist - Gist object with content, description, files
   @props file: GistFile - File object with filename, language, size
   @props expanded: boolean - Whether code is expanded
@@ -38,6 +41,8 @@ const emit = defineEmits<{
   toggle: []
 }>()
 
+// ── State ───────────────────────────────────────────────────
+// Template refs below are bound but not read anywhere in this file.
 const gistRef = ref<HTMLElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
 const codeRef = ref<HTMLElement | null>(null)
@@ -54,6 +59,7 @@ const codeToShow = computed(() => {
   return props.expanded ? content : content.split('\n').slice(0, 10).join('\n')
 })
 
+// ── Highlighting ────────────────────────────────────────────
 const highlightedCode = ref('')
 
 const updateHighlighting = async () => {
@@ -79,6 +85,7 @@ const updateHighlighting = async () => {
         },
       })
 
+      // Fallback paths interpolate raw gist text into v-html unescaped.
       highlightedCode.value =
         (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
     } catch (error) {
@@ -90,6 +97,9 @@ const updateHighlighting = async () => {
   }
 }
 
+// Always true, so this runs in setup on both sides. It isn't awaited, so SSR
+// renders before the fetch resolves; with the onMounted call below, the
+// client highlights twice on first load.
 if (import.meta.server || import.meta.client) {
   // Initialize immediately for SSR
   updateHighlighting()
@@ -104,7 +114,8 @@ watch([() => props.expanded, () => props.gist.content], async () => {
   await updateHighlighting()
 })
 
-// Watch for theme changes
+// Watch for theme changes: useDark() toggles the `dark` class on <html>, and
+// the highlight theme is baked into the returned HTML, so re-request it.
 if (import.meta.client) {
   const observer = new MutationObserver(async (mutations) => {
     for (const mutation of mutations) {
@@ -137,6 +148,8 @@ const handleToggle = () => {
 
 <template>
   <div ref="gistRef" class="gist-preview">
+    <!-- Collapsed: max-height 280px clips the 10-line preview; expanded scrolls
+         inside 60vh (see .code-container.expanded .code-content). -->
     <div ref="containerRef" class="code-container" :class="{ expanded }">
       <div ref="codeRef" class="code-content" v-html="highlightedCode" />
 

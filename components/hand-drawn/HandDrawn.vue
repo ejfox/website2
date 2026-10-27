@@ -1,3 +1,12 @@
+<!--
+  @file HandDrawn.vue
+  @description One mark from EJ's scanned notebook sprite, as an inline SVG
+    that inks in currentColor. Asset list + viewBox math live in
+    utils/handDrawn.ts; the sprite (public/hand-drawn/sprite.svg, <g id="hd-ink">)
+    is injected once on the client by ensureHandDrawnSprite(). Unknown names
+    render a red ⟨name?⟩ placeholder. Specimen page: pages/hand-drawn.vue.
+  @props name, size?, stretch?, title?, erode? (documented inline below)
+-->
 <script setup>
 import { computed } from 'vue'
 import {

@@ -1,7 +1,11 @@
 <!--
   @file LetterboxdStats.vue
-  @description Letterboxd film watching statistics
-  @props stats: Object - Letterboxd data
+  @description FILMS section of /stats (pages/stats.vue): total films, average
+    rating, a one-bar-per-film rating strip, eight recent diary entries and the
+    top five rated. Data: stats.letterboxd from /api/stats, built by
+    server/api/letterboxd.get.ts from the Letterboxd RSS diary.
+  @props letterboxdStats?: LetterboxdStats | null - stats.letterboxd (note
+    the prop name: the page passes :letterboxd-stats, not :stats)
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -45,6 +49,7 @@ const hasData = computed(() => {
   )
 })
 
+// Zeroed fallback so the template can read stats.* without null checks.
 const stats = computed(
   () =>
     props.letterboxdStats?.stats || {
@@ -87,6 +92,8 @@ const ratingStrip = computed(() =>
     }))
 )
 
+// Letterboxd ratings are 0.5–5 in half steps → ★ per whole point, ½ for the
+// half, ☆ padding to five. Each glyph gets an id for its v-for key.
 const renderStars = (rating: number | null) => {
   if (!rating) return []
 
@@ -126,6 +133,7 @@ const renderStars = (rating: number | null) => {
 </script>
 
 <template>
+  <!-- ── Headline + rating strip ──────────────── -->
   <div v-if="hasData" class="space-y-8 font-mono">
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
@@ -206,6 +214,7 @@ const renderStars = (rating: number | null) => {
       </div>
     </div>
 
+    <!-- ── Recent diary ──────────────── -->
     <div v-if="recentFilms.length" class="space-y-2">
       <StatsSectionHeader title="RECENT FILMS" />
       <div class="space-y-2">
@@ -257,6 +266,7 @@ const renderStars = (rating: number | null) => {
       </div>
     </div>
 
+    <!-- ── Top rated ──────────────── -->
     <div v-if="stats.topRatedFilms.length > 0" class="space-y-2">
       <StatsSectionHeader title="TOP RATED FILMS" />
       <div class="space-y-1">

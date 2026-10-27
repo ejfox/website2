@@ -1,7 +1,11 @@
 <!--
   @file UmamiStats.vue
-  @description Umami website analytics statistics
-  @props stats: Object - Umami analytics data
+  @description ANALYTICS section of /stats (pages/stats.vue): ejfox.com
+    pageviews/visitors for the last 30 days, engagement, growth vs the 30
+    days before, and derived traffic-quality ratios. Data: stats.website from
+    /api/stats, built by server/api/website-stats.get.ts (reads the Umami
+    Postgres directly; `prev` = the previous 30 days).
+  @props umamiStats?: UmamiStats | null - stats.website (passed as :umami-stats)
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -69,6 +73,9 @@ const pagesPerSession = computed(() => {
   return (pageviews / visits).toFixed(1)
 })
 
+// ── Derived ratios ──────────────────────────────────────────────
+// Growth vs prev window. A zero prev window reads as +100% (or 0% if both are
+// zero) rather than dividing by zero.
 const pageviewGrowth = computed(() => {
   const current = stats.value.pageviews.value
   const prev = stats.value.pageviews.prev
@@ -104,7 +111,7 @@ const engagementRate = computed(() => {
 })
 
 const dailyAverage = computed(() => {
-  // Assuming 30 day period
+  // The server window is fixed at 30 days (website-stats.get.ts)
   return Math.round(stats.value.pageviews.value / 30)
 })
 
@@ -127,6 +134,7 @@ const lastUpdated = computed(() => {
 </script>
 
 <template>
+  <!-- ── Headline ──────────────── -->
   <div v-if="hasData" class="space-y-2 font-mono">
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
@@ -158,6 +166,7 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
+    <!-- ── Engagement ──────────────── -->
     <div>
       <StatsSectionHeader title="WEBSITE ENGAGEMENT" />
       <div class="space-y-2">
@@ -194,6 +203,7 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
+    <!-- ── Growth ──────────────── -->
     <div>
       <StatsSectionHeader title="WEBSITE GROWTH (VS PREV 30 DAYS)" />
       <div class="space-y-2">
@@ -224,6 +234,7 @@ const lastUpdated = computed(() => {
       </div>
     </div>
 
+    <!-- ── Traffic quality ──────────────── -->
     <div>
       <h4 class="section-label-tracked">WEBSITE TRAFFIC QUALITY</h4>
       <div class="space-y-2">

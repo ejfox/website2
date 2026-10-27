@@ -1,11 +1,14 @@
 <!--
   @file GithubRepoCard.vue
   @description GitHub repository card with title, description, language bar, and stats
+    One row of the stacked repo list on pages/github/index.vue; links to
+    /github/<name>. The caller passes both flat fields and the whole repo.
   @props name: string - Repository name
   @props description: string - Repository description (optional)
   @props language: string - Primary language (default: 'Unknown')
   @props stars: number - Star count (default: 0)
   @props forks: number - Fork count (default: 0)
+  @props hasNetwork: boolean - show the graph glyph (repo has a .network.json)
   @props repo: Repo - Full repository object with languages, stats (optional)
 -->
 <script setup lang="ts">
@@ -51,6 +54,7 @@ withDefaults(defineProps<Props>(), {
       <div class="title-row">
         <h3 class="repo-title">{{ name }}</h3>
         <span v-if="language" class="language-label">{{ language }}</span>
+        <!-- Tiny 3-node graph glyph: marks repos whose page has a CodeNetwork -->
         <svg
           v-if="hasNetwork"
           class="network-glyph"

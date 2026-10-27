@@ -1,3 +1,10 @@
+<!--
+  @file SitemapLink.vue
+  @description One title + description card on pages/sitemap.vue. Renders a
+    NuxtLink for internal routes, or a new-tab <a> when `external` is set.
+  @props to: path or URL, title: string, description?: string,
+    external?: boolean
+-->
 <script setup>
 defineProps({
   to: { type: String, required: true },
@@ -6,6 +13,8 @@ defineProps({
   external: { type: Boolean, default: false },
 })
 
+// <component :is> needs the resolved component object; the string 'NuxtLink'
+// would render as an unknown element.
 const NuxtLink = resolveComponent('NuxtLink')
 </script>
 

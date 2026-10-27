@@ -1,7 +1,9 @@
 <!--
   @file LastFmStats.vue
-  @description Last.fm music listening statistics
-  @props stats: Object - Last.fm data from API
+  @description MUSIC section of /stats (pages/stats.vue): five recent tracks,
+    top artists, top genres and top tracks from Last.fm (last month).
+    Data: stats.lastfm from /api/stats, built by server/api/lastfm.get.ts.
+  @props stats?: LastFmStats | null - stats.lastfm
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -53,7 +55,8 @@ const props = defineProps<{
   stats?: LastFmStats | null
 }>()
 
-// Computed for easier access to nested data
+// The server sends `artists` / `tracks`; `month` is an older shape kept as a
+// fallback.
 const topArtists = computed(() => {
   return (
     props.stats?.topArtists?.artists || props.stats?.topArtists?.month || []
@@ -64,6 +67,8 @@ const topTracks = computed(() => {
   return props.stats?.topTracks?.tracks || props.stats?.topTracks?.month || []
 })
 
+// server/api/lastfm.get.ts always sends [] here (Last.fm has no genre data),
+// so the genres block below doesn't render today.
 const topGenres = computed(() => {
   return props.stats?.stats?.topGenres || []
 })
@@ -77,6 +82,8 @@ const hasData = computed(() => {
   )
 })
 
+// Relative age of a scrobble. Last.fm sends `date.uts` in seconds; the
+// now-playing track has no date at all.
 const formatTrackTime = (track: Track): string => {
   if (!track.date?.uts) return 'NOW'
 
@@ -115,6 +122,7 @@ const formatTrackTime = (track: Track): string => {
           >
             {{ formatTrackTime(track) }}
           </span>
+          <!-- no date = Last.fm's currently-playing track -->
           <span
             v-else
             class="text-zinc-500 flex-shrink-0 ml-2 uppercase text-xs"

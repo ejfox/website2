@@ -1,13 +1,17 @@
 <!--
   @file AnimatedNumber.vue
-  @description Displays numbers with D3-powered formatting (commas, percentages, currency, SI prefixes)
-  @props value: number - The number to display
-  @props startValue: number - Starting value for animation (default: 0)
-  @props duration: number - Animation duration in ms (default: 500)
-  @props format: string - Format type: 'default', 'commas', 'compact', 'percent', 'currency', 'decimal'
-  @props decimals: number - Number of decimal places (default: 0)
-  @props class: string - CSS classes to apply
-  @props style: string | object - Inline styles to apply
+  @description A d3-format'ed number (commas, %, $, SI) in a <span>. Renders
+    the final value on first paint (SSR-safe, no count-up on load); only a later
+    change to `value` animates, over a fixed 600ms ease-out from the old value.
+    Used across components/stats/* via explicit import (also auto-imports as
+    <UiAnimatedNumber>).
+  @props value: number - the number to display
+  @props format: 'default' | 'commas' | 'compact' | 'percent' | 'currency' | 'decimal'
+  @props decimals: number - decimal places (default 0; ignored by 'compact')
+  @props class, style - forwarded to the span
+  @props debug: boolean - turns on aria-live="polite"
+  Accepted but currently unused by the code: startValue, duration, ease,
+  delay, epic, priority (callers still pass duration/priority/delay).
 -->
 <script setup lang="ts">
 import { format as d3Format } from 'd3-format'

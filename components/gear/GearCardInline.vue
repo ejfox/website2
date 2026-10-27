@@ -1,9 +1,20 @@
+<!--
+  @file GearCardInline.vue
+  @description Inline gear card inside blog post prose. Not used from a
+    template: scripts/plugins/remarkGearCard.mjs emits
+    <div class="gear-card-inline" data-gear-slug> placeholders, and
+    plugins/gear-cards.client.ts mounts this component on each one. Fetches
+    /api/gear/<slug>.
+  @props gearSlug: string
+-->
 <script setup lang="ts">
 const props = defineProps({
   gearSlug: { type: String, required: true },
 })
 
 const { data: item, pending } = useFetch(`/api/gear/${props.gearSlug}`, {
+  // Reuse payload/static data when present so remounts on the same page
+  // don't refetch.
   getCachedData: (key, nuxtApp) =>
     nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
 })
@@ -11,6 +22,7 @@ const { data: item, pending } = useFetch(`/api/gear/${props.gearSlug}`, {
 const weightGrams = computed(() => {
   const oz = Number.parseFloat(item.value?.Weight_oz ?? '')
   if (!oz || oz <= 0) return '—'
+  // 28.3495 g per ounce; >= 1kg shows as e.g. "1.2k" next to the "g" unit.
   const g = Math.round(oz * 28.3495)
   return g >= 1000 ? `${(g / 1000).toFixed(1)}k` : g
 })

@@ -1,3 +1,11 @@
+<!--
+  @file PhotoStack.vue
+  @description A photo-heavy blog post shown as one square cover cell in the
+    /photos column grid (pages/photos/index.vue). Clicking expands it in place:
+    the post body is fetched lazily from /api/posts/<slug> on first open and
+    rendered with the blog's own .blog-post-content styles.
+  @props post: { slug, title, dek?, year?, imageCount, images[] }
+-->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
@@ -16,6 +24,8 @@ const expanded = ref(false)
 const bodyHtml = ref<string | null>(null)
 const loadingBody = ref(false)
 
+// Fetch once: a failure caches '' too, so a broken post doesn't refetch on
+// every toggle.
 async function ensureBody() {
   if (bodyHtml.value !== null || loadingBody.value) return
   loadingBody.value = true
@@ -38,6 +48,9 @@ const toggle = () => {
 
 const cover = computed(() => props.post.images[0])
 
+// Square Cloudinary thumb: drop one existing leading transform segment
+// (c_/w_/h_/f_/q_/e_/g_/l_…) and replace it with a w×w auto-gravity fill.
+// Non-Cloudinary URLs pass through untouched.
 function thumbUrl(src: string, w = 560) {
   if (!src.includes('res.cloudinary.com')) return src
   const base = src.split('/upload/')[0] + '/upload/'
@@ -78,6 +91,7 @@ function thumbUrl(src: string, w = 560) {
       </div>
     </button>
 
+    <!-- v-show, not v-if: keeps the fetched body in the DOM across toggles -->
     <Transition name="reveal">
       <div v-show="expanded" class="photo-stack__body">
         <p v-if="post.dek" class="photo-stack__dek">{{ post.dek }}</p>

@@ -1,7 +1,11 @@
 <!--
   @file TopStats.vue
-  @description Top-level statistics dashboard showing key metrics
-  @props stats: Object - All statistics data from API
+  @description Headline row at the top of /stats (pages/stats.vue): one card
+    each for GitHub, blog posts, words, LeetCode, chess and typing. Server-rendered
+    with the page, so these numbers are in the first paint. A card only renders
+    when its source has data; the two blog cards show a loading state instead.
+  @props stats: StatsResponse - full /api/stats payload (composables/useStats.ts)
+  @props blogStats?: BlogStats - the page's validBlogStats (posts/words/avg)
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -216,6 +220,8 @@ const postsThisMonth = computed(() => {
       class="top-stat-card"
       :style="{ '--stat-index': 5 }"
     >
+      <!-- server/api/monkeytype.get.ts emits averageWpm; averageWPM is a
+           fallback for the older casing -->
       <div class="stat-value">
         <AnimatedNumber
           :value="
@@ -248,6 +254,7 @@ const postsThisMonth = computed(() => {
 .top-stat-card {
   @apply text-center p-4 flex-1;
   min-width: 100px;
+  /* at 0% the radial glow is invisible; nothing in the repo changes it */
   --card-glow: 0%;
   background: radial-gradient(
     circle at center,

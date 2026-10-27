@@ -1,7 +1,10 @@
 <!--
   @file MonkeyTypeStats.vue
-  @description MonkeyType typing test statistics
-  @props stats: Object - MonkeyType stats
+  @description TYPING section of /stats (pages/stats.vue): best WPM, a WPM
+    strip of recent tests, the last five tests, performance tiles and a
+    per-language breakdown. Data: stats.monkeyType from /api/stats, built by
+    server/api/monkeytype.get.ts.
+  @props stats: MonkeyTypeStats - stats.monkeyType
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -66,6 +69,8 @@ const hasLanguageBreakdown = computed(() => languageBreakdown.value.length > 0)
 
 const topLanguages = computed(() =>
   [...languageBreakdown.value]
+    // Same order the server already sorts by (most tests, then best WPM);
+    // re-sorted here so the order holds regardless of payload.
     .sort((a, b) =>
       b.tests === a.tests ? b.bestWpm - a.bestWpm : b.tests - a.tests
     )
@@ -99,6 +104,7 @@ const wpmStrip = computed(() => {
     .map((t) => ({
       ts: t.timestamp,
       wpm: Math.round(t.wpm),
+      // 4% floor keeps a slow test visible as a stub instead of vanishing.
       pct: Math.max(4, Math.round((t.wpm / best) * 100)),
       label: `${Math.round(t.wpm)} wpm · ${Math.round(t.accuracy)}% · ${formatDateMinimal(t.timestamp)}`,
     }))
@@ -108,6 +114,8 @@ const hasTestType = (test: MonkeyTypeTest): boolean => {
   return !!(test.duration || test.wordCount || test.mode)
 }
 
+// "60s" for time tests, "25w" for word tests, else the mode name. A bare
+// "time" mode with no duration says nothing, so it renders empty.
 const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
   if (test.duration) {
     return `${test.duration}s`
@@ -136,6 +144,7 @@ onMounted(() => {})
 
 <template>
   <div ref="monkeyStatsRef" class="font-mono">
+    <!-- ── Best WPM ──────────────── -->
     <div v-if="hasStats" ref="mainStatsRef">
       <div class="space-y-2">
         <div class="individual-stat-large">
@@ -169,6 +178,7 @@ onMounted(() => {})
       </div>
     </div>
 
+    <!-- ── Recent tests ──────────────── -->
     <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="RECENT TYPING TESTS" />
 
@@ -229,6 +239,7 @@ onMounted(() => {})
       </div>
     </div>
 
+    <!-- ── Performance tiles ──────────────── -->
     <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="TYPING PERFORMANCE" />
 
@@ -258,6 +269,8 @@ onMounted(() => {})
           </div>
         </div>
 
+        <!-- reads averageWPM only; the server sends averageWpm (see the
+             averageWpm computed above), so this tile is usually hidden -->
         <div v-if="stats.typingStats.averageWPM" class="stat-item">
           <div class="stat-label">AVG WPM</div>
           <div class="stat-value">
@@ -272,6 +285,7 @@ onMounted(() => {})
       </div>
     </div>
 
+    <!-- ── Languages ──────────────── -->
     <div v-if="hasLanguageBreakdown" class="mt-8 space-y-8">
       <StatsSectionHeader title="TYPING LANGUAGES" />
 

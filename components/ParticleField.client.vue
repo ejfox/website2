@@ -1,3 +1,10 @@
+<!--
+  @file ParticleField.client.vue
+  @description Sparse 1px star field behind and in front of every page, on two
+    fixed canvases. Mounted once in layouts/default.vue, whose root sets
+    `isolation: isolate` so the under-canvas's z-index -1 works. Design notes
+    in the script block below.
+-->
 <script setup>
 /**
  * ParticleField — a very sparse 3D field of single-pixel particles that the
@@ -64,6 +71,7 @@ let well = null // { x, y, start } of the latest mousedown
 
 const rand = (a, b) => a + Math.random() * (b - a)
 
+// ── field setup ──────────────────────────────────────────────────────────────
 // Mitchell's best-candidate: of a few random spots, take the one farthest
 // from every existing star. Cheap blue noise — even, but still organic.
 function place(w, h) {
@@ -156,6 +164,8 @@ function resize() {
   draw(true)
 }
 
+// ── simulation ───────────────────────────────────────────────────────────────
+// Toroidal wrap: a star pushed off one edge re-enters at the opposite one.
 const wrap = (v, max) => ((v % max) + max) % max
 
 function step(now) {
@@ -183,6 +193,8 @@ function step(now) {
       const dy = well.y - p.y
       const dz = (PAGE_DEPTH - p.z) * DEPTH_PX
       const d2 = dx * dx + dy * dy + dz * dz + PULL_SOFTEN * PULL_SOFTEN
+      // f = pull / d³; multiplied by the (dx, dy) offset below, the
+      // in-plane force has magnitude ~ pull / d².
       const f = pull / (d2 * Math.sqrt(d2))
       p.vx += dx * f
       p.vy += dy * f
@@ -204,6 +216,7 @@ function step(now) {
   }
 }
 
+// ── drawing ──────────────────────────────────────────────────────────────────
 function draw(force = false) {
   if (!ctxUnder || !ctxOver) return
   // Light mode: pale zinc, not near-black. Dark specks on white read as dust.
@@ -246,6 +259,7 @@ function draw(force = false) {
   }
 }
 
+// ── loop + lifecycle ─────────────────────────────────────────────────────────
 const { pause, resume } = useRafFn(
   ({ timestamp }) => {
     step(timestamp)
@@ -299,6 +313,7 @@ onMounted(async () => {
 
 <template>
   <div class="particle-field-root" aria-hidden="true">
+    <!-- under: behind content (z <= PAGE_DEPTH); over: in front of it -->
     <canvas ref="under" class="particle-field particle-field--under" />
     <canvas ref="over" class="particle-field particle-field--over" />
   </div>

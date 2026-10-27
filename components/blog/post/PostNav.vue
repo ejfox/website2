@@ -1,7 +1,9 @@
 <!--
   @file PostNav.vue
-  @description Previous/Next post navigation for blog posts
-  @props prevPost, nextPost - post objects with slug, title, date
+  @description Previous/Next post links as a two-column grid. Only the one-off
+    pages/blog/2024/the-mystery-of-peter-todd.vue uses it; regular posts use
+    PostFooter.vue, which folds prev/next/related into one block.
+  @props prevPost, nextPost: { slug, title, date } | null
 -->
 <script setup lang="ts">
 defineProps<{
@@ -19,6 +21,7 @@ defineProps<{
         <span class="nav-date">{{ formatLongDate(prevPost.date) }}</span>
       </NuxtLink>
     </div>
+    <!-- Empty cell keeps "Next" in the right-hand column when there's no prev -->
     <div v-else class="order-2 sm:order-1"></div>
 
     <div v-if="nextPost" class="order-1 sm:order-2 sm:text-right">

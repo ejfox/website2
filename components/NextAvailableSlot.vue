@@ -1,7 +1,10 @@
 <!--
   @file NextAvailableSlot.vue
-  @description Inline calendar slot component showing next available booking time with auto-refresh
-  @props None - fetches data from /api/cal/available-slots endpoint
+  @description Inline "next free slot" link for the homepage.
+    Appends a " (9am Monday?)"-style booking link to the homepage's "grab
+    some time on my calendar" sentence (pages/index.vue teleports it in).
+    Fetches /api/cal/available-slots; re-fetches when the tab regains focus.
+  @props mock?: { slots } - kitchen-sink only; skips the live data
 -->
 <script setup>
 import { computed } from 'vue'
@@ -11,6 +14,8 @@ import { computed } from 'vue'
 const props = defineProps({ mock: { type: Object, default: null } })
 
 const { data, refresh } = await useLazyFetch('/api/cal/available-slots', {
+  // NOTE: `refresh` is not a documented useFetch option, so this interval
+  // probably does nothing; the focus listener below is what re-fetches.
   refresh: 5 * 60 * 1000, // Refresh every 5 minutes
   default: () => ({ slots: [] }),
 })

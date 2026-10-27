@@ -1,12 +1,13 @@
 <!--
   @file ProjectRow.vue
-  @description Image-FIRST project row. A compact title + lede sits above a
-    masonry grid showing screenshots at natural aspect (no bars, no crop),
-    wrapping to fill the full width. Click → project detail.
+  @description Image-FIRST flagship row on pages/projects/index.vue. Title,
+    tags and lede beside (xl) or above the media. One image renders as a hero at
+    natural aspect; several (or a demo video) render as a 2-column grid of
+    uniform 3:2 Cloudinary-cropped tiles, capped at 6. Click → project detail.
   @props project: Object - slim card shape from /api/projects?slim=1
     (title, metadata, images, heroVideo, excerpt)
-  @props featured: boolean - Featured rows get bigger type + full-bleed escape
-    via the parent layout.
+  @props featured: boolean - declared, but nothing in this file reads it
+  @props eager: boolean - first row only: eager/high-priority LCP image + poster preload
 -->
 <script setup>
 const props = defineProps({
@@ -26,7 +27,7 @@ const projectTitle = computed(
 
 const client = computed(() => props.project.metadata?.client || '')
 
-// --- Context: client / collaborative / personal --------------------------------
+// ── Context: client / collaborative / personal ──────────────────
 // Defaults to "personal" — only client & collaborative projects set `context` in
 // frontmatter. client/collaborative read slightly brighter; personal sits back.
 const contextTag = computed(() => {
@@ -49,7 +50,7 @@ const year = computed(() => {
   return Number.isNaN(y) ? '' : y
 })
 
-// --- AI involvement ----------------------------------------------------------
+// ── AI involvement ──────────────────────────────────────────────
 // Surfaced verbatim from frontmatter (ai-assisted / ai-collaborative /
 // ai-enhanced / human-only). Readers can smell robot work — say it plainly
 // instead of letting them wonder.
@@ -57,19 +58,19 @@ const aiInvolvement = computed(
   () => props.project.metadata?.['ai-involvement'] || ''
 )
 
-// --- External link ----------------------------------------------------------
+// ── External link ───────────────────────────────────────────────
 // The row navigates via the title's stretched link; the ↗ is a sibling anchor
 // (z-10, above the overlay) opening the project's own URL in a new tab.
 const projectUrl = computed(() => props.project.metadata?.url || '')
 
-// --- Tech stack stripe -------------------------------------------------------
+// ── Tech stack stripe ───────────────────────────────────────────
 const tech = computed(() => {
   const t = props.project.metadata?.tech
   if (!Array.isArray(t)) return []
   return t.map((x) => String(x).toLowerCase()).filter(Boolean)
 })
 
-// --- Images & Cloudinary transforms -----------------------------------------
+// ── Images & Cloudinary transforms ──────────────────────────────
 // Inject the transform right after /upload/ so it works on BOTH versioned
 // (/upload/v123/…) and unversioned (/upload/projects/…) URLs.
 const cld = (src, transform) => {
@@ -92,10 +93,9 @@ const cld = (src, transform) => {
   while (i < segs.length && isTransform(segs[i])) i++
   return head + transform + '/' + segs.slice(i).join('/')
 }
-// Hero: keep full aspect, just cap size. Tile: uniform 3:2 with NO crop —
-// pad to the aspect using the page background color (zinc-900 #18181b) so the
-// padding is invisible. Portraits float whole, landscapes fill; every tile the
-// same size and nothing gets butchered.
+// Hero: keep full aspect, just cap size (c_limit). Tile: uniform 3:2 via
+// c_fill + g_auto, i.e. Cloudinary crops to the aspect around the detected
+// subject, so every tile is the same size and reserves its space.
 const thumb = (src, width) => cld(src, `c_limit,w_${width},q_auto,f_auto`)
 const tile = (src, width) =>
   cld(src, `c_fill,ar_3:2,g_auto,w_${width},q_auto,f_auto`)
@@ -104,7 +104,7 @@ const tile = (src, width) =>
 // full post html just to regex thumbnails out of it.
 const images = computed(() => props.project.images || [])
 
-// --- Demo video --------------------------------------------------------------
+// ── Demo video ──────────────────────────────────────────────────
 // First <video> in the post becomes a living tile at the head of the grid.
 // Playback is viewport-driven (plugins/video-viewport.client.ts): it only
 // plays while on screen.
@@ -135,6 +135,7 @@ const videoPoster = (src) =>
     '.jpg'
   )
 
+// A video tile takes one of the six slots.
 const IMAGE_CAP = 6
 const imageCap = computed(() => IMAGE_CAP - (heroVideo.value ? 1 : 0))
 const visibleImages = computed(() => images.value.slice(0, imageCap.value))
@@ -156,7 +157,7 @@ const heroSrcset = computed(() => {
   return `${thumb(src, 900)} 900w, ${thumb(src, 1500)} 1500w`
 })
 
-// --- Excerpt (precomputed server-side) --------------------------------------
+// ── Excerpt (precomputed server-side) ───────────────────────────
 const excerpt = computed(() => props.project.excerpt || null)
 
 // The first row's video poster IS the page's LCP element, but the poster
@@ -175,7 +176,7 @@ if (props.eager && props.project.heroVideo) {
   })
 }
 
-// --- Living-tile pause toggle ------------------------------------------------
+// ── Living-tile pause toggle ────────────────────────────────────
 // WCAG 2.2.2: the looping tile needs an in-page pause. data-user-paused is the
 // contract with plugins/video-viewport.client.ts — a video the reader paused
 // stays paused when it re-enters the viewport.
@@ -283,7 +284,7 @@ const toggleHeroVideo = () => {
 
       <div class="xl:col-span-3 mt-4 xl:mt-0 min-w-0">
         <!-- One image: a generous hero.
-         Several: a masonry wall, capped at 6 with an overflow link. -->
+         Several: a uniform tile grid, capped at 6 with a "+ N more" count. -->
         <!-- Single hero: natural aspect, no crop, no bars (no video). -->
         <img
           v-if="!heroVideo && images.length === 1"

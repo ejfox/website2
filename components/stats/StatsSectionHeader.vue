@@ -1,7 +1,8 @@
 <!--
   @file StatsSectionHeader.vue
-  @description Stats section header with consistent styling
-  @props title: string - Header title
+  @description Small uppercase sub-heading with a hairline rule, used inside
+    the components/stats/* sections (e.g. "LAST.FM TOP ARTISTS").
+  @props title: string - Header text
 -->
 <script setup lang="ts">
 defineProps<{

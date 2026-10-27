@@ -1,3 +1,11 @@
+<!--
+  @file KeymapBoard.vue
+  @description SVG drawing of EJ's ZSA Voyager keymap for pages/keymap.vue.
+    Key data shape (t/h/d/L/x) is defined in server/utils/oryx.ts.
+  @props layers: KeymapLayer[]; active?: layer index (default 0);
+    mode?: 'specimen' | 'diff' | 'strata' (default specimen)
+  @emits select(layer) when a layer-switch key is clicked; the page pins it
+-->
 <script setup lang="ts">
 // Draws a ZSA Voyager keymap (from /api/keymap) with no keycaps: the glyphs'
 // positions carry the column stagger and thumb keys.
@@ -18,20 +26,23 @@ const emit = defineEmits<{ select: [layer: number] }>()
 
 // Geometry in key units. Oryx order: left rows 0–23 (outer → inner), left
 // thumbs 24–25, right rows 26–49 (inner → outer), right thumbs 50–51.
-const U = 40
+// ── Geometry ────────────────────────────────────────────────
+const U = 40 // px per key unit
 const PAD = 26
-const STAGGER = [0.45, 0.45, 0.15, 0, 0.15, 0.25]
-const MID = 7.9
+const STAGGER = [0.45, 0.45, 0.15, 0, 0.15, 0.25] // per-column y offset, key units
+const MID = 7.9 // x of the mirror axis between halves, key units
 const left: [number, number][] = []
 for (let i = 0; i < 24; i++) {
   const c = i % 6
   left.push([c + 0.5, Math.floor(i / 6) + 0.5 + STAGGER[c]])
 }
-left.push([5.2, 4.75], [6.3, 5.05])
+left.push([5.2, 4.75], [6.3, 5.05]) // two left thumb keys, placed by eye
 const mirror = (i: number): [number, number] => [
   2 * MID - left[i][0],
   left[i][1],
 ]
+// Right half is the left half mirrored, re-ordered to Oryx's inner → outer
+// index order (hence 5 - j, and thumbs 25 before 24).
 const right: [number, number][] = []
 for (let r = 0; r < 4; r++)
   for (let j = 0; j < 6; j++) right.push(mirror(r * 6 + 5 - j))
@@ -39,6 +50,8 @@ right.push(mirror(25), mirror(24))
 const POS = [...left, ...right].map(([x, y]) => [PAD + x * U, PAD + y * U])
 const VIEW = `0 0 ${2 * PAD + 2 * MID * U} ${2 * PAD + 5.6 * U}`
 
+// ── Color + label sizing ────────────────────────────────────
+// Base layer (0) always draws in currentColor, so it follows light/dark.
 const layerColor = (i: number) => props.layers[i]?.color || null
 const colorStyle = (i: number) =>
   i === 0 || !layerColor(i)
@@ -69,6 +82,9 @@ interface Cell {
   ring: boolean // this base key switches to the active layer
 }
 
+// ── Cells (specimen + diff) ─────────────────────────────────
+// A null key on the active layer is transparent: specimen shows the faded base
+// glyph there, diff shows the null itself (drawn as a dot).
 const cells = computed<Cell[]>(() => {
   const base = props.layers[0]?.keys || []
   const top = props.layers[props.active]?.keys || []
@@ -83,6 +99,10 @@ const cells = computed<Cell[]>(() => {
   })
 })
 
+// ── Ticks (strata) ──────────────────────────────────────────
+// One horizontal tick per layer, stacked over ±12px around the key centre,
+// top = base layer. Full tick = key set, short faint tick = blocked, none =
+// transparent.
 const ticks = computed(() =>
   POS.flatMap(([x, y], i) =>
     props.layers.map((l, li) => ({
@@ -107,6 +127,7 @@ const ticks = computed(() =>
         : `${layers[active]?.name || 'Base'} layer`
     "
   >
+    <!-- ── Strata ─────────── -->
     <template v-if="mode === 'strata'">
       <template v-for="(t, n) in ticks" :key="n">
         <line
@@ -130,6 +151,7 @@ const ticks = computed(() =>
       </template>
     </template>
 
+    <!-- ── Specimen / diff ─────────── -->
     <template v-else>
       <g
         v-for="c in cells"
@@ -196,6 +218,8 @@ const ticks = computed(() =>
           <text v-if="c.key.d" :x="c.x" :y="c.y - 13" font-size="8" class="sub">
             ‥{{ c.key.d }}
           </text>
+          <!-- Layer-switch mark, colored by the target layer: ■ TO (jump),
+               filled ● MO (hold), ringed ◉ via a thick stroke for other ops -->
           <g v-if="c.key.L" :style="colorStyle(c.key.L.to)">
             <rect
               v-if="c.key.L.op === 'TO'"

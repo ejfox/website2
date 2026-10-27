@@ -1,7 +1,11 @@
 <!--
   @file CommitMatrix.client.vue
-  @description Canvas-based unit chart visualization - renders 20K+ commits efficiently
-  @props commits: Array - Array of commit objects with date, repo properties
+  @description Canvas unit chart: one 4px cell per commit, newest first, shaded
+    by age (≤30 days, ≤1 year, older). Canvas, not SVG, because there are
+    tens of thousands of cells. Used by pages/stats.vue ("Every commit I have
+    ever made"). Gotcha: the canvas is capped at 300px tall, so on long
+    histories the oldest commits fall below the fold and aren't drawn visibly.
+  @props commits: Array - { date, repo }[]
 -->
 <script setup>
 const props = defineProps({
@@ -21,10 +25,13 @@ const CELL_SIZE = 4
 const GAP = 1
 const STEP = CELL_SIZE + GAP
 
-// Store commit positions for hover detection
+// Store commit positions for hover detection. Plain (non-reactive) on
+// purpose: a reactive array of 20K+ objects would be pure overhead.
 let commitGrid = []
 let cols = 0
 
+// Three age bands; the legend dots in <style> mirror these hex values, so
+// change both together.
 const getColor = (daysDiff, isDark) => {
   if (daysDiff <= 30) return isDark ? '#fafafa' : '#3f3f46'
   if (daysDiff <= 365) return isDark ? '#a1a1aa' : '#71717a'
@@ -37,13 +44,18 @@ function draw() {
   const canvas = canvasRef.value
   const container = containerRef.value
   const ctx = canvas.getContext('2d')
+  // Read at draw time: canvas pixels don't follow CSS, so a theme change only
+  // shows up on the next redraw (resize or new commits).
   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-  const containerWidth = container.offsetWidth - 16 // padding
+  const containerWidth = container.offsetWidth - 16 // .canvas-container padding, 0.5rem × 2
   cols = Math.floor(containerWidth / STEP)
   const rows = Math.ceil(props.commits.length / cols)
   const height = Math.min(rows * STEP + 8, 300) // max 300px
 
+  // Backing store at device pixels, CSS size at layout pixels, so cells stay
+  // crisp on retina. Setting canvas.width resets the transform, so scale()
+  // doesn't compound across redraws.
   const dpr = window.devicePixelRatio || 1
   canvas.width = containerWidth * dpr
   canvas.height = height * dpr
@@ -83,6 +95,7 @@ function handleMouseMove(event) {
   const mouseX = event.clientX - rect.left
   const mouseY = event.clientY - rect.top
 
+  // O(1) hit test: invert the grid layout instead of searching commitGrid.
   const col = Math.floor(mouseX / STEP)
   const row = Math.floor(mouseY / STEP)
   const index = row * cols + col
@@ -122,6 +135,7 @@ function formatDate(dateStr) {
   })
 }
 
+// Client-only component (.client.vue), so window access here is safe.
 onMounted(() => {
   nextTick(draw)
   window.addEventListener('resize', draw)

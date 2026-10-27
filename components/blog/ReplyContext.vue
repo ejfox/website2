@@ -1,7 +1,10 @@
 <!--
   @file ReplyContext.vue
-  @description Reply context container displaying one or more URLs being replied to
-  @props replyTo: string | string[] - URL or array of URLs being replied to (optional)
+  @description "In reply to" box(es) above a post that replies to other URLs
+    (frontmatter replyTo or in-reply-to). Normalises one URL or a list, then renders a
+    BlogReplyContextItem per URL; only the first shows the label.
+    Used by pages/blog/[...slug].vue.
+  @props replyTo?: string | string[] - URL(s) being replied to; falsy entries dropped
 -->
 <script setup lang="ts">
 const props = defineProps<{

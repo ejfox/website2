@@ -3,6 +3,7 @@
   @description Compact, image-first archive card used below the flagships. One
     small 3:2 thumbnail + title + a quiet metadata line. Dense enough to browse
     dozens at a glance, visual enough to still show the work. Click → detail.
+    Used by pages/projects/index.vue.
   @props project: Object - slim card shape from /api/projects?slim=1
     (title, metadata, images)
 -->

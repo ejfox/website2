@@ -1,3 +1,11 @@
+<!--
+  @file GearSpecimenPlate.vue
+  @description Museum-plate view of the gear list: photo (or type symbol),
+    weight in grams, type/condition and priority pips per item, plus a plate
+    total. Used by pages/gear/index.vue. Symbols/pips come from utils/gearUI.ts,
+    weights from utils/weight.ts.
+  @props items: gear CSV rows
+-->
 <script setup>
 const props = defineProps({ items: { type: Array, required: true } })
 
@@ -7,6 +15,7 @@ const { getItemWeightInOunces, calculateTotalWeight } = weightCalculations()
 const toGrams = (item) => {
   const oz = getItemWeightInOunces(item)
   if (!oz || Number.isNaN(oz)) return 0
+  // 28.3495 g per avoirdupois ounce.
   return Math.round(oz * 28.3495)
 }
 

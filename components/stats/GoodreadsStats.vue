@@ -1,7 +1,12 @@
 <!--
   @file GoodreadsStats.vue
-  @description Goodreads reading statistics from RSS feed
-  @props goodreadsStats: Object - Goodreads data from /api/goodreads
+  @description BOOKS section of /stats: four headline metrics, currently
+    reading (with covers), last 8 read, and a profile link.
+    Data: stats.goodreads from /api/stats, built by server/api/goodreads.get.ts
+    from EJ's Goodreads RSS shelf. Wired in pages/stats.vue.
+  @props goodreadsStats: { stats, currentlyReading, recentlyRead, error? }
+  pages/stats.vue only mounts this when .stats exists, so there the error and
+  "Loading" branches never render.
 -->
 <script setup>
 import StatsSectionHeader from './StatsSectionHeader.vue'
@@ -95,6 +100,7 @@ const formatRating = (rating) => {
             {{ book.title }}
             <span class="text-muted">— {{ book.author }}</span>
           </span>
+          <!-- Only 3+ stars get shown; rating is EJ's own (null if unrated) -->
           <span
             v-if="book.rating && book.rating >= 3"
             class="text-amber-600 dark:text-yellow-500 flex-shrink-0 ml-2 tabular-nums"

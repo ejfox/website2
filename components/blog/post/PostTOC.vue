@@ -1,6 +1,7 @@
 <!--
   @file PostTOC.vue
-  @description Table of contents for blog post sidebar
+  @description Numbered table of contents in the blog post sidebar. Used by
+    pages/blog/[...slug].vue, which also tracks the active heading.
   @props tocChildren - array of { slug, text, depth?, number? }, activeSection - current section id
 -->
 <script setup lang="ts">
@@ -18,6 +19,8 @@ function isActive(slug: string): boolean {
   return props.activeSection === slug
 }
 
+// Click is prevented and scrolled by hand so the jump is smooth; the href
+// stays real so middle-click / copy-link still work.
 function scrollToSection(slug: string) {
   const el = document.getElementById(slug)
   if (el) {

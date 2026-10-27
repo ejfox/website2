@@ -1,7 +1,11 @@
 <!--
   @file GistStats.vue
-  @description GitHub Gist statistics
-  @props stats: Object - Gist statistics from GitHub API
+  @description CODE section of /stats: gist/file counts, top 6 gist languages,
+    and the 5 most recent gists linked to GitHub.
+    Data: stats.gists from /api/stats (server/api/gist-stats.get.ts, GitHub
+    Gists API). Wired in pages/stats.vue.
+  @props gistStats?: GistStats | null - note the prop name is gistStats, not
+    stats; zero gists renders the "unavailable" state.
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -63,7 +67,8 @@ const formatDate = (dateString: string): string => {
 }
 
 const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
-  // If there's a description (and it's not 'No description'), use it
+  // If there's a description (and it's not the literal 'No description'
+  // placeholder, treated here as empty), use it
   if (
     gist.description &&
     gist.description.trim() &&

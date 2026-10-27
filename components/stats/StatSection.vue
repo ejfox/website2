@@ -1,10 +1,17 @@
 <!--
   @file StatSection.vue
-  @description Stats section wrapper with optional title and grid layout
-  @props title: string - Section title
-  @props id: string - Section HTML id (optional)
-  @props show: boolean - Whether to show section (default: true)
-  @props grid: boolean - Use grid layout (default: false)
+  @description Wrapper for one section of /stats (pages/stats.vue): a title
+    rotated into the left gutter (inline on phones), a hand-drawn margin
+    doodle, and the slotted content. Flashes when useLiveStats reports its
+    section changed. Also wraps the ?simple text-only mode's blocks.
+    grid=true is a compact variant (plain label, 2-column grid, no doodle);
+    no page passes it today, only the kitchen-sink story.
+  @props title: string - Section title (also picks the doodle)
+  @props id: string - HTML id; doubles as the TOC anchor and the key the page's
+    `statsFlashing` set uses (optional)
+  @props show: any - Truthy to render; the page passes the data object itself
+    (default: true)
+  @props grid: boolean - Compact grid layout (default: false)
 -->
 <script setup>
 const props = defineProps({
@@ -56,6 +63,8 @@ const FALLBACK = [
   'dot-lg',
   'comma',
 ]
+// Small string hash of the title (31-multiplier, mod a prime). Picks the
+// fallback mark and a -8°..+8° tilt, both stable across SSR and hydration.
 const titleHash = computed(() => {
   let h = 0
   for (let i = 0; i < props.title.length; i++)
@@ -78,6 +87,7 @@ const headerClass = computed(() =>
 const wrapperClass = computed(() =>
   props.grid ? 'stack-1' : 'stats-section sm:space-y-8 group'
 )
+// 'div' isn't a utility class; it's just a no-op class for the non-grid case.
 const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
 

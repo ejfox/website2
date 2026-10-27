@@ -1,7 +1,11 @@
 <!--
   @file RescueTimeStats.vue
-  @description RescueTime productivity statistics
-  @props stats: Object - RescueTime data from API
+  @description PRODUCTIVITY section of /stats (pages/stats.vue): hours and
+    productive % this month, an activity calendar, a 20×5 waffle of this
+    WEEK's activities (1 cell = 1%), and this MONTH's top categories.
+    Data: stats.rescueTime from /api/stats, built by server/api/rescuetime.get.ts.
+  @props stats: StatsResponse - the WHOLE stats payload, not stats.rescueTime
+    (the page passes :stats="stats")
 -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
@@ -57,6 +61,7 @@ const props = defineProps<{
 }>()
 
 const rescueTime = computed(() => props.stats.rescueTime)
+// Waffle cells sit at 0.7 opacity and go solid while the grid is hovered.
 const isHovering = ref(false)
 
 const hasData = computed(() => {
@@ -90,7 +95,10 @@ const activityDates = computed(() => {
       .map((day) => day.date)
   }
 
-  // Fallback: Mark the last 7 days as active (since we have weekly data)
+  // Fallback: Mark the last 7 days as active (since we have weekly data).
+  // server/api/rescuetime.get.ts sends neither dailyActivities nor daily, so
+  // today this branch always runs: the calendar's 7 days are assumed, not
+  // measured.
   const days: string[] = []
   for (let i = 0; i < 7; i++) {
     const date = new Date()
@@ -108,6 +116,7 @@ const getTurboColor = (index: number, total: number) => {
   return interpolateTurbo(adjustedIndex)
 }
 
+// ── Waffle (this week's activities) ────────────────────────────
 // Count unique activities after consolidation
 const uniqueActivitiesCount = computed(() => {
   const activities = rescueTime.value?.week?.activities || []
@@ -145,6 +154,8 @@ const waffleCells = computed(() => {
     (sum, activity) => sum + activity.percentageOfTotal,
     0
   )
+  // Rescale so the consolidated shares fill exactly 100 cells; per-activity
+  // rounding can still leave a few, which get padded as "Other" below.
   const scalingFactor = totalPercentage > 0 ? 100 / totalPercentage : 1
 
   const cells = Array(100).fill(null)
@@ -158,6 +169,7 @@ const waffleCells = computed(() => {
       activityIndex,
       consolidatedActivities.length
     )
+    // grayscaleColor is carried on each cell but nothing reads it.
     const grayColor = `#${(128 + activityIndex * 8)
       .toString(16)
       .padStart(2, '0')
@@ -185,6 +197,8 @@ const waffleCells = computed(() => {
   return cells
 })
 
+// Hairline between cells of different activities, so each activity reads as
+// one block. 20 = grid columns, 80 = first cell of the last row (5 rows).
 const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
   const cells = waffleCells.value
   if (!cells || index >= cells.length) return false
@@ -207,6 +221,9 @@ const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
   return currentCell.turboColor !== nextCell.turboColor
 }
 
+// ── Categories (this month) ─────────────────────────────────────
+// Colored by rank with the same turbo ramp as the waffle; the ranks differ,
+// so a color here doesn't match a waffle activity of the same color.
 const sortedCategories = computed(() => {
   const categories = rescueTime.value?.month?.categories || []
   const sorted = [...categories]
@@ -222,6 +239,7 @@ const sortedCategories = computed(() => {
 </script>
 
 <template>
+  <!-- ── Headline ──────────────── -->
   <div v-if="hasData" class="space-y-2 font-mono">
     <div class="py-2">
       <div class="text-2xl font-bold">
@@ -234,6 +252,7 @@ const sortedCategories = computed(() => {
       </div>
       <div class="section-header-xs mt-2">RESCUETIME HOURS THIS MONTH</div>
       <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
+        <!-- a 0–1 fraction: format="percent" multiplies by 100 -->
         <AnimatedNumber
           :value="monthlyProductivePercent"
           format="percent"
@@ -250,6 +269,7 @@ const sortedCategories = computed(() => {
       :active-color="'#71717a'"
     />
 
+    <!-- ── Waffle ──────────────── -->
     <StatsSectionHeader title="RESCUETIME TIME DISTRIBUTION" />
     <div
       class="waffle-grid"
@@ -285,6 +305,7 @@ const sortedCategories = computed(() => {
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
 
+    <!-- ── Categories ──────────────── -->
     <StatsSectionHeader title="RESCUETIME CATEGORIES" />
     <div class="space-y-2">
       <div

@@ -4,8 +4,11 @@
     When the lite-stats endpoint has already answered (it's ~345B and lands in
     tens of ms), the section's top-line number renders REAL while the detail
     rows keep shimmering — partial data over gray boxes.
+    Rendered by pages/stats.vue in place of each section until /api/stats
+    arrives. Its gutter-title CSS mirrors StatSection.vue; keep them in step
+    so nothing jumps when the real section swaps in.
   @props title: string - Section title
-  @props rows: number - Number of placeholder rows
+  @props rows: number - Number of placeholder rows (default: 4)
   @props value: number|string - Optional real top-line value from stats-lite
   @props label: string - Label for the top-line value
 -->
@@ -17,6 +20,7 @@ const props = defineProps<{
   label?: string
 }>()
 
+// Ragged widths (%) so the shimmer rows read as text, cycled per row.
 const rowWidths = [90, 70, 80, 60, 85, 65]
 
 const rows = computed(() => props.rows ?? 4)
@@ -52,6 +56,7 @@ const displayValue = computed(() => {
         <div class="skeleton skeleton-shimmer h-3 w-32 rounded"></div>
       </template>
       <div class="space-y-1.5 pt-2">
+        <!-- 80ms delay per row so the shimmer ripples downward -->
         <div
           v-for="index in rows"
           :key="index"

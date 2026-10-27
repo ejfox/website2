@@ -1,6 +1,9 @@
 <!--
   @file BlogSparkline.vue
-  @description Inline SVG data visualizations for blog metadata (word count, images, links, file size, reading time)
+  @description Tiny inline SVG glyph next to a number in a post's metadata line
+    (words, images, links, size, time): one 1px mark per unit, capped, so a
+    long post reads longer at a glance. pages/blog/index.vue wraps it in
+    <ClientOnly> and uses words/links as `bars`, images as `dots`.
   @props value: number - The numeric value to visualize
   @props max: number - Maximum value for scaling (optional)
   @props type: string - Visualization type: 'bars', 'bar', 'dots', 'grid' (default: 'bars')
@@ -63,6 +66,8 @@ const props = defineProps({
 
 const totalSize = computed(() => props.squareSize + props.gap)
 
+// How many marks to draw. Per-metric units and caps keep every glyph under
+// ~20px so it never pushes the metadata line to wrap.
 const gridCount = computed(() => {
   switch (props.metric) {
     case 'words':
@@ -78,13 +83,15 @@ const gridCount = computed(() => {
       // 1 unit per KB, max 10
       return Math.min(Math.ceil(props.value / 1024), 10)
     case 'time':
-      // 1 unit per minute, max 6
+      // 1 unit per minute, max 6. Divides by 60, i.e. treats value as seconds,
+      // while label/tooltip below print it as minutes. No caller uses 'time'.
       return Math.min(Math.ceil(props.value / 60), 6)
     default:
       return Math.min(props.value, 10)
   }
 })
 
+// ── Geometry ────────────────────────────────────────────────
 const rows = computed(() => Math.ceil(gridCount.value / props.columns))
 
 const width = computed(() => {
@@ -120,6 +127,7 @@ const fillColor = computed(() => {
   return 'currentColor'
 })
 
+// ── Mark data, one array per `type` ─────────────────────────
 const gridData = computed(() => {
   const data = []
   for (let i = 0; i < gridCount.value; i++) {
@@ -192,6 +200,7 @@ const inlineBarData = computed(() => {
   return data
 })
 
+// ── Text (label, tooltip, sr-only) ──────────────────────────
 const label = computed(() => {
   switch (props.metric) {
     case 'words':

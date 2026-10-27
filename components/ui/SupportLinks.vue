@@ -1,7 +1,10 @@
 <!--
   @file SupportLinks.vue
-  @description Compact hire/sponsor links for sidebars - Book a call + GitHub Sponsors
-  @props variant: 'sidebar' | 'inline' - display style (default: sidebar)
+  @description Compact "Book a call" (cal.com, Umami consulting-book) and
+    "Sponsor" (GitHub Sponsors) links. Used in the sidebar of
+    pages/projects/[slug].vue.
+  @props variant: 'sidebar' | 'inline' - 'sidebar' adds the "Work with me"
+    heading; otherwise identical (containerClasses is '' for both)
 -->
 <script setup>
 import { computed } from 'vue'
@@ -72,6 +75,7 @@ const containerClasses = computed(() => {
   @apply whitespace-nowrap overflow-hidden;
 }
 
+/* No <svg> in the template any more, so this rule currently matches nothing. */
 .cta-link:hover svg {
   @apply scale-110;
   transition: transform 150ms ease;

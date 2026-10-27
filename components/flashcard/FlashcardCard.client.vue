@@ -1,6 +1,10 @@
 <!--
   @file FlashcardCard.client.vue
-  @description Minimal 3D flashcard with mouse-tracking parallax and smooth flip
+  @description Minimal 3D flashcard with mouse-tracking parallax and smooth flip.
+    Used by pages/flashcards/study.vue, which owns the flipped state; clicking
+    the card only emits `flip`. Sized to fit the viewport at 16:10.
+  @props front, back: string; flipped: boolean; hints?: string[]; deck?: string
+  @emits flip
 -->
 <script setup lang="ts">
 import { useMouse, useWindowSize } from '@vueuse/core'
@@ -40,6 +44,7 @@ const cardSize = computed(() => {
     width = height * aspectRatio
   }
 
+  // Floor for tiny viewports; may overflow, but text stays legible.
   width = Math.max(width, 280)
   height = Math.max(height, 180)
 
@@ -50,6 +55,7 @@ const containerStyle = computed(() => {
   const centerX = winWidth.value / 2
   const centerY = winHeight.value / 2
 
+  // Cursor offset from window centre (-1..1) -> up to ±6° tilt and 12px lift.
   const rotateX = -((mouseY.value - centerY) / centerY) * 6
   const rotateY = ((mouseX.value - centerX) / centerX) * 6
 
@@ -141,6 +147,8 @@ const containerStyle = computed(() => {
     0 24px 48px -8px rgba(0, 0, 0, 0.3);
 }
 
+/* Pre-rotated 180° so it faces forward once .flipped turns the card;
+   backface-visibility hides whichever face points away. */
 .flashcard-back {
   background: linear-gradient(165deg, #27272a 0%, #1c1c1f 100%);
   box-shadow:

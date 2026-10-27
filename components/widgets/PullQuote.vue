@@ -1,3 +1,13 @@
+<!--
+  @file PullQuote.vue
+  @description Large italic pull quote that types itself out (with a blinking
+    cursor) the first time 40% of it scrolls into view. Only used by the
+    one-off pages/blog/2024/the-mystery-of-peter-todd.vue as <WidgetsPullQuote>.
+    SSR and no-JS render an empty quote: the text exists only once typed.
+    Reduced motion hides the cursor but still types.
+  @props text: string; align: 'left' | 'right' | 'center'; accent: cursor
+    colour; speed: ms per character (×4 after punctuation)
+-->
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core'
 
@@ -39,6 +49,7 @@ async function typeOut() {
       char === ';' ||
       char === ':' ||
       char === '\u2014'
+    // ±5ms jitter so it reads as typing, not a metronome; 10ms floor.
     const ms = isPause ? props.speed * 4 : props.speed + Math.random() * 10 - 5
     await new Promise((r) => setTimeout(r, Math.max(10, ms)))
   }
@@ -66,6 +77,8 @@ async function typeOut() {
   margin: 2rem auto;
 }
 
+/* The !importants beat the global "magazine" blockquote styling in
+   assets/css/global.css (border, padding, ::before quote mark). */
 .pull-quote {
   @apply font-serif;
   font-size: clamp(1.25rem, 3vw, 1.75rem);

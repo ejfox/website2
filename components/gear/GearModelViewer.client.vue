@@ -1,3 +1,11 @@
+<!--
+  @file GearModelViewer.client.vue
+  @description three.js GLB/GLTF viewer for a gear item's 3D scan: auto-fit
+    camera, cyan key light, orbit controls with optional auto-rotate. Used by
+    Gear3DGallery and pages/gear/[slug].vue. Client-only (WebGL).
+  @props modelUrl: string (Scan_3D_URL), autoRotate?: boolean (true),
+    height?: CSS length ('300px')
+-->
 <script setup>
 import { useElementSize } from '@vueuse/core'
 import * as THREE from 'three'
@@ -22,6 +30,7 @@ const { width, height: h } = useElementSize(container)
 
 let renderer, camera, controls, raf
 
+// nextTick so the canvas ref and container size exist before WebGL init.
 onMounted(() =>
   nextTick(() => {
     if (!canvas.value) {
@@ -38,6 +47,8 @@ onMounted(() =>
     fill.position.set(-5, -2, -5)
     scene.add(new THREE.AmbientLight(0xffffff, 0.6), key, fill)
 
+    // useElementSize can still read 0 on the first tick; fall back to the
+    // parent's width, then a fixed 300.
     const w = width.value || canvas.value.parentElement?.offsetWidth || 300
     const hv = h.value || 300
 
@@ -45,6 +56,7 @@ onMounted(() =>
       canvas: canvas.value,
       antialias: true,
     })
+    // Cap DPR at 2: 3x phones would triple fill cost for no visible gain.
     renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
     renderer.setSize(w, hv)
     renderer.outputColorSpace = THREE.SRGBColorSpace
@@ -64,6 +76,9 @@ onMounted(() =>
         const size = box.getSize(new THREE.Vector3())
         const d = Math.max(size.x, size.y, size.z)
 
+        // Normalise any scan to its own scale: centre it at the origin, then
+        // size camera distance, clip planes and zoom limits off its largest
+        // dimension `d`, so tiny and huge models frame the same way.
         model.position.sub(center)
         camera.position.set(0, d * 0.5, d * 2)
         camera.near = d * 0.01
@@ -74,6 +89,8 @@ onMounted(() =>
 
         scene.add(model)
         status.value = 'ready'
+        // Render loop starts only once the model is in; damping and
+        // auto-rotate need controls.update() every frame.
         const tick = () => {
           raf = requestAnimationFrame(tick)
           controls.update()
@@ -89,6 +106,7 @@ onMounted(() =>
   })
 )
 
+// Keep the renderer and aspect in sync when the container resizes.
 watch([width, h], ([w, hv]) => {
   if (!renderer || !w || !hv) return
   camera.aspect = w / hv

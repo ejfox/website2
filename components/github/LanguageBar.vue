@@ -1,6 +1,8 @@
 <!--
   @file LanguageBar.vue
   @description Horizontal stacked bar chart showing programming language distribution
+    Used by GithubRepoCard (3px, no labels) and pages/github/[slug].vue (4px,
+    labels). Colors come from utils/languageColors.
   @props languages: Object - Object mapping language names to byte counts
   @props height: number - Bar height in pixels (default: 3)
   @props showLabels: boolean - Show language labels below bar (default: false)
@@ -34,6 +36,8 @@ const segments = computed(() => {
   if (total === 0) return []
 
   let offset = 0
+  // Segments under 0.5% are dropped. Those slivers leave the bar short of
+  // 100%, and the track color shows through at the right end.
   return Object.entries(props.languages)
     .sort(([, a], [, b]) => b - a)
     .map(([lang, bytes]) => {
@@ -43,7 +47,7 @@ const segments = computed(() => {
         bytes,
         percentage,
         color: getColor(lang),
-        offset,
+        offset, // running % from the left; not read by the template
       }
       offset += percentage
       return segment

@@ -1,3 +1,11 @@
+<!--
+  @file Gear3DGallery.client.vue
+  @description "Showroom" grid of gear items that have a 3D scan: one
+    GearModelViewer per item, each linking to /gear/<slug>. Used by
+    pages/gear/index.vue, where Nuxt auto-imports it as <GearGear3DGallery>
+    (the gear/ prefix is not de-duplicated for this filename).
+  @props items: gear CSV rows, expected to have Scan_3D_URL set
+-->
 <script setup>
 defineProps({ items: { type: Array, required: true } })
 

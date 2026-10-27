@@ -1,8 +1,11 @@
 <!--
   @file ReadingSparklines.vue
-  @description Reading activity sparkline showing books per year with bar chart visualization
-  @props yearlyData: Array - Array of yearly reading data with year and count
-  @props width: number - SVG width in pixels (default: 400)
+  @description Three tiny charts for the /reading page (pages/reading/index.vue):
+    books per year (bars), highlights-per-book distribution (sorted area line),
+    and a 12-month heatmap. "Read in year X" means the Kindle sync's
+    metadata['kindle-sync'].lastAnnotatedDate falls in X, not a finish date.
+  @props books: Array - reading entries from /api/reading (uses metadata['kindle-sync'])
+  @props width: number - SVG width in pixels (default: 600)
 -->
 <script setup>
 const _props = defineProps({
@@ -17,6 +20,8 @@ const _props = defineProps({
 })
 
 const currentYear = new Date().getFullYear()
+
+// ── Books per year ──────────────────────────────────────────
 
 const yearlyData = computed(() => {
   const yearCounts = {}
@@ -61,6 +66,9 @@ const barGap = computed(() => {
   return Math.max(1, barWidth.value * 0.1)
 })
 
+// ── Highlights distribution ─────────────────────────────────
+// Sorted ascending, so the line reads as a distribution (a rank plot), not a
+// timeline. x = rank / n * width, y maps 0..max onto the 30px box with 5px top room.
 const sortedHighlights = computed(() => {
   return _props.books
     .map((b) => b.metadata?.['kindle-sync']?.highlightsCount || 0)
@@ -112,6 +120,7 @@ const highlightSparklineArea = computed(() => {
   return `${points.join(' ')} ${_props.width},30 0,30`
 })
 
+// ── Last 12 months heatmap ──────────────────────────────────
 const last12Months = computed(() => {
   const now = new Date()
   const months = []
@@ -154,7 +163,9 @@ function getMonthIntensityClass(count) {
 
 <template>
   <div class="space-y-4">
-    <!-- Books per year sparkline -->
+    <!-- ── Books per year ─────────── -->
+    <!-- Bars use 35 of the 40px height (count / max * 35); ticks at 5/10/15
+         books share that scale, so a tick above the max draws outside the box. -->
     <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
       <div class="section-label-tiny">Reading Activity by Year</div>
       <svg :width="width" :height="40" class="overflow-visible">
@@ -222,7 +233,7 @@ function getMonthIntensityClass(count) {
       </div>
     </div>
 
-    <!-- Highlights distribution sparkline -->
+    <!-- ── Highlights distribution ─────────── -->
     <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
       <div class="section-label-tiny">Highlights Per Book Distribution</div>
       <svg :width="width" :height="30" class="overflow-visible">
@@ -259,7 +270,7 @@ function getMonthIntensityClass(count) {
       </div>
     </div>
 
-    <!-- Reading streak calendar (tiny heatmap) -->
+    <!-- ── Last 12 months ─────────── -->
     <div>
       <div class="section-label-tiny">Recent Activity (Last 12 Months)</div>
       <div class="grid grid-cols-12 gap-0.5">

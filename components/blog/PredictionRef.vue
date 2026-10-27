@@ -1,3 +1,13 @@
+<!--
+  @file PredictionRef.vue
+  @description Inline pill for a prediction cited mid-sentence
+    (`:prediction{id=…}`): status glyph, confidence, truncated statement, and a
+    hover/focus popover with the full statement and resolution. Mounted by
+    plugins/prediction-refs.client.ts over the static <a> fallback from
+    scripts/plugins/remarkPredictionRef.mjs (data-prediction-ref="inline"), so
+    without JS the reader still gets a working link. Block form: PredictionCard.vue.
+  @props payload: trimmed prediction frontmatter (see PredictionCard.vue)
+-->
 <script setup>
 import { computed, ref } from 'vue'
 
@@ -76,6 +86,8 @@ const href = computed(() => `/predictions/${props.payload.id}`)
       </span>
       <span class="prediction-ref__statement">{{ truncated }}</span>
     </a>
+    <!-- Popover is pointer-events:none, so hovering it can't keep it open
+         or swallow clicks on the text beneath. -->
     <span
       v-if="open"
       :id="`pred-${payload.id}-pop`"
@@ -108,6 +120,8 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 </template>
 
 <style scoped>
+/* ── Pill ──────────────────────────────────────────────── */
+/* position:relative anchors the absolutely-positioned popover to the pill. */
 .prediction-ref-wrap {
   position: relative;
   display: inline;
@@ -167,6 +181,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   max-width: 30ch;
 }
 
+/* ── State colours (pill draws in currentColor) ────────── */
 .state-correct {
   color: #16a34a;
 }
@@ -196,6 +211,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   }
 }
 
+/* ── Popover ───────────────────────────────────────────── */
 .prediction-ref__popover {
   position: absolute;
   bottom: calc(100% + 0.5rem);

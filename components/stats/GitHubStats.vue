@@ -1,7 +1,12 @@
 <!--
   @file GitHubStats.vue
-  @description GitHub statistics component
-  @props stats: Object - GitHub statistics from API
+  @description GITHUB section of /stats: commit + repo totals, a 30-day
+    commit strip (ActivityCalendar), latest commit per repo (top 10), and a
+    streak. Everything below the totals is derived from detail.commits, the
+    recent-commit list server/api/github.get.ts returns, so it only covers
+    what that list reaches back to. Wired in pages/stats.vue via stats.github.
+  @props stats?: GitHubStats | null - the /api/github payload
+  StatsSectionHeader and StatsDataState are used via Nuxt auto-import.
 -->
 <script setup lang="ts">
 // Explicit imports: these auto-register as UiAnimatedNumber /
@@ -67,6 +72,9 @@ const props = defineProps<{
   stats?: GitHubStats | null
 }>()
 
+// ── Derived from detail.commits ─────────────────────────────
+
+// Falls back to contributions when the API has no commit total.
 const totalCommits = computed(() => {
   return (
     props.stats?.stats?.totalCommits ||
@@ -157,7 +165,8 @@ const getContributionStreak = computed(() => {
     (a, b) => new Date(b).getTime() - new Date(a).getTime()
   )
 
-  // Count consecutive days from most recent
+  // Count consecutive days back from the most recent commit day, which may
+  // not be today: an old run still shows as the streak.
   let streak = 1
   const firstDate = sortedDates[0]
   if (!firstDate) return 0
@@ -234,6 +243,9 @@ function formatRelativeTime(dateStr: string) {
       </div>
     </div>
 
+    <!-- ── Commit detail ─────────── -->
+    <!-- No title passed, so ActivityCalendar adds its default "ACTIVITY"
+         header under this one. -->
     <div v-if="hasCommits" class="col-span-full">
       <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
       <ActivityCalendar

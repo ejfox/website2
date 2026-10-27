@@ -1,3 +1,11 @@
+<!--
+  @file HandDrawnAnnotation.vue
+  @description Absolutely-positioned HandDrawn mark + optional label for
+    annotating a chart. Usage notes in the script block below; examples on
+    pages/hand-drawn.vue.
+  @props x, y, name, size, stretch, anchor, rotate, flipX, flipY, label,
+    labelSide
+-->
 <script setup>
 import { computed } from 'vue'
 
@@ -33,6 +41,8 @@ const props = defineProps({
 const len = (v) => (typeof v === 'number' ? `${v}px` : v)
 
 const posStyle = computed(() => {
+  // translate() shifts the mark so (x, y) lands on its centre, its top-left
+  // ('tip') or its bottom-right ('tail').
   const t =
     { center: '-50%, -50%', tip: '0, 0', tail: '-100%, -100%' }[props.anchor] ||
     '-50%, -50%'

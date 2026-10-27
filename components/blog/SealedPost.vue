@@ -1,3 +1,12 @@
+<!--
+  @file SealedPost.vue
+  @description Lock screen for a sealed (link-protected) post. Decrypts the
+    envelope in the browser via utils/postSeal.mjs and hands the plaintext up;
+    on failure it explains why (no key, wrong/truncated key, unknown format).
+    Used by pages/blog/[...slug].vue until `unsealed` fires.
+  @props envelope: the sealed JSON's envelope; slug: post slug (bound into decryption)
+  @emits unsealed(payload): the decrypted post
+-->
 <script setup>
 /**
  * Opens a sealed post using the key in the URL fragment (`#k=…`). Fragments are
