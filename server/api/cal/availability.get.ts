@@ -7,8 +7,9 @@ import { serverEnv } from '~/server/utils/serverEnv'
  *   quarter as clients. Env CAL_COM_API_KEY. No cache.
  *   No caller: superseded by available-slots.get.ts and kept deliberately
  *   (allowlisted in no-orphan-routes.test.ts).
- *   Never throws, but fails OPEN: no key or an API error reports all 3 slots
- *   available (compare availability.get.ts, which fails closed).
+ *   Never throws. Without a key, or when Cal.com can't be reached, it reports
+ *   status 'unknown' with slotsBooked/slotsAvailable null rather than guessing
+ *   (unknown()).
  */
 export default defineEventHandler(async () => {
   // Quarterly capacity - adjust based on your actual capacity
@@ -23,19 +24,22 @@ export default defineEventHandler(async () => {
   const quarterStart = new Date(year, (quarter - 1) * 3, 1)
   const quarterEnd = new Date(year, quarter * 3, 0)
 
+  const nextQuarter = `Q${quarter === 4 ? 1 : quarter + 1} ${quarter === 4 ? year + 1 : year}`
+
+  // No live data: say so instead of reporting every slot open.
+  const unknown = (error: string) => ({
+    quarter: quarterName,
+    slotsTotal: SLOTS_PER_QUARTER,
+    slotsBooked: null,
+    slotsAvailable: null,
+    status: 'unknown' as const,
+    message: `Availability for ${quarterName} unknown`,
+    nextQuarter,
+    error,
+  })
+
   const calcomApiKey = serverEnv('calcomApiKey', 'CAL_COM_API_KEY')
-  if (!calcomApiKey) {
-    // Fallback when API key not configured
-    return {
-      quarter: quarterName,
-      slotsTotal: SLOTS_PER_QUARTER,
-      slotsBooked: 0,
-      slotsAvailable: SLOTS_PER_QUARTER,
-      status: 'available',
-      message: `${SLOTS_PER_QUARTER} spots open for ${quarterName}`,
-      nextQuarter: `Q${quarter === 4 ? 1 : quarter + 1} ${quarter === 4 ? year + 1 : year}`,
-    }
-  }
+  if (!calcomApiKey) return unknown('Availability not configured')
 
   try {
     // Fetch bookings for this quarter from Cal.com. The explicit generic
@@ -89,21 +93,12 @@ export default defineEventHandler(async () => {
       slotsAvailable,
       status,
       message,
-      nextQuarter: `Q${quarter === 4 ? 1 : quarter + 1} ${quarter === 4 ? year + 1 : year}`,
+      nextQuarter,
       lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Cal.com availability API error:', error)
 
-    // Graceful fallback
-    return {
-      quarter: quarterName,
-      slotsTotal: SLOTS_PER_QUARTER,
-      slotsBooked: 0,
-      slotsAvailable: SLOTS_PER_QUARTER,
-      status: 'available',
-      message: `${SLOTS_PER_QUARTER} spots open for ${quarterName}`,
-      error: 'Could not fetch live availability',
-    }
+    return unknown('Could not fetch live availability')
   }
 })

@@ -1,7 +1,8 @@
 /**
  * @file fetch.ts
  * @description Native fetch with an AbortController timeout (default 10s), and
- *   a fetchJSON wrapper that returns null instead of throwing. Used by
+ *   a fetchJSON wrapper (timeout covers the body too) that returns null
+ *   instead of throwing. Used by
  *   server/utils/smallweb.ts and server/api/atlas/{live,remediation}.get.ts.
  *
  * Errors carry the URL in their message, so don't pass URLs with secrets in
@@ -25,8 +26,8 @@ export async function fetchWithTimeout(
       ...options,
       signal: controller.signal,
     })
-    // Cleared once headers arrive, so the timeout does NOT bound reading the
-    // body (fetchJSON's response.json() can still hang on a slow stream).
+    // Cleared once headers arrive: this bounds the connection and headers
+    // only. Callers that read the body should bound it themselves (fetchJSON).
     clearTimeout(timeoutId)
     return response
   } catch (error) {
@@ -57,7 +58,8 @@ export async function fetchWithTimeout(
 }
 
 /**
- * Safely fetch JSON with timeout and error handling
+ * Safely fetch JSON with timeout and error handling. The timeout covers the
+ * whole request, body read included: the signal stays live through json().
  */
 export async function fetchJSON<T = any>(
   url: string,
@@ -65,7 +67,10 @@ export async function fetchJSON<T = any>(
   timeoutMs: number = 10000
 ): Promise<T | null> {
   try {
-    const response = await fetchWithTimeout(url, options, timeoutMs)
+    const response = await fetch(url, {
+      ...options,
+      signal: AbortSignal.timeout(timeoutMs),
+    })
 
     if (!response.ok) {
       console.warn(`API request failed: ${url} - ${response.status}`)

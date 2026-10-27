@@ -4,8 +4,8 @@
  *   manifest-lite.json: { month, year, totalWords, postCount, totalPosts,
  *   avgWordsPerPost, posts: [{ title, slug, date, words }] }. Counts only
  *   listable posts in year folders (YYYY/), never drafts/. Fetched by
- *   blog-stats.get.ts. No cache. Never throws: an error returns
- *   { error, details }.
+ *   blog-stats.get.ts. No cache. Never throws: an error returns { error }
+ *   (details go to the server log).
  */
 import { defineEventHandler } from 'h3'
 import { readManifest, isListable } from '~/server/utils/manifest'
@@ -104,9 +104,6 @@ export default defineEventHandler(async () => {
     }
   } catch (error) {
     console.error('Error calculating words this month:', error)
-    return {
-      error: 'Failed to calculate words this month',
-      details: error instanceof Error ? error.message : String(error),
-    }
+    return { error: 'Failed to calculate words this month' }
   }
 })

@@ -17,8 +17,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  // No slug whitelist here: loadDeck() resolves <id>.csv under the decks dir,
-  // so only .csv files are reachable and the router doesn't decode %2F.
+  // loadDeck() also returns null for an id that isn't a plain deck name.
   const deck = await loadDeck(id)
 
   if (!deck) {

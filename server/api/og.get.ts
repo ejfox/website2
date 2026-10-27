@@ -3,12 +3,15 @@
  * @description GET /api/og?url=https://... Open Graph metadata for link previews
  *   (ReplyContextItem.vue, plugins/link-previews.client.ts): { url, title,
  *   description, image, siteName, favicon, author, published, type }.
- *   Fetches the page server-side (10s timeout) and regex-scrapes meta tags.
- *   In-process Map cache: 5 min per url, failures 1 min (never evicted).
- *   Throws 400 on a missing/invalid url; a failed fetch returns a minimal
- *   { url, siteName, favicon }.
+ *   Fetches the page server-side via server/utils/publicFetch.ts (http(s)
+ *   on public hosts only, 3 redirects, 10s) and regex-scrapes meta tags.
+ *   image/favicon come back as absolute http(s) URLs or not at all.
+ *   In-process Map cache: 5 min per url, failures 1 min, at most 500 entries.
+ *   Throws 400 on a missing/invalid/non-public url; a failed fetch returns a
+ *   minimal { url, siteName, favicon }.
  */
 import { decodeEntities } from '~/server/utils/decodeEntities'
+import { assertFetchableUrl, fetchPublicText } from '~/server/utils/publicFetch'
 
 interface OGData {
   url: string
@@ -22,9 +25,34 @@ interface OGData {
   type?: string
 }
 
-// Simple in-memory cache (5 minute TTL)
+// Simple in-memory cache (5 minute TTL). A Map iterates in insertion order,
+// so the first key is the oldest; drop it once the cap is reached.
 const cache = new Map<string, { data: OGData; expires: number }>()
 const CACHE_TTL = 5 * 60 * 1000
+const CACHE_MAX = 500
+
+function cacheSet(key: string, data: OGData, ttl: number) {
+  cache.delete(key)
+  cache.set(key, { data, expires: Date.now() + ttl })
+  while (cache.size > CACHE_MAX) {
+    const oldest = cache.keys().next().value
+    if (oldest === undefined) break
+    cache.delete(oldest)
+  }
+}
+
+/** `value` resolved against `base`, kept only if it is http(s). */
+function httpUrl(value: string | undefined, base: URL): string | undefined {
+  if (!value) return undefined
+  try {
+    const u = new URL(value, base)
+    return u.protocol === 'http:' || u.protocol === 'https:'
+      ? u.href
+      : undefined
+  } catch {
+    return undefined
+  }
+}
 
 /**
  * The linked site's OWN favicon, never a third party's.
@@ -72,6 +100,7 @@ export default defineEventHandler(async (event) => {
   let parsedUrl: URL
   try {
     parsedUrl = new URL(url)
+    assertFetchableUrl(parsedUrl)
   } catch {
     throw createError({
       statusCode: 400,
@@ -87,21 +116,21 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    // Fetch the page
-    const response = await fetch(url, {
+    // Fetch the page (public hosts only, every redirect hop re-checked)
+    const response = await fetchPublicText(parsedUrl, {
       headers: {
         'User-Agent':
           'Mozilla/5.0 (compatible; IndieWeb/1.0; +https://ejfox.com)',
         Accept: 'text/html,application/xhtml+xml',
       },
-      signal: AbortSignal.timeout(10000),
+      timeoutMs: 10000,
     })
 
-    if (!response.ok) {
+    if (response.status < 200 || response.status >= 300) {
       throw new Error(`HTTP ${response.status}`)
     }
 
-    const html = await response.text()
+    const html = response.body
 
     // Parse OG data from HTML
     const ogData: OGData = {
@@ -211,15 +240,22 @@ export default defineEventHandler(async (event) => {
       ogData.siteName = parsedUrl.hostname.replace('www.', '')
     }
 
-    // Cache the result
-    cache.set(url, {
-      data: ogData,
-      expires: Date.now() + CACHE_TTL,
-    })
+    // The client puts these in src attributes: absolute http(s) only.
+    ogData.image = httpUrl(ogData.image, response.url)
+    ogData.favicon = httpUrl(ogData.favicon, response.url)
+
+    cacheSet(url, ogData, CACHE_TTL)
 
     return ogData
   } catch (error) {
-    console.error('OG fetch failed:', error)
+    // From the up-front check or from the socket's DNS lookup on any hop.
+    if ((error as { code?: string })?.code === 'ENOTPUBLIC') {
+      throw createError({ statusCode: 400, statusMessage: 'Invalid URL' })
+    }
+    console.error(
+      'OG fetch failed:',
+      error instanceof Error ? error.message : error
+    )
     // Return minimal data on error
     const fallback: OGData = {
       url,
@@ -230,10 +266,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Cache even failures briefly (1 minute)
-    cache.set(url, {
-      data: fallback,
-      expires: Date.now() + 60000,
-    })
+    cacheSet(url, fallback, 60000)
 
     return fallback
   }

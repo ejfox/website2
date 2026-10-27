@@ -1,7 +1,7 @@
 /**
  * @file scraps/tags.get.ts
  * @description GET /api/scraps/tags. Sorted, deduped tag vocabulary from Supabase
- *   scraps (env SUPABASE_URL, SUPABASE_KEY). Public API, no on-site caller
+ *   shared scraps (env SUPABASE_URL, SUPABASE_KEY). Public API, no on-site caller
  *   (allowlisted). No cache. Returns [] on missing creds or any error.
  */
 import { defineEventHandler } from 'h3'
@@ -20,8 +20,11 @@ export default defineEventHandler(async (): Promise<string[]> => {
 
     const supabase = createClient(supabaseUrl, supabaseKey)
 
-    // Fetch all scraps to extract unique tags
-    const { data, error } = await supabase.from('scraps').select('tags')
+    // Privacy gate: only scraps EJ marked shared are public.
+    const { data, error } = await supabase
+      .from('scraps')
+      .select('tags')
+      .eq('shared', true)
 
     if (error) {
       console.error('❌ Supabase query error:', error)

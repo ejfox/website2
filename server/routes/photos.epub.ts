@@ -9,7 +9,7 @@
  * and a 1-bit screen renders the same on every e-ink panel. Cloudinary still
  * does the resizing, so the server never holds a full-resolution original.
  */
-import { defineEventHandler, getRequestURL, createError } from 'h3'
+import { defineEventHandler, createError } from 'h3'
 import {
   buildEpub,
   type EpubChapter,
@@ -127,10 +127,12 @@ async function buildPhotos(origin: string) {
 }
 
 export default defineEventHandler((event) => {
-  // Derived from the incoming request (its Host header), and the built book is
-  // cached for every later visitor: whichever request triggers a build decides
-  // where /api/photos is fetched from. Behind Cloudflare that is ejfox.com.
-  const origin = getRequestURL(event).origin
+  // A fixed origin, never the request's Host: the built book is cached and
+  // served to every later visitor. runtimeConfig.public.baseUrl is
+  // https://ejfox.com in production and http://localhost:3006 in dev.
+  const origin =
+    (useRuntimeConfig().public.baseUrl as string) ||
+    (import.meta.dev ? 'http://localhost:3006' : 'https://ejfox.com')
   return serveBook(event, {
     name: 'photos',
     ttlSeconds: TTL_SECONDS,

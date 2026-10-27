@@ -87,11 +87,10 @@ export default defineEventHandler(async () => {
       byCategory,
     }
   } catch (error) {
-    const err = error as Error
+    console.error('Failed to read newsboat feeds:', error)
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to read newsboat feeds',
-      message: err.message,
     })
   }
 })

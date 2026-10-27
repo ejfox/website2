@@ -2,7 +2,9 @@
  * @file reading/[slug].get.ts
  * @description GET /api/reading/:slug. One book's processed JSON from
  *   content/processed/reading/<slug>.json, merged with Kindle sync data. No cache.
- *   Throws 400 without a slug; 404 if missing or (in production) scheduled.
+ *   Throws 400 without a slug; 404 if missing, (in production) scheduled, or
+ *   not a plain file name. Book slugs carry spaces, commas and unicode, so
+ *   this checks for path syntax rather than a charset.
  */
 import { defineEventHandler, getRouterParam, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
@@ -21,7 +23,17 @@ export default defineEventHandler(async (event) => {
   }
 
   // Decode URL-encoded slug
-  const slug = decodeURIComponent(rawSlug)
+  let slug: string
+  try {
+    slug = decodeURIComponent(rawSlug)
+  } catch {
+    throw createError({ statusCode: 404, statusMessage: 'Book not found' })
+  }
+
+  // A single file name inside content/processed/reading, nothing else.
+  if (/[/\\\0]/.test(slug) || slug.includes('..')) {
+    throw createError({ statusCode: 404, statusMessage: 'Book not found' })
+  }
 
   try {
     // Try to find the book in processed content

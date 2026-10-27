@@ -5,8 +5,8 @@
  *   confidence, deadline, categories, visibility, status, resolution, updates,
  *   gitCommit, ... }]. No cache. Throws 500 if the directory can't be globbed;
  *   an unreadable file is skipped.
- *   `visibility` is passed through but not filtered on: a non-public prediction
- *   would still be listed.
+ *   Only `visibility: public` predictions are listed (a missing field counts
+ *   as public, matching the default `yarn predict` writes).
  */
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
@@ -25,6 +25,7 @@ export default defineEventHandler(async () => {
         const filePath = join(predictionsDir, file)
         const content = await fs.readFile(filePath, 'utf-8')
         const { data, content: body } = matter(content)
+        if ((data.visibility || 'public') !== 'public') return null
 
         // Generate ID from filename
         const id = file.replace(/\.md$/, '').replace(/\//g, '-')
@@ -63,6 +64,7 @@ export default defineEventHandler(async () => {
     const predictions = results
       .filter((r) => r.status === 'fulfilled')
       .map((r) => r.value)
+      .filter(Boolean)
 
     return predictions
   } catch (error) {

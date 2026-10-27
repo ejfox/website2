@@ -53,11 +53,10 @@ export default defineEventHandler(async (event) => {
   try {
     file = await loadChangelog()
   } catch (error) {
-    const err = error as Error
+    console.error('Failed to read changelog:', error)
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to read changelog',
-      message: err.message,
     })
   }
 

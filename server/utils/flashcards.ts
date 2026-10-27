@@ -6,7 +6,7 @@
  *   course and display name are parsed from the filename.
  *
  * Paths resolve against process.cwd(), like the rest of server/.
- * loadDeck() joins the id into a path; callers validate it.
+ * loadDeck() accepts only plain deck names (isValidDeckId).
  */
 import { readFile, readdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
@@ -139,7 +139,13 @@ export async function loadAllDecks(): Promise<FlashcardDeck[]> {
 }
 
 // Load a single deck by ID
+/** Deck ids are CSV base names: letters, digits, `.`, `_`, `-`, no `..`. */
+export function isValidDeckId(deckId: string): boolean {
+  return /^[\w.-]+$/.test(deckId) && !deckId.includes('..')
+}
+
 export async function loadDeck(deckId: string): Promise<FlashcardDeck | null> {
+  if (!isValidDeckId(deckId)) return null
   const dir = resolve('public/data/flashcards')
   const filename = `${deckId}.csv`
 

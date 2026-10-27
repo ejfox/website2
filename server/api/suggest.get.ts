@@ -8,15 +8,22 @@
  *   OPENROUTER_API_KEY, server-only; without a key it falls back to keyword
  *   matching against the tag vocabulary.
  *   Auth: `auth` must equal SCRAP_ENLIGHTENER_AUTH when that env is set.
+ *   Rate limit: 20 requests per 10 min per client IP (server/utils/rateLimit.ts).
  *   Caches in-process (node-cache): results 30 min, posts 30 min, tags 1h.
- *   Never throws: every error (including 401/400) becomes a 200 with empty tags.
+ *   Throws 429 (rate limit), 401 (bad auth) and 400 (no input); any later
+ *   error becomes a 200 with empty tags.
  */
 import { defineEventHandler, getQuery, createError } from 'h3'
+import { createHash } from 'node:crypto'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import NodeCache from 'node-cache'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { clientIp, createRateLimiter } from '~/server/utils/rateLimit'
+
+// Each request can cost an OpenRouter call, so cap it per client.
+const withinRateLimit = createRateLimiter(20, 10 * 60 * 1000)
 
 // ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
 const cache = new NodeCache({
@@ -404,41 +411,48 @@ Respond ONLY with valid JSON:
 export default defineEventHandler(async (event): Promise<SuggestResponse> => {
   const startTime = Date.now()
 
+  // Request checks run outside the try below so their status codes reach
+  // the client instead of becoming the 200 fallback.
+  if (!withinRateLimit(clientIp(event))) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: 'Too Many Requests',
+      message: 'Too many suggestion requests, try again in a few minutes',
+    })
+  }
+
+  const query = getQuery(event)
+  const { url, title, text, auth, description } = query
+
+  // Basic auth check - EJ's security! 🔒
+  const config = useRuntimeConfig()
+  const expectedAuth =
+    config.scrapEnlightenerAuth || process.env.SCRAP_ENLIGHTENER_AUTH
+
+  if (expectedAuth && auth !== expectedAuth) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: 'Unauthorized',
+      message: 'Invalid authentication token',
+    })
+  }
+
+  if (!text && !title && !url) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Bad Request',
+      message: 'At least one of url, title, or text is required',
+    })
+  }
+
   try {
-    const query = getQuery(event)
-    const { url, title, text, auth, description } = query
-
-    // Basic auth check - EJ's security! 🔒
-    const config = useRuntimeConfig()
-    const expectedAuth =
-      config.scrapEnlightenerAuth || process.env.SCRAP_ENLIGHTENER_AUTH
-
-    // The 401 thrown here is caught by the outer try and returned as 200.
-    if (expectedAuth && auth !== expectedAuth) {
-      throw createError({
-        statusCode: 401,
-        statusMessage: 'Unauthorized',
-        message: 'Invalid authentication token',
-      })
-    }
-
-    if (!text && !title && !url) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'Bad Request',
-        message: 'At least one of url, title, or text is required',
-      })
-    }
-
     // Combine all available content *WHOOSH*
     const combinedContent = [title, text].filter(Boolean).join('\n\n')
 
-    // Create cache key for this exact request
-    // Only the first 32 base64 chars (24 bytes) key the cache, so inputs
-    // that share a 24-byte prefix share a cached answer.
-    const cacheKey = `suggest:${Buffer.from(combinedContent + (url || ''))
-      .toString('base64')
-      .substring(0, 32)}`
+    // Cache key: a hash of every input that shapes the answer.
+    const cacheKey = `suggest:${createHash('sha256')
+      .update(JSON.stringify([url, title, text, description]))
+      .digest('hex')}`
 
     // Check cache first - LIGHTNING SPEED! ⚡
     let result = cache.get<SuggestResponse>(cacheKey)

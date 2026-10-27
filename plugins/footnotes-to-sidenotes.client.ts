@@ -50,7 +50,7 @@ export default defineNuxtPlugin(() => {
       // Create sidenote - SIMPLE
       const sidenote = document.createElement('span')
       sidenote.className = 'sidenote'
-      sidenote.innerHTML = `${index + 1}. ${cleanText}`
+      sidenote.textContent = `${index + 1}. ${cleanText}`
 
       // Insert sidenote after the sup element
       const sup = ref.closest('sup')

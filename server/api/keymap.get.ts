@@ -14,9 +14,10 @@ export default defineCachedEventHandler(
     try {
       return await fetchOryxLayout(LAYOUT.hashId, LAYOUT.geometry)
     } catch (err) {
+      console.error('Oryx layout fetch failed:', err)
       throw createError({
         statusCode: 502,
-        statusMessage: `Oryx unavailable: ${(err as Error).message}`,
+        statusMessage: 'Oryx unavailable',
       })
     }
   },

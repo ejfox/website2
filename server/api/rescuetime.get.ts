@@ -212,11 +212,9 @@ export default defineEventHandler(async () => {
     }
   } catch (error) {
     console.error('RescueTime API error:', error)
-    const err = error as Error
-    const errorMsg = `Failed to fetch RescueTime data: ${err.message}`
     throw createError({
       statusCode: 500,
-      message: errorMsg,
+      message: 'Failed to fetch RescueTime data',
     })
   }
 })

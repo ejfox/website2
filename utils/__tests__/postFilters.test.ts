@@ -51,6 +51,24 @@ describe('isHiddenFromListings', () => {
     expect(isHiddenFromListings(manifestEntry({ unlisted: false }))).toBe(false)
   })
 
+  it('a false at one level does not mask a true at the other', () => {
+    for (const flag of flags) {
+      expect(
+        isHiddenFromListings({
+          ...manifestEntry({ [flag]: true }),
+          [flag]: false,
+        })
+      ).toBe(true)
+      expect(
+        isHiddenFromListings({
+          slug: 'x',
+          [flag]: true,
+          metadata: { [flag]: false },
+        })
+      ).toBe(true)
+    }
+  })
+
   it('ignores an embargo — that is isScheduled’s job, and it expires', () => {
     const future = new Date(Date.now() + 864e5).toISOString()
     expect(isHiddenFromListings(manifestEntry({ publishAt: future }))).toBe(

@@ -92,7 +92,10 @@ export default defineEventHandler(async (event) => {
     console.error('Highlighting error:', error)
     // Fallback - return plain HTML
     return {
-      html: `<pre><code>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`,
+      html: `<pre><code>${String(code)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')}</code></pre>`,
       error: 'Failed to highlight',
       language: 'text',
     }

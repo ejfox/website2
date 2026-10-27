@@ -64,6 +64,8 @@ function name, not just the path).
 | `notConfigured.ts` | quiet "credential not set" errors | vendor stats handlers, `api/stats` |
 | `oryx.ts` | fetch + normalise a ZSA Oryx keymap | `api/keymap`; types in `pages/keymap.vue`, `KeymapBoard.vue` |
 | `readingKindle.ts` | merge Kindle metadata into reading notes | `api/reading*`, `api/agent/timeline`, `api/temporal-context` |
+| `publicFetch.ts` | GET a page from a public http(s) host only (checked at DNS lookup, every redirect hop) | `api/og` |
+| `rateLimit.ts` | in-memory fixed-window limiter + `clientIp()` | `api/suggest` |
 | `readmeUrls.ts` | absolutise README links for `/github/<repo>` | `api/repos/[slug]` (auto-import) |
 | `serverEnv.ts` | read a secret from runtimeConfig or `process.env` | most credentialed `api/` routes, `atlasPrivate.ts`, `routes/gists-rss.xml.ts` |
 | `sitemapEntries.ts` | pure, tested sitemap builders + privacy filter | `routes/sitemap.xml.ts` |

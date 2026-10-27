@@ -15,6 +15,7 @@ import matter from 'gray-matter'
 import { glob } from 'glob'
 import { readManifest, isListable } from '~/server/utils/manifest'
 import { withKindleSync } from '~/server/utils/readingKindle'
+import { isScheduled } from '~/utils/postFilters'
 
 // Timeline event types
 interface TimelineEvent {
@@ -88,8 +89,7 @@ export default defineEventHandler(async (event) => {
   }
 
   // ── Predictions ──────────────────────────────────────────
-  // No visibility filter (all current files are public).
-  // Get all predictions
+  // Public predictions only (a missing visibility field counts as public).
   try {
     const predictionsDir = join(process.cwd(), 'content/predictions')
     const files = await glob('**/*.md', { cwd: predictionsDir })
@@ -99,6 +99,7 @@ export default defineEventHandler(async (event) => {
         const filePath = join(predictionsDir, file)
         const content = await fs.readFile(filePath, 'utf-8')
         const { data } = matter(content)
+        if ((data.visibility || 'public') !== 'public') return
 
         // Add prediction creation event
         events.push({
@@ -153,9 +154,7 @@ export default defineEventHandler(async (event) => {
   }
 
   // ── Reading ──────────────────────────────────────────────
-  // No isScheduled check here, unlike reading.get.ts: a scheduled book's
-  // title would appear early.
-  // Get reading annotations as events
+  // Reading notes still under embargo (isScheduled) are left out.
   try {
     const readingDir = join(process.cwd(), 'content/processed/reading')
     const files = await fs.readdir(readingDir)
@@ -170,6 +169,7 @@ export default defineEventHandler(async (event) => {
             JSON.parse(content),
             file.replace(/\.json$/, '')
           )
+          if (isScheduled(book)) return
 
           const lastAnnotated =
             book.metadata?.['kindle-sync']?.lastAnnotatedDate

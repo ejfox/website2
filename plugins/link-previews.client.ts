@@ -8,8 +8,8 @@
  *   Runs 200ms after onNuxtReady and after every router.afterEach; appends
  *   one fixed `div.link-preview-popover` to <body> at a time. OG responses
  *   are cached in memory per page session.
- *   Gotcha: title/description are escaped, but siteName and the image/favicon
- *   URLs are interpolated into innerHTML as-is.
+ *   Every OG value is escaped before it reaches innerHTML, and image/favicon
+ *   URLs must be absolute http(s) (safeSrc) or they are dropped.
  */
 export default defineNuxtPlugin(() => {
   if (import.meta.server) return
@@ -27,12 +27,26 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const escapeHtml = (str: string) =>
-    str
+  const escapeHtml = (str: unknown) =>
+    String(str ?? '')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+
+  /** An absolute http(s) URL, escaped for an attribute; '' for anything else. */
+  const safeSrc = (value: unknown) => {
+    if (typeof value !== 'string' || !value) return ''
+    try {
+      const { protocol, href } = new URL(value)
+      return protocol === 'http:' || protocol === 'https:'
+        ? escapeHtml(href)
+        : ''
+    } catch {
+      return ''
+    }
+  }
 
   const createPopover = (data: any, anchorRect: DOMRect) => {
     removePopover()
@@ -81,7 +95,7 @@ export default defineNuxtPlugin(() => {
     // Header row: favicon + site name
     // /api/og always returns the site's own icon, so there's nothing to fall
     // back to. Don't reintroduce a third-party favicon service here.
-    const faviconSrc = data.favicon || ''
+    const faviconSrc = safeSrc(data.favicon)
     const siteName =
       data.siteName ||
       (() => {
@@ -95,7 +109,7 @@ export default defineNuxtPlugin(() => {
       parts.push(`
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
           ${faviconSrc ? `<img src="${faviconSrc}" width="16" height="16" style="border-radius:2px;flex-shrink:0;" onerror="this.style.display='none'" />` : ''}
-          <span style="font-family:ui-monospace,monospace;font-size:11px;color:rgb(161 161 170);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${siteName}</span>
+          <span style="font-family:ui-monospace,monospace;font-size:11px;color:rgb(161 161 170);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escapeHtml(siteName)}</span>
         </div>
       `)
     }
@@ -115,14 +129,15 @@ export default defineNuxtPlugin(() => {
     }
 
     // OG image
-    if (data.image) {
+    const imageSrc = safeSrc(data.image)
+    if (imageSrc) {
       parts.push(
-        `<img src="${data.image}" style="width:100%;height:auto;max-height:160px;object-fit:cover;border-radius:3px;margin-top:8px;" onerror="this.style.display='none'" />`
+        `<img src="${imageSrc}" style="width:100%;height:auto;max-height:160px;object-fit:cover;border-radius:3px;margin-top:8px;" onerror="this.style.display='none'" />`
       )
     }
 
     // Fallback if nothing useful came back
-    if (!data.title && !data.description && !data.image) {
+    if (!data.title && !data.description && !imageSrc) {
       removePopover()
       return
     }

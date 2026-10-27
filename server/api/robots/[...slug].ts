@@ -26,16 +26,27 @@ router.get(
 router.get(
   '/*',
   defineEventHandler(async (event) => {
-    // Get the full path from the URL
-    // Raw event.path: not decoded, includes any query string, and isn't
-    // checked for '..'. The share flag below is what keeps other JSON from serving.
-    const fullPath = event.path?.replace('/api/robots/', '') || ''
+    // Slug = the path below /api/robots (useBase strips the prefix), without
+    // the query string or leading slashes. Its segments must be plain names:
+    // no '..', backslash or NUL.
+    let fullPath: string
+    try {
+      fullPath = decodeURIComponent(
+        (event.path || '').split('?')[0]!.replace(/^(\/api\/robots)?\/+/, '')
+      )
+    } catch {
+      throw createError({ statusCode: 404, message: 'Robot note not found' })
+    }
 
     if (!fullPath) {
       throw createError({
         statusCode: 400,
         message: 'Missing slug parameter',
       })
+    }
+
+    if (/[\\\0]/.test(fullPath) || fullPath.includes('..')) {
+      throw createError({ statusCode: 404, message: 'Robot note not found' })
     }
 
     try {

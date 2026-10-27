@@ -4,7 +4,8 @@
  *   resolution rendered to HTML (remark + GFM), plus relatedPredictions
  *   enriched with statements. Looks up content/predictions/<id>.md, then
  *   <year>/<rest>.md for year-prefixed ids. No cache.
- *   Read-only: any non-GET is 405. Throws 400 without an id, 404 if not found.
+ *   Read-only: any non-GET is 405. Throws 400 without an id, 404 if the id
+ *   isn't a plain name, the file is missing, or it isn't visibility: public.
  */
 import { defineEventHandler, getRouterParam, createError, getMethod } from 'h3'
 import { promises as fs } from 'node:fs'
@@ -72,6 +73,14 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  // Ids are file base names (optionally year-prefixed), never paths.
+  if (!/^[\w.-]+$/.test(id) || id.includes('..')) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Prediction not found',
+    })
+  }
+
   // Read-only. A PATCH branch used to rewrite the prediction's .md on the
   // server with no auth (anyone could set an outcome); predictions change
   // through git and `yarn predict` instead.
@@ -91,6 +100,14 @@ export default defineEventHandler(async (event) => {
 
     const content = await fs.readFile(filePath, 'utf-8')
     const { data, content: body } = matter(content)
+
+    // Non-public predictions 404 like missing ones.
+    if ((data.visibility || 'public') !== 'public') {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Prediction not found',
+      })
+    }
 
     // SSR markdown processing
     // allowDangerousHtml: prediction files are EJ's own committed markdown.
@@ -123,6 +140,7 @@ export default defineEventHandler(async (event) => {
           const fp = join(predictionsDir, file)
           const c = await fs.readFile(fp, 'utf-8')
           const { data: d } = matter(c)
+          if ((d.visibility || 'public') !== 'public') return null
           const fileId = file.replace(/\.md$/, '').replace(/\//g, '-')
           return {
             id: d.id || fileId,
@@ -136,7 +154,7 @@ export default defineEventHandler(async (event) => {
 
       relatedPredictions = data.related
         .map((relId: string) =>
-          allPredictions.find((p) => p.id === relId || p.slug === relId)
+          allPredictions.find((p) => p && (p.id === relId || p.slug === relId))
         )
         .filter(Boolean)
     }

@@ -216,13 +216,15 @@ export default defineCachedEventHandler(
 
       return filtered
     } catch (error) {
-      const err = error as Error
+      // The client gets a generic message; the log gets the detail with the
+      // token masked (ofetch messages include the request URL).
+      const detail = (error instanceof Error ? error.message : String(error))
+        .split(token)
+        .join('***')
+      console.error('[webmentions] upstream fetch failed:', detail)
       throw createError({
         statusCode: 500,
         statusMessage: 'Failed to fetch webmentions',
-        // ofetch error messages include the request URL, and this one carries the
-        // token in its query string, so an upstream failure can echo it to the client.
-        message: err.message,
       })
     }
   },

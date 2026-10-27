@@ -4,8 +4,8 @@
  * built from the /api/stats payload. Pure: same stats + same `now` → same
  * string. Clauses link to the page's section anchors, so the result is HTML
  * (rendered with v-html). Used by pages/stats.vue.
- * Gotcha: values are interpolated into that HTML unescaped (e.g. the
- * Last.fm artist name).
+ * Text from the APIs (e.g. the Last.fm artist name) is escaped with
+ * escapeHtml() before it goes into that HTML.
  */
 import type { StatsResponse } from '~/types/stats'
 import { formatNumber } from '~/utils/numberFormat'
@@ -19,6 +19,14 @@ const pluralize = (count: number, singular: string, plural?: string) => {
   if (count === 1) return `${count} ${singular}`
   return `${count} ${plural || singular + 's'}`
 }
+
+const escapeHtml = (str: string) =>
+  str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 
 // Helper to create summary links
 const link = (href: string, text: string) =>
@@ -148,7 +156,9 @@ export function buildStatsSummary(
     })
     if (recentTracks.length > 0) {
       const topArtist = recentTracks[0]?.artist?.name
-      const artistNote = topArtist ? ` (mostly ${topArtist})` : ''
+      const artistNote = topArtist
+        ? ` (mostly ${escapeHtml(String(topArtist))})`
+        : ''
       const musicText = `listened to ${recentTracks.length}`
       clauses.push(`${musicText} ${link('music', 'tracks')}${artistNote}`)
     }
@@ -173,7 +183,7 @@ export function buildStatsSummary(
       return filmDate >= oneWeekAgo() && !isInFuture
     })
     if (recentFilms.length > 0) {
-      clauses.push(`watched ${recentFilms.length} ${link('movies', 'films')}`)
+      clauses.push(`watched ${recentFilms.length} ${link('films', 'films')}`)
     }
   }
 

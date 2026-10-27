@@ -85,10 +85,11 @@ export default defineCachedEventHandler(
 
       results.sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
       return { total: results.length, posts: results }
-    } catch (err: any) {
+    } catch (err) {
+      console.error('Failed to load photo posts:', err)
       throw createError({
         statusCode: 500,
-        statusMessage: `Failed to load photo posts: ${err?.message || err}`,
+        statusMessage: 'Failed to load photo posts',
       })
     }
   },

@@ -62,6 +62,15 @@ const codeToShow = computed(() => {
 // ── Highlighting ────────────────────────────────────────────
 const highlightedCode = ref('')
 
+// Plain-text fallback for v-html: the raw gist text, escaped.
+const plainCode = (code: string) =>
+  `<pre><code>${code
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')}</code></pre>`
+
 const updateHighlighting = async () => {
   // Highlighting runs server-side (/api/highlight), so no highlighter ships
   // in the client bundle
@@ -85,15 +94,14 @@ const updateHighlighting = async () => {
         },
       })
 
-      // Fallback paths interpolate raw gist text into v-html unescaped.
       highlightedCode.value =
-        (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
+        (response as any)?.html || plainCode(codeToShow.value)
     } catch (error) {
       console.warn('Failed to highlight code:', error)
-      highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
+      highlightedCode.value = plainCode(codeToShow.value)
     }
   } else {
-    highlightedCode.value = `<pre><code>${codeToShow.value || ''}</code></pre>`
+    highlightedCode.value = plainCode(codeToShow.value || '')
   }
 }
 

@@ -82,11 +82,11 @@ export function isHiddenFromListings(
   post: Post,
   { ignoreDraft = false }: { ignoreDraft?: boolean } = {}
 ): boolean {
+  // Hidden if EITHER level sets the flag: a top-level `draft: false` must not
+  // mask `metadata.draft: true`.
   const both = (key: string) =>
-    Boolean(
-      (post as Record<string, unknown>)?.[key] ??
-      (post?.metadata as Record<string, unknown> | undefined)?.[key]
-    )
+    Boolean((post as Record<string, unknown>)?.[key]) ||
+    Boolean((post?.metadata as Record<string, unknown> | undefined)?.[key])
   return (
     (!ignoreDraft && both('draft')) ||
     both('hidden') ||

@@ -45,10 +45,9 @@ export default defineEventHandler(async () => {
     return publicPosts
   } catch (error) {
     console.error('Error in manifest endpoint:', error)
-    const err = error as Error
     throw createError({
       statusCode: 500,
-      message: `Failed to read manifest: ${err.message}`,
+      statusMessage: 'Failed to read manifest',
     })
   }
 })

@@ -32,8 +32,6 @@ export default defineEventHandler(async (event) => {
       )
       .slice(0, 20)
 
-    // NB: the channel <link> below is /robots, but no such page exists; the
-    // listing page is /blog/robots (pages/sitemap.vue links it there).
     // Items: allSettled + a per-item catch, so one unreadable post JSON drops
     // that item, not the feed.
     const rssNamespaces =
@@ -44,7 +42,7 @@ export default defineEventHandler(async (event) => {
 <channel>
   <title>${siteName}</title>
   <description>${siteDescription}</description>
-  <link>${siteURL}/robots</link>
+  <link>${siteURL}/blog/robots</link>
   <atom:link href="${siteURL}/robots-rss.xml" rel="self"
              type="application/rss+xml" />
   <pubDate>${new Date().toUTCString()}</pubDate>

@@ -26,7 +26,7 @@ describe('buildStatsSummary', () => {
         `${a('typing', 'typed')} at 166.41 WPM, ` +
         `created 1 ${a('gists', 'gists')}, ` +
         `listened to 3 ${a('music', 'tracks')} (mostly Hamdi), ` +
-        `watched 2 ${a('movies', 'films')}, ` +
+        `watched 2 ${a('films', 'films')}, ` +
         `logged 31 ${a('productivity', 'productive hours')}, ` +
         `and gained 468 ${a('website', 'pageviews')}.`
     )
@@ -122,6 +122,14 @@ describe('buildStatsSummary', () => {
     s.lastfm.recentTracks.tracks.unshift({ name: 'np', artist: { name: 'X' } })
     const text = buildStatsSummary(s, STATS_NOW).text
     expect(text).not.toContain('#music')
-    expect(text).toContain(`watched 2 ${a('movies', 'films')}`)
+    expect(text).toContain(`watched 2 ${a('films', 'films')}`)
+  })
+
+  it('escapes the Last.fm artist name', () => {
+    const s = clone(statsFixture) as any
+    s.lastfm.recentTracks.tracks[0].artist.name = '<img src=x onerror=alert(1)>'
+    const text = buildStatsSummary(s, STATS_NOW).text
+    expect(text).not.toContain('<img')
+    expect(text).toContain('(mostly &lt;img src=x onerror=alert(1)&gt;)')
   })
 })
