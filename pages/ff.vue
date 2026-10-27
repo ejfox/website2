@@ -1,3 +1,11 @@
+<!--
+  @file ff.vue
+  @description /ff: hidden Friends & Family booking page with an inline
+    Cal.com month view (cal.com/ejfox/ff). Embed loader: utils/calEmbed.ts
+    loadCalInline(), which also adds first-touch UTM params (CLAUDE.md
+    "First-touch → Cal.com"). SSR shell, layout:false; the calendar is
+    ClientOnly. Not in STATIC_SECTIONS in server/routes/sitemap.xml.ts.
+-->
 <script setup>
 // Friends & Family booking — a hidden, unlisted page handed out by direct link
 // only. Not in nav, not in the sitemap, and noindexed three ways:
@@ -40,6 +48,8 @@ const tagline = ref(TAGLINES[0])
 onMounted(() => {
   const now = new Date()
   greeting.value = timeGreeting(now.getHours())
+  // Not random: rotates by the visitor's clock minute, so a reload within
+  // the same minute shows the same line.
   tagline.value = TAGLINES[now.getMinutes() % TAGLINES.length]
 
   loadCalInline({

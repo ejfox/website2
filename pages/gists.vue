@@ -1,6 +1,17 @@
+<!--
+  @file gists.vue
+  @description /gists: EJ's GitHub Gists, 64 per page, with inline previews
+    for single-file gists. Data: /api/gists (server/api/gists.get.ts, which
+    also fetches content for single-file gists). Prerendered at build
+    (PRERENDERED_ROUTES in nuxt.config.ts), so page 1 is frozen at the last
+    deploy; Previous/Next refetch from the browser.
+    Gotcha: the header stats (gists, files, KB, languages) count the current
+    page only, not the whole account.
+-->
 <script setup lang="ts">
 // Nuxt 4 auto-imports all composables!
 
+// ── Data ────────────────────────────────────────────────────
 interface GistFile {
   filename: string
   type: string
@@ -31,6 +42,8 @@ const {
   () => `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
 
+// A full page (exactly perPage) is the only signal there may be more; the
+// API doesn't return a total.
 const nextPage = () => {
   if (gists.value?.length === perPage) {
     currentPage.value++
@@ -45,6 +58,7 @@ const prevPage = () => {
   }
 }
 
+// ── Stats (current page only) ───────────────────────────────
 // Calculate stats for minimal display
 const totalGists = computed(() => gists.value?.length || 0)
 const totalFiles = computed(() => {
@@ -100,6 +114,7 @@ const lastUpdated = computed(() => {
   return new Date(Math.max(...dates)).toISOString().split('T')[0]
 })
 
+// ── SEO + JSON-LD ───────────────────────────────────────────
 // OpenGraph description with overview stats
 const gistsDescription = computed(() => {
   const gistCount = totalGists.value || 0
@@ -163,6 +178,7 @@ useHead(() => ({
   ],
 }))
 
+// ── Expand/collapse ─────────────────────────────────────────
 // Expand/collapse state for gists
 const expandedGists = ref<Set<string>>(new Set())
 
@@ -180,6 +196,7 @@ const toggleGist = (gistId: string) => {
 
 <template>
   <div class="container-main pt-8">
+    <!-- ── Header ─────────── -->
     <!-- Header - Editorial style -->
     <header class="mb-12">
       <h1
@@ -225,6 +242,7 @@ const toggleGist = (gistId: string) => {
       Error: {{ error.message }}
     </div>
 
+    <!-- ── Gist list + pagination ─────────── -->
     <!-- Gist list -->
     <div v-else-if="gists" class="space-y-0">
       <div

@@ -1,4 +1,15 @@
+<!--
+  @file bookmarklet-popup.vue
+  @description /bookmarklet-popup: the window the Pinboard bookmarklet opens
+    (installed from pages/bookmarklet.vue). Reads url/title/text/description/
+    auth from the query string, loads /tags.json + /api/suggest (AI tags,
+    summary, similar posts), then hands off to pinboard.in/add.
+  @gotchas Query string carries page text and the auth passphrase, so
+    nuxt.config.ts routeRules set no-store + noindex for this route. All
+    fetching is in onMounted (client only); SSR renders the loading state.
+-->
 <script setup>
+// ── State + query params ────────────────────────────────────
 const route = useRoute()
 const container = ref(null)
 const customInput = ref(null)
@@ -28,6 +39,7 @@ if (pageUrl) {
   }
 }
 
+// ── Display helpers ─────────────────────────────────────────
 const truncateUrl = (url, max) => {
   if (!url || url.length <= max) return url
   try {
@@ -69,6 +81,9 @@ const tagClasses = (tagObj) => {
   )
 }
 
+// ── Data loading ────────────────────────────────────────────
+// Suggested tags are API objects or plain strings, hence the
+// `typeof tagObj === 'string'` checks throughout this file.
 onMounted(async () => {
   // Focus container for keyboard shortcuts
   container.value?.focus()
@@ -83,7 +98,8 @@ onMounted(async () => {
   loadingStep.value = 1
 
   try {
-    // Fetch tags first
+    // Fetch tags first. Sequential, not parallel, so the step indicator
+    // advances in order; a failure here is non-fatal (no "*" markers).
     const tags = await $fetch('/tags.json').catch(() => [])
     officialTags.value = tags || []
     loadingStep.value = 2
@@ -122,6 +138,7 @@ onMounted(async () => {
   }
 })
 
+// ── Tag editing ─────────────────────────────────────────────
 const toggleTag = (tag) => {
   const idx = selectedTags.value.indexOf(tag)
   if (idx > -1) selectedTags.value.splice(idx, 1)
@@ -176,6 +193,9 @@ const copyTagsFromScrap = (scrap) => {
   if (added) showToast(`+${added} from "${scrap.title?.substring(0, 20)}..."`)
 }
 
+// ── Save (hand-off to Pinboard) ─────────────────────────────
+// Navigates this popup to Pinboard's own add form; nothing is saved here.
+// The auth value is deliberately not forwarded.
 const saveToPinboard = (useEnhancedTags = false) => {
   const params = new URLSearchParams({ url: pageUrl, title: pageTitle })
   if (selectedText) params.append('description', selectedText)
@@ -186,6 +206,8 @@ const saveToPinboard = (useEnhancedTags = false) => {
   window.location.href = `https://pinboard.in/add?${params.toString()}`
 }
 
+// ── Page meta ───────────────────────────────────────────────
+// layouts/bookmarklet.vue: bare popup chrome, no site nav.
 definePageMeta({ layout: 'bookmarklet' })
 
 usePageSeo({
@@ -202,6 +224,7 @@ useHead({
 </script>
 
 <template>
+  <!-- ── Popup shell: ⌘/Ctrl+Enter saves with tags, Esc saves without ── -->
   <div
     ref="container"
     class="min-h-screen bg-sunken p-4"
@@ -346,7 +369,8 @@ useHead({
 
       <!-- Suggestions -->
       <div v-else-if="suggestions" class="space-y-4">
-        <!-- AI Summary -->
+        <!-- AI Summary. The hidden string is /api/suggest's keyword-match
+             fallback summary (no AI ran), so it says nothing useful. -->
         <p
           v-if="
             suggestions.summary &&
@@ -583,6 +607,7 @@ useHead({
 </template>
 
 <style scoped>
+/* ── Tag pop-in + toast transitions ──────── */
 .animate-in {
   animation: pop-in 0.15s ease-out;
 }

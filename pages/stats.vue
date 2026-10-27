@@ -1,3 +1,14 @@
+<!--
+  @file stats.vue
+  @description /stats: personal metrics dashboard (GitHub, chess, typing,
+    music, films, books, analytics, gear…). Data: composables/useStats.ts
+    (/api/stats SSR-fetched; /api/stats-lite client-only, feeds the
+    skeletons), kept live by
+    composables/useLiveStats.ts; /api/github-commits for the commit matrix.
+    SSR with CACHE_DYNAMIC edge caching (nuxt.config.ts routeRules).
+  @gotchas ?simple renders a dense text-only mode instead. Section ids double
+    as TOC anchors and useLiveStats SECTION_SOURCES keys: rename together.
+-->
 <!-- eslint-disable max-len -->
 <script setup lang="ts">
 import { useIntersectionObserver, useNow } from '@vueuse/core'
@@ -7,6 +18,8 @@ import TopStats from '~/components/stats/TopStats.vue'
 import StatsSectionSkeleton from '~/components/stats/StatsSectionSkeleton.vue'
 import { postFilters } from '~/utils/postFilters'
 import { buildStatsSummary } from '~/utils/statsSummary'
+
+// ── Lazy-hydrated sections ──────────────────────────────────
 
 // Every stat section is server-rendered in full (no layout shift, readable
 // with JS off), but its JavaScript only hydrates when it scrolls into view.
@@ -69,6 +82,7 @@ const GithubCommitMatrix = defineAsyncComponent(
   () => import('~/components/github/CommitMatrix.client.vue')
 )
 
+// ── Stats data ──────────────────────────────────────────────
 // Define stats first - used by computed properties below
 const {
   stats: rawStats,
@@ -155,6 +169,7 @@ const loadingSections = computed(() =>
 )
 const stats = computed(() => rawStats.value)
 
+// ── SEO ─────────────────────────────────────────────────────
 const statsDescription = computed(() => {
   const s = stats.value
   if (!s)
@@ -179,6 +194,7 @@ const statsDescription = computed(() => {
     : 'Live personal metrics from GitHub, Chess.com, Monkeytype, Last.fm, and writing output.'
 })
 
+// Newest timestamp across sources, as YYYY-MM-DD (shown in ?simple mode).
 const statsUpdated = computed(() => {
   const dates: number[] = []
   const s = stats.value
@@ -248,6 +264,7 @@ const { stop: stopCommitsWatch } = useIntersectionObserver(
 )
 const allCommits = computed(() => allCommitsData.value || [])
 
+// ── Simple mode + year progress ─────────────────────────────
 // Simple mode refs
 const sectionRef = ref(null)
 const headerRef = ref(null)
@@ -257,6 +274,7 @@ const displayDayOfYear = ref(0)
 // Calculate the day of year and year progress
 const now = new Date()
 const currentYear = now.getFullYear()
+// Day 0 of January = Dec 31 of last year, so Jan 1 counts as day 1.
 const startOfYear = new Date(currentYear, 0, 0)
 const diff = now.getTime() - startOfYear.getTime()
 const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24))
@@ -264,6 +282,7 @@ const isLeapYear =
   (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
 const daysInYear = isLeapYear ? 366 : 365
 
+// ── Blog stats (client-side, from the processed manifest) ───
 // Blog stats calculation
 interface BlogStatsData {
   totalPosts: number
@@ -288,6 +307,8 @@ const formatDateToMonth = (date: Date) => {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
 }
 
+// onMounted, so blogStats is null during SSR: the ?simple WRITING block and
+// TopStats' blog-stats prop fill in only after hydration.
 onMounted(async () => {
   try {
     if (!cachedPosts.value) {
@@ -383,6 +404,7 @@ onMounted(async () => {
       topTags,
       uniqueTags: allTags.size,
       averageReadingTime:
+        // Minutes at 200 wpm, rounded to one decimal.
         wordCount > 0
           ? Math.round((totalWords / wordCount / 200) * 10) / 10
           : 0,
@@ -401,12 +423,14 @@ const validBlogStats = computed(() => blogStats.value || undefined)
 // Data-driven gonzo summary sentence generator (pure logic in utils/statsSummary.ts)
 const summaryData = computed(() => buildStatsSummary(stats.value))
 
+// ── TOC + scroll spy ────────────────────────────────────────
 // TOC and navigation
 const tocTarget = ref<Element | null>(null)
 const activeSection = ref('overview')
 // route already defined above on line 492
 const isSimpleMode = computed(() => route.query.simple !== undefined)
 
+// ids must match the StatSection ids in the template (TOC anchors).
 const statsSections = [
   { id: 'overview', text: 'Overview' },
   { id: 'github', text: 'GitHub' },
@@ -435,6 +459,7 @@ onMounted(() => {
   displayDayOfYear.value = dayOfYear
 
   nextTick(() => {
+    // #nav-toc-container is the layout's sidebar slot; the TOC teleports there.
     tocTarget.value = document.querySelector('#nav-toc-container')
 
     const headingObserver = new IntersectionObserver(
@@ -447,6 +472,7 @@ onMounted(() => {
           }
         })
       },
+      // Only a 10%-tall band near the top of the viewport counts as "active".
       { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
     )
 
@@ -461,6 +487,8 @@ onMounted(() => {
   })
 })
 
+// ── Health today ────────────────────────────────────────────
+// Health days are keyed in Eastern time; en-CA formats as YYYY-MM-DD.
 // Health today calculation
 const getEasternDateString = () => {
   return new Date().toLocaleDateString('en-CA', {
@@ -491,6 +519,7 @@ definePageMeta({
 
 <template>
   <div class="font-mono overflow-hidden">
+    <!-- ── TOC (teleported to sidebar) ─────────── -->
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
@@ -510,6 +539,7 @@ definePageMeta({
       </teleport>
     </ClientOnly>
 
+    <!-- ── Simple mode (?simple) ─────────── -->
     <!-- Simple Mode -->
     <section
       v-if="isSimpleMode"
@@ -773,6 +803,7 @@ definePageMeta({
       </div>
     </section>
 
+    <!-- ── Full mode (default) ─────────── -->
     <!-- Full Mode (default) -->
     <div v-else class="">
       <!-- Main Content -->
@@ -813,6 +844,7 @@ definePageMeta({
           <TopStats :stats="stats" :blog-stats="validBlogStats" />
         </div>
 
+        <!-- ── Section stack ─────────── -->
         <!-- Main Stats Grid -->
         <section class="stats-grid-responsive">
           <!-- Error state -->
@@ -1016,6 +1048,7 @@ definePageMeta({
           </template>
         </section>
 
+        <!-- ── Gear + commit matrix ─────────── -->
         <!-- Full Width Sections -->
         <section class="col-span-full space-y-2 pt-8">
           <!-- Gear Stats -->
@@ -1056,6 +1089,7 @@ definePageMeta({
 </template>
 
 <style scoped>
+/* ── Transitions ──────── */
 .fade-enter-active,
 .fade-leave-active {
 }
@@ -1066,6 +1100,7 @@ definePageMeta({
   transform: translateY(8px);
 }
 
+/* ── Layout ──────── */
 /* Section stack: was an undefined class, so sections butted together and
    on phone each inline label read as the tail of the section above. */
 .stats-grid-responsive {

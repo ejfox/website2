@@ -1,4 +1,14 @@
+<!--
+  @file changelog.vue
+  @description /changelog: curated release notes (data/colophon.json, bundled)
+    grouped by year, plus a collapsed raw git log. Data: /api/changelog
+    (server/api/changelog.get.ts, serves the build-generated
+    data/changelog.json) and /api/manifest for the post count.
+    Prerendered (PRERENDERED_ROUTES in nuxt.config.ts); "Load more" refetches
+    from the browser. The hand-written sibling is /updates (pages/updates.vue).
+-->
 <script setup lang="ts">
+// ── Curated colophon ────────────────────────────────────────
 import colophonData from '~/data/colophon.json'
 import { formatPeriodLabel } from '~/utils/date'
 
@@ -52,13 +62,17 @@ const groupedByYear = computed(() => {
   return groups
 })
 
+// colophon dates are "YYYY", "YYYY-Qn" or "YYYY-MM(-DD)"; all three start
+// with the year, so the Q branch is the same as the fallback.
 function extractYear(dateStr: string): string {
   if (/^\d{4}$/.test(dateStr)) return dateStr
   if (dateStr.includes('Q')) return dateStr.split('-')[0]
   return dateStr.split('-')[0]
 }
 
+// ── Raw git log ─────────────────────────────────────────────
 // Fetch commit data and manifest in parallel
+// (Not actually parallel: each `await useFetch` finishes before the next.)
 const limit = ref(50)
 const {
   data: commitData,
@@ -68,6 +82,7 @@ const {
 
 const { data: manifestData } = await useFetch<any[]>('/api/manifest')
 
+// A full page back means there may be more; the API caps limit at 500.
 const canLoadMore = computed(
   () => commitData.value && commitData.value.commits.length >= limit.value
 )
@@ -105,6 +120,8 @@ function formatTime(dateString: string) {
   })
 }
 
+// ── Formatting + SEO ────────────────────────────────────────
+// Keys are conventional-commit prefixes, as parsed by /api/changelog.
 const typeColors: Record<string, string> = {
   feat: 'bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100',
   fix: 'bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100',

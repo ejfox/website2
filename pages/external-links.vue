@@ -1,4 +1,14 @@
+<!--
+  @file external-links.vue
+  @description /external-links: every outbound URL cited across the site,
+    grouped by domain with citation counts and the posts that cite it.
+    Data: /api/external-links (server/api/external-links.get.ts), which parses
+    data/external_links_final.csv written by scripts/build/processMarkdown.mjs.
+    Plain SSR (no routeRule), so it reflects the CSV on the VPS checkout.
+  @gotchas The API drops drafts/ sources. Source links assume /blog/<source>.
+-->
 <script setup>
+// ── Data loading ────────────────────────────────────────────
 // Fetch data first
 const { data } = await useAsyncData('external-links', async () => {
   try {
@@ -9,9 +19,11 @@ const { data } = await useAsyncData('external-links', async () => {
   }
 })
 
+// `|| []` also covers the API's bare `[]` reply when the CSV is missing.
 const links = computed(() => data.value?.links || [])
 const stats = computed(() => data.value?.stats || null)
 
+// ── Filtering + grouping ────────────────────────────────────
 // UI state
 const search = ref('')
 const selectedTld = ref('all')
@@ -63,7 +75,8 @@ const sortedDomains = computed(() => {
   return domains.sort((a, b) => a.domain.localeCompare(b.domain))
 })
 
-// Visible domains (limited unless showAll)
+// Visible domains (limited unless showAll). Searching lifts the 25 cap so a
+// match is never hidden behind "Show all".
 const visibleDomains = computed(() => {
   if (showAllDomains.value || search.value) {
     return sortedDomains.value
@@ -71,6 +84,9 @@ const visibleDomains = computed(() => {
   return sortedDomains.value.slice(0, 25)
 })
 
+// ── Expand / collapse ───────────────────────────────────────
+// Each mutation also reassigns a fresh Set, which guarantees the ref itself
+// changes (any watcher on expandedDomains fires), not just its contents.
 const expandAll = () => {
   sortedDomains.value.forEach((d) => expandedDomains.value.add(d.domain))
   expandedDomains.value = new Set(expandedDomains.value)
@@ -97,7 +113,8 @@ const getYear = (source) => {
   return match ? match[1] : null
 }
 
-// Calculate TLD bar height
+// Calculate TLD bar height: 20px floor so small TLDs stay clickable, 60px
+// for the biggest (tldBreakdown arrives sorted, so [0] is the max).
 const tldHeight = (count) => {
   const max = stats.value?.tldBreakdown?.[0]?.count || 1
   return `${Math.max(20, (count / max) * 60)}px`
@@ -113,6 +130,7 @@ const toggleDomain = (domain) => {
   expandedDomains.value = new Set(expandedDomains.value)
 }
 
+// ── SEO ─────────────────────────────────────────────────────
 usePageSeo({
   title: 'External Links - Citation Index',
   description:
@@ -134,6 +152,7 @@ usePageSeo({
       </p>
     </header>
 
+    <!-- ── Overview: stats, top domains, TLDs ─────────── -->
     <!-- Top Stats Dashboard -->
     <section v-if="stats" class="mb-12 grid grid-cols-3 gap-4">
       <div class="stat-card">
@@ -193,7 +212,7 @@ usePageSeo({
       </div>
     </section>
 
-    <!-- Filters & Controls -->
+    <!-- ── Filters & Controls ─────────── -->
     <section class="filters-section">
       <div class="search-wrapper">
         <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
@@ -241,7 +260,7 @@ usePageSeo({
       </span>
     </div>
 
-    <!-- Domain List -->
+    <!-- ── Domain List ─────────── -->
     <div class="space-y-2">
       <div
         v-for="d in visibleDomains"
@@ -351,6 +370,7 @@ usePageSeo({
 </template>
 
 <style scoped>
+/* ── Overview + domain list ──────── */
 .stat-card {
   @apply py-2;
 }
@@ -433,7 +453,7 @@ usePageSeo({
   @apply hover:text-zinc-700 dark:hover:text-zinc-300;
 }
 
-/* Filters Section */
+/* ── Filters Section ──────── */
 .filters-section {
   @apply mb-8 space-y-3;
 }

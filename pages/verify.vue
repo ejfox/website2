@@ -1,3 +1,10 @@
+<!--
+  @file verify.vue
+  @description /verify: PGP fingerprint, rel="me" accounts and the identity
+    proofs served from this domain (public/keybase.txt, webfinger,
+    security.txt). Static page, no data fetch. SSR.
+    FINGERPRINT is duplicated in pages/tips.vue; keep them identical.
+-->
 <script setup lang="ts">
 // Everything on this page is already published elsewhere on ejfox.com
 // (/pgp.txt, /keybase.txt, webfinger, the footer's rel="me" links). Keep it

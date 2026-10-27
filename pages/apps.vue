@@ -1,3 +1,10 @@
+<!--
+  @file apps.vue
+  @description /apps: one row per app EJ has made, with store/source links.
+    Data: /api/apps (server/api/apps.get.ts) = data/apps.json plus live App
+    Store version/icon, cached 6h server-side. SSR. Each row links to
+    /projects/<slug>, so an app needs a matching project page.
+-->
 <script setup>
 // The apps, from data/apps.json via /api/apps (which adds the live App Store
 // version and icon). One row per app; the button says exactly where you can

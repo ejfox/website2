@@ -1,3 +1,10 @@
+<!--
+  @file updates.vue
+  @description /updates: hand-written "What's New" timeline of notable site
+    changes. Data is data/updates.json, bundled at build time (no fetch), so
+    a new entry needs a deploy. SSR.
+    The commit-by-commit view is /changelog (pages/changelog.vue).
+-->
 <script setup lang="ts">
 import updatesData from '~/data/updates.json'
 import { formatPeriodLabel } from '~/utils/date'

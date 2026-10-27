@@ -1,8 +1,19 @@
+<!--
+  @file hand-drawn.vue
+  @description /hand-drawn: specimen + usage showcase for the hand-drawn mark
+    kit (components/hand-drawn/). Marks come from public/hand-drawn/sprite.svg,
+    catalogued by assets/hand-drawn/manifest.json; post counts from /api/manifest.
+    Plain SSR (not prerendered); listed in sitemap.xml.
+  @gotchas Most demo figures are hardcoded copy; only pluginLines, manifest.length
+    and the blog word/post counts are computed. Click a gallery tile to copy
+    its <HandDrawn> tag.
+-->
 <script setup>
 import { computed, ref, h } from 'vue'
 import manifest from '~/assets/hand-drawn/manifest.json'
 import sidenotesPluginSrc from '~/plugins/footnotes-to-sidenotes.client.ts?raw'
 
+// ── Live figures ────────────────────────────────────────────
 // counted from the real files, so the figures can't go stale
 const pluginLines = sidenotesPluginSrc.trimEnd().split('\n').length
 const { data: siteManifest } = await useFetch('/api/manifest')
@@ -16,6 +27,7 @@ const blogWords = computed(() =>
 )
 const fmt = (n) => n.toLocaleString('en-US')
 
+// ── Demo layout helper ──────────────────────────────────────
 // tiny inline layout helper for the demo blocks (keeps the template readable).
 // `stacked` puts the label above a full-width body — for demos that need room
 // (rich marked-up prose, charts) rather than the narrow side-by-side column.
@@ -62,6 +74,7 @@ const Demo = (props, { slots }) => {
 // typed (not array) so a bare `stacked` attribute coerces to true
 Demo.props = { n: String, title: String, blurb: String, stacked: Boolean }
 
+// ── Demo copy ───────────────────────────────────────────────
 const steps = [
   'Write in Obsidian with YAML frontmatter and tags.',
   'Process with yarn blog:process into structured JSON.',
@@ -95,6 +108,7 @@ const blurbAutomatic =
 const blurbHdDirective =
   'Drop a specific mark exactly where you want it, right in the markdown. Mirrors your :prediction / ::gear directives.'
 
+// ── "In the wild" scenes: trend chart ───────────────────────
 // --- "in the wild" realistic scenes ---
 // a little analytics area chart with a launch spike to annotate
 const TR = { w: 480, h: 150, pad: 12 }
@@ -119,6 +133,7 @@ const trendPath = computed(() => {
   const area = `${line} L${trendXY(n - 1).x.toFixed(1)} ${TR.h - TR.pad} L${trendXY(0).x.toFixed(1)} ${TR.h - TR.pad} Z`
   return { line, area }
 })
+// As % of the viewBox, so the HTML annotation overlay tracks the SVG as it scales.
 const trendSpike = computed(() => {
   const p = trendXY(TREND_SPIKE)
   return {
@@ -143,6 +158,7 @@ const releases = [
   { title: 'MCP meta-map', from: '4,096 dimensions', to: '2' },
 ]
 
+// ── The complete kit ────────────────────────────────────────
 // ===== THE COMPLETE KIT — a real example of every asset (repeating real data is fine) =====
 
 // arrows grouped by the direction they actually point, each on a real move.
@@ -222,6 +238,7 @@ const toolReqs = [
 const groupDigits = (str) => {
   const out = []
   for (let i = 0; i < str.length; i++) {
+    // comma before digit i when the digits left after it are a multiple of 3
     if (i > 0 && (str.length - i) % 3 === 0) out.push(',')
     out.push(str[i])
   }
@@ -333,7 +350,9 @@ const starFlags = [
   ['star-4pt-2', 'note to future me'],
 ]
 
+// ── Dataviz-annotation bar chart ────────────────────────────
 // little bar chart for the dataviz-annotation demo
+// viewBox units: base = baseline y, top = tallest bar's y, left = side margin
 const CH = { w: 560, h: 220, base: 190, top: 30, left: 28 }
 const chartData = [3, 5, 4, 8, 6, 9, 5, 7]
 const bars = computed(() => {
@@ -356,6 +375,7 @@ const note = computed(() => {
   return { cx: b.cx, cy: (b.y + CH.base) / 2 }
 })
 
+// ── Library taxonomy + copy-to-clipboard ────────────────────
 // taxonomy: group -> ordered subgroups. Anything unlisted falls to the end.
 const groupLabels = {
   arrows: 'Arrows',
@@ -462,6 +482,7 @@ useHead({
         </p>
       </header>
 
+      <!-- ── Integration demos ─────────── -->
       <!-- ===== INTEGRATION DEMOS ===== -->
       <section class="space-y-24 mb-28">
         <!-- 1. footnote / sidenote markers -->
@@ -624,6 +645,7 @@ useHead({
         </Demo>
       </section>
 
+      <!-- ── Organic usage ─────────── -->
       <!-- ===== ORGANIC USAGE: how they actually weave in ===== -->
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">Weaving them in</h2>
@@ -745,6 +767,7 @@ then read the logs and move on.</code></pre>
         </div>
       </section>
 
+      <!-- ── In the wild ─────────── -->
       <!-- ===== IN THE WILD: realistic scenes ===== -->
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">In the wild</h2>
@@ -898,6 +921,7 @@ then read the logs and move on.</code></pre>
         </div>
       </section>
 
+      <!-- ── From the archive ─────────── -->
       <!-- ===== STRAIGHT FROM THE ARCHIVE: real lines, marked up ===== -->
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">Straight from the archive</h2>
@@ -1026,6 +1050,7 @@ then read the logs and move on.</code></pre>
         </div>
       </section>
 
+      <!-- ── Complete kit ─────────── -->
       <!-- ===== THE COMPLETE KIT: a real example of every asset ===== -->
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">The complete kit, in use</h2>
@@ -1518,6 +1543,7 @@ then read the logs and move on.</code></pre>
         </div>
       </section>
 
+      <!-- ── Full library (click to copy) ─────────── -->
       <!-- ===== FULL LIBRARY ===== -->
       <section>
         <h2 class="text-2xl font-semibold mb-2">The library</h2>
@@ -1572,6 +1598,7 @@ then read the logs and move on.</code></pre>
 </template>
 
 <style scoped>
+/* ── Gallery hover ──────── */
 /* little life on hover — gallery tiles get a hand-jitter */
 .gallery-tile :deep(.hand-drawn) {
   transition: transform 0.18s ease;

@@ -1,4 +1,13 @@
+<!--
+  @file process.vue
+  @description /process: "How I Work", consulting process copy (principles,
+    anti-patterns, questions, timeline) with a booking CTA. All copy is
+    inline below, no data fetch. SSR.
+    The "Book a Call" link carries the consulting-book Umami event
+    (location=process); see CLAUDE.md "Umami funnel events".
+-->
 <script setup lang="ts">
+// ── Copy ────────────────────────────────────────────────────
 const principles = [
   {
     title: 'Prototypes over presentations',

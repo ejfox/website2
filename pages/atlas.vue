@@ -1,4 +1,17 @@
+<!--
+  @file atlas.vue
+  @description /atlas: Valley Atlas, a full-screen MapLibre map of the Hudson
+    Valley. Overlays: /api/atlas (rides, OSM places, repeaters) plus the layer
+    modules in utils/atlas/layers/* (most fetch their own /api/atlas/* route;
+    notes and records import data/atlas/*.json).
+    Story mode reads data/atlas/story.json. Client-only (`ssr: false` in
+    nuxt.config.ts routeRules), noindex, layout: false.
+  @gotchas Private layers only load when /api/atlas/private/status says this
+    browser unlocked private mode (cookie; /api/atlas/lock clears it). Layer
+    toggles find map layers by id, so LAYERS[].ids must match addLayer ids.
+-->
 <script setup lang="ts">
+// ── Setup ───────────────────────────────────────────────────
 // Valley Atlas v0 — one map of the Hudson Valley, layered from things already
 // built: terrain, the published rides, OSM water/shelter/emergency points, and
 // the repeater list. Hidden like /kitchen-sink until EJ signs off.
@@ -42,6 +55,8 @@ const TERRAIN_URL =
 // so a rare non-Latin glyph renders blank rather than breaking the map.
 const ASSETS = 'https://pub-d198c0af42af471bb2e755ad4a268050.r2.dev/assets'
 
+// The vulpes palette (EJ's device/terminal identity), not the site tokens:
+// the atlas is dark-only and styles itself in scoped CSS below.
 const VULPES = {
   ground: '#0c0a0d',
   magenta: '#e60067',
@@ -50,6 +65,7 @@ const VULPES = {
   muted: '#80767d',
 }
 
+// ── Layer toggles ───────────────────────────────────────────
 // Each toggle names the map layers it controls; `count` fills in once data loads
 const LAYERS = reactive([
   {
@@ -141,6 +157,7 @@ const MODULES: AtlasLayerModule[] = [
   privateLayer,
 ]
 
+// ── State ───────────────────────────────────────────────────
 const mapEl = ref<HTMLDivElement | null>(null)
 const is3d = ref(false)
 const privateMode = ref(false)
@@ -155,6 +172,8 @@ const reducedMotion = usePreferredReducedMotion()
 let map: maplibregl.Map | null = null
 const error = ref('')
 
+// Popups use setHTML, and feature properties come from OSM / listings data,
+// so every interpolated value goes through this.
 const escapeHtml = (s: string) =>
   s.replace(
     /[&<>"']/g,
@@ -181,6 +200,9 @@ const repeaterHtml = (p: Record<string, string>) => {
   return `${escapeHtml(prog)}${p.notes ? `<br>${escapeHtml(p.notes)}` : ''}${src}`
 }
 
+// ── Map helpers ─────────────────────────────────────────────
+// getLayer guard: toggles can exist before their layers do (data still
+// loading, or a module that failed), and setLayoutProperty throws on a miss.
 const applyVisibility = () => {
   if (!map) return
   for (const l of LAYERS)
@@ -215,15 +237,18 @@ const set3d = (on: boolean, animate = true) => {
     'horizon-fog-blend': 0.5,
     'fog-ground-blend': on ? 0.4 : 1,
   })
+  // animate=false: the caller (story chapters) moves the camera itself
   if (!animate) return
   if (on && map.getPitch() < 30) map.easeTo({ pitch: 62, duration: 900 })
   if (!on) map.easeTo({ pitch: 0, bearing: 0, duration: 700 })
 }
 
+// ── Story mode ──────────────────────────────────────────────
 const goChapter = (i: number) => {
   if (!map || i < 0 || i >= chapters.length) return
   storyIdx.value = i
   const c = chapters[i]
+  // Chapters only turn layers on, never off, so a reader's own toggles survive
   for (const l of LAYERS) if (c.layers?.includes(l.key)) l.on = true
   const tilt = (c.camera.pitch ?? 0) > 0
   if (tilt !== is3d.value) set3d(tilt, false)
@@ -245,10 +270,12 @@ useEventListener('keydown', (e: KeyboardEvent) => {
   else if (e.key === 'Escape') closeStory()
 })
 
+// ── Map init ────────────────────────────────────────────────
 onMounted(async () => {
   maplibregl.setWorkerUrl(maplibreWorkerUrl)
   const pmtiles = new Protocol()
   maplibregl.addProtocol('pmtiles', pmtiles.tile)
+  // maplibre-contour: computes contour lines from the DEM tiles in a worker
   const dem = new mlcontour.DemSource({
     url: TERRAIN_URL,
     encoding: 'terrarium',
@@ -278,6 +305,7 @@ onMounted(async () => {
     center: [-73.97, 41.6],
     zoom: 9.2,
     hash: true, // position lives in the URL, so a view can be shared
+    // Roughly the basemap extract's extent; past it there are no tiles
     maxBounds: [
       [-75.6, 40.7],
       [-72.6, 42.9],
@@ -300,10 +328,14 @@ onMounted(async () => {
     'bottom-right'
   )
 
+  // Fetched before the 'load' listener is attached: this relies on the style
+  // (pmtiles, glyphs, sprites) taking longer than /api/atlas, since MapLibre
+  // doesn't replay 'load' to late listeners.
   const data = await $fetch<any>('/api/atlas').catch(() => null)
 
   map.on('load', async () => {
     const m = map!
+    // Overlays insert below the first symbol layer so place labels stay on top
     const beforeLabels = m
       .getStyle()
       .layers.find((l) => l.type === 'symbol')?.id
@@ -343,6 +375,8 @@ onMounted(async () => {
       tiles: [
         dem.contourProtocolUrl({
           multiplier: 3.28084, // feet
+          // zoom → [minor, major] contour interval in feet; major lines are
+          // level 1 (drawn brighter, and the only ones labelled)
           thresholds: {
             10: [500, 1000],
             11: [200, 1000],
@@ -393,6 +427,7 @@ onMounted(async () => {
       },
     })
 
+    // ── Built-in overlays (/api/atlas) ──
     if (data) {
       m.addSource('rides', { type: 'geojson', data: data.rides })
       m.addLayer({
@@ -407,6 +442,7 @@ onMounted(async () => {
         },
       })
 
+      // One 'places' source, one filtered circle layer per category (`cat`)
       m.addSource('places', { type: 'geojson', data: data.places })
       for (const l of LAYERS) {
         if (
@@ -510,6 +546,8 @@ onMounted(async () => {
       error.value = 'Overlay data failed to load'
     }
 
+    // ── Layer modules ──
+    // Shared helpers handed to each module's add()
     const ctx = {
       beforeLabels,
       escapeHtml,
@@ -525,6 +563,8 @@ onMounted(async () => {
       .then((r) => r.private)
       .catch(() => false)
     const modules = MODULES.filter((mod) => !mod.private || privateMode.value)
+    // Sequential, each in its own try: one failing module (a dead upstream
+    // API) logs and is skipped instead of taking the rest of the map down.
     for (const mod of modules) {
       for (const t of mod.toggles) LAYERS.push({ ...t, count: null })
       try {
@@ -541,6 +581,8 @@ onMounted(async () => {
   })
 })
 
+// ── Teardown ────────────────────────────────────────────────
+// dispose() stops polling timers (the live layer's setInterval) before the map goes
 onBeforeUnmount(() => {
   for (const mod of MODULES) mod.dispose?.()
   map?.remove()
@@ -550,6 +592,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="atlas">
     <div ref="mapEl" class="map" />
+    <!-- ── Side panel: title, story, 2D/3D, layer toggles ─────────── -->
     <aside class="panel">
       <p class="eyebrow">Hudson Valley · v0</p>
       <h1>Valley Atlas</h1>
@@ -604,6 +647,7 @@ onBeforeUnmount(() => {
       </p>
     </aside>
 
+    <!-- ── Story card ─────────── -->
     <section v-if="chapter" class="story" aria-live="polite">
       <p class="story-meta">
         {{ storyIdx! + 1 }} / {{ chapters.length }} · {{ chapter.place }}
@@ -640,6 +684,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+/* ── Shell + panel ──────── */
 .atlas {
   position: fixed;
   inset: 0;
@@ -701,6 +746,7 @@ h1 {
   outline: 2px solid #6eedf7;
   outline-offset: 2px;
 }
+/* ── Story card ──────── */
 .story {
   position: absolute;
   left: 50%;
@@ -789,6 +835,7 @@ h1 {
     max-height: 40vh;
   }
 }
+/* ── View modes + layer list ──────── */
 .modes {
   display: flex;
   gap: 6px;
@@ -864,6 +911,7 @@ h1 {
   line-height: 1.5;
   color: #80767d;
 }
+/* ── Popups: :deep because MapLibre mounts them outside this component ──────── */
 :deep(.atlas-popup .maplibregl-popup-content) {
   background: #0c0a0d;
   color: #e9e4e7;

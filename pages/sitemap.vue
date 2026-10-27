@@ -1,10 +1,22 @@
+<!--
+  @file sitemap.vue
+  @description /sitemap: human-readable map of every public page, plus
+    post/project/reading/tag counts and the 10 newest posts. Data:
+    /api/manifest (server/api/manifest.ts) and /tags.json
+    (server/routes/tags.json.ts). The link list itself is hand-kept below.
+  @gotchas Prerendered in production (PRERENDERED_ROUTES in nuxt.config.ts),
+    so counts and "Updated" freeze at build time. The section list must stay
+    in step with STATIC_SECTIONS in server/routes/sitemap.xml.ts.
+-->
 <script setup>
+// ── Data loading ────────────────────────────────────────────
 // Fetch blog posts from manifest
 const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 
 // Fetch tags for counting
 const { data: tags, error: tagsError } = await useFetch('/tags.json')
 
+// ── Counts ──────────────────────────────────────────────────
 // One manifest, three kinds of thing. Mirrors isSpecialSection in
 // server/utils/sitemapEntries.ts so these counts match /sitemap.xml.
 const kindOf = (slug = '') => {
@@ -48,6 +60,8 @@ const yearsActive = computed(() =>
     : 0
 )
 
+// "!"-prefixed tags are the special/system tags (see tags.json ordering),
+// not topics, so they aren't counted.
 const totalTags = computed(() => {
   if (!tags.value || !Array.isArray(tags.value)) return 0
   return tags.value.filter(
@@ -57,6 +71,7 @@ const totalTags = computed(() => {
 
 const withCount = (n, noun) => (n ? `${n} ${noun}` : '')
 
+// ── Section list ────────────────────────────────────────────
 // Every public page, grouped. Keep in step with STATIC_SECTIONS in
 // server/routes/sitemap.xml.ts. Noindex pages (/ff, /live, /atlas,
 // /api-docs, /kitchen-sink) never go here.
@@ -322,6 +337,7 @@ const sections = computed(() => [
   },
 ])
 
+// ── SEO ─────────────────────────────────────────────────────
 usePageSeo({
   title: 'Site Map | ejfox.com',
   description:
@@ -349,7 +365,7 @@ usePageSeo({
       </div>
     </header>
 
-    <!-- Navigation sections -->
+    <!-- ── Navigation sections ─────────── -->
     <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
       <section v-for="section in sections" :key="section.name">
         <div class="sitemap-section-header">{{ section.name }}</div>
@@ -378,7 +394,7 @@ usePageSeo({
       Failed to load data
     </div>
 
-    <!-- Dynamic Content Section -->
+    <!-- ── Dynamic Content Section ─────────── -->
     <div v-else class="mt-16 space-y-8">
       <!-- Recent Blog Posts -->
       <section v-if="recentPosts.length">
@@ -439,7 +455,7 @@ usePageSeo({
       </section>
     </div>
 
-    <!-- Footer info -->
+    <!-- ── Footer info ─────────── -->
     <footer class="mt-16 pt-8">
       <div class="text-xs text-zinc-500 space-y-2">
         <p>

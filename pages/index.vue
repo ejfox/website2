@@ -1,3 +1,13 @@
+<!--
+  @file index.vue
+  @description / (homepage): renders the processed content/blog/index.md, then
+    a footer with this week's words + commits and a "wrote something today"
+    link. Data: useProcessedMarkdown() (manifest + index JSON) and
+    /api/github. SSR per request (LIVE_LISTINGS in nuxt.config.ts), not
+    prerendered. Homepage redesigns have been rejected; change copy in
+    index.md, not here.
+    Gotcha: "today" and the INDEX date use UTC (toISOString), not Eastern.
+-->
 <script setup>
 const NextAvailableSlot = defineAsyncComponent(
   () => import('~/components/NextAvailableSlot.vue')
@@ -23,6 +33,8 @@ const { data: todaysPost } = await useAsyncData('todays-post', async () => {
 })
 
 const { data: weeklyPulse } = await useAsyncData('weekly-pulse', async () => {
+  // Week starts Sunday 00:00 (getDay() === 0) in the local zone of whatever
+  // runs this: the server on first load, the browser on client navigation.
   const now = new Date()
   const startOfWeek = new Date(now)
   startOfWeek.setDate(now.getDate() - now.getDay())
@@ -56,7 +68,10 @@ const { data: weeklyPulse } = await useAsyncData('weekly-pulse', async () => {
   return { wordsThisWeek, commits, projectNames }
 })
 
-// Mount dynamic calendar component into placeholder rendered by v-html
+// Mount dynamic calendar component into placeholder rendered by v-html.
+// The <span id="next-available-spot"> lives in content/blog/index.md; delete
+// it there and the slot silently never mounts. Client-only, because the
+// target only exists once v-html has rendered in the DOM.
 const calendarSlotMounted = ref(false)
 onMounted(() => {
   // Wait for v-html to render before teleporting into it

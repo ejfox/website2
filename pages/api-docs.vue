@@ -1,3 +1,11 @@
+<!--
+  @file api-docs.vue
+  @description /api-docs: hidden, filterable list of every server API route
+    with method, callers, deps and health. Data: utils/apiCatalog.ts, bundled
+    (no fetch). The same catalog feeds /openapi.json
+    (server/routes/openapi.json.ts). SSR, layout:false, noindex.
+    A new API route needs a catalog entry, or api-catalog.test.ts fails.
+-->
 <script setup lang="ts">
 // Private, OpenAPI-style browser for every server API route. Hidden like
 // /kitchen-sink: layout:false, noindex (meta here + X-Robots-Tag in nuxt.config),

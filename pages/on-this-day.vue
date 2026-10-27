@@ -1,4 +1,15 @@
+<!--
+  @file on-this-day.vue
+  @description /on-this-day: posts, commits, tweets and scrobbles from this
+    calendar day in past years. ?month=&day= picks another day. Data:
+    /api/on-this-day (server/api/on-this-day.get.ts), which reads
+    data/on-this-day/<MM-DD>.json.
+    Gotcha: prerendered (PRERENDERED_ROUTES in nuxt.config.ts), so the HTML
+    holds the build day's entries and ignores the query string; the browser
+    recomputes month/day from route.query or its own clock.
+-->
 <script setup lang="ts">
+// ── Types ───────────────────────────────────────────────────
 interface Post {
   slug: string
   title: string
@@ -42,6 +53,7 @@ interface OnThisDayResponse {
   [key: string]: unknown // For total_* dynamic keys
 }
 
+// ── Date + data ─────────────────────────────────────────────
 const route = useRoute()
 
 // Source type labels for summary
@@ -91,7 +103,9 @@ const formattedDate = computed(() => {
   return `${months[currentMonth.value - 1]} ${currentDay.value}`
 })
 
-// Auto-generate summary from totals
+// ── Summary ─────────────────────────────────────────────────
+// Auto-generate summary from totals. The API returns one total_<source>
+// key per source; a source missing from sourceLabels is silently skipped.
 const summaryText = computed(() => {
   if (!data.value) return ''
   const parts: string[] = []
@@ -118,6 +132,7 @@ const yearsAgo = (year: number) => {
   return `${diff} years ago`
 }
 
+// ── SEO + JSON-LD ───────────────────────────────────────────
 // SEO
 usePageSeo({
   // This page renders its own JSON-LD below; don't add a second one.
@@ -189,7 +204,7 @@ useHead(() => ({
       Nothing recorded on this day.
     </p>
 
-    <!-- Timeline by year -->
+    <!-- ── Timeline by year ─────────── -->
     <div v-else>
       <section v-for="yearData in data.years" :key="yearData.year" class="mb-8">
         <!-- Year header -->

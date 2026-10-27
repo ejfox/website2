@@ -1,3 +1,13 @@
+<!--
+  @file calendar.vue
+  @description /calendar: full-bleed Cal.com booking page (default event
+    ejfox/30min) with one-click "next open" quick picks and a curl/jq recipe.
+    Data: /api/cal/available-slots (server/api/cal/available-slots.get.ts),
+    client-only fetch. Embed loader: utils/calEmbed.ts. SSR shell with
+    CACHE_DYNAMIC (nuxt.config.ts), layout:false; the embed is ClientOnly.
+    URL params (?date ?month ?duration ?type ?name ?email) are documented at
+    buildConfig() below. Sibling page: pages/ff.vue.
+-->
 <script setup>
 import { loadCalInline } from '~/utils/calEmbed'
 
@@ -9,6 +19,7 @@ definePageMeta({ layout: false })
 
 const route = useRoute()
 
+// ── SEO + agent-readable booking action ─────────────────────
 usePageSeo({
   title: 'Book time with EJ Fox | Calendar',
   description:
@@ -47,6 +58,7 @@ useHead({
   ],
 })
 
+// ── Embed config (URL params) ───────────────────────────────
 // Hidden URL deep-linking. cal.com's embed is a cross-origin iframe we can only
 // DRIVE, not read — so there's no visible picker. Instead, the URL is the API:
 // someone shares /calendar?date=YYYY-MM-DD and the embed opens on that day.
@@ -84,6 +96,7 @@ function mountCal(calLink, namespace, overrides) {
   })
 }
 
+// ── Quick picks ─────────────────────────────────────────────
 // Quick picks: the earliest slot on each of the next 3 open days, so booking
 // can be one click → the name/email form. Only for the default event type
 // (the endpoint reads ejfox/30min); a custom ?type= keeps the plain calendar.
@@ -138,6 +151,7 @@ function pickSlot(slot) {
   embed.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
+// ── Mount + ?type= fallback ─────────────────────────────────
 onMounted(() => {
   const requested = route.query.type
     ? `ejfox/${route.query.type}`
@@ -209,6 +223,7 @@ onMounted(() => {
         calendar instead.
       </p>
 
+      <!-- ── Quick picks + embed (client-only) ─────────── -->
       <ClientOnly>
         <div
           v-if="showQuickSlots && quick.slots?.length"
@@ -237,6 +252,7 @@ onMounted(() => {
         </template>
       </ClientOnly>
 
+      <!-- ── curl recipe ─────────── -->
       <section class="api-section">
         <h2>curl my availability</h2>
         <p class="api-note">Super-vanilla (no deps):</p>
@@ -261,6 +277,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* ── Header ──────── */
 .cal-header {
   @apply mb-8;
 }
@@ -275,6 +292,7 @@ onMounted(() => {
   @apply mt-2 max-w-prose font-serif text-base text-zinc-600 dark:text-zinc-300;
 }
 
+/* ── Quick picks ──────── */
 .quick-slots {
   @apply mb-6 grid max-w-xl grid-cols-1 gap-2 sm:grid-cols-3;
 }
@@ -295,6 +313,7 @@ onMounted(() => {
   @apply font-mono text-sm;
 }
 
+/* ── Embed ──────── */
 .cal-embed-container {
   @apply w-full overflow-auto;
   /* Sized to the loaded desktop widget (~570px), NOT a viewport fraction:
@@ -317,6 +336,7 @@ onMounted(() => {
   @apply mb-4 font-mono text-2xs text-amber-600 dark:text-amber-400;
 }
 
+/* ── curl recipe ──────── */
 .api-section {
   @apply mx-auto mt-12 max-w-2xl border-t pt-8;
   @apply border-zinc-200 dark:border-zinc-800;

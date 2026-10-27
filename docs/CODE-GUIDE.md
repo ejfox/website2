@@ -58,7 +58,8 @@ doc when there is one.
 ## 4. Don't
 
 - Don't rename, move or delete files to "organize" them. Page filenames are
-  public URLs (`check-urls` guards them), component filenames are auto-import
+  public URLs (and nothing guards them: `check-urls` only covers post routes,
+  so a rename needs a 301 in `nuxt.config.ts` routeRules), component filenames are auto-import
   names (templates + `utils/kitchenSinkStories.js` keys), and server routes
   are pinned by `server/api/__tests__/no-orphan-routes.test.ts`.
 - Don't write local absolute paths (`/Users/...`). Use `~/` or repo-relative.

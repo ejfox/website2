@@ -1,4 +1,16 @@
 <!-- eslint-disable max-len, vue/max-len -->
+<!--
+  @file consulting.vue
+  @description /consulting: the hire-me sales page. Scroll-scrubbed Cloudinary
+    video behind the hero, client logos (public/logos/), engagements, FAQ and an
+    inline Cal.com booking embed. Data: /api/consulting-availability (SSR, reads
+    data/consulting-availability.json) and /api/cal/available-slots (client-only
+    lazy fetch). SSR, no special routeRule.
+  @gotchas Sidebar status is teleported into #nav-toc-container, which lives in
+    layouts/default.vue. Booking links carry first-touch UTM params
+    (utils/firstTouch.ts); CTAs fire the `consulting-book` Umami event.
+    Copy is EJ's voice: don't cut quotes, credits or client names without asking.
+-->
 <script setup lang="ts">
 import {
   useDark,
@@ -8,9 +20,7 @@ import {
 } from '@vueuse/core'
 import { calParams, readFirstTouch } from '~/utils/firstTouch'
 
-// ============================================
-// VIDEO BACKGROUND CONFIG - TWEAK THESE
-// ============================================
+// ── Video background config (tweak these) ───────────────────
 const VIDEO_CONFIG = {
   // Video source - Cloudinary optimized (f_auto=WebM/MP4, q_auto, vc_auto codec)
   src: 'https://res.cloudinary.com/ejf/video/upload/f_auto,q_auto,vc_auto/v1730768430/Connectology_Demo01',
@@ -18,7 +28,9 @@ const VIDEO_CONFIG = {
   // Scroll-driven playback
   scrollDriven: true, // true = NYT-style scroll scrub, false = autoplay loop
   scrollStart: 15, // px: start scrubbing video at this scroll position
-  scrollEnd: 3000, // px: video reaches end at this scroll position
+  scrollEnd: 3000, // px: scrub progress hits 100% at this scroll position
+  // Fraction of the clip the full scroll range covers: at 0.2 the video only
+  // ever plays its first 20%, reached at scrollEnd.
   speedMultiplier: 0.2, // lower = slower video relative to scroll (0.4 = 40% speed)
 
   // Inertia easing (anime.js)
@@ -34,8 +46,8 @@ const VIDEO_CONFIG = {
   // Overlay
   overlayOpacity: 70, // percent: darkness of overlay (0-100)
 }
-// ============================================
 
+// ── Scroll-scrubbed video ───────────────────────────────────
 const isDark = useDark()
 
 // Scroll-powered video background
@@ -54,6 +66,7 @@ watch(scrollY, async (scroll) => {
   if (!scrollDriven.value || !videoRef.value) return
 
   const video = videoRef.value
+  // duration is NaN until metadata loads; scrolling before that is a no-op
   if (!video.duration) return
 
   // Calculate target time
@@ -70,8 +83,10 @@ watch(scrollY, async (scroll) => {
 
   // Use anime.js v4 for smooth inertia
   if (import.meta.client) {
+    // Runs per scroll event; after the first call the import is a cached module
     const { animate } = await import('animejs')
 
+    // Retarget instead of queueing: kill the in-flight tween, start from here
     if (currentAnimation) currentAnimation.pause()
 
     currentAnimation = animate(videoState, {
@@ -100,6 +115,7 @@ const videoOpacity = computed(() => {
   return 0
 })
 
+// ── Availability data ───────────────────────────────────────
 // Consulting availability (hand-edited JSON)
 interface ConsultingAvailability {
   currentQuarter: { name: string; status: string; message: string }
@@ -114,6 +130,8 @@ interface ConsultingAvailability {
 const { data: availability } = await useFetch<ConsultingAvailability>(
   '/api/consulting-availability',
   {
+    // Placeholder shape, used only when the fetch fails; the quarter names
+    // are not kept current
     default: () => ({
       currentQuarter: {
         name: 'Q1 2025',
@@ -163,6 +181,7 @@ const availabilityLine = computed(() => {
   return 'Taking new clients'
 })
 
+// ── Cal.com embed + sidebar ─────────────────────────────────
 // Track when #book section is visible — hide floating CTA
 const bookSection = ref<HTMLElement | null>(null)
 const bookVisible = useElementVisibility(bookSection)
@@ -173,11 +192,15 @@ const tocTarget = ref<Element | null>(null)
 // Cal.com embed initialization + sidebar setup
 onMounted(() => {
   initCalEmbed()
+  // The sidebar Teleport renders only once this finds the layout's target
+  // (v-if="tocTarget"); teleporting to a missing selector would warn.
   nextTick(() => {
     tocTarget.value = document.querySelector('#nav-toc-container')
   })
 })
 
+// The IIFE below is Cal.com's official embed loader snippet, typed just
+// enough to compile. It stubs window.Cal to queue calls until embed.js loads.
 function initCalEmbed() {
   if (!import.meta.client)
     return /* eslint-disable prefer-rest-params, @typescript-eslint/no-unused-expressions */
@@ -250,9 +273,9 @@ function updateCalTheme() {
   })
 }
 
-// ============================================
-// CLIENT LOGOS - Clean professional grid
-// ============================================
+// ── Page content: logos, specialties, SEO ───────────────────
+// Logo files live in public/logos/. Never add NDA clients here (see the
+// "companies I can't name" line in the template).
 const CLIENT_LOGOS = [
   { name: 'NBC News', logo: '/logos/nbc-news.svg' },
   { name: 'MSNBC', logo: '/logos/msnbc.svg' },
@@ -307,6 +330,8 @@ usePageSeo({
 
 <template>
   <div class="bg-transparent">
+    <!-- ── Video background ─────────── -->
+    <!-- Fixed behind the content; hidden below md (see .video-container) -->
     <!-- Video Background -->
     <div class="video-container" :style="{ opacity: videoOpacity }">
       <video
@@ -326,6 +351,7 @@ usePageSeo({
       />
     </div>
 
+    <!-- ── Main column ─────────── -->
     <div data-page-main class="container-main pt-8 max-w-2xl relative z-10">
       <!-- Hero -->
       <header class="section">
@@ -600,6 +626,7 @@ usePageSeo({
       </section>
 
       <!-- Book a Call -->
+      <!-- #cal-inline-embed is filled by initCalEmbed(); the id is load-bearing -->
       <section id="book" ref="bookSection" class="section scroll-mt-24">
         <p class="section-label-lg">Let's talk</p>
         <p class="caption mb-6">
@@ -619,6 +646,7 @@ usePageSeo({
       </footer>
     </div>
 
+    <!-- ── Floating CTA + sidebar ─────────── -->
     <!-- Floating CTA - visible between hero and booking section -->
     <Transition name="cta-fade">
       <a
@@ -634,6 +662,7 @@ usePageSeo({
     </Transition>
 
     <!-- Sidebar: Availability + CTA -->
+    <!-- ClientOnly: the teleport target is looked up in onMounted, so SSR has none -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="sidebar-availability">

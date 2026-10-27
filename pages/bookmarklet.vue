@@ -1,3 +1,14 @@
+<!--
+  @file bookmarklet.vue
+  @description /bookmarklet: setup page that builds a personal Pinboard
+    bookmarklet. The bookmarklet opens /bookmarklet-popup
+    (pages/bookmarklet-popup.vue), which suggests tags and hands off to
+    Pinboard. No data fetch here; the passphrase is typed in and baked into
+    the generated javascript: URL client-side, never sent from this page.
+    SSR, layouts/bookmarklet.vue, noindex + no-store (nuxt.config.ts routeRules).
+    Gotcha: the passphrase rides in the popup's query string, which is why
+    both routes are no-store.
+-->
 <script setup>
 definePageMeta({
   layout: 'bookmarklet',
@@ -21,6 +32,11 @@ const bookmarkletCode = computed(() => {
     'toolbar=no,location=no,directories=no,status=no,menubar=no,' +
     'scrollbars=yes,resizable=yes,width=800,height=700'
 
+  // Old-browser selection fallbacks (getSelection → document.selection).
+  // Page text is capped at 5000 chars to keep the popup URL a sane length.
+  // The trailing replace() strips newlines so it survives as one bookmark URL.
+  // The passphrase is interpolated raw into a JS string literal, so a quote
+  // or backslash in it breaks the bookmarklet.
   return `javascript:(function(){
   var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,
   s=(e?e():(k)?k():(x?x.createRange().text:'')),

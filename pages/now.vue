@@ -1,3 +1,13 @@
+<!--
+  @file now.vue
+  @description /now: a now page, one line per corner of the site (reading,
+    commits, music...), newest first. Data: /api/now (server/api/now.get.ts,
+    a cached handler that assembles and orders the lines). SSR per request,
+    deliberately not prerendered (routeRule in nuxt.config.ts), so it never
+    freezes at the last deploy.
+    Gotcha: age() uses Date.now() during SSR and again on hydrate, so a line
+    can tick over (59m → 1h) between server and client.
+-->
 <script setup>
 // The rules for this page live in server/api/now.get.ts. In short: one font
 // size, one line per thing, one thing per route, newest first. This file only
@@ -5,6 +15,7 @@
 const { data: now, error } = await useFetch('/api/now')
 
 const TZ = 'America/New_York'
+// Lines older than this render dimmed (the footer copy says "90+ days").
 const STALE_DAYS = 90
 
 const age = (iso) => {

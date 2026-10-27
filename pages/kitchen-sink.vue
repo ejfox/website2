@@ -1,3 +1,13 @@
+<!--
+  @file kitchen-sink.vue
+  @description /kitchen-sink: in-house component browser. Catalog comes from
+    import.meta.glob over components/**, mock props from
+    utils/kitchenSinkStories.js, renders via components/dev/StoryRenderer.vue
+    and components/dev/GalleryCell.vue. No API calls.
+  @gotchas Client-only (ssr:false) and noindex via nuxt.config.ts routeRules,
+    not definePageMeta. URL params ?c= &v= &focus=1 &gallery=1 hold the
+    selection so HMR reloads land back on the same component.
+-->
 <script setup>
 // ─────────────────────────────────────────────────────────────────────────────
 // Kitchen Sink — a private, in-house Storybook. A single-column list of every
@@ -260,7 +270,7 @@ function focusStep(dir) {
   <div
     class="ks h-screen flex flex-col bg-sunken text-zinc-900 dark:text-zinc-200 font-mono"
   >
-    <!-- Masthead -->
+    <!-- ── Masthead: count, filter, folder links ─────────── -->
     <header
       class="shrink-0 border-b border-zinc-300 dark:border-zinc-700 px-3 py-2"
     >
@@ -317,7 +327,7 @@ function focusStep(dir) {
       </div>
     </header>
 
-    <!-- Gallery / contact-sheet mode (QA sweep) -->
+    <!-- ── Gallery / contact-sheet mode (QA sweep) ─────────── -->
     <div v-if="galleryMode" class="flex-1 overflow-y-auto p-2">
       <div
         class="grid gap-px bg-zinc-200 dark:bg-raised grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -330,7 +340,7 @@ function focusStep(dir) {
       </div>
     </div>
 
-    <!-- Body: list column + persistent preview pane -->
+    <!-- ── Body: list column + persistent preview pane ─────────── -->
     <div v-else class="flex flex-1 min-h-0">
       <!-- Index -->
       <nav
@@ -375,7 +385,7 @@ function focusStep(dir) {
         </p>
       </nav>
 
-      <!-- Preview -->
+      <!-- ── Preview ─────────── -->
       <section class="flex-1 min-w-0 overflow-y-auto">
         <div
           v-if="!active"
@@ -472,6 +482,8 @@ function focusStep(dir) {
           <!-- render + data -->
           <div class="p-5 max-w-4xl">
             <div class="border border-zinc-300 dark:border-zinc-700 p-5">
+              <!-- :key remounts on component, variant or "reload" so stale
+                   state from the previous props never leaks through. -->
               <DevStoryRenderer
                 v-if="active.stories"
                 :key="active.key + ':' + activeVariant + ':' + reloadKey"
@@ -522,6 +534,7 @@ function focusStep(dir) {
 </template>
 
 <style scoped>
+/* ── Links + index rows ──────── */
 /* text-link: the only interactive idiom. underline on hover, */
 /* bold+underline when on. */
 .lnk {

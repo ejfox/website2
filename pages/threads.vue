@@ -1,9 +1,17 @@
+<!--
+  @file threads.vue
+  @description /threads: every post, shared scrap and tag as one d3 force graph
+    on a 350vh canvas. Top tags are pinned "maypoles" down the page. Data:
+    /api/manifest (posts) + /api/scraps/graph (scraps), both fetched client-side
+    in onMounted. The page is SSR'd, but only the header is server-rendered.
+  @gotchas Graph state (nodes, links, simulation) is plain `let`, not reactive:
+    the rAF loop reads it every frame. Canvas colours come from hidden Tailwind
+    "ink probes", so change INK, not hex values. Tag links go to /tag/<name>.
+-->
 <script setup>
 import { useDark, useElementSize, useRafFn, watchDebounced } from '@vueuse/core'
 
-// =============================================================================
-// CONSTANTS
-// =============================================================================
+// ── Constants ───────────────────────────────────────────────
 const NODE_RADIUS = { tag: 2.5, post: 2, scrap: 0.75 }
 const COLLISION_RADIUS = { tag: 4, post: 3, scrap: 1.5 }
 // 1-bit ink: the canvas paints with the site's own zinc text ladder, read
@@ -37,9 +45,7 @@ const AMBIENT_AMP = 1.1
 // Also the filter/legend order: each toggle's dot is painted in its node's ink
 const NODE_INK = { post: 'secondary', scrap: 'tertiary', tag: 'primary' }
 
-// =============================================================================
-// DATA
-// =============================================================================
+// ── Data ────────────────────────────────────────────────────
 // Canvas-only page: fetched client-side in onMounted so the graph data isn't
 // serialized into the SSR payload (that made /threads ~3.9MB of HTML).
 const posts = shallowRef([]) // published posts
@@ -96,9 +102,7 @@ function buildGraph(postList, scrapList) {
   return { items: items.filter((n) => n.tags.some(isActive)), tags, links }
 }
 
-// =============================================================================
-// UI STATE
-// =============================================================================
+// ── UI state ────────────────────────────────────────────────
 const containerRef = ref(null)
 const canvasRef = ref(null)
 const headerRef = ref(null)
@@ -126,7 +130,8 @@ let inkDark = null
 // and stop, so a resize never leaves two animations fighting over `nodes`.
 let run = 0
 
-// Tooltip follows the cursor, flipping away from the right/bottom edges
+// Tooltip follows the cursor, flipping away from the right/bottom edges.
+// 216 x 86 is roughly the tooltip box (max-w-52 = 208px, plus the offset).
 const tooltipStyle = computed(() => {
   const { x, y } = pointer.value
   const flipX = x + 216 > window.innerWidth - 20
@@ -167,11 +172,11 @@ function handleClick() {
   else if (n?.slug) navigateTo(`/blog/${n.slug}`)
 }
 
-// =============================================================================
-// DRAW (runs every animation frame)
-// =============================================================================
+// ── Draw (runs every animation frame) ───────────────────────
 function draw() {
   if (!ctx || !inkRef.value) return
+  // Re-read the probe colours only when the scheme flips: getComputedStyle
+  // every frame would force a style recalc 60 times a second.
   if (inkDark !== isDark.value) {
     inkDark = isDark.value
     const styles = [...inkRef.value.children].map(getComputedStyle)
@@ -189,6 +194,8 @@ function draw() {
   // spot (topics stay pinned). ax/ay give the *drawn* position; real n.x/n.y
   // (and hit-testing) are never touched.
   const t = ambientClock
+  // Stable per-node phase: a string hash of the id mod 6283 (≈ 2π × 1000),
+  // so /1000 lands in [0, 2π) and nodes don't all breathe in lockstep.
   const phaseOf = (n) => {
     if (n._ph === undefined) {
       let h = 0
@@ -215,6 +222,8 @@ function draw() {
     const dx = x2 - x1
     const dy = y2 - y1
     const len = Math.hypot(dx, dy) || 1
+    // Control point sits on the edge's perpendicular (-dy, dx)/len, offset by
+    // `bow` px; capped at 28 so long edges don't balloon into arcs.
     const bow = Math.min(len * EDGE_CURVE, 28)
     ctx.beginPath()
     ctx.moveTo(x1, y1)
@@ -227,6 +236,8 @@ function draw() {
     ctx.stroke()
   }
 
+  // `.x` truthiness: d3's forceLink swaps source/target ids for node objects
+  // and nodes get x/y on their first tick; skip links that aren't placed yet.
   const shown = links.filter(
     (l) => l.source.x && l.target.x && visible(l.source) && visible(l.target)
   )
@@ -334,13 +345,12 @@ useRafFn(({ timestamp }) => {
   draw()
 })
 
-// =============================================================================
-// BUILD: maypoles drop in, then posts stream, then scraps
-// =============================================================================
+// ── Build: maypoles drop in, then posts stream, then scraps ─
 async function initGraph() {
   const myRun = ++run
   const alive = () => myRun === run
   simulation?.stop()
+  // Dynamic imports: d3 + anime.js load as lazy chunks, only once the page mounts
   const [d3, { animate, stagger }] = await Promise.all([
     import('d3'),
     import('animejs'),
@@ -373,7 +383,9 @@ async function initGraph() {
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
   const centerX = (box.x0 + box.x1) / 2
 
-  // Maypoles: the top topics, pinned in a gentle sine wave down the page
+  // Maypoles: the top topics, pinned in a gentle sine wave down the page.
+  // One full period (0 → 2π) over all NUM_MAYPOLES; each gets an equal slice
+  // of the safe box's height (`ty`, the slot centre).
   const amplitude = (box.x1 - box.x0) * 0.2
   const maypoles = buildGraph(posts.value, scraps.value)
     .tags.sort((a, b) => b.count - a.count)
@@ -449,6 +461,7 @@ async function initGraph() {
     ease: 'outExpo',
   })
   if (!alive()) return
+  // fx/fy pin a node in d3-force: the sim never moves maypoles after this
   maypoles.forEach((m) => {
     m.fx = m.x
     m.fy = m.ty
@@ -468,6 +481,8 @@ async function initGraph() {
         .strength(0.15)
     )
     .force('charge', d3.forceManyBody().strength(-40).distanceMax(400))
+    // Near-zero centring: just enough to keep strays from drifting off;
+    // the maypoles' links do the real placement.
     .force('x', d3.forceX(centerX).strength(0.001))
     .force('y', d3.forceY(height / 2).strength(0.0005))
     .force(
@@ -490,6 +505,7 @@ async function initGraph() {
   stream()
 }
 
+// ── Lifecycle ───────────────────────────────────────────────
 onMounted(async () => {
   const { animate, stagger } = await import('animejs')
   // The import is async: the user may already have navigated away
@@ -520,6 +536,8 @@ onMounted(async () => {
 // Re-lay out when the canvas actually changes size (resize, layout settle).
 // Height too: the canvas is 350vh, and a stale backing buffer stretches the
 // drawing and puts hover hit-testing in the wrong place.
+// (This module-level `box` is the element size; initGraph's local `box` is
+// the layout safe area. Same name, different things.)
 const box = useElementSize(containerRef)
 watchDebounced(
   [box.width, box.height],
@@ -538,6 +556,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="relative" :style="{ height: `${CANVAS_HEIGHT_VH}vh` }">
+    <!-- ── Canvas ─────────── -->
     <div ref="containerRef" class="absolute inset-0">
       <canvas
         ref="canvasRef"
@@ -555,6 +574,7 @@ onBeforeUnmount(() => {
       <span v-for="(cls, k) in INK" :key="k" class="font-mono" :class="cls" />
     </div>
 
+    <!-- ── Header: title, live counts, type filters ─────────── -->
     <header ref="headerRef" class="relative z-10 px-4 md:px-8 pt-8 pb-4">
       <div
         class="header-item font-mono text-xs uppercase tracking-wider text-zinc-500 mb-4 opacity-0"
@@ -615,6 +635,7 @@ onBeforeUnmount(() => {
       </div>
     </header>
 
+    <!-- ── Hover tooltip ─────────── -->
     <div
       v-if="hoveredNode"
       class="fixed z-50 pointer-events-none max-w-52 px-3 py-2 border border-zinc-200 dark:border-zinc-800 bg-surface font-mono"

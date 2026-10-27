@@ -1,3 +1,12 @@
+<!--
+  @file live.vue
+  @description /live: "The Hour", EJ's weekly live show: next episode,
+    countdown, running order, upcoming list. Data: data/the-hour.json,
+    bundled at build time, so schedule edits need a deploy. SSR.
+    Hidden: noindex meta here plus an X-Robots-Tag routeRule in nuxt.config.ts.
+    Gotcha: the countdown is computed from Date.now() on both server and
+    client, so the SSR text can differ from the hydrated text by a minute.
+-->
 <script setup lang="ts">
 import { useIntervalFn } from '@vueuse/core'
 import show from '~/data/the-hour.json'
@@ -24,6 +33,8 @@ const episodes = show.episodes.map((e) => ({
 const now = ref(Date.now())
 useIntervalFn(() => (now.value = Date.now()), 60 * 1000)
 
+// Every episode is assumed to run exactly one hour, and find() assumes
+// the-hour.json lists episodes in start order.
 const next = computed(() =>
   episodes.find((e) => e.startMs + HOUR_MS > now.value)
 )

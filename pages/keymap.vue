@@ -1,3 +1,11 @@
+<!--
+  @file keymap.vue
+  @description /keymap: EJ's ZSA Voyager layout drawn as type, one board per
+    layer plus a "strata" overview. Data: /api/keymap (server/api/keymap.get.ts
+    → server/utils/oryx.ts). SSR, deliberately not prerendered (routeRule in
+    nuxt.config.ts) so Oryx edits show without a deploy.
+    Drawing lives in components/KeymapBoard.vue; this page only picks layers.
+-->
 <script setup lang="ts">
 // The keymap on EJ's ZSA Voyager, read live from Oryx via /api/keymap (cached
 // an hour), so editing the layout in Oryx updates this page with no deploy.
@@ -5,6 +13,8 @@ import type { Keymap } from '~/server/utils/oryx'
 
 const { data: km, error } = await useFetch<Keymap>('/api/keymap')
 
+// Hover previews a layer; click pins it. Clicking the pinned layer again
+// unpins back to base (layer 0).
 const pinned = ref(0)
 const hover = ref<number | null>(null)
 const active = computed(() => hover.value ?? pinned.value)
@@ -13,6 +23,8 @@ const pin = (i: number) => {
 }
 
 const others = computed(() => km.value?.layers.slice(1) || [])
+// Key shapes come from normalizeKey() in server/utils/oryx.ts:
+// null = transparent (falls through to base), { x: true } = blocked.
 const counts = (i: number) => {
   const keys = km.value?.layers[i]?.keys || []
   const set = keys.filter((k) => k && !k.x).length
@@ -71,6 +83,7 @@ usePageSeo({
     </p>
 
     <template v-else>
+      <!-- ── Layer picker + main board ─────────── -->
       <section class="mb-14">
         <div
           class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs"
@@ -115,6 +128,7 @@ usePageSeo({
         </p>
       </section>
 
+      <!-- ── Per-layer diffs (layer 1+; n + 1 maps back to km.layers) ── -->
       <section class="mb-14">
         <h2
           class="font-mono text-xs uppercase tracking-wider text-zinc-500 mb-4"
@@ -137,6 +151,7 @@ usePageSeo({
         </div>
       </section>
 
+      <!-- ── Strata: every layer at once ─────────── -->
       <section class="max-w-prose">
         <h2
           class="font-mono text-xs uppercase tracking-wider text-zinc-500 mb-4"

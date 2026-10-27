@@ -1,3 +1,11 @@
+<!--
+  @file tips.vue
+  @description /tips: how to send EJ a tip or document safely (PGP, WKD,
+    opsec advice). Static page, no data fetch. SSR.
+    FINGERPRINT must be the key in public/pgp.txt and the WKD copy under
+    public/.well-known/openpgpkey/; pages/verify.vue repeats it. Change a
+    key and all four go together.
+-->
 <script setup lang="ts">
 // SIGNAL_USERNAME_TODO: EJ fills this in (e.g. 'ejfox.42'). Until then the
 // Signal section renders nothing; never invent one.
