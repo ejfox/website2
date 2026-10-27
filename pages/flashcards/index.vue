@@ -1,3 +1,12 @@
+<!--
+  @file flashcards/index.vue
+  @description /flashcards: decks grouped by course, each expandable to a
+    10-card preview, with links into /flashcards/study (?deck=<id> for one
+    deck). SSR. Data: /api/flashcards (server/api/flashcards.get.ts →
+    server/utils/flashcards.ts, reading public/data/flashcards/*.csv).
+  Gotcha: hardcoded zinc styling: the flashcards UI is deliberately left
+  out of the bg-surface token sweep (CLAUDE.md → Background Layer Tokens).
+-->
 <script setup lang="ts">
 interface Deck {
   id: string
@@ -40,6 +49,7 @@ const toggleDeck = (id: string) => {
   } else {
     expandedDecks.value.add(id)
   }
+  // Reassigned to a fresh Set so each toggle is one reference swap.
   expandedDecks.value = new Set(expandedDecks.value)
 }
 

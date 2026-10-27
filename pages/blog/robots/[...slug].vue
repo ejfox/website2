@@ -1,3 +1,21 @@
+<!--
+  @file blog/robots/[...slug].vue
+  @description /blog/robots/<slug>: one robot note with a metadata box, an
+    "LLM-generated" disclosure (names metadata.model when set), body and a
+    sticky TOC sidebar. Data: getPostBySlug('robots/<slug>') →
+    /api/robots/<slug> (server/api/robots/[...slug].ts), which serves only
+    share: true, non-scheduled notes; the page 404s on !share too.
+  Gotchas:
+    - This static robots/ folder beats pages/blog/[...slug].vue for these
+      URLs. getBlogRoutes() skips robots/, so it isn't in the prerender list.
+    - Body and word counts read note.content, but getPostBySlug() copies
+      result.content while processed JSON carries `html`. Check before relying
+      on the body rendering.
+    - Title chars render with `opacity-0` and the animation that revealed them
+      was removed (see onMounted), so the h1 is invisible.
+    - The TOC <Teleport> targets #toc-target, which exists only when
+      !isMobile; it isn't wrapped in <ClientOnly>.
+-->
 <script setup>
 // Animation handled via global anime.js from CDN
 import {
@@ -8,6 +26,7 @@ import {
 import { formatNumber } from '~/utils/numberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
+// ── Data loading ────────────────────────────────────────────
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
@@ -28,7 +47,10 @@ if (!note.value || !note.value.metadata?.share) {
   })
 }
 
+// ── TOC + word counts ───────────────────────────────────────
 // Helper function to generate slug from text
+// Must match the ids processedContent stamps on h2/h3 below, or TOC links
+// and section word counts miss.
 const generateSlug = (str) => {
   return str
     .toLowerCase()
@@ -47,6 +69,8 @@ const getSectionWordCount = (content, sectionId) => {
   const header = doc.getElementById(sectionId)
   if (!header) return 0
 
+  // Walk siblings until the next heading of the same or higher rank
+  // (tagName[1] is the heading level digit).
   let wordCount = 0
   let currentElement = header.nextElementSibling
 
@@ -97,6 +121,7 @@ const sectionWordCounts = computed(() => {
   return counts
 })
 
+// ── Metadata + SEO ──────────────────────────────────────────
 // Computed property to get all metadata fields
 const metadataFields = computed(() => {
   if (!note.value?.metadata) return {}
@@ -148,6 +173,7 @@ usePageSeo({
   data2: computed(() => `${note.value?.metadata?.images || 0} media`),
 })
 
+// ── Content + scroll ────────────────────────────────────────
 // Add scroll progress tracking
 const scrollProgress = ref(0)
 
@@ -160,6 +186,9 @@ const processedContent = computed(() => {
   if (!note.value?.content) return ''
 
   // Simple regex-based approach that works on both client and server
+  // Replaces each h2/h3's existing attributes (any processor-assigned id
+  // included) with a generateSlug() id. Non-greedy and single-line, so a
+  // heading whose inner HTML spans lines isn't matched.
   return note.value.content.replace(
     /<(h[23])[^>]*>(.*?)<\/\1>/g,
     (match, tag, content) => {
@@ -197,6 +226,7 @@ onMounted(() => {
   // Title animation removed - delete-driven development
 })
 
+// ── Copy + class strings ────────────────────────────────────
 // Alert description - dynamically includes model name if present
 const robotAlertDescription = computed(() => {
   const model = note.value?.metadata?.model
@@ -242,6 +272,7 @@ const proseClasses =
       class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8"
     >
       <article v-if="note">
+        <!-- ── Metadata + disclosure ─────────── -->
         <!-- Metadata Display -->
         <div :class="metadataBoxClass">
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
@@ -317,6 +348,7 @@ const proseClasses =
           </p>
         </aside>
 
+        <!-- ── Title + body ─────────── -->
         <header class="mb-8">
           <!-- Hero title with animation -->
           <h1 class="text-4xl md:text-6xl font-light mb-4 flex flex-wrap">
@@ -348,6 +380,7 @@ const proseClasses =
         </footer>
       </article>
 
+      <!-- ── Sidebar ─────────── -->
       <!-- Right Sidebar with TOC -->
       <aside
         v-if="!isMobile"
@@ -401,6 +434,7 @@ const proseClasses =
 </template>
 
 <style scoped>
+/* ── Layout + scrollbars ──────── */
 .sticky {
   position: sticky;
   top: 2rem;

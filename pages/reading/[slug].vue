@@ -1,3 +1,18 @@
+<!--
+  @file reading/[slug].vue
+  @description /reading/<slug>: one book's cover, Kindle metadata, Kindle and
+    Amazon links (from the ASIN) and its highlights. SSR. Data:
+    /api/reading/<slug> (server/api/reading/[slug].get.ts), one processed JSON
+    merged with Kindle sync data; scheduled books 404 in prod.
+  Gotchas:
+    - Canonical home for reading notes: /blog/reading/<slug> 301s here
+      (server/middleware/blog-reading-redirect.ts).
+    - The highlights body renders `book.content`, but processed reading JSON
+      stores it as `html` (the listing API reads `book.content || book.html`).
+      Check that the body actually shows.
+    - The pending/error branches in the template are effectively unreachable:
+      setup awaits the fetch and throws a fatal 404 on error.
+-->
 <script setup>
 const route = useRoute()
 
@@ -10,6 +25,7 @@ const linkClass = 'interactive-link text-blue-600 dark:text-blue-400 text-sm'
 const navLinkClass =
   'interactive-link inline-flex items-center text-blue-600 dark:text-blue-400'
 
+// ── Data loading ────────────────────────────────────────────
 // Fetch book data
 const {
   data: book,
@@ -26,6 +42,7 @@ if (error.value || !book.value) {
   })
 }
 
+// ── SEO ─────────────────────────────────────────────────────
 const bookTitle = computed(
   () => book.value?.metadata?.['kindle-sync']?.title || book.value?.title
 )
@@ -125,6 +142,7 @@ function formatDate(dateString) {
         </NuxtLink>
       </div>
 
+      <!-- ── Book ─────────── -->
       <!-- Book Content -->
       <div v-else-if="book">
         <!-- Header -->
@@ -178,6 +196,7 @@ function formatDate(dateString) {
 
               <!-- Links -->
               <div class="flex gap-4 mt-4">
+                <!-- kindle:// only opens where the Kindle app is installed -->
                 <a
                   v-if="book.metadata?.['kindle-sync']?.asin"
                   :href="`kindle://book?action=open&asin=${

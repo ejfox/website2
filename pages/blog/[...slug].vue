@@ -1,3 +1,22 @@
+<!--
+  @file blog/[...slug].vue
+  @description One blog post at /blog/<year>/<slug> (any depth). Data:
+    /api/posts/<slug> (server/api/posts/[...slug].ts reads
+    content/processed/<slug>.json). Prerendered in prod for every route
+    nuxt.helpers.ts getBlogRoutes() lists; anything it skips (scheduled,
+    robots/, projects/, reading/) renders on demand.
+  Gotchas:
+    - Draft/hidden/password and scheduled posts 404 in the API (prod only;
+      dev previews them). isScheduled() lives in utils/postFilters.ts.
+    - Sealed posts (blog/private/*) arrive as {slug, sealed, envelope};
+      components/blog/SealedPost.vue decrypts client-side and handleUnsealed
+      swaps the payload into `post`. See docs/SEALED-POSTS.md.
+    - Footnotes become margin sidenotes in
+      plugins/footnotes-to-sidenotes.client.ts, after mount, not here.
+    - A sibling page file (e.g. pages/blog/2024/*.vue) beats this catch-all.
+      content/blog/<slug>.vue, if present, replaces the markdown body (VueBody).
+    - <style> is unscoped: the .blog-post-content rules are global.
+-->
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
@@ -13,6 +32,7 @@ import { atprotoDocUri, atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
 import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
+// ── Setup ───────────────────────────────────────────────────
 // Composables
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -29,7 +49,10 @@ const VueBody = computed(() => {
   return key ? defineAsyncComponent(vueBodies[key]) : null
 })
 
+// ── Data loading ────────────────────────────────────────────
 // --- Data Fetching ---
+// Errors are swallowed to null here, so `error` stays empty and the 404 path
+// is the createError() below, not the template's `v-else-if="error"` branch.
 const { data: post, error } = await useAsyncData(
   `post-${route.params.slug.join('-')}`,
   async () => {
@@ -92,6 +115,8 @@ const { data: relatedScraps } = useFetch('/api/scraps/by-tags', {
   query: { tags: postTags, limit: 5 },
   watch: [postTags],
   lazy: true,
+  // Client-only: no scrap fetch during SSR/prerender, so none of this data
+  // lands in the static HTML.
   server: false,
 })
 
@@ -107,6 +132,7 @@ const { data: allPosts } = await useAsyncData('all-posts-for-related', () =>
   processedMarkdown.getAllPosts(false, false).catch(() => [])
 )
 
+// ── Derived values ──────────────────────────────────────────
 // --- Computed Values ---
 const { stats: readingStatsData } = readingStats(post)
 
@@ -140,6 +166,7 @@ const postTitle = computed(
 const { renderedHtml: renderedTitle, startAnimation } =
   useTypingAnimation(postTitle)
 
+// Up to 3 posts ranked by raw count of shared tags (ties keep manifest order).
 const relatedPosts = computed(() => {
   if (!allPosts.value || !post.value) return []
   const currentTags = post.value.metadata?.tags || post.value.tags || []
@@ -206,6 +233,7 @@ const visibleLinks = computed(() => {
   return postLinks.value.slice(0, max)
 })
 
+// ── SEO + head ──────────────────────────────────────────────
 // --- URL & SEO ---
 const baseURL = config.public?.baseURL || 'https://ejfox.com'
 const postUrl = computed(
@@ -349,7 +377,11 @@ useHead(() => ({
   htmlAttrs: { lang: 'en' },
 }))
 
+// ── 404 suggestions ─────────────────────────────────────────
 // --- Smart 404 Suggestions ---
+// Levenshtein match of the requested path against manifest slugs/titles.
+// Note: `error` is never set (see Data loading) and nothing in the template
+// reads smartSuggestions, so this currently never shows.
 const smartSuggestions = ref([])
 
 watch(
@@ -401,6 +433,7 @@ watch(
   { immediate: true }
 )
 
+// ── Lifecycle (client only) ─────────────────────────────────
 // --- Lifecycle ---
 // Registered synchronously at setup scope: inside nextTick there is no active
 // component instance, so an onUnmounted() there never runs (the TOC heading
@@ -439,6 +472,8 @@ onMounted(() => {
         ([{ isIntersecting }]) => {
           if (isIntersecting) activeSection.value = heading.id
         },
+        // A heading counts as "current" while it sits in the band 10–20%
+        // from the top of the viewport.
         { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
       )
       heading._stopObserver = stop
@@ -555,6 +590,7 @@ onMounted(() => {
       />
     </Head>
 
+    <!-- ── Chrome: metadata bar + progress ─────────── -->
     <!-- Top metadata bar — teleported into the layout's #layout-bar slot
          so it lives as a sibling of the navs in the layout grid, not buried
          inside this page. Sticky behavior is on the layout slot itself.
@@ -588,6 +624,7 @@ onMounted(() => {
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
+    <!-- ── Article ─────────── -->
     <!-- Sealed post: nothing below this has anything to render until the key
          from the link's fragment opens the envelope, client-side. -->
     <SealedPost
@@ -703,6 +740,7 @@ onMounted(() => {
       <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
+    <!-- ── Sidebar (teleported into the layout nav) ─────────── -->
     <!-- Sidebar TOC + Temporal Context -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
@@ -829,6 +867,7 @@ onMounted(() => {
 </template>
 
 <style lang="postcss">
+/* ── Progress bar + tags ──────── */
 /* Progress bar - just below metadata */
 .progress-bar {
   @apply fixed top-0 left-0 right-0 h-px z-[101];
@@ -844,6 +883,7 @@ onMounted(() => {
   @apply border-t border-zinc-200 dark:border-zinc-800;
 }
 
+/* ── Post typography ──────── */
 /* ===========================================
    BLOG POST TYPOGRAPHY
    Scale: 2px font increments, 8px spacing grid
@@ -1039,6 +1079,7 @@ onMounted(() => {
   @apply decoration-zinc-600 dark:decoration-zinc-300;
 }
 
+/* ── Title typing animation ──────── */
 /* Title typing animation - opacity-based, no layout shift */
 .post-title-hero {
   max-width: 100%;
@@ -1106,6 +1147,7 @@ onMounted(() => {
   }
 }
 
+/* ── Draft mode ──────── */
 /* ===========================================
    DRAFT MODE - The Orchestra Effect
    Banner + Watermark + Typography shift

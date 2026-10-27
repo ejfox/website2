@@ -1,4 +1,15 @@
+<!--
+  @file photos/[...id].vue
+  @description /photos/:id: one full-bleed photo with EXIF, prev/next and
+    ←/→/Esc keyboard nav. No site layout (layout: false). Catch-all because
+    Cloudinary public ids can contain "/". The photo itself is found by
+    scanning the full /api/photos list (SSR, cached 10 min); EXIF comes from
+    /api/photo-exif, client-only.
+  Gotchas: Prev/next follow /api/photos order (newest first), so "prev" is
+    the newer photo. /api/photos caps at 500, so an older id 404s.
+-->
 <script setup>
+// ── Data loading ────────────────────────────────────────────
 import { useEventListener } from '@vueuse/core'
 
 definePageMeta({ layout: false })
@@ -46,6 +57,8 @@ const nextPhoto = computed(() =>
 )
 
 // Fetch EXIF lazily on client
+// Not awaited: the page renders without it. Passing the photoId ref as the
+// query refetches automatically on prev/next navigation.
 const { data: exif } = useFetch('/api/photo-exif', {
   query: { id: photoId },
   lazy: true,
@@ -53,6 +66,9 @@ const { data: exif } = useFetch('/api/photo-exif', {
 })
 
 const displayDate = computed(() => {
+  // Prefer EXIF capture date; fall back to Cloudinary upload date. EXIF
+  // uses "YYYY:MM:DD", which needs dashes before Date() can parse it.
+  // SSR only has the upload date, so the shown date can change on hydrate.
   const dateStr = exif.value?.dateTaken || photo.value?.date
   if (!dateStr) return ''
   try {
@@ -68,6 +84,8 @@ const displayDate = computed(() => {
   }
 })
 
+// ── Cloudinary URL builders + hero load state ───────────────
+// Insert a transform segment right after /upload/.
 const fullUrl = (p, width) => {
   const base = p.url.split('/upload/')[0] + '/upload/'
   const path = p.url.split('/upload/')[1]
@@ -96,6 +114,7 @@ onMounted(() => {
   if (heroImg.value?.complete) imageLoaded.value = true
 })
 
+// ── EXIF display + keyboard nav ─────────────────────────────
 const shortCamera = (model) =>
   model
     ?.replace('FUJIFILM ', '')
@@ -127,6 +146,8 @@ useHead({
   ),
 })
 // Reset loaded state on nav
+// The page component is reused across /photos/* navigations, so without this
+// the next photo would show at full opacity before it has loaded.
 watch(photoId, () => {
   imageLoaded.value = false
 })
@@ -134,6 +155,7 @@ watch(photoId, () => {
 
 <template>
   <div class="min-h-screen bg-zinc-900 dark:bg-black text-zinc-100">
+    <!-- ── Loading / not found ──────────────────────────────── -->
     <!-- Loading -->
     <div v-if="pending" class="font-mono text-xs text-zinc-600 py-12 px-8">
       Loading...
@@ -150,6 +172,7 @@ watch(photoId, () => {
       <div class="font-mono text-xs text-red-400 mt-4">Photo not found</div>
     </div>
 
+    <!-- ── Photo ────────────────────────────────────────────── -->
     <!-- Photo -->
     <div v-else>
       <!-- Hero: placeholder behind, full image fades in on top -->
@@ -187,6 +210,7 @@ watch(photoId, () => {
         </div>
       </div>
 
+      <!-- ── Info: EXIF, prev/next, credit ───────────────────── -->
       <!-- Info below photo -->
       <div class="max-w-2xl mx-auto px-4 py-6 space-y-4">
         <!-- EXIF line -->

@@ -1,4 +1,16 @@
+<!--
+  @file photos/index.vue
+  @description /photos: one reverse-chronological masonry feed mixing single
+    photos (Cloudinary tag `photo-blog`, via /api/photos) with photo-post
+    stacks (/api/photo-posts, components/photo/PhotoStack.vue). Both fetches
+    are lazy, so SSR ships the "Loading…" state and the feed fills in on the
+    client. Each photo links to /photos/:id.
+  Gotchas: /api/photos returns only { id, url, date, width, height, aspect,
+    tags, description }; the EXIF/dateTaken fields used below come from
+    /api/photo-exif on the detail page, so here they're always empty.
+-->
 <script setup>
+// ── Data loading ────────────────────────────────────────────
 import PhotoStack from '~/components/photo/PhotoStack.vue'
 
 const { data: photosData, pending: photosPending } = await useFetch(
@@ -41,6 +53,8 @@ const feed = computed(() => {
   return items
 })
 
+// EXIF dates look like "2024:05:01 12:00:00", which Date() can't parse;
+// swap the date colons for dashes first. Unparseable → 0 (sorts last).
 function toTimestamp(dateStr) {
   if (!dateStr) return 0
   try {
@@ -54,6 +68,9 @@ function toTimestamp(dateStr) {
   }
 }
 
+// ── Cloudinary URL builders ─────────────────────────────────
+// Splice a transform in after /upload/, keeping the v123/ version segment
+// so the CDN cache key stays tied to that upload.
 const thumbUrl = (photo, width) => {
   const base = photo.url.split('/upload/')[0] + '/upload/'
   const path = photo.url.split('/upload/')[1]
@@ -66,6 +83,8 @@ const thumbSrcSet = (photo) =>
   `${thumbUrl(photo, 640)} 640w, ${thumbUrl(photo, 1200)} 1200w, ` +
   `${thumbUrl(photo, 1920)} 1920w`
 
+// 200px heavily blurred copy, used as the tile's CSS background while the
+// real image loads (tile is sized by aspectRatio, so no layout shift).
 const placeholderUrl = (photo) => {
   const base = photo.url.split('/upload/')[0] + '/upload/'
   const path = photo.url.split('/upload/')[1]
@@ -74,6 +93,7 @@ const placeholderUrl = (photo) => {
   return `${base}c_scale,e_blur:400,f_auto,q_auto:low,w_200/${version}${cleanPath}`
 }
 
+// ── Display helpers ─────────────────────────────────────────
 const shortCamera = (model) => {
   if (!model) return ''
   return model
@@ -126,6 +146,8 @@ useHead({ title: 'Photos — EJ Fox' })
             backgroundSize: 'cover',
           }"
         >
+          <!-- First two tiles load eagerly and the first gets high fetch
+               priority: they're the LCP candidates above the fold. -->
           <img
             :src="thumbUrl(item.photo, 1200)"
             :srcset="thumbSrcSet(item.photo)"
@@ -171,6 +193,7 @@ useHead({ title: 'Photos — EJ Fox' })
 </template>
 
 <style scoped>
+/* ── Page header ──────────────────────────────────────────── */
 .photos-page {
   padding: 3rem 1rem 6rem;
   max-width: 1400px;
@@ -206,6 +229,9 @@ useHead({ title: 'Photos — EJ Fox' })
   opacity: 0.5;
 }
 
+/* ── Masonry grid (CSS columns: 1 → 2 → 3) ────────────────── */
+/* Column flow fills top-to-bottom per column, so "chronological" reads
+   down each column, not across rows. */
 .photo-grid {
   columns: 1;
   column-gap: 12px;
@@ -238,6 +264,7 @@ useHead({ title: 'Photos — EJ Fox' })
   opacity: 0.92;
 }
 
+/* ── Hover overlays (EXIF + date) ─────────────────────────── */
 .photo-meta {
   position: absolute;
   bottom: 0;

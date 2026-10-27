@@ -1,4 +1,19 @@
+<!--
+  @file reading/index.vue
+  @description /reading: grid of books with cover, author, one random
+    highlight and counts, plus a "Library" sidebar (last read, totals, most
+    highlighted). SSR. Data: /api/reading (server/api/reading.get.ts) reads
+    content/processed/reading/*.json merged with Kindle sync data
+    (server/utils/readingKindle.ts), drops scheduled books, newest annotated
+    first.
+  Gotchas:
+    - Reading notes go through the blog pipeline under reading/, and
+      /blog/reading/* 301s here (server/middleware/blog-reading-redirect.ts).
+      getBlogRoutes() skips them so no prerendered twin defeats the redirect.
+    - Book fields live under metadata['kindle-sync'], not top-level.
+-->
 <script setup>
+// ── Setup + data ────────────────────────────────────────────
 const { tocTarget } = useTOC()
 const { revealContainer: booksReveal } = useScrollReveal({
   selector: ':scope > a',
@@ -15,6 +30,7 @@ const bookCoverClass =
   'max-h-full max-w-full object-contain rounded-sm shadow-sm'
 const bookTitleClass = 'card-title-group-hover'
 
+// ── Library stats ───────────────────────────────────────────
 const totalHighlights = computed(() => {
   if (!books.value) return 0
   return books.value.reduce((total, book) => {
@@ -31,6 +47,7 @@ const lastUpdated = computed(() => {
         book.metadata?.['kindle-sync']?.lastAnnotatedDate || book.metadata?.date
     )
     .filter(Boolean)
+    // Plain string sort: correct for ISO dates, so the last entry is newest.
     .sort()
 
   if (dates.length === 0) return 'Unknown'
@@ -64,6 +81,7 @@ const topHighlighted = computed(() => {
     .slice(0, 5)
 })
 
+// ── SEO ─────────────────────────────────────────────────────
 usePageSeo({
   // This page renders its own JSON-LD below; don't add a second one.
   schema: false,
@@ -145,6 +163,7 @@ function formatDate(dateString) {
         </div>
       </header>
 
+      <!-- ── Book grid ─────────── -->
       <div v-if="pending" :class="booksGridClass">
         <div v-for="i in 6" :key="i" class="animate-pulse">
           <div
@@ -226,6 +245,7 @@ function formatDate(dateString) {
       </div>
     </div>
 
+    <!-- ── Sidebar ─────────── -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">

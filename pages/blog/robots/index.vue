@@ -1,3 +1,15 @@
+<!--
+  @file blog/robots/index.vue
+  @description /blog/robots: list of shared "robot notes" (AI-written or
+    AI-assisted) with word counts and section badges. Data:
+    useProcessedMarkdown().getRobotNotesWithContent(): manifest entries
+    under robots/ with share: true, then one /api/robots/<slug> fetch per note
+    (server/api/robots/[...slug].ts).
+  Gotchas:
+    - Matches the /blog/** prerender rule, but getBlogRoutes() (nuxt.helpers.ts)
+      skips robots/, so it isn't in the prerender list.
+    - Robot notes are a special section, kept out of getAllPosts() and /blog.
+-->
 <script setup>
 // Animation handled via global anime.js from CDN
 
@@ -33,6 +45,8 @@ const getNoteSummary = (note) => {
     ) || []
 
   // Calculate total word count
+  // `content` comes from getPostBySlug(); processed JSON stores the body as
+  // `html`, so this may be empty and the early return above wins.
   const wordCount = note.content
     .replace(/<[^>]*>/g, '') // Remove HTML tags
     .trim()

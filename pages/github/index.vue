@@ -1,6 +1,18 @@
+<!--
+  @file github/index.vue
+  @description /github: repo totals, year × week commit heatmap, and a
+    filterable/sortable repo list. SSR. Data: /api/github-repos-list
+    (data/github-repos-list.json) and /api/github/activity (derived from
+    data/github-commits.json). Clicking a heatmap year filters the list.
+  Gotcha: all of it is a committed snapshot; see the refresh note in
+  pages/github/[slug].vue.
+-->
 <script setup>
 import { ref, computed } from 'vue'
 
+// ── Data loading ────────────────────────────────────────────
+// Async + .client: the heatmap renders only in the browser (wrapped in
+// <ClientOnly> below), so it stays out of the SSR bundle.
 const CommitHeatmap = defineAsyncComponent(
   () => import('~/components/github/CommitHeatmap.client.vue')
 )
@@ -19,6 +31,7 @@ const activity = computed(
     }
 )
 
+// ── Filters + sort ──────────────────────────────────────────
 const searchQuery = ref('')
 const selectedLanguage = ref('all')
 const selectedYear = ref(null)
@@ -71,6 +84,7 @@ const filteredRepos = computed(() => {
   })
 })
 
+// ── Totals + SEO ────────────────────────────────────────────
 const totalStars = computed(() =>
   repos.value.reduce((sum, r) => sum + r.stats.stars, 0)
 )
@@ -140,6 +154,7 @@ usePageSeo({
       </div>
       <div class="stat">
         <dt>Languages</dt>
+        <!-- −1: `languages` starts with the 'all' option -->
         <dd>{{ languages.length - 1 }}</dd>
       </div>
       <div class="stat">
@@ -148,6 +163,7 @@ usePageSeo({
       </div>
     </dl>
 
+    <!-- ── Heatmap + filters ─────────── -->
     <ClientOnly>
       <CommitHeatmap
         :years="activity.years"
@@ -191,6 +207,7 @@ usePageSeo({
       </span>
     </div>
 
+    <!-- ── Repo list ─────────── -->
     <div class="space-y-0">
       <GithubRepoCard
         v-for="repo in filteredRepos"

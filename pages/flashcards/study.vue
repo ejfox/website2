@@ -1,6 +1,19 @@
+<!--
+  @file flashcards/study.vue
+  @description /flashcards/study: one-card-at-a-time study mode, shuffled.
+    ?deck=<id> limits it to one deck; otherwise every deck is pooled. Data:
+    /api/flashcards; shuffle/flip/navigation state lives in
+    composables/useFlashcards.ts. Keys: Space/Enter flip, ←/→ (also h/l and
+    k/j) navigate, r reshuffles.
+  Gotchas:
+    - Two <style> blocks: the slide-* Transition classes must be unscoped.
+    - Hardcoded zinc hexes: the flashcards card UI is deliberately exempt
+      from the bg token sweep (CLAUDE.md → Background Layer Tokens).
+-->
 <script setup lang="ts">
 import { useEventListener } from '@vueuse/core'
 
+// ── Types + data ────────────────────────────────────────────
 interface Deck {
   id: string
   name: string
@@ -39,6 +52,7 @@ const {
   flip,
 } = useFlashcards()
 
+// ── Study state ─────────────────────────────────────────────
 // Track deck names for each card
 const cardDeckMap = ref<Map<number, string>>(new Map())
 
@@ -65,6 +79,9 @@ const currentDeckName = computed(() => {
 })
 
 // Parse and set cards when data loads
+// Keyed by row index BEFORE setCards() drops empty-front rows: parseCard uses
+// that same pre-filter index as Flashcard.id, so the lookup survives both the
+// filter and the shuffle.
 watchEffect(() => {
   if (decks.value) {
     const allCards: string[][] = []
@@ -96,6 +113,7 @@ watchEffect(() => {
   }
 })
 
+// ── Navigation + keyboard ───────────────────────────────────
 // Wrapped navigation with animation direction
 const next = () => {
   slideDirection.value = 'right'
@@ -130,6 +148,7 @@ const handleReshuffle = () => {
 
 <template>
   <div class="study-container">
+    <!-- ── Header + progress ─────────── -->
     <!-- Minimal header -->
     <header class="study-header">
       <NuxtLink to="/flashcards" class="back-link">
@@ -165,7 +184,10 @@ const handleReshuffle = () => {
       <p class="font-mono text-sm text-red-400">Failed to load flashcards</p>
     </div>
 
+    <!-- ── Card ─────────── -->
     <!-- Card area -->
+    <!-- :key="currentIndex" remounts the wrapper so the out-in slide runs on
+         every card change. -->
     <div v-else-if="currentCard" data-page-main class="card-area">
       <Transition
         :name="slideDirection === 'right' ? 'slide-right' : 'slide-left'"
@@ -189,6 +211,7 @@ const handleReshuffle = () => {
       <div class="loading-card"></div>
     </div>
 
+    <!-- ── Controls ─────────── -->
     <!-- Controls -->
     <footer class="study-footer">
       <div class="control-row">
@@ -251,6 +274,7 @@ const handleReshuffle = () => {
   flex-direction: column;
 }
 
+/* ── Header ──────── */
 /* Header */
 .study-header {
   display: flex;
@@ -349,6 +373,7 @@ const handleReshuffle = () => {
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── Card + controls ──────── */
 /* Card area */
 .card-area {
   flex: 1;
@@ -518,6 +543,7 @@ const handleReshuffle = () => {
   color: #52525b;
 }
 
+/* ── Responsive ──────── */
 /* Responsive */
 @media (max-width: 640px) {
   .study-header {

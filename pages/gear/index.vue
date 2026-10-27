@@ -1,4 +1,16 @@
+<!--
+  @file gear/index.vue
+  @description /gear: the whole gear inventory, grouped by bag ("Parent
+    Container"), with per-container weight sparklines/histograms and one dense
+    table per container. Data: raw CSV from /api/gear-csv (data/gear.csv),
+    parsed client+server with d3-dsv. Prerendered in prod (PRERENDERED_ROUTES
+    in nuxt.config.ts), so a CSV edit needs a deploy to show.
+  Gotchas: Column names are the CSV header verbatim: Name, Weight_oz,
+    Parent Container, Type, Scan_3D_URL… Weight math lives in utils/weight.ts
+    (weightCalculations); rows render in components/gear/GearItem.vue.
+-->
 <script setup>
+// ── Setup ───────────────────────────────────────────────────
 import { csvParse } from 'd3-dsv' // Only used CSV parser (~2KB)
 
 const { tocTarget } = useTOC()
@@ -22,6 +34,8 @@ const weightUnit = ref('imperial')
 const sortBy = ref('weight')
 
 // Initialize weight unit from localStorage on client side only
+// Read in onMounted (not setup) so SSR and first client render agree on
+// 'imperial'; a metric reader sees the units flip after hydration.
 onMounted(() => {
   if (import.meta.client) {
     weightUnit.value = localStorage.getItem('gear-weight-unit') || 'imperial'
@@ -34,6 +48,9 @@ watch(weightUnit, (newValue) => {
   }
 })
 
+// ── Grouping ────────────────────────────────────────────────
+// Keys must match the CSV `Type` values exactly; a type missing here is
+// left out of the legend (typeStats only iterates these keys).
 const typeSymbols = {
   Tech: '▲',
   Utility: '⬟',
@@ -45,6 +62,9 @@ const typeSymbols = {
   Creativity: '✧',
 }
 
+// Containers listed first, in this order; the rest follow A→Z. Matched
+// exactly against `Parent Container`, so a renamed bag silently drops to
+// the alphabetical tail.
 const PRIORITY_CONTAINERS = [
   'Body',
   'Motorcycle',
@@ -75,6 +95,8 @@ const groupedGear = computed(() => {
   return new Map(sortedEntries)
 })
 
+// ── Weight formatting ───────────────────────────────────────
+// Compound units ("2lb 3oz", "1kg 40g"), not decimals: 16 oz per lb.
 const formatWeight = (items) => {
   const weightData = calculateTotalWeight(items)
   if (weightUnit.value === 'imperial') {
@@ -101,6 +123,7 @@ const containerComparison = computed(() => {
       totalOz,
     }
   })
+  // Floor of 1 avoids divide-by-zero when every container weighs 0.
   const maxOz = Math.max(...data.map((d) => d.totalOz), 1)
   return data.map((d) => ({
     ...d,
@@ -108,6 +131,9 @@ const containerComparison = computed(() => {
   }))
 })
 
+// ── Data loading ────────────────────────────────────────────
+// NOTE: the CSV column is `Amazon_URL`, not `amazon`, so this never fires;
+// the affiliate tag is actually added per row in components/gear/GearItem.vue.
 const addAffiliateCode = (url) => {
   if (!url?.includes('amazon.com')) return url
   const amazonUrl = new URL(url)
@@ -139,6 +165,7 @@ watchEffect(() => {
   }
 })
 
+// ── Summary stats ───────────────────────────────────────────
 const scannedItems = computed(() =>
   gearItems.value.filter((item) => item.Scan_3D_URL?.trim())
 )
@@ -167,6 +194,8 @@ const displayTotalWeight = computed(() => {
     if (typeof totalOz !== 'number' || Number.isNaN(totalOz)) {
       return { value: '0oz', unit: '' }
     }
+    // Round to tenths BEFORE splitting into lb/oz, or float noise can show
+    // "15.99oz" instead of rolling over to the next pound.
     const tenthsOz = Math.round(totalOz * 10) / 10
     const pounds = Math.floor(tenthsOz / 16)
     const ounces = tenthsOz - pounds * 16
@@ -225,6 +254,7 @@ const gearDescription = computed(() => {
   }
 })
 
+// ── SEO ─────────────────────────────────────────────────────
 usePageSeo({
   // This page renders its own JSON-LD below; don't add a second one.
   schema: false,
@@ -247,6 +277,9 @@ usePageSeo({
   data2: computed(() => `${totalWeight.value} oz`),
 })
 
+// ── Sorting ─────────────────────────────────────────────────
+// Copies before sorting: items are the arrays inside groupedGear, and an
+// in-place sort would mutate the computed's cached state.
 const sortItemsByName = (items) => {
   return [...items].sort((a, b) => a.Name.localeCompare(b.Name))
 }
@@ -269,6 +302,7 @@ const toggleSort = () => {
   sortBy.value = sortBy.value === 'weight' ? 'name' : 'weight'
 }
 
+// ── Per-container stats ─────────────────────────────────────
 // Tuftian data helpers
 const getAvgItemWeight = (items) => {
   const avgWeight = calculateAverageWeight(items)
@@ -306,6 +340,7 @@ const formatItemWeight = (item) => {
   if (weightUnit.value === 'imperial') {
     return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
   }
+  // 28.3495 g per oz, same constant as utils/weight.ts
   const grams = Math.round(oz * 28.3495)
   return grams > 1000 ? `${(grams / 1000).toFixed(1)}kg` : `${grams}g`
 }
@@ -353,11 +388,15 @@ const getWeightHistogram = (items) => {
     return []
   }
 
+  // Up to 10 equal-width bins over [min, max]. `|| 1` covers min === max
+  // (all items the same weight), which would otherwise divide by zero.
+  // Bin labels are always oz, even in metric mode.
   const bucketCount = Math.min(10, weights.length)
   const bucketSize = (max - min) / bucketCount || 1
 
   const buckets = Array(bucketCount).fill(0)
   weights.forEach((w) => {
+    // Clamp: w === max lands at index bucketCount, one past the last bin.
     const bucketIndex = Math.min(
       Math.floor((w - min) / bucketSize),
       bucketCount - 1
@@ -377,8 +416,14 @@ const getWeightHistogram = (items) => {
   })
 }
 
+// ── JSON-LD ─────────────────────────────────────────────────
+// Prerendered, so the HTML's "Updated" is the build date, not the CSV's
+// last edit.
 const currentDate = new Date().toISOString().split('T')[0]
 
+// NOTE: the CSV has no `Slug` column, so these URLs fall back to the row
+// index (/gear/0…). Real item slugs come from slugifyGear(Name) in
+// server/utils/gear-data.ts.
 const gearSchema = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -404,6 +449,7 @@ useHead(() => ({
 
 <template>
   <div data-page-main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
+    <!-- ── Header: totals, unit/sort controls, legend ─────────── -->
     <div
       v-if="csvError"
       class="text-center py-8 text-red-600 dark:text-red-400"
@@ -534,6 +580,7 @@ useHead(() => ({
       </div>
     </header>
 
+    <!-- ── 3D scans (WebGL, client only) ──────────────────────── -->
     <ClientOnly>
       <div v-if="scannedItems.length > 0" class="mb-8">
         <h2 class="gear-section-header mb-4">3D Scans</h2>
@@ -541,6 +588,7 @@ useHead(() => ({
       </div>
     </ClientOnly>
 
+    <!-- ── Container cards (jump links) ───────────────────────── -->
     <div class="mb-8">
       <h2 class="gear-section-header mb-4">Containers</h2>
       <div class="grid-gear-responsive">
@@ -560,6 +608,8 @@ useHead(() => ({
             </div>
           </div>
           <div class="mt-2">
+            <!-- One bar per item (first 20): width = share of the
+                 container's weight, opacity scales with item weight -->
             <div class="flex items-end h-4 bg-zinc-900/30 rounded-sm">
               <div
                 v-for="item in items.slice(0, 20)"
@@ -582,6 +632,9 @@ useHead(() => ({
       </div>
     </div>
 
+    <!-- ── Per-container tables ───────────────────────────────── -->
+    <!-- Section ids must match the slugging in scrollToContainer and the
+         card/TOC hrefs: lowercase, whitespace → "-". -->
     <div ref="gearReveal" class="space-y-12">
       <section
         v-for="[container, items] in groupedGear"
@@ -657,6 +710,7 @@ useHead(() => ({
         </div>
       </section>
     </div>
+    <!-- ── Sidebar TOC (teleported into the layout's nav) ─────── -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
@@ -710,6 +764,8 @@ useHead(() => ({
 </template>
 
 <style>
+/* NOTE: unscoped — these class names are global. */
+/* ── Table scroll shadows ─────────────────────────────────── */
 /* Scroll shadows (CSS only): the bg-surface covers ride along with the
    content (attachment: local) and hide the tinted edges (attachment: scroll)
    once you reach that end — so an edge only shows where more table hides. */
@@ -724,6 +780,7 @@ useHead(() => ({
     linear-gradient(to left, rgb(113 113 122 / 0.35), transparent) right
       center / 0.75rem 100% no-repeat scroll;
 }
+/* ── Layout helpers ───────────────────────────────────────── */
 .flex-between {
   @apply flex items-center justify-between;
 }
@@ -740,6 +797,7 @@ useHead(() => ({
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2;
 }
 
+/* ── Controls ─────────────────────────────────────────────── */
 .gear-btn {
   @apply px-3 py-2 text-3xs font-mono uppercase tracking-wide;
   @apply text-zinc-700 dark:text-zinc-300;
@@ -770,6 +828,8 @@ useHead(() => ({
   letter-spacing: 0.03em;
 }
 
+/* ── Table headers + stats ────────────────────────────────── */
+/* Same raw 8px values as above, for the same @apply reason. */
 .gear-th {
   @apply text-center px-1 py-1 font-normal text-zinc-500;
   font-size: 0.5rem;

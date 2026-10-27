@@ -1,3 +1,17 @@
+<!--
+  @file projects/[slug].vue
+  @description /projects/<slug>: one project write-up with a sticky
+    status/AI-involvement/live-link strip, an App Store link when the slug is
+    in data/apps.json (/api/apps), and a sidebar (date, tech, source,
+    support links, numbered TOC). SSR. Data: /api/posts/projects/<slug>
+    (server/api/posts/[...slug].ts, so draft/hidden/scheduled 404 in prod).
+  Gotchas:
+    - Canonical home: /blog/projects/<slug> 301s here
+      (server/middleware/blog-projects-redirect.ts), and getBlogRoutes() skips
+      projects/ so no prerendered twin defeats that redirect.
+    - Two <style> blocks: the unscoped one targets v-html content via
+      .project-content (see its NOTE on why :deep() can't be used there).
+-->
 <script setup>
 import BlogPostContent from '~/components/blog/BlogPostContent.vue'
 import { useIntersectionObserver } from '@vueuse/core'
@@ -5,6 +19,7 @@ import { useIntersectionObserver } from '@vueuse/core'
 const route = useRoute()
 const slug = route.params.slug
 
+// ── Data loading ────────────────────────────────────────────
 // Fetch the project (stored as blog post with projects/ prefix)
 // Before the await: composables needing the component instance must run
 // while it still exists. Every other page using useTOC does the same.
@@ -44,6 +59,7 @@ const { data: app } = await useFetch('/api/apps', {
 })
 const thisApp = computed(() => (app.value || []).find((a) => a.slug === slug))
 
+// ── SEO ─────────────────────────────────────────────────────
 // SEO metadata
 const title = computed(
   () => project.value?.title || project.value?.metadata?.title || 'Project'
@@ -92,6 +108,7 @@ usePageSeo({
 
 // TOC target for teleport
 
+// ── TOC + active section ────────────────────────────────────
 // Extract TOC from project data
 // Flatten the TOC tree: top-level headings numbered, their children indented.
 // Legacy content wraps everything in a single h1 (the title) — unwrap it so the
@@ -136,6 +153,8 @@ onMounted(() => {
           }
         })
       },
+      // Active = the heading in the band from 80px (clears the sticky strip)
+      // down to 20% of the viewport.
       {
         rootMargin: '-80px 0px -80% 0px',
       }
@@ -146,6 +165,7 @@ onMounted(() => {
 
 <template>
   <div class="container-main max-w-5xl">
+    <!-- ── Status strip ─────────── -->
     <!-- Slim persistent strip: only the marquee's UNIQUE value — status
          + the live-project CTA. Year/tech/date live once, in the sidebar
          PROJECT INFO (no longer duplicated here). Hidden entirely if
@@ -189,6 +209,7 @@ onMounted(() => {
       </div>
     </div>
 
+    <!-- ── Article ─────────── -->
     <article v-if="project" class="pt-8 md:pt-16">
       <h1
         class="text-4xl md:text-5xl font-serif font-light tracking-tight leading-tight mb-6"
@@ -218,6 +239,7 @@ onMounted(() => {
       </div>
     </article>
 
+    <!-- ── Sidebar ─────────── -->
     <!-- Metadata and TOC for sidebar -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">

@@ -1,3 +1,13 @@
+<!--
+  @file blog/index.vue
+  @description /blog: every published post, grouped by year, with a year
+    archive + totals teleported into the layout sidebar. Data:
+    useProcessedMarkdown().getAllPosts() → /api/manifest, then isValidPost()
+    (utils/postFilters.ts) keeps only YYYY/slug posts that aren't hidden or
+    scheduled.
+  SSR per request, not prerendered (LIVE_LISTINGS in nuxt.config.ts), so a
+  scheduled post appears the moment its publishAt passes.
+-->
 <script setup>
 import { formatNumber } from '~/utils/numberFormat'
 import { isValidPost } from '~/utils/postFilters'
@@ -22,6 +32,7 @@ const postDate = (post) => post?.metadata?.date || post?.date
 const postWords = (post) => post?.metadata?.words || post?.words || 0
 const postImages = (post) => post?.metadata?.images || post?.images || 0
 const postLinks = (post) => post?.metadata?.links || post?.links || 0
+// 200 wpm, same rate as totalReadHours below.
 const readingTime = (words) => (words ? Math.ceil(words / 200) : 0)
 
 const formatTitle = (slug) => {
@@ -44,6 +55,9 @@ const formatTitle = (slug) => {
   return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
+// ── Data loading ────────────────────────────────────────────
+// getManifestLite() catches fetch errors and returns [], so postsError rarely
+// fires; an outage shows as "No blog posts found."
 const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
   async () => {
@@ -93,6 +107,9 @@ const sortedYears = computed(() =>
   Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
 )
 
+// ── Sidebar year tracking (client only) ─────────────────────
+// Same -10%/-80% band as the post TOC: the year marker in the top 10–20% of
+// the viewport is "active". The watch re-observes when the year list changes.
 onMounted(() => {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -120,6 +137,7 @@ onMounted(() => {
   onBeforeUnmount(() => observer.disconnect())
 })
 
+// ── SEO ─────────────────────────────────────────────────────
 usePageSeo({
   // This page renders its own JSON-LD below; don't add a second one.
   schema: false,
@@ -209,6 +227,7 @@ useHead(() => ({
               </p>
             </div>
 
+            <!-- ── Posts by year ─────────── -->
             <div v-for="year in sortedYears" :key="`blog-${year}`">
               <template
                 v-for="(post, index) in blogPostsByYear[year]"
@@ -300,6 +319,7 @@ useHead(() => ({
       </div>
     </header>
 
+    <!-- ── Sidebar ─────────── -->
     <!-- Sidebar: year archive -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">

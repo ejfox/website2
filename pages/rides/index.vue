@@ -1,4 +1,16 @@
+<!--
+  @file rides/index.vue
+  @description /rides: grid of motorcycle rides (track thumbnail, elevation
+    strip, speed histogram, stats) plus an "atlas" plate of every ride on one
+    map. Data: /api/rides (content/processed/rides/index.json) and
+    /api/rides-atlas (atlas.json), both built by scripts/build/process-rides.mjs.
+    SSR on demand.
+  Gotchas: thumb/outlines/elev/spdHist arrive pre-normalized to 0–1 by the
+    build script, so the SVGs here use unit viewBoxes, not projections.
+    Unit helpers (m → mi/ft, m/s → mph) live in utils/rides.ts.
+-->
 <script setup lang="ts">
+// ── Types + data ────────────────────────────────────────────
 import { geoMercator } from 'd3-geo'
 import { useElementSize } from '@vueuse/core'
 import {
@@ -47,6 +59,10 @@ const { width: atlasW } = useElementSize(atlasEl)
 const atlasH = computed(() => {
   const b = atlas.value?.bounds
   if (!b || !atlasW.value) return 0
+  // Height from the bounds' aspect: a degree of longitude shrinks by
+  // cos(latitude), so scale the lon span by cos(mid-lat) to get a true
+  // shape. Capped at 1.1× width so a north–south sprawl can't go endless.
+  // atlasW is 0 during SSR (no element yet), so the plate renders client-side.
   const cosLat = Math.cos((((b.minLat + b.maxLat) / 2) * Math.PI) / 180)
   const aspect = (b.maxLat - b.minLat) / ((b.maxLon - b.minLon) * cosLat || 1)
   return Math.round(Math.min(atlasW.value * aspect, atlasW.value * 1.1))
@@ -54,6 +70,7 @@ const atlasH = computed(() => {
 const atlasProj = computed(() => {
   const b = atlas.value?.bounds
   if (!b || !atlasW.value || !atlasH.value) return null
+  // Fit the bounds' diagonal (a 2-point LineString) inside a 16px margin.
   return geoMercator().fitExtent(
     [
       [16, 16],
@@ -82,17 +99,23 @@ const atlasStates = computed(() =>
   (atlas.value?.states ?? []).map(atlasLine).join('')
 )
 
+// ── Card sparklines ─────────────────────────────────────────
 const trackPoints = (r: RideIndexEntry) =>
   (r.thumb ?? []).map((p) => `${p[0]},${p[1]}`).join(' ')
 
 const elevPoints = (r: RideIndexEntry) => {
   const e = r.elev
   if (!e?.length) return ''
+  // x = sample index spread over 0–1; y = 1 - v because SVG y grows down.
   return e
     .map((v, i) => `${(i / (e.length - 1)).toFixed(3)},${(1 - v).toFixed(2)}`)
     .join(' ')
 }
 
+// ── Date formatting ─────────────────────────────────────────
+// Explicit time zones so SSR (server TZ) and the browser agree. Start time
+// is shown in Eastern; `date` is formatted in UTC so a date-only string
+// doesn't slip back a day.
 const startClock = (iso: string | null) =>
   iso
     ? new Date(iso).toLocaleTimeString('en-US', {
@@ -124,6 +147,9 @@ useHead({ title: 'Rides — EJ Fox' })
       </p>
     </header>
 
+    <!-- ── Ride grid ──────────────────────────────────────────── -->
+    <!-- -mt-px/-ml-px + pt-px/pl-px collapse neighbouring card borders
+         into single hairlines. -->
     <div
       v-if="rides.length"
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-px pl-px"
@@ -134,6 +160,8 @@ useHead({ title: 'Rides — EJ Fox' })
         :to="`/rides/${ride.slug}`"
         class="group block bg-white dark:bg-black p-4 border border-zinc-200 dark:border-zinc-800 -mt-px -ml-px"
       >
+        <!-- thumb is 0–1 space; the 0.05 pad keeps strokes off the edge.
+             Dashed lines are state borders in the same space. -->
         <svg
           v-if="ride.thumb"
           viewBox="-0.05 -0.05 1.1 1.1"
@@ -175,6 +203,8 @@ useHead({ title: 'Rides — EJ Fox' })
               vector-effect="non-scaling-stroke"
             />
           </svg>
+          <!-- 16 speed bins (process-rides.mjs), each normalized to the
+               tallest bin: one unit wide, 8 units tall at peak. -->
           <svg
             v-if="ride.spdHist?.length"
             viewBox="0 0 16 8"
@@ -243,6 +273,7 @@ useHead({ title: 'Rides — EJ Fox' })
       No rides processed yet.
     </p>
 
+    <!-- ── Atlas ──────────────────────────────────────────────── -->
     <!-- the atlas: everywhere so far, one quiet plate -->
     <section v-if="atlas" ref="atlasEl" class="mt-24">
       <svg v-if="atlasProj" :width="atlasW" :height="atlasH" class="block">
@@ -269,6 +300,7 @@ useHead({ title: 'Rides — EJ Fox' })
           <title>{{ r.title }}</title>
         </path>
       </svg>
+      <!-- 1609.34 m per mile -->
       <p
         class="mt-2 font-mono text-3xs uppercase tracking-widest text-zinc-500 dark:text-zinc-600"
       >

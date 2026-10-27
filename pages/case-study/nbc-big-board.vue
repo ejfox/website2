@@ -1,3 +1,12 @@
+<!--
+  @file case-study/nbc-big-board.vue
+  @description /case-study/nbc-big-board: hand-written, fully static
+    consulting case study (all copy lives in this template, no data fetch).
+    SSR on demand. The CTA at the bottom feeds the Umami `consulting-book`
+    funnel (location: case-study-nbc; see CLAUDE.md "Umami funnel events").
+  Gotchas: Every claim here is EJ's published copy; don't edit credits,
+    numbers or quotes without checking with him.
+-->
 <script setup lang="ts">
 usePageSeo({
   title: 'Case Study: NBC Big Board · EJ Fox',

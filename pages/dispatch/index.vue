@@ -1,3 +1,11 @@
+<!--
+  @file dispatch/index.vue
+  @description /dispatch: list of short data-journalism pieces, newest first.
+    Data: /api/dispatch (server/api/dispatch.get.ts → server/utils/dispatch.ts,
+    reading content/dispatch/*.md at request time). SSR, not prerendered, so a
+    scheduled piece lists itself once publishAt passes.
+  Feed: /dispatch-rss.xml (server/routes/dispatch-rss.xml.ts).
+-->
 <script setup lang="ts">
 import { format } from '~/utils/date'
 

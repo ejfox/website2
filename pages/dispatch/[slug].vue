@@ -1,3 +1,15 @@
+<!--
+  @file dispatch/[slug].vue
+  @description /dispatch/<slug>: one Dispatch piece with its receipts
+    (sources, claims, data link via components/dispatch/DispatchReceipts.vue)
+    and "Also on" syndication links. Data: /api/dispatch/<slug>
+    (server/api/dispatch/[slug].get.ts), body rendered to HTML server-side.
+  Gotchas:
+    - Unlisted pieces ARE served, with noindex; draft/hidden/password and
+      scheduled 404 in prod. Dev previews all and shows the amber flag.
+    - `p` is a non-reactive snapshot of piece.value taken once in setup: fine
+      because the slug never changes without a remount.
+-->
 <script setup lang="ts">
 import { format } from '~/utils/date'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
@@ -21,6 +33,7 @@ interface DispatchPiece {
   html: string
 }
 
+// ── Data loading ────────────────────────────────────────────
 const route = useRoute()
 const slug = String(route.params.slug || '')
 
@@ -52,6 +65,7 @@ const displayDate = computed(() => {
   return format(new Date(publishedISO), 'MMMM d, yyyy')
 })
 
+// ── Display helpers ─────────────────────────────────────────
 const NETWORK_LABELS: Record<string, string> = {
   bluesky: 'Bluesky',
   mastodon: 'Mastodon',
@@ -63,6 +77,7 @@ const NETWORK_LABELS: Record<string, string> = {
 const networkLabel = (n: string) =>
   NETWORK_LABELS[n.toLowerCase()] || n.charAt(0).toUpperCase() + n.slice(1)
 
+// ── SEO ─────────────────────────────────────────────────────
 usePageSeo({
   title: `${p.title} · EJ Fox`,
   description: ogDescription(p.html, { dek: p.dek, title: p.title }),
@@ -155,6 +170,7 @@ useHead({
         v-html="piece.html"
       ></div>
 
+      <!-- ── Receipts + syndication ─────────── -->
       <DispatchReceipts
         :sources="piece.sources"
         :claims="piece.claims"

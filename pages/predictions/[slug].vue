@@ -1,3 +1,16 @@
+<!--
+  @file predictions/[slug].vue
+  @description /predictions/<slug>: one prediction with its resolution,
+    evidence, update log, related calls, and the hit rate of its confidence
+    bucket. Data: /api/predictions/<slug> (server/api/predictions/[id].ts,
+    markdown pre-rendered to *Html), /api/predictions for "still open", and
+    useCalibration() → /api/calibration.
+  Covered by the /predictions/** prerender rule (prod). No hook lists these
+  slugs and crawlLinks is off, so check the build log before assuming they're
+  baked.
+  Gotcha: the sidebar bucket uses the "as updated" basis, while
+  recordSummary's Brier is "as signed"; both are deliberate.
+-->
 <script setup lang="ts">
 import { format } from '~/utils/date'
 import { findCalibrationBucket } from '~/utils/calibration'
@@ -34,6 +47,7 @@ interface PredictionResponse {
   }>
 }
 
+// ── Data loading ────────────────────────────────────────────
 const route = useRoute()
 const params = route.params as { slug?: string | string[] }
 const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug || ''
@@ -62,6 +76,7 @@ const confidenceContext = computed(() => {
   return {
     bucket: bucket.label,
     count: bucket.count,
+    // Older calibration JSON has no `correct`; rebuild it from accuracy %.
     correct:
       bucket.correct ?? Math.round((bucket.accuracy / 100) * bucket.count),
   }
@@ -88,6 +103,7 @@ const nextOpen = computed(() =>
         p.slug !== prediction.value?.slug &&
         p.statement
     )
+    // Soonest deadline first; open-ended calls sort last.
     .sort((a, b) => {
       const da = a.deadline ? new Date(a.deadline).getTime() : Infinity
       const db = b.deadline ? new Date(b.deadline).getTime() : Infinity
@@ -106,6 +122,7 @@ const recordSummary = computed(() => {
   return parts.join(' · ')
 })
 
+// ── Derived display values ──────────────────────────────────
 // Sorted updates (newest first)
 const sortedUpdates = computed(() => {
   if (!prediction.value?.updates) return []
@@ -120,6 +137,7 @@ const deadline = computed(() => {
   const d = new Date(prediction.value.deadline)
   const now = new Date()
   const days = Math.ceil((d.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+  // Countdown within a year; past or far-off deadlines show month + year.
   if (days > 0 && days < 365) return `${days}d`
   return format(d, 'MMM yyyy')
 })
@@ -132,6 +150,7 @@ const formatDate = (date: string) => {
   }
 }
 
+// ── SEO ─────────────────────────────────────────────────────
 // SEO
 usePageSeo({
   title: computed(() => prediction.value?.statement || 'Prediction'),
@@ -154,6 +173,7 @@ usePageSeo({
 
 <template>
   <div v-if="prediction" data-page-main class="container-main pt-8">
+    <!-- ── Header ─────────── -->
     <!-- Back link -->
     <NuxtLink
       to="/predictions"
@@ -196,6 +216,7 @@ usePageSeo({
       </div>
     </header>
 
+    <!-- ── Body: resolution, evidence, updates, related ─────────── -->
     <!-- Resolution -->
     <section v-if="prediction.resolutionHtml" class="mb-8">
       <h2
@@ -324,6 +345,7 @@ usePageSeo({
   </div>
 
   <!-- Error/Loading -->
+  <!-- Mostly unreachable: a missing prediction throws a fatal 404 in setup. -->
   <div v-else class="container-main pt-8 font-mono text-xs text-zinc-500">
     {{ error ? 'Prediction not found' : 'Loading...' }}
     <NuxtLink v-if="error" to="/predictions" class="block mt-2 hover:underline">
@@ -331,6 +353,7 @@ usePageSeo({
     </NuxtLink>
   </div>
 
+  <!-- ── Sidebar ─────────── -->
   <!-- Sidebar teleport -->
   <ClientOnly>
     <Teleport v-if="tocTarget && prediction" to="#nav-toc-container">

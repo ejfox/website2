@@ -1,6 +1,18 @@
+<!--
+  @file github/[slug].vue
+  @description /github/<repo>: one repo's README, stats ticker, 52-week commit
+    bars, language bar, conventional-commit breakdown, recent commits, related
+    repos and the code-network graph. SSR.
+    Data: /api/repos/<slug> (server/api/repos/[slug].get.ts reads
+    data/github-repos/<slug>.json + .network.json) and /api/github-repos-list.
+  Gotcha: the JSON is a committed snapshot. `yarn github:export` /
+  `github:networks` refresh it; prebuild skips both in CI, so the live page
+  only changes when someone exports locally and commits.
+-->
 <script setup>
 import { languageColors } from '~/utils/languageColors'
 
+// ── Setup + formatting helpers ──────────────────────────────
 const route = useRoute()
 const slug = route.params.slug
 
@@ -29,6 +41,7 @@ const truncateMessage = (msg, max = 96) => {
   return firstLine.length > max ? firstLine.slice(0, max - 1) + '…' : firstLine
 }
 
+// Binary units (1024); floor(log_1024(bytes)) picks the unit, capped at GB.
 const formatBytes = (bytes) => {
   if (!bytes) return '0 B'
   const k = 1024
@@ -46,6 +59,7 @@ const formatCount = (n) => {
   return String(n ?? 0)
 }
 
+// ── Data loading ────────────────────────────────────────────
 // Fetch repository data - await is needed for SSR
 const { data: repo, error } = await useAsyncData(`repo-${slug}`, async () => {
   const response = await $fetch(`/api/repos/${slug}`)
@@ -56,7 +70,9 @@ const { data: repo, error } = await useAsyncData(`repo-${slug}`, async () => {
 const { data: allReposData } = await useFetch('/api/github-repos-list')
 const allRepos = computed(() => allReposData.value || [])
 
+// ── Derived values ──────────────────────────────────────────
 // Related repos: same topics/language, excluding current repo
+// Score = shared topics + 1 for same language; forks never count.
 const relatedRepos = computed(() => {
   if (!repo.value) return []
 
@@ -83,6 +99,9 @@ const maxWeekCount = computed(() => {
   return Math.max(...weeks.map((w) => w.count), 1)
 })
 
+// px, scaled to the busiest week. Note 36 is taller than .activity-bars' h-4
+// (32px on this repo's 8px spacing scale). The 2px floor keeps empty weeks
+// visible as a baseline.
 const barHeight = (count) => {
   if (count === 0) return 2
   return Math.max(2, (count / maxWeekCount.value) * 36)
@@ -102,6 +121,7 @@ const conventionalRatioLabel = computed(() => {
   return `${pct}% conventional`
 })
 
+// ── 404 + SEO ───────────────────────────────────────────────
 // If error, show 404
 if (error.value) {
   throw createError({
@@ -175,6 +195,7 @@ useHead(() => ({
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 xl:px-16">
     <article v-if="repo" class="pt-6 pb-12 space-y-6">
+      <!-- ── Header + stats ─────────── -->
       <!-- Header strip: title + description + dense meta -->
       <header
         class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"
@@ -283,6 +304,7 @@ useHead(() => ({
         </div>
       </dl>
 
+      <!-- ── README + data rail ─────────── -->
       <!-- Two-column body: README left, data rail right -->
       <div class="repo-body">
         <!-- README — primary content -->
@@ -464,6 +486,7 @@ useHead(() => ({
         </aside>
       </div>
 
+      <!-- ── Code network ─────────── -->
       <!-- Code network — full-width centerpiece -->
       <section v-if="repo.network?.nodes?.length" class="pt-4 space-y-2">
         <ClientOnly>
@@ -478,6 +501,7 @@ useHead(() => ({
 </template>
 
 <style scoped>
+/* ── Stats ticker ──────── */
 /* Stats ticker — dense, full-width band */
 .stats-ticker {
   @apply grid font-mono py-1;
@@ -502,6 +526,7 @@ useHead(() => ({
   @apply text-zinc-900 dark:text-zinc-100 hover:underline;
 }
 
+/* ── Layout ──────── */
 /* Two-column body */
 .repo-body {
   @apply grid gap-6 lg:gap-8;
@@ -556,6 +581,7 @@ useHead(() => ({
   @apply font-mono text-3xs tabular-nums text-zinc-500;
 }
 
+/* ── Rail sections ──────── */
 /* Activity sparkline */
 .activity-bars {
   @apply flex items-end gap-px h-4;
@@ -577,6 +603,7 @@ useHead(() => ({
   @apply gap-x-2 gap-y-0;
 }
 
+/* display:contents lets each row's 4 cells sit in the parent's 4-col grid. */
 .ctype-row {
   @apply contents;
 }
@@ -650,6 +677,7 @@ useHead(() => ({
   @apply text-3xs text-zinc-500 tabular-nums whitespace-nowrap;
 }
 
+/* ── README prose ──────── */
 /* README prose */
 .prose {
   @apply font-serif leading-relaxed;

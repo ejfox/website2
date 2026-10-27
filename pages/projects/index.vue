@@ -1,8 +1,26 @@
+<!--
+  @file projects/index.vue
+  @description /projects: hand-ordered flagship rows, then an archive of
+    thumbnail cards on a year spine (themes within dense years), plus a
+    projects-per-year stem plot and a sidebar TOC. Data: /api/projects?slim=1
+    (server/api/projects.get.ts, projects/* posts from manifest-lite.json) and
+    /api/availability (data/availability.json, read per request).
+  SSR per request, not prerendered (LIVE_LISTINGS in nuxt.config.ts).
+  Gotchas:
+    - Projects live in the blog pipeline under projects/, and
+      /blog/projects/* 301s to /projects/* (server/middleware/
+      blog-projects-redirect.ts); getBlogRoutes() skips them for that reason.
+    - Hero copy is EJ's verbatim line; CREDENTIALS must stay checkable. Don't
+      reword either.
+    - Scroll position is restored by hand when returning from a project page
+      (definePageMeta + useState at the bottom of setup).
+-->
 <script setup>
 import { scaleSqrt } from 'd3-scale'
 import ProjectRow from '~/components/projects/ProjectRow.vue'
 import ProjectArchiveCard from '~/components/projects/ProjectArchiveCard.vue'
 
+// ── Data loading ────────────────────────────────────────────
 const { tocTarget } = useTOC()
 
 const { data: projects } = await useAsyncData(
@@ -17,6 +35,7 @@ const { data: projects } = await useAsyncData(
   }
 )
 
+// ── Flagships + slug/date helpers ───────────────────────────
 // Flagships open the page. A deliberate order (not date) so the FIRST screen
 // spans the range — investigative journalism, a marquee client, data viz, a
 // signature tool, a creative-coding piece — instead of just "newest first".
@@ -56,6 +75,8 @@ const yearOf = (raw) => {
 }
 const projectYear = (p) => yearOf(projectDate(p))
 
+// Featured projects missing from FLAGSHIP_ORDER rank 999: after the listed
+// ones, in API (date-desc) order.
 const flagshipRank = (p) => {
   const i = FLAGSHIP_ORDER.indexOf(projectSlug(p))
   return i === -1 ? 999 : i
@@ -71,6 +92,7 @@ const regularProjects = computed(
   () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
 
+// ── Archive grouping ────────────────────────────────────────
 // The archive: everything not a flagship, grouped by YEAR (the spine) and then
 // by theme within each year. Time is the primary axis — it tells the story of
 // what got made when — with category as the secondary sort so each year still
@@ -149,6 +171,7 @@ const archiveGroups = computed(() => {
   })
 })
 
+// ── Availability + header stats ─────────────────────────────
 // Flip data/availability.json when a slot fills. Fails CLOSED: if we don't
 // know, render nothing rather than claiming an opening.
 // NOT awaited. Nothing here reads it synchronously — the template consumes it
@@ -246,6 +269,7 @@ const mostRecentTitle = computed(
 
 const mostRecentSlug = computed(() => projectSlug(mostRecentProject.value))
 
+// ── Stem plot ───────────────────────────────────────────────
 // --- Projects-per-year activity sparkline ---
 // One stem per calendar year, height ∝ number of projects shipped that year.
 // Ordered oldest → newest (left → right). sqrt scaling so a big year doesn't
@@ -272,6 +296,9 @@ const stemPlot = computed(() => {
 
   const stems = years.map((year, i) => {
     const count = counts.get(year)
+    // 0.5 floor: a 1-project year still shows a visible nub. The template
+    // only uses h (as % of height); x/width/yTop are leftovers from an SVG
+    // version.
     const h = Math.max(0.5, y(count))
     return {
       year,
@@ -286,6 +313,7 @@ const stemPlot = computed(() => {
   return { stems, width, height }
 })
 
+// ── SEO ─────────────────────────────────────────────────────
 // numberOfItems must match the emitted elements (parsers flag the mismatch),
 // and the list follows page order: flagships first, then the rest.
 const projectsSchema = computed(() => {
@@ -337,6 +365,7 @@ useHead(() => ({
   ],
 }))
 
+// ── Scroll restore ──────────────────────────────────────────
 // Keep your place across project visits. Browser back already restores via
 // savedPosition, but "← Back to Projects" and the nav link are fresh
 // navigations that land at the top. So: remember scrollY on leave, and when
@@ -369,6 +398,7 @@ onMounted(async () => {
 
 <template>
   <div class="px-4 sm:px-6 xl:px-8 pt-8">
+    <!-- ── Header ─────────── -->
     <header class="mb-8">
       <div
         class="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-wider"
@@ -474,6 +504,7 @@ onMounted(async () => {
       <p class="text-zinc-500">No projects found.</p>
     </div>
 
+    <!-- ── Flagships ─────────── -->
     <!-- Flagships - image-forward rows, deliberately ordered to span the range
          on the first screen. Bigger type + imagery are the "flagship" cue. -->
     <div v-if="featuredProjects.length" class="mb-20 space-y-16">
@@ -487,6 +518,7 @@ onMounted(async () => {
       </template>
     </div>
 
+    <!-- ── Archive ─────────── -->
     <!-- Archive - everything past the flagships, on a YEAR spine. Image-first
          (a thumbnail each), dense: the whole body of work as a timeline without
          a firehose of full-bleed rows. Thin years render as one clean grid;
@@ -575,6 +607,8 @@ onMounted(async () => {
       </div>
     </section>
 
+    <!-- ── Sidebar TOC ─────────── -->
+    <!-- (The archive half lists YEAR anchors, not categories.) -->
     <!-- TOC - flagships, then category jump-links. Mirrors the page structure
          instead of listing all 100 projects flat. -->
     <ClientOnly>

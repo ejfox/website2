@@ -1,3 +1,16 @@
+<!--
+  @file scraps/index.vue
+  @description /scraps: dense list of the newest shared bookmarks/scraps with
+    tags, source and extraction metadata. SSR, then edge-cached by the
+    /scraps/** rule in nuxt.config.ts (not prerendered, despite that rule's
+    comment). Data: /api/scraps (server/api/scraps.get.ts: Supabase,
+    shared === true only, newest 500, cached 1h). Feed: /scraps-rss.xml.
+  Gotchas:
+    - The full ~3.4MB row set is fetched on SSR and rides along in the page
+      payload. The 1h API cache exists because uncached pulls blew the
+      Supabase egress quota (see the note in scraps.get.ts).
+    - Only `tags` link to /scraps/tag/*; `concept_tags` are shown, not linked.
+-->
 <script setup lang="ts">
 import { computed } from 'vue'
 import { formatDate } from '~/utils/date'
@@ -29,6 +42,7 @@ interface Scrap {
   metadata: Record<string, unknown> | null
 }
 
+// ── Data loading ────────────────────────────────────────────
 const {
   data: scraps,
   pending: isLoading,
@@ -42,6 +56,7 @@ const { revealContainer: scrapsReveal } = useScrollReveal({
   duration: 100,
 })
 
+// ── Header stats + SEO ──────────────────────────────────────
 const uniqueTags = computed(() => {
   const tags = new Set<string>()
   scraps.value?.forEach((s) => {
@@ -116,7 +131,9 @@ useHead({
       No scraps yet
     </div>
 
+    <!-- ── Scrap list ─────────── -->
     <!-- Scraps List -->
+    <!-- Rows 3–5 are progressively hidden below lg/xl to keep phones terse. -->
     <div v-else ref="scrapsReveal" class="space-y-2">
       <div
         v-for="scrap in scraps"

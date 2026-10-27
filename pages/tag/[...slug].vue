@@ -1,4 +1,18 @@
+<!--
+  @file tag/[...slug].vue
+  @description /tag/<tag>: everything with a tag, split into Posts (YYYY/*),
+    Projects, Reading and Scraps. The target of bare [[wikilinks]] and of
+    node clicks in pages/threads.vue. SSR. Data: /api/manifest (already
+    filtered for drafts/hidden/scheduled) and /api/scraps/graph (scraps
+    match on `tags` OR `concept_tags`).
+  Gotchas:
+    - A tag with no posts and no scraps throws a real 404, but only once both
+      fetches returned, so a transient failure doesn't 404 every tag.
+    - Not the same page as /blog/tag/<tag> (pages/blog/tag/[...slug].vue),
+      which lists blog posts only.
+-->
 <script setup>
+// ── Data loading ────────────────────────────────────────────
 const route = useRoute()
 
 const tag = computed(() => {
@@ -16,6 +30,7 @@ const { data: allScraps, pending: scrapsPending } =
 
 const pending = computed(() => postsPending.value || scrapsPending.value)
 
+// ── Filtering ───────────────────────────────────────────────
 // Filter posts by tag and categorize
 const allTaggedPosts = computed(() => {
   if (!allPosts.value || !tag.value) return []
@@ -72,7 +87,9 @@ if (
   })
 }
 
+// ── Display + SEO ───────────────────────────────────────────
 // Format date (compact)
+// Local YY-MM-DD; shadows the auto-imported formatShortDate on purpose.
 const formatShortDate = (dateStr) => {
   if (!dateStr) return '—'
   const date = new Date(dateStr)
@@ -106,6 +123,7 @@ useHead({
       </p>
     </header>
 
+    <!-- ── Sections: posts, projects, reading, scraps ─────────── -->
     <!-- Posts -->
     <section v-if="posts.length" class="mb-6">
       <h3
@@ -144,6 +162,8 @@ useHead({
     </section>
 
     <!-- Projects -->
+    <!-- slug is "projects/<name>", so /${slug} is the canonical /projects/<name>
+         (the /blog/projects/* twin 301s there). -->
     <section v-if="projects.length" class="mb-6">
       <h3
         class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
@@ -248,6 +268,7 @@ useHead({
       </div>
     </section>
 
+    <!-- ── Empty + loading ─────────── -->
     <!-- Empty state -->
     <div v-if="!posts.length && !scraps.length && !pending" class="py-12">
       <p class="text-zinc-500">No content found with tag "{{ tag }}"</p>

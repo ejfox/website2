@@ -1,4 +1,14 @@
+<!--
+  @file gear/[slug].vue
+  @description /gear/:slug: one gear item as a 3D card
+    (components/gear/GearCard3D.client.vue), its 3D scan if Scan_3D_URL is
+    set, and posts that list it in `gear:` frontmatter. Data: /api/gear/:slug (one CSV row,
+    slug = slugifyGear(Name), server/utils/gear-data.ts) and
+    /api/gear-posts/:slug. SSR on demand; no prerender rule covers /gear/*.
+  Gotchas: Renaming an item in data/gear.csv changes its slug (and URL).
+-->
 <script setup lang="ts">
+// ── Data ────────────────────────────────────────────────────
 const formatPostDate = (dateStr?: string) => {
   if (!dateStr) return ''
   try {
@@ -21,6 +31,8 @@ const { data: relatedPosts } = await useFetch(`/api/gear-posts/${slug}`, {
 })
 
 // Handle errors properly
+// Rethrowing makes an unknown slug a real 404 (error.vue), so the
+// "Gear Not Found" block in the template is effectively a fallback only.
 if (error.value) {
   throw createError({
     statusCode: error.value.statusCode || 500,
@@ -28,6 +40,7 @@ if (error.value) {
   })
 }
 
+// ── SEO + JSON-LD ───────────────────────────────────────────
 // SEO the Nuxt way - reactive and clean
 usePageSeo({
   // This page renders its own JSON-LD below; don't add a second one.
@@ -56,6 +69,7 @@ usePageSeo({
 
 const gearItemSchema = computed(() => {
   if (!data.value) return null
+  // schema.org wants a unit code; CSV stores ounces (28.3495 g/oz).
   const grams = data.value.Weight_oz
     ? Math.round(Number(data.value.Weight_oz) * 28.3495)
     : undefined
@@ -88,7 +102,9 @@ useHead(() => ({
     : [],
 }))
 
+// ── Page transition ─────────────────────────────────────────
 // Page transitions
+// 600ms here must match the .gear-slide-*-active transitions in <style>.
 definePageMeta({
   pageTransition: {
     name: 'gear-slide',
@@ -184,7 +200,10 @@ definePageMeta({
   transform: none;
 }
 
+/* ── Page transition: 3D card-flip slide ──────────────────── */
 /* Page transitions */
+/* Both pages are absolutely stacked during the 600ms swap (mode: 'default'
+   runs enter and leave together), so they overlap instead of reflowing. */
 .gear-slide-enter-active,
 .gear-slide-leave-active {
   position: absolute;

@@ -1,3 +1,17 @@
+<!--
+  @file blog/2024/the-mystery-of-peter-todd.vue
+  @description Bespoke full-page takeover for /blog/2024/the-mystery-of-peter-todd.
+    Text and metadata still come from the markdown post via
+    /api/posts/2024/the-mystery-of-peter-todd; this file adds the palette,
+    glitch-token explorer and scroll effects. Prerendered with the other
+    /blog/** routes (it's in getBlogRoutes(), nuxt.helpers.ts).
+  Gotchas:
+    - This static route beats pages/blog/[...slug].vue, so nothing added to
+      that page (sealed/scheduled handling, AT-Proto + markdown <link>s, TOC
+      sidebar) applies here. Newer crowned posts use content/blog/<slug>.vue
+      instead (`yarn crown`, scripts/author/crown.mjs).
+    - One-off special post: exempt from site-wide design rules and audits.
+-->
 <script setup>
 /**
  * CROWNED POST: The Mystery of Peter Todd
@@ -27,6 +41,7 @@ const peterToddQuote2 =
 
 const BASE_HUE = 275
 
+// ── Palette ─────────────────────────────────────────────────
 // --- Palette (sync, no Nuxt instance needed) ---
 const palette = {
   accent: chroma.hcl(BASE_HUE, 40, 60).css(),
@@ -44,6 +59,7 @@ const palette = {
   textMuted: chroma.hcl(BASE_HUE, 4, 40).css(),
 }
 
+// ── Setup + SEO ─────────────────────────────────────────────
 // --- ALL Nuxt composable calls BEFORE any await ---
 // This is critical for SSR — the Nuxt instance is lost after await
 const config = useRuntimeConfig()
@@ -163,6 +179,7 @@ useHead({
   ],
 })
 
+// ── Data loading ────────────────────────────────────────────
 // --- NOW safe to await ---
 const { data: postData } = await useAsyncData(
   'post-2024-the-mystery-of-peter-todd',
@@ -191,6 +208,7 @@ watch(allData, (v) => {
   allPosts.value = v || []
 })
 
+// ── Glitch tokens ───────────────────────────────────────────
 // --- Glitch token data ---
 const GLITCH_TOKENS = [
   'SolidGoldMagikarp',
@@ -363,6 +381,7 @@ function getMoodColor(mood) {
   )
 }
 
+// ── Lifecycle (client only) ─────────────────────────────────
 // --- Lifecycle ---
 onMounted(() => {
   startAnimation()

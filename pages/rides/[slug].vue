@@ -1,4 +1,18 @@
+<!--
+  @file rides/[slug].vue
+  @description /rides/:slug: scrollytelling ride map. Scrolling the tall
+    section advances a rider along the GPS track; a camera zooms in and
+    follows, the ridden path is coloured by speed and thickened by elevation,
+    moments (photo/audio/text) pop up as they're passed, and a fuel gauge is
+    inferred. Data: /api/rides/:slug (one processed ride with basemap) and
+    /api/rides (other rides' ghost traces), built by
+    scripts/build/process-rides.mjs. SSR, but the map SVGs only draw once
+    useElementSize reports a width, i.e. client-side.
+  Gotchas: points[] is a positional tuple, see the Ride interface. Speeds
+    come precomputed per point from the pipeline; don't re-derive them here.
+-->
 <script setup lang="ts">
+// ── Types ───────────────────────────────────────────────────
 import { useElementSize, useElementBounding, useWindowSize } from '@vueuse/core'
 import { geoMercator } from 'd3-geo'
 import { interpolateInferno } from 'd3-scale-chromatic'
@@ -57,6 +71,7 @@ interface Ride {
   moments: Moment[]
 }
 
+// ── Data loading ────────────────────────────────────────────
 const route = useRoute()
 const slug = Array.isArray(route.params.slug)
   ? route.params.slug[0]
@@ -71,6 +86,7 @@ const { data: rideIndex } =
     '/api/rides'
   )
 
+// Per-ride hue from the pipeline; exposed as --ride-accent on the root.
 const accent = computed(() => `hsl(${ride.value?.hue ?? 25} 75% 55%)`)
 
 // ---- formatting ----------------------------------------------------------
@@ -85,6 +101,8 @@ const formatDate = (d: string | null) =>
     : ''
 
 // ---- map projection ------------------------------------------------------
+// Height (px) of the elevation strip pinned to the bottom of the map; the
+// projection, scale bar and attribution all sit above it.
 const ELEV_H = 80
 const mapContainer = ref<HTMLElement | null>(null)
 const { width, height } = useElementSize(mapContainer)
@@ -98,6 +116,7 @@ const PHONE_MAX = 640
 const projection = computed(() => {
   const b = ride.value?.bounds
   if (!b || width.value === 0 || height.value === 0) return null
+  // 12% of the short side as margin around the route.
   const pad = Math.min(width.value, height.value) * 0.12
   const phone = width.value < PHONE_MAX
   // HUD is top-4 (32px) + its own height; leave 16px under it
@@ -142,6 +161,8 @@ const projected = computed(() => {
  * passing exactly through every recorded point.
  */
 type Pt = [number, number]
+// Uniform Catmull-Rom (tension 0.5) as Bézier handles: each control point
+// sits 1/6 of the neighbour-to-neighbour vector away from its endpoint.
 function crControl(p0: Pt, p1: Pt, p2: Pt, p3: Pt): [Pt, Pt] {
   return [
     [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6],
@@ -194,11 +215,15 @@ const scrollSection = ref<HTMLElement | null>(null)
 const { top, height: sectionPx } = useElementBounding(scrollSection)
 const { height: winH } = useWindowSize()
 
+// Scroll budget: a 250vh base plus 50vh per moment, so rides with more
+// moments scroll slower and each card stays up long enough to read.
 const sectionHeight = computed(() => {
   const momentCount = ride.value?.moments.length ?? 0
   return `${250 + momentCount * 50}vh`
 })
 
+// 0 → 1 as the section's top scrolls from the viewport top until its
+// bottom reaches the viewport bottom (the sticky map's whole run).
 const progress = computed(() => {
   const scrollable = sectionPx.value - winH.value
   if (scrollable <= 0) return 0
@@ -213,6 +238,8 @@ const riderIndex = computed(() => {
   const pts = ride.value?.points
   if (!pts?.length) return 0
   const target = progressDist.value
+  // Binary search on cumulative distance (p[4], monotonic): first point at
+  // or past the target. Runs on every scroll tick, so no linear scan.
   let lo = 0
   let hi = pts.length - 1
   while (lo < hi) {
@@ -223,6 +250,7 @@ const riderIndex = computed(() => {
   return lo
 })
 
+// ── Ridden path: speed colour + elevation width ─────────────
 /**
  * The ridden path as per-segment strokes: color encodes smoothed speed
  * (muted → full accent within the ride's hue), width encodes elevation.
@@ -261,6 +289,8 @@ const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
   for (let i = 1; i < pts.length; i++) {
     const t = Math.min(1, speeds[i - 1] / vMax)
     const ele = pts[i][2] ?? minE
+    // Width 1.25px at the ride's lowest point → 4px at its highest.
+    // 2.237 converts m/s → mph (same factor as utils/rides.ts).
     segs.push({
       d: crSegmentD(proj, i),
       color: hasSpeeds ? speedColor(t) : 'var(--ride-accent)',
@@ -272,6 +302,8 @@ const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
 })
 
 /** Perceptual speed ramp: inferno, clamped off the near-black tail. */
+// Uses inferno's 0.2–0.92 band, skipping the near-black bottom (lost on the
+// dark map) and the palest top.
 function speedColor(t: number) {
   return interpolateInferno(0.2 + Math.min(1, Math.max(0, t)) * 0.72)
 }
@@ -284,6 +316,7 @@ const speedLegendGradient = computed(() => {
   return `linear-gradient(to right, ${stops.join(', ')})`
 })
 
+// segs[i-1] ends at point i, so slicing to riderIndex draws up to the rider.
 const riddenSegments = computed(() =>
   segmentData.value.segs.slice(0, riderIndex.value)
 )
@@ -292,6 +325,7 @@ const riderMph = computed(() => {
   return segmentData.value.segs[Math.max(0, riderIndex.value - 1)]?.mph ?? null
 })
 
+// ── Header stats ────────────────────────────────────────────
 const headerStats = computed(() => {
   const s = ride.value?.stats
   if (!s) return []
@@ -329,6 +363,7 @@ const headerStats = computed(() => {
   return out
 })
 
+// ── Fuel gauge ──────────────────────────────────────────────
 // Inferred fuel: full tank at start, burned by distance, reset at detected
 // gas-station stops (OSM amenity=fuel + dwell). If the tank would run dry
 // with no recorded stop, wrap — an unrecorded fill happened somewhere.
@@ -379,12 +414,16 @@ const followZoom = computed(() => {
     haversineMeters([b.minLon, b.minLat], [b.maxLon, b.minLat]),
     haversineMeters([b.minLon, b.minLat], [b.minLon, b.maxLat])
   )
+  // 1× zoom per 15km of the bounds' longer side, clamped to 1.5–6×: bigger
+  // rides zoom further in, so the follow-cam scale is roughly constant.
   return Math.min(6, Math.max(1.5, ext / 15000))
 })
 const smoothstep = (t: number) => t * t * (3 - 2 * t)
 const zoom = computed(() => {
   const p = progress.value
   const Z = followZoom.value
+  // Overview for the first and last 12% of the scroll, eased (smoothstep)
+  // into and out of the follow zoom; full zoom in between.
   if (p < 0.12) return 1 + (Z - 1) * smoothstep(p / 0.12)
   if (p > 0.88) return 1 + (Z - 1) * smoothstep((1 - p) / 0.12)
   return Z
@@ -406,6 +445,8 @@ const riderClock = computed(() => {
   const t = ride.value?.points[riderIndex.value]?.[3]
   const start = ride.value?.startTime
   if (t === null || t === undefined || !start) return null
+  // NOTE: no timeZone here (rides/index.vue pins America/New_York), so this
+  // renders in the server's zone on SSR and the viewer's in the browser.
   return new Date(Date.parse(start) + t * 1000).toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
@@ -450,6 +491,8 @@ const nearTrack = computed(() => {
   if (!pts?.length || !b) return () => true
   const cosLat = Math.cos((((b.minLat + b.maxLat) / 2) * Math.PI) / 180)
   const extent = Math.max((b.maxLon - b.minLon) * cosLat, b.maxLat - b.minLat)
+  // Distances here are in latitude-degrees (lon scaled by cos(lat)); 0.03°
+  // of latitude ≈ 3.3km. Only ~300 sampled track points are checked per place.
   // ~3km floor, widening on big plates so labels don't vanish entirely
   const thresh = Math.max(0.03, extent * 0.035)
   const t2 = thresh * thresh
@@ -480,6 +523,8 @@ const placeLabels = computed(() => {
       const [x, y] = proj([p.lon, p.lat]) as [number, number]
       return { ...p, x, y, major: p.kind === 'city' || p.kind === 'town' }
     })
+    // Keep labels inside the frame: 72px right for the label text, 96px
+    // bottom to clear the elevation strip (ELEV_H) plus margin.
     .filter(
       (p) =>
         p.x > 16 &&
@@ -493,6 +538,8 @@ const placeLabels = computed(() => {
   const placed: { x1: number; y1: number; x2: number; y2: number }[] = []
   const out: typeof candidates = []
   for (const p of candidates) {
+    // Estimated label width: approx px per char of the 10px / 8px
+    // tracked mono labels below, plus the dot offset. No DOM measuring.
     const w = 10 + p.name.length * (p.major ? 6.8 : 5.6)
     const h = 14
     const box = {
@@ -512,6 +559,7 @@ const placeLabels = computed(() => {
   return out
 })
 
+// ── Map furniture: graticule, scale bar ─────────────────────
 /** Graticule ticks: adaptive step so a frame gets ~5 per axis, not 60. */
 const GRAT_STEPS = [0.05, 0.1, 0.25, 0.5, 1, 2]
 const pickStep = (span: number, target: number) =>
@@ -568,6 +616,8 @@ const scaleBar = computed(() => {
   const y = height.value / 2
   const a = proj.invert([width.value / 2, y]) as [number, number]
   const b = proj.invert([width.value / 2 + 100, y]) as [number, number]
+  // Measured at the unzoomed projection, then divided by the camera zoom so
+  // the bar stays true while the map is scaled up.
   const metersPer100px = haversineMeters(a, b) / zoom.value
   if (!metersPer100px) return null
   const MILE = 1609.34
@@ -585,6 +635,7 @@ function haversineMeters(a: [number, number], b: [number, number]) {
   const h =
     Math.sin(dLat / 2) ** 2 +
     Math.cos(toRad(a[1])) * Math.cos(toRad(b[1])) * Math.sin(dLon / 2) ** 2
+  // 6371000 = mean Earth radius in metres
   return 2 * 6371000 * Math.asin(Math.sqrt(h))
 }
 
@@ -626,6 +677,8 @@ const elevationPath = computed(() => {
   const maxE = Math.max(...eles)
   const span = maxE - minE || 1
   const total = totalDist.value || 1
+  // Closed area: x by cumulative distance (matches the progress line),
+  // y scaled into ELEV_H with 8px headroom at the top.
   let d = `M0,${ELEV_H}`
   for (const p of pts) {
     if (p[2] === null) continue
@@ -637,6 +690,8 @@ const elevationPath = computed(() => {
   return d
 })
 
+// ── Media + head ────────────────────────────────────────────
+// Moment photos are Cloudinary public ids unless already a full URL.
 const photoUrl = (id: string) =>
   id.startsWith('http')
     ? id
@@ -647,6 +702,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
 
 <template>
   <div v-if="ride" class="ride-page" :style="{ '--ride-accent': accent }">
+    <!-- ── Header: title + stats ─────────────────────────────── -->
     <!-- ridehead -->
     <header class="px-4 md:px-8 pt-8 pb-12 max-w-screen-xl">
       <NuxtLink
@@ -693,7 +749,11 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
       </dl>
     </header>
 
+    <!-- ── Scrollytelling map ─────────────────────────────────── -->
     <!-- scrollytelling track section -->
+    <!-- overflowAnchor: none opts this tall section out of browser scroll
+         anchoring, so content changes don't nudge the scroll position
+         (which IS the ride progress). -->
     <section
       v-if="ride.points.length"
       ref="scrollSection"
@@ -808,6 +868,8 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               </g>
             </g>
             <!-- graticule: frame furniture, fades while zoomed -->
+            <!-- Outside the camera group on purpose: ticks are computed for
+                 the unzoomed frame, so they hide as soon as zoom kicks in. -->
             <g
               class="text-zinc-400/80 dark:text-zinc-600/80 font-mono"
               :style="{
@@ -845,6 +907,9 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 transition: 'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1)',
               }"
             >
+              <!-- Second camera group (same transform) so the route draws
+                   above the graticule. Marker sizes are divided by zoom to
+                   stay constant on screen. -->
               <!-- full route, faint -->
               <path
                 :d="trackPath"
@@ -917,7 +982,9 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             </g>
           </svg>
 
+          <!-- ── HUD + map furniture ───────────────────────────── -->
           <!-- live readout: the instrument chip -->
+          <!-- ref="hud": its measured height feeds the phone projection fit. -->
           <div
             ref="hud"
             class="absolute top-4 left-4 right-8 md:right-auto md:top-8 md:left-8 font-mono tabular-nums bg-white/80 dark:bg-black/80 backdrop-blur border border-zinc-200 dark:border-zinc-800 px-2 md:px-3 py-2"
@@ -1030,6 +1097,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
           </svg>
         </div>
 
+        <!-- ── Moment card ────────────────────────────────────────── -->
         <!-- moment card, shown for the currently-nearest active moment -->
         <transition name="moment">
           <article
@@ -1076,6 +1144,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
 </template>
 
 <style scoped>
+/* ── Moment card transition ───────────────────────────────── */
 .moment-enter-active,
 .moment-leave-active {
   transition:

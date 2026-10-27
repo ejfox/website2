@@ -1,3 +1,15 @@
+<!--
+  @file scraps/tag/[slug].vue
+  @description /scraps/tag/<tag>: scraps carrying one `tags` entry (concept_tags
+    don't count). SSR + the /scraps/** edge cache. Data: /api/scraps, filtered
+    in useFetch's transform, so only the matching rows reach the payload.
+  Gotchas:
+    - It filters the API's newest 500 shared scraps, so older scraps with
+      this tag don't appear.
+    - Titles use scrap.title || url here, not utils/scrapTitle like /scraps.
+    - Different from /tag/<tag> (pages/tag/[...slug].vue), which also matches
+      concept_tags and lists posts.
+-->
 <script setup lang="ts">
 import { computed } from 'vue'
 import { formatDate } from '~/utils/date'
@@ -27,6 +39,7 @@ interface Scrap {
   metadata: Record<string, unknown> | null
 }
 
+// ── Data loading ────────────────────────────────────────────
 const route = useRoute()
 const tag = computed(() => {
   const slug = (route.params as { slug?: string | string[] }).slug || ''
@@ -90,6 +103,7 @@ usePageSeo({
       No scraps with this tag
     </div>
 
+    <!-- ── Scrap list ─────────── -->
     <!-- Scraps List -->
     <div v-else class="space-y-2">
       <div

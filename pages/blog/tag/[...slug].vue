@@ -1,3 +1,16 @@
+<!--
+  @file blog/tag/[...slug].vue
+  @description /blog/tag/<tag>: blog posts with a tag, newest first with year
+    headers, plus matching scraps. The tag chips under every post link here.
+    Data: useProcessedMarkdown().getAllPosts() → /api/manifest; scraps from
+    /api/scraps/by-tags (client-only, lazy). Covered by the /blog/**
+    prerender rule, but getBlogRoutes() doesn't list tag routes.
+  Gotchas:
+    - Unknown tags render an empty 200, unlike /tag/<tag>
+      (pages/tag/[...slug].vue), which 404s.
+    - The local isValidPost only re-checks draft/hidden; getAllPosts() has
+      already dropped the rest. It is not utils/postFilters isValidPost.
+-->
 <!-- Blog Tag Page -->
 
 <script setup>
@@ -18,6 +31,7 @@ const pageDescription = computed(
   () => `All blog posts tagged with "${tag.value}"`
 )
 
+// ── Helpers ─────────────────────────────────────────────────
 // Helper functions (copied from blog index)
 const formatTitle = (slug) => {
   if (!slug) return ''
@@ -38,7 +52,10 @@ const processPost = (post) => {
   return { ...post, title, metadata: { ...post.metadata, title } }
 }
 
+// ── Data loading ────────────────────────────────────────────
 // Fetch all posts and filter by tag
+// One fixed key for every tag: the payload is the whole post list, so it's
+// shared across tag pages and filtered per tag below.
 const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
   try {
     const result = await processedMarkdown.getAllPosts(false)
@@ -65,6 +82,7 @@ const formatScrapDate = (dateStr) => {
   }
 }
 
+// ── Filtering + SEO ─────────────────────────────────────────
 // Filter posts by tag
 const filteredPosts = computed(() => {
   if (!allPosts.value || !tag.value) return []
@@ -94,7 +112,9 @@ usePageSeo({
   data2: computed(() => tag.value),
 })
 
+// ── Display helpers ─────────────────────────────────────────
 // Helper functions for display
+// 200 wpm, rounded and floored at 1 (blog/index rounds up with ceil instead).
 const calculateReadingTime = (words) => {
   if (!words) return 0
   return Math.max(1, Math.round(words / 200))
@@ -200,6 +220,7 @@ const postSummaryClass =
       </div>
     </header>
 
+    <!-- ── Posts by year ─────────── -->
     <!-- Main content area -->
     <div data-page-main class="max-w-4xl mx-auto px-4 md:px-6">
       <!-- Posts listing -->
@@ -291,6 +312,7 @@ const postSummaryClass =
         <NuxtLink to="/blog" class="link-blue">← Back to all posts</NuxtLink>
       </div>
 
+      <!-- ── Scraps ─────────── -->
       <!-- Scraps matching this tag -->
       <div v-if="tagScraps?.length" class="mt-8 pt-6">
         <div class="section-header-mono mb-3" style="line-height: 16px">
