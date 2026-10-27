@@ -216,7 +216,7 @@ computed twice: **as signed** (the confidence each prediction was published
 with, i.e. the first update's `confidenceBefore`; "signed" is the code's label,
 not a signature) and
 **as updated** (the last logged change, the current `confidence`). Math lives in
-`utils/brier.mjs`; writes `data/calibration-analysis.json`, which
+`scripts/utils/brier.mjs`; writes `data/calibration-analysis.json`, which
 `/api/calibration` serves as-is. Re-run and commit it after resolving a
 prediction.
 
@@ -228,7 +228,7 @@ Which posts are listed, hidden or 404'd is decided outside `scripts/`:
 `drafts/` and `robots/`) and `server/api/posts/[...slug].ts`. The script side:
 `processMarkdown.mjs` skips files starting with `!`, writes no JSON for drafts,
 and strips title/dek/tags/toc from hidden, unlisted and password posts in
-`manifest-lite.json`. `utils/helpers.mjs` `getPostType()` maps folders to
+`manifest-lite.json`. `scripts/utils/helpers.mjs` `getPostType()` maps folders to
 types and `generateRobotsMetaContent()` noindexes `reading/`, `projects/`,
 `robots/`, `study-notes/` and `prompts/`.
 

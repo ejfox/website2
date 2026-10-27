@@ -4,7 +4,7 @@
     layer plus a "strata" overview. Data: /api/keymap (server/api/keymap.get.ts
     → server/utils/oryx.ts). SSR, deliberately not prerendered (routeRule in
     nuxt.config.ts) so Oryx edits show without a deploy.
-    Drawing lives in components/KeymapBoard.vue; this page only picks layers.
+    Drawing lives in components/keymap/KeymapBoard.vue; this page only picks layers.
 -->
 <script setup lang="ts">
 // The keymap on EJ's ZSA Voyager, read live from Oryx via /api/keymap (cached
