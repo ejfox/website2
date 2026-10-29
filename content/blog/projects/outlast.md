@@ -21,6 +21,4 @@ The companion website for Eric Markowitz's book *Outlast*: a map and database of
 
 The front page is a spinning globe with every business plotted. You can browse by country, founding year and ownership, or explore a semantic map that clusters businesses by what they do. Each business has its own page with related and nearby survivors, and a trip planner builds multi-day itineraries around visiting them. The whole dataset is queried right in the browser with DuckDB-WASM.
 
-![Outlast — businesses operating for 100+ years](https://res.cloudinary.com/ejf/image/upload/projects/outlast/landing.png)
-
 [Visit outlastmap.com →](https://outlastmap.com)

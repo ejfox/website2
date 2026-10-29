@@ -14,7 +14,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![tldraw Livestream — a live collaborative tldraw canvas](https://res.cloudinary.com/ejf/image/upload/projects/tldraw-livestream/canvas.png)
 tldraw plugin for collaborative livestream canvases with moderation — let your audience draw with you.
 
 A plugin for tldraw that adds collaborative livestream canvas features with moderation — let your audience draw together with you.

@@ -43,21 +43,15 @@ Fourteen small programs for the terminal: utilities for working inside tmux, a f
 
 ### Robots
 
-![Robots running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/robots/terminal.png)
-
 [Robots](https://github.com/ejfox/robots) is a live cockpit for every Claude Code agent on the machine, written in Rust. It needs zero instrumentation and works retroactively on sessions that are already running.
 
 ## Input and display
 
 ### PS5 Tmux
 
-![PS5 Tmux running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/ps5-tmux/terminal.png)
-
 [PS5 Tmux](https://github.com/ejfox/ps5-tmux) controls tmux with a PS5 DualSense controller. Move between panes with the controller, accept changes with the X button, or hit the middle button to enter dictation mode.
 
 ### Talon Sketchybar
-
-![Talon Sketchybar running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/talon-sketchybar/terminal.png)
 
 [Talon Sketchybar](https://github.com/ejfox/talon-sketchybar) pushes Talon Voice state into sketchybar — event-driven, zero polling, about 60 lines of Python. It includes a Karabiner double-shift integration.
 
@@ -83,8 +77,6 @@ Fourteen small programs for the terminal: utilities for working inside tmux, a f
 
 ### CLI Conway
 
-![CLI Conway running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-conway/terminal.png)
-
 [CLI Conway](https://github.com/ejfox/cli-conway) runs Conway's Game of Life in the terminal. The cells are drawn in braille unicode characters.
 
 ### CLI Delta Dojo
@@ -95,12 +87,8 @@ Fourteen small programs for the terminal: utilities for working inside tmux, a f
 
 ### CLI Ascii 3D
 
-![CLI Ascii 3D running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-ascii-3d/terminal.png)
-
 [CLI Ascii 3D](https://github.com/ejfox/cli-ascii-3d) renders 3D shapes as ASCII art in the command line.
 
 ### CLI AI Chat
-
-![CLI AI Chat running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-ai-chat/terminal.png)
 
 [CLI AI Chat](https://github.com/ejfox/cli-ai-chat) is an IRC-style terminal interface for LLM conversations, in the same channel-and-buffer idiom as an IRC client. Vim-style modes and keybindings handle navigation between threads.

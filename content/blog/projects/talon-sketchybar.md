@@ -18,7 +18,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![Talon Sketchybar running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/talon-sketchybar/terminal.png)
 Event-driven Talon Voice → sketchybar bridge. Zero polling. Includes Karabiner double-shift integration.
 
 Push Talon Voice state into sketchybar — event-driven, zero-polling, ~60 lines of Python.

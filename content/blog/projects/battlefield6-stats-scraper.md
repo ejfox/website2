@@ -14,7 +14,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![Battlefield6 Stats Scraper — the scraper running in a vulpes terminal](https://res.cloudinary.com/ejf/image/upload/projects/battlefield6-stats-scraper/terminal.png)
 Automated Battlefield 6 stats tracker from tracker.gg - exports to CSV for historical analysis.
 
 Automatically track your Battlefield 6 stats from tracker.gg over time. Your stats get saved to a CSV file that grows with each scrape, perfect for tracking your progress!

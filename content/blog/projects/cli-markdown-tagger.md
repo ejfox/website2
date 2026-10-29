@@ -16,7 +16,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![CLI Markdown Tagger running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-markdown-tagger/terminal.png)
 Use an LLM to add tags to your markdown's frontmatter.
 
 This CLI tool automatically updates tags in the frontmatter of markdown files using AI-powered suggestions. It fetches a list of allowed tags from a specified URL and uses the OpenRouter API to suggest relevant tags based on the content of the markdown file.

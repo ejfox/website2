@@ -14,8 +14,6 @@ tags:
   - linux
 ---
 
-![BadUSB Remote Desktop — a real DuckyScript payload in a vulpes terminal](https://res.cloudinary.com/ejf/image/upload/projects/badusb-remote-desktop/terminal.png)
-
 Flipper Zero BadUSB payloads that make a fresh, keyboard-less machine reachable on the LAN for remote desktop — macOS Screen Sharing (VNC), Windows RDP, Linux VNC
 
 For setting up new computers, especially desktops and Raspberry Pis, with no keyboard, and getting them on a network where I can manage them from my MacBook.

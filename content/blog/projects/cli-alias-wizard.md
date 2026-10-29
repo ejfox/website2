@@ -14,7 +14,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![CLI Alias Wizard running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-alias-wizard/terminal.png)
 A little wizard to quickly create CLI aliases.
 
 https://github.com/user-attachments/assets/4678d331-18f1-4102-8116-905950fcb8e5

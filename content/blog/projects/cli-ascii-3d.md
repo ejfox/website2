@@ -15,7 +15,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![CLI Ascii 3D running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-ascii-3d/terminal.png)
 View 3D shapes as ASCII art in the command line.
 
 Transforming complex datasets into intuitive ASCII representations for enhanced pattern recognition and anomaly detection.

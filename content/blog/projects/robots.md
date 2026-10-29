@@ -14,5 +14,4 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![Robots running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/robots/terminal.png)
 A live cockpit for every Claude Code agent on the machine — zero instrumentation, works retroactively on already-running sessions.
