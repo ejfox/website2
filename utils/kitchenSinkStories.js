@@ -393,6 +393,56 @@ export const stories = {
       },
     },
   ],
+  // A real shared scrap (Are.na block 28978313), as on /scraps/<id> and /scraps/embed/<id>
+  ScrapLabel: [
+    {
+      name: 'default',
+      props: {
+        scrap: {
+          id: '4de30e41-298d-4139-80e8-eab4c140114e',
+          title: 'Screenshot of text on a white background',
+          summary:
+            '• Screenshot of text on a white background.\n• The text is in black, serif font.\n• The text reads: "Winkie agrees. "I don\'t think men have the same \'treat culture\' that women do, which is frankly a shame," he says."',
+          url: 'https://www.are.na/block/28978313',
+          created_at: '2024-06-24T22:21:03.192+00:00',
+          published_at: '2024-06-24T22:21:03.192+00:00',
+          tags: ['writing'],
+          concept_tags: ['gender_dynamics_in_culture', 'travel_experiences_and_gender_roles'],
+          type: 'block',
+          source: 'arena',
+          content_type: null,
+          location: null,
+          screenshot_url:
+            'https://res.cloudinary.com/ejf/image/upload/v1784604108/scrapbook/screenshots/hdyggq7g.jpg',
+          relationships: 0,
+          to_read: false,
+        },
+      },
+    },
+    {
+      name: 'embed (card back)',
+      props: {
+        embed: true,
+        scrap: {
+          id: '4de30e41-298d-4139-80e8-eab4c140114e',
+          title: 'Screenshot of text on a white background',
+          summary: '• The text reads: "Winkie agrees."',
+          url: 'https://www.are.na/block/28978313',
+          created_at: '2024-06-24T22:21:03.192+00:00',
+          published_at: null,
+          tags: ['writing'],
+          concept_tags: [],
+          type: 'block',
+          source: 'arena',
+          content_type: null,
+          location: null,
+          screenshot_url: null,
+          relationships: 0,
+          to_read: false,
+        },
+      },
+    },
+  ],
   PostNav: [
     {
       name: 'default',
