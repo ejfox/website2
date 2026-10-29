@@ -94,7 +94,7 @@ usePageSeo({
 <template>
   <article v-if="scrap" class="font-mono text-xs max-w-prose space-y-4">
     <header class="space-y-1">
-      <h1 class="text-base font-bold leading-snug font-sans">
+      <h1 class="text-xl leading-snug">
         {{ scrap.title || '(untitled)' }}
       </h1>
       <div v-if="scrap.source || domain" class="text-3xs text-zinc-500">
@@ -118,13 +118,13 @@ usePageSeo({
 
     <section v-if="parts.why" class="space-y-1">
       <div class="text-5xs uppercase tracking-wider text-zinc-500">Why kept</div>
-      <p class="leading-relaxed">{{ parts.why }}</p>
+      <p class="font-serif text-base">{{ parts.why }}</p>
     </section>
     <section v-if="parts.about" class="space-y-1">
       <div class="text-5xs uppercase tracking-wider text-zinc-500">
         {{ aboutLabel }}
       </div>
-      <p class="leading-relaxed">{{ parts.about }}</p>
+      <p class="font-serif text-base">{{ parts.about }}</p>
     </section>
 
     <img
