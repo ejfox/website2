@@ -34,5 +34,3 @@ Spectrum Synth is a WiFi spectrum analyzer for the Flipper Zero, paired with an 
 ## BadUSB Remote Desktop
 
 [BadUSB Remote Desktop](https://github.com/ejfox/badusb-remote-desktop) is a set of Flipper Zero BadUSB payloads that make a fresh, keyboard-less machine reachable on the LAN for remote desktop — macOS Screen Sharing (VNC), Windows RDP, or Linux VNC. Plug in the Flipper instead of digging out a spare keyboard, mouse, and monitor just to switch on remote access.
-
-![Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal](https://res.cloudinary.com/ejf/image/upload/projects/badusb-remote-desktop/terminal.png)

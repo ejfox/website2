@@ -14,7 +14,6 @@ tags:
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
 
-![CLI Conway running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-conway/terminal.png)
 A CLI game of life simulation, represented in braille unicode characters.
 
 CLI-CONWAY
