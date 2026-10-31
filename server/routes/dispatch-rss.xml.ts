@@ -2,7 +2,7 @@
  * @file dispatch-rss.xml.ts
  * @description GET /dispatch-rss.xml — RSS feed of public Dispatch pieces (named
  * like the other secondary feeds: gists-rss.xml). Drafts,
- * unlisted, password and still-scheduled pieces never appear — the shared
+ * unlisted and still-scheduled pieces never appear — the shared
  * `listDispatches()` gate handles all of them.
  *
  * Each listed piece is then re-read with getDispatch() for its HTML, which

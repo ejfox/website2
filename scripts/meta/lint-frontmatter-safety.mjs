@@ -8,6 +8,7 @@
  * @usage yarn lint:safety OR node scripts/meta/lint-frontmatter-safety.mjs
  *
  * Checks for:
+ * - Removed visibility keys (`hidden:`, removed 2026-10-31) — an error
  * - Typos in visibility fields (unlsted, pasword, drat, etc.)
  * - Posts without explicit visibility settings (warns)
  * - Deprecated fields that might cause confusion
@@ -18,6 +19,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import chalk from 'chalk'
+import { removedVisibilityKeyProblem } from '../../utils/visibility.mjs'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content/blog')
 
@@ -31,9 +33,8 @@ const VALID_FIELDS = new Set([
   'tags',
   'image',
   'unlisted',
-  'password',
   'draft',
-  'hidden',
+  'publishAt',
   'share',
   'type',
   'model',
@@ -63,8 +64,6 @@ const TYPO_PATTERNS = {
   passwrod: 'password',
   drat: 'draft',
   drft: 'draft',
-  hiden: 'hidden',
-  hiddn: 'hidden',
   shar: 'share',
   sahre: 'share',
 }
@@ -102,6 +101,9 @@ async function lintFile(filePath) {
 
   const fields = Object.keys(frontmatter)
 
+  const removed = removedVisibilityKeyProblem(frontmatter)
+  if (removed) issues.errors.push({ file: relativePath, message: removed })
+
   // Check for typos
   for (const field of fields) {
     const lowerField = field.toLowerCase()
@@ -127,7 +129,7 @@ async function lintFile(filePath) {
   // Check for YAML gotchas (string vs boolean). `draft: "false"` is a
   // truthy string, so any quoted value is flagged whatever it says.
   for (const [key, value] of Object.entries(frontmatter)) {
-    if (['unlisted', 'draft', 'hidden', 'share'].includes(key)) {
+    if (['unlisted', 'draft', 'share'].includes(key)) {
       if (typeof value === 'string') {
         issues.errors.push({
           file: relativePath,
@@ -141,10 +143,7 @@ async function lintFile(filePath) {
   const isInBlogYear = /^\d{4}\//.test(relativePath)
   if (isInBlogYear) {
     const hasVisibilitySetting =
-      frontmatter.unlisted !== undefined ||
-      frontmatter.password !== undefined ||
-      frontmatter.draft !== undefined ||
-      frontmatter.hidden !== undefined
+      frontmatter.unlisted !== undefined || frontmatter.draft !== undefined
 
     // Only warn if it looks like it might be sensitive
     const content_lower = content.toLowerCase()
@@ -158,7 +157,7 @@ async function lintFile(filePath) {
     if (!hasVisibilitySetting && mightBeSensitive) {
       issues.warnings.push({
         file: relativePath,
-        message: `No visibility setting but contains sensitive keywords. Add "unlisted: true" or "draft: true" if private.`,
+        message: `No visibility setting but contains sensitive keywords. Add "draft: true" if it isn't ready. ("unlisted: true" is NOT private: it still serves to anyone with the URL.)`,
       })
     }
   }

@@ -17,6 +17,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import { visibility } from '../../utils/visibility.mjs'
 
 /** content/blog/<slug>.vue */
 export function vueBodyPath(slug, root = process.cwd()) {
@@ -43,21 +44,11 @@ export function readVueBody(slug, root = process.cwd()) {
  * .vue body. Returns why not, or null when it's fine.
  */
 export function vueBodyProblem(slug, frontmatter = {}) {
-  if (slug.startsWith('private/')) return 'sealed posts cannot have a .vue body'
-  for (const key of [
-    'draft',
-    'hidden',
-    'unlisted',
-    'password',
-    'passwordHash',
-  ]) {
-    if (frontmatter[key]) return `${key} posts cannot have a .vue body`
-  }
-  const live = frontmatter.publishAt || frontmatter.date
-  if (live && new Date(live) > new Date()) {
+  const v = visibility({ ...frontmatter, slug })
+  if (v === 'public') return null
+  if (v === 'scheduled')
     return `scheduled posts cannot have a .vue body until they're live`
-  }
-  return null
+  return `${v} posts cannot have a .vue body`
 }
 
 /** Throw if any content/blog/**.vue belongs to a missing or non-public post */

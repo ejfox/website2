@@ -16,6 +16,7 @@
  * but don't fail. Some checks pin specific slugs (coach-artie, hacker-culture);
  * update them when those posts change status.
  */
+import { isListed } from '../../utils/visibility.mjs'
 
 const args = process.argv.slice(2)
 const BASE = (
@@ -111,10 +112,7 @@ async function main() {
     assert(res.status === 200, `status ${res.status}`)
     manifest = JSON.parse(body)
     assert(manifest.length > 50, `only ${manifest.length} entries`)
-    const leaks = manifest.filter((p) => {
-      const m = { ...p, ...(p.metadata ?? {}) }
-      return m.draft || m.hidden || m.unlisted || m.password || m.passwordHash
-    })
+    const leaks = manifest.filter((p) => !isListed(p))
     assert(!leaks.length, `non-public: ${leaks.map((p) => p.slug).join(', ')}`)
     assert(
       !/sourcePath|sourceDir|\/Users\//.test(body),

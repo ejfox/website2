@@ -16,7 +16,7 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 | Route | Purpose | Consumer | Reads |
 |---|---|---|---|
 | `posts/[...slug]` | Blog post by slug (privacy + draft guard) | `pages/blog`, `projects` | `content/processed/*.json` |
-| `manifest` | Listable posts (`isListable`: drops draft/hidden/unlisted/pw/scheduled + `drafts/`) | many pages | `manifest-lite.json` |
+| `manifest` | Listable posts (`isListable`: public only, per utils/visibility.mjs, minus `drafts/`) | many pages | `manifest-lite.json` |
 | `projects` | Projects sorted by date (`?slim` = card shape, no html) | `pages/projects` | manifest + JSON |
 | `reading` | Books w/ random highlight | `pages/reading`, `now` | `content/processed/reading` + `data/reading-kindle.json` |
 | `reading/[slug]` | Single book | `pages/reading`, `now` | reading JSON + `data/reading-kindle.json` |

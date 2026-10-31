@@ -21,6 +21,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { isListed } from '../../utils/visibility.mjs'
 
 // Despite the name, this is scripts/ (one up), so '../content' is the repo's.
 const __dirname = path.resolve(
@@ -158,35 +159,10 @@ async function sendWebmention(endpoint, source, target) {
 
 // ── Post selection ──────────────────────────────────────────
 
-// Mirrors publishTime()/isScheduled() and isHiddenFromListings() in
-// utils/postFilters.ts — keep them in step. Mirrored rather than imported
-// because that file is TypeScript and the workflow runs this with plain node
-// and no `yarn install`.
-function publishTime(post) {
-  // `||` not `??`: an empty publishAt must fall through to date.
-  const m = post?.metadata || {}
-  const when = post?.publishAt || m.publishAt || post?.date || m.date
-  if (!when) return null
-  const t = new Date(when).getTime()
-  return Number.isFinite(t) ? t : null
-}
-
-function isScheduled(post, now = Date.now()) {
-  const t = publishTime(post)
-  return t !== null && t > now
-}
-
-function isHiddenFromListings(post) {
-  const both = (key) => Boolean(post?.[key] ?? post?.metadata?.[key])
-  return ['draft', 'hidden', 'unlisted', 'password', 'passwordHash', 'sealed']
-    .map(both)
-    .some(Boolean)
-}
-
 // Get recent posts from processed JSON. Only top-level <year>/ dirs, so
 // projects/, reading/ etc. are never scanned. Anything not public right now
-// (draft/hidden/unlisted/password/sealed, or still embargoed) is skipped:
-// a webmention announces a URL that has to resolve for the receiver.
+// (isListed, utils/visibility.mjs — plain .mjs with no deps, so the workflow's
+// bare `node` can import it) is skipped: a webmention announces a URL.
 function getRecentPosts(daysAgo) {
   const posts = []
   const cutoff = Date.now() - daysAgo * 24 * 60 * 60 * 1000
@@ -203,7 +179,7 @@ function getRecentPosts(daysAgo) {
         const content = JSON.parse(
           fs.readFileSync(path.join(yearDir, file), 'utf-8')
         )
-        if (isHiddenFromListings(content) || isScheduled(content)) continue
+        if (!isListed(content)) continue
         const postDate = new Date(
           content.metadata?.date || content.metadata?.modified || 0
         )

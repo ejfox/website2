@@ -68,7 +68,7 @@ describe('validity + audit over a temp content tree', () => {
     }
 
     // Published targets.
-    await write('2022/the-studio.md', { title: 'Studio', hidden: true }) // 404s in prod
+    await write('2022/the-studio.md', { title: 'Studio', draft: true }) // 404s in prod
     await write(
       '2022/art-setup.md',
       { title: 'Art' },

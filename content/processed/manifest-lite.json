@@ -527,32 +527,6 @@
     }
   },
   {
-    "slug": "2018/watercolor-sketching-in-nyc",
-    "date": "2018-06-10T14:58:10-04:00",
-    "type": "words",
-    "hidden": true,
-    "unlisted": true,
-    "metadata": {
-      "type": "words",
-      "hidden": true,
-      "date": "2018-06-10T14:58:10-04:00",
-      "unlisted": true,
-      "words": 537,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 5,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "slug": "2018/watercolor-sketching-in-nyc"
-    }
-  },
-  {
     "slug": "2018/work-view-life-view",
     "title": "Work View / Life View",
     "date": "2018-09-30T21:58:20-04:00",
@@ -702,34 +676,6 @@
       "headers": {},
       "toc": [],
       "slug": "2019/climate-strike-nyc"
-    }
-  },
-  {
-    "slug": "2019/generative-music-iteration",
-    "date": "2019-03-24T08:00:33.000Z",
-    "type": "words",
-    "hidden": true,
-    "unlisted": true,
-    "modified": "2024-09-23T16:13:04.000Z",
-    "metadata": {
-      "type": "words",
-      "hidden": true,
-      "date": "2019-03-24T08:00:33.000Z",
-      "modified": "2024-09-23T16:13:04.000Z",
-      "unlisted": true,
-      "words": 300,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h3": 3
-      },
-      "slug": "2019/generative-music-iteration"
     }
   },
   {
@@ -2570,34 +2516,6 @@
     }
   },
   {
-    "slug": "2022/the-studio",
-    "date": "2022-12-27T20:04:55.000Z",
-    "type": "post",
-    "hidden": true,
-    "unlisted": true,
-    "modified": "2024-06-21T14:13:59.000Z",
-    "metadata": {
-      "date": "2022-12-27T20:04:55.000Z",
-      "modified": "2024-06-21T14:13:59.000Z",
-      "hidden": true,
-      "unlisted": true,
-      "words": 1359,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 3,
-      "codeBlocks": 0,
-      "headers": {
-        "h3": 3
-      },
-      "type": "post",
-      "slug": "2022/the-studio"
-    }
-  },
-  {
     "slug": "2023/crypto-ai-colonization",
     "title": "Deconstructing Crypto, AI, and the 21st Century Colonial Mindset",
     "date": "2023-01-24T15:56:03.000Z",
@@ -3060,34 +2978,6 @@
       ],
       "type": "post",
       "slug": "2023/why-i-love-obsidian"
-    }
-  },
-  {
-    "slug": "2024/2024",
-    "date": "2024-01-01T05:00:00.000Z",
-    "type": "post",
-    "hidden": true,
-    "unlisted": true,
-    "modified": "2024-09-23T16:12:56.000Z",
-    "metadata": {
-      "date": "2024-01-01T05:00:00.000Z",
-      "modified": "2024-09-23T16:12:56.000Z",
-      "hidden": true,
-      "unlisted": true,
-      "words": 4719,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 6
-      },
-      "type": "post",
-      "slug": "2024/2024"
     }
   },
   {
@@ -4029,31 +3919,6 @@
       "toc": [],
       "type": "post",
       "slug": "2026/2026-01-25"
-    }
-  },
-  {
-    "slug": "2026/the-knife",
-    "date": "2026-05-13T05:00:00.000Z",
-    "type": "post",
-    "hidden": true,
-    "metadata": {
-      "date": "2026-05-13T05:00:00.000Z",
-      "gear": [
-        "moletta-lionsteel-folding-black-knife"
-      ],
-      "hidden": true,
-      "words": 564,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "type": "post",
-      "slug": "2026/the-knife"
     }
   },
   {

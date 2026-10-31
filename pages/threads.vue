@@ -10,6 +10,7 @@
 -->
 <script setup>
 import { useDark, useElementSize, useRafFn, watchDebounced } from '@vueuse/core'
+import { isListed } from '~/utils/visibility.mjs'
 
 // ── Constants ───────────────────────────────────────────────
 const NODE_RADIUS = { tag: 2.5, post: 2, scrap: 0.75 }
@@ -527,7 +528,7 @@ onMounted(async () => {
     (p) =>
       (p.title || p.metadata?.title) &&
       (p.date || p.metadata?.date) &&
-      !p.metadata?.draft
+      isListed(p)
   )
   scraps.value = scrapList.filter((s) => tagsOf(s).length)
   initGraph()

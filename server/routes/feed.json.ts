@@ -1,9 +1,8 @@
 /**
  * @file feed.json.ts
  * @description GET /feed.json — JSON Feed 1.1 twin of server/routes/rss.xml.ts
- *   (latest 50 posts, full HTML). Same visibility rules: getPostsWithContent()
- *   applies isExcludedFromListings, then the shared isHiddenFromListings +
- *   isScheduled (utils/postFilters.ts). Listed in json-twin's RESERVED set.
+ *   (latest 50 posts, full HTML). Same visibility rule: isListed
+ *   (utils/visibility.mjs), applied by getPostsWithContent() and again here. Listed in json-twin's RESERVED set.
  *
  * Divergence from rss.xml: an undated post is kept here (no date_published)
  *   where rss.xml skips it.
@@ -11,7 +10,7 @@
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
 import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 import { decodeEntities } from '~/server/utils/decodeEntities'
 
 // JSON Feed 1.1 spec: https://jsonfeed.org/version/1.1
@@ -44,7 +43,7 @@ export default defineEventHandler(async (event) => {
     if (!slug) continue
 
     // Same shared predicate as rss.xml, so the two feeds can't drift.
-    if (isHiddenFromListings(post) || isScheduled(post)) continue
+    if (!isListed(post)) continue
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
     const isSpecialSection =

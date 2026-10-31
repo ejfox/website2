@@ -9,9 +9,10 @@
  * mirror mints duplicate records and every post page links to a 404.
  *
  * Deliberately plain .mjs with no dependencies and no `~/` aliases: the author
- * script is plain node and imports it by relative path, so it can't reach for
- * `utils/postFilters.ts` or anything Nuxt-flavoured.
+ * script is plain node and imports it by relative path. Its only import,
+ * visibility.mjs, is plain .mjs for the same reason.
  */
+import { isListed } from './visibility.mjs'
 
 // The repo the mirror writes to. Must match whatever account the
 // ATPROTO_HANDLE GitHub secret authenticates as — currently
@@ -91,46 +92,17 @@ export function rkeyFor(slug, publishedAtISO) {
 }
 
 /**
- * True while a post is still embargoed by `publishAt` (or a future `date`).
- *
- * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is
- * plain JS that can't import the TS helper.
- *
- * The mirror runs `--live` on every push to main, so without this a scheduled
- * post's title and date would hit a PUBLIC network the moment it was
- * committed, months before its embargo lifts.
- */
-export function isEmbargoed(post) {
-  const m = post?.metadata || {}
-  const when = m.publishAt || post?.publishAt || m.date || post?.date
-  if (!when) return false
-  const t = new Date(when).getTime()
-  return Number.isFinite(t) && t > Date.now()
-}
-
-/**
  * Does a record exist for this post? This is the mirror's own predicate — the
  * post page gates its link on exactly this, so a post that was never mirrored
- * (draft, hidden, unlisted, password-protected, scheduled) never renders a
- * link to a record that isn't there.
+ * (anything not public: draft, scheduled, unlisted, sealed) never renders a
+ * link to a record that isn't there. Scheduled matters most: the mirror runs
+ * `--live` on every push to main, so without it an embargoed post's title and
+ * date would hit a PUBLIC network the moment it was committed.
  */
 export function isMirrorEligible(post) {
   if (!post?.slug) return false
-  const m = post.metadata || {}
-  const blocked =
-    post.draft ||
-    m.draft ||
-    post.hidden ||
-    m.hidden ||
-    post.unlisted ||
-    m.unlisted ||
-    post.password ||
-    m.password ||
-    post.passwordHash ||
-    m.passwordHash ||
-    isEmbargoed(post)
   // blog posts live under year dirs (YYYY/…); skips system + section files
-  return !blocked && /^\d{4}\//.test(post.slug)
+  return isListed(post) && /^\d{4}\//.test(post.slug)
 }
 
 /**

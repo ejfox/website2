@@ -14,10 +14,9 @@
  * - Week notes are retired and never processed (410 via
  *   server/middleware/week-notes-gone.ts)
  *
- * Visibility (isExcludedFromListings): hidden/draft, unlisted, password, or
- * scheduled (utils/postFilters.ts isScheduled) posts are left out of every
- * listing and feed unless a caller passes includeDrafts. Drafts and robot
- * notes are listed only when `share: true`.
+ * Visibility: only public posts (isListed, utils/visibility.mjs) reach a
+ * listing or feed, unless a caller passes includeDrafts. Robot notes are
+ * listed only when `share: true`.
  */
 
 import {
@@ -27,7 +26,7 @@ import {
   startOfWeek as _startOfWeek,
   format as _format,
 } from 'date-fns'
-import { isScheduled } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 
 // ── Types ───────────────────────────────────────────────────
 interface PostMetadata {
@@ -35,7 +34,6 @@ interface PostMetadata {
   title: string
   date: string
   type?: string
-  hidden?: boolean
   draft?: boolean
   share?: boolean
   dek?: string
@@ -43,10 +41,6 @@ interface PostMetadata {
   description?: string
   tags?: string[]
   firstHeading?: string
-  // Visibility controls
-  unlisted?: boolean
-  password?: string
-  passwordHash?: string
 }
 
 interface ProcessedHTML {
@@ -60,10 +54,6 @@ interface Post extends PostMetadata {
   content?: string
   html?: string
   processedContent?: ProcessedHTML
-  // Visibility controls (can be at root or in metadata)
-  unlisted?: boolean
-  password?: string
-  passwordHash?: string
 }
 
 interface ManifestItem extends Post {
@@ -152,47 +142,9 @@ function isSystemFile(slug: string): boolean {
   )
 }
 
-function isHidden(post: Post): boolean {
-  return (
-    post?.hidden === true ||
-    post?.metadata?.hidden === true ||
-    post?.draft === true ||
-    post?.metadata?.draft === true
-  )
-}
-
-// Check if post is unlisted (visible at URL but not in listings)
-function isUnlisted(post: Post): boolean {
-  return post?.unlisted === true || post?.metadata?.unlisted === true
-}
-
-// Check if post is password-protected
-function isPasswordProtected(post: Post): boolean {
-  return !!(
-    post?.password ||
-    post?.passwordHash ||
-    post?.metadata?.password ||
-    post?.metadata?.passwordHash
-  )
-}
-
-// Check if post should be excluded from public listings
-function isExcludedFromListings(post: Post): boolean {
-  return (
-    isHidden(post) ||
-    isUnlisted(post) ||
-    isPasswordProtected(post) ||
-    isScheduled(post)
-  )
-}
-
 function isRegularBlogPost(post: Post): boolean {
   const slug = post?.metadata?.slug || post?.slug
-  return (
-    !isSystemFile(slug) &&
-    !isSpecialSection(slug) &&
-    !isExcludedFromListings(post)
-  )
+  return !isSystemFile(slug) && !isSpecialSection(slug) && isListed(post)
 }
 
 // Enhanced filtering function that accepts custom filters
@@ -200,9 +152,7 @@ function filterAndSortPosts(
   manifest: Post[],
   filters: {
     slugPrefix?: string
-    type?: string
     requireShare?: boolean
-    excludeHidden?: boolean
     customFilter?: (post: Post) => boolean
   } = {}
 ): Post[] {
@@ -213,21 +163,10 @@ function filterAndSortPosts(
         return false
       }
 
-      // Apply type filter
-      if (filters.type) {
-        const postType = post.type || post.metadata?.type
-        if (postType !== filters.type) return false
-      }
-
       // Apply share requirement filter
       if (filters.requireShare) {
         const isShared = post.metadata?.share || post.share
         if (!isShared) return false
-      }
-
-      // Apply hidden filter (includes unlisted and password-protected)
-      if (filters.excludeHidden && isExcludedFromListings(post)) {
-        return false
       }
 
       // Apply custom filter
@@ -298,8 +237,7 @@ export const useProcessedMarkdown = () => {
       return manifest
         .filter((post: Post) => {
           if (isSystemFile(post.slug)) return false
-          // Filter out hidden, unlisted, and password-protected posts from listings
-          if (!includeDrafts && isExcludedFromListings(post)) return false
+          if (!includeDrafts && !isListed(post)) return false
           return !isSpecialSection(post.slug)
         })
         .map((post) => {
@@ -371,11 +309,6 @@ export const useProcessedMarkdown = () => {
   }
 
   // Specialized content type getters using the unified filter function
-  const getDrafts = async (): Promise<Post[]> => {
-    const manifest = await getManifestLite()
-    return filterAndSortPosts(manifest, { type: 'draft', requireShare: true })
-  }
-
   const getReadingPosts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
     return filterAndSortPosts(manifest, { slugPrefix: 'reading/' })
@@ -394,12 +327,8 @@ export const useProcessedMarkdown = () => {
   const getNextPrevPosts = async (currentSlug: string) => {
     const manifest = await getManifestLite()
     const filteredPosts = manifest
+      // isListed inside, so an embargoed post never becomes a "Next →" link.
       .filter(isRegularBlogPost)
-      // This used to hand-roll its own future-date check that consulted `date`
-      // only, so a post with a past `date` but a future `publishAt` rendered as
-      // a "Next →" link — leaking an embargoed post's title next to a URL that
-      // 404s. Use the shared helper so nav agrees with every other surface.
-      .filter((post: Post) => !isScheduled(post))
       .sort((a: Post, b: Post) => compareDates(b.date, a.date))
 
     if (filteredPosts.length === 0) {
@@ -496,7 +425,6 @@ export const useProcessedMarkdown = () => {
     getAllPosts,
     getPostsByYear,
     getPostsWithContent,
-    getDrafts,
     getReadingPosts,
     getNextPrevPosts,
     getProjectPosts,

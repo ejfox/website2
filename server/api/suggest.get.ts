@@ -19,7 +19,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import NodeCache from 'node-cache'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 import { clientIp, createRateLimiter } from '~/server/utils/rateLimit'
 
 // Each request can cost an OpenRouter call, so cap it per client.
@@ -184,17 +184,8 @@ async function processJsonFile(
     const fileContent = await readFile(fullPath, 'utf-8')
     const data = JSON.parse(fileContent)
 
-    // The shared visibility predicate (draft/hidden/unlisted/password/sealed)
-    // plus embargo. The old inline list checked `type: draft` but not the
-    // `draft: true` flag, and draft PROJECTS do get JSON written.
-    const isHiddenOrDraft =
-      !data.content ||
-      data.metadata?.private === true ||
-      data.metadata?.type === 'draft' ||
-      isHiddenFromListings(data) ||
-      isScheduled(data)
-
-    if (isHiddenOrDraft) return null
+    // Draft PROJECTS do get JSON written, so the shared rule matters here.
+    if (!data.content || !isListed(data)) return null
 
     const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
 

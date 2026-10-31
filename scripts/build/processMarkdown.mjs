@@ -9,7 +9,8 @@
  * Stages, in order (processAllFiles):
  *   1. Back up content/processed/ (scripts/utils/backup.mjs), scan content/blog.
  *   2. Tripwires that fail the build: secret-looking frontmatter on a public
- *      post, a .vue body on a non-public post, any week-notes/ file.
+ *      post, a removed visibility key (`hidden:`), a .vue body on a
+ *      non-public post, any week-notes/ file.
  *   3. Public-files-only reports: data/external_links_final.csv, optional
  *      external link health (CHECK_LINKS), the valid-route set + internal
  *      dead-link report (scripts/utils/internal-links.mjs).
@@ -18,9 +19,12 @@
  *      encrypted (sealKeyring.mjs) and only the envelope is written.
  *   5. Orphan sweep (post JSON whose .md is gone; exemptions in
  *      scripts/utils/orphan-sweep.mjs), then manifest-lite.json with
- *      drafts/sealed omitted and protected posts' descriptive fields stripped.
- *   6. Static artifacts that skip scheduled posts: public/content-tags.json and
- *      data/on-this-day/MM-DD.json.
+ *      drafts/sealed omitted (scheduled and unlisted stay, gated at request
+ *      time).
+ *   6. Static artifacts from public posts only (no scheduled or unlisted):
+ *      public/content-tags.json and data/on-this-day/MM-DD.json.
+ *
+ * Visibility is utils/visibility.mjs, the same function the server uses.
  *
  * Gotchas: output JSON must never carry sourcePath/sourceDir (PII; see
  *   CLAUDE.md "Security & Privacy"). Bump CACHE_VERSION when a render change
@@ -84,6 +88,11 @@ import {
   looksLikePostJson,
 } from '../utils/orphan-sweep.mjs'
 import { isSealedSlug, capabilityLink } from '../../utils/postSeal.mjs'
+import {
+  isListed,
+  removedVisibilityKeyProblem,
+  visibility,
+} from '../../utils/visibility.mjs'
 import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
@@ -141,29 +150,6 @@ const formatTitle = (filename) => {
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
-}
-
-/**
- * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
- * plain .mjs build script that can't import the TS helper. Build artifacts
- * (the tag cloud, the on-this-day index) are baked into static files the
- * runtime gate can never reach, so an embargoed post must be excluded HERE.
- */
-const isScheduledEntry = (entry) => {
-  const m = entry?.metadata || {}
-  const when = m.publishAt || entry?.publishAt || m.date || entry?.date
-  if (!when) return false
-  const t = new Date(when).getTime()
-  return Number.isFinite(t) && t > Date.now()
-}
-
-/**
- * SHA-256 of a frontmatter `password:` so the plaintext never reaches JSON.
- * Downstream code treats a present passwordHash as "protected" (see
- * utils/postFilters.ts); it is stripped from manifest-lite.json below.
- */
-const hashPassword = (password) => {
-  return createHash('sha256').update(password).digest('hex')
 }
 
 // ── Link auto-fix (AUTO_FIX_LINKS) ──────────────────────────────────────────
@@ -287,7 +273,7 @@ async function tryLoadCachedResult(outputPath, cacheVersion) {
  * Write processed result to output file (for non-draft content only)
  */
 async function writeProcessedResult(result, outputPath) {
-  if (result.metadata?.draft === true) {
+  if (visibility(result) === 'draft') {
     // Draft PROJECTS are written so the local dev server can preview them.
     // (The manifest still excludes all drafts, so production never lists them.)
     // Other draft content stays unwritten — drafts can hold private material.
@@ -465,12 +451,6 @@ async function processMarkdown(content, filePath) {
         .replace(/\.md$/, '')
     )
 
-    // Handle password protection - hash password, never store plaintext
-    const passwordHash = frontmatter.password
-      ? hashPassword(frontmatter.password)
-      : undefined
-    const { password: _rawPassword, ...safeFrontmatter } = frontmatter
-
     // A big post's body is content/blog/<slug>.vue (scripts/utils/vue-body.mjs)
     const vueBody = readVueBody(slug)
     if (vueBody) {
@@ -489,13 +469,12 @@ async function processMarkdown(content, filePath) {
       html,
       title: extractedTitle,
       metadata: {
-        ...safeFrontmatter,
+        ...frontmatter,
         ...stats,
         toc,
         // getPostType matches on the slug ("projects/foo"); an absolute path
         // never matches and every post came out 'post'.
-        type: safeFrontmatter.type || getPostType(slug),
-        ...(passwordHash && { passwordHash }),
+        type: frontmatter.type || getPostType(slug),
         // OG image from data/og-images.json (set by Dispatch OG picker)
         ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
       },
@@ -1295,6 +1274,29 @@ async function assertNoStraySecretFrontmatter(allFiles) {
   process.exit(1)
 }
 
+/**
+ * `hidden:` was removed 2026-10-31. Ignoring a leftover one would quietly turn
+ * a 404 into a public post, so it fails the build instead. Runs before the
+ * cache, like the tripwire above, so it can't be skipped.
+ */
+async function assertNoRemovedVisibilityKeys(allFiles) {
+  const offenders = []
+  for (const filePath of allFiles) {
+    let data
+    try {
+      data = matter(await fs.readFile(filePath, 'utf8')).data || {}
+    } catch {
+      continue // malformed frontmatter is the safety linter's problem
+    }
+    const problem = removedVisibilityKeyProblem(data)
+    if (problem) offenders.push(`  ${slugForFile(filePath)}: ${problem}`)
+  }
+  if (!offenders.length) return
+  console.error(chalk.red.bold('\n🚨 Removed visibility key\n'))
+  console.error(chalk.red(offenders.join('\n')))
+  process.exit(1)
+}
+
 // ── Main: processAllFiles ───────────────────────────────────────────────────
 
 async function processAllFiles() {
@@ -1323,6 +1325,7 @@ async function processAllFiles() {
     // can be skipped is not a guard — that exact bypass is how the previous
     // attempt shipped a post with no protection and a green build.
     await assertNoStraySecretFrontmatter(allFiles)
+    await assertNoRemovedVisibilityKeys(allFiles)
     assertVueBodiesArePublic(
       (await fs.readdir(paths.contentDir, { recursive: true }))
         .filter((f) => f.endsWith('.vue'))
@@ -1387,7 +1390,7 @@ async function processAllFiles() {
       } else if (
         !isSealedSlug(normalizedPath) &&
         !outputPath.includes('/projects/') &&
-        matter(readFileSync(filePath, 'utf8')).data.draft === true
+        visibility(matter(readFileSync(filePath, 'utf8')).data) === 'draft'
       ) {
         willSkipDrafts++
       } else {
@@ -1409,7 +1412,7 @@ async function processAllFiles() {
     // ── Per-file loop ──
     // `results[i]` must stay index-aligned with `allFiles[i]`: the manifest
     // and on-this-day steps below pair them by index. Every branch pushes
-    // exactly one entry; a failed file pushes `null`, which isListable drops
+    // exactly one entry; a failed file pushes `null`, which isInManifest drops
     // (together with its file) before anything pairs them.
     const results = []
     const sealedReport = []
@@ -1455,7 +1458,7 @@ async function processAllFiles() {
           !isSealedSlug(normalizedPath) && !outputPath.includes('/projects/')
             ? matter(source).data
             : null
-        if (frontmatter?.draft === true) {
+        if (frontmatter && visibility(frontmatter) === 'draft') {
           await fs.rm(outputPath, { force: true }) // same as writeProcessedResult
           results.push({ metadata: { ...frontmatter, draft: true } })
           processStats.filesProcessed++
@@ -1521,22 +1524,21 @@ async function processAllFiles() {
     // here also sanitises everything downstream of the manifest for free —
     // /tags.json, the sitemap, both feeds, search, suggest, and the prerender
     // route list — rather than needing a filter in each.
-    // Reject the null first: a failed file's placeholder is null, and
-    // `null?.metadata?.draft !== true` is true.
-    const isListable = (entry) =>
+    // Reject the null first: a failed file's placeholder is null.
+    // Scheduled and unlisted posts stay in: they're gated at request time.
+    const isInManifest = (entry) =>
       entry !== null &&
       entry !== undefined &&
-      entry.metadata?.draft !== true &&
-      entry.sealed !== true
-    const nonDraftResults = results.filter(isListable)
+      !['draft', 'sealed'].includes(visibility(entry))
+    const nonDraftResults = results.filter(isInManifest)
     const nonDraftFiles = allFiles.filter((_, index) =>
-      isListable(results[index])
+      isInManifest(results[index])
     )
-    // Index-aligned pair excluding embargoed posts, for build artifacts only.
-    // The manifest itself still carries them — they're gated at request time.
-    const publishedResults = nonDraftResults.filter((e) => !isScheduledEntry(e))
-    const publishedFiles = nonDraftFiles.filter(
-      (_, index) => !isScheduledEntry(nonDraftResults[index])
+    // Index-aligned pair of PUBLIC posts only, for static build artifacts,
+    // which no request-time gate can reach.
+    const publishedResults = nonDraftResults.filter((e) => isListed(e))
+    const publishedFiles = nonDraftFiles.filter((_, index) =>
+      isListed(nonDraftResults[index])
     )
 
     // ── Orphan cleanup ──
@@ -1591,7 +1593,7 @@ async function processAllFiles() {
 
     // ── manifest-lite.json ──
     // Every listing, feed, sitemap and tag surface reads this file; the
-    // server re-filters draft/hidden/unlisted/password/scheduled at request time.
+    // server keeps public posts only (isListed) at request time.
     const manifestResults = nonDraftResults.map((entry, index) => {
       const cleanEntry = { ...entry }
       const originalFilePath = nonDraftFiles[index]
@@ -1605,41 +1607,20 @@ async function processAllFiles() {
       )
       const type = cleanEntry.metadata?.type || getPostType(slug)
 
-      // manifest-lite.json is committed to a PUBLIC repo. Hidden/unlisted/
-      // password-protected posts are kept here for request-time gating, but
-      // their descriptive content (title, dek, tags, toc) shouldn't be
-      // published to GitHub — and passwordHash must NEVER be. Strip both:
-      // request-time gating only needs the slug + flags.
-      const md = { ...cleanEntry.metadata, slug, type }
-      const isProtected =
-        md.hidden === true ||
-        md.unlisted === true ||
-        !!md.password ||
-        !!md.passwordHash
-      delete md.password
-      delete md.passwordHash
-      if (isProtected) {
-        delete md.title
-        delete md.dek
-        delete md.tags
-        delete md.toc
-      }
-
+      // An unlisted post's title here is no secret: its source .md is in the
+      // same public repo.
       return {
         slug,
-        title: isProtected
-          ? undefined
-          : cleanEntry.metadata?.title || cleanEntry.title,
+        title: cleanEntry.metadata?.title || cleanEntry.title,
         date: cleanEntry.metadata?.date,
         type,
-        hidden: cleanEntry.metadata?.hidden,
         unlisted: cleanEntry.metadata?.unlisted,
         draft: cleanEntry.metadata?.draft,
-        dek: isProtected ? undefined : cleanEntry.metadata?.dek,
+        dek: cleanEntry.metadata?.dek,
         modified: cleanEntry.metadata?.modified,
-        tags: isProtected ? undefined : cleanEntry.metadata?.tags,
-        toc: isProtected ? undefined : cleanEntry.metadata?.toc,
-        metadata: md,
+        tags: cleanEntry.metadata?.tags,
+        toc: cleanEntry.metadata?.toc,
+        metadata: { ...cleanEntry.metadata, slug, type },
       }
     })
 
@@ -1656,7 +1637,7 @@ async function processAllFiles() {
         `(${cacheHitRate}% cache hit)`
     )
 
-    // ── Static artifacts (scheduled posts excluded) ──
+    // ── Static artifacts (public posts only) ──
     // Extract tags with usage counts from content
     // and write to public/content-tags.json
     // Same reasoning as the on-this-day index: public/content-tags.json is a

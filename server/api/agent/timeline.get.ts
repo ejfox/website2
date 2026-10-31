@@ -15,7 +15,7 @@ import matter from 'gray-matter'
 import { glob } from 'glob'
 import { readManifest, isListable } from '~/server/utils/manifest'
 import { withKindleSync } from '~/server/utils/readingKindle'
-import { isScheduled } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 
 // Timeline event types
 interface TimelineEvent {
@@ -63,11 +63,8 @@ export default defineEventHandler(async (event) => {
   try {
     const posts = await readManifest()
 
-    // These flags were previously checked as `!p.unlisted` etc. against a
-    // manifest entry, which only hoists `hidden` — the rest exist solely under
-    // `metadata`, so those checks were permanently `undefined` and this public
-    // endpoint would have published the title, URL and tags of any unlisted or
-    // protected post. `isHiddenFromListings` reads both levels.
+    // Once checked as `!p.unlisted` against a manifest entry, where that flag
+    // lives only under `metadata` — a permanent no-op. isListable reads both.
     posts
       .filter((p: ManifestPost) => isListable(p) && p.date)
       .forEach((post: ManifestPost) => {
@@ -154,7 +151,7 @@ export default defineEventHandler(async (event) => {
   }
 
   // ── Reading ──────────────────────────────────────────────
-  // Reading notes still under embargo (isScheduled) are left out.
+  // Public reading notes only (not scheduled, not unlisted).
   try {
     const readingDir = join(process.cwd(), 'content/processed/reading')
     const files = await fs.readdir(readingDir)
@@ -169,7 +166,7 @@ export default defineEventHandler(async (event) => {
             JSON.parse(content),
             file.replace(/\.json$/, '')
           )
-          if (isScheduled(book)) return
+          if (!isListed(book)) return
 
           const lastAnnotated =
             book.metadata?.['kindle-sync']?.lastAnnotatedDate

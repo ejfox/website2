@@ -16,7 +16,7 @@ import { useIntersectionObserver, useNow } from '@vueuse/core'
 import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
 import StatsSectionSkeleton from '~/components/stats/StatsSectionSkeleton.vue'
-import { postFilters } from '~/utils/postFilters'
+import { isListedBlogPost } from '~/utils/visibility.mjs'
 import { buildStatsSummary } from '~/utils/statsSummary'
 
 // ── Lazy-hydrated sections ──────────────────────────────────
@@ -243,7 +243,6 @@ const route = useRoute()
 
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = numberFormat()
-const { isValidPost } = postFilters()
 
 // Load all commits for the matrix visualization (below-the-fold, ~700KB).
 // Client-only, and only once the art piece is ~1 screen away: most visitors
@@ -307,7 +306,7 @@ onMounted(async () => {
   try {
     if (!cachedPosts.value) {
       const allPosts = await getAllPosts(false)
-      cachedPosts.value = allPosts.filter((post) => isValidPost(post))
+      cachedPosts.value = allPosts.filter((post) => isListedBlogPost(post))
     }
 
     const posts = cachedPosts.value

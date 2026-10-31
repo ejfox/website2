@@ -1,6 +1,6 @@
 ---
 type: words
-hidden: true
+draft: true
 date: 2019-03-24T04:00:33-04:00
 tags:
   - generative
@@ -11,7 +11,6 @@ tags:
   - visualization
   - coding
 modified: 2024-09-23T12:13:04-04:00
-unlisted: true
 ---
 
 ## Generative Music Iteration

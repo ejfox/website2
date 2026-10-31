@@ -20,11 +20,7 @@ import rehypeRemark from 'rehype-remark'
 import remarkGfm from 'remark-gfm'
 import remarkStringify from 'remark-stringify'
 import { visit } from 'unist-util-visit'
-import {
-  isHiddenFromListings,
-  isScheduled,
-  type Post,
-} from '~/utils/postFilters'
+import { isServed } from '~/utils/visibility.mjs'
 import { isSealedPost, isSealedSlug } from '~/utils/postSeal.mjs'
 
 export const SITE_URL = 'https://ejfox.com'
@@ -38,11 +34,9 @@ export const MARKDOWN_FRONTMATTER_KEYS = [
 ] as const
 
 /**
- * True if a post may have a public markdown copy. Stricter than the HTML
- * route: `unlisted` (secret-URL) posts are excluded too, because a copy built
- * for machines to ingest is the opposite of "only people with the link".
- * `isHiddenFromListings` reads draft/hidden/unlisted/password/passwordHash/
- * sealed at both the top level and `metadata`; `isScheduled` holds embargoes.
+ * True if a post may have a public markdown copy: the same rule as its HTML
+ * page (isServed: public or unlisted), except it holds in dev too and a
+ * sealed envelope never gets one.
  */
 export function isMarkdownServable(
   data: unknown,
@@ -52,12 +46,11 @@ export function isMarkdownServable(
   const d = data as Record<string, unknown>
   if (isSealedPost(d)) return false
   if (typeof d.html !== 'string' || !d.html.trim()) return false
-  const post = d as Post
-  return !isHiddenFromListings(post) && !isScheduled(post, now)
+  return isServed(d, { now })
 }
 
 /**
- * Only `<year>/<slug>` — the shape `isValidPost` calls a regular blog post.
+ * Only `<year>/<slug>` — the shape `isListedBlogPost` calls a regular blog post.
  * Week notes, robots, projects and anything else under content/processed get
  * no markdown copy. `private/` and `..` are refused outright as well.
  */

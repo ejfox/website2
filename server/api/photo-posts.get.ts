@@ -51,7 +51,7 @@ export default defineCachedEventHandler(
       const manifest = await readManifest()
 
       const photoPosts = manifest.filter(
-        // Privacy filter: isListable drops draft/hidden/unlisted/password/scheduled.
+        // Privacy filter: isListable keeps public posts only.
         (p) => (p.type === 'photos' || p.type === 'photo') && isListable(p)
       )
 

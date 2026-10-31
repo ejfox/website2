@@ -9,7 +9,7 @@
 import { defineEventHandler, getRouterParam, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { isScheduled } from '~/utils/postFilters'
+import { isServed } from '~/utils/visibility.mjs'
 import { withKindleSync } from '~/server/utils/readingKindle'
 
 export default defineEventHandler(async (event) => {
@@ -47,9 +47,9 @@ export default defineEventHandler(async (event) => {
       slug
     )
 
-    // Reads processed JSON by slug, bypassing the manifest — hold the embargo
+    // Reads processed JSON by slug, bypassing the manifest — hold the gate
     // here too, or a scheduled reading note serves in full by direct URL.
-    if (!import.meta.dev && isScheduled(bookData)) {
+    if (!isServed(bookData, { dev: import.meta.dev })) {
       throw createError({
         statusCode: 404,
         statusMessage: `Book "${slug}" not found`,

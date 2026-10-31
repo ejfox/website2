@@ -10,7 +10,7 @@ tags:
   - gear
 gear:
   - moletta-lionsteel-folding-black-knife
-hidden: true
+draft: true
 ---
 
 It's in my back pocket right now.

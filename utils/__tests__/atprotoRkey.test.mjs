@@ -34,7 +34,7 @@ describe('atprotoDocUri', () => {
 
   it('backs the pdsls.dev link', () => {
     expect(atprotoDocUrl(post)).toBe(`https://pdsls.dev/${atprotoDocUri(post)}`)
-    expect(atprotoDocUrl({ ...post, hidden: true })).toBeNull()
+    expect(atprotoDocUrl({ ...post, unlisted: true })).toBeNull()
   })
 })
 

@@ -14,9 +14,8 @@
  * That second point is the whole design. Every content leak this codebase has
  * had came from a new reader of manifest-lite that filtered slightly
  * differently from the others. So this route does not filter at all — it calls
- * `getPostsWithContent()`, which applies `isExcludedFromListings` (hidden,
- * unlisted, password-protected, scheduled) and drops drafts. Sealed posts never
- * reach it because they're omitted from manifest-lite at write time.
+ * `getPostsWithContent()`, which keeps public posts only (isListed,
+ * utils/visibility.mjs).
  *
  * If a new visibility flag is ever added, this file inherits it for free. That
  * is worth more than the request-time cost, which the cache absorbs anyway.

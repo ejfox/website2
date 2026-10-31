@@ -4,10 +4,11 @@
  *   post, so AI tools can quote and cite it accurately. Pages advertise it with
  *   <link rel="alternate" type="text/markdown"> (pages/blog/[...slug].vue).
  *
- *   Reads through /api/posts (slug validation, post-shape check, draft/hidden/
- *   password/scheduled 404s), then gates AGAIN with isMarkdownServable, which
- *   also refuses unlisted and sealed posts and holds in dev too. Every refusal
- *   is the same bare 404, so a .md URL never reveals that a draft exists.
+ *   Reads through /api/posts (slug validation, post-shape check, draft and
+ *   scheduled 404s), then gates AGAIN with isMarkdownServable, which also
+ *   refuses sealed posts and holds in dev too. Unlisted posts get a copy, like
+ *   their HTML page. Every refusal is the same bare 404, so a .md URL never
+ *   reveals that a draft exists.
  *
  *   Only acts on /blog/**.md; everything else falls straight through.
  *   Order: fifth in filename order (after legacy-redirect, before
@@ -26,6 +27,7 @@ import {
   isMarkdownSlug,
   postToMarkdown,
 } from '~/server/utils/markdownTwin'
+import { visibility } from '~/utils/visibility.mjs'
 
 function notFound(event: Parameters<typeof setResponseStatus>[0]) {
   setResponseStatus(event, 404)
@@ -65,6 +67,9 @@ export default defineEventHandler(async (event) => {
     isProd ? 'max-age=300, s-maxage=600' : 'max-age=0, s-maxage=0'
   )
   setResponseHeader(event, 'access-control-allow-origin', '*')
+  // Same as the HTML page: reachable, never indexed.
+  if (visibility(data) === 'unlisted')
+    setResponseHeader(event, 'x-robots-tag', 'noindex')
   setResponseHeader(
     event,
     'link',

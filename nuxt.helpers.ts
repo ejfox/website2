@@ -12,30 +12,17 @@
 import { execSync } from 'node:child_process'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+// Relative, not `~/`: this runs at config-eval time, before aliases resolve.
+import { isListed } from './utils/visibility.mjs'
 
 interface ManifestPost {
   slug?: string
-  draft?: boolean
-  hidden?: boolean
-  unlisted?: boolean
-  password?: string
-  passwordHash?: string
-  date?: string
-  publishAt?: string
-  metadata?: {
-    draft?: boolean
-    hidden?: boolean
-    unlisted?: boolean
-    password?: string
-    passwordHash?: string
-    date?: string
-    publishAt?: string
-  }
+  [key: string]: unknown
 }
 
 // Blog routes to prerender, read from the processed manifest at build time.
-// Filters out anything that shouldn't be public (drafts, hidden, unlisted,
-// password-protected, robots, SHOUTING system files like CLAUDE.md).
+// Public posts only, minus robots, sections that redirect and SHOUTING system
+// files like CLAUDE.md.
 export async function getBlogRoutes(): Promise<string[]> {
   try {
     const manifestPath = path.join(
@@ -49,30 +36,11 @@ export async function getBlogRoutes(): Promise<string[]> {
     return manifest
       .filter((post) => {
         if (!post.slug) return false
-        if (post.draft === true || post.metadata?.draft === true) return false
-        if (post.hidden === true || post.metadata?.hidden === true) return false
-        if (post.unlisted === true || post.metadata?.unlisted === true)
-          return false
-        const hasPassword = !!(
-          post.password ||
-          post.passwordHash ||
-          post.metadata?.password ||
-          post.metadata?.passwordHash
-        )
-        if (hasPassword) return false
-        // Scheduled posts must not be baked into the build as static HTML —
-        // a prerendered page would ignore the runtime embargo. Left out here,
-        // they render on demand once their publish time passes.
-        // Mirrors isScheduled() in utils/postFilters.ts. Duplicated because
-        // this runs at Nuxt config time, before ~ aliases resolve. Keep the
-        // fallback chain identical to the helper's.
-        const publishAt =
-          post.publishAt ||
-          post.metadata?.publishAt ||
-          post.date ||
-          post.metadata?.date
-        if (publishAt && new Date(publishAt).getTime() > Date.now())
-          return false
+        // Scheduled posts especially must not be baked into static HTML — a
+        // prerendered page would ignore the runtime embargo. Left out here,
+        // they render on demand once their publish time passes. Unlisted
+        // posts render on demand too (noindex), they just aren't prerendered.
+        if (!isListed(post)) return false
         // Skip SHOUTING system files (CLAUDE.md, WIKILINK-OPPORTUNITIES.md)
         if (post.slug === post.slug.toUpperCase()) return false
         if (post.slug.startsWith('robots/')) return false

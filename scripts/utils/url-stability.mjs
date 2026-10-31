@@ -27,6 +27,7 @@
 
 import path from 'node:path'
 import matter from 'gray-matter'
+import { visibility } from '../../utils/visibility.mjs'
 import {
   fileToRoute,
   generateSlug,
@@ -66,17 +67,17 @@ export function parseEntries(entries) {
     })
 }
 
-/** Why a post isn't public, for error messages. null when it is. */
-export function whyNotPublic(post, { isScheduled, now = Date.now() } = {}) {
+/**
+ * Why a post's URL doesn't resolve, for error messages. null when it does:
+ * public and unlisted posts both answer 200 (utils/visibility.mjs).
+ */
+export function whyNotPublic(post, { now = Date.now() } = {}) {
   if (!post.fm) return 'frontmatter does not parse'
   if (!isPublicSource(post.relNoExt)) return 'it is under drafts/ or a !note'
-  for (const key of ['draft', 'hidden', 'unlisted']) {
-    if (post.fm[key] === true) return `${key}: true`
-  }
-  if (post.fm.password || post.fm.passwordHash)
-    return 'it is password-protected'
-  if (isScheduled && isScheduled(post.fm, now))
-    return 'publishAt/date is in the future'
+  const v = visibility({ ...post.fm, slug: post.relNoExt }, now)
+  if (v === 'draft') return 'draft: true'
+  if (v === 'scheduled') return 'publishAt/date is in the future'
+  if (v === 'sealed') return 'it is sealed'
   return null
 }
 

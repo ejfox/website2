@@ -40,7 +40,6 @@ export const config = {
 
   // Default frontmatter
   defaultFrontmatter: {
-    hidden: false,
     draft: false,
     share: false,
     robots: 'index, follow',

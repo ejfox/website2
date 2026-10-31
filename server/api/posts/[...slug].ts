@@ -4,15 +4,16 @@
  *   processed JSON (html, metadata, toc) from content/processed/<slug>.json, as
  *   written by scripts/build/processMarkdown.mjs. Sealed posts come back as their
  *   opaque { slug, sealed, envelope }. No cache.
- *   Throws 400 on a malformed slug; 404 for missing files, non-post JSON, and (in
- *   production) draft/hidden/password/scheduled posts. Dev previews all of those.
+ *   Throws 400 on a malformed slug; 404 for missing files, non-post JSON, and
+ *   anything isServed() (utils/visibility.mjs) refuses: in production that is
+ *   draft and scheduled posts. Dev previews both. Unlisted posts serve.
  *   Every 404 has the same generic message so nothing leaks a filesystem path.
  */
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
-import { isScheduled } from '~/utils/postFilters'
+import { isServed } from '~/utils/visibility.mjs'
 import { isSealedPost } from '~/utils/postSeal.mjs'
 
 interface TocItem {
@@ -108,19 +109,11 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
 
-    // Privacy guard: never serve draft/hidden/password-protected content in
-    // production by direct slug, even when its processed JSON ships in the
-    // build (e.g. draft projects written for local preview). Dev keeps
-    // previewing works-in-progress. `unlisted` is deliberately NOT in that set
-    // — see isProtectedContent.
-    if (!import.meta.dev && isProtectedContent(data)) {
-      throw createError({ statusCode: 404, message: 'Post not found' })
-    }
-
-    // A scheduled post's JSON ships in the build, so the embargo has to hold
-    // here too — otherwise anyone guessing the slug reads it early. Dev still
-    // previews it.
-    if (!import.meta.dev && isScheduled(data)) {
+    // Privacy guard. Draft projects (written for dev preview) and scheduled
+    // posts both ship JSON, so the gate has to hold here or anyone guessing
+    // the slug reads them early. A sealed envelope is served deliberately —
+    // there is nothing in it in the clear (see isPostShaped).
+    if (!isSealedPost(data) && !isServed(data, { dev: import.meta.dev })) {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
 
@@ -175,31 +168,6 @@ function isPostShaped(data: unknown): boolean {
   // nothing here in the clear.
   if (isSealedPost(d)) return true
   return typeof d.html === 'string' || typeof d.content === 'string'
-}
-
-/**
- * True if the content must 404 at its own URL in production (checked at both
- * the top level and inside metadata).
- *
- * `unlisted` is deliberately absent. It means "visible at its URL, but not in
- * listings" — that is the entire distinction between it and `hidden`, and it is
- * what `composables/useProcessedMarkdown.ts` documents it as. A privacy sweep
- * had swept it into this 404 set, which made it an exact synonym for `hidden`
- * and left the site with no secret-URL flag at all. Discovery is already
- * blocked on the listing side by `isHiddenFromListings`, which every feed,
- * sitemap and search surface uses; this function is only about direct access.
- *
- * Note this is NOT the gate for sealed posts — those are served deliberately,
- * as an opaque envelope with no plaintext in it. See isSealedPost.
- */
-function isProtectedContent(data: unknown): boolean {
-  if (!data || typeof data !== 'object') return false
-  const top = data as Record<string, unknown>
-  const meta = (top.metadata ?? {}) as Record<string, unknown>
-  const flag = (key: string) => Boolean(top[key] ?? meta[key])
-  return (
-    flag('draft') || flag('hidden') || flag('password') || flag('passwordHash')
-  )
 }
 
 // ── Unused ───────────────────────────────────────────────

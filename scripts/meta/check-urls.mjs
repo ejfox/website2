@@ -130,18 +130,15 @@ const readJson = async (rel) =>
   JSON.parse(await fs.readFile(path.join(ROOT, rel), 'utf8'))
 
 async function main() {
-  // Load the app's real TS rules (not copies), so this can't drift from what
-  // prod does with a redirect or a scheduled post.
+  // Load the app's real redirect rules (not a copy), so this can't drift from
+  // what prod does. Visibility comes from utils/visibility.mjs, which
+  // url-stability imports directly.
   const jiti = createJiti(import.meta.url, { alias: { '~': ROOT } })
   const legacy = await jiti.import(
     path.join(ROOT, 'server/utils/legacyRedirect.ts')
   )
-  const { isScheduled } = await jiti.import(
-    path.join(ROOT, 'utils/postFilters.ts')
-  )
   const opts = {
     legacy,
-    isScheduled,
     gone: await readJson('data/gone-urls.json'),
   }
 

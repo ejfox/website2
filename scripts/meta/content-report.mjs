@@ -204,7 +204,7 @@ function auditFile(filePath, content, cloudCache) {
 
   // --- Content quality ---
   stats.words = body.split(/\s+/).filter(Boolean).length
-  if (stats.words < 50 && !fm.draft && !fm.hidden) {
+  if (stats.words < 50 && !fm.draft) {
     issues.push({
       type: 'content',
       severity: 'info',
@@ -243,7 +243,6 @@ function auditFile(filePath, content, cloudCache) {
       date: fm.date,
       tags: fm.tags,
       draft: !!fm.draft,
-      hidden: !!fm.hidden,
     },
   }
 }
