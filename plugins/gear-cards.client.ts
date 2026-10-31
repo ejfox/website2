@@ -8,7 +8,7 @@
  *
  * This plugin finds those placeholders after navigation and mounts a
  * GearCardInline Vue app on each one (onNuxtReady, then every
- * router.afterEach). Apps are tracked and unmounted in router.beforeEach to
+ * page:finish). Apps whose host left the page are unmounted on page:finish to
  * prevent memory leaks.
  */
 
@@ -26,15 +26,18 @@ export default defineNuxtPlugin((nuxtApp) => {
   // Using a Map lets us unmount exactly the apps we created this navigation.
   const mountedApps = new Map<Element, ReturnType<typeof createApp>>()
 
-  const unmountAll = () => {
-    mountedApps.forEach((app) => {
+  // Unmount apps whose host element is gone (the previous page). Done after
+  // the new page renders, so the old page keeps its cards while it's shown.
+  const unmountDetached = () => {
+    mountedApps.forEach((app, el) => {
+      if (el.isConnected) return
       try {
         app.unmount()
       } catch {
         // Already unmounted — ignore
       }
+      mountedApps.delete(el)
     })
-    mountedApps.clear()
   }
 
   const mountGearCards = () => {
@@ -81,14 +84,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     nextTick(mountGearCards)
   })
 
-  // On each navigation: unmount old cards, then mount fresh ones
-  const router = useRouter()
-
-  router.beforeEach(() => {
-    unmountAll()
-  })
-
-  router.afterEach(() => {
-    nextTick(mountGearCards)
+  // After each navigation renders: unmount old cards, then mount fresh ones
+  nuxtApp.hook('page:finish', () => {
+    nextTick(() => {
+      unmountDetached()
+      mountGearCards()
+    })
   })
 })

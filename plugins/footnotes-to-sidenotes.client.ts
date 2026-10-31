@@ -6,17 +6,16 @@
  *   so the margin notes don't cause layout shift. On viewports ≥1280px it
  *   also hides the original footnote section (checked once, at run time; no
  *   resize handling).
- *   Runs on onNuxtReady and after every router.afterEach (nextTick).
+ *   Runs on onNuxtReady and after every page:finish (nextTick). Not
+ *   router.afterEach: that fires before the new page renders, so it saw the
+ *   old page and in-site navigation got no sidenotes.
  *   Shares footnote markers with hand-drawn.client.ts, which swaps the
  *   marker text for circled numbers.
  */
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   if (import.meta.server) return
 
   const initializeSidenotes = () => {
-    // Only run once per page
-    if (document.querySelector('.sidenote')) return
-
     const footnoteRefs = document.querySelectorAll('a[data-footnote-ref]')
     const footnoteSection = document.querySelector('section[data-footnotes]')
 
@@ -52,8 +51,9 @@ export default defineNuxtPlugin(() => {
       sidenote.className = 'sidenote'
       sidenote.textContent = `${index + 1}. ${cleanText}`
 
-      // Insert sidenote after the sup element
+      // Insert sidenote after the sup element (once per footnote)
       const sup = ref.closest('sup')
+      if (sup?.nextElementSibling?.classList.contains('sidenote')) return
       if (sup && sup.parentNode) {
         sup.parentNode.insertBefore(sidenote, sup.nextSibling)
       }
@@ -73,9 +73,8 @@ export default defineNuxtPlugin(() => {
     })
   })
 
-  // Re-init on navigation
-  const router = useRouter()
-  router.afterEach(() => {
+  // Re-init after each client navigation has rendered
+  nuxtApp.hook('page:finish', () => {
     nextTick(() => {
       initializeSidenotes()
     })

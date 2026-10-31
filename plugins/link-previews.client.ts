@@ -5,13 +5,13 @@
  *   Pure DOM manipulation — works inside v-html content.
  *   Targets `.blog-post-content a[data-preview-url]` (the attribute comes from
  *   scripts/plugins/remarkEnhanceLinks.mjs), only on (hover: hover) devices.
- *   Runs 200ms after onNuxtReady and after every router.afterEach; appends
+ *   Runs 200ms after onNuxtReady and after every page:finish; appends
  *   one fixed `div.link-preview-popover` to <body> at a time. OG responses
  *   are cached in memory per page session.
  *   Every OG value is escaped before it reaches innerHTML, and image/favicon
  *   URLs must be absolute http(s) (safeSrc) or they are dropped.
  */
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   if (import.meta.server) return
 
   const ogCache = new Map<string, any>()
@@ -227,10 +227,12 @@ export default defineNuxtPlugin(() => {
     })
   })
 
-  // Re-init on navigation
+  // Drop any popover as navigation starts; re-init once the new page renders
   const router = useRouter()
   router.afterEach(() => {
     removePopover()
+  })
+  nuxtApp.hook('page:finish', () => {
     nextTick(() => {
       setTimeout(initializePreviews, 200)
     })
