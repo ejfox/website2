@@ -9,13 +9,13 @@
  *      new syntax — <hr> becomes a hand-drawn divider, footnote markers ¹²³
  *      become circled numbers ①②③.
  *
- * Sibling to footnotes-to-sidenotes.client.ts; same onNuxtReady + router hook.
+ * Sibling to footnotes-to-sidenotes.client.ts; same onNuxtReady + page:finish hooks.
  * Elements it has handled get `data-hd-done` so re-runs skip them. Sprite
  * loading + mark building live in utils/handDrawn.ts.
  */
 import { createHandDrawnEl, ensureHandDrawnSprite } from '~/utils/handDrawn'
 
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   if (import.meta.server) return
 
   // The three selectors below are exactly what run() acts on. If none match,
@@ -98,6 +98,5 @@ export default defineNuxtPlugin(() => {
   }
 
   onNuxtReady(() => nextTick(run))
-  const router = useRouter()
-  router.afterEach(() => nextTick(run))
+  nuxtApp.hook('page:finish', () => nextTick(run))
 })
