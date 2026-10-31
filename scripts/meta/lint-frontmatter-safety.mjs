@@ -22,6 +22,9 @@ import chalk from 'chalk'
 import { removedVisibilityKeyProblem } from '../../utils/visibility.mjs'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content/blog')
+// Dispatch pieces are read at request time, never processed, so this is the
+// only place a removed visibility key on one gets caught.
+const DISPATCH_DIR = path.join(process.cwd(), 'content/dispatch')
 
 // Known valid frontmatter fields
 const VALID_FIELDS = new Set([
@@ -216,6 +219,18 @@ async function main() {
 
   for (const file of files) {
     await lintFile(file)
+  }
+
+  const dispatch = await findMarkdownFiles(DISPATCH_DIR).catch(() => [])
+  for (const file of dispatch) {
+    const removed = removedVisibilityKeyProblem(
+      matter(await fs.readFile(file, 'utf8')).data
+    )
+    if (removed)
+      issues.errors.push({
+        file: path.relative(process.cwd(), file),
+        message: removed,
+      })
   }
 
   // Print results
