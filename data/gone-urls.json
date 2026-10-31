@@ -14,8 +14,11 @@
   "/projects/data-visualization-suite": "Category page removed in the projects masonry overhaul (#22, 2026-06)",
   "/projects/developer-tools": "Category page removed in the projects masonry overhaul (#22, 2026-06)",
 
-  "/blog/2018/watercolor-sketching-in-nyc": "hidden: true",
-  "/blog/2019/generative-music-iteration": "hidden: true (inprogress)",
+  "/blog/2018/watercolor-sketching-in-nyc": "draft: true (was hidden: true until 2026-10-31)",
+  "/blog/2019/generative-music-iteration": "draft: true (was hidden: true until 2026-10-31; inprogress)",
+  "/blog/2022/the-studio": "draft: true (was hidden: true until 2026-10-31)",
+  "/blog/2024/2024": "draft: true (was hidden: true until 2026-10-31)",
+  "/blog/2026/the-knife": "draft: true (was hidden: true until 2026-10-31; never public)",
   "/projects/cloudinary-backup-tool": "Held as draft until the projects illustration pass",
   "/projects/morningradio": "Held as draft until the projects illustration pass",
 

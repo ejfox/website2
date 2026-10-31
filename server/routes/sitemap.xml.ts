@@ -6,8 +6,8 @@
  *
  * Visibility lives elsewhere, on purpose:
  *   - posts + tags: buildSitemapPostEntries() in server/utils/sitemapEntries.ts
- *     (draft/hidden/unlisted/password/scheduled/special, unit-tested). Sealed
- *     posts never reach manifest-lite.json.
+ *     (public only, per utils/visibility.mjs, minus special sections;
+ *     unit-tested).
  *   - predictions: whatever /api/predictions returns.
  *   - Dispatch: listDispatches({ preview: false }), public only, even in dev.
  * STATIC_SECTIONS is hand-kept in step with pages/sitemap.vue; noindex pages
@@ -175,8 +175,7 @@ export default defineEventHandler(async (event: H3Event) => {
     const path = await import('node:path')
     const posts = (await readManifest()) as ManifestPost[]
 
-    // Privacy filters (draft/hidden/unlisted/password/scheduled/special) live
-    // in buildSitemapPostEntries — see server/utils/sitemapEntries.ts + test.
+    // Privacy filters live in buildSitemapPostEntries — see server/utils/sitemapEntries.ts + test.
     const { entries, tags } = buildSitemapPostEntries(posts)
     const bySlug = new Map(posts.map((p) => [p.slug, p]))
     const groups = [
@@ -248,7 +247,7 @@ export default defineEventHandler(async (event: H3Event) => {
   }
 
   // Add Dispatch pieces — public only (listDispatches without preview drops
-  // draft/unlisted/password/scheduled), regardless of dev/prod.
+  // draft/unlisted/scheduled), regardless of dev/prod.
   try {
     const pieces = await listDispatches({ preview: false })
     if (pieces.length) sitemap += section('Dispatch')

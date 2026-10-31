@@ -5,7 +5,7 @@
  *   structured, self-describing data representation of that same content.
  *
  *   It reuses the existing hardened API routes via internal `$fetch`, so
- *   draft/hidden/unlisted/password filtering is inherited for free. Response is
+ *   visibility filtering (utils/visibility.mjs) is inherited for free. Response is
  *   wrapped in a consistent envelope: { kind, url, generator, data, _links }.
  *
  *   It only ever acts on requests whose path ends in `.json` and is NOT already
@@ -30,8 +30,8 @@ const RESERVED = new Set([
   '/site.webmanifest',
   '/openapi.json',
   // Not a page — the twin's `default:` branch proxied it to /api/posts/, which
-  // served the complete unfiltered manifest (hidden posts, deks, tags and any
-  // passwordHash) at /manifest-lite.json. The posts route rejects it now too;
+  // served the complete unfiltered manifest (non-public posts, deks and tags)
+  // at /manifest-lite.json. The posts route rejects it now too;
   // this is the belt to that braces.
   '/manifest-lite.json',
 ])

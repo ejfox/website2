@@ -4,9 +4,8 @@
  *   in content:encoded. Twin of server/routes/feed.json.ts; keep the two in step.
  *
  * Visibility: getPostsWithContent() (composables/useProcessedMarkdown.ts)
- *   already applies isExcludedFromListings; the loop below re-checks with the
- *   shared isHiddenFromListings + isScheduled (utils/postFilters.ts) so this
- *   feed can't drift from the others. Item HTML goes through feedHtml(), and
+ *   already drops non-public posts; the loop below re-checks with isListed
+ *   (utils/visibility.mjs) so this feed can't drift from the others. Item HTML goes through feedHtml(), and
  *   sendFeed() adds a timestamp-insensitive ETag (server/utils/feedHtml.ts).
  *
  * Gotcha: the 50 is taken BEFORE the feed-shape skips below, so a feed can
@@ -16,7 +15,7 @@ import RSS from 'rss'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
 import { feedExcerpt, feedHtml, sendFeed } from '~/server/utils/feedHtml'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 
 // RSS item type
 interface RSSCustomElement {
@@ -77,11 +76,6 @@ export default defineEventHandler(async (event) => {
     dek?: string
     description?: string
     tags?: string[]
-    draft?: boolean
-    hidden?: boolean
-    unlisted?: boolean
-    password?: string
-    passwordHash?: string
     type?: string
   }
 
@@ -99,10 +93,9 @@ export default defineEventHandler(async (event) => {
     // Skip posts without a valid slug
     if (!slug) continue
 
-    // Visibility flags (draft/hidden/unlisted/password/sealed) and embargo
-    // come from the one shared predicate, so this feed can't drift from the
-    // others again. The rest are feed-shape rules.
-    if (isHiddenFromListings(post) || isScheduled(post)) continue
+    // Visibility comes from the one shared predicate, so this feed can't
+    // drift from the others again. The rest are feed-shape rules.
+    if (!isListed(post)) continue
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
     const isSpecialSection =

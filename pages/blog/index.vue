@@ -2,15 +2,15 @@
   @file blog/index.vue
   @description /blog: every published post, grouped by year, with a year
     archive + totals teleported into the layout sidebar. Data:
-    useProcessedMarkdown().getAllPosts() → /api/manifest, then isValidPost()
-    (utils/postFilters.ts) keeps only YYYY/slug posts that aren't hidden or
-    scheduled.
+    useProcessedMarkdown().getAllPosts() → /api/manifest, then
+    isListedBlogPost() (utils/visibility.mjs) keeps only public YYYY/slug
+    posts.
   SSR per request, not prerendered (LIVE_LISTINGS in nuxt.config.ts), so a
   scheduled post appears the moment its publishAt passes.
 -->
 <script setup>
 import { formatNumber } from '~/utils/numberFormat'
-import { isValidPost } from '~/utils/postFilters'
+import { isListedBlogPost } from '~/utils/visibility.mjs'
 
 const processedMarkdown = useProcessedMarkdown()
 const { tocTarget } = useTOC()
@@ -63,7 +63,7 @@ const { data: posts, error: postsError } = useAsyncData(
   async () => {
     const result = await processedMarkdown.getAllPosts(false, false)
     return result
-      .filter((post) => isValidPost(post))
+      .filter((post) => isListedBlogPost(post))
       .map((post) => ({
         ...post,
         title: post.title || post?.metadata?.title || formatTitle(post.slug),

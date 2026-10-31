@@ -128,7 +128,7 @@ export default defineEventHandler(async () => {
 
         // Drop drafts sources: they can hold private material
         const allSources = sourcesStr ? sourcesStr.split(';') : []
-        // Only drafts/ is filtered; sources from hidden or unlisted posts still show.
+        // Only drafts/ is filtered; sources from `draft: true` or unlisted posts still show.
         const sources = allSources.filter((s) => !s.startsWith('drafts/'))
 
         // Skip links that ONLY appeared in drafts (no other sources)

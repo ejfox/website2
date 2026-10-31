@@ -3,8 +3,8 @@
  * @description GET /robots-rss.xml — RSS of the 20 newest `robots/` posts
  *   (AI/automation experiments, kept out of the main /rss.xml).
  *
- * Visibility: readManifest() + isListable() (server/utils/manifest.ts), the
- *   shared draft/hidden/unlisted/password/sealed + embargo rule. Bodies are
+ * Visibility: readManifest() + isListable() (server/utils/manifest.ts): public
+ *   only, per utils/visibility.mjs. Bodies are
  *   read straight from content/processed/<slug>.json and are NOT passed
  *   through feedHtml(), so relative links stay relative in readers.
  */
@@ -23,8 +23,7 @@ export default defineEventHandler(async (event) => {
     const manifest = await readManifest()
 
     const filteredPosts = manifest
-      // Only robot posts, and only listable ones (draft/hidden/unlisted/
-      // password/sealed at both levels, plus embargo)
+      // Only robot posts, and only public ones
       .filter((post) => post.slug.startsWith('robots/') && isListable(post))
       .sort(
         (a: { date: string }, b: { date: string }) =>

@@ -9,6 +9,8 @@
     in step with STATIC_SECTIONS in server/routes/sitemap.xml.ts.
 -->
 <script setup>
+import { isListed } from '~/utils/visibility.mjs'
+
 // ── Data loading ────────────────────────────────────────────
 // Fetch blog posts from manifest
 const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
@@ -26,7 +28,7 @@ const kindOf = (slug = '') => {
   return 'post'
 }
 const published = computed(() =>
-  (manifest.value || []).filter((p) => p?.slug && !p.hidden && !p.draft)
+  (manifest.value || []).filter((p) => p?.slug && isListed(p))
 )
 const ofKind = (kind) => published.value.filter((p) => kindOf(p.slug) === kind)
 

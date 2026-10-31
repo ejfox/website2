@@ -103,7 +103,7 @@ yarn deploy              # push main and watch the deploy run (~3 min)
 content/blog/2024/foo.md
   → scripts/build/processMarkdown.mjs   (remark/rehype, scripts/plugins/*)
   → content/processed/2024/foo.json + manifest-lite.json
-  → server/api/posts/[...slug].ts       (draft / hidden / scheduled gating)
+  → server/api/posts/[...slug].ts       (visibility gate: utils/visibility.mjs)
   → pages/blog/[...slug].vue
   → plugins/footnotes-to-sidenotes.client.ts (footnotes → margin notes)
 ```
@@ -116,8 +116,7 @@ date: 2024-01-01
 dek: One-sentence description
 tags: [tag1, tag2]
 draft: true                 # no JSON written; 404s
-hidden: true                # processed, but 404s and stays out of listings
-unlisted: true              # served at its URL, kept out of every listing
+unlisted: true              # served at its URL (noindex), kept out of every listing
 publishAt: "2026-10-01T09:00:00-04:00"  # scheduled; always give an offset
 replyTo: https://example.com/post       # IndieWeb reply (single or array)
 ```

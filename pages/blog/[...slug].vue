@@ -6,8 +6,8 @@
     nuxt.helpers.ts getBlogRoutes() lists; anything it skips (scheduled,
     robots/, projects/, reading/) renders on demand.
   Gotchas:
-    - Draft/hidden/password and scheduled posts 404 in the API (prod only;
-      dev previews them). isScheduled() lives in utils/postFilters.ts.
+    - Draft and scheduled posts 404 in the API (prod only; dev previews
+      them). Unlisted posts render with noindex. Rule: utils/visibility.mjs.
     - Sealed posts (blog/private/*) arrive as {slug, sealed, envelope};
       components/blog/SealedPost.vue decrypts client-side and handleUnsealed
       swaps the payload into `post`. See docs/SEALED-POSTS.md.
@@ -29,7 +29,7 @@ import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 import AuthorLine from '~/components/blog/AuthorLine.vue'
 import { readingStats } from '~/utils/readingStats'
 import { atprotoDocUri, atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { isListed, isServed, visibility } from '~/utils/visibility.mjs'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // ── Setup ───────────────────────────────────────────────────
@@ -93,8 +93,8 @@ const { context: temporalContext, hasContext: hasTemporalContext } =
 
 // Link to this post's AT-Proto record, when there is one. The key is derived
 // from the post itself (see utils/atprotoRkey.mjs), so no lookup is needed —
-// and the gate is the mirror's own predicate, so a draft/hidden/unlisted/
-// scheduled post never links to a record that was never written.
+// and the gate is the mirror's own predicate, so a non-public post never
+// links to a record that was never written.
 const atprotoPost = computed(() => ({
   slug: route.params.slug.join('/'),
   date: post.value?.date,
@@ -174,13 +174,7 @@ const relatedPosts = computed(() => {
   return allPosts.value
     .filter((p) => {
       const slug = p.slug || p.metadata?.slug
-      return (
-        slug !== currentSlug &&
-        !p.draft &&
-        !p.metadata?.draft &&
-        !p.hidden &&
-        !p.metadata?.hidden
-      )
+      return slug !== currentSlug && isListed(p)
     })
     .map((p) => {
       const tags = p.metadata?.tags || p.tags || []
@@ -261,18 +255,14 @@ const articleSection = computed(
 )
 
 // Visibility detection
-const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
-const isUnlisted = computed(
-  () => post.value?.metadata?.unlisted || post.value?.unlisted
-)
+const postVisibility = computed(() => visibility(post.value))
+const isDraft = computed(() => postVisibility.value === 'draft')
 // Sealed posts: the API returns only {slug, sealed, envelope}. SealedPost
 // decrypts and merges the payload into `post`, so everything below renders
 // normally. See docs/SEALED-POSTS.md
 const isSealed = computed(() => post.value?.sealed === true)
 
-const shouldNoIndex = computed(
-  () => isDraft.value || isUnlisted.value || isSealed.value
-)
+const shouldNoIndex = computed(() => postVisibility.value !== 'public')
 const isUnsealed = ref(false)
 const sealedSlug = computed(
   () => post.value?.slug || route.params.slug.join('/')
@@ -351,8 +341,7 @@ usePageSeo({
 const markdownUrl = computed(() =>
   /^\d{4}\/[^/]+$/.test(route.params.slug.join('/')) &&
   post.value?.html &&
-  !isHiddenFromListings(post.value) &&
-  !isScheduled(post.value)
+  isServed(post.value)
     ? `https://ejfox.com/blog/${route.params.slug.join('/')}.md`
     : null
 )

@@ -40,8 +40,7 @@ export default defineEventHandler(async (event) => {
 
     const matching: GearPost[] = posts
       .filter((post) => {
-        // Privacy filter (CLAUDE.md rule): the shared predicate covers
-        // draft/hidden/unlisted/password/sealed (both levels) + embargo.
+        // Privacy filter: public posts only (utils/visibility.mjs).
         const isDraftsFolder =
           typeof post.slug === 'string' && post.slug.startsWith('drafts/')
         if (!isListable(post) || isDraftsFolder) return false

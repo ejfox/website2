@@ -393,8 +393,8 @@ markdown HTML, so layout, TOC, footer and mobile are the same as any post.
   search, word count and TOC, and its cache hash covers the `.vue`. The
   internal-link audit scans it and reports `.vue` line numbers.
 - Only public posts may have one: the prose ships in the JS bundle. A `.vue`
-  next to a draft/hidden/unlisted/password/sealed/scheduled post (or with no
-  `.md`) fails processing.
+  next to any non-public post (see Post Visibility), or with no `.md`, fails
+  processing.
 - Gotchas (handled by crown, worth knowing when hand-writing): Nuxt splits a
   static `srcset` on commas and imports the pieces, so bind it
   (`:srcset="'…'"`); `{{` in prose needs `&#123;&#123;`; `<style>` inside the
@@ -410,8 +410,9 @@ Two separate link-health systems — don't confuse them:
   flag (network HEAD requests, slow). `yarn blog:check-links`,
   `yarn blog:fix-links`. Report: `data/linkrot-report.json`.
 - **Internal links** (wikilinks + relative `.md` links) — checked on **every**
-  `yarn blog:process`, no flag, no network. This catches links to missing posts,
-  drafts, and `hidden`/`unlisted`/`password` posts (which 404 in production).
+  `yarn blog:process`, no flag, no network. This catches links to missing posts
+  and drafts (which 404 in production). Links to unlisted and scheduled posts
+  are live.
   Report: `data/internal-linkrot-report.json`. Standalone: `yarn blog:dead-links`
   (add `--strict` to exit non-zero). Each dead link carries a `source:line` and a
   conservative "did you mean?" `suggestion` (wrong-folder exact-slug match or a
@@ -423,8 +424,8 @@ Two separate link-health systems — don't confuse them:
 - `scripts/utils/internal-links.mjs` owns BOTH the canonical wikilink→route
   resolution (`buildInternalHref`, imported by `remarkObsidianSupport`) AND the
   validity check. `buildValidRoutes()` builds the set of real published routes
-  from source frontmatter — mirroring `server/api/posts/[...slug].ts`
-  `isProtectedContent` (draft/hidden/unlisted/password are NOT valid targets).
+  from source frontmatter with `isPublicSource()` (`visibility()` is not
+  draft or sealed).
   `classifyInternalHref()` only judges the namespaces we fully enumerate
   (`/blog`, `/reading`, `/projects`); `/tag/*` and other dynamic routes are
   assumed valid. Bare wikilinks (`[[name]]`) route to `/tag/name`, so they're
@@ -471,15 +472,31 @@ sites), so `scripts/meta/check-urls.mjs` checks the URLs themselves:
 
 `scripts/build/processMarkdown.mjs` does NOT emit `sourcePath` or `sourceDir` in processed JSON. These were stripped in 2026-05 to prevent filesystem path leaks. Do not re-add them.
 
-### API Route Hardening
+### Post Visibility (2026-10-31)
 
-All API routes that read from `manifest-lite.json` MUST filter out:
-- `draft === true`
-- `hidden === true`
-- `unlisted === true`
-- `password` or `passwordHash` present
+One function decides who sees a post: `visibility()` in **`utils/visibility.mjs`**
+(plain JS, imported by server, pages, scripts and `nuxt.helpers.ts`; tests in
+`utils/__tests__/visibility.test.mjs`). Five states, first match wins:
 
-Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
+| state | when | at its URL | listings, feeds, sitemap, search, tags, on-this-day |
+|---|---|---|---|
+| `sealed` | in `private/` | ciphertext only (see Sealed Posts) | never |
+| `draft` | `draft: true` | 404, no JSON written (except `projects/`, written for dev preview) | never |
+| `scheduled` | `publishAt` (or `date`) in the future | 404 in prod | not until it lands |
+| `unlisted` | `unlisted: true` | 200 + noindex, `.md` twin too | never |
+| `public` | everything else | 200 | yes |
+
+`isListed(post)` = public. `isServed(post, { dev })` = public or unlisted (dev
+adds draft and scheduled). Any route that lists or serves posts calls one of
+them; `server/utils/manifest.ts` `isListable` wraps `isListed` for manifest
+readers. Never re-spell a flag check.
+
+`hidden`, `password`/`passwordHash`, `inprogress`, `type: draft|private` and
+`metadata.private` were **removed 2026-10-31**. A `hidden:` key fails both
+`yarn lint:safety` and processing ("use draft: true or unlisted: true");
+`password*` already trips the sealed-post tripwire. The seven `hidden` posts
+became `draft: true`. `unlisted` is NOT private: anyone with the URL reads it.
+
 The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 
 ### Scheduled Posts (2026-09-11)
@@ -507,16 +524,10 @@ YAML parser, while a *quoted* non-ISO value like `"2026-10-01 09:00"` is parsed 
 the server's local zone instead. Avoid the ambiguity: always write an explicit
 offset, e.g. `publishAt: "2026-10-01T09:00:00-04:00"`.
 
-The single source of truth is `isScheduled()` in `utils/postFilters.ts`; every
-gate imports it:
-
-- `server/api/manifest.ts` — keeps it out of listings
-- `server/api/posts/[...slug].ts` — 404s direct slug access (prod only; dev previews)
-- `composables/useProcessedMarkdown.ts` — `isExcludedFromListings`, which also covers the RSS/JSON feeds
-- `server/routes/sitemap.xml.ts` — don't advertise it to crawlers
-- `nuxt.helpers.ts` — excluded from prerender, so no static HTML ignores the embargo
-
-When adding a new route that lists posts, add the `isScheduled()` check too.
+The embargo is the `scheduled` state of `visibility()` (see Post Visibility),
+so every listing, the posts API, the sitemap and the prerender list hold it
+without a separate check. `processMarkdown` keeps scheduled posts out of the
+static artifacts (tags, on-this-day) the runtime gate can't reach.
 
 ### Sealed Posts (2026-09-14)
 

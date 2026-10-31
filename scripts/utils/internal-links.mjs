@@ -21,6 +21,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { readVueBody } from './vue-body.mjs'
+import { visibility } from '../../utils/visibility.mjs'
 
 // ── Wikilink / href resolution (canonical — imported by remarkObsidianSupport) ───
 
@@ -123,28 +124,23 @@ export function fileToRoute(relativePath) {
 }
 
 /**
- * Does this source file (path relative to content/blog, no .md) serve publicly?
- * Not under drafts/, not a `!`-prefixed system note, and — when
- * frontmatter is passed — not draft/hidden/unlisted/password. The frontmatter
- * part mirrors server/api/posts/[...slug].ts isProtectedContent: these never
- * serve in production by direct slug. Shared with scripts/meta/check-urls.mjs.
+ * Is this source file (path relative to content/blog, no .md) a live link
+ * target? Not under drafts/, not a `!`-prefixed system note, and — when
+ * frontmatter is passed — not draft or sealed (utils/visibility.mjs).
+ * Unlisted posts answer 200, so a link to one is live; a scheduled post will
+ * be, and marking its link dead would bake a strikethrough into cached HTML.
+ * Shared with scripts/meta/check-urls.mjs.
  */
 export function isPublicSource(relNoExt, fm = {}) {
   if (relNoExt.toLowerCase().startsWith('drafts/')) return false
   if (path.basename(relNoExt).startsWith('!')) return false
-  return !(
-    fm.draft === true ||
-    fm.hidden === true ||
-    fm.unlisted === true ||
-    fm.password ||
-    fm.passwordHash
-  )
+  const v = visibility({ ...fm, slug: relNoExt })
+  return v !== 'draft' && v !== 'sealed'
 }
 
 /**
- * Populate the valid-route set from the source markdown files. A file counts as
- * a real route only if it is published — not a draft/hidden/unlisted post, not
- * under the excluded drafts dir, not a `!`-prefixed system note.
+ * Populate the valid-route set from the source markdown files: every file
+ * isPublicSource accepts.
  */
 export async function buildValidRoutes(files, contentDir) {
   validRoutes.clear()

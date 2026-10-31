@@ -14,19 +14,9 @@ interface BlogPost {
   slug: string
   title: string
   date: string
-  draft?: boolean
-  hidden?: boolean
-  unlisted?: boolean
-  password?: string
-  passwordHash?: string
   metadata: {
     words?: number
     date?: string
-    hidden?: boolean
-    draft?: boolean
-    unlisted?: boolean
-    password?: string
-    passwordHash?: string
   }
 }
 
@@ -39,11 +29,9 @@ export default defineEventHandler(async () => {
     const currentMonth = now.getMonth() // 0-11
     const currentYear = now.getFullYear()
 
-    // Filter out drafts, hidden, unlisted, and password-protected posts for total count
-    // Only count actual blog posts (yearly folders, not projects/reading/etc)
+    // Public blog posts only (yearly folders, not projects/reading/etc)
     const allPublishedPosts = allPosts.filter((post) => {
       if (!post.date) return false
-      // draft/hidden/unlisted/password/sealed (both levels) + embargo
       if (!isListable(post)) return false
       if (post.slug.startsWith('drafts/')) return false
       // Only count posts in yearly folders (2018/, 2019/, etc.) as blog posts
@@ -51,7 +39,7 @@ export default defineEventHandler(async () => {
       return true
     })
 
-    // Filter posts by current month and year, excluding drafts and hidden posts
+    // Filter posts by current month and year
     const postsThisMonth = allPublishedPosts.filter((post) => {
       const postDate = new Date(post.date)
       return (

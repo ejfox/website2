@@ -8,13 +8,12 @@
   Gotchas:
     - Unknown tags render an empty 200, unlike /tag/<tag>
       (pages/tag/[...slug].vue), which 404s.
-    - The local isValidPost only re-checks draft/hidden; getAllPosts() has
-      already dropped the rest. It is not utils/postFilters isValidPost.
 -->
 <!-- Blog Tag Page -->
 
 <script setup>
 import { format, parseISO } from '~/utils/date'
+import { isListed } from '~/utils/visibility.mjs'
 
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
@@ -41,12 +40,6 @@ const formatTitle = (slug) => {
     .join(' ')
 }
 
-const isValidPost = (post) => {
-  const isDraft = post?.draft || post?.metadata?.draft
-  const isHidden = post?.hidden || post?.metadata?.hidden
-  return post && post.slug && !isDraft && !isHidden
-}
-
 const processPost = (post) => {
   const title = post.title || post?.metadata?.title || formatTitle(post.slug)
   return { ...post, title, metadata: { ...post.metadata, title } }
@@ -59,7 +52,9 @@ const processPost = (post) => {
 const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
   try {
     const result = await processedMarkdown.getAllPosts(false)
-    return result.filter((post) => isValidPost(post)).map(processPost)
+    return result
+      .filter((post) => post?.slug && isListed(post))
+      .map(processPost)
   } catch (err) {
     console.error('Error fetching posts for tag:', err)
     return []

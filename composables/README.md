@@ -10,7 +10,7 @@ function name. One file per composable.
 | `useLiveStats.ts` | `useLiveStats()`, `changedSections()`, `isNewer()` | polls /api/stats every 5 min while visible; swaps in newer data and flashes changed sections | pages/stats.vue, components/stats/StatSection.vue |
 | `usePageSeo.ts` | `usePageSeo()` | title, canonical, OG/Twitter, article:* and JSON-LD for a page (reactive inputs) | nearly every page |
 | `usePaperclipStatus.ts` | `usePaperclipStatus()` | presence emoji: SSR seed from /api/paperclip, then one shared EventSource per tab | components/PaperclipStatus.vue |
-| `useProcessedMarkdown.ts` | `useProcessedMarkdown()` | manifest + post fetchers with the listing visibility rules (hidden, unlisted, password, scheduled) | blog/index/stats/tag pages, server rss.xml, feed.json, archive.epub |
+| `useProcessedMarkdown.ts` | `useProcessedMarkdown()` | manifest + post fetchers; listings keep public posts only (utils/visibility.mjs) | blog/index/stats/tag pages, server rss.xml, feed.json, archive.epub |
 | `useScrollReveal.ts` | `useScrollReveal()` | IntersectionObserver + anime.js entrance for a container's children | listing pages (index, blog, reading, predictions, scraps, gear) |
 | `useStats.ts` | `useStats()` | /api/stats + /api/stats-lite with a sessionStorage stale seed and has*Data flags | pages/stats.vue, components/stats/* |
 | `useTemporalContext.ts` | `useTemporalContext()` | client-only "around this time" fetch from /api/temporal-context | pages/blog/[...slug].vue |

@@ -2,7 +2,7 @@
  * @file dispatch/[slug].get.ts
  * @description GET /api/dispatch/:slug. One Dispatch piece with its markdown body
  *   rendered to HTML. Unlisted pieces are served (the page marks them noindex);
- *   draft, hidden, password-protected and scheduled pieces 404 in production.
+ *   draft and scheduled pieces 404 in production.
  *   Dev previews all. Throws 400 on a malformed slug (isValidDispatchSlug), 404
  *   if missing or gated.
  */

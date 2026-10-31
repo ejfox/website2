@@ -4,7 +4,7 @@ dek: >-
   effectively
 date: 2022-12-27T20:04:55.000Z
 modified: 2024-06-21T14:13:59.000Z
-hidden: true
+draft: true
 tags:
   - art
   - design
@@ -13,7 +13,6 @@ tags:
   - technique
   - tool
   - visualization
-unlisted: true
 ---
 
 ## Fox Studio (Beacon)

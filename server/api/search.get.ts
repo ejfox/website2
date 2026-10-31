@@ -12,7 +12,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 
 // ── Helpers ──────────────────────────────────────────────
 /**
@@ -257,16 +257,9 @@ export default defineEventHandler(async (event) => {
 
             const contentSource = data.content || data.html || ''
 
-            // Sealed posts have no `contentSource` at all, so they'd fall out
-            // of the next check anyway — say it explicitly rather than relying
-            // on that, because "it happens to be empty" is not a guarantee
-            // anyone reviewing a future change would notice breaking.
-            if (data.sealed === true) continue
-
-            if (!contentSource) continue
-            // The shared visibility predicate (draft/hidden/unlisted/password/
-            // sealed), plus embargo: scheduled posts' JSON ships in the build.
-            if (isHiddenFromListings(data) || isScheduled(data)) continue
+            // Public only (utils/visibility.mjs): drops sealed envelopes,
+            // draft projects' JSON, scheduled and unlisted posts.
+            if (!contentSource || !isListed(data)) continue
 
             // Additional content filtering
             const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
@@ -274,11 +267,7 @@ export default defineEventHandler(async (event) => {
               slug.includes('drafts/') ||
               slug.includes('robots/') ||
               slug.includes('prompts/') ||
-              slug.includes('_stale/') ||
-              data.metadata?.type === 'private' ||
-              data.metadata?.type === 'draft' ||
-              data.metadata?.private === true ||
-              data.metadata?.inprogress === true
+              slug.includes('_stale/')
             )
               continue
 

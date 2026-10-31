@@ -41,21 +41,9 @@ const FIXTURES: Record<string, unknown> = {
     metadata: { ...published.metadata, draft: true },
   },
   '2024/draft-top': { ...published, draft: true },
-  '2024/hidden': {
-    ...published,
-    metadata: { ...published.metadata, hidden: true },
-  },
   '2024/unlisted': {
     ...published,
     metadata: { ...published.metadata, unlisted: true },
-  },
-  '2024/password': {
-    ...published,
-    metadata: { ...published.metadata, password: 'x' },
-  },
-  '2024/password-hash': {
-    ...published,
-    metadata: { ...published.metadata, passwordHash: 'h' },
   },
   '2024/scheduled': {
     ...published,
@@ -100,10 +88,6 @@ describe('/blog/**.md — gate', () => {
   const blocked = [
     ['draft (metadata)', '/blog/2024/draft.md'],
     ['draft (top level)', '/blog/2024/draft-top.md'],
-    ['hidden', '/blog/2024/hidden.md'],
-    ['unlisted', '/blog/2024/unlisted.md'],
-    ['password', '/blog/2024/password.md'],
-    ['passwordHash', '/blog/2024/password-hash.md'],
     ['scheduled (future publishAt)', '/blog/2024/scheduled.md'],
     ['scheduled (future date)', '/blog/2024/future-date.md'],
     ['sealed slug', '/blog/private/sealed.md'],
@@ -167,6 +151,15 @@ describe('/blog/**.md — published post', () => {
     expect(content).not.toMatch(/<[a-z]/i)
     expect(content).toContain('[link](https://ejfox.com/blog/2024/other)')
     expect(content).toContain('```js\nconst a = 1\n```')
+  })
+})
+
+describe('/blog/**.md — unlisted post', () => {
+  it('serves like its HTML page does (200 at its URL)', async () => {
+    const res = await get('/blog/2024/unlisted.md')
+    expect(res.status).toBe(200)
+    expect(res.headers.get('x-robots-tag')).toBe('noindex')
+    expect(await res.text()).toContain('Body with')
   })
 })
 

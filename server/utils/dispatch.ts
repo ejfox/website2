@@ -5,12 +5,10 @@
  * read at request time with gray-matter (same as predictions), so a scheduled
  * piece goes live on its own once `publishAt` passes, no rebuild.
  *
- * Visibility, one place:
- *   - listings / feed / sitemap: public only (no draft, hidden, unlisted,
- *     password, sealed, or still-scheduled piece) — `isPublicDispatch`.
- *   - direct URL: unlisted is served (with noindex); draft / hidden /
- *     password and scheduled 404 in production. Dev previews everything,
- *     mirroring server/api/posts/[...slug].ts.
+ * Visibility: the same five-state rule as posts (utils/visibility.mjs).
+ *   - listings / feed / sitemap: public only — `isPublicDispatch`.
+ *   - direct URL: unlisted is served (with noindex); draft and scheduled 404
+ *     in production. Dev previews everything, like /api/posts.
  *
  * Importers: server/api/dispatch.get.ts, server/api/dispatch/[slug].get.ts,
  * server/routes/dispatch-rss.xml.ts, server/routes/sitemap.xml.ts.
@@ -26,7 +24,7 @@ import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
-import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
+import { isListed, isScheduled, isServed } from '~/utils/visibility.mjs'
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -158,19 +156,7 @@ type Flags = Record<string, unknown>
 
 /** True if the piece may appear in a listing, feed or sitemap. */
 export function isPublicDispatch(flags: Flags): boolean {
-  return !isHiddenFromListings(flags) && !isScheduled(flags)
-}
-
-/** True if the piece must 404 at its own URL in production. Unlisted is NOT here. */
-function isProtectedDispatch(flags: Flags): boolean {
-  return (
-    Boolean(flags.draft) ||
-    Boolean(flags.hidden) ||
-    Boolean(flags.password) ||
-    Boolean(flags.passwordHash) ||
-    Boolean(flags.sealed) ||
-    isScheduled(flags)
-  )
+  return isListed(flags)
 }
 
 // Dates normalised to ISO strings first: gray-matter hands back Date objects
@@ -259,7 +245,7 @@ export async function getDispatch(
   const parsed = await readSource(slug)
   if (!parsed) return null
   const data = parsed.data as Record<string, unknown>
-  if (!preview && isProtectedDispatch(flagsOf(data))) return null
+  if (!isServed(flagsOf(data), { dev: preview })) return null
   return {
     ...normalize(slug, data),
     html: await renderDispatchMarkdown(parsed.content),

@@ -10,7 +10,7 @@ import { cloudinaryOgUrl, ogImageFor } from '../../../utils/ogImage'
 const NOW = Date.parse('2026-10-12T12:00:00Z')
 
 // Manifest-shaped fixtures: flags live under `metadata` (see
-// utils/__tests__/postFilters.test.ts for why a flat fixture isn't enough).
+// utils/visibility.mjs for why a flat fixture isn't enough).
 const post = (
   slug: string,
   metadata: Record<string, unknown> = {},
@@ -29,9 +29,9 @@ const fixtures = [
   post('2024/public-two', {}, { tags: ['shared', 'public-only'] }),
   post('2024/a-draft', { draft: true }, { tags: ['draft-only'] }),
   post('2024/another-draft', { draft: true }, { tags: ['draft-only'] }),
-  post('2024/hidden', { hidden: true }),
+  post('private/sealed-one'),
   post('2024/unlisted', { unlisted: true }),
-  post('2024/locked', { passwordHash: 'x' }),
+  post('2024/unlisted-top', {}, { unlisted: true }),
   // Future date alone schedules a post.
   post('2027/future', {}, { date: '2027-01-01T00:00:00Z' }),
   // publishAt in the future embargoes even with a past date.
@@ -47,13 +47,13 @@ describe('sitemap privacy', () => {
   const { entries, tags } = buildSitemapPostEntries(fixtures, { now: NOW })
   const slugs = entries.map((e) => e.slug)
 
-  it('never lists drafts, hidden, unlisted, password or scheduled posts', () => {
+  it('never lists drafts, sealed, unlisted or scheduled posts', () => {
     for (const s of [
       '2024/a-draft',
       '2024/another-draft',
-      '2024/hidden',
+      'private/sealed-one',
       '2024/unlisted',
-      '2024/locked',
+      '2024/unlisted-top',
       '2027/future',
       '2024/embargoed',
       'index',

@@ -13,19 +13,15 @@
  *      (/blog/project-notes/connectology), case/space variants. Matches the
  *      final segment against PUBLIC posts only, and only when exactly one
  *      matches. A URL that is itself a real post of any visibility is left
- *      alone, so a hidden post stays a plain 404 rather than a 301 that
+ *      alone, so a non-public post stays a plain 404 rather than a 301 that
  *      confirms it exists. No fuzzy/prefix matching: a typo matcher at request
- *      time is how hidden posts leak.
+ *      time is how non-public posts leak.
  *
  *   Also imported by scripts/meta/check-urls.mjs (via jiti), so the URL check
  *   sees exactly the redirects prod does. Tests:
  *   server/utils/__tests__/legacyRedirect.test.ts.
  */
-import {
-  isHiddenFromListings,
-  isScheduled,
-  type Post,
-} from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 
 const CLOUDINARY_ORIGIN = 'https://res.cloudinary.com'
 // Same transform chain the markdown pipeline writes into srcset, so the
@@ -79,7 +75,7 @@ export interface SlugIndex {
 }
 
 export function buildSlugIndex(
-  manifest: Array<Post & { slug?: unknown }>,
+  manifest: Array<{ slug?: unknown; [key: string]: unknown }>,
   now = Date.now()
 ): SlugIndex {
   const all = new Set<string>()
@@ -87,7 +83,7 @@ export function buildSlugIndex(
   for (const p of manifest) {
     if (typeof p?.slug !== 'string') continue
     all.add(p.slug)
-    if (isHiddenFromListings(p) || isScheduled(p, now)) continue
+    if (!isListed(p, now)) continue
     const key = norm(p.slug.split('/').pop()!)
     const routes = byFinal.get(key) ?? []
     routes.push(routeForSlug(p.slug))

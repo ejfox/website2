@@ -4,7 +4,6 @@ date: 2026-05-24T00:00:00-04:00
 category: "Hardware"
 featured: false
 draft: true
-hidden: true
 tech: ["Nuxt 3", "D3.js", "WebSockets", "Meshtastic", "SDR"]
 state: deployed
 ai-involvement: ai-assisted

@@ -4,17 +4,12 @@
  *   only importer). No nitro/h3 imports, so the privacy rules are
  *   unit-testable: server/utils/__tests__/sitemapEntries.test.ts.
  *
- * Privacy: a post is advertised only if it is NOT draft / hidden / unlisted /
- * password-protected / scheduled (isScheduled) / a special section. Sealed
- * posts never reach manifest-lite.json at all (see docs/SEALED-POSTS.md).
- * Tag pages are counted from the posts that PASS that filter only, so a tag
- * used only on drafts never leaks into the sitemap.
- *
- * Gotcha: isSitemapEligible spells the flags out by hand rather than calling
- * the shared isHiddenFromListings (utils/postFilters.ts), and has no `sealed`
- * check. A new visibility flag must be added here too.
+ * Privacy: a post is advertised only if isListed() (utils/visibility.mjs)
+ * says it is public, and it is not a special section. Tag pages are counted
+ * from the posts that PASS that filter only, so a tag used only on drafts or
+ * unlisted posts never leaks into the sitemap.
  */
-import { isScheduled, type Post } from '~/utils/postFilters'
+import { isListed } from '~/utils/visibility.mjs'
 import { escapeXml } from './xml'
 
 export interface SitemapUrl {
@@ -25,17 +20,17 @@ export interface SitemapUrl {
   images?: string[]
 }
 
-export type ManifestPost = Post & {
+export type ManifestPost = {
   slug?: string
   date?: string | null
   modified?: string | null
-  passwordHash?: string
   tags?: string[]
-  metadata?: Post['metadata'] & {
-    passwordHash?: string
+  metadata?: {
     images?: number
     tags?: string[]
+    [key: string]: unknown
   }
+  [key: string]: unknown
 }
 
 /** Percent-encode a site path (spaces, curly quotes…) then XML-escape it. */
@@ -57,15 +52,8 @@ export function isSitemapEligible(
   now: number = Date.now()
 ): boolean {
   if (!post?.slug) return false
-  const m = post.metadata || {}
-  if (post.draft || m.draft) return false
-  if (post.hidden || m.hidden) return false
-  if (post.unlisted || m.unlisted) return false
-  if (post.password || post.passwordHash || m.password || m.passwordHash)
-    return false
+  if (!isListed(post, now)) return false
   if (isSpecialSection(post.slug)) return false
-  // Don't advertise a post to crawlers before it publishes.
-  if (isScheduled(post, now)) return false
   // Reading notes are often undated; everything else needs a date.
   if (!post.slug.startsWith('reading/') && !post.date) return false
   return true

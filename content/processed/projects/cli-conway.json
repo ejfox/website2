@@ -1,7 +1,7 @@
 {
   "cacheVersion": "2026-10-26-no-rotated-images",
-  "sourceHash": "000b2004f515d86bd5f0aedc7066bb4fe2db10b0559140b4f0b6e52f4e5e8718",
-  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"CLI Conway running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-conway/terminal.png\" alt=\"CLI Conway running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-conway/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-conway/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-conway/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-conway/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"CLI Conway running in a vulpes-themed terminal\" width=\"1309\" height=\"759\" data-dimensions=\"1309×759\" class=\"img-full my-8 rounded-sm aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">CLI Conway running in a vulpes-themed terminal</figcaption></figure>\nA CLI game of life simulation, represented in braille unicode characters.<p class=\"\"></p>\n<p class=\"\">CLI-CONWAY\nA Terminal Implementation of\nConway's Game of Life</p>",
+  "sourceHash": "cf50c7579988cb2ab2b2bc789f3f6120ebb1e445412bdef1efd3f9ef99557f45",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A CLI game of life simulation, represented in braille unicode characters.</p>\n<p class=\"\">CLI-CONWAY\nA Terminal Implementation of\nConway's Game of Life</p>",
   "title": "CLI Conway",
   "metadata": {
     "title": "CLI Conway",
@@ -16,17 +16,17 @@
     "tags": [
       "tools"
     ],
-    "words": 50,
-    "images": 1,
+    "words": 43,
+    "images": 0,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 0,
+      "cloudinary": 0,
       "withDimensions": 0
     },
     "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
-    "type": "post"
+    "type": "project"
   }
 }

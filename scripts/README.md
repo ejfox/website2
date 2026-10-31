@@ -222,13 +222,11 @@ prediction.
 
 ## Content visibility
 
-Which posts are listed, hidden or 404'd is decided outside `scripts/`:
-`utils/postFilters.ts` (`isScheduled()` and friends),
-`composables/useProcessedMarkdown.ts` (listing rules, incl. `share: true` for
-`drafts/` and `robots/`) and `server/api/posts/[...slug].ts`. The script side:
-`processMarkdown.mjs` skips files starting with `!`, writes no JSON for drafts,
-and strips title/dek/tags/toc from hidden, unlisted and password posts in
-`manifest-lite.json`. `scripts/utils/helpers.mjs` `getPostType()` maps folders to
+Which posts are listed or 404'd is one function, `visibility()` in
+`utils/visibility.mjs`, imported by scripts and server alike (see CLAUDE.md
+"Post Visibility"). The script side: `processMarkdown.mjs` skips files starting
+with `!`, writes no JSON for drafts, leaves drafts and sealed posts out of
+`manifest-lite.json`, and fails on a removed `hidden:` key. `scripts/utils/helpers.mjs` `getPostType()` maps folders to
 types and `generateRobotsMetaContent()` noindexes `reading/`, `projects/`,
 `robots/`, `study-notes/` and `prompts/`.
 

@@ -12,6 +12,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
 import { readManifest, isListable } from '~/server/utils/manifest'
+import { visibility } from '~/utils/visibility.mjs'
 
 // ?slim=1 card shape for the /projects index: everything the cards and header
 // stats need, WITHOUT the full html (which was ~470KB across ~100 projects and
@@ -48,11 +49,6 @@ interface ManifestPost {
   title?: string
   metadata?: Record<string, unknown>
   date?: string
-  draft?: boolean
-  hidden?: boolean
-  unlisted?: boolean
-  password?: string
-  passwordHash?: string
 }
 
 interface ProjectWithContent {
@@ -65,7 +61,7 @@ interface ProjectWithContent {
 
 // DEV ONLY: surface draft projects (which the manifest omits) by reading the
 // processed JSON files directly, so works-in-progress are previewable locally.
-// Production never calls this. Hidden/unlisted/password projects stay excluded.
+// Production never calls this. Unlisted and scheduled projects stay excluded.
 async function loadDevDraftProjects(
   existing: ProjectWithContent[]
 ): Promise<ProjectWithContent[]> {
@@ -82,8 +78,7 @@ async function loadDevDraftProjects(
       const full = JSON.parse(
         await readFile(resolve(projectsDir, file), 'utf8')
       )
-      if (isHiddenFromListings(full, { ignoreDraft: true })) continue
-      if (isScheduled(full)) continue
+      if (visibility(full) !== 'draft') continue
       out.push({
         slug,
         title: full.title,
@@ -103,19 +98,14 @@ export default defineEventHandler(async (event) => {
     // Read the manifest first
     const manifest = await readManifest()
 
-    // Filter for project posts, excluding drafts, hidden, unlisted, password-protected, and those starting with !
-    // Privacy filter: isListable drops hidden/unlisted/password/scheduled (and
-    // drafts outside dev). Slugs containing /! are skipped too.
-    const projectPosts = manifest.filter((post: ManifestPost) => {
-      // Show drafts on the local dev server so works-in-progress are
-      // previewable; production still hides them.
-      const allowDrafts = import.meta.dev
-      return (
+    // Public projects only (drafts never reach the manifest; dev adds them
+    // below). Slugs containing /! are skipped too.
+    const projectPosts = manifest.filter(
+      (post: ManifestPost) =>
         post.slug?.startsWith('projects/') &&
         !post.slug.includes('/!') &&
-        isListable(post, { ignoreDraft: allowDrafts })
-      )
-    })
+        isListable(post)
+    )
 
     // Load content for each project
     const projectsWithContent = await Promise.all(

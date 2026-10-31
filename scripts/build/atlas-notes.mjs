@@ -10,7 +10,7 @@
 //   node scripts/build/atlas-notes.mjs --check    validate the existing files only
 //
 // PRIVACY: this map is public. Quotes may only come from EJ's published writing
-// (content/blog, not drafts/private/robots, not draft/hidden/unlisted/password).
+// (content/blog, not drafts/private/robots, not draft/unlisted).
 // His Obsidian vault and agent-vault are private: use them to find places, never
 // quote them. Never pin his home, neighborhood, storage, studio or mesh nodes.
 // Drawn by utils/atlas/layers/notes.ts. Run by hand; no yarn script.
@@ -523,8 +523,8 @@ const checkQuote = async (quote, source) => {
   const text = sourceCache.get(path)
   const front = text.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? ''
   if (/^draft:\s*true/m.test(front)) return [`draft source ${source}`]
-  if (/^(?:hidden|unlisted|password|passwordHash):\s*(?!false)\S/m.test(front))
-    return [`protected source ${source}`]
+  if (/^unlisted:\s*(?!false)\S/m.test(front))
+    return [`unlisted source ${source}`]
   return text.includes(quote) ? [] : [`quote not verbatim in ${source}`]
 }
 

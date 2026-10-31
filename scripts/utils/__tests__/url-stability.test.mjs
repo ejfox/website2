@@ -3,7 +3,6 @@ import {
   buildSlugIndex,
   legacySlugTarget,
 } from '../../../server/utils/legacyRedirect'
-import { isScheduled } from '../../../utils/postFilters'
 import {
   findBareWikilinksToPosts,
   findBrokenUrls,
@@ -22,7 +21,6 @@ const post = (rel, fm = {}, body = 'Hello') => ({
 const opts = (gone = {}) => ({
   gone,
   legacy: { buildSlugIndex, legacySlugTarget },
-  isScheduled,
 })
 
 const base = parseEntries([
@@ -55,16 +53,25 @@ describe('URL stability', () => {
     })
   })
 
-  it('flags a deleted post, and a hidden one', () => {
+  it('flags a deleted post, and a drafted one', () => {
     const head = parseEntries([
-      post('2022/how-i-use-gpt3.md', { date: '2022-01-01', hidden: true }),
+      post('2022/how-i-use-gpt3.md', { date: '2022-01-01', draft: true }),
       post('projects/coach-artie.md', { date: '2023-03-21' }),
     ])
     const broken = findBrokenUrls(wasPublic(base), head, opts())
     expect(broken.map((b) => b.why)).toEqual([
-      'hidden: true',
+      'draft: true',
       'its source file is gone',
     ])
+  })
+
+  it('treats an unlisted post as still resolving (200 at its URL)', () => {
+    const head = parseEntries([
+      post('2023/how-i-built-coach-artie.md', { unlisted: true }),
+      post('2022/how-i-use-gpt3.md', { date: '2022-01-01' }),
+      post('projects/coach-artie.md', { date: '2023-03-21' }),
+    ])
+    expect(findBrokenUrls(wasPublic(base), head, opts())).toEqual([])
   })
 
   it('accepts a move the legacy redirect resolves (same filename, new year)', () => {

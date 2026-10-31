@@ -61,7 +61,7 @@ export const apiCatalog: ApiRoute[] = [
     method: 'GET',
     path: '/api/manifest',
     group: 'Content & blog',
-    summary: 'Published-post manifest (filters draft/hidden/unlisted/pw)',
+    summary: 'Published-post manifest (public posts only)',
     consumer: 'frontend',
     consumedBy: 'many pages',
     deps: 'manifest-lite.json',

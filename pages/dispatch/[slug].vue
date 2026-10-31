@@ -5,8 +5,8 @@
     and "Also on" syndication links. Data: /api/dispatch/<slug>
     (server/api/dispatch/[slug].get.ts), body rendered to HTML server-side.
   Gotchas:
-    - Unlisted pieces ARE served, with noindex; draft/hidden/password and
-      scheduled 404 in prod. Dev previews all and shows the amber flag.
+    - Unlisted pieces ARE served, with noindex; draft and scheduled 404 in
+      prod (utils/visibility.mjs). Dev previews all and shows the amber flag.
     - `p` is a non-reactive snapshot of piece.value taken once in setup: fine
       because the slug never changes without a remount.
 -->

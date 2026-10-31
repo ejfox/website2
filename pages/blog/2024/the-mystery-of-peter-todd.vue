@@ -29,6 +29,7 @@ import Webmentions from '~/components/blog/Webmentions.vue'
 import NewsletterSignup from '~/components/blog/NewsletterSignup.vue'
 import AuthorLine from '~/components/blog/AuthorLine.vue'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
+import { isListed } from '~/utils/visibility.mjs'
 
 const peterToddQuote1 =
   'These jail-breakers are becoming masters of a technology still in ' +
@@ -102,13 +103,7 @@ const relatedPosts = computed(() => {
   return allPosts.value
     .filter((p) => {
       const s = p.slug || p.metadata?.slug
-      return (
-        s !== '2024/the-mystery-of-peter-todd' &&
-        !p.draft &&
-        !p.metadata?.draft &&
-        !p.hidden &&
-        !p.metadata?.hidden
-      )
+      return s !== '2024/the-mystery-of-peter-todd' && isListed(p)
     })
     .map((p) => {
       const tags = p.metadata?.tags || p.tags || []

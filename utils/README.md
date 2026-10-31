@@ -32,7 +32,7 @@ There is no `useDateFormat` composable any more: its helpers were folded into
 | `numberFormat.ts` | d3-format number formatters | `formatNumber`, `formatCompact`, `smartFormat`, `formatPercent`, `numberFormat()` |
 | `ogDescription.ts` | clean meta/og description from dek or body | `ogDescription` |
 | `ogImage.ts` | og:image URL + honest dimensions (Cloudinary 1200×630 crop) | `ogImageFor`, `cloudinaryOgUrl` |
-| `postFilters.ts` | THE visibility + embargo predicates for every listing, feed and sitemap (no Nuxt imports) | `isScheduled`, `isHiddenFromListings`, `isValidPost`, `publishTime` |
+| `visibility.mjs` | THE post-visibility rule: five states (sealed, draft, scheduled, unlisted, public) for every listing, feed, sitemap, page and script (plain JS, no deps) | `visibility`, `isListed`, `isServed`, `isListedBlogPost`, `isScheduled`, `publishTime`, `removedVisibilityKeyProblem` |
 | `postSeal.mjs` | sealed-post AES-GCM envelope, shared by the build and the browser | `sealPost`, `unsealPost`, `generateSealKey`, `isSealedSlug`, `capabilityLink` |
 | `readingStats.ts` | word/link/heading counts + reading time for a post | `readingStats()` |
 | `replayPolicy.ts` | when Umami loads its session-replay recorder | `isFunnelPath`, `deviceAllowsReplay`, `scrollFraction` |

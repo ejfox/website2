@@ -17,7 +17,7 @@ const index = buildSlugIndex(
     { slug: '2022/how-i-use-gpt3', date: '2022-01-01' },
     { slug: 'projects/connectology', date: '2025-01-01' },
     { slug: 'reading/Roose-Futureproof', date: '2021-01-01' },
-    { slug: '2022/the-studio', date: '2022-12-27', hidden: true },
+    { slug: '2022/the-studio', date: '2022-12-27', draft: true },
     {
       slug: '2023/secret-ish',
       date: '2023-01-01',
@@ -53,8 +53,8 @@ describe('legacySlugTarget', () => {
   })
 
   it('never redirects to or reveals a non-public post', () => {
-    expect(go('/blog/2022/the-studio')).toBeNull() // hidden, its own URL
-    expect(go('/blog/2023/the-studio')).toBeNull() // hidden, wrong year
+    expect(go('/blog/2022/the-studio')).toBeNull() // draft, its own URL
+    expect(go('/blog/2023/the-studio')).toBeNull() // draft, wrong year
     expect(go('/blog/the-studio')).toBeNull()
     expect(go('/blog/secret-ish')).toBeNull() // unlisted lives under metadata
     expect(go('/blog/not-yet')).toBeNull() // scheduled

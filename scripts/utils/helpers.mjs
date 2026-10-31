@@ -394,7 +394,7 @@ function calculateWordCount(text) {
 function generateRobotsMetaContent(frontmatter, filePath) {
   const directives = []
 
-  if (frontmatter.hidden === true || frontmatter.draft === true) {
+  if (frontmatter.unlisted === true || frontmatter.draft === true) {
     directives.push('noindex')
   }
 

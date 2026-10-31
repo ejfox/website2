@@ -1,6 +1,6 @@
 ---
 type: words
-hidden: true
+draft: true
 date: '2018-06-10T14:58:10-04:00'
 tags:
   - art
@@ -8,7 +8,6 @@ tags:
   - photography
   - watercolor
   - inspiration
-unlisted: true
 ---
 
 # Watercolor Sketching in NYC
