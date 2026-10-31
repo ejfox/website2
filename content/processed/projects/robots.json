@@ -1,7 +1,7 @@
 {
   "cacheVersion": "2026-10-26-no-rotated-images",
-  "sourceHash": "7fe28d5a882b4b08b653c4cc7e3bc5467ff0503a67b1476a17134b6e130c37f5",
-  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Robots running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/robots/terminal.png\" alt=\"Robots running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/robots/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/robots/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/robots/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/robots/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Robots running in a vulpes-themed terminal\" width=\"1351\" height=\"548\" data-dimensions=\"1351×548\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Robots running in a vulpes-themed terminal</figcaption></figure>\nA live cockpit for every Claude Code agent on the machine — zero instrumentation, works retroactively on already-running sessions.<p class=\"\"></p>",
+  "sourceHash": "70bde8fdf7cc8a9917df8a6bf90b50027f6cdbb259745b4c208e496affbe1908",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A live cockpit for every Claude Code agent on the machine — zero instrumentation, works retroactively on already-running sessions.</p>",
   "title": "Robots",
   "metadata": {
     "title": "Robots",
@@ -16,17 +16,17 @@
     "tags": [
       "tools"
     ],
-    "words": 48,
-    "images": 1,
+    "words": 42,
+    "images": 0,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 0,
+      "cloudinary": 0,
       "withDimensions": 0
     },
     "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
-    "type": "post"
+    "type": "project"
   }
 }

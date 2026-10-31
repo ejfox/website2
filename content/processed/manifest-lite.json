@@ -4131,7 +4131,7 @@
     "slug": "projects/badusb-remote-desktop",
     "title": "BadUSB Remote Desktop",
     "date": "2026-06-09T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "badusb",
@@ -4158,18 +4158,18 @@
         "headless",
         "linux"
       ],
-      "words": 80,
-      "images": 1,
+      "words": 68,
+      "images": 0,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 0,
+        "cloudinary": 0,
         "withDimensions": 0
       },
       "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/badusb-remote-desktop"
     }
   },
@@ -4228,7 +4228,7 @@
     "slug": "projects/clipgoblin",
     "title": "clipgoblin",
     "date": "2026-04-29T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "tools"
     ],
@@ -4266,11 +4266,11 @@
       "tags": [
         "tools"
       ],
-      "words": 256,
-      "images": 5,
+      "words": 250,
+      "images": 4,
       "imageDetails": {
-        "total": 5,
-        "cloudinary": 5,
+        "total": 4,
+        "cloudinary": 4,
         "withDimensions": 0
       },
       "links": 1,
@@ -4299,7 +4299,7 @@
           ]
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/clipgoblin"
     }
   },
@@ -5422,7 +5422,7 @@
     "slug": "projects/noaa-sat-cli",
     "title": "NOAA Satellite CLI",
     "date": "2025-06-09T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "tools"
     ],
@@ -5441,18 +5441,18 @@
       "tags": [
         "tools"
       ],
-      "words": 256,
-      "images": 3,
+      "words": 248,
+      "images": 2,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
       "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/noaa-sat-cli"
     }
   },
@@ -6131,7 +6131,7 @@
     "slug": "projects/terminal-tools",
     "title": "Terminal Tools",
     "date": "2026-09-30T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "cli",
@@ -6266,11 +6266,11 @@
         "terminal",
         "tools"
       ],
-      "words": 546,
-      "images": 14,
+      "words": 503,
+      "images": 8,
       "imageDetails": {
-        "total": 14,
-        "cloudinary": 14,
+        "total": 8,
+        "cloudinary": 8,
         "withDimensions": 0
       },
       "links": 14,
@@ -6385,7 +6385,7 @@
           ]
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/terminal-tools"
     }
   },

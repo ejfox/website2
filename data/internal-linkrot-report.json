@@ -1,20 +1,13 @@
 {
-  "timestamp": "2026-10-06T15:53:03.152Z",
+  "timestamp": "2026-10-31T22:40:47.604Z",
   "summary": {
-    "filesScanned": 394,
-    "internalLinks": 96,
-    "dead": 19,
-    "affectedPosts": 13,
+    "filesScanned": 301,
+    "internalLinks": 81,
+    "dead": 13,
+    "affectedPosts": 9,
     "withSuggestion": 0
   },
   "dead": [
-    {
-      "source": "2022/2022-prototyping-toolkit.md",
-      "line": 18,
-      "target": "blog/2022/my-vscode-setup",
-      "href": "/blog/2022/my-vscode-setup",
-      "suggestion": null
-    },
     {
       "source": "2022/art-setup.md",
       "line": 49,
@@ -25,20 +18,13 @@
     {
       "source": "2022/art-setup.md",
       "line": 50,
-      "target": "blog/2022/2022-prototyping-toolkit",
-      "href": "/blog/2022/2022-prototyping-toolkit",
-      "suggestion": null
-    },
-    {
-      "source": "2022/art-setup.md",
-      "line": 51,
       "target": "drafts/garment-dying-experiments",
       "href": "/blog/drafts/garment-dying-experiments",
       "suggestion": null
     },
     {
       "source": "2022/art-setup.md",
-      "line": 53,
+      "line": 52,
       "target": "drafts/soapmaking",
       "href": "/blog/drafts/soapmaking",
       "suggestion": null
@@ -65,13 +51,6 @@
       "suggestion": null
     },
     {
-      "source": "2022/my-vscode-setup.md",
-      "line": 17,
-      "target": "blog/2022/2022-prototyping-toolkit",
-      "href": "/blog/2022/2022-prototyping-toolkit",
-      "suggestion": null
-    },
-    {
       "source": "2022/the-art-of-coding.md",
       "line": 29,
       "target": "blog/2023/design-philosophy",
@@ -81,13 +60,6 @@
     {
       "source": "2022/the-art-of-coding.md",
       "line": 31,
-      "target": "blog/2022/2022-prototyping-toolkit",
-      "href": "/blog/2022/2022-prototyping-toolkit",
-      "suggestion": null
-    },
-    {
-      "source": "2022/the-art-of-coding.md",
-      "line": 33,
       "target": "blog/2022/my-vscode-setup",
       "href": "/blog/2022/my-vscode-setup",
       "suggestion": null
@@ -114,13 +86,6 @@
       "suggestion": null
     },
     {
-      "source": "2023/selecting-a-cms.md",
-      "line": 40,
-      "target": "blog/2022/2022-prototyping-toolkit",
-      "href": "/blog/2022/2022-prototyping-toolkit",
-      "suggestion": null
-    },
-    {
       "source": "projects/flipper-zero-apps.md",
       "line": 16,
       "target": "/projects/flipper-generative-art",
@@ -132,13 +97,6 @@
       "line": 22,
       "target": "/projects/flipper-space-calculators",
       "href": "/projects/flipper-space-calculators",
-      "suggestion": null
-    },
-    {
-      "source": "week-notes/2024-46.md",
-      "line": 16,
-      "target": "robots/someday/morning-radio",
-      "href": "/blog/robots/someday/morning-radio",
       "suggestion": null
     }
   ]
