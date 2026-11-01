@@ -27,8 +27,11 @@
  * Visibility is utils/visibility.mjs, the same function the server uses.
  *
  * Gotchas: output JSON must never carry sourcePath/sourceDir (PII; see
- *   CLAUDE.md "Security & Privacy"). Bump CACHE_VERSION when a render change
- *   must reach every post, since the cache otherwise only keys on source bytes.
+ *   CLAUDE.md "Security & Privacy"). The cache key includes a hash of the
+ *   renderer's own code (RENDERER_FILES), so a pipeline or plugin change
+ *   re-renders every post by itself. Data files a plugin reads (og-images,
+ *   the Cloudinary alt cache, predictions) are NOT in it: bump RENDER_EPOCH
+ *   when a change to one of those must reach every post.
  * @env CHECK_LINKS - HEAD-check every external link (slow, network)
  * @env AUTO_FIX_LINKS - with CHECK_LINKS, rewrite broken links in the SOURCE
  *   markdown to archive.org snapshots (review the git diff afterwards)
@@ -37,7 +40,7 @@
  */
 
 // ── Imports & setup ─────────────────────────────────────────────────────────
-import { promises as fs, existsSync, readFileSync } from 'node:fs'
+import { promises as fs, existsSync, readFileSync, readdirSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import path from 'node:path'
 import { unified } from 'unified'
@@ -97,9 +100,31 @@ import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
-// Part of every cache key (see getFileCacheStatus). Changing it forces a full
-// re-render on the next run, which is how a plugin change reaches old posts.
-const CACHE_VERSION = '2026-10-26-no-rotated-images'
+// Part of every cache key (see getFileCacheStatus): a hash of the code that
+// turns markdown into JSON, so editing a plugin or this file re-renders every
+// post without anyone remembering to bump a version. (2026-10-27 a getPostType
+// fix shipped without a bump and prod listed 140 projects/reading notes as
+// posts.) RENDER_EPOCH covers changes that live outside these files.
+const RENDER_EPOCH = '2026-10-31'
+const RENDERER_FILES = [
+  'scripts/build/processMarkdown.mjs',
+  'scripts/config.mjs',
+  'scripts/utils/helpers.mjs',
+  'scripts/utils/internal-links.mjs',
+  'scripts/utils/vue-body.mjs',
+  'scripts/utils/ayu-mirage.json',
+  'utils/visibility.mjs',
+  'yarn.lock',
+  ...readdirSync('scripts/plugins')
+    .filter((f) => f.endsWith('.mjs'))
+    .sort()
+    .map((f) => `scripts/plugins/${f}`),
+]
+const CACHE_VERSION = (() => {
+  const h = createHash('sha256').update(RENDER_EPOCH)
+  for (const f of RENDERER_FILES) h.update(f).update(readFileSync(f))
+  return `${RENDER_EPOCH}-${h.digest('hex').slice(0, 12)}`
+})()
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}

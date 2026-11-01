@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "7fbd9b1fd0a9d5419ff983de5d2b4b906cf2a73f2f8924c7a29a3f78cb469b17",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">tldraw plugin for collaborative livestream canvases with moderation — let your audience draw with you.</p>\n<p class=\"\">A plugin for tldraw that adds collaborative livestream canvas features with moderation — let your audience draw together with you.</p>",
   "title": "tldraw Livestream",

@@ -106,6 +106,13 @@ export default defineEventHandler(async (event): Promise<StatsLiteResponse> => {
     return { ...cached, cached: true }
   }
 
+  // The cached sources below run on this real request. Strip the conditional
+  // headers so github's handler can't answer 304 to our client (it ends the
+  // response and returns nothing, and we'd cache stats with no GitHub for 5
+  // min), and drop the cache headers they set so we don't serve their etag.
+  delete event.node.req.headers['if-none-match']
+  delete event.node.req.headers['if-modified-since']
+
   // Fetch all data in parallel with error handling
   const [
     githubResult,
@@ -128,6 +135,9 @@ export default defineEventHandler(async (event): Promise<StatsLiteResponse> => {
     letterboxdStatsHandler(event).catch(() => null),
     discogsHandler(event).catch(() => null),
   ])
+  for (const h of ['etag', 'last-modified', 'cache-control']) {
+    event.node.res.removeHeader(h)
+  }
 
   // Extract values safely
   const github = githubResult.status === 'fulfilled' ? githubResult.value : null

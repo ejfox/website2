@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "70bde8fdf7cc8a9917df8a6bf90b50027f6cdbb259745b4c208e496affbe1908",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A live cockpit for every Claude Code agent on the machine — zero instrumentation, works retroactively on already-running sessions.</p>",
   "title": "Robots",

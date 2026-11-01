@@ -55,5 +55,6 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 500, message: 'Failed to fetch photos' })
     }
   },
-  { maxAge: 600 }
+  // Named with a fixed key for the same reason as github.get.ts.
+  { name: 'photos', getKey: () => 'all', maxAge: 600 }
 )

@@ -21,6 +21,13 @@ function getPool(): Pool | null {
   const connectionString = process.env.UMAMI_DATABASE_URL
   if (!connectionString) return null
   pool = new Pool({ connectionString, max: 2, idleTimeoutMillis: 30_000 })
+  // pg-pool re-emits an idle client's error (DB restart, network blip) on the
+  // pool. With no listener that's an uncaught error: the process dies and pm2
+  // respawns it with every in-memory cache empty. pg-pool already drops the
+  // bad client, so logging is all that's needed.
+  pool.on('error', (err) => {
+    console.error('[website-stats] idle pg client error:', err.message)
+  })
   return pool
 }
 

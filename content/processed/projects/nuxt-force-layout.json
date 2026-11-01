@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "07395e4a115522220a2e33e19ce53a6efe9a43cf779b7604b443cbcdc974c441",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">Easy D3-powered force layouts with all the trimmings.</p>\n<p class=\"\">Before diving into your Nuxt app, you may need to prepare your data into node/edge CSVs with our Node.js-based importers.</p>",
   "title": "Nuxt Force Layout",
