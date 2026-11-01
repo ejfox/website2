@@ -85,5 +85,8 @@ export default defineCachedEventHandler(
       to_read: Boolean(meta.toread),
     }
   },
-  { maxAge: 3600, getKey: (event) => `scrap-${scrapId(event)}` }
+  // swr off: with Nitro's default stale-while-revalidate, a refresh that 404s
+  // (EJ unshared the scrap) keeps serving the old copy forever. Without it
+  // the entry expires, so unsharing takes effect within maxAge.
+  { maxAge: 600, swr: false, getKey: (event) => `scrap-${scrapId(event)}` }
 )

@@ -143,4 +143,53 @@ describe('sealResult', () => {
     const err = sealKeyring.fatal('boom')
     expect(err.fatalContentError).toBe(true)
   })
+  // The three ways a post used to get silently re-keyed, breaking every link
+  // already shared, while the log said "re-sealed, same key".
+  const sealIn = async (dir, slug) => {
+    process.chdir(dir)
+    const p = out(slug)
+    const first = await sealKeyring.sealResult(post(), slug, p)
+    await fs.mkdir(path.dirname(p), { recursive: true })
+    await fs.writeFile(p, JSON.stringify(first.json))
+    return p
+  }
+  const otherDir = () => fs.mkdtemp(path.join(os.tmpdir(), 'seal-other-'))
+
+  it('refuses to mint a key when an envelope exists but the keyring lacks it', async () => {
+    // A worktree: content/processed/private is committed, .postkeys.json is not.
+    const p = await sealIn(tmp, 'private/a')
+    const worktree = await otherDir()
+    process.chdir(worktree)
+    await expect(
+      sealKeyring.sealResult(post('edited'), 'private/a', p)
+    ).rejects.toMatchObject({ fatalContentError: true })
+    // ...and nothing was minted or saved there.
+    await expect(fs.stat(path.join(worktree, '.postkeys.json'))).rejects.toThrow()
+    await fs.rm(worktree, { recursive: true, force: true })
+  })
+
+  it('refuses to re-seal an envelope that does not open with the stored key', async () => {
+    const p = await sealIn(tmp, 'private/a')
+    const older = await otherDir()
+    process.chdir(older)
+    await sealKeyring.keyForSlug('private/a') // a different key for the same slug
+    await expect(
+      sealKeyring.sealResult(post('edited'), 'private/a', p)
+    ).rejects.toMatchObject({
+      fatalContentError: true,
+      message: expect.stringContaining('auth-failed'),
+    })
+    await fs.rm(older, { recursive: true, force: true })
+  })
+
+  it('refuses a corrupt keyring instead of overwriting it', async () => {
+    const dir = await otherDir()
+    process.chdir(dir)
+    await fs.writeFile('.postkeys.json', '{ not json')
+    await expect(sealKeyring.keyForSlug('private/a')).rejects.toMatchObject({
+      fatalContentError: true,
+    })
+    expect(await fs.readFile('.postkeys.json', 'utf8')).toBe('{ not json')
+    await fs.rm(dir, { recursive: true, force: true })
+  })
 })

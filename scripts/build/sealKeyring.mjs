@@ -84,7 +84,17 @@ async function loadKeyring() {
   let keyring
   try {
     keyring = JSON.parse(await fs.readFile(file, 'utf8'))
-  } catch {
+  } catch (err) {
+    // Only a MISSING keyring starts empty. An unreadable or corrupt one used
+    // to parse to {} too, and the first keyForSlug then saved over it:
+    // every key gone, every shared link dead.
+    if (err?.code !== 'ENOENT') {
+      throw fatal(
+        `${file} exists but can't be read (${err.message}). Refusing to ` +
+          'continue: writing a fresh keyring would destroy every sealed ' +
+          'link. Restore it from 1Password.'
+      )
+    }
     keyring = {}
   }
   cache.set(file, keyring)
@@ -134,12 +144,34 @@ export async function allSealKeys() {
  * indistinguishable from noise in review.
  */
 export async function sealResult(result, slug, outputPath) {
+  const existing = await readExistingSeal(outputPath)
+
+  // An envelope already exists, so links to it are already out there. Its key
+  // must come from the keyring, never be minted: a fresh key here (a worktree,
+  // a lost or older keyring) re-sealed the post and broke every shared link
+  // while the log said "same key". Checked before keyForSlug, which saves.
+  if (existing && !(await loadKeyring())[slug]) {
+    throw fatal(
+      `${slug}: an envelope exists but ${keyringPath()} has no key for it. ` +
+        'Refusing to mint a new one (it would break every shared link). Run ' +
+        'from the checkout that holds .postkeys.json, or restore it from ' +
+        '1Password. To retire the old links on purpose, delete the envelope.'
+    )
+  }
+
   const { key, minted } = await keyForSlug(slug)
 
-  const existing = await readExistingSeal(outputPath)
   if (existing) {
-    const { payload } = await unsealPost(existing.envelope, key, slug)
-    if (payload && JSON.stringify(payload) === JSON.stringify(result)) {
+    const { payload, reason } = await unsealPost(existing.envelope, key, slug)
+    if (!payload) {
+      throw fatal(
+        `${slug}: the existing envelope doesn't open with the stored key ` +
+          `(${reason}). Refusing to re-seal over it: shared links use the ` +
+          "envelope's key. Restore the matching .postkeys.json, or delete " +
+          'the envelope to retire those links on purpose.'
+      )
+    }
+    if (JSON.stringify(payload) === JSON.stringify(result)) {
       // The invariant runs on this path too. It is tempting to skip it —
       // nothing was re-encrypted, so what could have changed? — but the file
       // on disk is not necessarily the file this code last wrote. Anything
