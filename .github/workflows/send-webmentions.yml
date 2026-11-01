@@ -7,7 +7,16 @@ on:
   workflow_run:
     workflows: ['Deploy to VPS']
     types: [completed]
+  # Hourly too: a scheduled post goes live at publishAt with no deploy, and
+  # nothing else would ever announce it. The sent-cache makes reruns no-ops.
+  schedule:
+    - cron: '17 * * * *'
   workflow_dispatch:
+
+# One sender at a time: two runs restoring the same sent-cache double-send.
+concurrency:
+  group: webmentions
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -15,7 +24,7 @@ permissions:
 
 jobs:
   webmentions:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
@@ -37,6 +46,22 @@ jobs:
         run-id: ${{ github.event.workflow_run.id }}
         github-token: ${{ github.token }}
 
+    # Scheduled runs: same content, from the latest successful deploy (the
+    # committed JSON is only a cache and can lag what's live). Artifacts keep
+    # 7 days; if it's gone, fall back to the committed JSON.
+    - name: Fetch latest deployed processed content
+      if: github.event_name == 'schedule'
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        RUN=$(gh run list --workflow 'Deploy to VPS' --branch main --status success -L 1 --json databaseId -q '.[0].databaseId')
+        mkdir -p /tmp/deployed
+        if gh run download "$RUN" -n processed-content -D /tmp/deployed; then
+          rsync -a --delete /tmp/deployed/ content/processed/
+        else
+          echo "No deploy artifact; using committed content/processed"
+        fi
+
     - name: Setup Node.js
       uses: actions/setup-node@v7
       with:
@@ -46,7 +71,7 @@ jobs:
       uses: actions/cache@v6
       with:
         path: .webmentions-sent.json
-        key: webmentions-${{ github.sha }}
+        key: webmentions-${{ github.run_id }}
         restore-keys: |
           webmentions-
 
@@ -63,4 +88,4 @@ jobs:
       uses: actions/cache/save@v4
       with:
         path: .webmentions-sent.json
-        key: webmentions-${{ github.sha }}
+        key: webmentions-${{ github.run_id }}
