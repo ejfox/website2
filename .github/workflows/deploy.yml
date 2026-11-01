@@ -170,11 +170,28 @@ jobs:
 
           cd /data2/website2
 
+          # Any exit we didn't plan for (set -e: tar, rsync, pm2…) still alerts.
+          # Planned failures set ALERTED=1 before sending their own message.
+          ALERTED=""
+          trap 'rc=$?; if [ $rc -ne 0 ] && [ -z "$ALERTED" ]; then ALERT_FORCE=1 $ALERT website error "**❌ Deploy script died** (exit $rc) partway through — check /data2/website2 by hand (.output, .output.old, .processed.old)"; fi' EXIT
+
           # Capture before/after commits. Check out the EXACT commit this run
           # built — not origin/main, which a queued later merge may have moved.
           BUILT_SHA="${{ github.sha }}"
           PREV_SHA=$(git rev-parse HEAD)
           PREV_COMMIT=$(git rev-parse --short HEAD)
+
+          # Snapshot the LIVE processed content before git touches it. The
+          # reset below rewrites the tracked content/processed to the new
+          # commit's committed JSON, so a snapshot taken after it (as before
+          # 2026-11-01) restored the wrong content on rollback.
+          rm -rf .processed.old
+          cp -a content/processed .processed.old
+          restore_live() {
+            git reset --hard "$PREV_SHA"
+            rsync -a --delete --exclude 'private/' .processed.old/ content/processed/
+          }
+
           git fetch origin main
           git reset --hard "$BUILT_SHA"
           NEW_COMMIT=$(git rev-parse --short HEAD)
@@ -198,25 +215,27 @@ jobs:
           # had no .output/server/index.mjs at the next pm2 restart → 502.)
           rm -rf .deploy.staging
           mkdir .deploy.staging
-          # tarball holds .output/ and content/processed/
-          tar xzf /tmp/website2-output.tar.gz -C .deploy.staging
+          # tarball holds .output/ and content/processed/. A truncated one
+          # fails tar; that's a bad transfer too, not a silent set -e exit.
+          TAR_OK=1
+          tar xzf /tmp/website2-output.tar.gz -C .deploy.staging || TAR_OK=""
           rm -f /tmp/website2-output.tar.gz
 
           # Verify the STAGED build + content before touching the live ones
-          if [ ! -f .deploy.staging/.output/server/index.mjs ] || \
+          if [ -z "$TAR_OK" ] || \
+             [ ! -f .deploy.staging/.output/server/index.mjs ] || \
              [ ! -f .deploy.staging/content/processed/manifest-lite.json ]; then
-            echo "ERROR: staged build or manifest missing — keeping live build!"
+            echo "ERROR: bad transfer (tar ok: ${TAR_OK:-no}) — keeping live build!"
             rm -rf .deploy.staging
-            git reset --hard "$PREV_SHA"
+            restore_live
+            ALERTED=1
             ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — bad transfer, live site untouched"
             exit 1
           fi
 
-          # Snapshot current processed content for rollback, then lay CI's
-          # over the checkout. private/ (sealed envelopes) stays git's: a
+          # Lay CI's processed content over the checkout (the live copy is in
+          # .processed.old). private/ (sealed envelopes) stays git's: a
           # processing bug must never be able to delete one.
-          rm -rf .processed.old
-          cp -a content/processed .processed.old
           rsync -a --delete --exclude 'private/' \
             .deploy.staging/content/processed/ content/processed/
 
@@ -248,13 +267,31 @@ jobs:
 
           if [ "$HEALTH" != "✅" ]; then
             echo "ERROR: new build not healthy (serving: ${SERVING:-nothing}) — rolling back"
+            ALERTED=1
+            # No previous build to go back to (e.g. .output was missing when
+            # this deploy started): moving the new one aside would leave the
+            # box with no build at all. Keep it, restore nothing, and say so.
+            if [ ! -f .output.old/server/index.mjs ]; then
+              ALERT_FORCE=1 $ALERT website error "**❌ Deploy UNHEALTHY, no rollback possible** \`${NEW_COMMIT}\` failed its health check (serving: ${SERVING:-nothing}) and there is no .output.old. Left the new build in place — fix by hand."
+              exit 1
+            fi
             rm -rf .output.failed
             mv .output .output.failed
             mv .output.old .output
-            git reset --hard "$PREV_SHA"
-            rsync -a --delete --exclude 'private/' .processed.old/ content/processed/
+            restore_live
             pm2 reload website2
-            ALERT_FORCE=1 $ALERT website error "**❌ Deploy ROLLED BACK** \`${NEW_COMMIT}\` failed its health check (serving: ${SERVING:-nothing}). Back on \`${PREV_COMMIT}\`. Failed build kept at .output.failed"
+            # Prove the rollback took: healthcheck must report the PREVIOUS commit.
+            BACK="no"
+            for i in $(seq 1 15); do
+              sleep 2
+              RB=$(curl -sf http://localhost:3006/api/healthcheck 2>/dev/null | grep -o '"commit":"[^"]*"' | cut -d'"' -f4 || true)
+              if [ -n "$RB" ] && [ "${PREV_SHA#$RB}" != "$PREV_SHA" ]; then BACK="yes"; break; fi
+            done
+            if [ "$BACK" = "yes" ]; then
+              ALERT_FORCE=1 $ALERT website error "**❌ Deploy ROLLED BACK** \`${NEW_COMMIT}\` failed its health check (serving: ${SERVING:-nothing}). Back on \`${PREV_COMMIT}\` and healthy. Failed build kept at .output.failed"
+            else
+              ALERT_FORCE=1 $ALERT website error "**🔥 ROLLBACK UNHEALTHY** \`${NEW_COMMIT}\` failed, and after rolling back to \`${PREV_COMMIT}\` the healthcheck still doesn't report it (got: ${RB:-nothing}). Site may be down — check now."
+            fi
             exit 1
           fi
 
