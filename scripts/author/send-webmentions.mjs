@@ -21,7 +21,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { isListed } from '../../utils/visibility.mjs'
+import { isListed, publishTime } from '../../utils/visibility.mjs'
 
 // Despite the name, this is scripts/ (one up), so '../content' is the repo's.
 const __dirname = path.resolve(
@@ -180,8 +180,10 @@ function getRecentPosts(daysAgo) {
           fs.readFileSync(path.join(yearDir, file), 'utf-8')
         )
         if (!isListed(content)) continue
+        // When it went live, not its display date: a post scheduled more
+        // than `days` past its `date` would otherwise never qualify.
         const postDate = new Date(
-          content.metadata?.date || content.metadata?.modified || 0
+          publishTime(content) || content.metadata?.modified || 0
         )
 
         if (postDate.getTime() > cutoff) {
