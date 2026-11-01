@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "bd41800faa8e8598b904db069087cb923bb132e868c8e594caf563d46a28bcb6",
   "html": "<p class=\"\">Flipper Zero BadUSB payloads that make a fresh, keyboard-less machine reachable on the LAN for remote desktop — macOS Screen Sharing (VNC), Windows RDP, Linux VNC</p>\n<p class=\"\">For setting up new computers, especially desktops and Raspberry Pis, with no keyboard, and getting them on a network where I can manage them from my MacBook.</p>\n<p class=\"\">Just plug the Flipper in with USB-C and run the BadUSB scripts until it's connected.</p>",
   "title": "BadUSB Remote Desktop",

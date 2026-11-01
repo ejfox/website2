@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "b2fecd7144984ee26ec7cd26d31d604f7f90819304f5d99c6011765b039bb921",
   "html": "<!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->\n<p class=\"\">Loaded every Climate TRACE industry emissions CSV into a single SQLite/Datasette instance with SpatiaLite. This enables arbitrary geospatial SQL, including bounding-box polygon queries across all emission assets, that the public API can't do.</p>",
   "title": "Climate TRACE Exploration",

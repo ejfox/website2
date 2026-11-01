@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "689c0b1e6e6e35e6496764f03d9ab29f03b5922a4dcbdca18fce78f62be9e163",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">View 3D shapes as ASCII art in the command line.</p>\n<p class=\"\">Transforming complex datasets into intuitive ASCII representations for enhanced pattern recognition and anomaly detection.</p>",
   "title": "CLI Ascii 3D",

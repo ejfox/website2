@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "d2b8aa2f1ec1c641bd5398552f59c31ddb9a099dc79fef937625753d70286bc4",
   "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A TUI RSS reader that renders feed images <em class=\"\">inline</em> in the terminal — no browser, no separate image viewer — by implementing the Kitty Graphics Protocol in pure Rust. Part of the <a href=\"/projects/vulpes-nvim\" class=\"internal-link text-blue-600 dark:text-blue-400\">Projects/vulpes Nvim</a> aesthetic, for reading the web without leaving the terminal.</p>\n<figure role=\"figure\" aria-label=\"The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-rss/code.png\" alt=\"The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-rss/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-rss/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-rss/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-rss/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal\" width=\"1400\" height=\"900\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal</figcaption>\n</figure>",
   "title": "Vulpes RSS",
@@ -32,6 +32,6 @@
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
-    "type": "post"
+    "type": "project"
   }
 }

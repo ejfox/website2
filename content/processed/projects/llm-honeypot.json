@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "60a86c38b8f2773d783489faeee48f28e243609900ff01be0a5fbfcd8c9fe678",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">a little experiment made as a mothtrap for unsuspecting llms scraping the web. lets see what we catch! 🦋.</p>\n<p class=\"\">A defensive security honeypot that only allows robots - the inverse of \"prove you are human\".</p>",
   "title": "LLM Honeypot",

@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "3f660f0e323a6ba5fd320046204056d14d91ee7705cf9385e3380e572674f25d",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">a command-line tool for smart manipulation of JavaScript methods in files.</p>\n<p class=\"\">spaste-cli is a command-line tool for smart manipulation of JavaScript methods in files. It allows you to easily replace, delete, or echo specific methods in your JavaScript code using the power of Abstract Syntax Trees (AST).</p>",
   "title": "Spaste CLI",

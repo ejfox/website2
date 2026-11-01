@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "cf50c7579988cb2ab2b2bc789f3f6120ebb1e445412bdef1efd3f9ef99557f45",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A CLI game of life simulation, represented in braille unicode characters.</p>\n<p class=\"\">CLI-CONWAY\nA Terminal Implementation of\nConway's Game of Life</p>",
   "title": "CLI Conway",

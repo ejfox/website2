@@ -7,7 +7,7 @@
  *   Used by scripts/build/processMarkdown.mjs (and scripts/author/markdownToHtml.mjs).
  * Gotchas: runs after rehypePrettyCode, and tells code blocks from inline code
  *   by the data-language attribute pretty-code adds. Classes are baked into
- *   cached JSON, so a change here needs CACHE_VERSION bumped to reach old posts.
+ *   cached JSON; the cache key hashes this file, so a change re-renders every post.
  * @usage .use(rehypeAddClassToParagraphs)
  */
 

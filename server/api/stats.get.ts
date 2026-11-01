@@ -349,6 +349,12 @@ export default defineCachedEventHandler(
           return null
         }),
       ])
+      // Cached sources (github, photos) write their own etag/last-modified/
+      // cache-control onto OUR response; left there, /api/stats reuses
+      // github's etag and browsers get 304s while other sources changed.
+      for (const h of ['etag', 'last-modified', 'cache-control']) {
+        event.node.res.removeHeader(h)
+      }
 
       // Build adapted data
       const freshGithub = getValue(githubResult)

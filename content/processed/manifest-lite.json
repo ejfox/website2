@@ -3956,7 +3956,7 @@
     "slug": "projects/amen-slicer",
     "title": "Amen Slicer",
     "date": "2026-07-28T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "hardware"
@@ -3988,7 +3988,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/amen-slicer"
     }
   },
@@ -4042,7 +4042,7 @@
     "slug": "projects/ccrb-clusters",
     "title": "Clusters of NYPD Misconduct",
     "date": "2021-06-15T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-26T19:52:56.000Z",
     "tags": [
       "data",
@@ -4085,7 +4085,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/ccrb-clusters"
     }
   },
@@ -4172,7 +4172,7 @@
     "slug": "projects/coach-artie",
     "title": "Coach Artie",
     "date": "2023-03-21T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-26T19:52:50.000Z",
     "tags": [
       "programming",
@@ -4269,7 +4269,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/coach-artie"
     }
   },
@@ -4277,7 +4277,7 @@
     "slug": "projects/coachartie-memory",
     "title": "Coach Artie — Memory Analysis",
     "date": "2026-02-01T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "dataviz",
       "data",
@@ -4317,7 +4317,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/coachartie-memory"
     }
   },
@@ -4325,7 +4325,7 @@
     "slug": "projects/connectology",
     "title": "Connectology",
     "date": "2026-03-01T00:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "dataviz",
       "network",
@@ -4366,7 +4366,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/connectology"
     }
   },
@@ -4374,7 +4374,7 @@
     "slug": "projects/covidcast",
     "title": "COVIDcast",
     "date": "2020-07-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-26T19:53:05.000Z",
     "tags": [
       "covid",
@@ -4416,7 +4416,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/covidcast"
     }
   },
@@ -4424,7 +4424,7 @@
     "slug": "projects/creative-interfaces",
     "title": "Hand-Tracking & Generative Art",
     "date": "2024-07-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-13T15:46:54.000Z",
     "tags": [
       "creativity",
@@ -4540,7 +4540,7 @@
           ]
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/creative-interfaces"
     }
   },
@@ -4548,7 +4548,7 @@
     "slug": "projects/cyberdeck-saver",
     "title": "cyberdeck-saver",
     "date": "2026-04-20T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "macos",
       "osint",
@@ -4585,7 +4585,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/cyberdeck-saver"
     }
   },
@@ -4593,7 +4593,7 @@
     "slug": "projects/dataproofer",
     "title": "Dataproofer",
     "date": "2015-11-03T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-26T19:53:33.000Z",
     "tags": [
       "data",
@@ -4635,7 +4635,7 @@
       "codeBlocks": 1,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/dataproofer"
     }
   },
@@ -4643,7 +4643,7 @@
     "slug": "projects/flipper-zero-tools",
     "title": "Flipper Zero Tools",
     "date": "2025-01-15T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "flipper",
       "hardware",
@@ -4714,7 +4714,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/flipper-zero-tools"
     }
   },
@@ -4722,7 +4722,7 @@
     "slug": "projects/gem-viz",
     "title": "Global Energy Ownership Tracker",
     "date": "2026-05-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "dataviz",
       "network",
@@ -4761,7 +4761,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/gem-viz"
     }
   },
@@ -4769,7 +4769,7 @@
     "slug": "projects/github-sloth",
     "title": "GitHub Sloth",
     "date": "2026-05-01T00:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "cli",
@@ -4805,7 +4805,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/github-sloth"
     }
   },
@@ -4813,7 +4813,7 @@
     "slug": "projects/long-lead",
     "title": "Long Lead",
     "date": "2021-11-18T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "data",
@@ -4882,7 +4882,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/long-lead"
     }
   },
@@ -4890,7 +4890,7 @@
     "slug": "projects/margin-maps",
     "title": "The Margin",
     "date": "2022-09-21T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "maps",
@@ -4960,7 +4960,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/margin-maps"
     }
   },
@@ -4968,7 +4968,7 @@
     "slug": "projects/motorcycle-pico8",
     "title": "Motorcycle.p8",
     "date": "2023-07-02T00:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "games",
       "art",
@@ -5003,7 +5003,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/motorcycle-pico8"
     }
   },
@@ -5011,7 +5011,7 @@
     "slug": "projects/motorcycle-viz",
     "title": "Motorcycle Meta-Visualizations",
     "date": "2026-05-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "motorcycle",
       "dataviz",
@@ -5068,7 +5068,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/motorcycle-viz"
     }
   },
@@ -5076,7 +5076,7 @@
     "slug": "projects/nbc-big-board",
     "title": "NBC News Big Board",
     "date": "2018-11-06T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-13T16:24:29.000Z",
     "tags": [
       "d3",
@@ -5118,7 +5118,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/nbc-big-board"
     }
   },
@@ -5126,7 +5126,7 @@
     "slug": "projects/nbcnews-specials",
     "title": "NBC News Specials",
     "date": "2016-12-14T20:01:50.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-13T16:01:12.000Z",
     "tags": [
       "dataviz",
@@ -5232,7 +5232,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/nbcnews-specials"
     }
   },
@@ -5240,7 +5240,7 @@
     "slug": "projects/newswell",
     "title": "Newswell Studio",
     "date": "2025-10-01T00:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "tools",
@@ -5279,7 +5279,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/newswell"
     }
   },
@@ -5325,7 +5325,7 @@
     "slug": "projects/obsidian-analysis",
     "title": "Obsidian Analysis",
     "date": "2024-06-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "data",
       "visualization",
@@ -5416,7 +5416,7 @@
           ]
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/obsidian-analysis"
     }
   },
@@ -5424,7 +5424,7 @@
     "slug": "projects/openrouter-census",
     "title": "OpenRouter Census",
     "date": "2025-08-21T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "tools"
     ],
@@ -5454,7 +5454,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/openrouter-census"
     }
   },
@@ -5462,7 +5462,7 @@
     "slug": "projects/paperclip",
     "title": "paperclip",
     "date": "2025-11-01T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "ios",
       "android",
@@ -5501,7 +5501,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/paperclip"
     }
   },
@@ -5509,7 +5509,7 @@
     "slug": "projects/paramilitary-leaks",
     "title": "Paramilitary Leaks",
     "date": "2025-09-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "journalism",
       "data",
@@ -5548,7 +5548,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/paramilitary-leaks"
     }
   },
@@ -5556,7 +5556,7 @@
     "slug": "projects/photography-tools",
     "title": "EXIF Printer",
     "date": "2024-04-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-13T15:20:07.000Z",
     "tags": [
       "photography",
@@ -5593,7 +5593,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/photography-tools"
     }
   },
@@ -5601,7 +5601,7 @@
     "slug": "projects/pixel-canvas",
     "title": "Pixel Canvas",
     "date": "2026-05-27T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "hardware",
@@ -5658,7 +5658,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/pixel-canvas"
     }
   },
@@ -5666,7 +5666,7 @@
     "slug": "projects/scrapbook-core",
     "title": "Scrapbook Core",
     "date": "2026-05-05T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "tools"
     ],
@@ -5774,7 +5774,7 @@
           ]
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/scrapbook-core"
     }
   },
@@ -5782,7 +5782,7 @@
     "slug": "projects/showtouch",
     "title": "showtouch",
     "date": "2024-10-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "cli",
       "terminal",
@@ -5818,7 +5818,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/showtouch"
     }
   },
@@ -5826,7 +5826,7 @@
     "slug": "projects/smallbot-mcp",
     "title": "Smallbot MCP",
     "date": "2025-08-02T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "modified": "2025-08-13T17:17:13.000Z",
     "tags": [
       "ai",
@@ -5879,7 +5879,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/smallbot-mcp"
     }
   },
@@ -5887,7 +5887,7 @@
     "slug": "projects/subway-builder",
     "title": "Subway Builder",
     "date": "2026-05-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "games",
       "simulation",
@@ -5942,7 +5942,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/subway-builder"
     }
   },
@@ -5950,7 +5950,7 @@
     "slug": "projects/tempo",
     "title": "Tempo",
     "date": "2026-04-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "ios",
@@ -5988,7 +5988,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/tempo"
     }
   },
@@ -6258,7 +6258,7 @@
     "slug": "projects/towntuner",
     "title": "towntuner",
     "date": "2025-08-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "ios",
@@ -6312,7 +6312,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/towntuner"
     }
   },
@@ -6320,7 +6320,7 @@
     "slug": "projects/tv-station",
     "title": "TV Station",
     "date": "2026-05-01T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "web",
       "experiment"
@@ -6354,7 +6354,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/tv-station"
     }
   },
@@ -6362,7 +6362,7 @@
     "slug": "projects/twitter-artbot",
     "title": "Twitter Artbot",
     "date": "2017-06-11T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "art",
@@ -6398,7 +6398,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/twitter-artbot"
     }
   },
@@ -6406,7 +6406,7 @@
     "slug": "projects/vulpes-browser",
     "title": "Vulpes Browser",
     "date": "2026-01-20T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "draft": false,
     "tags": [
       "tools"
@@ -6438,7 +6438,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/vulpes-browser"
     }
   },
@@ -6446,7 +6446,7 @@
     "slug": "projects/vulpes-devices",
     "title": "Vulpes Devices",
     "date": "2026-03-15T04:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "vulpes",
       "flipper",
@@ -6486,7 +6486,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/vulpes-devices"
     }
   },
@@ -6494,7 +6494,7 @@
     "slug": "projects/vulpes-nvim",
     "title": "vulpes.nvim",
     "date": "2026-01-18T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "tools"
     ],
@@ -6524,7 +6524,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/vulpes-nvim"
     }
   },
@@ -6532,7 +6532,7 @@
     "slug": "projects/vulpes-system",
     "title": "Vulpes",
     "date": "2026-01-18T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "vulpes",
       "design",
@@ -6628,7 +6628,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "project",
       "slug": "projects/vulpes-system"
     }
   },
@@ -6636,7 +6636,7 @@
     "slug": "projects/vulpino",
     "title": "Vulpino",
     "date": "2026-01-10T05:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "tools"
     ],
@@ -6666,7 +6666,7 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/vulpino"
     }
   },
@@ -6674,7 +6674,7 @@
     "slug": "projects/websdr-vcv",
     "title": "WebSDR VCV",
     "date": "2025-08-01T00:00:00.000Z",
-    "type": "post",
+    "type": "project",
     "tags": [
       "audio",
       "radio",
@@ -6710,14 +6710,14 @@
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
-      "type": "post",
+      "type": "project",
       "slug": "projects/websdr-vcv"
     }
   },
   {
     "slug": "reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress",
     "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "politics",
       "america"
@@ -6767,14 +6767,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress"
     }
   },
   {
     "slug": "reading/Baldwin-Jones-Notes of a Native Son",
     "title": "Notes of a Native Son",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "america",
@@ -6828,14 +6828,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Baldwin-Jones-Notes of a Native Son"
     }
   },
   {
     "slug": "reading/Bergstrom-West-Calling Bullshit",
     "title": "Calling Bullshit",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "data",
@@ -6887,14 +6887,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Bergstrom-West-Calling Bullshit"
     }
   },
   {
     "slug": "reading/Bobrick-The Fated Sky",
     "title": "The Fated Sky",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "history",
@@ -6946,14 +6946,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Bobrick-The Fated Sky"
     }
   },
   {
     "slug": "reading/Broder-So Sad Today",
     "title": "So Sad Today",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -7007,14 +7007,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Broder-So Sad Today"
     }
   },
   {
     "slug": "reading/Broder-The Pisces",
     "title": "The Pisces",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -7066,14 +7066,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Broder-The Pisces"
     }
   },
   {
     "slug": "reading/Bukowski-Women",
     "title": "Women",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing"
@@ -7123,14 +7123,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Bukowski-Women"
     }
   },
   {
     "slug": "reading/Burnett-Evans-Designing Your Life",
     "title": "Designing Your Life",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "design",
@@ -7182,7 +7182,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Burnett-Evans-Designing Your Life"
     }
   },
@@ -7190,7 +7190,7 @@
     "slug": "reading/Campbell_et_al-The Hero’s Journey",
     "title": "The Hero’s Journey",
     "date": "2025-08-28T20:10:28.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-31T22:40:04.000Z",
     "toc": [
       {
@@ -7235,14 +7235,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Campbell_et_al-The Hero’s Journey"
     }
   },
   {
     "slug": "reading/Carton-Patriotic Treason",
     "title": "Patriotic Treason",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "history",
@@ -7296,14 +7296,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Carton-Patriotic Treason"
     }
   },
   {
     "slug": "reading/Catton-Overshoot",
     "title": "Overshoot",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "ecology",
@@ -7355,7 +7355,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Catton-Overshoot"
     }
   },
@@ -7363,7 +7363,7 @@
     "slug": "reading/Chayka-Filterworld",
     "title": "Filterworld",
     "date": "2025-08-21T18:44:39.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T23:53:43.000Z",
     "tags": [
       "book",
@@ -7420,14 +7420,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Chayka-Filterworld"
     }
   },
   {
     "slug": "reading/Chiang-Exhalation",
     "title": "Exhalation",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "tech",
@@ -7479,14 +7479,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Chiang-Exhalation"
     }
   },
   {
     "slug": "reading/Clover-Riot. Strike. Riot",
     "title": "Riot. Strike. Riot",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "activism",
@@ -7540,14 +7540,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Clover-Riot. Strike. Riot"
     }
   },
   {
     "slug": "reading/Collins-Zito-The Fundamentals of Motorcycle Camping",
     "title": "The Fundamentals of Motorcycle Camping",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "motorcycle",
@@ -7601,14 +7601,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Collins-Zito-The Fundamentals of Motorcycle Camping"
     }
   },
   {
     "slug": "reading/Currey-Daily Rituals",
     "title": "Daily Rituals",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "art",
@@ -7662,14 +7662,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Currey-Daily Rituals"
     }
   },
   {
     "slug": "reading/D'Ignazio-Klein-Data Feminism",
     "title": "Data Feminism",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "data",
       "activism"
@@ -7719,14 +7719,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/D'Ignazio-Klein-Data Feminism"
     }
   },
   {
     "slug": "reading/Dass-Be Here Now",
     "title": "Be Here Now",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "meditation",
@@ -7778,7 +7778,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Dass-Be Here Now"
     }
   },
@@ -7786,7 +7786,7 @@
     "slug": "reading/Doctorow-Walkaway",
     "title": "Walkaway",
     "date": "2025-08-21T18:46:31.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T22:31:29.000Z",
     "tags": [
       "book",
@@ -7841,7 +7841,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Doctorow-Walkaway"
     }
   },
@@ -7849,7 +7849,7 @@
     "slug": "reading/Drasner-Engineering Management for the Rest of Us",
     "title": "Engineering Management for the Rest of Us",
     "date": "2025-08-21T18:44:29.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T22:31:22.000Z",
     "tags": [
       "book",
@@ -7904,14 +7904,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Drasner-Engineering Management for the Rest of Us"
     }
   },
   {
     "slug": "reading/Eagleton-Why Marx Was Right",
     "title": "Why Marx Was Right",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "politics",
@@ -7963,14 +7963,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Eagleton-Why Marx Was Right"
     }
   },
   {
     "slug": "reading/Engelke-How to Think Like an Anthropologist",
     "title": "How to Think Like an Anthropologist",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "culture",
@@ -8022,14 +8022,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Engelke-How to Think Like an Anthropologist"
     }
   },
   {
     "slug": "reading/Erdoes-Ortiz-American Indian Myths and Legends",
     "title": "American Indian Myths and Legends",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "culture",
@@ -8083,14 +8083,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Erdoes-Ortiz-American Indian Myths and Legends"
     }
   },
   {
     "slug": "reading/Ferriss-Schwarzenegger-Tools Of Titans",
     "title": "Tools Of Titans",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "personal",
@@ -8142,14 +8142,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Ferriss-Schwarzenegger-Tools Of Titans"
     }
   },
   {
     "slug": "reading/Ferriss-The 4-Hour Body",
     "title": "The 4-Hour Body",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "health",
@@ -8203,14 +8203,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Ferriss-The 4-Hour Body"
     }
   },
   {
     "slug": "reading/Friedman-Ultimate Price",
     "title": "Ultimate Price",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "politics",
@@ -8264,14 +8264,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Friedman-Ultimate Price"
     }
   },
   {
     "slug": "reading/Fukuyama-The Origins of Political Order",
     "title": "The Origins of Political Order",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "politics",
@@ -8323,14 +8323,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Fukuyama-The Origins of Political Order"
     }
   },
   {
     "slug": "reading/Gaddis-On Grand Strategy",
     "title": "On Grand Strategy",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "politics",
       "military"
@@ -8380,7 +8380,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Gaddis-On Grand Strategy"
     }
   },
@@ -8388,7 +8388,7 @@
     "slug": "reading/Gelderloos-Oleynik-Anarchy Works",
     "title": "Anarchy Works",
     "date": "2025-08-21T18:44:50.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T22:30:27.000Z",
     "tags": [
       "book",
@@ -8445,14 +8445,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Gelderloos-Oleynik-Anarchy Works"
     }
   },
   {
     "slug": "reading/Gertner-The Idea Factory",
     "title": "The Idea Factory",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "tech",
       "research"
@@ -8502,7 +8502,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Gertner-The Idea Factory"
     }
   },
@@ -8510,7 +8510,7 @@
     "slug": "reading/Glaeser-Triumph of the City",
     "title": "Triumph of the City",
     "date": "2025-08-31T15:09:37.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-09-23T12:04:35.000Z",
     "tags": [
       "book",
@@ -8565,14 +8565,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Glaeser-Triumph of the City"
     }
   },
   {
     "slug": "reading/Gordis-Israel",
     "title": "Israel",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "politics"
     ],
@@ -8620,14 +8620,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Gordis-Israel"
     }
   },
   {
     "slug": "reading/Graeber-Direct Action",
     "title": "Direct Action",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "activism",
@@ -8679,14 +8679,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Graeber-Direct Action"
     }
   },
   {
     "slug": "reading/Graeber-The Utopia of Rules",
     "title": "The Utopia of Rules",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "politics",
@@ -8738,14 +8738,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Graeber-The Utopia of Rules"
     }
   },
   {
     "slug": "reading/Greenwald-No Place to Hide",
     "title": "No Place to Hide",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "security",
@@ -8799,14 +8799,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Greenwald-No Place to Hide"
     }
   },
   {
     "slug": "reading/Grove-Savage Ecology",
     "title": "Savage Ecology",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "ecology",
@@ -8860,14 +8860,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Grove-Savage Ecology"
     }
   },
   {
     "slug": "reading/Guin-Fowler-The Dispossessed",
     "title": "The Dispossessed",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "anarchism",
@@ -8919,14 +8919,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Guin-Fowler-The Dispossessed"
     }
   },
   {
     "slug": "reading/Guin-Lao Tzu Tao Te Ching",
     "title": "Lao Tzu: Tao Te Ching",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "meditation"
@@ -8976,7 +8976,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Guin-Lao Tzu Tao Te Ching"
     }
   },
@@ -8984,7 +8984,7 @@
     "slug": "reading/Harris-Kids These Days",
     "title": "Kids These Days",
     "date": "2025-08-21T18:48:47.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T23:53:55.000Z",
     "tags": [
       "america",
@@ -9039,14 +9039,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Harris-Kids These Days"
     }
   },
   {
     "slug": "reading/Hastings-The Last Magazine",
     "title": "The Last Magazine",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "journalism",
@@ -9098,14 +9098,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Hastings-The Last Magazine"
     }
   },
   {
     "slug": "reading/Hazleton-After the Prophet",
     "title": "After the Prophet",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "history",
@@ -9157,14 +9157,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Hazleton-After the Prophet"
     }
   },
   {
     "slug": "reading/Heat-Moon-Blue Highways",
     "title": "Blue Highways",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "travel",
@@ -9216,14 +9216,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Heat-Moon-Blue Highways"
     }
   },
   {
     "slug": "reading/Helmreich-The New York Nobody Knows",
     "title": "The New York Nobody Knows",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "nyc",
@@ -9277,14 +9277,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Helmreich-The New York Nobody Knows"
     }
   },
   {
     "slug": "reading/Hinton-America on Fire",
     "title": "America on Fire",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "america",
@@ -9340,14 +9340,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Hinton-America on Fire"
     }
   },
   {
     "slug": "reading/Illian-Metzger-A Potters Workbook",
     "title": "A Potters Workbook",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "pottery",
@@ -9401,14 +9401,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Illian-Metzger-A Potters Workbook"
     }
   },
   {
     "slug": "reading/Jarvis-Company Of One",
     "title": "Company Of One",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "advice",
@@ -9460,14 +9460,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Jarvis-Company Of One"
     }
   },
   {
     "slug": "reading/Jay-The Joy of Less, A Minimalist Living Guide",
     "title": "The Joy of Less, A Minimalist Living Guide",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "personal",
@@ -9519,7 +9519,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Jay-The Joy of Less, A Minimalist Living Guide"
     }
   },
@@ -9527,7 +9527,7 @@
     "slug": "reading/Jung_et_al-The I Ching or Book of Changes",
     "title": "The I Ching or Book of Changes",
     "date": "2025-08-21T18:44:04.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T22:30:58.000Z",
     "tags": [
       "book",
@@ -9580,14 +9580,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Jung_et_al-The I Ching or Book of Changes"
     }
   },
   {
     "slug": "reading/Kamozawa-Talbot-Ideas in Food Great Recipes and Why They Work",
     "title": "Ideas in Food: Great Recipes and Why They Work",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "cooking",
@@ -9639,14 +9639,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Kamozawa-Talbot-Ideas in Food Great Recipes and Why They Work"
     }
   },
   {
     "slug": "reading/Kasher-Kasher in the Rye",
     "title": "Kasher in the Rye",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "oakland",
@@ -9700,14 +9700,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Kasher-Kasher in the Rye"
     }
   },
   {
     "slug": "reading/Katz-Film Directing Shot by Shot",
     "title": "Film Directing Shot by Shot",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "video",
@@ -9761,14 +9761,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Katz-Film Directing Shot by Shot"
     }
   },
   {
     "slug": "reading/Kaufman-Antkind",
     "title": "Antkind",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -9820,14 +9820,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Kaufman-Antkind"
     }
   },
   {
     "slug": "reading/Kerner-She Comes First",
     "title": "She Comes First",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "health",
@@ -9879,14 +9879,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Kerner-She Comes First"
     }
   },
   {
     "slug": "reading/Konnikova-Mastermind",
     "title": "Mastermind",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "advice",
@@ -9938,14 +9938,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Konnikova-Mastermind"
     }
   },
   {
     "slug": "reading/Koster-Theory of Fun for Game Design",
     "title": "Theory of Fun for Game Design",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "games",
@@ -9997,14 +9997,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Koster-Theory of Fun for Game Design"
     }
   },
   {
     "slug": "reading/Kramer-Call-Telling True Stories",
     "title": "Telling True Stories",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "journalism",
@@ -10056,14 +10056,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Kramer-Call-Telling True Stories"
     }
   },
   {
     "slug": "reading/LMT-Womens Anatomy of Arousal",
     "title": "Womens Anatomy of Arousal",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "health",
@@ -10115,14 +10115,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/LMT-Womens Anatomy of Arousal"
     }
   },
   {
     "slug": "reading/LePera-How to Do the Work",
     "title": "How to Do the Work",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "health",
@@ -10176,14 +10176,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/LePera-How to Do the Work"
     }
   },
   {
     "slug": "reading/Levy-In the Plex",
     "title": "In the Plex",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "tech",
@@ -10235,14 +10235,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Levy-In the Plex"
     }
   },
   {
     "slug": "reading/Li-Forest Bathing",
     "title": "Forest Bathing",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "nature",
@@ -10294,14 +10294,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Li-Forest Bathing"
     }
   },
   {
     "slug": "reading/Liu-Abolish Silicon Valley",
     "title": "Abolish Silicon Valley",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "tech",
@@ -10353,7 +10353,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Liu-Abolish Silicon Valley"
     }
   },
@@ -10361,7 +10361,7 @@
     "slug": "reading/Markoff-What the Dormouse Said",
     "title": "What the Dormouse Said",
     "date": "2025-08-21T18:47:22.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T23:54:42.000Z",
     "tags": [
       "tech",
@@ -10414,14 +10414,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Markoff-What the Dormouse Said"
     }
   },
   {
     "slug": "reading/Meadows-Wright-Thinking in Systems",
     "title": "Thinking in Systems",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "systemsthinking",
@@ -10473,14 +10473,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Meadows-Wright-Thinking in Systems"
     }
   },
   {
     "slug": "reading/Menn-Cult of the Dead Cow",
     "title": "Cult of the Dead Cow",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "hackers",
       "security",
@@ -10532,7 +10532,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Menn-Cult of the Dead Cow"
     }
   },
@@ -10540,7 +10540,7 @@
     "slug": "reading/Moor-On Trails",
     "title": "On Trails",
     "date": "2025-08-21T18:44:13.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T23:58:28.000Z",
     "tags": [
       "book",
@@ -10597,14 +10597,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Moor-On Trails"
     }
   },
   {
     "slug": "reading/Murphy-Hiscock-The Green Witch",
     "title": "The Green Witch",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "nature"
@@ -10654,14 +10654,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Murphy-Hiscock-The Green Witch"
     }
   },
   {
     "slug": "reading/Norman-Emotional Design",
     "title": "Emotional Design",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "design",
@@ -10713,14 +10713,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Norman-Emotional Design"
     }
   },
   {
     "slug": "reading/PhD-Existential Kink",
     "title": "Existential Kink",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "personal"
@@ -10770,14 +10770,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/PhD-Existential Kink"
     }
   },
   {
     "slug": "reading/PhD-Just One Thing",
     "title": "Just One Thing",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "meditation",
@@ -10829,14 +10829,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/PhD-Just One Thing"
     }
   },
   {
     "slug": "reading/Pirsig-Zen and the Art of Motorcycle Maintenance",
     "title": "Zen and the Art of Motorcycle Maintenance",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "motorcycle",
@@ -10890,14 +10890,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Pirsig-Zen and the Art of Motorcycle Maintenance"
     }
   },
   {
     "slug": "reading/Pressfield-Coyne-The War of Art",
     "title": "The War of Art",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "art",
@@ -10949,14 +10949,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Pressfield-Coyne-The War of Art"
     }
   },
   {
     "slug": "reading/Rank-Historys Greatest Generals",
     "title": "Historys Greatest Generals",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "history",
@@ -11008,14 +11008,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Rank-Historys Greatest Generals"
     }
   },
   {
     "slug": "reading/Roose-Futureproof",
     "title": "Futureproof",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "tech",
@@ -11067,14 +11067,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Roose-Futureproof"
     }
   },
   {
     "slug": "reading/Rowell-Eleanor & Park",
     "title": "Eleanor & Park",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -11126,14 +11126,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Rowell-Eleanor & Park"
     }
   },
   {
     "slug": "reading/Sacks-Hallucinations",
     "title": "Hallucinations",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "health",
@@ -11185,14 +11185,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Sacks-Hallucinations"
     }
   },
   {
     "slug": "reading/Sansouci-Md-The Rebels Apothecary",
     "title": "The Rebels Apothecary",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "cannabis",
@@ -11244,14 +11244,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Sansouci-Md-The Rebels Apothecary"
     }
   },
   {
     "slug": "reading/Sedaris-Theft by Finding",
     "title": "Theft by Finding",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -11303,14 +11303,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Sedaris-Theft by Finding"
     }
   },
   {
     "slug": "reading/Self-American Babylon",
     "title": "American Babylon",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "oakland",
@@ -11364,14 +11364,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Self-American Babylon"
     }
   },
   {
     "slug": "reading/Shields-How We Got Here",
     "title": "How We Got Here",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "politics",
@@ -11425,14 +11425,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Shields-How We Got Here"
     }
   },
   {
     "slug": "reading/Shields-Other People",
     "title": "Other People",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -11484,7 +11484,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Shields-Other People"
     }
   },
@@ -11492,7 +11492,7 @@
     "slug": "reading/Shields-Reality Hunger",
     "title": "Reality Hunger",
     "date": "2025-08-21T18:44:34.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T23:53:05.000Z",
     "tags": [
       "book",
@@ -11547,14 +11547,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Shields-Reality Hunger"
     }
   },
   {
     "slug": "reading/Shields-The Trouble with Men",
     "title": "The Trouble with Men",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "personal",
@@ -11608,14 +11608,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Shields-The Trouble with Men"
     }
   },
   {
     "slug": "reading/Stephenson-Galland-The Rise and Fall of D.O.D.O",
     "title": "The Rise and Fall of D.O.D.O.",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -11667,14 +11667,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Stephenson-Galland-The Rise and Fall of D.O.D.O"
     }
   },
   {
     "slug": "reading/Stephenson-Reamde",
     "title": "Reamde",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "writing",
@@ -11726,14 +11726,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Stephenson-Reamde"
     }
   },
   {
     "slug": "reading/Stern-Berger-ISIS",
     "title": "ISIS",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "military",
       "politics",
@@ -11785,7 +11785,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Stern-Berger-ISIS"
     }
   },
@@ -11793,7 +11793,7 @@
     "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind",
     "title": "Zen Mind, Beginners Mind",
     "date": "2025-08-21T18:55:24.000Z",
-    "type": "post",
+    "type": "reading",
     "modified": "2025-08-24T22:30:46.000Z",
     "tags": [
       "book",
@@ -11846,14 +11846,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind"
     }
   },
   {
     "slug": "reading/Taibbi-Crabapple-The Divide",
     "title": "The Divide",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "politics",
       "america",
@@ -11905,14 +11905,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Taibbi-Crabapple-The Divide"
     }
   },
   {
     "slug": "reading/Taylor_et_al-Darkest America",
     "title": "Darkest America",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "history",
@@ -11966,14 +11966,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Taylor_et_al-Darkest America"
     }
   },
   {
     "slug": "reading/Thompson-Hells Angels",
     "title": "Hells Angels",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "motorcycle",
       "culture",
@@ -12025,14 +12025,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Thompson-Hells Angels"
     }
   },
   {
     "slug": "reading/Traub_et_al-The Education of a Photographer",
     "title": "The Education of a Photographer",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "photography",
@@ -12084,14 +12084,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Traub_et_al-The Education of a Photographer"
     }
   },
   {
     "slug": "reading/Tufekci-Twitter and Tear Gas",
     "title": "Twitter and Tear Gas",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "twitter",
       "protest",
@@ -12143,14 +12143,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Tufekci-Twitter and Tear Gas"
     }
   },
   {
     "slug": "reading/Turner-From Counterculture to Cyberculture",
     "title": "From Counterculture to Cyberculture",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "tech",
       "culture",
@@ -12202,14 +12202,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Turner-From Counterculture to Cyberculture"
     }
   },
   {
     "slug": "reading/Tzu-Brookes-Tao Te Ching",
     "title": "Tao Te Ching",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "meditation"
@@ -12259,14 +12259,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Tzu-Brookes-Tao Te Ching"
     }
   },
   {
     "slug": "reading/Warren-The Head Trip",
     "title": "The Head Trip",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "meditation",
@@ -12318,14 +12318,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Warren-The Head Trip"
     }
   },
   {
     "slug": "reading/Williams-The Dead Emcee Scrolls",
     "title": "The Dead Emcee Scrolls",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "book",
       "music",
@@ -12379,14 +12379,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Williams-The Dead Emcee Scrolls"
     }
   },
   {
     "slug": "reading/Yau-Visualize This",
     "title": "Visualize This",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "dataviz",
       "data"
@@ -12436,14 +12436,14 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/Yau-Visualize This"
     }
   },
   {
     "slug": "reading/York-Silicon Values",
     "title": "Silicon Values",
-    "type": "post",
+    "type": "reading",
     "tags": [
       "tech",
       "politics",
@@ -12495,7 +12495,7 @@
           "children": []
         }
       ],
-      "type": "post",
+      "type": "reading",
       "slug": "reading/York-Silicon Values"
     }
   }

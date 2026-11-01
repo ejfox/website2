@@ -437,5 +437,8 @@ export default defineCachedEventHandler(
       })
     }
   },
-  { maxAge: 600, swr: true }
+  // name + fixed key: /api/stats and /api/stats-lite call this handler with
+  // THEIR event, and Nitro's default key is the caller's URL, so unnamed it
+  // shared /api/stats's cache slot with photos and they overwrote each other.
+  { name: 'github', getKey: () => 'all', maxAge: 600, swr: true }
 )

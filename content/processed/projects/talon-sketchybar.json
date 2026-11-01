@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "27fb30a6a12c3b1be29fe8e635c71c76b84e6f0daebc20734ef5fd5cffb1793e",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">Event-driven Talon Voice → sketchybar bridge. Zero polling. Includes Karabiner double-shift integration.</p>\n<p class=\"\">Push Talon Voice state into sketchybar — event-driven, zero-polling, ~60 lines of Python.</p>",
   "title": "Talon Sketchybar",

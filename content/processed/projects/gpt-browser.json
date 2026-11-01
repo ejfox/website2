@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "3c91c3585c07a84541b2f80751fe91ec6d48c65bdbe1f30585456bfd9842576e",
   "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. .</p>\n<p class=\"\">A powerful Node.js package that fetches a webpage, breaks it into chunks, analyzes its content, and generates a summary using OpenAI's Chat API.</p>",
   "title": "GPT Browser",

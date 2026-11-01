@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-10-26-no-rotated-images",
+  "cacheVersion": "2026-10-31-59d2efb5fec9",
   "sourceHash": "0e1bbee1d9854a81e3fa7d299df9b980a5f9e9f87b9db937f038f4bac9875597",
   "html": "<!-- TODO (EJ): add your voice — factual stub. Design only; no raw genetic readouts\n     are shown. Draft until ready. -->\n<p class=\"\">A single-page, Tufte-styled report that turns my own 30× whole-genome sequencing into something legible — an academic-paper layout with D3 visualizations instead of a wall of raw variant tables. The screenshot is the report's masthead and overview; the actual readouts stay private.</p>",
   "title": "Genome Report",
