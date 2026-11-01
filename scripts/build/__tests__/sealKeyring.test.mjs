@@ -164,7 +164,9 @@ describe('sealResult', () => {
       sealKeyring.sealResult(post('edited'), 'private/a', p)
     ).rejects.toMatchObject({ fatalContentError: true })
     // ...and nothing was minted or saved there.
-    await expect(fs.stat(path.join(worktree, '.postkeys.json'))).rejects.toThrow()
+    await expect(
+      fs.stat(path.join(worktree, '.postkeys.json'))
+    ).rejects.toThrow()
     await fs.rm(worktree, { recursive: true, force: true })
   })
 
