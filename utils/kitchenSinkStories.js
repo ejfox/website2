@@ -407,7 +407,10 @@ export const stories = {
           created_at: '2024-06-24T22:21:03.192+00:00',
           published_at: '2024-06-24T22:21:03.192+00:00',
           tags: ['writing'],
-          concept_tags: ['gender_dynamics_in_culture', 'travel_experiences_and_gender_roles'],
+          concept_tags: [
+            'gender_dynamics_in_culture',
+            'travel_experiences_and_gender_roles',
+          ],
           type: 'block',
           source: 'arena',
           content_type: null,

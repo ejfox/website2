@@ -130,6 +130,16 @@ export const apiCatalog: ApiRoute[] = [
   },
   {
     method: 'GET',
+    path: '/api/scraps/{id}',
+    group: 'Content & blog',
+    summary: 'One shared scrap, for its permalink page',
+    consumer: 'frontend',
+    consumedBy: 'pages/scraps/[id]',
+    deps: 'Supabase (shared=true)',
+    health: 'ok',
+  },
+  {
+    method: 'GET',
     path: '/api/search',
     group: 'Content & blog',
     summary: 'TF-IDF full-text search over posts (?q=&limit=)',

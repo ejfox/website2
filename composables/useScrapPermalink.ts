@@ -38,7 +38,8 @@ export function scrapExcerpt(text: string | null) {
 /** The card splits "WHY KEPT — … ABOUT — …" out of the summary; the web label does the same. */
 export function scrapLabelParts(summary: string | null) {
   const s = summary?.trim() || ''
-  if (!s.toUpperCase().startsWith('WHY KEPT')) return { why: null, about: scrapExcerpt(s) }
+  if (!s.toUpperCase().startsWith('WHY KEPT'))
+    return { why: null, about: scrapExcerpt(s) }
   const body = s.slice('WHY KEPT'.length).replace(/^[\s—-]+/, '')
   const at = body.toUpperCase().indexOf('\nABOUT')
   if (at < 0) return { why: scrapExcerpt(body), about: null }
@@ -54,7 +55,11 @@ export async function useScrapPermalink() {
     { key: `scrap-${id}` }
   )
   if (error.value || !scrap.value) {
-    throw createError({ statusCode: 404, statusMessage: 'No such scrap', fatal: true })
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'No such scrap',
+      fatal: true,
+    })
   }
   return scrap
 }

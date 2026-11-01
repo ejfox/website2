@@ -57,14 +57,20 @@ const rootClass = computed(() => {
         <dd>{{ formatDate(scrap.created_at) || keptDay }}</dd>
       </div>
       <div v-if="publishedDay">
-        <dt class="text-5xs uppercase tracking-wider text-zinc-500">Published</dt>
+        <dt class="text-5xs uppercase tracking-wider text-zinc-500">
+          Published
+        </dt>
         <dd>{{ publishedDay }}</dd>
       </div>
-      <div v-if="scrap.to_read" class="text-5xs uppercase tracking-wider">To read</div>
+      <div v-if="scrap.to_read" class="text-5xs uppercase tracking-wider">
+        To read
+      </div>
     </dl>
 
     <section v-if="parts.why" class="space-y-1">
-      <div class="text-5xs uppercase tracking-wider text-zinc-500">Why kept</div>
+      <div class="text-5xs uppercase tracking-wider text-zinc-500">
+        Why kept
+      </div>
       <p class="font-serif text-base">{{ parts.why }}</p>
     </section>
     <section v-if="parts.about" class="space-y-1">
@@ -82,7 +88,10 @@ const rootClass = computed(() => {
       loading="lazy"
     />
 
-    <div v-if="scrap.tags.length || scrap.concept_tags.length" class="flex flex-wrap gap-x-2 text-3xs text-zinc-500">
+    <div
+      v-if="scrap.tags.length || scrap.concept_tags.length"
+      class="flex flex-wrap gap-x-2 text-3xs text-zinc-500"
+    >
       <NuxtLink
         v-for="t in scrap.tags"
         :key="t"
@@ -91,10 +100,17 @@ const rootClass = computed(() => {
       >
         {{ t }}
       </NuxtLink>
-      <span v-for="t in scrap.concept_tags" :key="`c-${t}`" class="italic opacity-70">{{ t }}</span>
+      <span
+        v-for="t in scrap.concept_tags"
+        :key="`c-${t}`"
+        class="italic opacity-70"
+        >{{ t }}</span
+      >
     </div>
 
-    <footer class="border-t border-zinc-200 dark:border-zinc-800 pt-2 flex justify-between text-3xs text-zinc-500">
+    <footer
+      class="border-t border-zinc-200 dark:border-zinc-800 pt-2 flex justify-between text-3xs text-zinc-500"
+    >
       <a
         v-if="scrap.url"
         :href="scrap.url"
@@ -104,7 +120,9 @@ const rootClass = computed(() => {
       >
         {{ scrap.url }}
       </a>
-      <NuxtLink v-if="!embed" to="/scraps" class="hover:underline shrink-0 ml-4">all scraps</NuxtLink>
+      <NuxtLink v-if="!embed" to="/scraps" class="hover:underline shrink-0 ml-4"
+        >all scraps</NuxtLink
+      >
     </footer>
   </article>
 </template>

@@ -75,15 +75,22 @@ export default defineCachedEventHandler(
       created_at: s.created_at as string,
       published_at: (s.published_at as string) || null,
       tags: Array.isArray(s.tags) ? (s.tags as string[]) : [],
-      concept_tags: Array.isArray(s.concept_tags) ? (s.concept_tags as string[]) : [],
+      concept_tags: Array.isArray(s.concept_tags)
+        ? (s.concept_tags as string[])
+        : [],
       type: (s.type as string) || null,
       source: (s.source as string) || null,
       content_type: (s.content_type as string) || null,
       location: (s.location as string) || null,
       screenshot_url: (s.screenshot_url as string) || null,
-      relationships: Array.isArray(s.relationships) ? s.relationships.length : 0,
+      relationships: Array.isArray(s.relationships)
+        ? s.relationships.length
+        : 0,
       to_read: Boolean(meta.toread),
     }
   },
-  { maxAge: 3600, getKey: (event) => `scrap-${scrapId(event)}` }
+  // swr off: with Nitro's default stale-while-revalidate, a refresh that 404s
+  // (EJ unshared the scrap) keeps serving the old copy forever. Without it
+  // the entry expires, so unsharing takes effect within maxAge.
+  { maxAge: 600, swr: false, getKey: (event) => `scrap-${scrapId(event)}` }
 )
