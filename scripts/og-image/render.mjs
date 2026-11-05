@@ -99,12 +99,14 @@ function renderBackground(ctx, noise, lightX, lightY) {
   const ly = lightY * HEIGHT
   const imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
   const { data } = imgData
-  const reach = WIDTH * 0.75
+  // Tight sun, steep falloff, near-zero ambient: the light lives in one
+  // place and the rest of the field stays black so the type can own it.
+  const reach = WIDTH * 0.42
   for (let y = 0; y < HEIGHT; y += 2) {
     for (let x = 0; x < WIDTH; x += 2) {
       const d = Math.hypot(x - lx, y - ly) / reach
       const n = (noise(x * 0.0025, y * 0.0025) + 1) / 2
-      const v = Math.max(0, 1 - d) ** 2.2 * (120 + 60 * n) + n * 14
+      const v = Math.max(0, 1 - d) ** 3 * (110 + 50 * n) + n * 4
       // Fill 2x2 block
       for (let dy = 0; dy < 2 && y + dy < HEIGHT; dy++) {
         for (let dx = 0; dx < 2 && x + dx < WIDTH; dx++) {
@@ -179,50 +181,53 @@ function renderConnections(ctx, cards, connections) {
 
 const cardRenderers = {
   title(ctx, card, cx, cy, w, h, proj, depthAlpha, skew, imageCache, pass) {
-    // Bitmap font, as large as fits in three lines (pixelSize 8 → 56px
-    // caps, down to 4 → 28px). Two passes: 'halo' draws the dark pad and
-    // light bloom before the dither (so they break into halftone), 'glyphs'
-    // draws the letters after it so they stay crisp. No box, no color.
+    // Bitmap font, as large as fits: three lines at pixelSize 8 → 5 (56px
+    // to 35px caps), then four lines at 5 → 4 for the long titles. Two
+    // passes: 'halo' draws the solid black bed before the dither (its soft
+    // edge breaks into halftone), 'glyphs' draws the letters after it so
+    // they stay crisp on pure black. No box, no color.
     let pixelSize = 8
+    let maxLines = 3
     let lines = []
-    while (pixelSize >= 4) {
+    function fits() {
       const charsPerLine = Math.floor(w / (pixelSize * 6))
       lines = wordWrap(card.text, charsPerLine)
       const widest = Math.max(...lines.map((l) => l.length))
-      if (lines.length <= 3 && widest <= charsPerLine) break
-      pixelSize -= 1
+      return lines.length <= maxLines && widest <= charsPerLine
     }
-    lines = lines.slice(0, 3)
+    while (!fits()) {
+      if (pixelSize > 5) {
+        pixelSize -= 1
+      } else if (maxLines < 4) {
+        maxLines = 4
+      } else if (pixelSize > 4) {
+        pixelSize -= 1
+      } else {
+        break
+      }
+    }
+    lines = lines.slice(0, maxLines)
     const lineHeight = pixelSize * 9
     const blockH = lines.length * lineHeight
     const startY = cy + h / 2 - blockH / 2
     const midX = cx + w / 2
     const midY = cy + h / 2
+    const blockW = Math.max(...lines.map((l) => measurePixelText(l, pixelSize)))
 
     if (pass === 'halo') {
-      // Dark pad first so a bright photo behind can't eat the glyphs, then
-      // the light bloom on top of it.
-      // An ellipse of near-black under the glyphs, with the bloom pushed
-      // out to a ring around it: after the dither that reads as black
-      // type-bed with a halftone glow at its edge.
+      // Solid #000 ellipse comfortably larger than the text block, with a
+      // soft falloff at its edge that the dither turns into a stipple.
       ctx.save()
       ctx.translate(midX, midY)
-      ctx.scale(1, (blockH + 90) / (w * 0.7))
-      const r = w * 0.7
-      const shade = ctx.createRadialGradient(0, 0, 0, 0, 0, r)
-      shade.addColorStop(0, 'rgba(0,0,0,0.97)')
-      shade.addColorStop(0.55, 'rgba(0,0,0,0.92)')
-      shade.addColorStop(0.8, 'rgba(0,0,0,0.4)')
-      shade.addColorStop(1, 'rgba(0,0,0,0)')
-      ctx.fillStyle = shade
-      ctx.fillRect(-r, -r, r * 2, r * 2)
-      const ring = ctx.createRadialGradient(0, 0, r * 0.5, 0, 0, r)
-      ring.addColorStop(0, 'rgba(255,255,255,0)')
-      ring.addColorStop(0.35, 'rgba(255,255,255,0.45)')
-      ring.addColorStop(0.7, 'rgba(255,255,255,0.1)')
-      ring.addColorStop(1, 'rgba(255,255,255,0)')
-      ctx.fillStyle = ring
-      ctx.fillRect(-r, -r, r * 2, r * 2)
+      const rx = blockW / 2 + 90
+      const ry = blockH / 2 + 60
+      ctx.scale(1, ry / rx)
+      const bed = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * 1.35)
+      bed.addColorStop(0, 'rgba(0,0,0,1)')
+      bed.addColorStop(0.74, 'rgba(0,0,0,1)')
+      bed.addColorStop(1, 'rgba(0,0,0,0)')
+      ctx.fillStyle = bed
+      ctx.fillRect(-rx * 1.4, -rx * 1.4, rx * 2.8, rx * 2.8)
       ctx.restore()
       return
     }
@@ -400,7 +405,7 @@ export async function renderScene(content, scene, seed) {
   // toward 1-bit (the sun becomes a Bayer halftone). Title glyphs are
   // drawn after, crisp.
   const imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
-  applyGodRays(imgData, lightX, lightY, 0.22, 18, 0.96)
+  applyGodRays(imgData, lightX, lightY, 0.14, 18, 0.96)
   applyDither(imgData, 0.9, [0, 0, 0], [255, 255, 255])
   ctx.putImageData(imgData, 0, 0)
 
