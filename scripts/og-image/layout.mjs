@@ -88,17 +88,34 @@ export function layoutCards(slug, content) {
 
   // ── Cards ───────────────────────────────────────────────────────────────
 
-  // Title card — front and center on the back wall
+  // Title card — front and center on the back wall, wide enough for the
+  // bitmap font at 7px pixels (three lines of ~20 chars).
   cards.push({
     type: 'title',
     text: content.title,
-    ...placeOnWall('backCenter'),
+    x: camOffX + randRange(rng, -60, 60),
+    y: camOffY + randRange(rng, -60, 40),
     z: 0.15 + randRange(rng, 0, 0.1), // override: always closest
-    width: 700,
-    height: 140,
-    rotation: randRange(rng, -3, 3),
+    width: 880,
+    height: 200,
+    rotation: randRange(rng, -2.5, 2.5),
     importance: 1.0,
   })
+
+  // Sentence lines — the post's own prose, far back, as texture
+  const lineWalls = ['far', 'ceiling', 'floor', 'left', 'right']
+  const sentences = (content.sentences || []).slice(0, 6)
+  for (let i = 0; i < sentences.length; i++) {
+    cards.push({
+      type: 'line',
+      text: sentences[i],
+      ...placeOnWall(lineWalls[i % lineWalls.length]),
+      width: 360,
+      height: 24,
+      rotation: randRange(rng, -10, 10),
+      importance: 0.15,
+    })
+  }
 
   // Image cards — BIG posters on left and right walls
   const imageWalls = ['left', 'right', 'backCenter', 'floor']

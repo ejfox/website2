@@ -1,7 +1,9 @@
 /**
  * @file extract.mjs
- * @description Pull title, headings, blockquotes, Cloudinary image URLs, tags
- *   and stats out of a post for the OG image generator's floating cards.
+ * @description Pull title, headings (flat `outline` with levels), blockquotes,
+ *   Cloudinary image URLs, tags, a sentence pool, a block-by-block structure
+ *   strip (`blocks`) and stats out of a post for the OG image generator's
+ *   four house styles.
  *   Reads content/processed/<slug>.json; if that doesn't exist (drafts), falls
  *   back to the source markdown under content/blog/ and, when the env var
  *   DISPATCH_VAULT_PATH is set (the Dispatch app sets it), the Obsidian vault.
@@ -49,6 +51,140 @@ function imagesFromFrontmatter(fm) {
 
 function dedupe(arr) {
   return [...new Set(arr)]
+}
+
+// Emoji and other pictographs in headings ("📸 Creative") would print as
+// tofu or, worse, as emoji; the cards are glyph-only by house rule.
+const EMOJI_RE =
+  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}\u{2640}\u{2642}]/gu
+
+function cleanText(s) {
+  return s
+    .replace(/&#x26;|&amp;/g, '&')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&nbsp;/g, ' ')
+    .replace(EMOJI_RE, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function countWords(s) {
+  return s.split(/\s+/).filter(Boolean).length
+}
+
+/**
+ * Split text into sentences, keeping the short, quotable ones. Styles use
+ * these as typographic texture (footnote margins, glyph rain) so the card
+ * is built from the post's own words rather than lorem.
+ */
+function pickSentences(text, max = 12) {
+  const out = []
+  for (const s of text.split(/(?<=[.!?])\s+/)) {
+    const t = s.trim()
+    if (t.length >= 24 && t.length <= 140) out.push(t)
+    if (out.length >= max) break
+  }
+  return out
+}
+
+/**
+ * Flatten a nested TOC (`metadata.toc` nests h3s under their h2) into
+ * document order with levels. The old code read only the top level, so
+ * a post whose h2s had children lost every child heading.
+ */
+function flattenToc(toc, out = []) {
+  for (const h of toc || []) {
+    const text = cleanText(h.text || '')
+    if (text) out.push({ text, level: Number((h.level || 'h2').slice(1)) })
+    if (h.children && h.children.length) flattenToc(h.children, out)
+  }
+  return out
+}
+
+/**
+ * Walk a post's HTML top-level blocks in order and return a structure strip:
+ * one entry per paragraph / heading / quote / code / list item / image with
+ * its word count. The Academic sparkline and the Vulpes glyph field read
+ * this; it's the post's shape, not its words.
+ */
+function blocksFromHtml(html) {
+  const blocks = []
+  const re =
+    /<(h[1-6]|p|li|pre|blockquote)\b[^>]*>([\s\S]*?)<\/\1>|<img\b[^>]*>/gi
+  for (const m of html.matchAll(re)) {
+    if (!m[1]) {
+      blocks.push({ type: 'img', words: 0 })
+      continue
+    }
+    const tag = m[1].toLowerCase()
+    const words = countWords(cleanText(m[2].replace(/<[^>]+>/g, ' ')))
+    if (tag === 'pre') {
+      blocks.push({ type: 'code', words })
+    } else if (tag === 'blockquote') {
+      blocks.push({ type: 'quote', words })
+    } else if (tag[0] === 'h') {
+      blocks.push({ type: tag, words })
+    } else if (tag === 'li') {
+      blocks.push({ type: 'li', words })
+    } else if (words > 0) {
+      blocks.push({ type: 'p', words })
+    }
+  }
+  return blocks
+}
+
+/** Same structure strip, from raw markdown (draft fallback). */
+function blocksFromMarkdown(content) {
+  const blocks = []
+  let inCode = false
+  let codeWords = 0
+  let para = []
+  function flushPara() {
+    if (para.length) {
+      blocks.push({ type: 'p', words: countWords(para.join(' ')) })
+      para = []
+    }
+  }
+  for (const line of content.split('\n')) {
+    const t = line.trim()
+    if (t.startsWith('```')) {
+      if (inCode) {
+        blocks.push({ type: 'code', words: codeWords })
+        codeWords = 0
+      } else {
+        flushPara()
+      }
+      inCode = !inCode
+      continue
+    }
+    if (inCode) {
+      codeWords += countWords(t)
+      continue
+    }
+    if (!t) {
+      flushPara()
+      continue
+    }
+    const h = t.match(/^(#{1,6})\s+(.*)$/)
+    if (h) {
+      flushPara()
+      blocks.push({ type: `h${h[1].length}`, words: countWords(h[2]) })
+    } else if (t.startsWith('![')) {
+      flushPara()
+      blocks.push({ type: 'img', words: 0 })
+    } else if (t.startsWith('>')) {
+      flushPara()
+      blocks.push({ type: 'quote', words: countWords(t.replace(/^>\s?/, '')) })
+    } else if (/^([-*]|\d+\.)\s/.test(t)) {
+      flushPara()
+      blocks.push({ type: 'li', words: countWords(t.replace(/^([-*]|\d+\.)\s/, '')) })
+    } else {
+      para.push(t)
+    }
+  }
+  flushPara()
+  return blocks
 }
 
 // ── Markdown fallback (no processed JSON yet) ──────────────────────────
@@ -141,13 +277,17 @@ async function extractFromMarkdown(slug) {
   const h1 = content.match(/^#{1,2}[ \t]+(\S.*)$/m)
   const title = (fm.title || h1?.[1] || slug.split('/').pop()).trim()
 
-  // Headings ## / ###, skipping the first H1/H2 used as title.
-  const headings = []
-  for (const m of content.matchAll(/^#{2,4}[ \t]+(\S.*)$/gm)) {
-    const text = m[1].trim()
-    if (text !== title && !headings.includes(text)) headings.push(text)
-    if (headings.length >= 5) break
+  // Headings ## / ###, skipping the first H1/H2 used as title. `outline`
+  // keeps every heading with its level; `headings` is the first five texts
+  // for the card layout.
+  const outline = []
+  for (const m of content.matchAll(/^(#{2,4})[ \t]+(\S.*)$/gm)) {
+    const text = cleanText(m[2])
+    if (!text || text === title) continue
+    if (outline.some((h) => h.text === text)) continue
+    outline.push({ text, level: m[1].length })
   }
+  const headings = outline.slice(0, 5).map((h) => h.text)
 
   // Blockquotes (lines starting with >, joined into paragraphs).
   const blockquotes = []
@@ -183,13 +323,23 @@ async function extractFromMarkdown(slug) {
     break
   }
 
+  const prose = content
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/^#.*$/gm, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`>]/g, '')
+
   return {
-    title,
+    title: cleanText(title),
     dek: fm.dek || null,
     headings,
+    outline,
     blockquotes,
     imageUrls,
     firstParagraph,
+    sentences: pickSentences(cleanText(prose)),
+    blocks: blocksFromMarkdown(content),
     tags: (fm.tags || []).slice(0, 5),
     stats: {
       words: content.split(/\s+/).filter(Boolean).length,
@@ -227,21 +377,24 @@ export async function extractContent(slug) {
   const html = post.html || ''
   const meta = post.metadata || {}
 
-  // Extract headings from TOC
-  const headings = (meta.toc || [])
-    .map((h) => h.text)
-    .filter(Boolean)
-    .slice(0, 5)
+  // Extract headings from the (nested) TOC, flattened in document order.
+  const outline = flattenToc(meta.toc)
+  const headings = outline.slice(0, 5).map((h) => h.text)
 
   // Extract blockquotes from HTML
   const blockquotes = []
   const bqRe = /<blockquote[^>]*>([\s\S]*?)<\/blockquote>/gi
   for (const m of html.matchAll(bqRe)) {
-    const text = m[1].replace(/<[^>]+>/g, '').trim()
+    const text = cleanText(m[1].replace(/<[^>]+>/g, ' '))
     if (text.length > 10 && text.length < 200) {
       blockquotes.push(text)
     }
   }
+
+  // Plain prose for the sentence pool: paragraphs only, tags stripped.
+  const prose = Array.from(html.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi))
+    .map((m) => cleanText(m[1].replace(/<[^>]+>/g, ' ')))
+    .join(' ')
 
   // Extract Cloudinary image URLs — frontmatter (cover/hero/og_image first
   // so they stay prominent) then HTML src= attributes.
@@ -265,12 +418,15 @@ export async function extractContent(slug) {
     : null
 
   return {
-    title: post.title || slug.split('/').pop(),
+    title: cleanText(post.title || slug.split('/').pop()),
     dek: meta.dek || null,
     headings,
+    outline,
     blockquotes: blockquotes.slice(0, 3),
     imageUrls,
     firstParagraph,
+    sentences: pickSentences(prose),
+    blocks: blocksFromHtml(html),
     tags: (meta.tags || []).slice(0, 5),
     stats: {
       words: meta.words || 0,

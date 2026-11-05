@@ -86,23 +86,32 @@ function wordWrap(text, charsPerLine) {
 
 // ── Background ───────────────────────────────────────────────────────────
 
-function renderBackground(ctx, noise) {
-  ctx.fillStyle = rgb(ZINC.bg)
+/**
+ * Pure black, then a light source: a soft disc at the god-ray origin whose
+ * gradient the Bayer pass later breaks into the classic 1-bit sun, plus
+ * low-frequency noise so the falloff isn't a perfect circle.
+ */
+function renderBackground(ctx, noise, lightX, lightY) {
+  ctx.fillStyle = '#000'
   ctx.fillRect(0, 0, WIDTH, HEIGHT)
 
-  // Subtle large-scale noise gradient
+  const lx = lightX * WIDTH
+  const ly = lightY * HEIGHT
   const imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
   const { data } = imgData
+  const reach = WIDTH * 0.75
   for (let y = 0; y < HEIGHT; y += 2) {
     for (let x = 0; x < WIDTH; x += 2) {
-      const n = noise(x * 0.002, y * 0.002) * 10
+      const d = Math.hypot(x - lx, y - ly) / reach
+      const n = (noise(x * 0.0025, y * 0.0025) + 1) / 2
+      const v = Math.max(0, 1 - d) ** 2.2 * (120 + 60 * n) + n * 14
       // Fill 2x2 block
       for (let dy = 0; dy < 2 && y + dy < HEIGHT; dy++) {
         for (let dx = 0; dx < 2 && x + dx < WIDTH; dx++) {
           const i = ((y + dy) * WIDTH + (x + dx)) * 4
-          data[i] += n
-          data[i + 1] += n
-          data[i + 2] += n
+          data[i] = v
+          data[i + 1] = v
+          data[i + 2] = v + 3
         }
       }
     }
@@ -116,7 +125,7 @@ function renderFloorGrid(ctx, rng) {
   const vanishX = WIDTH * (0.4 + rng() * 0.2)
 
   ctx.save()
-  ctx.globalAlpha = 0.06
+  ctx.globalAlpha = 0.14
 
   // Horizontal lines receding into depth
   for (let i = 0; i < 20; i++) {
@@ -169,93 +178,128 @@ function renderConnections(ctx, cards, connections) {
 // ── Card renderers (one per type) ────────────────────────────────────────
 
 const cardRenderers = {
-  title(ctx, card, cx, cy, w, h, proj, depthAlpha, skew) {
-    // Red border outline only (no fill)
-    ctx.strokeStyle = rgba(ZINC.accent, 0.6 * depthAlpha)
-    ctx.lineWidth = 1.5
-    drawCardPath(ctx, cx, cy, w, h, skew)
-    ctx.stroke()
-
-    // Pixel font — word wrap to fit
-    const pixelSize = 3
-    const charWidth = pixelSize * 6
-    const charsPerLine = Math.floor((w - 24) / charWidth)
-    const lines = wordWrap(card.text, charsPerLine)
+  title(ctx, card, cx, cy, w, h, proj, depthAlpha, skew, imageCache, pass) {
+    // Bitmap font, as large as fits in three lines (pixelSize 8 → 56px
+    // caps, down to 4 → 28px). Two passes: 'halo' draws the dark pad and
+    // light bloom before the dither (so they break into halftone), 'glyphs'
+    // draws the letters after it so they stay crisp. No box, no color.
+    let pixelSize = 8
+    let lines = []
+    while (pixelSize >= 4) {
+      const charsPerLine = Math.floor(w / (pixelSize * 6))
+      lines = wordWrap(card.text, charsPerLine)
+      const widest = Math.max(...lines.map((l) => l.length))
+      if (lines.length <= 3 && widest <= charsPerLine) break
+      pixelSize -= 1
+    }
+    lines = lines.slice(0, 3)
     const lineHeight = pixelSize * 9
-    const startY = cy + h / 2 - (Math.min(lines.length, 3) * lineHeight) / 2
-    for (let i = 0; i < Math.min(lines.length, 3); i++) {
+    const blockH = lines.length * lineHeight
+    const startY = cy + h / 2 - blockH / 2
+    const midX = cx + w / 2
+    const midY = cy + h / 2
+
+    if (pass === 'halo') {
+      // Dark pad first so a bright photo behind can't eat the glyphs, then
+      // the light bloom on top of it.
+      // An ellipse of near-black under the glyphs, with the bloom pushed
+      // out to a ring around it: after the dither that reads as black
+      // type-bed with a halftone glow at its edge.
+      ctx.save()
+      ctx.translate(midX, midY)
+      ctx.scale(1, (blockH + 90) / (w * 0.7))
+      const r = w * 0.7
+      const shade = ctx.createRadialGradient(0, 0, 0, 0, 0, r)
+      shade.addColorStop(0, 'rgba(0,0,0,0.97)')
+      shade.addColorStop(0.55, 'rgba(0,0,0,0.92)')
+      shade.addColorStop(0.8, 'rgba(0,0,0,0.4)')
+      shade.addColorStop(1, 'rgba(0,0,0,0)')
+      ctx.fillStyle = shade
+      ctx.fillRect(-r, -r, r * 2, r * 2)
+      const ring = ctx.createRadialGradient(0, 0, r * 0.5, 0, 0, r)
+      ring.addColorStop(0, 'rgba(255,255,255,0)')
+      ring.addColorStop(0.35, 'rgba(255,255,255,0.45)')
+      ring.addColorStop(0.7, 'rgba(255,255,255,0.1)')
+      ring.addColorStop(1, 'rgba(255,255,255,0)')
+      ctx.fillStyle = ring
+      ctx.fillRect(-r, -r, r * 2, r * 2)
+      ctx.restore()
+      return
+    }
+
+    for (let i = 0; i < lines.length; i++) {
+      const lineW = measurePixelText(lines[i], pixelSize)
       drawPixelText(
         ctx,
         lines[i],
-        cx + 12,
+        midX - lineW / 2,
         startY + i * lineHeight,
         pixelSize,
-        rgba(ZINC.accent, depthAlpha)
+        '#fff'
       )
     }
   },
 
+  line(ctx, card, cx, cy, w, h, proj, depthAlpha) {
+    // A sentence from the post, far back: texture, not reading matter.
+    const fontSize = Math.max(11, Math.round(16 * proj.scale))
+    ctx.font = `${fontSize}px Georgia, serif`
+    ctx.fillStyle = rgba([255, 255, 255], 0.55 + depthAlpha * 0.3)
+    ctx.fillText(card.text.slice(0, 70), cx + 4, cy + h / 2 + fontSize / 3)
+  },
+
   heading(ctx, card, cx, cy, w, h, proj, depthAlpha) {
-    const fontSize = Math.max(10, Math.round(14 * proj.scale))
-    ctx.font = `bold ${fontSize}px monospace`
-    ctx.fillStyle = rgba([210, 210, 218], depthAlpha * 0.9)
+    const fontSize = Math.max(13, Math.round(26 * proj.scale))
+    ctx.font = `700 ${fontSize}px IBM Plex Mono, Menlo, monospace`
+    ctx.fillStyle = rgba([255, 255, 255], 0.92)
     ctx.fillText(card.text.slice(0, 32), cx + 4, cy + h / 2 + fontSize / 3)
   },
 
   quote(ctx, card, cx, cy, w, h, proj, depthAlpha) {
-    const fontSize = Math.max(9, Math.round(12 * proj.scale))
-    // Accent bar
-    ctx.fillStyle = rgba(ZINC.dim, 0.6 * depthAlpha)
-    ctx.fillRect(cx + 2, cy + 4, 2, h - 8)
+    const fontSize = Math.max(11, Math.round(16 * proj.scale))
+    // Hairline lead instead of a bar
+    ctx.fillStyle = rgba([200, 200, 208], 0.8 * depthAlpha)
+    ctx.fillRect(cx + 2, cy + h / 2, 1, h / 2 - 4)
     // Italic text
     ctx.font = `italic ${fontSize}px Georgia, serif`
-    ctx.fillStyle = rgba([185, 185, 192], depthAlpha * 0.8)
+    ctx.fillStyle = rgba([255, 255, 255], 0.9)
     ctx.fillText(card.text.slice(0, 45), cx + 10, cy + h / 2 + fontSize / 3)
   },
 
   image(ctx, card, cx, cy, w, h, proj, depthAlpha, skew, imageCache) {
-    // Frame shadow
-    ctx.fillStyle = rgba([0, 0, 0], 0.4 * depthAlpha)
-    drawCardPath(ctx, cx, cy, w, h, skew, 5, 5)
-    ctx.fill()
-
-    // Frame background
-    ctx.fillStyle = rgba([45, 45, 50], 0.95 * depthAlpha)
-    drawCardPath(ctx, cx, cy, w, h, skew)
-    ctx.fill()
-
-    // Frame border
-    ctx.strokeStyle = rgba([85, 85, 92], 0.7 * depthAlpha)
-    ctx.lineWidth = 1
-    ctx.stroke()
-
-    // Actual image
+    // The photo itself is the card: no frame, no border. A failed fetch
+    // draws nothing rather than an empty box.
     const img = imageCache.get(card.imageUrl)
-    if (img) {
-      ctx.save()
-      drawCardPath(ctx, cx, cy, w, h, skew)
-      ctx.clip()
-      ctx.globalAlpha = depthAlpha * 0.75
-      ctx.drawImage(img, cx + 2, cy + 2, w - 4, h - 4)
-      ctx.globalAlpha = 1
-      // Dark veil to blend into scene
-      ctx.fillStyle = rgba(ZINC.bg, 0.2)
-      ctx.fillRect(cx, cy, w, h)
-      ctx.restore()
-    }
+    if (!img) return
+
+    // Drop shadow so it lifts off the wall
+    ctx.fillStyle = rgba([0, 0, 0], 0.45 * depthAlpha)
+    drawCardPath(ctx, cx, cy, w, h, skew, 6, 8)
+    ctx.fill()
+
+    ctx.save()
+    drawCardPath(ctx, cx, cy, w, h, skew)
+    ctx.clip()
+    ctx.globalAlpha = depthAlpha * 0.8
+    ctx.drawImage(img, cx, cy, w, h)
+    ctx.globalAlpha = 1
+    // Dark veil to blend into scene and keep photos below the title
+    ctx.fillStyle = 'rgba(0,0,0,0.4)'
+    ctx.fillRect(cx, cy, w, h)
+    ctx.restore()
   },
 
   tag(ctx, card, cx, cy, w, h, proj, depthAlpha) {
-    const fontSize = Math.max(8, Math.round(11 * proj.scale))
-    ctx.font = `${fontSize}px monospace`
-    ctx.fillStyle = rgba([150, 150, 160], depthAlpha * 0.85)
+    const fontSize = Math.max(10, Math.round(14 * proj.scale))
+    ctx.font = `${fontSize}px IBM Plex Mono, Menlo, monospace`
+    ctx.fillStyle = rgba([255, 255, 255], 0.88)
     ctx.fillText(`#${card.text}`, cx + 3, cy + h / 2 + fontSize / 3)
   },
 
   stats(ctx, card, cx, cy, w, h, proj, depthAlpha) {
-    const fontSize = Math.max(8, Math.round(10 * proj.scale))
-    ctx.font = `${fontSize}px monospace`
-    ctx.fillStyle = rgba([110, 110, 120], depthAlpha * 0.6)
+    const fontSize = Math.max(9, Math.round(12 * proj.scale))
+    ctx.font = `${fontSize}px IBM Plex Mono, Menlo, monospace`
+    ctx.fillStyle = rgba([255, 255, 255], 0.8)
     ctx.fillText(card.text, cx + 3, cy + h / 2 + fontSize / 3)
   },
 }
@@ -280,14 +324,26 @@ function applyVignette(ctx) {
 
 // ── Main render ──────────────────────────────────────────────────────────
 
-export async function renderScene(content, scene, slug, variant = 0) {
+/**
+ * @param {object} content - from extract.mjs
+ * @param {object} scene - from layout.mjs
+ * @param {string} seed - the full seed string (slug + batch + slot), so a
+ *   reroll moves the light and the background noise, not just the cards
+ */
+export async function renderScene(content, scene, seed) {
   const canvas = createCanvas(WIDTH, HEIGHT)
   const ctx = canvas.getContext('2d')
-  const rng = createRng(`${slug}:${variant}`)
+  const rng = createRng(`${seed}:render`)
   const noise = createNoise2D(() => rng())
 
+  // The light sits high, either side; the background sun and the god
+  // rays share it so the rays stream from something visible.
+  let lightX = 0.1 + rng() * 0.3
+  if (rng() > 0.5) lightX = 1 - lightX
+  const lightY = 0.05 + rng() * 0.3
+
   // 1. Background
-  renderBackground(ctx, noise)
+  renderBackground(ctx, noise, lightX, lightY)
 
   // 2. Floor grid
   renderFloorGrid(ctx, rng)
@@ -302,9 +358,9 @@ export async function renderScene(content, scene, slug, variant = 0) {
   const sorted = sortByDepth(scene.cards)
   const titleCards = sorted.filter((c) => c.type === 'title')
   const otherCards = sorted.filter((c) => c.type !== 'title')
-  const renderOrder = [...otherCards, ...titleCards]
 
-  for (const card of renderOrder) {
+  /** Project, transform and draw one card; `pass` only matters to titles. */
+  function drawCard(card, pass) {
     const proj = project3D(card.x, card.y, card.z, WIDTH, HEIGHT)
     const w = card.width * proj.scale
     const h = card.height * proj.scale
@@ -313,9 +369,9 @@ export async function renderScene(content, scene, slug, variant = 0) {
 
     // Skip cards too small to read or fully off-canvas (80px slack for
     // rotation/skew pushing corners back in).
-    if (w < 12 || h < 6) continue
+    if (w < 12 || h < 6) return
     if (cx + w < -80 || cx > WIDTH + 80 || cy + h < -80 || cy > HEIGHT + 80)
-      continue
+      return
 
     ctx.save()
 
@@ -325,24 +381,30 @@ export async function renderScene(content, scene, slug, variant = 0) {
     ctx.transform(1, skew.skewX * 0.003, skew.skewX * 0.002, 1, 0, 0)
     ctx.translate(-proj.screenX, -proj.screenY)
 
-    const depthAlpha = Math.max(0.35, 1 - card.z * 0.15)
+    const depthAlpha = Math.max(0.5, 1 - card.z * 0.12)
     const renderer = cardRenderers[card.type]
     if (renderer) {
-      renderer(ctx, card, cx, cy, w, h, proj, depthAlpha, skew, imageCache)
+      renderer(ctx, card, cx, cy, w, h, proj, depthAlpha, skew, imageCache, pass)
     }
 
     ctx.restore()
   }
 
+  for (const card of otherCards) drawCard(card, 'full')
+  for (const card of titleCards) drawCard(card, 'halo')
+
   // 6. Post-processing
   applyVignette(ctx)
 
+  // Rays stream from the light; the dither at 0.9 pushes the whole frame
+  // toward 1-bit (the sun becomes a Bayer halftone). Title glyphs are
+  // drawn after, crisp.
   const imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
-  const lightX = 0.15 + rng() * 0.35
-  const lightY = 0.05 + rng() * 0.25
-  applyGodRays(imgData, lightX, lightY, 0.12, 16, 0.96)
-  applyDither(imgData, 0.18, ZINC.bg, ZINC.text)
+  applyGodRays(imgData, lightX, lightY, 0.22, 18, 0.96)
+  applyDither(imgData, 0.9, [0, 0, 0], [255, 255, 255])
   ctx.putImageData(imgData, 0, 0)
+
+  for (const card of titleCards) drawCard(card, 'glyphs')
 
   // 7. URL watermark, 16px from the right edge. Width comes from the font
   // (6px advance × pixelSize 2 = 12px/char); the old `9 * 18` assumed 18px
@@ -353,7 +415,7 @@ export async function renderScene(content, scene, slug, variant = 0) {
     WIDTH - measurePixelText('ejfox.com', 2) - 16,
     HEIGHT - 28,
     2,
-    rgba(ZINC.dim, 0.4)
+    'rgba(255,255,255,0.6)'
   )
 
   return canvas.toBuffer('image/png')

@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 /**
  * @file index.mjs
- * @description Generative OG image CLI: renders a post's content as floating
- *   cards in pseudo-3D (extract.mjs → layout.mjs → render.mjs), monochrome
- *   with dithering and god rays. No yarn script; run with node. The Dispatch
- *   app drives it too, passing `--slug <slug>:batchN` to reroll.
+ * @description Generative OG image CLI: renders a post's content in four
+ *   house styles, one per variant slot (STYLES below): Dither (floating
+ *   cards in pseudo-3D, god rays, 1-bit texture), Academic (academic.css
+ *   typographic card), Vulpes (OLED black + pink/teal glyph flow field) and
+ *   Broadcast (Archivo Black lower-third). Every style is seeded by slug +
+ *   batch and drawn from the post's real content (extract.mjs). No yarn
+ *   script; run with node. The Dispatch app drives it too, passing
+ *   `--slug <slug>:batchN` to reroll: a reroll re-seeds all four styles and
+ *   keeps style i in slot i.
  *   Writes 4 variants + preview.html to data/og-previews/<slug-with-dashes>/
  *   (gitignored); --pick N without --upload writes <slug>-final.png there.
  *   --upload sends the picked variant to Cloudinary as og/<slug> (network,
@@ -22,8 +27,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { extractContent } from './extract.mjs'
-import { layoutCards } from './layout.mjs'
-import { renderScene } from './render.mjs'
+import { STYLES } from './styles.mjs'
 
 const ROOT = path.resolve(import.meta.dirname, '../..')
 const OUTPUT_DIR = path.join(ROOT, 'data', 'og-previews')
@@ -34,7 +38,8 @@ const SLUG = slugIdx !== -1 ? args[slugIdx + 1] : null
 const pickIdx = args.indexOf('--pick')
 const PICK = pickIdx !== -1 ? Number.parseInt(args[pickIdx + 1]) : null
 const UPLOAD = args.includes('--upload')
-const VARIANTS = 4
+// Dispatch reads exactly variant-0..3; one slot per house style.
+const VARIANTS = STYLES.length
 
 /**
  * Slugs from Dispatch may carry a `:batchN` suffix used purely to vary
@@ -56,19 +61,23 @@ async function generateVariants(rawSlug) {
   // Extract content from the real post — never with the :batchN suffix.
   const content = await extractContent(slug)
   console.log(
-    `  Content: "${content.title}" — ${content.headings.length} headings, ${content.blockquotes.length} quotes, ${content.imageUrls.length} images, ${content.tags.length} tags`
+    `  Content: "${content.title}" — ${content.outline.length} headings, ${content.blockquotes.length} quotes, ${content.imageUrls.length} images, ${content.tags.length} tags, ${content.blocks.length} blocks`
   )
 
   // Seed varies per batch so rerolls produce visually different scenes.
+  // Slot v always runs style v; only the seed moves between batches.
   const seedBase = batch ? `${slug}:batch${batch}` : slug
 
   const variants = []
   for (let v = 0; v < VARIANTS; v++) {
-    const scene = layoutCards(`${seedBase}:v${v}`, content)
-    const png = await renderScene(content, scene, slug, v)
+    const style = STYLES[v]
+    const t0 = performance.now()
+    const png = await style.render(content, `${seedBase}:v${v}`)
     variants.push(png)
-    process.stdout.write(`  Variant ${v}: ${(png.length / 1024).toFixed(0)}KB `)
-    process.stdout.write('done\n')
+    const ms = Math.round(performance.now() - t0)
+    process.stdout.write(
+      `  Variant ${v} (${style.name}): ${(png.length / 1024).toFixed(0)}KB in ${ms}ms\n`
+    )
   }
 
   // Return the canonical slug so callers write to the right output dir.
@@ -101,7 +110,7 @@ async function saveVariants(slug, variants) {
 </style></head><body>
 <h1>OG Variants: ${slug}</h1>
 <div class="grid">
-${variants.map((_, i) => `<div class="variant" onclick="navigator.clipboard.writeText('node scripts/og-image/index.mjs --slug ${slug} --pick ${i} --upload')"><img src="variant-${i}.png"><div class="label">v${i}</div></div>`).join('\n')}
+${variants.map((_, i) => `<div class="variant" onclick="navigator.clipboard.writeText('node scripts/og-image/index.mjs --slug ${slug} --pick ${i} --upload')"><img src="variant-${i}.png"><div class="label">v${i} · ${STYLES[i].name}</div></div>`).join('\n')}
 </div>
 <p class="hint">Click a variant to copy the upload command. Or: node scripts/og-image/index.mjs --slug ${slug} --pick N --upload</p>
 </body></html>`
