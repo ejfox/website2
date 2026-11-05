@@ -107,6 +107,11 @@ export async function render(content, seed) {
   // the title, or runs full-width beneath it like a figure.
   const layout = randPick(rng, ['margin', 'figure'])
   const dotRegion = randPick(rng, ['right', 'bottom', 'none'])
+  // More seeded dimensions so a reroll reads as a fresh card: strip
+  // height, title ceiling, and which sentences land in the margin.
+  const stripH = randPick(rng, [70, 110, 150])
+  const titleMax = randPick(rng, [68, 84, 96])
+  const noteOffset = Math.floor(rng() * Math.max(1, sentences.length - 2))
 
   if (dotRegion === 'right') {
     drawDotField(ctx, noise, WIDTH * 0.62, 0, WIDTH, HEIGHT, 14)
@@ -138,7 +143,7 @@ export async function render(content, seed) {
     ctx,
     content.title.toUpperCase(),
     (s) => `700 ${s}px ${SANS}`,
-    { maxWidth: titleW, maxLines: 3, maxSize: 84, minSize: 48 }
+    { maxWidth: titleW, maxLines: 3, maxSize: titleMax, minSize: 48 }
   )
   ctx.letterSpacing = `${-title.size * 0.05}px`
   ctx.fillStyle = TONE.bright
@@ -156,7 +161,11 @@ export async function render(content, seed) {
   if (!dek && content.firstParagraph) dek = content.firstParagraph
   y += 8
   // The footer band starts at HEIGHT - MARGIN - 44; the dek never enters it.
-  const dekMaxLines = Math.min(2, Math.floor((HEIGHT - MARGIN - 64 - y) / 30))
+  let dekRoom = HEIGHT - MARGIN - 64 - y
+  // In the figure layout the strip (≥44px + caption) still has to fit
+  // under the dek, so the dek gives way first.
+  if (layout === 'figure') dekRoom = HEIGHT - MARGIN - 80 - 44 - 36 - y
+  const dekMaxLines = Math.min(2, Math.floor(dekRoom / 30))
   if (dek && dekMaxLines >= 1) {
     ctx.font = `400 21px ${SANS}`
     ctx.fillStyle = TONE.text
@@ -178,21 +187,25 @@ export async function render(content, seed) {
   if (layout === 'margin') {
     const sx = MARGIN + 790
     const sw = WIDTH - MARGIN - sx
-    drawStructureStrip(ctx, blocks, sx, MARGIN + 60, sw, 110)
+    drawStructureStrip(ctx, blocks, sx, MARGIN + 60, sw, stripH)
     ctx.font = `400 12px ${MONO}`
     ctx.letterSpacing = '1.5px'
     ctx.fillStyle = TONE.faint
-    ctx.fillText(caption, sx, MARGIN + 192)
+    ctx.fillText(caption, sx, MARGIN + stripH + 82)
     ctx.letterSpacing = '0px'
   } else {
-    const sy = Math.max(y + 36, 330)
-    drawStructureStrip(ctx, blocks, MARGIN, sy, WIDTH - MARGIN * 2, 70)
+    // The figure needs at least 44px; if the title ate the room, pull the
+    // figure up under the dek rather than squashing it.
+    const figFloor = HEIGHT - MARGIN - 80
+    const sy = Math.min(Math.max(y + 36, 330), figFloor - 44)
+    const figH = Math.max(44, Math.min(stripH, figFloor - sy))
+    drawStructureStrip(ctx, blocks, MARGIN, sy, WIDTH - MARGIN * 2, figH)
     ctx.font = `400 12px ${MONO}`
     ctx.letterSpacing = '1.5px'
     ctx.fillStyle = TONE.faint
-    ctx.fillText(caption, MARGIN, sy + 92)
+    ctx.fillText(caption, MARGIN, sy + figH + 22)
     ctx.letterSpacing = '0px'
-    y = sy + 100
+    y = sy + figH + 30
   }
 
   // ── Footer band: numbered sections (h3 tone), or tags, with hairline ──
@@ -224,12 +237,12 @@ export async function render(content, seed) {
   ctx.letterSpacing = '0px'
 
   // ── Margin footnotes: quotes (or sentences), italic, muted ────────────
-  let notes = sentences.slice(1, 3)
+  let notes = sentences.slice(1 + noteOffset, 3 + noteOffset)
   if (quotes.length) notes = quotes.slice(0, 2)
   if (layout === 'margin' && notes.length) {
     const nx = MARGIN + 790
     const nw = WIDTH - MARGIN - nx
-    let ny = MARGIN + 240
+    let ny = MARGIN + stripH + 130
     ctx.font = `italic 400 15px Georgia, serif`
     for (let i = 0; i < notes.length; i++) {
       const lines = wrapText(ctx, notes[i], nw - 22).slice(0, 3)

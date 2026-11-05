@@ -1,7 +1,7 @@
 /**
  * @file render.mjs
  * @description Compose a layout.mjs scene into a 1200×630 OG PNG buffer with
- *   @napi-rs/canvas. Called by scripts/og-image/index.mjs. Network: fetches
+ *   @napi-rs/canvas: the "Dither" house style (style-dither.mjs). Network: fetches
  *   each image card from Cloudinary (resized + grayscaled via URL
  *   transform); a failed fetch just leaves an empty frame.
  *
@@ -9,10 +9,10 @@
  *   1. Background (noise gradient)
  *   2. Grid floor (vanishing perspective lines)
  *   3. Connections (thin lines between cards)
- *   4. Cards back-to-front (images get frames, text floats naked);
- *      title cards drawn after all others so they stay on top
- *   5. Post-process: vignette → god rays → dither
- *   6. URL watermark
+ *   4. Cards back-to-front (photos frameless, text floats naked); the
+ *      title's dark pad + halo ring go down last
+ *   5. Post-process: vignette → god rays → Bayer dither toward 1-bit
+ *   6. Title glyphs, crisp, on top of the dither; URL watermark
  */
 
 import { createCanvas, loadImage } from '@napi-rs/canvas'
