@@ -20,6 +20,7 @@
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
+import PostDateStamp from '~/components/blog/post/PostDateStamp.vue'
 import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
@@ -583,16 +584,16 @@ onMounted(() => {
         <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
           {{ post?.metadata?.dek || post?.dek }}
         </p>
+        <PostDateStamp
+          v-if="postDate"
+          class="mt-5"
+          :date="postDate"
+          :modified="post?.metadata?.modified || post?.metadata?.lastUpdated"
+          microformat
+        />
       </div>
 
       <!-- Microformats (hidden) -->
-      <time
-        v-if="post?.metadata?.date"
-        :datetime="post.metadata.date"
-        class="dt-published hidden"
-      >
-        {{ formatLongDate(post.metadata.date) }}
-      </time>
       <div class="p-author h-card hidden">
         <span class="p-name">EJ Fox</span>
         <a class="u-url" href="https://ejfox.com">ejfox.com</a>

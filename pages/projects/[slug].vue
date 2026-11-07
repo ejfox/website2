@@ -14,6 +14,7 @@
 -->
 <script setup>
 import BlogPostContent from '~/components/blog/BlogPostContent.vue'
+import PostDateStamp from '~/components/blog/post/PostDateStamp.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
 const route = useRoute()
@@ -216,6 +217,13 @@ onMounted(() => {
       >
         {{ title }}
       </h1>
+      <PostDateStamp
+        v-if="project.metadata?.date || project.date"
+        class="-mt-2 mb-8"
+        :date="project.metadata?.date || project.date"
+        :modified="project.metadata?.modified || project.metadata?.lastUpdated"
+        label="Project date"
+      />
       <p v-if="thisApp?.store?.url" class="mb-8 -mt-2">
         <a
           :href="thisApp.store.url"
