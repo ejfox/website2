@@ -8,7 +8,8 @@
     lazy fetch). SSR, no special routeRule.
   @gotchas Sidebar status is teleported into #nav-toc-container, which lives in
     layouts/default.vue. Booking links carry first-touch UTM params
-    (utils/firstTouch.ts); CTAs fire the `consulting-book` Umami event.
+    (utils/firstTouch.ts); CTAs fire the `consulting-book` Umami event and the
+    Cal embed posts milestone events back to Umami.
     Copy is EJ's voice: don't cut quotes, credits or client names without asking.
 -->
 <script setup lang="ts">
@@ -155,7 +156,7 @@ const { data: availability } = await useFetch<ConsultingAvailability>(
 const { data: calSlots, pending: calPending } = useLazyFetch(
   '/api/cal/available-slots',
   {
-    query: { duration: '1hr', days: 21 },
+    query: { duration: '30min', days: 21, spread: 'day' },
     default: () => ({ slots: [] }),
     server: false,
   }
@@ -185,6 +186,63 @@ const availabilityLine = computed(() => {
 // Track when #book section is visible — hide floating CTA
 const bookSection = ref<HTMLElement | null>(null)
 const bookVisible = useElementVisibility(bookSection)
+let trackedBookView = false
+
+type UmamiWindow = Window & {
+  umami?: { track: (name: string, props?: Record<string, string>) => void }
+}
+
+function trackConsultingEvent(
+  name: string,
+  props?: Record<string, string>
+): boolean {
+  const umami = (window as UmamiWindow).umami
+  if (!umami) return false
+  umami.track(name, props)
+  return true
+}
+
+watch(bookVisible, (visible) => {
+  if (
+    visible &&
+    !trackedBookView &&
+    trackConsultingEvent('consulting-calendar-view')
+  ) {
+    trackedBookView = true
+  }
+})
+
+// Cal.com's embed reports these milestones with postMessage. Only accept
+// messages from Cal-owned origins, and never send payload contents to Umami.
+const trackedCalMilestones = new Set<string>()
+const CAL_EVENT_NAMES: Record<string, string> = {
+  navigatedToBooker: 'consulting-booking-started',
+  bookingSuccessfulV2: 'consulting-booking-complete',
+}
+
+function handleCalMessage(event: MessageEvent) {
+  let hostname = ''
+  try {
+    hostname = new URL(event.origin).hostname
+  } catch {
+    return
+  }
+  if (hostname !== 'cal.com' && !hostname.endsWith('.cal.com')) return
+
+  const type = event.data?.type
+  if (typeof type !== 'string') return
+  const eventName = CAL_EVENT_NAMES[type]
+  if (!eventName || trackedCalMilestones.has(eventName)) return
+
+  const originator = event.data?.originator
+  if (
+    typeof originator === 'string' &&
+    !originator.toLowerCase().includes('cal')
+  )
+    return
+
+  if (trackConsultingEvent(eventName)) trackedCalMilestones.add(eventName)
+}
 
 // Sidebar teleport target
 const tocTarget = ref<Element | null>(null)
@@ -192,11 +250,16 @@ const tocTarget = ref<Element | null>(null)
 // Cal.com embed initialization + sidebar setup
 onMounted(() => {
   initCalEmbed()
+  window.addEventListener('message', handleCalMessage)
   // The sidebar Teleport renders only once this finds the layout's target
   // (v-if="tocTarget"); teleporting to a missing selector would warn.
   nextTick(() => {
     tocTarget.value = document.querySelector('#nav-toc-container')
   })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('message', handleCalMessage)
 })
 
 // The IIFE below is Cal.com's official embed loader snippet, typed just
@@ -247,7 +310,7 @@ function initCalEmbed() {
 
   win.Cal?.('inline', {
     elementOrSelector: '#cal-inline-embed',
-    calLink: 'ejfox/30min?duration=60',
+    calLink: 'ejfox/30min?duration=20',
     layout: 'month_view',
     // First-touch utm_* + metadata[*] → booking + webhook (utils/firstTouch.ts)
     config: calParams(readFirstTouch()),
@@ -321,7 +384,7 @@ const specialties = [
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description:
-    "I ship fast, bend computers toward hard problems, and don't stop until it works. Prototypes, newsroom tools, AI integration, live systems. The Big Board: about 10 million people watching on NBC and MSNBC, and it never crashed.",
+    'I design and ship ambitious data tools, newsroom systems, and prototypes for teams with a hard problem and not enough time.',
   type: 'website',
   section: 'Consulting',
   tags: ['Consulting', 'Data Visualization', 'Elections', 'Journalism'],
@@ -354,19 +417,69 @@ usePageSeo({
     <!-- ── Main column ─────────── -->
     <div data-page-main class="container-main pt-8 max-w-2xl relative z-10">
       <!-- Hero -->
-      <header class="section">
-        <p class="hero-label">Let's build something</p>
-        <h1 class="hero-title">
-          I love making computers do things no one's seen before.
-        </h1>
+      <header class="section hero">
+        <p class="hero-label">Independent product &amp; data consultant</p>
+        <h1 class="hero-title">I design and ship ambitious data tools—fast.</h1>
         <p class="body-lg mb-4">
-          Newsroom tools, climate dashboards, police accountability trackers, AI
-          experiments, biotech prototypes. Zero to one. The thing that didn't
-          exist Tuesday is demoing Friday.
+          I help newsrooms, public-interest teams, and ambitious founders turn a
+          hard problem into a working prototype or production system. The thing
+          that didn't exist Tuesday is demoing Friday.
         </p>
-        <p class="caption">
-          The world is editable. Let's see what we can make.
+        <p class="hero-flourish">
+          I love making computers do things no one's seen before. The world is
+          editable.
         </p>
+
+        <div class="hero-actions">
+          <a
+            href="#book"
+            class="hero-cta-primary"
+            data-umami-event="consulting-book"
+            data-umami-event-location="consulting-hero"
+          >
+            Book a 20-minute fit check
+          </a>
+          <a
+            href="mailto:ejfox@ejfox.com?subject=Project%20inquiry"
+            class="hero-cta-secondary"
+            data-umami-event="contact-email"
+            data-umami-event-location="consulting-hero"
+          >
+            Email me about a project
+          </a>
+        </div>
+        <p class="hero-cta-note">
+          Free · no pitch · bring the problem, not a requirements document
+        </p>
+
+        <div v-if="calSlots?.slots?.length" class="hero-slots">
+          <p class="hero-slots-label">Next open times</p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              v-for="slot in calSlots.slots"
+              :key="slot.datetime"
+              :href="slot.bookingUrl"
+              target="_blank"
+              rel="noopener"
+              class="slot-btn"
+              data-umami-event="consulting-book"
+              data-umami-event-location="consulting-hero-slot"
+            >
+              <span class="slot-btn-text">{{ slot.time }}</span>
+              <span class="slot-btn-day">{{ slot.day }}</span>
+              <span class="slot-btn-date">{{ slot.date }}</span>
+            </a>
+          </div>
+        </div>
+
+        <NuxtLink to="/projects/nbc-big-board" class="hero-proof">
+          <span class="hero-proof-label">Proof under pressure</span>
+          <span class="hero-proof-copy">
+            I built NBC News' Big Board for an election night watched by roughly
+            10 million people. It never crashed.
+          </span>
+          <span class="hero-proof-link">Read the case study →</span>
+        </NuxtLink>
       </header>
 
       <!-- Photo -->
@@ -374,12 +487,12 @@ usePageSeo({
         <img
           src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
           alt="EJ Fox presenting election visualization on NBC's Big Board"
-          class="w-full"
+          class="work-photo"
         />
         <p class="caption mt-2">
           Early Big Board Web prototype at 30 Rock, circa 2018 ·
-          <NuxtLink to="/projects" class="link-underline">
-            See more work
+          <NuxtLink to="/projects/nbc-big-board" class="link-underline">
+            Read the case study
           </NuxtLink>
         </p>
       </section>
@@ -433,25 +546,6 @@ usePageSeo({
               class="client-logo-img"
             />
           </div>
-        </div>
-      </section>
-
-      <!-- Quick CTA for hot leads -->
-      <section v-if="calSlots?.slots?.length" class="section py-6 divider-y">
-        <p class="body-md mb-4">Want to chat? Open times:</p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            v-for="slot in calSlots.slots"
-            :key="slot.datetime"
-            :href="slot.bookingUrl"
-            target="_blank"
-            rel="noopener"
-            class="slot-btn"
-          >
-            <span class="slot-btn-text">{{ slot.time }}</span>
-            <span class="slot-btn-day">{{ slot.day }}</span>
-            <span class="slot-btn-date">{{ slot.date }}</span>
-          </a>
         </div>
       </section>
 
@@ -582,7 +676,11 @@ usePageSeo({
           </div>
         </div>
 
-        <p class="caption">50% upfront, 50% on delivery</p>
+        <p class="pricing-note">
+          Every project is fixed-scope and fixed-price. If you already have a
+          budget range, include it—I will be direct about what fits. 50%
+          upfront, 50% on delivery.
+        </p>
       </section>
 
       <!-- FAQ -->
@@ -630,7 +728,7 @@ usePageSeo({
       <section id="book" ref="bookSection" class="section scroll-mt-24">
         <p class="section-label-lg">Let's talk</p>
         <p class="caption mb-6">
-          60 min · No pitch · Figuring out if I can help
+          20 min · No pitch · Figuring out if I can help
         </p>
         <div id="cal-inline-embed" class="cal-inline-embed" />
       </section>
@@ -657,7 +755,7 @@ usePageSeo({
         data-umami-event-location="consulting-floating"
       >
         <span class="floating-cta-text">Book a call</span>
-        <span class="floating-cta-sub">60 min &middot; Free</span>
+        <span class="floating-cta-sub">20 min &middot; Free</span>
       </a>
     </Transition>
 
@@ -681,9 +779,9 @@ usePageSeo({
             data-umami-event="consulting-book"
             data-umami-event-location="consulting-sidebar"
           >
-            Book a Call
+            Book a 20-min Call
           </a>
-          <p class="sidebar-cta-note">60 min · Free</p>
+          <p class="sidebar-cta-note">Free · No pitch</p>
         </div>
       </Teleport>
     </ClientOnly>
@@ -703,26 +801,26 @@ usePageSeo({
 }
 
 .divider-y {
-  @apply border-y border-zinc-100 dark:border-zinc-800;
+  @apply border-y border-zinc-300 dark:border-zinc-700;
 }
 
 .divider-t {
-  @apply border-t border-zinc-200 dark:border-zinc-800;
+  @apply border-t border-zinc-300 dark:border-zinc-700;
 }
 
 /* ============================================
    TYPOGRAPHY - Labels & Headings
    ============================================ */
 .section-label {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-6;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider mb-6;
 }
 
 .section-label-lg {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-8;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider mb-8;
 }
 
 .hero-label {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider mb-4;
 }
 
 .hero-title {
@@ -734,19 +832,88 @@ usePageSeo({
    TYPOGRAPHY - Body Text
    ============================================ */
 .body-lg {
-  @apply font-serif text-lg text-zinc-600 dark:text-zinc-400;
+  @apply font-serif text-lg text-zinc-700 dark:text-zinc-300;
 }
 
 .body-md {
-  @apply font-serif text-zinc-600 dark:text-zinc-400;
+  @apply font-serif text-zinc-700 dark:text-zinc-300;
 }
 
 .caption {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300;
 }
 
 .aside {
-  @apply font-mono text-sm text-zinc-500 dark:text-zinc-500;
+  @apply font-mono text-sm text-zinc-600 dark:text-zinc-400;
+}
+
+.hero-flourish {
+  @apply font-mono text-sm leading-relaxed text-zinc-600 dark:text-zinc-300;
+}
+
+.hero-actions {
+  @apply mt-7 flex flex-col sm:flex-row gap-3;
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+  @apply inline-flex min-h-11 items-center justify-center px-5 py-3
+         font-mono text-xs tracking-wide transition-colors
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500
+         focus-visible:ring-offset-2 dark:focus-visible:ring-offset-black;
+  text-decoration: none;
+}
+
+.hero-cta-primary {
+  @apply border border-zinc-900 bg-zinc-900 text-white
+         hover:bg-zinc-700 hover:border-zinc-700
+         dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950
+         dark:hover:bg-white dark:hover:border-white;
+}
+
+.hero-cta-secondary {
+  @apply border border-zinc-400 bg-white/80 text-zinc-900
+         hover:border-zinc-900 hover:bg-white
+         dark:border-zinc-500 dark:bg-zinc-950/80 dark:text-zinc-100
+         dark:hover:border-zinc-100 dark:hover:bg-black;
+}
+
+.hero-cta-note {
+  @apply mt-3 font-mono text-xs text-zinc-600 dark:text-zinc-300;
+}
+
+.hero-slots {
+  @apply mt-7 border-y border-zinc-300 dark:border-zinc-700 py-5;
+}
+
+.hero-slots-label {
+  @apply mb-3 font-mono text-xs uppercase tracking-wider text-zinc-700 dark:text-zinc-300;
+}
+
+.hero-proof {
+  @apply mt-7 flex flex-col gap-2 border border-zinc-300 bg-white/80 p-4
+         text-zinc-900 backdrop-blur-sm transition-colors
+         hover:border-zinc-500 hover:bg-white
+         dark:border-zinc-700 dark:bg-zinc-950/80 dark:text-zinc-100
+         dark:hover:border-zinc-500 dark:hover:bg-black;
+  text-decoration: none;
+}
+
+.hero-proof-label {
+  @apply font-mono text-xs uppercase tracking-wider text-emerald-700 dark:text-emerald-400;
+}
+
+.hero-proof-copy {
+  @apply font-serif text-base leading-relaxed text-zinc-800 dark:text-zinc-200;
+}
+
+.hero-proof-link {
+  @apply font-mono text-xs text-zinc-700 underline decoration-zinc-400 underline-offset-4
+         dark:text-zinc-300 dark:decoration-zinc-600;
+}
+
+.work-photo {
+  @apply w-full border border-zinc-300 dark:border-zinc-700;
 }
 
 /* ============================================
@@ -760,14 +927,17 @@ usePageSeo({
    INTERACTIVE ELEMENTS
    ============================================ */
 .link-underline {
-  @apply underline hover:text-zinc-700 dark:hover:text-zinc-300;
+  @apply underline decoration-zinc-400 underline-offset-2
+         hover:text-zinc-900 hover:decoration-zinc-700
+         dark:decoration-zinc-600 dark:hover:text-white dark:hover:decoration-zinc-300;
 }
 
 .slot-btn {
-  @apply px-5 py-3 font-serif text-sm border border-zinc-200 dark:border-zinc-700
+  @apply px-5 py-3 font-serif text-sm border border-zinc-400 dark:border-zinc-600
          hover:border-zinc-900 dark:hover:border-zinc-100 transition-all duration-300
          flex flex-col items-start gap-0.5 rounded-sm
-         bg-zinc-50/50 dark:bg-zinc-800/30 backdrop-blur-sm;
+         bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm;
+  text-decoration: none;
 }
 
 .slot-btn-text {
@@ -775,18 +945,20 @@ usePageSeo({
 }
 
 .slot-btn-day {
-  @apply text-zinc-600 dark:text-zinc-400 text-sm;
+  @apply text-zinc-700 dark:text-zinc-300 text-sm;
 }
 
 .slot-btn-date {
-  @apply text-zinc-500 dark:text-zinc-500 text-xs font-mono;
+  @apply text-zinc-600 dark:text-zinc-400 text-xs font-mono;
 }
 
 .sidebar-cta {
-  @apply block w-full py-1 px-3 text-center font-mono text-xs
-         border border-zinc-300 dark:border-zinc-700
-         hover:border-zinc-900 dark:hover:border-zinc-100
-         hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all;
+  @apply block w-full py-2 px-3 text-center font-mono text-xs
+         border border-zinc-900 bg-zinc-900 text-white
+         hover:border-zinc-700 hover:bg-zinc-700
+         dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950
+         dark:hover:border-white dark:hover:bg-white transition-all;
+  text-decoration: none;
 }
 
 /* ============================================
@@ -797,7 +969,7 @@ usePageSeo({
 }
 
 .client-logo-item {
-  @apply flex items-center justify-center h-6 sm:h-10 grayscale opacity-60
+  @apply flex items-center justify-center h-6 sm:h-10 grayscale opacity-75
          hover:grayscale-0 hover:opacity-100 transition-all duration-300;
 }
 
@@ -813,7 +985,7 @@ usePageSeo({
 }
 
 .process-number {
-  @apply font-mono text-sm text-zinc-300 dark:text-zinc-600 w-6 shrink-0;
+  @apply font-mono text-sm text-zinc-500 dark:text-zinc-400 w-6 shrink-0;
 }
 
 .process-title {
@@ -821,14 +993,14 @@ usePageSeo({
 }
 
 .process-desc {
-  @apply font-serif text-sm text-zinc-500 dark:text-zinc-400;
+  @apply font-serif text-sm text-zinc-700 dark:text-zinc-300;
 }
 
 /* ============================================
    PRICING ROWS
    ============================================ */
 .pricing-row {
-  @apply flex justify-between items-start border-b border-zinc-200 dark:border-zinc-800 pb-4;
+  @apply flex justify-between items-start border-b border-zinc-300 dark:border-zinc-700 pb-4;
 }
 
 .pricing-title {
@@ -836,7 +1008,12 @@ usePageSeo({
 }
 
 .pricing-desc {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-1;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 mt-1;
+}
+
+.pricing-note {
+  @apply border-l-2 border-emerald-600 pl-4 font-mono text-xs leading-relaxed
+         text-zinc-700 dark:border-emerald-400 dark:text-zinc-300;
 }
 
 /* ============================================
@@ -847,15 +1024,15 @@ usePageSeo({
 }
 
 .faq-answer {
-  @apply font-serif text-sm text-zinc-600 dark:text-zinc-400;
+  @apply font-serif text-sm text-zinc-700 dark:text-zinc-300;
 }
 
 /* ============================================
    SPECIALTY CARDS
    ============================================ */
 .specialty-card {
-  @apply border border-zinc-100 dark:border-zinc-800 p-5 rounded-sm
-         bg-zinc-50/30 dark:bg-zinc-800/20 backdrop-blur-sm;
+  @apply border border-zinc-300 dark:border-zinc-700 p-5 rounded-sm
+         bg-white/70 dark:bg-zinc-950/70 backdrop-blur-sm;
 }
 
 .specialty-title {
@@ -863,30 +1040,31 @@ usePageSeo({
 }
 
 .specialty-desc {
-  @apply font-serif text-zinc-600 dark:text-zinc-400 mb-2;
+  @apply font-serif text-zinc-700 dark:text-zinc-300 mb-2;
 }
 
 .specialty-proof {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider;
 }
 
 .testimonial-card {
-  @apply py-5 px-4 rounded-sm bg-zinc-50/30 dark:bg-zinc-800/20 backdrop-blur-sm;
+  @apply py-5 px-4 rounded-sm border border-zinc-300 dark:border-zinc-700
+         bg-white/70 dark:bg-zinc-950/70 backdrop-blur-sm;
 }
 
 /* ============================================
    PRESS / BLOCKQUOTES
    ============================================ */
 .blockquote {
-  @apply border-l border-zinc-300 dark:border-zinc-700 pl-4;
+  @apply border-l-2 border-zinc-400 dark:border-zinc-600 pl-4;
 }
 
 .blockquote-text {
-  @apply font-serif text-zinc-600 dark:text-zinc-400 italic;
+  @apply font-serif text-zinc-700 dark:text-zinc-300 italic;
 }
 
 .blockquote-cite {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 not-italic;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 not-italic;
 }
 
 .testimonial {
@@ -895,7 +1073,7 @@ usePageSeo({
 }
 
 .testimonial-cite {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-4;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 mt-4;
 }
 
 /* ============================================
@@ -911,7 +1089,7 @@ usePageSeo({
 }
 
 .video-overlay {
-  @apply absolute inset-0 bg-zinc-950;
+  @apply absolute inset-0 bg-white dark:bg-zinc-950;
 }
 
 /* ============================================
@@ -922,7 +1100,7 @@ usePageSeo({
 }
 
 .sidebar-label {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-wider;
 }
 
 .sidebar-status-line {
@@ -930,14 +1108,14 @@ usePageSeo({
 }
 
 .sidebar-cta-note {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 text-center;
+  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 text-center;
 }
 
 /* ============================================
    CAL.COM EMBED
    ============================================ */
 .cal-inline-embed {
-  @apply min-h-[500px] w-full border border-zinc-200 dark:border-zinc-800;
+  @apply min-h-[500px] w-full border border-zinc-300 dark:border-zinc-700;
 }
 
 @media (min-width: 640px) {
@@ -953,22 +1131,23 @@ usePageSeo({
   @apply fixed bottom-6 right-6 z-50
          flex flex-col items-end gap-0.5
          px-4 py-1
-         bg-white/90 dark:bg-black/90 backdrop-blur-sm
-         border border-zinc-200 dark:border-zinc-700
+         bg-zinc-900 dark:bg-zinc-100 backdrop-blur-sm
+         border border-zinc-900 dark:border-zinc-100
          font-mono text-xs
          shadow-sm
          transition-all duration-300 ease-out
-         hover:border-zinc-400 dark:hover:border-zinc-500
+         hover:bg-zinc-700 hover:border-zinc-700
+         dark:hover:bg-white dark:hover:border-white
          hover:shadow-md;
   text-decoration: none;
 }
 
 .floating-cta-text {
-  @apply text-zinc-800 dark:text-zinc-200 tracking-wider uppercase;
+  @apply text-white dark:text-zinc-950 tracking-wider uppercase;
 }
 
 .floating-cta-sub {
-  @apply text-zinc-500 dark:text-zinc-500 text-3xs tracking-normal;
+  @apply text-zinc-300 dark:text-zinc-600 text-3xs tracking-normal;
 }
 
 /* Transition */
