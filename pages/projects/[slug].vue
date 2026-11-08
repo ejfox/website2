@@ -76,6 +76,13 @@ const projectTags = computed(
   () => project.value?.metadata?.tags || project.value?.metadata?.tech || []
 )
 
+// Optional deeper case study. Keeping this in frontmatter lets a concise
+// portfolio entry point to the technical story without hard-coding slugs in
+// the template; the link is deliberately early and in-flow for mobile readers.
+const caseStudyPath = computed(
+  () => project.value?.metadata?.['case-study'] || ''
+)
+
 // Share cards should show the WORK, not the generic site og-image — these are
 // portfolio pages whose whole point is visuals. First image in the post wins.
 const firstProjectImage = computed(() => {
@@ -224,6 +231,18 @@ onMounted(() => {
         :modified="project.metadata?.modified || project.metadata?.lastUpdated"
         label="Project date"
       />
+      <NuxtLink
+        v-if="caseStudyPath"
+        :to="caseStudyPath"
+        class="project-case-study-link"
+        data-umami-event="project-case-study"
+        :data-umami-event-project="slug"
+      >
+        <span class="project-case-study-label">Technical case study</span>
+        <span class="project-case-study-copy">
+          Design decisions, failure modes, and what shipped →
+        </span>
+      </NuxtLink>
       <p v-if="thisApp?.store?.url" class="mb-8 -mt-2">
         <a
           :href="thisApp.store.url"
@@ -240,6 +259,25 @@ onMounted(() => {
         </span>
       </p>
       <BlogPostContent :content="project.html" class="project-content" />
+
+      <!-- A quiet, in-flow handoff for readers who arrived on a specific
+           project—especially mobile visitors who never open the global nav. -->
+      <aside class="project-next-step print:hidden">
+        <p class="project-next-step-kicker">Have a hard data problem?</p>
+        <p class="project-next-step-copy">
+          I help teams turn complicated information into clear, dependable
+          interfaces.
+        </p>
+        <NuxtLink
+          to="/consulting"
+          data-umami-event="project-hire-cta"
+          data-umami-event-location="project-footer"
+          :data-umami-event-project="slug"
+          class="project-next-step-link"
+        >
+          Work with me →
+        </NuxtLink>
+      </aside>
 
       <!-- Back link -->
       <div class="mt-12 pt-6">
@@ -391,6 +429,41 @@ onMounted(() => {
 
 .app-store-link {
   @apply inline-block font-mono text-2xs px-3 py-1.5 rounded bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors;
+}
+
+.project-case-study-link {
+  @apply block max-w-prose mb-8 border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 py-1;
+  @apply no-underline transition-colors;
+}
+
+.project-case-study-label {
+  @apply block font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-1;
+}
+
+.project-case-study-copy {
+  @apply block font-serif text-sm text-zinc-800 dark:text-zinc-200;
+  @apply transition-colors;
+}
+
+.project-case-study-link:hover .project-case-study-copy {
+  @apply text-zinc-500 dark:text-zinc-400;
+}
+
+.project-next-step {
+  @apply max-w-prose mt-12 py-5 border-y border-zinc-200 dark:border-zinc-800;
+}
+
+.project-next-step-kicker {
+  @apply font-mono text-xs font-medium text-zinc-900 dark:text-zinc-100 mb-1;
+}
+
+.project-next-step-copy {
+  @apply font-serif text-sm text-zinc-600 dark:text-zinc-400 mb-2;
+}
+
+.project-next-step-link {
+  @apply font-mono text-xs text-zinc-900 dark:text-zinc-100;
+  @apply hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors;
 }
 
 .github-link {

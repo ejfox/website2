@@ -9,6 +9,7 @@ featured: true
 state: deployed
 ai-involvement: human-only
 context: client
+case-study: /case-study/nbc-big-board
 tags:
   - d3
   - dataviz

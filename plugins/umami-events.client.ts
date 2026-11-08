@@ -11,7 +11,7 @@
  *   outbound      click on a link to another host     { host }
  *   contact-email click on a mailto: link             (no props — never the address)
  *   rss-click     click on a link to a *.xml feed      { feed }
- *   read-complete reader passed ~85% of the article,  { 'path-type': blog|dispatch }
+ *   read-complete reader passed ~85% of the article,  { 'path-type': blog|dispatch|project }
  *                 after at least 10s on the page
  *
  * Privacy: no new tracker, no PII in props — hostnames and site paths only.
@@ -86,15 +86,16 @@ export default defineNuxtPlugin((nuxtApp) => {
     sentinel = null
 
     const path = window.location.pathname
-    const pathType = path.startsWith('/blog/')
-      ? 'blog'
+    const readTarget = path.startsWith('/blog/')
+      ? { pathType: 'blog', selector: '.h-entry .e-content' }
       : path.startsWith('/dispatch/')
-        ? 'dispatch'
-        : null
-    if (!pathType) return
+        ? { pathType: 'dispatch', selector: '.h-entry .e-content' }
+        : path.startsWith('/projects/')
+          ? { pathType: 'project', selector: '.project-content' }
+          : null
+    if (!readTarget) return
 
-    // Both post templates render their body as `.e-content` (h-entry).
-    const body = document.querySelector<HTMLElement>('.h-entry .e-content')
+    const body = document.querySelector<HTMLElement>(readTarget.selector)
     if (!body) return
 
     if (getComputedStyle(body).position === 'static') {
@@ -102,7 +103,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
     sentinel = document.createElement('span')
     sentinel.setAttribute('aria-hidden', 'true')
-    sentinel.dataset.readSentinel = pathType
+    sentinel.dataset.readSentinel = readTarget.pathType
     sentinel.style.cssText =
       'position:absolute;top:85%;left:0;width:1px;height:1px;pointer-events:none'
     body.appendChild(sentinel)
@@ -124,7 +125,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     const fire = (obs: IntersectionObserver) => {
       obs.disconnect()
       clearTimeout(dwellTimer)
-      track('read-complete', { 'path-type': pathType })
+      track('read-complete', { 'path-type': readTarget.pathType })
     }
     const observer = new IntersectionObserver(([entry], obs) => {
       if (!entry) return

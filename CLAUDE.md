@@ -740,13 +740,15 @@ and slugs only, never PII. An element already tagged with
 | `dispatch-data-download` | DispatchReceipts data link | `slug` |
 | `dispatch-source-click` | DispatchReceipts sources + claim sources | `host` |
 | `dispatch-also-on` | Dispatch piece "Also on" links | `network`, `slug` |
-| `consulting-book` | booking CTAs (consulting floating/sidebar, process, projects, case-study-nbc, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
+| `consulting-book` | booking CTAs (consulting floating/sidebar, process, projects, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
 | `nav-hire-me` | "Hire Me" nav link (`utils/navigation.ts` `umamiEvent`) | `location` (sidebar-nav, mobile-nav) |
 | `nav-calendar` | links to /calendar: "Book a call" nav item, site footer, end of every blog post | `location` (sidebar-nav, mobile-nav, footer, post-footer) |
+| `project-case-study` | project-page technical case-study handoff | `project` |
+| `project-hire-cta` | project footer + case-study CTA into /consulting | `location`, `project` |
 | `outbound` | any untagged link to another host (plugin) | `host` |
 | `contact-email` | any `mailto:` link (plugin) | (none; never the address) |
 | `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
-| `read-complete` | reader passes 85% of `.h-entry .e-content` on /blog/** and /dispatch/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch) |
+| `read-complete` | reader passes 85% of the content body on /blog/**, /dispatch/**, or /projects/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch, project) |
 
 **umami-plus (2026-10-06).** `plugins/umami.client.js` also loads the shared
 helper `https://umami-plus.tools.ejfox.com/umami-plus.js` (source and docs:

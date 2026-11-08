@@ -2,7 +2,7 @@
   @file case-study/nbc-big-board.vue
   @description /case-study/nbc-big-board: hand-written, fully static
     consulting case study (all copy lives in this template, no data fetch).
-    SSR on demand. The CTA at the bottom feeds the Umami `consulting-book`
+    SSR on demand. The CTA at the bottom feeds the Umami `project-hire-cta`
     funnel (location: case-study-nbc; see CLAUDE.md "Umami funnel events").
   Gotchas: Every claim here is EJ's published copy; don't edit credits,
     numbers or quotes without checking with him.
@@ -326,8 +326,9 @@ usePageSeo({
         </p>
         <NuxtLink
           to="/consulting"
-          data-umami-event="consulting-book"
+          data-umami-event="project-hire-cta"
           data-umami-event-location="case-study-nbc"
+          data-umami-event-project="nbc-big-board"
           class="inline-block bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-5 py-1 rounded font-mono text-sm hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors"
         >
           Let's talk
