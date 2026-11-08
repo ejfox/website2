@@ -344,12 +344,17 @@ usePageSeo({
             {{ client }}
           </li>
         </ul>
-        <blockquote class="blockquote clients-quote">
-          <p class="blockquote-text">
-            "Instant solutions to tough problems, under intense time pressure"
-          </p>
-          <cite class="blockquote-cite">Michael Small, NBC News</cite>
-        </blockquote>
+        <figure class="editorial-quote">
+          <blockquote class="editorial-quote-body">
+            <p class="editorial-quote-text">
+              Instant solutions to tough problems, under intense time pressure.
+            </p>
+          </blockquote>
+          <figcaption class="editorial-quote-cite">
+            <span class="editorial-quote-name">Michael Small</span>
+            <span class="editorial-quote-role">NBC News</span>
+          </figcaption>
+        </figure>
       </section>
 
       <!-- Engagements -->
@@ -564,11 +569,9 @@ usePageSeo({
 }
 
 .hero-proof {
-  @apply mt-7 flex flex-col gap-2 border border-zinc-300 bg-white/80 p-4
-         text-zinc-900 backdrop-blur-sm transition-colors
-         hover:border-zinc-500 hover:bg-white
-         dark:border-zinc-700 dark:bg-zinc-950/80 dark:text-zinc-100
-         dark:hover:border-zinc-500 dark:hover:bg-black;
+  @apply mt-7 flex flex-col gap-2 border-l-2 border-emerald-600 py-1 pl-4
+         text-zinc-900 transition-colors hover:border-emerald-800
+         dark:border-emerald-400 dark:text-zinc-100 dark:hover:border-emerald-300;
   text-decoration: none;
 }
 
@@ -607,12 +610,11 @@ usePageSeo({
    CAPABILITIES, CLIENTS & ENGAGEMENTS
    ============================================ */
 .capability-grid {
-  @apply grid gap-3 sm:grid-cols-3;
+  @apply grid gap-x-8 border-y border-zinc-300 dark:border-zinc-700 sm:grid-cols-3;
 }
 
 .clients-panel {
-  @apply border border-zinc-300 bg-white/80 p-5 backdrop-blur-sm
-         dark:border-zinc-700 dark:bg-zinc-950/80;
+  @apply border-y border-zinc-300 py-6 dark:border-zinc-700;
 }
 
 .client-list {
@@ -623,17 +625,13 @@ usePageSeo({
   @apply font-mono text-sm font-medium text-zinc-800 dark:text-zinc-100;
 }
 
-.clients-quote {
-  @apply mt-6;
-}
-
 .engagement-grid {
-  @apply mb-6 grid grid-cols-2 gap-3;
+  @apply mb-6 grid grid-cols-2 gap-x-8 border-y border-zinc-300
+         dark:border-zinc-700;
 }
 
 .engagement-card {
-  @apply border border-zinc-300 bg-white/70 p-4 backdrop-blur-sm
-         dark:border-zinc-700 dark:bg-zinc-950/70;
+  @apply border-b border-zinc-200 py-4 last:border-b-0 dark:border-zinc-800;
 }
 
 .pricing-title {
@@ -654,8 +652,7 @@ usePageSeo({
 }
 
 .specialty-card {
-  @apply border border-zinc-300 dark:border-zinc-700 p-4 rounded-sm
-         bg-white/70 dark:bg-zinc-950/70 backdrop-blur-sm;
+  @apply py-4;
 }
 
 .specialty-title {
@@ -667,23 +664,41 @@ usePageSeo({
 }
 
 /* ============================================
-   PRESS / BLOCKQUOTES
+   EDITORIAL QUOTE
    ============================================ */
-.blockquote {
-  @apply border-l-2 border-zinc-400 dark:border-zinc-600 pl-4;
+.editorial-quote {
+  @apply mt-7 border-t border-zinc-300 pt-6 dark:border-zinc-700;
 }
 
-.blockquote-text {
-  @apply font-serif text-zinc-700 dark:text-zinc-300 italic;
+.editorial-quote-body {
+  @apply relative pl-10;
 }
 
-.blockquote-cite {
-  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 not-italic;
+.editorial-quote-body::before {
+  content: '“';
+  @apply absolute left-0 -top-2 font-serif text-4xl leading-none
+         text-emerald-700 dark:text-emerald-400;
+}
+
+.editorial-quote-text {
+  @apply max-w-lg font-serif text-xl leading-relaxed text-zinc-800 dark:text-zinc-200;
+  letter-spacing: -0.01em;
+}
+
+.editorial-quote-cite {
+  @apply mt-4 flex items-baseline gap-2 pl-10 font-mono text-xs not-italic;
+}
+
+.editorial-quote-name {
+  @apply font-semibold text-zinc-800 dark:text-zinc-200;
+}
+
+.editorial-quote-role {
+  @apply text-zinc-600 before:mr-2 before:content-['/'] dark:text-zinc-400;
 }
 
 .closing-cta {
-  @apply border-y border-zinc-300 bg-white/80 px-5 py-7 backdrop-blur-sm
-         dark:border-zinc-700 dark:bg-zinc-950/80;
+  @apply border-t border-zinc-300 py-7 dark:border-zinc-700;
 }
 
 .closing-title {
