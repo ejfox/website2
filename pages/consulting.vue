@@ -2,24 +2,17 @@
 <!--
   @file consulting.vue
   @description /consulting: the hire-me sales page. Scroll-scrubbed Cloudinary
-    video behind the hero, client logos (public/logos/), engagements, FAQ and an
-    inline Cal.com booking embed. Data: /api/consulting-availability (SSR, reads
+    video behind a compact offer, proof, capabilities, engagements and booking
+    CTAs. Data: /api/consulting-availability (SSR, reads
     data/consulting-availability.json) and /api/cal/available-slots (client-only
     lazy fetch). SSR, no special routeRule.
   @gotchas Sidebar status is teleported into #nav-toc-container, which lives in
     layouts/default.vue. Booking links carry first-touch UTM params
-    (utils/firstTouch.ts); CTAs fire the `consulting-book` Umami event and the
-    Cal embed posts milestone events back to Umami.
+    (utils/firstTouch.ts); CTAs fire the `consulting-book` Umami event.
     Copy is EJ's voice: don't cut quotes, credits or client names without asking.
 -->
 <script setup lang="ts">
-import {
-  useDark,
-  useElementVisibility,
-  useWindowScroll,
-  useWindowSize,
-} from '@vueuse/core'
-import { calParams, readFirstTouch } from '~/utils/firstTouch'
+import { useWindowScroll } from '@vueuse/core'
 
 // ── Video background config (tweak these) ───────────────────
 const VIDEO_CONFIG = {
@@ -49,11 +42,8 @@ const VIDEO_CONFIG = {
 }
 
 // ── Scroll-scrubbed video ───────────────────────────────────
-const isDark = useDark()
-
 // Scroll-powered video background
 const { y: scrollY } = useWindowScroll()
-const { height: _windowHeight } = useWindowSize()
 
 // Video element ref and scroll-driven playback
 const videoRef = ref<HTMLVideoElement | null>(null)
@@ -182,75 +172,14 @@ const availabilityLine = computed(() => {
   return 'Taking new clients'
 })
 
-// ── Cal.com embed + sidebar ─────────────────────────────────
-// Track when #book section is visible — hide floating CTA
-const bookSection = ref<HTMLElement | null>(null)
-const bookVisible = useElementVisibility(bookSection)
-let trackedBookView = false
-
-type UmamiWindow = Window & {
-  umami?: { track: (name: string, props?: Record<string, string>) => void }
-}
-
-function trackConsultingEvent(
-  name: string,
-  props?: Record<string, string>
-): boolean {
-  const umami = (window as UmamiWindow).umami
-  if (!umami) return false
-  umami.track(name, props)
-  return true
-}
-
-watch(bookVisible, (visible) => {
-  if (
-    visible &&
-    !trackedBookView &&
-    trackConsultingEvent('consulting-calendar-view')
-  ) {
-    trackedBookView = true
-  }
-})
-
-// Cal.com's embed reports these milestones with postMessage. Only accept
-// messages from Cal-owned origins, and never send payload contents to Umami.
-const trackedCalMilestones = new Set<string>()
-const CAL_EVENT_NAMES: Record<string, string> = {
-  navigatedToBooker: 'consulting-booking-started',
-  bookingSuccessfulV2: 'consulting-booking-complete',
-}
-
-function handleCalMessage(event: MessageEvent) {
-  let hostname = ''
-  try {
-    hostname = new URL(event.origin).hostname
-  } catch {
-    return
-  }
-  if (hostname !== 'cal.com' && !hostname.endsWith('.cal.com')) return
-
-  const type = event.data?.type
-  if (typeof type !== 'string') return
-  const eventName = CAL_EVENT_NAMES[type]
-  if (!eventName || trackedCalMilestones.has(eventName)) return
-
-  const originator = event.data?.originator
-  if (
-    typeof originator === 'string' &&
-    !originator.toLowerCase().includes('cal')
-  )
-    return
-
-  if (trackConsultingEvent(eventName)) trackedCalMilestones.add(eventName)
-}
+// ── Booking + sidebar ───────────────────────────────────────
+const CAL_LINK = 'https://cal.com/ejfox/30min?duration=20'
 
 // Sidebar teleport target
 const tocTarget = ref<Element | null>(null)
 
-// Cal.com embed initialization + sidebar setup
+// Sidebar setup
 onMounted(() => {
-  initCalEmbed()
-  window.addEventListener('message', handleCalMessage)
   // The sidebar Teleport renders only once this finds the layout's target
   // (v-if="tocTarget"); teleporting to a missing selector would warn.
   nextTick(() => {
@@ -258,126 +187,36 @@ onMounted(() => {
   })
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener('message', handleCalMessage)
-})
-
-// The IIFE below is Cal.com's official embed loader snippet, typed just
-// enough to compile. It stubs window.Cal to queue calls until embed.js loads.
-function initCalEmbed() {
-  if (!import.meta.client)
-    return /* eslint-disable prefer-rest-params, @typescript-eslint/no-unused-expressions */
-  ;(function (C, A, L) {
-    const p = function (a: { q: unknown[] }, ar: unknown) {
-      a.q.push(ar)
-    }
-    const d = C.document
-    ;(C as Window & { Cal?: unknown }).Cal =
-      (C as Window & { Cal?: unknown }).Cal ||
-      function () {
-        const cal = (
-          C as unknown as Window & {
-            Cal: { loaded?: boolean; ns: Record<string, unknown>; q: unknown[] }
-          }
-        ).Cal
-        const ar = arguments
-        if (!cal.loaded) {
-          cal.ns = {}
-          cal.q = cal.q || []
-          d.head.appendChild(d.createElement('script')).src = A
-          cal.loaded = true
-        }
-        if (ar[0] === L) {
-          const api = function () {
-            p(api as unknown as { q: unknown[] }, arguments)
-          } as unknown as { q: unknown[] }
-          const namespace = ar[1]
-          api.q = api.q || []
-          typeof namespace === 'string'
-            ? (cal.ns[namespace] = api) && p(api, ar)
-            : p(cal, ar)
-          return
-        }
-        p(cal, ar)
-      }
-  })(window, 'https://app.cal.com/embed/embed.js', 'init')
-  /* eslint-enable prefer-rest-params, @typescript-eslint/no-unused-expressions */
-
-  const win = window as Window & {
-    Cal?: (action: string, config?: unknown) => void
-  }
-  win.Cal?.('init', { origin: 'https://cal.com' })
-
-  win.Cal?.('inline', {
-    elementOrSelector: '#cal-inline-embed',
-    calLink: 'ejfox/30min?duration=20',
-    layout: 'month_view',
-    // First-touch utm_* + metadata[*] → booking + webhook (utils/firstTouch.ts)
-    config: calParams(readFirstTouch()),
-  })
-
-  setTimeout(() => {
-    updateCalTheme()
-  }, 100)
-
-  watch(isDark, () => updateCalTheme())
-}
-
-function updateCalTheme() {
-  const win = window as Window & {
-    Cal?: (action: string, config?: unknown) => void
-  }
-  if (!win.Cal) return
-  win.Cal('ui', {
-    theme: isDark.value ? 'dark' : 'light',
-    hideEventTypeDetails: false,
-    layout: 'month_view',
-    styles: { branding: { brandColor: isDark.value ? '#a1a1aa' : '#3f3f46' } },
-  })
-}
-
-// ── Page content: logos, specialties, SEO ───────────────────
-// Logo files live in public/logos/. Never add NDA clients here (see the
-// "companies I can't name" line in the template).
-const CLIENT_LOGOS = [
-  { name: 'NBC News', logo: '/logos/nbc-news.svg' },
-  { name: 'MSNBC', logo: '/logos/msnbc.svg' },
-  { name: 'CBS', logo: '/logos/cbs.svg' },
-  { name: 'Washington Post', logo: '/logos/wapo.svg' },
-  { name: 'Associated Press', logo: '/logos/ap.svg' },
-  { name: 'Consumer Reports', logo: '/logos/consumer-reports.svg' },
-  { name: 'GitHub', logo: '/logos/github.svg' },
-  { name: 'Gothamist', logo: '/logos/gothamist.svg' },
-  { name: 'WNYC', logo: '/logos/wnyc.svg' },
-  { name: 'Climate TRACE', logo: '/logos/climate-trace.svg' },
-  { name: 'Stamen', logo: '/logos/stamen.svg' },
+// ── Page content ────────────────────────────────────────────
+const CLIENTS = [
+  'NBC News',
+  'MSNBC',
+  'CBS',
+  'The Washington Post',
+  'Associated Press',
+  'Consumer Reports',
+  'GitHub',
+  'Gothamist',
+  'WNYC',
+  'Climate TRACE',
+  'Stamen',
 ]
 
 const specialties = [
   {
-    title: 'Rapid Prototyping',
+    title: 'Rapid prototypes',
     description:
-      'Napkin sketch Monday, working demo Friday. That moment when it first works? Never gets old.',
-    proof:
-      'NBC Big Board: a January prototype, on air by November, millions watching',
+      'Napkin sketch Monday, working demo Friday—before a big commitment.',
   },
   {
-    title: 'Newsroom Tools',
+    title: 'Live data systems',
     description:
-      'Small teams doing important work deserve sharp tools. I build the systems that make impossible deadlines survivable.',
-    proof: 'Gothamist, Dataproofer (Knight-funded, via Vocativ), ASU Newswell',
+      'Newsroom tools, maps, dashboards, and interfaces that hold up under pressure.',
   },
   {
-    title: 'AI Integration',
+    title: 'Useful AI workflows',
     description:
-      'Not the hype-y kind. I wire models into real workflows where they actually save people time. Heavy Claude, heavy local.',
-    proof: 'Lenfest AI Fellow at ASU, 2025–26',
-  },
-  {
-    title: 'Live Systems',
-    description:
-      'Election nights, breaking news, live television. When millions are watching and it has to work, I stay until it does.',
-    proof: 'CMU COVIDcast, NBC elections, investigations',
+      'Models wired into real editorial, research, and product work—not demos for their own sake.',
   },
 ]
 
@@ -432,7 +271,9 @@ usePageSeo({
 
         <div class="hero-actions">
           <a
-            href="#book"
+            :href="CAL_LINK"
+            target="_blank"
+            rel="noopener"
             class="hero-cta-primary"
             data-umami-event="consulting-book"
             data-umami-event-location="consulting-hero"
@@ -450,24 +291,24 @@ usePageSeo({
         </div>
         <p class="hero-cta-note">Free · no pitch</p>
 
-        <div v-if="calSlots?.slots?.length" class="hero-slots">
-          <p class="hero-slots-label">Next open times</p>
-          <div class="flex flex-wrap gap-3">
-            <a
-              v-for="slot in calSlots.slots"
-              :key="slot.datetime"
-              :href="slot.bookingUrl"
-              target="_blank"
-              rel="noopener"
-              class="slot-btn"
-              data-umami-event="consulting-book"
-              data-umami-event-location="consulting-hero-slot"
-            >
-              <span class="slot-btn-text">{{ slot.time }}</span>
-              <span class="slot-btn-day">{{ slot.day }}</span>
-              <span class="slot-btn-date">{{ slot.date }}</span>
-            </a>
-          </div>
+        <div v-if="calSlots?.slots?.length" class="next-slot">
+          <p class="next-slot-time">
+            Next open: {{ calSlots.slots[0].time }} {{ calSlots.slots[0].day }},
+            {{ calSlots.slots[0].date }}
+          </p>
+          <a
+            :href="calSlots.slots[0].bookingUrl"
+            target="_blank"
+            rel="noopener"
+            class="next-slot-link"
+            data-umami-event="consulting-book"
+            data-umami-event-location="consulting-hero-slot"
+          >
+            Grab this time
+          </a>
+          <NuxtLink to="/calendar" class="next-slot-link">
+            More times
+          </NuxtLink>
         </div>
 
         <NuxtLink to="/projects/nbc-big-board" class="hero-proof">
@@ -480,87 +321,10 @@ usePageSeo({
         </NuxtLink>
       </header>
 
-      <!-- Photo -->
-      <section class="section">
-        <img
-          src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
-          alt="EJ Fox presenting election visualization on NBC's Big Board"
-          class="work-photo"
-        />
-        <p class="caption mt-2">
-          Early Big Board Web prototype at 30 Rock, circa 2018 ·
-          <NuxtLink to="/projects/nbc-big-board" class="link-underline">
-            Read the case study
-          </NuxtLink>
-        </p>
-      </section>
-
-      <!-- Testimonial -->
-      <section class="section">
-        <blockquote class="testimonial">
-          "First election night where Chuck wasn't frustrated with the app."
-        </blockquote>
-        <p class="testimonial-cite">
-          — Producer, Meet the Press · NBC News, 2018
-        </p>
-      </section>
-
-      <!-- Credentials -->
-      <section class="section">
-        <p class="body-lg mb-6">
-          I write code fast, think in prototypes, and don't stop until it ships.
-          That's taken me through newsrooms
-          <span class="aside">(NBC News, Washington Post, Gothamist)</span>,
-          design studios <span class="aside">(Stamen)</span>, research labs
-          <span class="aside">(CMU, ASU's AI fellowship)</span>, climate orgs
-          <span class="aside">(Climate TRACE, Earth Genome)</span>, and
-          companies I can't name. The common thread: people with a hard problem
-          and not enough time.
-        </p>
-        <div class="grid grid-cols-2 gap-6 text-center py-6 divider-y">
-          <div>
-            <p class="stat-value">10+</p>
-            <p class="stat-label">industries</p>
-          </div>
-          <div>
-            <p class="stat-value">15+</p>
-            <p class="stat-label">years shipping</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Clients - Clean Logo Grid -->
-      <section class="section-lg">
-        <p class="section-label-lg">People I've worked with</p>
-        <div class="client-logo-grid">
-          <div
-            v-for="client in CLIENT_LOGOS"
-            :key="client.name"
-            class="client-logo-item"
-          >
-            <img
-              :src="client.logo"
-              :alt="client.name"
-              class="client-logo-img"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonial lift -->
-      <section class="section">
-        <blockquote class="blockquote">
-          <p class="blockquote-text">
-            "Instant solutions to tough problems, under intense time pressure"
-          </p>
-          <cite class="blockquote-cite">Michael Small, NBC News</cite>
-        </blockquote>
-      </section>
-
       <!-- Specialties -->
       <section class="section">
-        <h2 class="section-label">Things I'm good at</h2>
-        <div class="space-y-6">
+        <h2 class="section-label">What I can help with</h2>
+        <div class="capability-grid">
           <article
             v-for="s in specialties"
             :key="s.title"
@@ -568,167 +332,83 @@ usePageSeo({
           >
             <h3 class="specialty-title">{{ s.title }}</h3>
             <p class="specialty-desc">{{ s.description }}</p>
-            <p class="specialty-proof">{{ s.proof }}</p>
           </article>
         </div>
       </section>
 
-      <!-- Testimonials -->
-      <section class="section">
-        <h2 class="section-label">Kind words</h2>
-        <div class="space-y-10">
-          <div class="testimonial-card">
-            <blockquote class="blockquote">
-              <p class="blockquote-text">
-                "Gets things done quickly with an astonishing level of detail"
-              </p>
-              <cite class="blockquote-cite">Erik Hazzard, fmr Meta</cite>
-            </blockquote>
-          </div>
-          <div class="testimonial-card">
-            <blockquote class="blockquote">
-              <p class="blockquote-text">
-                "Build things that would last... not just produce, but take
-                ownership of long-term initiatives"
-              </p>
-              <cite class="blockquote-cite">Markham Nolan, Vocativ</cite>
-            </blockquote>
-          </div>
-        </div>
+      <!-- Clients + one useful quote -->
+      <section class="section clients-panel">
+        <h2 class="section-label">People I've worked with</h2>
+        <ul class="client-list" aria-label="Selected clients">
+          <li v-for="client in CLIENTS" :key="client" class="client-name">
+            {{ client }}
+          </li>
+        </ul>
+        <blockquote class="blockquote clients-quote">
+          <p class="blockquote-text">
+            "Instant solutions to tough problems, under intense time pressure"
+          </p>
+          <cite class="blockquote-cite">Michael Small, NBC News</cite>
+        </blockquote>
       </section>
 
-      <!-- How It Works -->
-      <section class="section">
-        <h2 class="section-label-lg">How it goes</h2>
-        <div class="space-y-8">
-          <div class="process-step">
-            <div class="process-number">01</div>
-            <div>
-              <p class="process-title">We talk</p>
-              <p class="process-desc">
-                You tell me what you're trying to build. I ask hard questions.
-                We figure out if I'm the right person to make it real.
-              </p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-number">02</div>
-            <div>
-              <p class="process-title">Proposal</p>
-              <p class="process-desc">
-                I write up what I understood, what I'd build, and what it costs.
-                Fixed scope, fixed price&mdash;no surprises.
-              </p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-number">03</div>
-            <div>
-              <p class="process-title">Handshake</p>
-              <p class="process-desc">
-                You review it, we sign, 50% deposit gets us rolling.
-              </p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-number">04</div>
-            <div>
-              <p class="process-title">Build</p>
-              <p class="process-desc">
-                Async demo videos, early prototypes, Slack over email. You'll
-                see working code before you expect to.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pricing -->
+      <!-- Engagements -->
       <section class="section">
         <h2 class="section-label">Engagements</h2>
-
-        <div class="space-y-4 mb-8">
-          <div class="pricing-row">
-            <div>
-              <p class="pricing-title">Validate</p>
-              <p class="pricing-desc">Prototype you can demo · ~1 week</p>
-            </div>
-          </div>
-          <div class="pricing-row">
-            <div>
-              <p class="pricing-title">Build</p>
-              <p class="pricing-desc">Production-ready · ~2 weeks</p>
-            </div>
-          </div>
-          <div class="pricing-row">
-            <div>
-              <p class="pricing-title">Transform</p>
-              <p class="pricing-desc">End-to-end system · ~4 weeks</p>
-            </div>
-          </div>
-          <div class="pricing-row">
-            <div>
-              <p class="pricing-title">Retained</p>
-              <p class="pricing-desc">Ongoing access · 10&ndash;30 hrs/week</p>
-            </div>
-          </div>
+        <div class="engagement-grid">
+          <article class="engagement-card">
+            <p class="pricing-title">Validate</p>
+            <p class="pricing-desc">Demoable prototype · ~1 week</p>
+          </article>
+          <article class="engagement-card">
+            <p class="pricing-title">Build</p>
+            <p class="pricing-desc">Production-ready · ~2 weeks</p>
+          </article>
+          <article class="engagement-card">
+            <p class="pricing-title">Transform</p>
+            <p class="pricing-desc">End-to-end system · ~4 weeks</p>
+          </article>
+          <article class="engagement-card">
+            <p class="pricing-title">Retained</p>
+            <p class="pricing-desc">Ongoing access · 10&ndash;30 hrs/week</p>
+          </article>
         </div>
-
         <p class="pricing-note">
-          Every project is fixed-scope and fixed-price. If you already have a
-          budget range, include it—I will be direct about what fits. 50%
-          upfront, 50% on delivery.
+          Fixed scope, fixed price, working demos along the way. Source, docs,
+          and handoff are yours.
+        </p>
+        <p class="workflow">
+          20-minute fit check → short proposal → prototypes and async demos →
+          launch and handoff
         </p>
       </section>
 
-      <!-- FAQ -->
-      <section class="section">
-        <h2 class="section-label">Questions</h2>
-        <div class="space-y-6">
-          <div>
-            <p class="faq-question">What if we're not sure about scope?</p>
-            <p class="faq-answer">
-              That's most projects. Come with the problem, not a requirements
-              doc.
-            </p>
-          </div>
-          <div>
-            <p class="faq-question">Tech stack?</p>
-            <p class="faq-answer">
-              TypeScript, Vue/Nuxt, D3.js, Node, MapLibre. Heavy AI tooling.
-              Neovim on Sundays.
-            </p>
-          </div>
-          <div>
-            <p class="faq-question">Communication?</p>
-            <p class="faq-answer">
-              Async default. Loom videos, written updates, calls when needed.
-            </p>
-          </div>
-          <div>
-            <p class="faq-question">What do I own when we're done?</p>
-            <p class="faq-answer">
-              Everything. Source, docs, handoff. You can maintain it without me.
-            </p>
-          </div>
-          <div>
-            <p class="faq-question">Can you start sooner?</p>
-            <p class="faq-answer">
-              Maybe. I keep the client list small so everyone gets real
-              attention. But I move fast once we start.
-            </p>
-          </div>
+      <!-- Close -->
+      <section id="book" class="section closing-cta">
+        <h2 class="closing-title">Have something difficult to ship?</h2>
+        <p class="body-md">
+          Twenty minutes is usually enough to tell whether I can help.
+        </p>
+        <div class="hero-actions">
+          <a
+            :href="CAL_LINK"
+            target="_blank"
+            rel="noopener"
+            class="hero-cta-primary"
+            data-umami-event="consulting-book"
+            data-umami-event-location="consulting-close"
+          >
+            Book a fit check
+          </a>
+          <a
+            href="mailto:ejfox@ejfox.com?subject=Project%20inquiry"
+            class="hero-cta-secondary"
+            data-umami-event="contact-email"
+            data-umami-event-location="consulting-close"
+          >
+            Email me
+          </a>
         </div>
-      </section>
-
-      <!-- Book a Call -->
-      <!-- #cal-inline-embed is filled by initCalEmbed(); the id is load-bearing -->
-      <section id="book" ref="bookSection" class="section scroll-mt-24">
-        <p class="section-label-lg">Let's talk</p>
-        <p class="caption mb-6">
-          20 min · No pitch · Figuring out if I can help
-        </p>
-        <div id="cal-inline-embed" class="cal-inline-embed" />
       </section>
 
       <!-- Footer -->
@@ -746,8 +426,10 @@ usePageSeo({
     <!-- Floating CTA - visible between hero and booking section -->
     <Transition name="cta-fade">
       <a
-        v-if="scrollY > 600 && !bookVisible"
-        href="#book"
+        v-if="scrollY > 600"
+        :href="CAL_LINK"
+        target="_blank"
+        rel="noopener"
         class="floating-cta"
         data-umami-event="consulting-book"
         data-umami-event-location="consulting-floating"
@@ -772,7 +454,9 @@ usePageSeo({
 
           <!-- CTA -->
           <a
-            href="#cal-inline-embed"
+            :href="CAL_LINK"
+            target="_blank"
+            rel="noopener"
             class="sidebar-cta"
             data-umami-event="consulting-book"
             data-umami-event-location="consulting-sidebar"
@@ -791,15 +475,7 @@ usePageSeo({
    LAYOUT & SECTIONS
    ============================================ */
 .section {
-  @apply mb-12;
-}
-
-.section-lg {
-  @apply mb-16;
-}
-
-.divider-y {
-  @apply border-y border-zinc-300 dark:border-zinc-700;
+  @apply mb-10;
 }
 
 .divider-t {
@@ -811,10 +487,6 @@ usePageSeo({
    ============================================ */
 .section-label {
   @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider mb-6;
-}
-
-.section-label-lg {
-  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider mb-8;
 }
 
 .hero-label {
@@ -839,10 +511,6 @@ usePageSeo({
 
 .caption {
   @apply font-mono text-xs text-zinc-600 dark:text-zinc-300;
-}
-
-.aside {
-  @apply font-mono text-sm text-zinc-600 dark:text-zinc-400;
 }
 
 .hero-flourish {
@@ -880,12 +548,19 @@ usePageSeo({
   @apply mt-3 font-mono text-xs text-zinc-600 dark:text-zinc-300;
 }
 
-.hero-slots {
-  @apply mt-7 border-y border-zinc-300 dark:border-zinc-700 py-5;
+.next-slot {
+  @apply mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y
+         border-zinc-300 py-3 dark:border-zinc-700;
 }
 
-.hero-slots-label {
-  @apply mb-3 font-mono text-xs uppercase tracking-wider text-zinc-700 dark:text-zinc-300;
+.next-slot-time {
+  @apply font-mono text-xs text-zinc-800 dark:text-zinc-200;
+}
+
+.next-slot-link {
+  @apply font-mono text-xs text-zinc-700 underline decoration-zinc-400
+         underline-offset-4 hover:text-black dark:text-zinc-300
+         dark:decoration-zinc-600 dark:hover:text-white;
 }
 
 .hero-proof {
@@ -910,17 +585,6 @@ usePageSeo({
          dark:text-zinc-300 dark:decoration-zinc-600;
 }
 
-.work-photo {
-  @apply w-full border border-zinc-300 dark:border-zinc-700;
-}
-
-/* ============================================
-   STATS & NUMBERS
-   ============================================ */
-.stat-value {
-  @apply font-mono text-2xl text-zinc-900 dark:text-zinc-100;
-}
-
 /* ============================================
    INTERACTIVE ELEMENTS
    ============================================ */
@@ -928,26 +592,6 @@ usePageSeo({
   @apply underline decoration-zinc-400 underline-offset-2
          hover:text-zinc-900 hover:decoration-zinc-700
          dark:decoration-zinc-600 dark:hover:text-white dark:hover:decoration-zinc-300;
-}
-
-.slot-btn {
-  @apply px-5 py-3 font-serif text-sm border border-zinc-400 dark:border-zinc-600
-         hover:border-zinc-900 dark:hover:border-zinc-100 transition-all duration-300
-         flex flex-col items-start gap-0.5 rounded-sm
-         bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm;
-  text-decoration: none;
-}
-
-.slot-btn-text {
-  @apply text-zinc-900 dark:text-zinc-100 text-base font-medium;
-}
-
-.slot-btn-day {
-  @apply text-zinc-700 dark:text-zinc-300 text-sm;
-}
-
-.slot-btn-date {
-  @apply text-zinc-600 dark:text-zinc-400 text-xs font-mono;
 }
 
 .sidebar-cta {
@@ -960,45 +604,36 @@ usePageSeo({
 }
 
 /* ============================================
-   CLIENT LOGOS
+   CAPABILITIES, CLIENTS & ENGAGEMENTS
    ============================================ */
-.client-logo-grid {
-  @apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 sm:gap-6 items-center;
+.capability-grid {
+  @apply grid gap-3 sm:grid-cols-3;
 }
 
-.client-logo-item {
-  @apply flex items-center justify-center h-6 sm:h-10 grayscale opacity-75
-         hover:grayscale-0 hover:opacity-100 transition-all duration-300;
+.clients-panel {
+  @apply border border-zinc-300 bg-white/80 p-5 backdrop-blur-sm
+         dark:border-zinc-700 dark:bg-zinc-950/80;
 }
 
-.client-logo-img {
-  @apply max-h-full max-w-full object-contain dark:invert;
+.client-list {
+  @apply flex flex-wrap gap-x-5 gap-y-2;
 }
 
-/* ============================================
-   PROCESS STEPS
-   ============================================ */
-.process-step {
-  @apply flex gap-6;
+.client-name {
+  @apply font-mono text-sm font-medium text-zinc-800 dark:text-zinc-100;
 }
 
-.process-number {
-  @apply font-mono text-sm text-zinc-500 dark:text-zinc-400 w-6 shrink-0;
+.clients-quote {
+  @apply mt-6;
 }
 
-.process-title {
-  @apply font-serif text-zinc-900 dark:text-zinc-100 mb-1;
+.engagement-grid {
+  @apply mb-6 grid grid-cols-2 gap-3;
 }
 
-.process-desc {
-  @apply font-serif text-sm text-zinc-700 dark:text-zinc-300;
-}
-
-/* ============================================
-   PRICING ROWS
-   ============================================ */
-.pricing-row {
-  @apply flex justify-between items-start border-b border-zinc-300 dark:border-zinc-700 pb-4;
+.engagement-card {
+  @apply border border-zinc-300 bg-white/70 p-4 backdrop-blur-sm
+         dark:border-zinc-700 dark:bg-zinc-950/70;
 }
 
 .pricing-title {
@@ -1014,22 +649,12 @@ usePageSeo({
          text-zinc-700 dark:border-emerald-400 dark:text-zinc-300;
 }
 
-/* ============================================
-   FAQ ITEMS
-   ============================================ */
-.faq-question {
-  @apply font-serif text-zinc-900 dark:text-zinc-100 mb-1;
+.workflow {
+  @apply mt-5 font-mono text-xs leading-relaxed text-zinc-700 dark:text-zinc-300;
 }
 
-.faq-answer {
-  @apply font-serif text-sm text-zinc-700 dark:text-zinc-300;
-}
-
-/* ============================================
-   SPECIALTY CARDS
-   ============================================ */
 .specialty-card {
-  @apply border border-zinc-300 dark:border-zinc-700 p-5 rounded-sm
+  @apply border border-zinc-300 dark:border-zinc-700 p-4 rounded-sm
          bg-white/70 dark:bg-zinc-950/70 backdrop-blur-sm;
 }
 
@@ -1038,16 +663,7 @@ usePageSeo({
 }
 
 .specialty-desc {
-  @apply font-serif text-zinc-700 dark:text-zinc-300 mb-2;
-}
-
-.specialty-proof {
-  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 uppercase tracking-wider;
-}
-
-.testimonial-card {
-  @apply py-5 px-4 rounded-sm border border-zinc-300 dark:border-zinc-700
-         bg-white/70 dark:bg-zinc-950/70 backdrop-blur-sm;
+  @apply font-serif text-sm leading-relaxed text-zinc-700 dark:text-zinc-300;
 }
 
 /* ============================================
@@ -1065,13 +681,13 @@ usePageSeo({
   @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 not-italic;
 }
 
-.testimonial {
-  @apply font-serif text-2xl text-zinc-700 dark:text-zinc-300;
-  letter-spacing: -0.01em;
+.closing-cta {
+  @apply border-y border-zinc-300 bg-white/80 px-5 py-7 backdrop-blur-sm
+         dark:border-zinc-700 dark:bg-zinc-950/80;
 }
 
-.testimonial-cite {
-  @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 mt-4;
+.closing-title {
+  @apply mb-2 font-serif text-2xl text-zinc-900 dark:text-zinc-100;
 }
 
 /* ============================================
@@ -1107,19 +723,6 @@ usePageSeo({
 
 .sidebar-cta-note {
   @apply font-mono text-xs text-zinc-600 dark:text-zinc-300 text-center;
-}
-
-/* ============================================
-   CAL.COM EMBED
-   ============================================ */
-.cal-inline-embed {
-  @apply min-h-[500px] w-full border border-zinc-300 dark:border-zinc-700;
-}
-
-@media (min-width: 640px) {
-  .cal-inline-embed {
-    @apply min-h-[600px];
-  }
 }
 
 /* ============================================
