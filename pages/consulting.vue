@@ -359,7 +359,7 @@ const specialties = [
     description:
       'Napkin sketch Monday, working demo Friday. That moment when it first works? Never gets old.',
     proof:
-      'NBC Big Board: a January prototype, on air by November, 10M watching',
+      'NBC Big Board: a January prototype, on air by November, millions watching',
   },
   {
     title: 'Newsroom Tools',
@@ -448,9 +448,7 @@ usePageSeo({
             Email me about a project
           </a>
         </div>
-        <p class="hero-cta-note">
-          Free · no pitch · bring the problem, not a requirements document
-        </p>
+        <p class="hero-cta-note">Free · no pitch</p>
 
         <div v-if="calSlots?.slots?.length" class="hero-slots">
           <p class="hero-slots-label">Next open times</p>
@@ -475,8 +473,8 @@ usePageSeo({
         <NuxtLink to="/projects/nbc-big-board" class="hero-proof">
           <span class="hero-proof-label">Proof under pressure</span>
           <span class="hero-proof-copy">
-            I built NBC News' Big Board for an election night watched by roughly
-            10 million people. It never crashed.
+            I built NBC News' Big Board for an election night watched by
+            millions of people.
           </span>
           <span class="hero-proof-link">Read the case study →</span>
         </NuxtLink>
