@@ -3,8 +3,9 @@
  * @description GET /api/availability. EJ's freelance availability from
  *   data/availability.json, read at request time (same pattern as gear-csv) so
  *   flipping the knob on the VPS + `pm2 reload` updates the live blurb without a
- *   rebuild. Used by pages/projects and now.get.ts.
- *   Returns { known: false } | { known: true, capacity, openSlots, bookedUntil }.
+ *   rebuild. Used by pages/projects, pages/consulting and now.get.ts.
+ *   Returns { known: false } |
+ *   { known: true, capacity, openSlots, bookedUntil, asOf }.
  *
  * Fails CLOSED. Every failure path (missing file, bad JSON, a field that isn't
  * a number) returns `{ known: false }`, and the page renders no availability
@@ -45,6 +46,7 @@ export default defineEventHandler(async () => {
       capacity,
       openSlots,
       bookedUntil: typeof json.bookedUntil === 'string' ? json.bookedUntil : '',
+      asOf: typeof json.asOf === 'string' ? json.asOf : '',
     }
   } catch {
     return UNKNOWN

@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
   const feed = new RSS({
     title: 'EJ Fox',
     description:
-      'Hacker-journalist using code and art to uncover hidden patterns.',
+      'When someone hands me a mess, I take a kind of pathological joy in untangling it.',
     feed_url: `${siteUrl}/rss.xml`,
     site_url: siteUrl,
     image_url: `${siteUrl}/icon.png`,

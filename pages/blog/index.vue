@@ -141,7 +141,7 @@ onMounted(() => {
 usePageSeo({
   // This page renders its own JSON-LD below; don't add a second one.
   schema: false,
-  title: 'Blog - EJ Fox',
+  title: 'Notebook - EJ Fox',
   description: "Things I'm thinking about — data, code, journalism, the web",
   type: 'article',
   section: 'Writing',
@@ -189,9 +189,16 @@ useHead(() => ({
     <header class="mb-6 relative pt-2">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
         <div class="px-4 sm:px-6 pt-4 pb-3">
-          <h1 class="blog-title">Blog</h1>
+          <h1 class="blog-title">Notebook</h1>
           <p class="blog-description">
             Things I'm thinking about — data, code, journalism, the web
+          </p>
+          <p class="blog-description">
+            <NuxtLink to="/photos" class="underline">Photos</NuxtLink>
+            ·
+            <a href="https://www.youtube.com/@ejfox" class="underline">
+              YouTube
+            </a>
           </p>
         </div>
 

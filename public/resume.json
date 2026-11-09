@@ -7,7 +7,7 @@
     "email": "ejfox@ejfox.com",
     "phone": "(260) 673-5369",
     "url": "https://ejfox.com",
-    "summary": "Design engineer and creative technologist who ships under pressure. I transform complex information into clear interactive visuals and have fun doing it. My work combines journalistic curiosity with an addiction to trying new things—from NBC’s election graphics to experimental embedding interfaces. I want to make things no one has seen before with smart, kind people.",
+    "summary": "Design engineer and creative technologist who ships under pressure. I transform complex information into clear interactive visuals and have fun doing it. My work combines journalistic curiosity with an addiction to trying new things—from NBC’s election graphics to experimental embedding interfaces. I want to make things no one has seen before with smart, kind people. When someone hands me a mess, I take a kind of pathological joy in untangling it.",
     "location": {
       "city": "Beacon",
       "region": "New York",
@@ -123,7 +123,6 @@
   "projects": [
     {
       "name": "Subway Builder",
-      "entity": "Borough Studio",
       "startDate": "2025",
       "endDate": "2026",
       "url": "https://store.steampowered.com/app/4039140/Subway_Builder/",
@@ -132,7 +131,6 @@
     {
       "name": "Decision Desk HQ",
       "startDate": "2025",
-      "endDate": "2026",
       "description": "I helped design and build the tools broadcasters use to show election results"
     },
     {
@@ -166,7 +164,6 @@
       "name": "Ukraine grain",
       "entity": "Earth Genome",
       "startDate": "2022",
-      "endDate": "2023",
       "description": "A scrolling data story about global food security"
     },
     {
@@ -180,7 +177,6 @@
       "name": "Election simulator",
       "entity": "Washington Post Opinions",
       "startDate": "2019",
-      "endDate": "2020",
       "description": "I helped build an election simulator on top of David Byler’s model"
     },
     {
@@ -189,6 +185,163 @@
       "startDate": "2012",
       "url": "https://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money/",
       "description": "I co-authored an interactive map of the super PAC and dark-money universe"
+    },
+    {
+      "name": "NBC News Specials",
+      "entity": "NBC News",
+      "startDate": "2016",
+      "endDate": "2019",
+      "url": "https://ejfox.com/projects/nbcnews-specials",
+      "description": "Bespoke longform features, built on the Foundry team in collaboration with reporters."
+    },
+    {
+      "name": "Dataproofer",
+      "entity": "Vocativ",
+      "startDate": "2015",
+      "endDate": "2016",
+      "url": "https://ejfox.com/projects/dataproofer",
+      "description": "An open source tool to check data for reliability, funded by a Knight Prototype Fund grant, with Gerald Rich and the Vocativ data team."
+    },
+    {
+      "name": "Long Lead",
+      "entity": "Long Lead",
+      "startDate": "2021",
+      "endDate": "2022",
+      "url": "https://ejfox.com/projects/long-lead",
+      "description": "Production and technical work for a story studio that builds each long-form feature from scratch."
+    },
+    {
+      "name": "The Margin",
+      "entity": "The Margin",
+      "startDate": "2022",
+      "url": "https://ejfox.com/projects/margin-maps",
+      "description": "Data storytelling for an independent outlet covering the people and places most affected by environmental injustice."
+    },
+    {
+      "name": "Terminal Tools",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/terminal-tools",
+      "description": "Fourteen small programs for the terminal: utilities for working inside tmux, a few input and display experiments, and some games and toys."
+    },
+    {
+      "name": "Amen Slicer",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/amen-slicer",
+      "description": "A breakbeat slicer / performance instrument for the Game Boy Advance."
+    },
+    {
+      "name": "Pixel Canvas",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/pixel-canvas",
+      "description": "A networked 320×240 display that sits on my desk."
+    },
+    {
+      "name": "Vulpes Browser",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/vulpes-browser",
+      "description": "Minimalist web browser. Zig + Swift + Metal, rendered entirely on the GPU, with particle effects, link glow, and a two-pass bloom."
+    },
+    {
+      "name": "Vulpes Devices",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/vulpes-devices",
+      "description": "One palette, one glyph, generated out to seven device targets."
+    },
+    {
+      "name": "Vulpino",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/vulpino",
+      "description": "Any JSON endpoint into a home-screen iOS widget, no code, in about a minute."
+    },
+    {
+      "name": "Tempo",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/tempo",
+      "description": "A brutalist Pomodoro timer for iPhone and Apple Watch."
+    },
+    {
+      "name": "cyberdeck-saver",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/cyberdeck-saver",
+      "description": "A native macOS screensaver, written in Swift."
+    },
+    {
+      "name": "GitHub Sloth",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/github-sloth",
+      "description": "A minimalist amber-on-black terminal UI for GitHub PRs, reviews, and checks, written in Rust."
+    },
+    {
+      "name": "Connectology",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/connectology",
+      "description": "A custom front-end replacement for Gephi or a raw D3 force layout."
+    },
+    {
+      "name": "Coach Artie Memory Analysis",
+      "type": "personal",
+      "startDate": "2026",
+      "url": "https://ejfox.com/projects/coachartie-memory",
+      "description": "What does an AI agent actually remember? I embedded all of it, clustered it, and drew the map."
+    },
+    {
+      "name": "OpenRouter Census",
+      "type": "personal",
+      "startDate": "2025",
+      "url": "https://ejfox.com/projects/openrouter-census",
+      "description": "A full census of every model on OpenRouter, dumped into immutable JSONL/Parquet snapshots and rendered as an Observable Plot dashboard."
+    },
+    {
+      "name": "WebSDR VCV",
+      "type": "personal",
+      "startDate": "2025",
+      "url": "https://ejfox.com/projects/websdr-vcv",
+      "description": "A VCV Rack / Cardinal plugin that streams real radio from KiwiSDR servers into a modular synth."
+    },
+    {
+      "name": "NOAA Satellite CLI",
+      "type": "personal",
+      "startDate": "2025",
+      "url": "https://ejfox.com/projects/noaa-sat-cli",
+      "description": "The whole planet, from a satellite, on your hard drive, in one command."
+    },
+    {
+      "name": "Obsidian Analysis",
+      "type": "personal",
+      "startDate": "2024",
+      "url": "https://ejfox.com/projects/obsidian-analysis",
+      "description": "I embedded my entire Obsidian vault, around 2,000 notes, using local Nomic embeddings."
+    },
+    {
+      "name": "Hand-Tracking & Generative Art",
+      "type": "personal",
+      "startDate": "2024",
+      "url": "https://ejfox.com/projects/creative-interfaces",
+      "description": "Attempts to make computers that respond to the way humans actually move and gesture."
+    },
+    {
+      "name": "Coach Artie",
+      "type": "personal",
+      "startDate": "2023",
+      "url": "https://ejfox.com/projects/coach-artie",
+      "description": "The AI assistant that lives in the Room 302 Studio Discord. He came online in March 2023."
+    },
+    {
+      "name": "Twitter Artbot",
+      "type": "personal",
+      "startDate": "2017",
+      "url": "https://ejfox.com/projects/twitter-artbot",
+      "description": "My first generative art bot. It ran hourly from June 2017 to late 2019, on its own."
     }
   ],
   "skills": [
@@ -262,5 +415,32 @@
   "meta": {
     "canonical": "https://ejfox.com/resume.json",
     "lastModified": "2026-10-12"
-  }
+  },
+  "publications": [
+    {
+      "name": "Clusters of NYPD Misconduct",
+      "publisher": "Gothamist",
+      "releaseDate": "2021-06-15",
+      "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct"
+    },
+    {
+      "name": "Paramilitary Leaks",
+      "releaseDate": "2025-09-01",
+      "url": "https://ejfox.com/projects/paramilitary-leaks"
+    },
+    {
+      "name": "Global Energy Ownership Tracker",
+      "publisher": "Global Energy Monitor",
+      "releaseDate": "2026-05-01",
+      "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Knight Prototype Fund grant",
+      "date": "2015",
+      "awarder": "Knight Foundation",
+      "summary": "For Dataproofer, with Gerald Rich and the Vocativ data team."
+    }
+  ]
 }

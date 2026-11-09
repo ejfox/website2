@@ -24,9 +24,9 @@ defineProps<{
     class="post-footer print:hidden"
   >
     <div class="post-footer__cols">
-      <section>
+      <section v-if="prevPost">
         <h2 class="post-footer__label">Previous</h2>
-        <ul v-if="prevPost" class="post-footer__list">
+        <ul class="post-footer__list">
           <li>
             <NuxtLink :to="`/blog/${prevPost.slug}`">
               {{ prevPost.title }}
@@ -36,13 +36,12 @@ defineProps<{
             </span>
           </li>
         </ul>
-        <p v-else class="post-footer__empty">—</p>
       </section>
 
-      <section>
+      <section v-if="relatedPosts.length">
         <h2 class="post-footer__label">Related</h2>
-        <ul v-if="relatedPosts.length" class="post-footer__list">
-          <li v-for="{ post } in relatedPosts.slice(0, 6)" :key="post.slug">
+        <ul class="post-footer__list">
+          <li v-for="{ post } in relatedPosts.slice(0, 3)" :key="post.slug">
             <NuxtLink :to="`/blog/${post.slug}`">
               {{ post.title || post.metadata?.title }}
             </NuxtLink>
@@ -51,12 +50,11 @@ defineProps<{
             </span>
           </li>
         </ul>
-        <p v-else class="post-footer__empty">—</p>
       </section>
 
-      <section>
+      <section v-if="nextPost">
         <h2 class="post-footer__label">Next</h2>
-        <ul v-if="nextPost" class="post-footer__list">
+        <ul class="post-footer__list">
           <li>
             <NuxtLink :to="`/blog/${nextPost.slug}`">
               {{ nextPost.title }}
@@ -66,39 +64,12 @@ defineProps<{
             </span>
           </li>
         </ul>
-        <p v-else class="post-footer__empty">—</p>
       </section>
     </div>
-
-    <!-- Umami nav-calendar funnel event; see CLAUDE.md "Umami funnel events" -->
-    <p class="post-footer__talk">
-      Want to talk about this?
-      <NuxtLink
-        to="/calendar"
-        data-umami-event="nav-calendar"
-        data-umami-event-location="post-footer"
-      >
-        Grab some time on my calendar
-      </NuxtLink>
-    </p>
   </footer>
 </template>
 
 <style scoped>
-.post-footer__talk {
-  @apply font-serif;
-  margin: 2.5rem 0 0;
-  font-size: 0.9375rem;
-  opacity: 0.8;
-}
-
-.post-footer__talk a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-
 .post-footer {
   margin-top: 4rem;
   padding-top: 2rem;
@@ -162,12 +133,5 @@ defineProps<{
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
   opacity: 0.45;
-}
-
-.post-footer__empty {
-  @apply font-mono;
-  font-size: 0.75rem;
-  opacity: 0.3;
-  margin: 0;
 }
 </style>

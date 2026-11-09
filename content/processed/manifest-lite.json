@@ -3937,14 +3937,14 @@
       "tags": [
         "personal"
       ],
-      "words": 114,
+      "words": 72,
       "images": 0,
       "imageDetails": {
         "total": 0,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 7,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5101,6 +5101,7 @@
       "state": "deployed",
       "ai-involvement": "human-only",
       "context": "client",
+      "case-study": "/case-study/nbc-big-board",
       "tags": [
         "d3",
         "dataviz",

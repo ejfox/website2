@@ -2,5 +2,6 @@
   "capacity": 3,
   "openSlots": 2,
   "bookedUntil": "",
-  "_help": "THE KNOB: openSlots = how many of your `capacity` project slots are open right now. Set openSlots to 0 when you're full (optionally set bookedUntil like \"November\"). Edit + push (live ~3 min), or edit on the VPS + `pm2 reload website2` for instant."
+  "asOf": "2026-11-04",
+  "_help": "THE KNOB: openSlots = how many of your `capacity` project slots are open right now. Set openSlots to 0 when you're full (optionally set bookedUntil like \"November\"). Set asOf to today's date whenever you touch this. Edit + push (live ~3 min), or edit on the VPS + `pm2 reload website2` for instant."
 }

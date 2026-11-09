@@ -60,7 +60,7 @@ useEventListener('focus', () => {
           data-umami-event-location="next-available-slot"
           target="_blank"
           class="link-blue-underline"
-          :title="`Book ${nextSlot.naturalTime} - 30min chat`"
+          :title="`Book ${nextSlot.naturalTime}, a 20-minute chat`"
           v-text="`(${nextSlot.naturalTime})`"
         />
       </template>

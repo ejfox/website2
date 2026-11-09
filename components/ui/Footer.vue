@@ -51,28 +51,22 @@ const buildTitle = computed(() => {
         <a class="u-url u-uid hidden" href="https://ejfox.com" rel="me">
           ejfox.com
         </a>
-        <span class="p-note hidden">
-          Data visualization engineer, photographer, and digital craftsperson
-        </span>
+        <!-- rel="me" stays on every page for identity verification; the
+             visible mastodon link lives on /now. -->
+        <a class="hidden" href="https://mastodon.social/@ejfox" rel="me">
+          mastodon
+        </a>
+        <p
+          class="p-note mt-3 font-serif text-sm text-zinc-600 dark:text-zinc-400"
+        >
+          When someone hands me a mess, I take a kind of pathological joy in
+          untangling it.
+        </p>
       </div>
 
       <nav :class="navClasses">
-        <NuxtLink to="/stats" :class="navLinkClasses">/stats</NuxtLink>
-        <NuxtLink to="/gists" :class="navLinkClasses">/gists</NuxtLink>
-        <NuxtLink to="/gear" :class="navLinkClasses">/gear</NuxtLink>
-        <NuxtLink to="/predictions" :class="navLinkClasses">
-          /predictions
-        </NuxtLink>
         <NuxtLink to="/now" :class="navLinkClasses">/now</NuxtLink>
-        <NuxtLink to="/on-this-day" :class="navLinkClasses">
-          /on-this-day
-        </NuxtLink>
-        <NuxtLink to="/sitemap" :class="navLinkClasses">/sitemap</NuxtLink>
-        <NuxtLink to="/threads" :class="navLinkClasses">/threads</NuxtLink>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
-        <a href="https://ejfox.com/archive.epub" :class="navLinkClasses">
-          /epub
-        </a>
         <!-- rel="me authn": IndieAuth may use these to verify ejfox.com -->
         <a
           href="https://github.com/ejfox"
@@ -81,12 +75,8 @@ const buildTitle = computed(() => {
         >
           github
         </a>
-        <a
-          href="https://mastodon.social/@ejfox"
-          rel="me"
-          :class="navLinkClasses"
-        >
-          mastodon
+        <a href="https://www.youtube.com/@ejfox" :class="navLinkClasses">
+          youtube
         </a>
         <NuxtLink
           to="/calendar"
@@ -99,8 +89,6 @@ const buildTitle = computed(() => {
         <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses">
           email
         </a>
-        <NuxtLink to="/tips" :class="navLinkClasses">tips</NuxtLink>
-        <NuxtLink to="/verify" :class="navLinkClasses">verify</NuxtLink>
       </nav>
 
       <!-- PGP + Build info -->

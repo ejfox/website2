@@ -488,7 +488,9 @@ export default defineNuxtConfig({
     server: {
       watch: {
         ignored: [
-          '**/.claude/**',
+          // Root-anchored: a bare **/.claude/** also matches every file when
+          // the checkout itself is a worktree under .claude/, which kills HMR.
+          `${process.cwd()}/.claude/**`,
           '**/data/**',
           '**/content/processed/**',
           '**/content/backup/**',

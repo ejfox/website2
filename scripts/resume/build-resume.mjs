@@ -51,7 +51,7 @@ const years = (a, b) => {
 
 const host = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
 
-const { basics, work = [], projects = [], skills = [] } = resume
+const { basics, work = [], projects = [], skills = [], awards = [] } = resume
 // Roles that ended by 2014 collapse into an "Early Career" list (as in the
 // original Pages design) instead of full experience blocks.
 const isEarly = (w) =>
@@ -140,6 +140,16 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
                   `<li><i>${esc(w.name)} (${esc(String(w.startDate).slice(0, 4))})</i>: ${esc(w.highlights?.[0] || w.position)}</li>`
               )
               .join('')}</ul></div>`
+          : ''
+      }
+      ${
+        awards.length
+          ? `<h2>Awards</h2>${awards
+              .map(
+                (a) =>
+                  `<p class="skill"><b>${esc(a.title)}</b> (${esc(a.awarder)}, ${esc(a.date)}): ${esc(a.summary)}</p>`
+              )
+              .join('')}`
           : ''
       }
 

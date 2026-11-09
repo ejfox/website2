@@ -80,7 +80,7 @@ saying the same things in more detail. See `docs/CODE-GUIDE.md`.
 
 | route | file | data | render |
 |---|---|---|---|
-| `/consulting` | `consulting.vue` | `/api/consulting-availability`, `/api/cal/available-slots` (client), Cal.com embed | SSR |
+| `/consulting` | `consulting.vue` | `/api/availability`, `/api/cal/available-slots` (client), Cal.com embed | SSR |
 | `/process` | `process.vue` | none (inline copy) | SSR |
 | `/calendar` | `calendar.vue` | `/api/cal/available-slots` (client), Cal.com embed via utils/calEmbed.ts | live, `layout: false` |
 | `/tips` | `tips.vue` | none (PGP fingerprint inline) | SSR |

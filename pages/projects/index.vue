@@ -185,18 +185,19 @@ const { data: availability } = useAsyncData('availability', () =>
 const availabilityLine = computed(() => {
   const a = availability.value
   if (!a?.known) return null
+  const asOf = a.asOf ? ` (as of ${a.asOf})` : ''
   if (a.openSlots > 0) {
     const slots =
       a.openSlots === 1 ? '1 slot is open' : `${a.openSlots} slots are open`
     return {
-      text: `I take on ${a.capacity} projects at a time, and ${slots}`,
+      text: `I take on ${a.capacity} projects at a time, and ${slots}${asOf}`,
       cta: '→ grab a slot',
     }
   }
   return {
     text: a.bookedUntil
-      ? `I take on ${a.capacity} projects at a time — full through ${a.bookedUntil}`
-      : `I take on ${a.capacity} projects at a time, and I’m full right now`,
+      ? `I take on ${a.capacity} projects at a time — full through ${a.bookedUntil}${asOf}`
+      : `I take on ${a.capacity} projects at a time, and I’m full right now${asOf}`,
     cta: '→ say hi for the next one',
   }
 })
