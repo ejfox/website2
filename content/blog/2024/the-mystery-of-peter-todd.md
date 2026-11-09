@@ -97,7 +97,7 @@ This lead some <ruby><rb>LessWrong commenters</rb><rt>vitaliya, among others</rt
 
 >The main page contains a list of threads with various counting challenges, and in the comment sections people strive to complete those challenges. That’s really all there is to it. The counters at Counting count for the sheer joy of counting—and, in so doing, they illustrate the very real joys of Reddit.
 
-While this subreddit isn’t likely the core reason for GPT’s math issues, the fact that OpenAI has since [officially partnered to train on Reddit’s archives](https://techcrunch.com/2024/05/16/openai-inks-deal-to-train-ai-on-reddit-data/) shows how even seemingly insignificant user actions—like posting strings of digits on Reddit—can influence how the LLM interprets the world. The sheer volume of posts from r/counting might not have directly created the glitches, but it illustrates the [butterfly effect](https://www.youtube.com/watch?v=o9DA-r51PUY) of our everyday digital actions shaping current and future AI in unexpected ways.
+While this subreddit isn’t likely the core reason for GPT’s math issues, the fact that OpenAI has since [officially partnered to train on Reddit’s archives](https://techcrunch.com/2024/05/16/openai-inks-deal-to-train-ai-on-reddit-data/) shows how even seemingly insignificant user actions—like posting strings of digits on Reddit—can influence how the LLM interprets the world. The sheer volume of posts from r/counting might not have directly created the glitches, but it illustrates the [butterfly effect](https://www.youtube.com/watch?v=o9DA-r51PUY) of our everyday digital actions shaping current and future AI.
 
 `TPP[StreamerBot]` turned out to be an artifact from logs of the 2014 project [Twitch Plays Pokemon](https://en.wikipedia.org/wiki/Twitch_Plays_Pokémon) where a game of Pokemon was played by a Twitch Chat, leading to enormous logs filled with people typing in commands to control the character.
 
@@ -105,7 +105,7 @@ Another dataset that twisted itself into the glitch tokens was correspondence fr
 
 It is notable these are smaller examples of [Absurdly Large Media Objects](https://cyborgism.wiki/hypha/almo) which the Cyborgism Wiki describes as “anomalously massive works of creative media.” The robot must have been incredibly confused as it tried to make sense of hundreds of thousands of lines of these chat, email, and reddit logs, just as it did with the r/counting subreddit. Because of the informational mass of material, these works seem to have had outsized impact on the robots who have them in their training data. They might even have outsized impact on the form and direction of its cognition in completely unrelated areas, in ways that we do not yet fully understand.
 
-The fun-loving Redditors and Twitch chatters could never have anticipated a hyper-intelligent robot scouring their chat logs, doing its best to understand the meaning and language embedded in their recorded adventures. In other spheres, like programming, these same techniques allowed the robot to read through tons of Python documentation, courses, questions, and answers and somehow gain the ability to write professional-grade Python code. That powerful ability to understand the world appears to do some **profoundly strange things** when it goes wrong. When glitches manifest themselves as language, or as ideas, things can get weird pretty quickly. Maybe the robot wasn’t just malfunctioning - it was dreaming in the glitches.
+The fun-loving Redditors and Twitch chatters could never have anticipated a hyper-intelligent robot scouring their chat logs, doing its best to understand the meaning and language embedded in their recorded adventures. In other spheres, like programming, these same techniques allowed the robot to read through tons of Python documentation, courses, questions, and answers and somehow gain the ability to write professional-grade Python code. That powerful ability to understand the world appears to do some **profoundly strange things** when it goes wrong. When glitches manifest themselves as language, or as ideas, things can get weird pretty quickly.
 
 ### Peter Todd
 
@@ -115,7 +115,7 @@ Watkins told me "It's a bit like if you were dealing with a traumatized child, y
 
 "If you prompt the various GPT-3 playground models about ` petertodd`, ask it who is ` petertodd`, or get it to repeat ` petertodd` back to you. It generates this incredible outpouring of negativity,[^4] often using the words "antagonist", "antagonism", "tyranny", "tyrant", "despot", "authoritarianism". Extreme right-wing, fascism, authoritarianism, arrogance, narcissism, seem to have aggregated around this ' petertodd' token. I feel for Peter Todd, the actual person that this token is linked back to. Fortunately, he finds this hilarious"
 
-The glitch tokens, the machine’s strange hallucinations, are not just simple errors[^5]—they are windows into a mind that we do not yet understand. And as these machines grow in power, so too will their capacity to surprise[^6] us with the outputs of their glitches.
+The glitch tokens, the machine’s strange hallucinations, are windows[^5] into a mind that we do not yet understand. As these machines grow in power, so will their capacity to surprise[^6] us with their glitches.
 
 >Oct 9 2024: Last night, HBO aired a documentary about Bitcoin that claimed to reveal the identity of the cryptocurrency’s anonymous creator Satoshi Nakamoto. In Money Electric, journalist Cullen Hoback chased the identity of the mysterious creator and came to a controversial conclusion. According to Hoback, Satoshi is software developer Peter Todd.
 
@@ -143,9 +143,7 @@ It is unlikely that ` petertodd` is the only token that elicits the shadow side 
 
 **The AI that we are building and deploying into the world is already rapidly outpacing our understanding.** Based on the work of these researchers, it seems like there might be a shadow side to the AI that is **impossible to patch** and will likely exist forever, not as a glitch, but as part of the core foundation that gives it the ability to perform in the ways that we *want it to*. These glitch tokens are a scratch on the surface of an incredibly complicated system that is creating completely alien chains of thought. It seems that the LLMs, like their human creators, have a propensity to become enamored with religious imagery, the occult, and internet-native humor.
 
-Will these experiences shape our understanding of what it means to be human, and what it means to be a machine?
-
-This isn’t speculative science fiction, or a warning of what could happen one day; this is already happening right in front of us. It’s so strange that it’s hard to recognize even when you are looking directly at it. As we rush to integrate AI into every facet of life, perhaps we should pause to fully understand the shadows lurking deep within them.
+This is already happening right in front of us. It’s so strange that it’s hard to recognize even when you are looking directly at it. As we rush to integrate AI into every part of life, perhaps we should pause to fully understand the shadows lurking deep within them.
 
 —
 

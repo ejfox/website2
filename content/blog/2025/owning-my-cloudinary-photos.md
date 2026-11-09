@@ -20,7 +20,7 @@ So it was time to [[building-tools-for-yourself|whip up a little app]]. Fast.
 
 ### The Stack
 
-No time for my usual Vue/Nuxt comfort zone. This beast needed filesystem muscles and the kind of parallel processing that makes CPUs sweat. No time for slow-ass Electron. I went with Tauri—Rust backend, web frontend, no Chrome bloat. I’d used it before to generate EXIF-annotated jpegs for low-cost physical printing (I like to edit and organize my photos analog), so at least some of the learning curve was dulled, and of course Claude Code was writing most of it anyway.
+No time for my usual Vue/Nuxt comfort zone. This needed filesystem access and parallel processing. No time for slow-ass Electron. I went with Tauri—Rust backend, web frontend, no Chrome bloat. I’d used it before to generate EXIF-annotated jpegs for low-cost physical printing (I like to edit and organize my photos analog), so at least some of the learning curve was dulled, and of course Claude Code was writing most of it anyway.
 
 The requirements were simple:
 
@@ -31,7 +31,7 @@ The requirements were simple:
 
 ### Racing the Clock (And Rate Limits)
 
-The scope of this endeavor hit me like a bug at sixty: I had over 3,000 photos in my library. With Cloudinary’s rate limits, this wasn’t a quick script—this was an hour-plus operation that could die at any moment.
+The scope of this endeavor hit me like a bug at sixty: I had over 3,000 photos in my library. With Cloudinary’s rate limits, this was an hour-plus operation that could die at any moment.
 
 Our main problem: resumability. When my download crashes at photo 2,847, I don’t want to start from zero. I needed to cache the initial scan from the Clouindary API—that precious JSON manifest of every filename Cloudinary was willing to admit existed. Cache the list, track what’s downloaded, resume from where we left off. Great.
 
@@ -39,14 +39,14 @@ Our main problem: resumability. When my download crashes at photo 2,847, I don�
 
 What happens when AWS decides your use case isn’t profitable? When Google kills another service? When some startup gets acqui-hired and your data becomes “legacy”? When you can't afford to pay $100 this month to host your photos?
 
-The backup tool worked—my anxiety laid to rest, digital life preserved. But it was a wake-up call. I am glad how easy it was to conjure my backups into existence. But it was *almost* too late.
+The backup tool worked. But it was a wake-up call. I am glad how easy it was to conjure my backups into existence. But it was *almost* too late.
 
-### The Aftermath: A Digital Hymn
+### The Aftermath
 
 And there they sit now, inside a drive humming silently on my desk, warm to the touch, containing the [[quantified-self-as-archaeology|digital archaeology]] of my existence. Three thousand plus images: screenshots of conversations that made me laugh, photos of sunsets that stopped me mid-stride, documentation of code that actually worked on the first try.
 
-Cloudinary, bless their well-documented souls, made this possible with an API that didn’t fight me. Clean endpoints, sensible rate limits, pagination that actually works. In a world of hostile APIs and developer contempt, they built something that works. For this small mercy, I am grateful.
+Cloudinary, bless their well-documented souls, made this possible with an API that didn’t fight me. Clean endpoints, sensible rate limits, pagination that actually works.
 
-My drive now contains everything: the accidental art of UI glitches, debugging sessions, error messages that taught me something new. Each file a breadcrumb in the trail of becoming the person I am today.
+My drive now contains everything: the accidental art of UI glitches, debugging sessions, error messages that taught me something new.
 
-Pay attention to your digital life, friends. Notice what you’re creating, cherish what you’re recording, and always—always—know where your most treasured bytes live when the lights go out.
+Pay attention to your digital life, friends. Know where your most treasured bytes live.

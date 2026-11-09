@@ -15,7 +15,7 @@ tags:
   - video
 ---
 
-I started filming my rides in case something went wrong. A helmet cam is insurance — if an accident or something crazy happened, at least there'd be a tape. But over a few years the reason quietly changed on me. I'd flip it on for the beautiful stuff instead: a good stretch of road, the light, whatever cool thing was happening. One time I caught a train and a helicopter lining up over the Hudson River exactly as I rode past.
+I started filming my rides in case something went wrong. A helmet cam is insurance — if an accident or something crazy happened, at least there'd be a tape. But over a few years the reason changed on me. I'd flip it on for the beautiful stuff instead: a good stretch of road, the light, whatever cool thing was happening. One time I caught a train and a helicopter lining up over the Hudson River exactly as I rode past.
 
 By the end of those first few years I had gigabytes and gigabytes of it, and I got curious what all of it looked like at once — what years of riding might add up to. So I ran the whole corpus through a battery of meta-visualization techniques, pulling images out of the footage that no single frame holds.
 
@@ -48,7 +48,7 @@ By the end of those first few years I had gigabytes and gigabytes of it, and I g
 
 So what did it all add up to? Honestly, not much you could point at. The specific moments I'd gone looking for — the train and the helicopter, the good light — washed out in the averaging. What was left was just the general shape and colors of the Hudson Valley and its roads. Unremarkable, but with a kind of haunting beauty to it. A consistency.
 
-The real blessing turned out to be in what *isn't* there. Across all of it — every gig of footage, every year — no accident, nothing terrible ever happened. The insurance I started rolling never had to pay out. That's the thing the average quietly confirms.
+The blessing is in what *isn't* there. Across all of it — every gig of footage, every year — no accident, nothing terrible ever happened. The insurance I started rolling never had to pay out.
 
 ## Mapping the rides
 
