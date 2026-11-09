@@ -86,7 +86,10 @@ export default defineEventHandler(async (event) => {
     console.error(
       `[Cal.com Webhook] CALCOM_WEBHOOK_SECRET not set — rejecting webhook from ${clientIp}`
     )
-    throw createError({ statusCode: 503, statusMessage: 'Webhook not configured' })
+    throw createError({
+      statusCode: 503,
+      statusMessage: 'Webhook not configured',
+    })
   }
 
   if (verdict === 'no-secret') {

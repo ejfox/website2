@@ -10,6 +10,7 @@
 <script setup>
 import madeList from '~/assets/home-projects.txt?raw'
 import { useMediaQuery } from '@vueuse/core'
+import { Menu as VMenu } from 'floating-vue'
 import { cldPlaceholder, cldTile } from '~/utils/cld'
 
 const NextAvailableSlot = defineAsyncComponent(
