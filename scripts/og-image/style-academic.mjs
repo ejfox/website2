@@ -12,7 +12,14 @@
 import { createCanvas } from '@napi-rs/canvas'
 import { createNoise2D } from 'simplex-noise'
 import { createRng, randPick } from './seed.mjs'
-import { fitText, wrapText, hairline, ellipsize, isoDay, fmtInt } from './text.mjs'
+import {
+  fitText,
+  wrapText,
+  hairline,
+  ellipsize,
+  isoDay,
+  fmtInt,
+} from './text.mjs'
 
 export const name = 'academic'
 
@@ -216,7 +223,8 @@ export async function render(content, seed) {
   ctx.letterSpacing = '2px'
   ctx.fillStyle = TONE.muted
   let items = outline.map((h, i) => `§${i + 1} ${h.text.toUpperCase()}`)
-  if (!items.length) items = (content.tags || []).map((t) => `#${t.toUpperCase()}`)
+  if (!items.length)
+    items = (content.tags || []).map((t) => `#${t.toUpperCase()}`)
   if (!items.length) {
     items = [`${paragraphs} PARAGRAPHS`, `${fmtInt(content.stats.links)} LINKS`]
   }
@@ -264,7 +272,10 @@ export async function render(content, seed) {
     if (room > 40) {
       ctx.font = `italic 400 15px Georgia, serif`
       ctx.fillStyle = TONE.muted
-      const lines = wrapText(ctx, notes[0], WIDTH - MARGIN * 2 - 18).slice(0, Math.floor(room / 21))
+      const lines = wrapText(ctx, notes[0], WIDTH - MARGIN * 2 - 18).slice(
+        0,
+        Math.floor(room / 21)
+      )
       ctx.font = `400 11px ${MONO}`
       ctx.fillStyle = TONE.faint
       ctx.fillText('1', MARGIN, y + 16)
