@@ -15,6 +15,7 @@ import type { StatsResponse } from '~/composables/useStats'
 import { numberFormat } from '~/utils/numberFormat'
 import { primaryTimeControl } from '~/utils/chess'
 
+// ── Props ──────────────────────────────────────────────────────
 interface BlogStats {
   totalPosts: number
   totalWords: number
@@ -29,6 +30,7 @@ const props = defineProps<{
   blogStats?: BlogStats
 }>()
 
+// ── Derived card values ────────────────────────────────────────
 const { formatNumber: _formatNumber } = numberFormat()
 
 const totalLeetCodeSolved = computed(() => {
@@ -71,6 +73,7 @@ const postsThisMonth = computed(() => {
 
 <template>
   <div class="flex flex-wrap justify-center sm:justify-between gap-2">
+    <!-- ── GitHub ─────────────────────────────────────────────── -->
     <!-- GitHub Contributions -->
     <div
       v-if="stats.github?.stats"
@@ -99,6 +102,7 @@ const postsThisMonth = computed(() => {
       </div>
     </div>
 
+    <!-- ── Writing: posts and words ───────────────────────────── -->
     <!-- Blog Stats -->
     <div v-if="blogStats" class="top-stat-card" :style="{ '--stat-index': 1 }">
       <div class="stat-value">
@@ -161,6 +165,7 @@ const postsThisMonth = computed(() => {
       <StatsDataState message="Loading word counts..." type="loading" />
     </div>
 
+    <!-- ── Practice: LeetCode, chess, typing ──────────────────── -->
     <!-- LeetCode Problems -->
     <div
       v-if="stats.leetcode?.submissionStats"

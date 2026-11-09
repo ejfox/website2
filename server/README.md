@@ -23,6 +23,7 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 | `scraps` | Shared scraps (500 newest, 1h cache) | `pages/scraps`, `scraps/tag`, `now` | Supabase (`shared=true`) |
 | `scraps/by-tags` | Scraps matching tags | `pages/blog`, `scraps` | Supabase |
 | `scraps/tags` | All unique scrap tags (no `shared` filter) | public API | Supabase |
+| `scraps/[id]` | One shared scrap (404 if malformed, missing or not shared) | `pages/scraps/[id]`, `scraps/embed/[id]` via `useScrapPermalink` | Supabase (`shared=true`) |
 | `scraps/graph` | Slim shared-scraps list (500, trimmed fields) | `pages/threads`, `pages/tag` | Supabase (`shared=true`, 10-min cache) |
 | `search` | BM25 full-text search (`?q=&limit=`), uncached | public API | `content/processed` |
 | `suggest` | AI tag/summary for a scrap | `bookmarklet-popup` | processed posts + `public/tags.json` + OpenRouter (`SCRAP_ENLIGHTENER_AUTH`) |
@@ -166,3 +167,31 @@ in the orphan test with a reason so they don't read as accidental orphans.
   caller, was deleted 2026-10-27.)
 - **`weekly-summary`** — `GET /api/weekly-summary?week=2026-W05` aggregates a
   week across GitHub/RescueTime/health/chess/… for the **Sunday Interview skill**.
+
+## Non-/api routes (`server/routes/`) and middleware
+
+URL → file for everything outside `/api`. No orphan test covers these; feeds
+and redirects are hit from outside.
+
+| URL | File | What |
+|---|---|---|
+| `/rss.xml`, `/feed.json` | `routes/rss.xml.ts`, `routes/feed.json.ts` | Main blog feed, latest 50, full HTML. Twins: change both |
+| `/dispatch-rss.xml`, `/scraps-rss.xml`, `/robots-rss.xml`, `/gists-rss.xml` | `routes/<name>.ts` | Per-section feeds |
+| `/archive.epub`, `/photos.epub` | `routes/archive.epub.ts`, `routes/photos.epub.ts` | Whole blog / photo blog as EPUB |
+| `/sitemap.xml` | `routes/sitemap.xml.ts` | Built per request (1h browser / 1d edge cache) |
+| `/tags.json` | `routes/tags.json.ts` | Tag vocabulary, journalist-pyramid order |
+| `/openapi.json` | `routes/openapi.json.ts` | Generated from `utils/apiCatalog.ts` |
+| `/go/<slug>` | `routes/go/[slug].get.ts` | Sponsor/partner short links |
+| `/via/<source>`, `/from-youtube/<id>` | `routes/via/[source].get.ts`, `routes/from-youtube/[videoId].get.ts` | UTM-tagging redirectors. Keep both open-redirect checks (CLAUDE.md) |
+| `/.well-known/webfinger`, `/.well-known/site.standard.publication` | `routes/.well-known/*.get.ts` | WebFinger (fediverse) + standard.site (AT Protocol) verification |
+
+Middleware runs on every request, in filename order:
+
+| File | What |
+|---|---|
+| `middleware/blog-projects-redirect.ts` | 301 `/blog/projects/<slug>` → `/projects/<slug>` |
+| `middleware/blog-reading-redirect.ts` | 301 `/blog/reading/<slug>` → `/reading/<slug>` |
+| `middleware/json-twin.ts` | `<any page>.json`: structured twin of the page |
+| `middleware/legacy-redirect.ts` | 301 old/mangled URLs; rules in `server/utils/legacyRedirect.ts` |
+| `middleware/markdown-twin.ts` | `/blog/<year>/<slug>.md`: plain Markdown copy of a post |
+| `middleware/week-notes-gone.ts` | 410 for every old week-notes URL |

@@ -403,7 +403,7 @@ async function main() {
       `\n👁  Review file written: ${path.relative(path.resolve(__dirname, '..'), reviewPath)}`
     )
     console.log(`   Open it, fix the "suggested" fields, then run:`)
-    console.log(`   node scripts/generate-alt-text.mjs --apply-review`)
+    console.log(`   node scripts/meta/generate-alt-text.mjs --apply-review`)
   }
   if (!WRITE_MODE && totalChanges > 0) {
     console.log(`\n💡 Run with --write to apply changes`)

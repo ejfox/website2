@@ -1,5 +1,5 @@
 /**
- * @file utils/backup.mjs
+ * @file scripts/utils/backup.mjs
  * @description Copy content/processed/ → content/backup/ at the start of every
  *   `yarn blog:process` (called first by processAllFiles in
  *   scripts/build/processMarkdown.mjs). One generation only: the previous

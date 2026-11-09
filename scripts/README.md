@@ -101,7 +101,7 @@ scripts/
 ├── README.md
 ├── config.mjs                  # centralized configuration (dirs, Cloudinary, globs)
 ├── capture.mjs                 # screenshot/record/upload toolkit for /projects (yarn capture, Chrome on :9333;
-│                               #   docs: author/capture.README.md, whose paths say author/capture.mjs: wrong)
+│                               #   docs: author/capture.README.md)
 │
 ├── build/            # runs on EVERY deploy, plus by-hand data builders
 │   ├── processMarkdown.mjs        # the content pipeline (markdown → JSON)
@@ -145,7 +145,7 @@ scripts/
 ├── author/           # tools to make & ship content
 │   ├── predict-pro.mjs            # create/update/resolve predictions; runs git commit (yarn predict)
 │   ├── crown.mjs                  # post body → content/blog/<slug>.vue, trims .md to frontmatter (yarn crown)
-│   ├── shoot-queue.mjs            # screenshot queue → Cloudinary + edits project .md (yarn shoot; BROKEN: spawns author/capture.mjs)
+│   ├── shoot-queue.mjs            # screenshot queue → Cloudinary + edits project .md (yarn shoot; spawns scripts/capture.mjs)
 │   ├── capture.README.md          # docs for scripts/capture.mjs
 │   ├── send-webmentions.mjs       # outbound webmentions to third-party sites (yarn webmention, CI after deploy)
 │   ├── mirror-to-atproto.mjs      # mirror posts to Bluesky; dry run unless --live (yarn blog:mirror-atproto, CI --live)
@@ -175,7 +175,7 @@ scripts/
 ├── dev/
 │   └── content-watch.mjs          # yarn dev: reprocess edited .md + HMR the open tab (imported by nuxt.config.ts)
 │
-├── plugins/          # remark/rehype plugins (see plugins/index.mjs)
+├── plugins/          # remark/rehype plugins (see scripts/plugins/index.mjs)
 └── utils/            # shared helpers: helpers, stats, backup, brier,
                       # internal-links, url-stability, vue-body
 ```

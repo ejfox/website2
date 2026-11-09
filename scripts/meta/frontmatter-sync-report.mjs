@@ -45,12 +45,11 @@ const LIMIT = (() => {
   return i === -1 ? 25 : Number(args[i + 1]) || 25
 })()
 
+// ── File discovery ──────────────────────────────────────────
 /**
  * Vault `blog/2019/foo.md` → repo `2019/foo.md`. Mirrors `contentRelativePath()` in
  * the removed scripts/blog/import.mjs — the leading `blog/` segment was stripped on import.
  */
-
-// ── File discovery ──────────────────────────────────────────
 const contentRelativePath = (relPath) =>
   relPath.startsWith(`blog${path.sep}`) ? relPath.slice(5) : relPath
 
@@ -124,7 +123,7 @@ const normalizeBody = (s) => s.replace(/\r\n/g, '\n').replace(/\s+$/, '')
  * a repo→vault push destructive. The transforms, all repo-side pipelines:
  *   - dead-wikilink stripping (`[[a|b]]` → `b`) — repo renders dead links as spans,
  *     and links to drafts/PII slugs were removed outright
- *   - alt-text generation + Cloudinary rehosting (scripts/generate-alt-text.mjs,
+ *   - alt-text generation + Cloudinary rehosting (scripts/meta/generate-alt-text.mjs,
  *     sync-alt-to-cloudinary.mjs) — vault keeps bare iCloud attachment filenames
  *   - Obsidian embeds `![[local.png]]` → hosted `![alt](https://res.cloudinary…)`
  *   - inline directive insertion (`::gear{…}`) and prose de-linking

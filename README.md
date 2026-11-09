@@ -1,6 +1,6 @@
 # ejfox.com
 
-Personal website and blog. Nuxt 3, Vue 3, Tailwind, one Node process under
+Personal website and blog. Nuxt 4, Vue 3, Tailwind, one Node process under
 pm2. Posts are written in Obsidian, compiled to JSON at build time, and
 served by Vue pages.
 
@@ -69,6 +69,13 @@ files are split with `── Section ──` dividers. The conventions are in
   `server/README.md` cover the rest.
 - `.ignore` hides generated JSON and bulk exports from rg/fd/telescope. Name
   the path to search one anyway: `rg foo content/processed`.
+- `~/` in imports is Nuxt's repo-root alias, so `gf` on `~/utils/date` opens
+  your home directory. Use the LSP's go-to-definition (`gd`) for imports;
+  `gf` is for the repo-relative paths in comments.
+- The Vue/TS language server and `yarn lint` both read the generated `.nuxt/`
+  (`tsconfig.json` extends it). `yarn install` creates it; a fresh git
+  worktree with a symlinked `node_modules` doesn't, so run `yarn nuxt prepare`
+  there once. Symptom: `Cannot find module .nuxt/eslint.config.mjs`.
 
 ## Commands
 

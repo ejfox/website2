@@ -1,5 +1,5 @@
 /**
- * @file utils/brier.mjs
+ * @file scripts/utils/brier.mjs
  * @description Brier + calibration math for `yarn calibrate`
  *   (scripts/meta/calibration-analysis.mjs) and utils/calibration.ts, on two bases:
  *

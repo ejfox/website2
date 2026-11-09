@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkMermaid.mjs
+ * @file scripts/plugins/remarkMermaid.mjs
  * @description Renders ```mermaid fenced code blocks to inline SVG at build time
  * with Pele (https://pele.run — Mermaid syntax, zero deps, CSS-variable theming).
  * No client JS: colors come from the --pele-* vars in global.css, so light/dark

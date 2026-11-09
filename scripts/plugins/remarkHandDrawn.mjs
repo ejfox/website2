@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkHandDrawn.mjs
+ * @file scripts/plugins/remarkHandDrawn.mjs
  * @description Remark plugin that converts :hd{} directives into inline SVG
  *   placeholders. The client plugin (plugins/hand-drawn.client.ts) swaps in the
  *   actual hand-drawn mark at runtime — no Vue mount needed, it's decoration.
