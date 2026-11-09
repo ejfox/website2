@@ -12,7 +12,7 @@
     don't add lines, and don't cut quotes, credits or client names without asking.
 -->
 <script setup lang="ts">
-import { useDark, useWindowScroll, useWindowSize } from '@vueuse/core'
+import { useDark } from '@vueuse/core'
 import { calParams, readFirstTouch } from '~/utils/firstTouch'
 import resume from '~/public/resume.json'
 
