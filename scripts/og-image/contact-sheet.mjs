@@ -30,7 +30,9 @@ if (batchIdx !== -1) {
 }
 const slugs = args
 if (!slugs.length) {
-  console.error('Usage: node scripts/og-image/contact-sheet.mjs [--batch N] <slug> [...]')
+  console.error(
+    'Usage: node scripts/og-image/contact-sheet.mjs [--batch N] <slug> [...]'
+  )
   process.exit(1)
 }
 

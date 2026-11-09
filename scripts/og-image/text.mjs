@@ -110,5 +110,5 @@ export function isoDay(date) {
 
 /** 1,383 → "1,383" with a thin-space-free thousands separator */
 export function fmtInt(n) {
-  return String(Math.round(n || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return String(Math.round(n || 0)).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',')
 }

@@ -119,10 +119,17 @@ export async function render(content, seed) {
       bottom: titleTop + blockH + 20,
       left: MARGIN - 30,
       right:
-        MARGIN + Math.max(...title.lines.map((l) => ctx.measureText(l).width)) + 30,
+        MARGIN +
+        Math.max(...title.lines.map((l) => ctx.measureText(l).width)) +
+        30,
     },
     // the status line
-    { top: HEIGHT - MARGIN - 30, bottom: HEIGHT - MARGIN + 24, left: MARGIN - 20, right: WIDTH - MARGIN + 20 },
+    {
+      top: HEIGHT - MARGIN - 30,
+      bottom: HEIGHT - MARGIN + 24,
+      left: MARGIN - 20,
+      right: WIDTH - MARGIN + 20,
+    },
   ]
 
   // ── Glyph field from the post's own words ─────────────────────────────
@@ -133,7 +140,14 @@ export async function render(content, seed) {
 
   // A pink bloom low in the frame, like a phosphor glow off the field
   const gx = randRange(rng, WIDTH * 0.2, WIDTH * 0.8)
-  const glow = ctx.createRadialGradient(gx, HEIGHT + 60, 0, gx, HEIGHT + 60, HEIGHT * 0.7)
+  const glow = ctx.createRadialGradient(
+    gx,
+    HEIGHT + 60,
+    0,
+    gx,
+    HEIGHT + 60,
+    HEIGHT * 0.7
+  )
   glow.addColorStop(0, pink(0, 45, 0.28))
   glow.addColorStop(1, pink(0, 45, 0))
   ctx.fillStyle = glow
@@ -160,7 +174,12 @@ export async function render(content, seed) {
       // The one teal datum: the cursor
       const w = ctx.measureText(title.lines[i]).width
       ctx.fillStyle = V.teal
-      ctx.fillRect(MARGIN + w + title.size * 0.2, y - title.size * 0.78, title.size * 0.5, title.size * 0.9)
+      ctx.fillRect(
+        MARGIN + w + title.size * 0.2,
+        y - title.size * 0.78,
+        title.size * 0.5,
+        title.size * 0.9
+      )
     }
     y += lineH
   }
