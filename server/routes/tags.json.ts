@@ -38,7 +38,6 @@ export default defineEventHandler(async (event) => {
     // Journalist pyramid: !tags first, then content tags by usage,
     // then unused base tags
     const contentTagKeys = Object.keys(contentTagUsage)
-    // console.log('Content tags found:', contentTagKeys.length)
     const allTags = new Set([...baseTags, ...contentTagKeys])
     const specialTags = Array.from(allTags)
       .filter((t) => t.startsWith('!'))
@@ -53,15 +52,6 @@ export default defineEventHandler(async (event) => {
           !t.startsWith('!') && !(contentTagUsage as Record<string, number>)[t]
       )
       .sort()
-    // console.log(
-    //   'Special:',
-    //   specialTags.length,
-    //   'Used:',
-    //   usedTags.length,
-    //   'Unused:',
-    //   unusedTags.length
-    // )
-
     return [...specialTags, ...usedTags, ...unusedTags]
   } catch (error) {
     // Degrade, don't fail: unordered base tags, then a hardcoded stub, so the

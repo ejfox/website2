@@ -49,7 +49,7 @@ saying the same things in more detail. See `docs/CODE-GUIDE.md`.
 | `/reading`, `/reading/<slug>` | `reading/` | `/api/reading`, `/api/reading/<slug>` | SSR |
 | `/dispatch`, `/dispatch/<slug>` | `dispatch/` | `/api/dispatch`, `/api/dispatch/<slug>` | SSR |
 | `/tag/<tag>` | `tag/[...slug].vue` | `/api/manifest`, `/api/scraps/graph` | SSR |
-| `/scraps`, `/scraps/tag/<slug>` | `scraps/` | `/api/scraps` | SSR, long edge cache (`/scraps/**`) |
+| `/scraps`, `/scraps/tag/<slug>`, `/scraps/<id>`, `/scraps/embed/<id>` | `scraps/` | `/api/scraps`; `<id>` pages: `/api/scraps/<id>` | SSR, long edge cache (`/scraps/**`) |
 | `/photos`, `/photos/<id>` | `photos/` | `/api/photos`, `/api/photo-posts`, `/api/photo-exif` | SSR; `<id>` is `layout: false` |
 | `/threads` | `threads.vue` | `/api/manifest`, `/api/scraps/graph`, both fetched client-side (d3 canvas graph) | SSR shell |
 | `/case-study/nbc-big-board` | `case-study/nbc-big-board.vue` | none (inline copy) | SSR |

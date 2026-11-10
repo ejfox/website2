@@ -22,6 +22,7 @@ useSeoMeta({
   description: 'My flashcard deck — study along if you want',
 })
 
+// ── Data: decks grouped by course ──────────────────────────────
 const { data: decks, error } = await useFetch<Deck[]>('/api/flashcards')
 
 const courseGroups = computed(() => {
@@ -41,6 +42,7 @@ const totalCards = computed(() => {
 
 const totalDecks = computed(() => decks.value?.length ?? 0)
 
+// ── Expand / collapse ──────────────────────────────────────────
 const expandedDecks = ref<Set<string>>(new Set())
 
 const toggleDeck = (id: string) => {
@@ -58,6 +60,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
 
 <template>
   <div class="min-h-screen">
+    <!-- ── Header ─────────────────────────────────────────────── -->
     <header class="border-b border-zinc-800/50">
       <div class="max-w-screen-xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div
@@ -90,6 +93,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
       </div>
     </header>
 
+    <!-- ── Deck list (or load error) ──────────────────────────── -->
     <div v-if="error" class="max-w-screen-xl mx-auto px-4 py-12">
       <div class="text-red-400 font-mono text-sm">
         Failed to load flashcards: {{ error.message }}
@@ -161,6 +165,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
 </template>
 
 <style scoped>
+/* ── Deck row ──────────────────────────────────────────────────── */
 .deck-item {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
@@ -223,6 +228,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
   color: #e4e4e7;
 }
 
+/* ── Expanded card preview ─────────────────────────────────────── */
 .deck-cards {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   padding: 0.5rem 1rem;

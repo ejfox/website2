@@ -46,7 +46,7 @@
  *   or CLOUDINARY_URL)
  *
  * See scripts/author/capture.README.md for recipes and the embeddings-search
- * workflow. (The HELP text below still says scripts/capture.README.md.)
+ * workflow.
  */
 import { spawn } from 'node:child_process'
 import { writeFileSync, existsSync } from 'node:fs'

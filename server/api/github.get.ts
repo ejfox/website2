@@ -255,7 +255,6 @@ async function checkRateLimit(token: string) {
 // refreshing in the background. Errors throw, so failures aren't cached.
 export default defineCachedEventHandler(
   async (): Promise<GitHubStats> => {
-    // console.log('🚀 GitHub handler called')
     // Get token and handle potential whitespace issues
     let token =
       serverEnv('githubToken', 'GITHUB_TOKEN') || serverEnv('GITHUB_TOKEN')
@@ -265,12 +264,9 @@ export default defineCachedEventHandler(
       console.warn(
         '⚠️ Detected placeholder token - this suggests .env is not being loaded correctly'
       )
-      // Log all available environment variables for debugging (excluding values)
-      // console.log('Available env vars:', Object.keys(process.env))
       // Try loading directly from process.env as a fallback
       const directEnvToken = process.env.GITHUB_TOKEN
       if (directEnvToken && directEnvToken !== 'your_token_here') {
-        // console.log('Found token directly in process.env, using that instead')
         token = directEnvToken
       }
     }
@@ -291,17 +287,12 @@ export default defineCachedEventHandler(
       }
     }
 
-    // console.log('🔑 GitHub token available:', !!token)
-    // console.log('🔑 GitHub token length:', token?.length)
-    // console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
-
     if (!token) {
       throw notConfigured('GitHub', 'GITHUB_TOKEN')
     }
 
     try {
       await checkRateLimit(token)
-      // console.log('✅ Rate limit check passed')
 
       const today = new Date()
       const lastMonth = new Date(today)
@@ -316,11 +307,6 @@ export default defineCachedEventHandler(
         results[0].status === 'fulfilled' ? results[0].value : null
       const contributions =
         results[1].status === 'fulfilled' ? results[1].value : null
-
-      // console.log('📊 GitHub API responses:', {
-      //   userStats: !!userStats,
-      //   contributions: !!contributions
-      // })
 
       if (!userStats?.viewer || !contributions?.viewer) {
         throw createError({
@@ -391,13 +377,6 @@ export default defineCachedEventHandler(
           percentage: (count / total) * 100,
         }))
         .sort((a, b) => b.count - a.count)
-
-      // console.log('GitHub API Response:', {
-      //   userStats,
-      //   contributions,
-      //   commits,
-      //   commitTypes
-      // })
 
       const baseStats: GitHubStats = {
         stats: {

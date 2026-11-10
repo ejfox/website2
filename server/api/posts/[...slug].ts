@@ -60,8 +60,6 @@ function isValidSlug(slug: string): boolean {
  * in the 'content/processed' directory.
  */
 export default defineEventHandler(async (event) => {
-  // console.log('API: Request received:', event.context.params)
-
   try {
     const rawSlug = Array.isArray(event.context.params?.slug)
       ? event.context.params.slug.join('/')
@@ -93,7 +91,6 @@ export default defineEventHandler(async (event) => {
       'content/processed',
       `${slug}.json`
     )
-    // console.log('API: Looking for file:', filePath)
 
     // Parse the JSON data
     const rawData = await readFile(filePath, 'utf-8')
@@ -116,15 +113,6 @@ export default defineEventHandler(async (event) => {
     if (!isSealedPost(data) && !isServed(data, { dev: import.meta.dev })) {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
-
-    // console.log('API: Post data read:', {
-    //   slug,
-    //   hasToc: !!data.toc,
-    //   hasMetadataToc: !!data.metadata?.toc,
-    //   tocLength: data.toc?.length,
-    //   metadataTocLength: data.metadata?.toc?.length,
-    //   path: filePath
-    // })
 
     return data
   } catch (error) {
@@ -191,27 +179,11 @@ async function _readPost(slug: string): Promise<PostData> {
 
     const content = await readFile(yearPath, 'utf-8')
     const data = JSON.parse(content)
-    // console.log('API: Post data read from year directory:', {
-    //   slug,
-    //   hasToc: !!data?.toc,
-    //   hasMetadataToc: !!data?.metadata?.toc,
-    //   tocLength: data?.toc?.length,
-    //   metadataTocLength: data?.metadata?.toc?.length,
-    //   path: yearPath
-    // })
     return validatePostData(data)
   }
 
   const content = await readFile(filePath, 'utf-8')
   const data = JSON.parse(content)
-  // console.log('API: Post data read:', {
-  //   slug,
-  //   hasToc: !!data?.toc,
-  //   hasMetadataToc: !!data?.metadata?.toc,
-  //   tocLength: data?.toc?.length,
-  //   metadataTocLength: data?.metadata?.toc?.length,
-  //   path: filePath
-  // })
   return validatePostData(data)
 }
 
@@ -225,14 +197,6 @@ function validatePostData(data: unknown): PostData {
   if (!postData.html && !postData.content) {
     console.error('Post data has no content or HTML')
   }
-
-  // Log validation of TOC data
-  // console.log('API: Validating post data TOC:', {
-  //   hasToc: !!postData.toc,
-  //   hasMetadataToc: !!postData.metadata?.toc,
-  //   tocLength: postData.toc?.length,
-  //   metadataTocLength: postData.metadata?.toc?.length
-  // })
 
   return postData
 }

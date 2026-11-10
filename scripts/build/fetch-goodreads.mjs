@@ -15,6 +15,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+// ── Paths and config ───────────────────────────────────────────
 // Named __dirname but it's scripts/ (one up from scripts/build/), hence '../content'.
 const __dirname = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -25,6 +26,7 @@ const outputFile = path.join(outputDir, 'goodreads-stats.json')
 
 const userId = '9273959'
 
+// ── Fetch and parse each shelf ─────────────────────────────────
 async function fetchGoodreadsData() {
   console.info('📚 Fetching Goodreads data...')
 
@@ -111,6 +113,7 @@ async function fetchGoodreadsData() {
     }
   }
 
+  // ── Stats ────────────────────────────────────────────────────
   // Separate books by shelf
   const currentlyReading = allBooks.filter(
     (b) => b.shelf === 'currently-reading'
@@ -214,6 +217,7 @@ async function fetchGoodreadsData() {
     profileUrl: `https://www.goodreads.com/user/show/${userId}`,
   }
 
+  // ── Write output ─────────────────────────────────────────────
   const output = {
     books: {
       currentlyReading,
@@ -238,6 +242,7 @@ async function fetchGoodreadsData() {
   return output
 }
 
+// ── Entry point ────────────────────────────────────────────────
 // Run it
 fetchGoodreadsData().catch((error) => {
   console.error('❌ Error fetching Goodreads data:', error)

@@ -1,5 +1,5 @@
 /**
- * @file utils/orphan-sweep.mjs
+ * @file scripts/utils/orphan-sweep.mjs
  * @description Which files in content/processed/ the orphan sweep in
  *   scripts/build/processMarkdown.mjs may delete. Pure, so it can be tested
  *   without importing processMarkdown.mjs (which runs the pipeline on import).

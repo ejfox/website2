@@ -33,7 +33,10 @@ Vue SFCs put the header as an HTML comment at the very top, before
 
 `@file` is the bare filename, except where that name repeats across folders
 (`index.vue`, `[slug].vue`): there, write the path, e.g.
-`@file blog/tag/[...slug].vue` under `pages/`.
+`@file blog/tag/[...slug].vue` under `pages/`. Under `scripts/plugins/` and
+`scripts/utils/`, write the full repo path (`@file scripts/utils/vault.mjs`):
+the root also has `plugins/` and `utils/`, so a shorter path sends `gf` to
+the wrong file.
 
 Keep shebangs (`#!/usr/bin/env node`) on line 1. The header goes after them.
 

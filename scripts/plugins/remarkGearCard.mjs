@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkGearCard.mjs
+ * @file scripts/plugins/remarkGearCard.mjs
  * @description Remark plugin that converts ::gear{slug="..."} directives
  *   into HTML placeholder divs. A client-side plugin mounts Vue components
  *   on these placeholders at runtime (plugins/gear-cards.client.ts →

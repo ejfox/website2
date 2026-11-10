@@ -1,3 +1,8 @@
+/**
+ * @file vitest.config.ts
+ * @description `yarn test`. Tests live in __tests__/ folders next to the code
+ *   they cover. `~` and `@` resolve to the repo root, as in Nuxt.
+ */
 import { defineConfig } from 'vitest/config'
 import { resolve } from 'node:path'
 

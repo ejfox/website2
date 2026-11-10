@@ -64,12 +64,6 @@ export default defineEventHandler(async () => {
 
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
 
-    // console.log('RescueTime date ranges:', {
-    //   weekStart: weekStart.toISOString(),
-    //   monthStart: monthStart.toISOString(),
-    //   now: now.toISOString()
-    // })
-
     // Format dates as YYYY-MM-DD
     const formatDate = (date: Date) => {
       return date.toISOString().split('T')[0]

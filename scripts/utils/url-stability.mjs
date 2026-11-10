@@ -1,5 +1,5 @@
 /**
- * @file utils/url-stability.mjs
+ * @file scripts/utils/url-stability.mjs
  * @description "Once public, a URL keeps resolving." The pure half of
  *   scripts/meta/check-urls.mjs (the CLI does git/fs IO and loads the TS
  *   server helpers; this file only takes entries in and returns findings).

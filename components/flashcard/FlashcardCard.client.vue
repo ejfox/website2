@@ -21,6 +21,7 @@ defineEmits<{
   flip: []
 }>()
 
+// ── Viewport sizing (16:10 fit) ────────────────────────────────
 const cardRef = ref<HTMLElement | null>(null)
 
 // Mouse tracking for 3D tilt
@@ -51,6 +52,7 @@ const cardSize = computed(() => {
   return { width, height }
 })
 
+// ── Parallax tilt ──────────────────────────────────────────────
 const containerStyle = computed(() => {
   const centerX = winWidth.value / 2
   const centerY = winHeight.value / 2
@@ -106,6 +108,7 @@ const containerStyle = computed(() => {
 </template>
 
 <style scoped>
+/* ── Card and flip ─────────────────────────────────────────────── */
 .flashcard-container {
   cursor: pointer;
   transform-style: preserve-3d;
@@ -160,6 +163,7 @@ const containerStyle = computed(() => {
   transform: rotateY(180deg);
 }
 
+/* ── Corner labels and hint ────────────────────────────────────── */
 .card-label {
   position: absolute;
   top: 1.5rem;
@@ -197,6 +201,7 @@ const containerStyle = computed(() => {
   opacity: 0;
 }
 
+/* ── Card text and hints ───────────────────────────────────────── */
 .card-content {
   text-align: center;
   width: 100%;
@@ -233,6 +238,7 @@ const containerStyle = computed(() => {
   line-height: 1.5;
 }
 
+/* ── Hover and press ───────────────────────────────────────────── */
 .flashcard-container:hover .flashcard-face {
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -245,6 +251,7 @@ const containerStyle = computed(() => {
   transform: scale(0.98);
 }
 
+/* ── Mobile ────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .flashcard-face {
     padding: 1.5rem;
