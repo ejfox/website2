@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkEnhanceImages.mjs
+ * @file scripts/plugins/remarkEnhanceImages.mjs
  * @description Markdown images → lazy, sized, captioned HTML. Cloudinary URLs
  *   get a srcset, width/height from Cloudinary's fl_getinfo, and a
  *   <figure>/<figcaption> when the alt is real; junk alts ("IMG_1234",

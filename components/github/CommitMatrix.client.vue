@@ -38,6 +38,7 @@ const getColor = (daysDiff, isDark) => {
   return isDark ? '#52525b' : '#a1a1aa'
 }
 
+// ── Drawing ────────────────────────────────────────────────────
 function draw() {
   if (!canvasRef.value || !props.commits?.length) return
 
@@ -88,6 +89,7 @@ function draw() {
   })
 }
 
+// ── Hover tooltip ──────────────────────────────────────────────
 function handleMouseMove(event) {
   if (!canvasRef.value) return
 
@@ -135,6 +137,7 @@ function formatDate(dateStr) {
   })
 }
 
+// ── Lifecycle ──────────────────────────────────────────────────
 // Client-only component (.client.vue), so window access here is safe.
 onMounted(() => {
   nextTick(draw)
@@ -208,6 +211,7 @@ watch(() => props.commits, draw)
   background: #a1a1aa;
 }
 
+/* ── Canvas ────────────────────────────────────────────────────── */
 .canvas-container {
   padding: 0.5rem;
   background: #fafafa;
@@ -221,6 +225,7 @@ watch(() => props.commits, draw)
   cursor: crosshair;
 }
 
+/* ── Tooltip ───────────────────────────────────────────────────── */
 .commit-tooltip {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
@@ -245,6 +250,7 @@ watch(() => props.commits, draw)
   color: #71717a;
 }
 
+/* ── Dark mode ─────────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   .legend-dot--recent {
     background: #fafafa;

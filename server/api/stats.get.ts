@@ -249,8 +249,6 @@ function getValue<T>(result: PromiseSettledResult<T>): T | null {
 export default defineCachedEventHandler(
   async (event): Promise<StatsResponse & StatsHorizons> => {
     try {
-      // console.log('🎯 Stats handler called')
-
       const [
         githubResult,
         monkeyTypeResult,

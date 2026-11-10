@@ -1,5 +1,5 @@
 /**
- * @file utils/stats.mjs
+ * @file scripts/utils/stats.mjs
  * @description Shared mutable counters for a `yarn blog:process` run.
  *   scripts/build/processMarkdown.mjs uses processStats for its progress %
  *   (filesProcessed / totalFiles) and pushes per-file failures to

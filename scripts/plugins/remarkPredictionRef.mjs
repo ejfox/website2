@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkPredictionRef.mjs
+ * @file scripts/plugins/remarkPredictionRef.mjs
  * @description Remark plugin that converts :prediction{id="..."} / ::prediction{id="..."} directives
  *   into HTML with embedded payload + static readable fallback. Client-side plugin upgrades
  *   these into mounted Vue components (plugins/prediction-refs.client.ts →

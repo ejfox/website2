@@ -33,6 +33,7 @@ import {
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const CONTENT = 'content/blog'
 
+// ── CLI args and git ───────────────────────────────────────────
 const args = process.argv.slice(2)
 const flag = (name) => args.includes(name)
 const opt = (name) => {
@@ -47,6 +48,7 @@ const git = (argv, input) =>
     maxBuffer: 256 * 1024 * 1024,
   })
 
+// ── Reading content/blog (ref, index, worktree) ────────────────
 /**
  * Read blobs by sha in one `git cat-file --batch` call. One process instead
  * of one `git show` per post is what keeps the pre-commit hook fast. Output
@@ -129,6 +131,7 @@ function refExists(ref) {
 const readJson = async (rel) =>
   JSON.parse(await fs.readFile(path.join(ROOT, rel), 'utf8'))
 
+// ── Main: load redirect rules and the current tree ─────────────
 async function main() {
   // Load the app's real redirect rules (not a copy), so this can't drift from
   // what prod does. Visibility comes from utils/visibility.mjs, which
@@ -146,6 +149,7 @@ async function main() {
     flag('--staged') ? entriesStaged() : await entriesWorktree()
   )
 
+  // ── Required URLs: Wayback seed + public at --base ───────────
   const required = new Map()
   for (const { url, seen } of (await readJson('data/published-urls.json'))
     .urls) {
@@ -164,6 +168,7 @@ async function main() {
     console.log(`check-urls: base ${base} not found, checking the seed only`)
   }
 
+  // ── Check and report ─────────────────────────────────────────
   const broken = findBrokenUrls(required, head, opts)
   const bare = findBareWikilinksToPosts(head, opts)
 

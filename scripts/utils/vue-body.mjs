@@ -1,5 +1,5 @@
 /**
- * @file vue-body.mjs
+ * @file scripts/utils/vue-body.mjs
  * @description Big posts: `content/blog/<slug>.vue` sits next to `<slug>.md`
  * and IS the post's body. The .md keeps only frontmatter. The normal post
  * page renders the .vue instead of the markdown HTML (pages/blog/[...slug].vue).

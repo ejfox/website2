@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkEnhanceLinks.mjs
+ * @file scripts/plugins/remarkEnhanceLinks.mjs
  * @description Remark plugin that adds social platform icons to external links.
  *   Icons come from data/link-icons.json, raw Iconify SVGs vendored by
  *   `yarn icons:vendor`, so processing needs no network. A live fetch was

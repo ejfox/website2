@@ -1,5 +1,5 @@
 /**
- * @file plugins/rehypeAddClassToParagraphs.mjs
+ * @file scripts/plugins/rehypeAddClassToParagraphs.mjs
  * @description Rehype plugin that adds Tailwind / `md-*` classes to rendered
  *   post HTML (blockquotes, code, tables, lists, links, footnotes) and swaps
  *   every <hr> for a dotted-line SVG. Despite the name, it leaves <p> alone.

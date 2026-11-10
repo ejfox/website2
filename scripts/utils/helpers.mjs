@@ -1,5 +1,5 @@
 /**
- * @file utils/helpers.mjs
+ * @file scripts/utils/helpers.mjs
  * @description Grab-bag of content-pipeline helpers.
  *   Live callers: scripts/build/processMarkdown.mjs (getPostType),
  *   scripts/plugins/remarkObsidianSupport.mjs (getTitleFromFrontmatter),

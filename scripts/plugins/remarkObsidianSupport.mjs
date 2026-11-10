@@ -1,5 +1,5 @@
 /**
- * @file plugins/remarkObsidianSupport.mjs
+ * @file scripts/plugins/remarkObsidianSupport.mjs
  * @description Remark plugin that converts Obsidian [[wikilinks]] to standard
  *   markdown links. Supports [[target|alias]], [[target#heading]] and bare
  *   [[target]]. Without an alias the link text is the target title-cased

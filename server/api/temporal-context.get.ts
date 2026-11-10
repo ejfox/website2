@@ -17,6 +17,7 @@ import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
 import { withKindleSync } from '~/server/utils/readingKindle'
 
+// ── Date window ────────────────────────────────────────────────
 const WINDOW_DAYS = 30 // ±30 days from the target date
 
 function withinWindow(
@@ -36,6 +37,7 @@ function withinWindow(
   }
 }
 
+// ── Handler: validate date, empty result shape ─────────────────
 export default defineEventHandler(async (event) => {
   const { date } = getQuery(event) as { date?: string }
   if (!date) return { error: 'date parameter required' }
@@ -65,6 +67,7 @@ export default defineEventHandler(async (event) => {
     commits: null,
   }
 
+  // ── Sources (each in its own try, fails silently) ────────────
   // --- Reading: books annotated around this time ---
   try {
     const readingDir = join(process.cwd(), 'content/processed/reading')

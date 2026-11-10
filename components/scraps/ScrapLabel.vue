@@ -1,11 +1,16 @@
+<!--
+  @file ScrapLabel.vue
+  @description One scrap as a museum wall label: the back of its Scrapworld
+    card, on the web. Used by pages/scraps/[id].vue (inside the site) and
+    pages/scraps/embed/[id].vue (chromeless, rendered live on the inspected
+    card in Scrapworld via Ultralight).
+  @props scrap: ScrapPermalink (composables/useScrapPermalink.ts), embed?: boolean
+-->
 <script setup lang="ts">
 import { computed } from 'vue'
 import { formatDate } from '~/utils/date'
 import type { ScrapPermalink } from '~/composables/useScrapPermalink'
 
-// One scrap as a museum wall label: the back of its Scrapworld card, on the web.
-// Used by /scraps/<id> (inside the site) and /scraps/embed/<id> (chromeless, rendered live
-// on the inspected card in Scrapworld via Ultralight, 2026-10-29).
 const props = defineProps<{ scrap: ScrapPermalink; embed?: boolean }>()
 
 const domain = computed(() => {

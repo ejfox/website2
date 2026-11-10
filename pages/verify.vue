@@ -26,6 +26,7 @@ const KEY_SOURCES = [
   },
 ]
 
+// ── Domain proofs ──────────────────────────────────────────────
 const PROOFS = [
   {
     href: '/keybase.txt',
@@ -45,6 +46,7 @@ const PROOFS = [
   },
 ]
 
+// ── Accounts ───────────────────────────────────────────────────
 // rel="me" accounts. GitHub and email also carry authn, matching the footer
 const ACCOUNTS = [
   {
@@ -80,6 +82,7 @@ const ACCOUNTS = [
   },
 ]
 
+// ── SEO ────────────────────────────────────────────────────────
 usePageSeo({
   title: 'Verify · EJ Fox',
   description:
@@ -101,6 +104,7 @@ usePageSeo({
         </p>
       </header>
 
+      <!-- ── PGP fingerprint ──────────────────────────────────── -->
       <section class="mb-10">
         <h2
           class="font-mono text-xs uppercase tracking-wider text-zinc-500 mb-2"
@@ -140,6 +144,7 @@ usePageSeo({
         </p>
       </section>
 
+      <!-- ── Accounts ─────────────────────────────────────────── -->
       <section class="mb-10">
         <h2
           class="font-mono text-xs uppercase tracking-wider text-zinc-500 mb-2"
@@ -176,6 +181,7 @@ usePageSeo({
         </table>
       </section>
 
+      <!-- ── Proofs on this domain ────────────────────────────── -->
       <section class="mb-10">
         <h2
           class="font-mono text-xs uppercase tracking-wider text-zinc-500 mb-2"

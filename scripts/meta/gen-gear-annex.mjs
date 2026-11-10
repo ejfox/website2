@@ -96,7 +96,7 @@ draft: true
 ---
 ## Gear Annex (auto-generated)
 
-> Generated from \`website2/data/gear.csv\` by \`scripts/gen-gear-annex.mjs\` on ${ts}.
+> Generated from \`website2/data/gear.csv\` by \`scripts/meta/gen-gear-annex.mjs\` on ${ts}.
 > **Do not hand-edit** — re-run the generator. Backs [[motorcycle-trip-prep-runbook]] and [[motorcycle-camping-runbook]].
 
 `

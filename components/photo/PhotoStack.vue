@@ -20,6 +20,7 @@ interface PhotoPost {
 
 const props = defineProps<{ post: PhotoPost }>()
 
+// ── Lazy body fetch ────────────────────────────────────────────
 const expanded = ref(false)
 const bodyHtml = ref<string | null>(null)
 const loadingBody = ref(false)
@@ -46,6 +47,7 @@ const toggle = () => {
   if (expanded.value) ensureBody()
 }
 
+// ── Cover thumbnail ────────────────────────────────────────────
 const cover = computed(() => props.post.images[0])
 
 // Square Cloudinary thumb: drop one existing leading transform segment
@@ -66,6 +68,7 @@ function thumbUrl(src: string, w = 560) {
     class="photo-stack"
     :class="{ 'is-expanded': expanded }"
   >
+    <!-- ── Collapsed cover card ───────────────────────────────── -->
     <button
       class="photo-stack__trigger"
       type="button"
@@ -91,6 +94,7 @@ function thumbUrl(src: string, w = 560) {
       </div>
     </button>
 
+    <!-- ── Expanded post body ─────────────────────────────────── -->
     <!-- v-show, not v-if: keeps the fetched body in the DOM across toggles -->
     <Transition name="reveal">
       <div v-show="expanded" class="photo-stack__body">
@@ -126,6 +130,7 @@ function thumbUrl(src: string, w = 560) {
   margin: 1.5rem 0 2rem;
 }
 
+/* ── Collapsed cover card ──────────────────────────────────────── */
 /* ---- Trigger card (collapsed state looks like a photo cell) ---- */
 .photo-stack__trigger {
   all: unset;
@@ -186,6 +191,7 @@ function thumbUrl(src: string, w = 560) {
   opacity: 0.6;
 }
 
+/* ── Expanded body ─────────────────────────────────────────────── */
 /* ---- Expanded body: breaks OUT of the column to span full grid width,
        while the stack card itself stays in the column so surrounding
        photos remain visible. ---- */
@@ -233,6 +239,7 @@ function thumbUrl(src: string, w = 560) {
   text-underline-offset: 4px;
 }
 
+/* ── Reveal transition ─────────────────────────────────────────── */
 .reveal-enter-active,
 .reveal-leave-active {
   transition: opacity 240ms ease;

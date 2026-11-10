@@ -1,5 +1,5 @@
 /**
- * @file plugins/index.mjs
+ * @file scripts/plugins/index.mjs
  * @description Barrel for the remark/rehype plugins. The ORDER they run in is
  *   set by the `.use()` chain in scripts/build/processMarkdown.mjs (and
  *   scripts/author/markdownToHtml.mjs), not by this file.

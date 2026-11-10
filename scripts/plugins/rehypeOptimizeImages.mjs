@@ -1,5 +1,5 @@
 /**
- * @file plugins/rehypeOptimizeImages.mjs
+ * @file scripts/plugins/rehypeOptimizeImages.mjs
  * @description Rehype plugin for raw HTML `<img>` tags written straight into
  *   markdown. Those skip remarkEnhanceImages / formatCloudinaryUrl, so old
  *   posts (the year-in-review series) served full-size Cloudinary originals:

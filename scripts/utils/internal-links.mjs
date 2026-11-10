@@ -1,5 +1,5 @@
 /**
- * @file utils/internal-links.mjs
+ * @file scripts/utils/internal-links.mjs
  * @description Internal-link resolution + dead-link detection for the content
  *   pipeline. Owns the canonical wikilink → route logic (shared with
  *   remarkObsidianSupport) AND a build-time validity check against the set of

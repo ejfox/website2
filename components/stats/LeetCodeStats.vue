@@ -21,6 +21,7 @@ const props = defineProps<{
   stats: LeetCodeStats
 }>()
 
+// ── Difficulty split ───────────────────────────────────────────
 const totalSolved = computed(() => {
   if (!props.stats.submissionStats) return 0
   return (
@@ -42,6 +43,7 @@ const difficultyPercentages = computed(() => {
   }
 })
 
+// ── Languages and recent solves ────────────────────────────────
 // Top 3 languages, counted over the recent-submissions list only (whatever
 // LeetCode's recentSubmissionList returns), not all-time solves.
 const topLanguages = computed(() => {
@@ -69,6 +71,7 @@ const recentAcceptedSubmissions = computed(() => {
     .slice(0, 3)
 })
 
+// ── Formatting ─────────────────────────────────────────────────
 // LeetCode timestamps are unix seconds as strings.
 const formatDateMinimal = (timestamp: string): string => {
   const date = new Date(Number.parseInt(timestamp) * 1000)
@@ -82,6 +85,7 @@ const truncateTitle = (title: string): string => {
 
 <template>
   <div class="font-mono">
+    <!-- ── Total solved + difficulty bar ──────────────────────── -->
     <div v-if="stats.submissionStats" class="individual-stat-large">
       <div class="stat-value">
         <AnimatedNumber
@@ -160,6 +164,7 @@ const truncateTitle = (title: string): string => {
       </div>
     </div>
 
+    <!-- ── Top languages ──────────────────────────────────────── -->
     <div v-if="hasLanguageStats" class="mt-8">
       <StatsSectionHeader title="LEETCODE LANGUAGES" />
       <div class="space-y-2">
@@ -183,6 +188,7 @@ const truncateTitle = (title: string): string => {
       </div>
     </div>
 
+    <!-- ── Recent solutions ───────────────────────────────────── -->
     <div v-if="recentAcceptedSubmissions.length" class="mt-8">
       <StatsSectionHeader title="RECENT LEETCODE SOLUTIONS" />
       <div class="space-y-2">

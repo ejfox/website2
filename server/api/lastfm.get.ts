@@ -94,13 +94,6 @@ export default defineEventHandler(async () => {
     config.LASTFM_SHARED_SECRET || process.env.LASTFM_SHARED_SECRET
   const username = 'pseudoplacebo' // Hardcoded username as specified
 
-  // console.log('Last.fm config:', {
-  //   hasApiKey: !!apiKey,
-  //   hasSharedSecret: !!sharedSecret,
-  //   apiKeyLength: apiKey?.length,
-  //   username
-  // })
-
   // ── Requests ─────────────────────────────────────────────
   const makeRequest = async <T>(
     method: string,
@@ -127,12 +120,6 @@ export default defineEventHandler(async () => {
         Object.entries(params).forEach(([key, value]) => {
           url.searchParams.append(key, value)
         })
-
-        // console.log(
-        //   `Fetching Last.fm data: ${method} (attempt ${
-        //     attempt + 1
-        //   }/${maxRetries})`
-        // )
 
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), timeout)
@@ -221,35 +208,11 @@ export default defineEventHandler(async () => {
     }
 
     // Log API key info (safely)
-    // if (apiKey) {
-    //   console.log(
-    //     'Last.fm API key:',
-    //     `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`
-    //   )
-    // } else {
-    //   console.warn('Last.fm API key is not set')
-    // }
-
-    // if (sharedSecret) {
-    //   console.log(
-    //     'Last.fm shared secret:',
-    //     `${sharedSecret.substring(0, 4)}...${sharedSecret.substring(
-    //       sharedSecret.length - 4
-    //     )}`
-    //   )
-    // }
-
     // Test the API connection first
     try {
       // Redundant: user.getinfo is fetched again in the batch below, and this
       // result is discarded.
       const _testResponse = await makeRequest<UserInfoResponse>('user.getinfo')
-      // console.log(
-      //   'Last.fm API test successful:',
-      //   testResponse.user?.name === username
-      //     ? 'Username matches'
-      //     : 'Username mismatch'
-      // )
     } catch (testError) {
       console.error('Last.fm API test failed:', testError)
       // Don't throw here, continue with other requests
@@ -373,18 +336,6 @@ export default defineEventHandler(async () => {
       },
       lastUpdated: new Date().toISOString(),
     }
-
-    // Log a summary of the data we're returning
-    // console.log('Last.fm API data summary:', {
-    //   recentTracksCount: processedRecentTracks.tracks.length,
-    //   topArtistsCount: processedTopArtists.artists.length,
-    //   topAlbumsCount: processedTopAlbums.albums.length,
-    //   topTracksCount: processedTopTracks.tracks.length,
-    //   totalScrobbles,
-    //   uniqueArtists,
-    //   uniqueTracks,
-    //   averagePerDay
-    // })
 
     return result
   } catch (error) {
