@@ -58,7 +58,7 @@ This gives us a clean CSV file with all our message data, ready for the next tra
 
 #### Step 2: Convert CSV to Parquet
 
-Parquet is a columnar storage format that's incredibly efficient for analytical queries and works brilliantly in browser environments. I use DuckDB (an in-process analytical database) to handle the conversion:
+Parquet is a columnar storage format that's efficient for analytical queries and works well in browsers. I use DuckDB (an in-process analytical database) to handle the conversion:
 
 ```bash
 duckdb -c "INSTALL parquet; LOAD parquet; CREATE TABLE temp AS SELECT * FROM read_csv('output/telegram_chats.csv'); COPY temp TO 'output/telegram_chats.r5.parquet' (FORMAT PARQUET, COMPRESSION 'SNAPPY');"
@@ -120,7 +120,7 @@ This experiment went pretty well, but I shelved it to come back to, there's enou
 
 ### Building Custom Visualizations
 
-The real power of this approach is that we can build all sorts of different front-ends or visualizations on top of this data. The Parquet format is super-fast in the browser, making it ideal for interactive visualizations. We've taken a 200GB leak and turned it into something we can explore in the browser.
+With this approach we can build all sorts of different front-ends or visualizations on top of this data. The Parquet format is super-fast in the browser, making it ideal for interactive visualizations. We've taken a 200GB leak and turned it into something we can explore in the browser.
 
 Some ideas I'm exploring:
 

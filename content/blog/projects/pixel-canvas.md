@@ -14,7 +14,7 @@ tags:
   - quantified-self
 ---
 
-I spend all day looking at screens that want something from me. Pixel Canvas is a screen that doesn't — a networked **320×240 display that sits on my desk** and quietly shows me my own life in the Vulpes palette.
+I spend all day looking at screens that want something from me. Pixel Canvas is a screen that doesn't — a networked **320×240 display that sits on my desk** and shows me my own life in the Vulpes palette.
 
 It's an ESP32-S3-BOX-3B running a little Arduino REST API, driven by a bash CLI that rotates through "scenes" every fifteen minutes. Each scene is a tiny self-contained script that fetches from some corner of my data and draws it with primitives over HTTP — the weather, the last film I watched with my rating, the book I'm in the middle of, my best typing speed, a random card from the gear closet, a line from my journal.
 
@@ -26,7 +26,7 @@ It's an ESP32-S3-BOX-3B running a little Arduino REST API, driven by a bash CLI 
 
 The whole thing is the opposite of a notification feed. Nothing on it is urgent, nothing is trying to pull me back in. It's ambient — you glance at it the way you glance out a window, and mostly you just let it cycle in the corner of your eye while you work.
 
-That's the part I actually care about. I've been tracking myself for years across a dozen systems, and the usual pitch for all that data is optimization: quantify yourself, find the inefficiency, grind it down. I've never been interested in that. I wanted to turn the panopticon inward and just *look* — not "how do I do more," but "what does a day of mine actually look like when it's reflected back and I'm not the one narrating it?"
+I've been tracking myself for years across a dozen systems, and the usual pitch for all that data is optimization: quantify yourself, find the inefficiency, grind it down. I've never been interested in that. I wanted to turn the panopticon inward and just *look* — not "how do I do more," but "what does a day of mine actually look like when it's reflected back and I'm not the one narrating it?"
 
 ![A random gear card](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/gear.png)
 
@@ -56,4 +56,4 @@ By now there's a scene for nearly every corner of the archive — a random old t
 
 ![Ambient dots](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/ambient-dots.png)
 
-The scenes I like best are the ones that catch me off guard — a tweet from a version of me I'd half-forgotten, a book I keep meaning to finish. A small calm machine for remembering there's a life on this side of the screen too.
+The scenes I like best are the ones that catch me off guard — a tweet from a version of me I'd half-forgotten, a book I keep meaning to finish.

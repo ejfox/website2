@@ -13,12 +13,12 @@ tags:
 
 ## Deconstructing Crypto, AI, and the 21st Century Colonial Mindset
 
-In the swirling chaos of the 21st century, we find ourselves in the throes of a digital revolution, but we are in danger of entrenching the systems of oppression that already pervade our society.
+We are in the throes of a digital revolution, but we are in danger of entrenching the systems of oppression that already pervade our society.
 
 >Badly designed AI can harm vulnerable and marginalized groups even when it “works,” by subjecting them to new forms of data-gathering and surveillance and encoding historical patterns of discrimination into automated systems.
 >Kevin Roose [[reading/Roose-Futureproof|Roose-Futureproof]]
 
-Cryptocurrency and artificial intelligence (AI) have been heralded as saviors of economic opportunity, promising to enfranchise communities across the globe. But beneath the surface lies a shadow: the same oppressive forces entrenched by colonialism are being re-calibrated for the 21st Century and let loose in increasingly complicated systems.
+Cryptocurrency and artificial intelligence (AI) have been heralded as saviors of economic opportunity, promising to enfranchise communities across the globe. But the same oppressive forces entrenched by colonialism are being re-calibrated for the 21st Century and let loose in increasingly complicated systems.
 
 These forces are diametrically opposed to the traditional [[blog/2023/hacker-culture|hacker-culture]] that birthed many of the technological underpinnings of these innovations- and we must return them to their roots.
 
@@ -26,12 +26,12 @@ These forces are diametrically opposed to the traditional [[blog/2023/hacker-cul
 
 In traditional colonial systems, knowledge and information has been closely guarded and unevenly distributed, [granting privilege to those who have access to proprietary institutions and archives](https://en.wikipedia.org/wiki/Coloniality_of_knowledge).
 
-As these technologies evolve and expand, they threaten to entrench the dark dynamics of labor exploitation, resource inequality, and climate injustice in ways we may never be able to exorcise.
+As these technologies evolve and expand, they threaten to entrench labor exploitation, resource inequality, and climate injustice in ways we may never be able to exorcise.
 
 >The harms that have been documented as a consequence of AI deployments across the world—whether in facial recognition, predictive policing, resource distribution, shifts in labor practice, or health care diagnostics—did not emerge by chance. They result from long-term, systematic mistreatment and inadequate legal and economic protections rooted in the colonial project.
 >[Decolonizing AI - Boston Review](https://www.bostonreview.net/forum_response/decolonizing-ai/)
 
-The seductive allure of crypto and AI is that they claim to offer a pathway for the downtrodden, the colonized, the oppressed, to reclaim economic sovereignty – but the reality is we are witnessing a 21st Century re-calibration of the philosophies underlying the colonial enterprise.
+Crypto and AI claim to offer a pathway for the downtrodden, the colonized, the oppressed, to reclaim economic sovereignty – but we are witnessing a 21st Century re-calibration of the philosophies underlying the colonial enterprise.
 
 ### Colonial Algorithms
 
@@ -48,11 +48,11 @@ The AI models we develop today are an eerie reflection of the colonial dynamic; 
 
 ### Old systems reinterpreted
 
-AI and other emerging technologies may fall into the trap of replicating, in their own unique way, the patterns of entitlement, resource inequality, and injustice that were perfected during colonial times.
+AI and other emerging technologies may fall into the trap of replicating the patterns of entitlement, resource inequality, and injustice that were perfected during colonial times.
 
 The commodification of human labor, which was a key feature of the colonial project, is becoming increasingly prevalent in the algorithm-lead startup space.
 
-Cryptocurrency and machine learning algorithms are gaining traction and becoming increasingly sophisticated. As they spread and increase in complexity, they could potentially enable further subjugation of minority voices and entrench existing power dynamics that have been shaped by a long history of colonialism.
+As cryptocurrency and machine learning algorithms spread and increase in complexity, they could enable further subjugation of minority voices and entrench existing power dynamics that have been shaped by a long history of colonialism.
 
 >There is a centuries-long investment in research, development, and deployment of techniques to ensure that survival is only ever a right for some. This right for some, more often than not, is ensured at the expense of the self-determination and continuation of living for the overwhelming majority of the planet’s human population.
 >[[reading/Grove-Savage Ecology|Grove-Savage Ecology]]
@@ -66,20 +66,20 @@ Though the motivations and means may have changed over time, the outcomes remain
 
 ### The soul is built from greed
 
-The insatiable greed that drove the colonial project finds new sustenance in the digital realm. We must resist the siren song of these digital serpents if we hope to forge a future of economic freedom, driven by equitable and transparent use of the latest technologies. We must learn from the sins of our past if we wish to break the chains that bind us to the ghosts of colonialism.
+The greed that drove the colonial project has found new sustenance online. We must resist it if we hope for a future of economic freedom, driven by equitable and transparent use of the latest technologies. We must learn from the sins of our past.
 
-Mutual aid offers a beacon of hope in the darkness, guiding us towards a future where technology serves the needs of all, not just the privileged elite. By fostering a spirit of cooperation and solidarity, we can build systems that prioritize the well-being of our fellow humans, our planet, and the diverse ecosystems that support life.
+Mutual aid offers hope, guiding us towards a future where technology serves the needs of all, not just the privileged elite. Through cooperation and solidarity, we can build systems that put the well-being of our fellow humans, our planet, and the ecosystems that support life first.
 
 If we were smart, we would be taking these technologies to our communities, asking them what they want, what would bring them joy, and then *building that*. These technologies are making a world where robots can do a lot of the work that humans do today. Whether that frees up society to do other, more important things or whether it allows the masters to grow rich while the rest of the world suffers is up to us. Almost every other technology of the 21st century has resulted in the rich getting richer; maybe this time it can be different.
 
-By reorienting our focus towards the collective good, we can harness the power of AI and cryptocurrency to uplift the downtrodden, heal the wounds of colonialism, and create a more equitable and sustainable world.
+By focusing on the collective good, we can use AI and cryptocurrency to uplift the downtrodden, heal the wounds of colonialism, and create a more equitable and sustainable world.
 
-Just as the myriad species of an ecosystem work together in harmony, so too must we weave our technological innovations into the fabric of our global community. Let us create artificial intelligences that reflect the richness of human experience, that learn from the wisdom of diverse cultures, and that respect the delicate balance of our shared environment.
+Let us create artificial intelligences that reflect human experience, learn from diverse cultures, and respect our shared environment.
 
-We find ourselves in the midst of an eternal dance, a delicate balance between the shadows of the past and the shimmering possibilities of the future. We can either drown ourselves in the filth of the past, or we can roll up our sleeves, spit in the face of colonialism, and choose a different path. A path where we give a damn about each other, where we break the chains of power and share the spoils of technology with everyone.
+We can either drown ourselves in the filth of the past, or we can roll up our sleeves, spit in the face of colonialism, and choose a different path. A path where we give a damn about each other, where we break the chains of power and share the spoils of technology with everyone.
 
-Imagine a future where communities come together, recognizing the urgent need to address the colonial dynamics and inequalities perpetuated by AI and cryptocurrency. Instead of waiting for centralized authorities to take action, these forward-thinking communities choose to be champions of change and take matters into their own hands.
+Imagine communities coming together to address the colonial dynamics and inequalities perpetuated by AI and cryptocurrency. Instead of waiting for centralized authorities to take action, they take matters into their own hands.
 
-By embracing open-source AI models and ensuring diverse perspectives in the decision-making process, they collectively shape the development of technologies that respect their values and needs. Turning to decentralized digital currencies created by local groups for financial autonomy, they bypass traditional banks and centralized control, empowering individuals to take charge of their own economic lives.
+With open-source AI models and diverse perspectives in the decision-making process, they shape technologies that respect their values and needs. With decentralized digital currencies created by local groups, they bypass traditional banks and centralized control and take charge of their own economic lives.
 
-As more communities around the world follow this inspiring path, we discover strength in self-organization, cooperation, and mutual support. Together, we create a more equitable future with technology that serves everyone – a future where exploitation is replaced by collaboration and the transformative power of technology is harnessed for the purposes of joy instead of profit.
+As more communities around the world follow, we discover strength in self-organization, cooperation, and mutual support. Together, we create a more equitable future with technology that serves everyone, where exploitation is replaced by collaboration and technology is used for joy instead of profit.

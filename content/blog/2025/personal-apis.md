@@ -29,7 +29,7 @@ This project was deeply inspired by [[quantified-self-as-archaeology|quantified 
 
 We live in a post capitalist digital surveillance state, so theoretically the algorithm(s) already have a dashboard of intelligence on me. Why not build the same for myself, but around things that might actually improve my life? I wanna write more code, practice more skills, get better at things, continuously improve and learn, write more blog posts, make more youtube videos, document the things I make.
 
-What makes this approach feel so powerful is that there is a compounding factor where if you give the bot a bunch of context the results feel like *magic* - like - how did you know that? Oh right– you it has *visibility* into the context of my life.
+There is a compounding factor where if you give the bot a bunch of context the results feel like *magic* - like - how did you know that? Oh right– you it has *visibility* into the context of my life.
 
 Here's what I'm tracking right now:
 
@@ -47,7 +47,7 @@ I pull data from Apple Health to track my daily steps, exercise minutes, stand h
 
 ###  Development
 
-My GitHub API integration tracks contributions, repos, and commit types. It's like a digital fingerprint of my coding life. I can see when I'm in build mode vs. maintenance mode based on commit frequency and types.
+My GitHub API integration tracks contributions, repos, and commit types. I can see when I'm in build mode vs. maintenance mode based on commit frequency and types.
 
 ### 📸 Creative
 
