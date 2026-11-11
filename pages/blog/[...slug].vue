@@ -577,16 +577,22 @@ onMounted(() => {
              doesn't fire once the entry has e-content/dt-published/u-url. -->
         <h1
           v-if="postTitle"
-          class="p-name post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
+          class="p-name post-title-hero text-3xl sm:text-5xl font-black text-balance print:text-4xl"
           style="line-height: 1.1; letter-spacing: -0.03em"
           v-html="renderedTitle"
         ></h1>
-        <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
+        <!-- Body size, no hyphens: .post-dek is shared with rides + dispatch,
+             so the quieter post dek is set here, not in the utility. -->
+        <p
+          v-if="post?.metadata?.dek || post?.dek"
+          class="post-dek !text-base !hyphens-manual"
+        >
           {{ post?.metadata?.dek || post?.dek }}
         </p>
         <PostDateStamp
           v-if="postDate"
-          class="mt-5"
+          class="mt-4"
+          plain
           :date="postDate"
           :modified="post?.metadata?.modified || post?.metadata?.lastUpdated"
           microformat
@@ -813,7 +819,7 @@ onMounted(() => {
    =========================================== */
 
 .blog-post-content {
-  --body-size: 1rem;
+  --body-size: 1.0625rem; /* 17px on phones; keep in step with global.css */
   --body-line: 1.5rem;
   --body-margin: 1.5rem;
   --h1-size: 1.75rem;
@@ -979,10 +985,10 @@ onMounted(() => {
 }
 
 .blog-post-content figure figcaption {
-  @apply text-xs text-zinc-500 dark:text-zinc-500 mt-2;
-  @apply font-serif;
-  font-style: italic;
-  line-height: 1.4;
+  /* Mono label, not serif: the font itself is set in global.css, because
+     the blanket Georgia rule there outranks this one. */
+  @apply text-2xs text-zinc-500 mt-2;
+  letter-spacing: 0;
 }
 
 .blog-post-content hr {

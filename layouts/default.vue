@@ -68,7 +68,7 @@ const linkClasses =
       <header
         v-if="!isStatsSimple"
         id="layout-bar"
-        class="layout-bar sticky top-0 z-[100] print:hidden"
+        class="layout-bar md:sticky md:top-0 z-[100] print:hidden"
         :class="{ 'layout-bar--post': reservesPostBar }"
       ></header>
 
