@@ -15,7 +15,8 @@
       EJ Fox
     </p>
     <p class="font-serif text-sm text-zinc-700 dark:text-zinc-300 mb-3">
-      Design engineer and creative technologist who ships under pressure.
+      When someone hands me a mess, I take a kind of pathological joy in
+      untangling it.
     </p>
     <p class="font-mono text-xs flex gap-4">
       <a
@@ -24,7 +25,7 @@
         data-umami-event="author-line"
         data-umami-event-to="projects"
       >
-        Projects
+        Work
       </a>
       <a
         href="/consulting"
@@ -32,7 +33,7 @@
         data-umami-event="author-line"
         data-umami-event-to="consulting"
       >
-        Work with me
+        Hire me
       </a>
     </p>
   </aside>

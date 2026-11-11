@@ -76,6 +76,11 @@ const projectTags = computed(
   () => project.value?.metadata?.tags || project.value?.metadata?.tech || []
 )
 
+// Optional deeper case study, set by `case-study:` in the project's frontmatter.
+const caseStudyPath = computed(
+  () => project.value?.metadata?.['case-study'] || ''
+)
+
 // Share cards should show the WORK, not the generic site og-image — these are
 // portfolio pages whose whole point is visuals. First image in the post wins.
 const firstProjectImage = computed(() => {
@@ -224,6 +229,18 @@ onMounted(() => {
         :modified="project.metadata?.modified || project.metadata?.lastUpdated"
         label="Project date"
       />
+      <NuxtLink
+        v-if="caseStudyPath"
+        :to="caseStudyPath"
+        class="project-case-study-link"
+        data-umami-event="project-case-study"
+        :data-umami-event-project="slug"
+      >
+        <span class="project-case-study-label">Technical case study</span>
+        <span class="project-case-study-copy">
+          Design decisions, failure modes, and what shipped →
+        </span>
+      </NuxtLink>
       <p v-if="thisApp?.store?.url" class="mb-8 -mt-2">
         <a
           :href="thisApp.store.url"
@@ -240,6 +257,18 @@ onMounted(() => {
         </span>
       </p>
       <BlogPostContent :content="project.html" class="project-content" />
+
+      <!-- Funnel: people land here after being impressed -->
+      <p class="mt-12">
+        <NuxtLink
+          to="/consulting"
+          class="cta-button"
+          data-umami-event="nav-hire-me"
+          data-umami-event-location="project-footer"
+        >
+          Hire me
+        </NuxtLink>
+      </p>
 
       <!-- Back link -->
       <div class="mt-12 pt-6">
@@ -405,5 +434,24 @@ onMounted(() => {
 
 .toc-number {
   @apply font-mono text-xs tabular-nums w-4 text-right flex-shrink-0;
+}
+
+/* Link to a project's technical case study, under the title. */
+.project-case-study-link {
+  @apply block max-w-prose mb-8 border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 py-1;
+  @apply no-underline transition-colors;
+}
+
+.project-case-study-label {
+  @apply block font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-1;
+}
+
+.project-case-study-copy {
+  @apply block font-serif text-sm text-zinc-800 dark:text-zinc-200;
+  @apply transition-colors;
+}
+
+.project-case-study-link:hover .project-case-study-copy {
+  @apply text-zinc-500 dark:text-zinc-400;
 }
 </style>

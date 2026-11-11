@@ -8,7 +8,8 @@
  *   production data.
  *
  * The page renders this list as-is, so the rules live here:
- *  1. One line per thing. `text` is a single line; the page truncates, never wraps.
+ *  1. One line per thing. `text` is a single line; the page wraps it, never
+ *     truncates it.
  *  2. One thing per route. `label` is the route it links to (/blog, /rides…),
  *     or the service name for off-site sources (last.fm, mastodon…). The one
  *     exception: every open book on /reading gets its own line.
@@ -285,13 +286,16 @@ export default defineCachedEventHandler(
 
     // ── Undated live numbers (sink to the bottom) ──
     if (availability?.known) {
+      const slots =
+        availability.openSlots > 0
+          ? `${availability.openSlots} of ${availability.capacity} client slots open`
+          : 'Fully booked'
       add({
         label: '/consulting',
         href: '/consulting',
-        text:
-          availability.openSlots > 0
-            ? `${availability.openSlots} of ${availability.capacity} client slots open`
-            : 'Fully booked',
+        text: availability.asOf
+          ? `${slots} (as of ${availability.asOf})`
+          : slots,
         at: null,
       })
     }

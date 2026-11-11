@@ -140,8 +140,7 @@ have no URL caller but are very much alive.
 |---|---|---|---|
 | `cal/available-slots` | Next 3 booking slots | `pages/calendar`, `consulting`, `NextAvailableSlot` | `CAL_COM_API_KEY` |
 | `cal/availability` | Quarterly capacity (fails open: reports all slots free) | **none** — superseded, kept | `CAL_COM_API_KEY` |
-| `consulting-availability` | Hand-curated quarterly availability | `pages/consulting` | `data/consulting-availability.json` |
-| `availability` | Open client slots (fails closed → `{ known: false }`) | `pages/projects`, `now` | `data/availability.json` |
+| `availability` | Open client slots (fails closed → `{ known: false }`) | `pages/projects`, `pages/consulting`, `now` | `data/availability.json` |
 | `webhooks/calcom` (POST) | Booking funnel events | external (Cal.com) | HMAC-verified; appends `data/calcom-events.jsonl` + `pm2 logs` |
 | `agent/meta` | API discovery for AI agents | external | hardcoded schema |
 | `agent/timeline` | Chronological feed for AI agents | external | manifest + predictions + reading |

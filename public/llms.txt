@@ -1,6 +1,6 @@
 # EJ Fox
 
-> Data visualization engineer and investigative journalist building newsroom-ready data experiences through room302.studio.
+> Hacker-journalist. When someone hands me a mess, I take a kind of pathological joy in untangling it.
 
 EJ Fox transforms complex datasets into clear, compelling narratives for journalism and public policy. Areas of expertise include climate data visualization, urban analytics, and investigative data tools.
 

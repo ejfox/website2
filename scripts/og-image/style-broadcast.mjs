@@ -51,7 +51,8 @@ function drawHalftone(ctx, lum, cell, angle, maxR, alpha) {
     for (let u = -diag / 2; u < diag / 2; u += cell) {
       const x = WIDTH / 2 + u * cos - v * sin
       const y = HEIGHT / 2 + u * sin + v * cos
-      if (x < -cell || x > WIDTH + cell || y < -cell || y > HEIGHT + cell) continue
+      if (x < -cell || x > WIDTH + cell || y < -cell || y > HEIGHT + cell)
+        continue
       const l = lum(x, y)
       if (l <= 0.04) continue
       const r = Math.sqrt(l) * maxR
@@ -95,7 +96,10 @@ export async function render(content, seed) {
       const l = px[i] / 255
       // Keep the lower-left (title zone) dark so the type wins.
       const fade = Math.min(1, Math.max(0, (x - WIDTH * 0.25) / (WIDTH * 0.45)))
-      const vert = Math.min(1, Math.max(0, 1 - (y - HEIGHT * 0.35) / (HEIGHT * 0.45)))
+      const vert = Math.min(
+        1,
+        Math.max(0, 1 - (y - HEIGHT * 0.35) / (HEIGHT * 0.45))
+      )
       return l * l * (0.25 + 0.75 * fade) * (0.3 + 0.7 * vert)
     }
   } else {
@@ -115,7 +119,7 @@ export async function render(content, seed) {
   drawHalftone(ctx, lum, cell, angle, cell * 0.46, 0.85)
 
   // ── Kicker: first heading, else first tag, else the year ──────────────
-  let kicker = ''
+  let kicker
   if (content.outline && content.outline.length) {
     kicker = randPick(rng, content.outline.slice(0, 3)).text
   } else if (content.tags && content.tags.length) {
@@ -127,12 +131,17 @@ export async function render(content, seed) {
 
   // ── Title: Archivo Black, lower-third anchored, white halo ────────────
   const titleW = WIDTH - MARGIN * 2
-  const title = fitText(ctx, content.title.toUpperCase(), (s) => `400 ${s}px ${DISPLAY}`, {
-    maxWidth: titleW,
-    maxLines: 3,
-    maxSize: 112,
-    minSize: 54,
-  })
+  const title = fitText(
+    ctx,
+    content.title.toUpperCase(),
+    (s) => `400 ${s}px ${DISPLAY}`,
+    {
+      maxWidth: titleW,
+      maxLines: 3,
+      maxSize: 112,
+      minSize: 54,
+    }
+  )
   const lineH = title.size * 0.98
   const blockH = title.lines.length * lineH
   const lowerThirdY = HEIGHT - MARGIN - 8
@@ -152,7 +161,15 @@ export async function render(content, seed) {
   ctx.font = `500 18px ${MONO}`
   ctx.letterSpacing = '4px'
   ctx.fillStyle = '#bdbdbd'
-  hairline(ctx, MARGIN, titleTop - 26.5, MARGIN + 36, titleTop - 26.5, '#fff', 2)
+  hairline(
+    ctx,
+    MARGIN,
+    titleTop - 26.5,
+    MARGIN + 36,
+    titleTop - 26.5,
+    '#fff',
+    2
+  )
   ctx.fillText(kicker, MARGIN + 50, titleTop - 20)
   ctx.letterSpacing = '0px'
 
@@ -169,16 +186,31 @@ export async function render(content, seed) {
   }
 
   // ── Lower third ───────────────────────────────────────────────────────
-  hairline(ctx, MARGIN, lowerThirdY - 30.5, WIDTH - MARGIN, lowerThirdY - 30.5, '#fff', 1)
+  hairline(
+    ctx,
+    MARGIN,
+    lowerThirdY - 30.5,
+    WIDTH - MARGIN,
+    lowerThirdY - 30.5,
+    '#fff',
+    1
+  )
   ctx.font = `500 16px ${MONO}`
   ctx.letterSpacing = '2px'
   ctx.fillStyle = '#fff'
   ctx.fillText('●', MARGIN, lowerThirdY)
   ctx.fillStyle = '#e4e4e4'
-  const parts = ['EJFOX.COM', isoDay(content.stats.date), `${fmtInt(content.stats.words)} WORDS`]
+  const parts = [
+    'EJFOX.COM',
+    isoDay(content.stats.date),
+    `${fmtInt(content.stats.words)} WORDS`,
+  ]
   ctx.fillText(parts.filter(Boolean).join('   //   '), MARGIN + 28, lowerThirdY)
 
-  const tags = (content.tags || []).slice(0, 3).map((t) => `#${t.toUpperCase()}`).join('  ')
+  const tags = (content.tags || [])
+    .slice(0, 3)
+    .map((t) => `#${t.toUpperCase()}`)
+    .join('  ')
   if (tags) {
     ctx.textAlign = 'right'
     ctx.fillStyle = '#8a8a8a'

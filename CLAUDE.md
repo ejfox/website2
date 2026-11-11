@@ -740,13 +740,17 @@ and slugs only, never PII. An element already tagged with
 | `dispatch-data-download` | DispatchReceipts data link | `slug` |
 | `dispatch-source-click` | DispatchReceipts sources + claim sources | `host` |
 | `dispatch-also-on` | Dispatch piece "Also on" links | `network`, `slug` |
-| `consulting-book` | booking CTAs (consulting floating/sidebar, process, projects, case-study-nbc, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
-| `nav-hire-me` | "Hire Me" nav link (`utils/navigation.ts` `umamiEvent`) | `location` (sidebar-nav, mobile-nav) |
+| `consulting-book` | booking CTAs (consulting hero + sidebar + body, process, projects, support-links, next-available-slot) | `location`, `source` (first touch, added at click) |
+| `nav-hire-me` | "Hire me" nav link and buttons (`utils/navigation.ts` `umamiEvent`) | `location` (sidebar-nav, mobile-nav, home, project-footer) |
+| `project-case-study` | project-page link to its technical case study (`case-study:` frontmatter) | `project` |
+| `project-hire-cta` | CTA at the end of a case study (/case-study/**) into /consulting | `project` |
 | `nav-calendar` | links to /calendar: "Book a call" nav item, site footer, end of every blog post | `location` (sidebar-nav, mobile-nav, footer, post-footer) |
 | `outbound` | any untagged link to another host (plugin) | `host` |
 | `contact-email` | any `mailto:` link (plugin) | (none; never the address) |
 | `rss-click` | any link to a `*.xml` feed (plugin) | `feed` (path) |
-| `read-complete` | reader passes 85% of `.h-entry .e-content` on /blog/** and /dispatch/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch) |
+| `home-project` | a project link in the homepage index | `project` (slug) |
+| `home-ambient` | live lines under the homepage text | `source` (route label) |
+| `read-complete` | reader passes 85% of the content body on /blog/**, /dispatch/**, or /projects/** (IntersectionObserver sentinel, ≥10s on page, once per page view) | `path-type` (blog, dispatch, project) |
 
 **umami-plus (2026-10-06).** `plugins/umami.client.js` also loads the shared
 helper `https://umami-plus.tools.ejfox.com/umami-plus.js` (source and docs:

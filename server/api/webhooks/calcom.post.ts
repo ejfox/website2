@@ -50,8 +50,8 @@ const EVENTS_FILE = join(process.cwd(), 'data', 'calcom-events.jsonl')
 type VerifyResult = 'valid' | 'mismatch' | 'no-signature' | 'no-secret'
 
 // Cal.com signs the raw request body with HMAC-SHA256 and sends it in this
-// header. `no-secret` means the endpoint is fail-OPEN (dev/misconfig) — the
-// caller must log loudly, since it accepts unverified payloads.
+// header. `no-secret` rejects in production and is fail-open only in dev,
+// where the caller logs loudly because it accepts unverified payloads.
 function verifySignature(
   rawBody: string,
   signature: string | undefined
@@ -80,8 +80,20 @@ export default defineEventHandler(async (event) => {
 
   const verdict = verifySignature(rawBody, signature)
 
+  if (verdict === 'no-secret' && process.env.NODE_ENV === 'production') {
+    // Fail-closed in prod: without the secret anyone could append fake
+    // bookings to the funnel log. Dev stays open for local testing.
+    console.error(
+      `[Cal.com Webhook] CALCOM_WEBHOOK_SECRET not set — rejecting webhook from ${clientIp}`
+    )
+    throw createError({
+      statusCode: 503,
+      statusMessage: 'Webhook not configured',
+    })
+  }
+
   if (verdict === 'no-secret') {
-    // Fail-open: the scary path. Log every accepted-unverified request so it's
+    // Dev only: fail-open. Log every accepted-unverified request so it's
     // visible in `pm2 logs website2` and alertable — set CALCOM_WEBHOOK_SECRET.
     console.error(
       `[Cal.com Webhook] SECURITY: CALCOM_WEBHOOK_SECRET not set — accepting UNVERIFIED webhook from ${clientIp} (bytes=${rawBody.length})`

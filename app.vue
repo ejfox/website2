@@ -19,9 +19,9 @@ const canonicalUrl = computed(
   () => new URL(route.path || '/', baseUrl.value).href
 )
 
-const defaultTitle = 'EJ Fox | Data Visualization & Investigative Storytelling'
+const defaultTitle = 'EJ Fox | Hacker-journalist'
 const defaultDescription =
-  'Data visualization engineer and journalist building newsroom-grade tools, climate dashboards, and public-interest investigations through room302.studio.'
+  'When someone hands me a mess, I take a kind of pathological joy in untangling it.'
 
 const ogImage = computed(() => new URL('/og-image.png', baseUrl.value).href)
 const structuredPerson = computed(() => ({
@@ -30,7 +30,7 @@ const structuredPerson = computed(() => ({
   name: 'EJ Fox',
   url: baseUrl.value,
   image: ogImage.value,
-  jobTitle: 'Data Visualization Engineer & Journalist',
+  jobTitle: 'Hacker-journalist',
   worksFor: {
     '@type': 'Organization',
     name: 'room302.studio',
@@ -48,6 +48,7 @@ const structuredPerson = computed(() => ({
     'https://github.com/ejfox',
     'https://linkedin.com/in/ejfox',
     'https://room302.studio',
+    'https://www.youtube.com/@ejfox',
   ],
   description: defaultDescription,
 }))

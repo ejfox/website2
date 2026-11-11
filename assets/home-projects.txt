@@ -1,0 +1,147 @@
+# Homepage project index. Page order is file order. dd a line to drop it.
+# "## Name" starts a row. "Title | https://..." links out directly, for things
+# with no project page. A projects/ line shows only once that project is
+# published; the page skips anything that isn't public.
+
+## Dataviz
+projects/connectology
+projects/obsidian-analysis
+projects/coachartie-memory
+projects/gem-viz
+# projects/screenshot-space
+# projects/ejfox-genome
+# projects/transcript-video
+# projects/finance-prism
+# projects/typing-test-animated-history
+# projects/electology   (draft, no public link yet)
+Code Network Generator | https://github.com/ejfox/code-network-gen
+Criterion Embeddings | https://github.com/ejfox/criterion-embedding-viz
+# projects/climate-trace
+# projects/nuxt-force-layout
+# projects/reddit-embeddings
+# projects/sstory
+
+## Tools
+projects/terminal-tools
+projects/smallbot-mcp
+projects/coach-artie
+projects/photography-tools
+projects/vulpes-browser
+projects/vulpes-nvim
+projects/scrapbook-core
+projects/clipgoblin
+projects/github-sloth
+projects/cyberdeck-saver
+projects/vulpino
+projects/newswell
+projects/openrouter-census
+projects/noaa-sat-cli
+projects/showtouch
+# projects/robots
+# projects/annotator
+# projects/music-cli
+# projects/sentrysearch
+# projects/talon-sketchybar
+# projects/tmux-link-grab
+# projects/tldraw-livestream
+# projects/vulpesvg
+# projects/vulpes-rss
+# projects/dispatch-obsidian
+# projects/journo-llm
+# projects/website-dispatch
+# projects/cli-ching
+Vulpes Theme Lab | https://ejfox.github.io/vulpes-theme-lab/
+# projects/metro-savefile-doctor
+# projects/battlefield6-stats-scraper
+# projects/tailwind-phi
+# projects/photos
+# projects/ps5-tmux
+# projects/context-alchemy
+# projects/docgrind
+# projects/llm-honeypot
+# projects/retroscope
+# projects/coachartie-showcase
+# projects/dockrune
+# projects/scrapscroller
+# projects/cloudinary-backup-tool
+# projects/cli-ai-chat
+# projects/cli-delta-dojo
+# projects/directory-sync-tool
+# projects/scrapbook-cli
+# projects/ascii_webcam
+# projects/git-status-dash
+# projects/cli-markdown-tagger
+# projects/cli-conway
+# projects/cli-alias-wizard
+# projects/cli-ascii-3d
+# projects/spaste-cli
+# projects/smallweb-starter
+# projects/room302-template
+# projects/gpt-browser
+
+## Hardware
+projects/flipper-zero-tools
+projects/pixel-canvas
+projects/amen-slicer
+projects/badusb-remote-desktop
+projects/vulpes-devices
+projects/websdr-vcv
+# projects/flipper-zero-apps
+# projects/groundwave
+# projects/ejfox-stations
+# projects/splats
+# projects/glasses-hud
+Hand MIDI Controller | https://github.com/ejfox/hand-midi-controller
+# projects/spectrum-synth
+# projects/opencv-midi-controller
+
+## Apps
+projects/towntuner
+projects/tempo
+projects/paperclip
+# projects/MorningRadio   (draft, no public link yet)
+# projects/vulpecula-loom
+# projects/know-hv
+
+## Art
+projects/motorcycle-viz
+projects/creative-interfaces
+projects/vulpes-system
+projects/tv-station
+projects/twitter-artbot
+# projects/scrapworld   (draft, no public link yet)
+# projects/hexagram-motion-graphics
+# projects/butt-math
+# projects/phone-stack
+# projects/moto-gpx
+# projects/opencv-talk-typography
+# projects/osm-builder
+# projects/torchslit-ios
+# projects/renttoejfox
+# projects/handtrack-websockets
+# projects/arena-cards
+four-seventeen | https://github.com/ejfox/four-seventeen
+# projects/close2home
+
+## Games
+projects/subway-builder
+art-art-art
+# projects/motorcycle-pico8
+# projects/steam-store-design-lab
+# projects/spacepunk-logi
+
+## Journalism
+projects/paramilitary-leaks
+projects/margin-maps
+projects/long-lead
+projects/ccrb-clusters
+projects/covidcast
+projects/nbc-big-board
+projects/nbcnews-specials
+projects/dataproofer
+election-helpers | https://ejfox.github.io/election-helpers/global.html
+
+## Activism
+# projects/fixcentralhudson
+# projects/mapping-ice
+

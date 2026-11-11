@@ -1,7 +1,7 @@
 {
   "cacheVersion": "2026-10-31-59d2efb5fec9",
-  "sourceHash": "23f09208436c2b8affa5c42bff12844c2e2e60f0ceea55000812dfe9363503eb",
-  "html": "<p class=\"\">Hi there! I'm <strong class=\"\">EJ Fox</strong>, a hacker-journalist using code + art to uncover hidden patterns. I try to use my skills to empower others to explore those connections. I believe the world is interconnected and editable, and by using technology for good we can empower people to change the world for the better. I founded <a href=\"http://room302.studio\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"http://room302.studio\">room302.studio</a>, an innovation lab, to take on even larger projects and datasets. If you're interested in a fresh take on some data or just want to chat, reach out at <a href=\"mailto:ejfox@ejfox.com\" class=\"text-blue-600 dark:text-blue-400\">ejfox@ejfox.com</a> or <a href=\"/calendar\" class=\"text-blue-600 dark:text-blue-400\">grab some time on my calendar</a><span id=\"next-available-spot\" class=\"\"></span>.</p>\n<br class=\"\">\n<p class=\"\">Or, if you'd like, browse <a href=\"/projects\" class=\"text-blue-600 dark:text-blue-400\">some of my work</a>, read my <a href=\"/blog\" class=\"text-blue-600 dark:text-blue-400\">blog posts</a>, or check out <a href=\"http://ejfox.com/resume.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"http://ejfox.com/resume.pdf\">my resume</a>.</p>",
+  "sourceHash": "e4e3dc3edf72dc4cbde7bc3b794099ba9baaee40a04cf3d8f4227b871fb2bb19",
+  "html": "<p class=\"\">Hello, my name is <strong class=\"\">EJ Fox</strong>. I'm a hacker-journalist <a href=\"/consulting\" class=\"text-blue-600 dark:text-blue-400\">available for contract work</a>. You can send me an email at <a href=\"mailto:ejfox@ejfox.com\" class=\"text-blue-600 dark:text-blue-400\">ejfox@ejfox.com</a> (<a href=\"/pgp.txt\" class=\"text-blue-600 dark:text-blue-400\">PGP</a>) or <a href=\"/calendar\" class=\"text-blue-600 dark:text-blue-400\">grab some time on my calendar</a><span id=\"next-available-spot\" class=\"\"></span>.</p>\n<p class=\"\">My work focuses on design, data visualization, and storytelling. I believe the world is interconnected and editable.</p>\n<p class=\"\">I founded <a href=\"https://room302.studio\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://room302.studio\">room302.studio</a>, an innovation lab, to take on even larger projects and datasets. Take a look at <a href=\"/projects\" class=\"text-blue-600 dark:text-blue-400\">some of my work</a> or <a href=\"https://ejfox.com/resume.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://ejfox.com/resume.pdf\">my resume</a>.</p>",
   "title": "Index",
   "metadata": {
     "date": "2024-09-22T00:33:21.000Z",
@@ -9,14 +9,14 @@
     "tags": [
       "personal"
     ],
-    "words": 114,
+    "words": 72,
     "images": 0,
     "imageDetails": {
       "total": 0,
       "cloudinary": 0,
       "withDimensions": 0
     },
-    "links": 6,
+    "links": 7,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

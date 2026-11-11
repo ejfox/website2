@@ -253,7 +253,7 @@ const cardRenderers = {
     ctx.fillText(card.text.slice(0, 70), cx + 4, cy + h / 2 + fontSize / 3)
   },
 
-  heading(ctx, card, cx, cy, w, h, proj, depthAlpha) {
+  heading(ctx, card, cx, cy, w, h, proj, _depthAlpha) {
     const fontSize = Math.max(13, Math.round(26 * proj.scale))
     ctx.font = `700 ${fontSize}px IBM Plex Mono, Menlo, monospace`
     ctx.fillStyle = rgba([255, 255, 255], 0.92)
@@ -294,14 +294,14 @@ const cardRenderers = {
     ctx.restore()
   },
 
-  tag(ctx, card, cx, cy, w, h, proj, depthAlpha) {
+  tag(ctx, card, cx, cy, w, h, proj, _depthAlpha) {
     const fontSize = Math.max(10, Math.round(14 * proj.scale))
     ctx.font = `${fontSize}px IBM Plex Mono, Menlo, monospace`
     ctx.fillStyle = rgba([255, 255, 255], 0.88)
     ctx.fillText(`#${card.text}`, cx + 3, cy + h / 2 + fontSize / 3)
   },
 
-  stats(ctx, card, cx, cy, w, h, proj, depthAlpha) {
+  stats(ctx, card, cx, cy, w, h, proj, _depthAlpha) {
     const fontSize = Math.max(9, Math.round(12 * proj.scale))
     ctx.font = `${fontSize}px IBM Plex Mono, Menlo, monospace`
     ctx.fillStyle = rgba([255, 255, 255], 0.8)
@@ -389,7 +389,19 @@ export async function renderScene(content, scene, seed) {
     const depthAlpha = Math.max(0.5, 1 - card.z * 0.12)
     const renderer = cardRenderers[card.type]
     if (renderer) {
-      renderer(ctx, card, cx, cy, w, h, proj, depthAlpha, skew, imageCache, pass)
+      renderer(
+        ctx,
+        card,
+        cx,
+        cy,
+        w,
+        h,
+        proj,
+        depthAlpha,
+        skew,
+        imageCache,
+        pass
+      )
     }
 
     ctx.restore()

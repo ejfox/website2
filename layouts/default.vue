@@ -87,7 +87,11 @@ const linkClasses =
           <NuxtLink
             v-if="item.href !== '/'"
             :to="item.href"
-            class="text-zinc-500 dark:text-zinc-400"
+            :class="
+              item.cta
+                ? 'text-zinc-900 dark:text-zinc-100'
+                : 'text-zinc-500 dark:text-zinc-400'
+            "
             :data-umami-event="item.umamiEvent"
             :data-umami-event-location="
               item.umamiEvent ? 'mobile-nav' : undefined
@@ -127,7 +131,10 @@ const linkClasses =
             <NuxtLink
               v-else
               :to="item.href"
-              :class="linkClasses"
+              :class="[
+                linkClasses,
+                item.cta && '!text-zinc-900 dark:!text-zinc-100',
+              ]"
               :data-umami-event="item.umamiEvent"
               :data-umami-event-location="
                 item.umamiEvent ? 'sidebar-nav' : undefined
