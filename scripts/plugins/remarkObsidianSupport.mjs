@@ -99,6 +99,15 @@ export function remarkObsidianSupport() {
         const { internal, valid } = classifyInternalHref(url)
         const isDead = internal && valid === false
 
+        // A bare [[note-name]] that isn't a tag points at a vault note that
+        // was never published. Nothing "used to" be there, so it renders as
+        // plain prose, not a struck-through link.
+        if (isDead && url.startsWith('/tag/')) {
+          nodes.push({ type: 'text', value: alias })
+          lastIndex = end
+          continue
+        }
+
         nodes.push({
           type: 'link',
           url,

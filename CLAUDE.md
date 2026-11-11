@@ -427,10 +427,14 @@ Two separate link-health systems — don't confuse them:
   from source frontmatter with `isPublicSource()` (`visibility()` is not
   draft or sealed).
   `classifyInternalHref()` only judges the namespaces we fully enumerate
-  (`/blog`, `/reading`, `/projects`); `/tag/*` and other dynamic routes are
-  assumed valid. Bare wikilinks (`[[name]]`) route to `/tag/name`, so they're
-  never flagged dead — only prefixed/multi-segment links are.
-- **Reader UX**: dead wikilinks render as a non-clickable
+  (`/blog`, `/reading`, `/projects`) plus `/tag/<name>`; other dynamic routes
+  are assumed valid. Bare wikilinks (`[[name]]`) route to `/tag/name`, and the
+  tag page 404s a tag nothing uses, so a bare link is dead unless a public
+  post carries that tag (2026-11-11: nine vault notes that were never
+  published were linked from nine posts and 404'd in prod). A tag only
+  *scraps* use can't be seen at build time and reads as dead too.
+- **Reader UX**: a dead bare `[[note-name]]` renders as plain prose (nothing
+  was ever there to strike through). Other dead wikilinks render as a non-clickable
   `<span class="internal-link internal-link-dead">` (strikethrough + ⊘ marker,
   styled in `global.css`) instead of an `<a>` that 404s. Validity is resolved at
   HTML-build time, so this state is baked into cached JSON — a link only restyles

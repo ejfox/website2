@@ -89,6 +89,11 @@ export function buildInternalHref(target) {
 
 // Filled by buildValidRoutes(), read by classifyInternalHref(). See header.
 const validRoutes = new Set()
+// Every tag a public post carries, lowercased. pages/tag/[...slug].vue 404s a
+// tag nothing uses, so a bare [[note-name]] that isn't a real tag is a dead
+// link. (A tag only scraps use also resolves there, but scraps live in
+// Supabase and aren't known at build time: such a link reads as dead here.)
+const validTags = new Set()
 
 /** Canonical key for a route: drop hash/query, decode, lowercase, no trailing slash. */
 export function routeKey(href) {
@@ -144,6 +149,7 @@ export function isPublicSource(relNoExt, fm = {}) {
  */
 export async function buildValidRoutes(files, contentDir) {
   validRoutes.clear()
+  validTags.clear()
 
   // Listing / index pages that always resolve.
   for (const r of [
@@ -173,6 +179,9 @@ export async function buildValidRoutes(files, contentDir) {
     if (!isPublicSource(relNoExt, fm)) continue
 
     validRoutes.add(routeKey(fileToRoute(relNoExt)))
+    for (const tag of [fm.tags || []].flat()) {
+      validTags.add(String(tag).toLowerCase())
+    }
   }
 
   return validRoutes
@@ -181,14 +190,20 @@ export async function buildValidRoutes(files, contentDir) {
 /**
  * Classify an href as it appears in rendered content.
  * Returns { internal, valid }. We only judge the content namespaces we own and
- * fully enumerate (/blog, /reading, /projects). Tag pages and other site routes
- * are dynamic — assumed valid. External/relative links are not internal.
+ * fully enumerate (/blog, /reading, /projects) plus /tag/<name>, which is
+ * valid only when a public post carries that tag. Other site routes are
+ * dynamic — assumed valid. External/relative links are not internal.
  */
 export function classifyInternalHref(href) {
   if (!href || typeof href !== 'string') return { internal: false }
   if (!href.startsWith('/')) return { internal: false }
 
   const key = routeKey(href)
+  if (key.startsWith('/tag/')) {
+    // Unfilled (no buildValidRoutes yet, e.g. a preview): judge nothing dead.
+    const known = validTags.size === 0 || validTags.has(key.slice(5))
+    return { internal: true, valid: known }
+  }
   const owned =
     key.startsWith('/blog/') ||
     key.startsWith('/reading/') ||
