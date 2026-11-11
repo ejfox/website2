@@ -13,7 +13,7 @@ tags:
   - web
 ---
 
-[Smallweb](https://www.smallweb.run) is a unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.
+[Smallweb](https://www.smallweb.run) is a tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.
 
 Nowadays when I have an idea for a website I just want it to exist, without spending three hours setting up a build pipeline and configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes "make me a site about [northeastern trees](https://youtube.com/shorts/i6IZSkmqNSo)" and actually builds the thing.
 

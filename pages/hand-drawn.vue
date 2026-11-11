@@ -86,19 +86,17 @@ const flow = ['write', 'process', 'serve', 'deploy']
 
 // Showcase blurbs
 const blurbFootnoteMarkers =
-  'Swap the plain superscript ¹²³ in the sidenotes system for your own circled numbers — unmistakably yours.'
+  'Swap the plain superscript ¹²³ in the sidenotes system for your own circled numbers.'
 const blurbMarkedDraft =
   'Point at the phrase, circle it, underline the word that matters. The red pen, used sparingly.'
 const blurbInlineAnnotation =
   'Circle the thing that matters. Point at the next thing. The marks actually hug the words now.'
-const blurbNumberCircled =
-  'A stat reads like it was written, not dashboarded — when only the number that matters gets the pen.'
+const blurbNumberCircled = 'Only the number that matters gets the pen.'
 const blurbNumberedSteps =
   'Circled numbers as bullets turn a dry ordered list into something that reads like a marked-up page.'
 const blurbFlowDiagram =
   "Circled numbers and arrows compose into a hand-sketched pipeline — the kind you'd draw on a whiteboard."
-const blurbCalloutFrames =
-  'A traced box around a pull-quote feels handmade in a way a CSS border never will.'
+const blurbCalloutFrames = 'A traced box around a pull-quote feels handmade.'
 const blurbUnitCharts =
   'Your real notebook stipple dots, duped and rotated into a 10×10 grid. Fill as many as the number says — isotype, by hand.'
 const blurbDatavizAnnotations =
@@ -650,8 +648,8 @@ useHead({
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">Weaving them in</h2>
         <p class="text-zinc-500 dark:text-zinc-400 mb-12 max-w-prose">
-          The point isn't a gallery — it's that they disappear into the writing,
-          the UI, and the charts. Three hooks do that: an
+          They disappear into the writing, the UI, and the charts. Three hooks
+          do that: an
           <code class="text-sm">:hd{}</code>
           directive for prose, automatic upgrades of existing markup (footnotes,
           dividers), and a
@@ -926,8 +924,8 @@ then read the logs and move on.</code></pre>
       <section class="mb-28">
         <h2 class="text-2xl font-semibold mb-3">Straight from the archive</h2>
         <p class="text-zinc-500 dark:text-zinc-400 mb-16 max-w-prose">
-          Not lorem ipsum — actual lines from real posts, marked up the way you
-          might in the margin. Each one notes where it came from.
+          Actual lines from real posts, marked up the way you might in the
+          margin. Each one notes where it came from.
         </p>
 
         <div class="space-y-16">
@@ -1056,8 +1054,7 @@ then read the logs and move on.</code></pre>
         <h2 class="text-2xl font-semibold mb-3">The complete kit, in use</h2>
         <p class="text-zinc-500 dark:text-zinc-400 mb-16 max-w-prose">
           Every mark in the set doing a real job — captioned with real numbers,
-          projects, and lines from the archive. Repeats are fine; the point is
-          that nothing's left sitting in the drawer.
+          projects, and lines from the archive. Repeats are fine.
         </p>
 
         <div class="space-y-20">

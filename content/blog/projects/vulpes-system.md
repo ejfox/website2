@@ -17,7 +17,7 @@ tags:
 
 I believe that if I spend so much time looking at and thinking about my computer, I want to have full control over the fonts and colors I look at — to make it cinematic, aesthetic, "me," and different. And it's so dope that when I go to coffee shops (true story), people stop me and say "that setup looks sick, can I give you my card in case I need a dev?"
 
-Vulpes is what that belief turns into when you follow it all the way down. One palette — `#e60067` magenta, `#6eedf7` teal, near-black — and one fox glyph, pushed through every surface I touch: the editor, the terminal, the browser, the screensaver, and the little screens on the hardware in my bag. Each piece is a working tool. Together they're one look.
+Vulpes is what that belief turns into when you follow it all the way down. One palette — `#e60067` magenta, `#6eedf7` teal, near-black — and one fox glyph, pushed through every surface I touch: the editor, the terminal, the browser, the screensaver, and the little screens on the hardware in my bag. Each piece is a working tool.
 
 ![The vulpes palette across a full terminal — waveforms, logs, and the fox mark](https://res.cloudinary.com/ejf/image/upload/projects/vulpes-nvim/theme1.png)
 

@@ -19,7 +19,7 @@ Communicating over radio is its own unique thing, with its own patterns and meme
 
 There's something more *real* about radios compared to digital phones. Not to get too woo-woo, but they feel more grounded in physical reality, more immediate. A technology that lets you talk over vibrations. When you key up a radio, you're broadcasting magical electromagnetic waves through the air.
 
-But here's what really got me inspired: watching how the best-performing teams communicate. Whether it's in Squad, emergency services, or sports, there's a universal discipline in triaging information. Distilling complex thoughts into an economy of words that can be transmitted and understood under pressure.
+I got inspired watching how the best-performing teams communicate. In Squad, emergency services, or sports, there's a discipline in triaging information: distilling complex thoughts into as few words as possible that can be understood under pressure.
 
 ### Good vs Bad Comms: Lessons from Video Games
 
@@ -35,7 +35,7 @@ The difference is night and day. Good radio creates a shared mental map of the b
 
 ### Radio Discipline in the Wild
 
-Here's where it gets interesting: Discord calls follow the exact same patterns, especially when shit gets serious. Newsrooms operate like this too—if you're going to say something out loud, you know everyone is listening, so you damn well better know your shit. Say it as quickly as possible, to only the extent you know it, and include everything that needs to be known without a bunch of follow-up questions.
+Discord calls follow the exact same patterns, especially when shit gets serious. Newsrooms operate like this too—if you're going to say something out loud, you know everyone is listening, so you damn well better know your shit. Say it as quickly as possible, to only the extent you know it, and include everything that needs to be known without a bunch of follow-up questions.
 
 Compare these two scenarios:
 
@@ -56,23 +56,23 @@ Same information, but one version creates panic and confusion while the other gi
 
 Good radio communication relies on foundational skills that most people never think about. Always knowing your cardinal directions, for example. Living in the Hudson Valley makes this easier—the Hudson River runs north-south, so you always have a natural reference point. But I am finding that most people panic if you asked them to quickly orient themselves.
 
-These skills become absolutely critical during protests, civil unrest, storms, and other disasters. Communication devices are low on battery. People are nervous and distracted. Your window to communicate might be seconds, not minutes. Being able to stay calm and rely on pre-existing systems will dramatically improve how information flows—but it needs to be prepared for, like any other skill. Knowing your direction of travel and current orientation is crucial for conveying what is happening to other people.
+These skills become critical during protests, civil unrest, storms, and other disasters. Communication devices are low on battery. People are nervous and distracted. Your window to communicate might be seconds, not minutes. Being able to stay calm and rely on pre-existing systems will dramatically improve how information flows—but it needs to be prepared for, like any other skill. Knowing your direction of travel and current orientation is crucial for conveying what is happening to other people.
 
 "Just talking" without practice during a crisis will end terribly. It's like expecting to perform CPR effectively just because you've seen it in movies.
 
 ### From Simulation to Reality: Why Gaming Skills Transfer
 
-We actually see this proven out across multiple domains. Airsofters can simulate scenarios and get faster shot placement times with real guns, having never practiced with them before. FPV drone pilots spend 100+ hours in simulators before ever flying in real life.
+Airsofters can simulate scenarios and get faster shot placement times with real guns, having never practiced with them before. FPV drone pilots spend 100+ hours in simulators before ever flying in real life.
 
-These little drills we practice, the games we play in our off-time, can genuinely prepare us for uncertainty. This is, in fact, the most ancient and core purpose of gaming. Anthropologists have documented how traditional games across cultures serve as training for hunting, warfare, and survival skills.
+These little drills we practice, the games we play in our off-time, can prepare us for uncertainty. This is, in fact, the most ancient and core purpose of gaming. Anthropologists have documented how traditional games across cultures train people for hunting, warfare, and survival skills.
 
 The same principles apply to communication drills. Every time you coordinate a complex raid in an MMO or call out enemy positions in Squad, you're practicing information triage, situational awareness, and calm communication under stress.
 
-Take, for example, the "over and out" phrase commonly heard in movie radio chatter (proper procedure never pairs the two). The phrase encapsulates the essence of radio communication—clarity, brevity, and finality—all in just three syllables. It's a linguistic meme that has stood the test of time, rounded down like a river rock over time.
+Take, for example, the "over and out" phrase commonly heard in movie radio chatter (proper procedure never pairs the two). The phrase packs clarity, brevity, and finality into three syllables. It's a linguistic meme, rounded down like a river rock over time.
 
 I remember listening to GMRS radio on Lake George, and hearing a female voice sign off over the radio: "Over and out, good buddy" – a gruff voice on the other end responses "I'm not your buddy", to which she cheerfully replied "Over and out good hubby!"
 
-The universality of radio is about the human instinct for efficient communication. Interestingly, this culture of coded language has found a new home in the digital age. Platforms like Discord, popular among younger generations, have become the modern-day equivalents of radio channels or the old party phone lines I'd call into as a bratty teenager. Here, users employ a blend of shorthand phrases, emojis, and voice chats to communicate with a level of efficiency that would make any seasoned radio operator proud.
+Radio is about the human instinct for efficient communication. This culture of coded language now lives on platforms like Discord, the modern equivalents of radio channels or the old party phone lines I'd call into as a bratty teenager. Users there mix shorthand phrases, emojis, and voice chats to communicate efficiently.
 
 ### How to Actually Practice This
 
@@ -91,6 +91,4 @@ The principles are simple:
 - **Confirm receipt**: Wait for "copy" or "roger" before assuming the message got through, and repeat it if necessary
 - **Stay calm**: Practice delivering critical information in a level tone, even under pressure
 
-Start noticing these opportunities in your daily life. Group hiking trips. Coordinating dinner plans. Even work meetings. The goal isn't to sound like a Navy SEAL—it's to communicate more effectively when it actually matters.
-
-Because when the lights go out, the cell towers fail, or someone's actually in danger, you'll be glad you practiced being clear, concise, and heard.
+Start noticing these opportunities in your daily life. Group hiking trips. Coordinating dinner plans. Even work meetings. You don't have to sound like a Navy SEAL. The goal is to communicate more effectively when it actually matters.

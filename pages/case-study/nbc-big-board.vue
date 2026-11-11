@@ -74,12 +74,11 @@ usePageSeo({
         NBC's existing election touchscreen was showing its age. The interface
         was clunky. The maps couldn't zoom to county level smoothly. And Steve
         Kornacki—the human phenomenon who turns election data into compelling
-        TV—was fighting the technology instead of flowing with it.
+        TV—was fighting the technology.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        The stakes were absurd. Election night is the Super Bowl of news.
-        Millions of viewers. Live TV. No second takes. If the app crashes,
-        you've just created a viral moment for all the wrong reasons.
+        The stakes were absurd. Election night is the Super Bowl of news:
+        millions of viewers, live TV, no second takes.
       </p>
       <div class="bg-raised rounded-lg p-4 my-6">
         <p class="font-mono text-sm text-zinc-600 dark:text-zinc-400">
@@ -97,8 +96,7 @@ usePageSeo({
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">The Approach</h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        I started with a prototype. Not a proposal. Not a requirements doc. A
-        working prototype that showed what was possible.
+        I started with a working prototype that showed what was possible.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
         In January 2018, I demoed it to Steve's producer. Then to Steve himself.
@@ -139,7 +137,7 @@ usePageSeo({
           <span>
             <strong>Graceful degradation:</strong>
             Every feature had a fallback. If the live data feed died, we could
-            switch to cached data seamlessly.
+            switch to cached data.
           </span>
         </li>
       </ul>
@@ -157,10 +155,10 @@ usePageSeo({
         listening to the chaos.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        But here's the thing: the app wasn't frozen. The video feed from the app
-        to the broadcast system had hiccupped. His touch inputs were landing and
-        the app was processing them correctly—the output just wasn't making it
-        to the screen.
+        But the app wasn't frozen. The video feed from the app to the broadcast
+        system had hiccupped. His touch inputs were landing and the app was
+        processing them correctly—the output just wasn't making it to the
+        screen.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
         The control room re-routed the video feed. 15 seconds later, we were
@@ -249,7 +247,7 @@ usePageSeo({
           >
           <span>
             <strong>Start with a working prototype.</strong>
-            Not a deck. Not a proposal. Something people can touch and react to.
+            Something people can touch and react to.
           </span>
         </li>
         <li class="flex gap-3">
@@ -259,7 +257,7 @@ usePageSeo({
           <span>
             <strong>Understand the performer.</strong>
             Steve Kornacki has a specific way of thinking and moving. The app
-            had to feel like an extension of his hands, not a barrier.
+            had to feel like an extension of his hands.
           </span>
         </li>
         <li class="flex gap-3">

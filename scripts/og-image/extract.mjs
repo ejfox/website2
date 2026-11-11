@@ -56,7 +56,7 @@ function dedupe(arr) {
 // Emoji and other pictographs in headings ("📸 Creative") would print as
 // tofu or, worse, as emoji; the cards are glyph-only by house rule.
 const EMOJI_RE =
-  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}\u{2640}\u{2642}]/gu
+  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/gu
 
 function cleanText(s) {
   return s
@@ -65,6 +65,8 @@ function cleanText(s) {
     .replace(/&quot;/g, '"')
     .replace(/&nbsp;/g, ' ')
     .replace(EMOJI_RE, '')
+    .replaceAll('\u{FE0F}', '') // variation selector, left behind by emoji
+    .replaceAll('\u{200D}', '') // zero-width joiner
     .replace(/\s+/g, ' ')
     .trim()
 }
@@ -166,19 +168,22 @@ function blocksFromMarkdown(content) {
       flushPara()
       continue
     }
-    const h = t.match(/^(#{1,6})\s+(.*)$/)
+    const h = t.match(/^(#{1,6})\s+(\S.*)?$/)
     if (h) {
       flushPara()
-      blocks.push({ type: `h${h[1].length}`, words: countWords(h[2]) })
+      blocks.push({ type: `h${h[1].length}`, words: countWords(h[2] || '') })
     } else if (t.startsWith('![')) {
       flushPara()
       blocks.push({ type: 'img', words: 0 })
     } else if (t.startsWith('>')) {
       flushPara()
       blocks.push({ type: 'quote', words: countWords(t.replace(/^>\s?/, '')) })
-    } else if (/^([-*]|\d+\.)\s/.test(t)) {
+    } else if (/^(?:[-*]|\d+\.)\s/.test(t)) {
       flushPara()
-      blocks.push({ type: 'li', words: countWords(t.replace(/^([-*]|\d+\.)\s/, '')) })
+      blocks.push({
+        type: 'li',
+        words: countWords(t.replace(/^(?:[-*]|\d+\.)\s/, '')),
+      })
     } else {
       para.push(t)
     }
