@@ -94,6 +94,9 @@ const validRoutes = new Set()
 // link. (A tag only scraps use also resolves there, but scraps live in
 // Supabase and aren't known at build time: such a link reads as dead here.)
 const validTags = new Set()
+// Every source file's route, drafts included: tells "links to a draft" (a
+// forward link that comes alive on publish) from "links to nothing at all".
+const allRoutes = new Set()
 
 /** Canonical key for a route: drop hash/query, decode, lowercase, no trailing slash. */
 export function routeKey(href) {
@@ -150,6 +153,7 @@ export function isPublicSource(relNoExt, fm = {}) {
 export async function buildValidRoutes(files, contentDir) {
   validRoutes.clear()
   validTags.clear()
+  allRoutes.clear()
 
   // Listing / index pages that always resolve.
   for (const r of [
@@ -168,6 +172,7 @@ export async function buildValidRoutes(files, contentDir) {
     // Files outside the content dir (e.g. the excluded drafts dir) never ship.
     if (rel.startsWith('..')) continue
     const relNoExt = rel.replace(/\.md$/, '')
+    allRoutes.add(routeKey(fileToRoute(relNoExt)))
     if (!isPublicSource(relNoExt)) continue
 
     let fm
@@ -348,8 +353,10 @@ export async function auditInternalLinks(files, contentDir) {
     }
     // Offset of the body within the raw file, so line numbers map to the
     // on-disk file (frontmatter included), not the stripped body.
-    const body = matter(raw).content
+    const parsed = matter(raw)
+    const body = parsed.content
     const bodyOffset = raw.length - body.length
+    const sourcePublic = isPublicSource(rel.replace(/\.md$/, ''), parsed.data)
     const sourceRoute = fileToRoute(rel.replace(/\.md$/, ''))
 
     const candidates = []
@@ -401,6 +408,9 @@ export async function auditInternalLinks(files, contentDir) {
         target: bareTarget(c.raw),
         href: c.href,
         suggestion: suggestRoute(c.href, sourceRoute),
+        // A reader can see this post, and the target isn't even a draft:
+        // nothing will ever be there. This is what `--gate` fails on.
+        blocking: sourcePublic && !allRoutes.has(routeKey(c.href)),
       })
     }
   }
@@ -413,6 +423,7 @@ export async function auditInternalLinks(files, contentDir) {
       filesScanned: files.length,
       internalLinks: totalInternal,
       dead: dead.length,
+      blocking: dead.filter((d) => d.blocking).length,
       affectedPosts: new Set(dead.map((d) => d.source)).size,
       withSuggestion: dead.filter((d) => d.suggestion).length,
     },

@@ -20,4 +20,9 @@ if ! node -e "import('jiti')" >/dev/null 2>&1; then
   echo "⚠ check-urls skipped: no node_modules here (lint.yml still runs it)"
   exit 0
 fi
-exec node scripts/meta/check-urls.mjs --staged --base HEAD --quiet
+node scripts/meta/check-urls.mjs --staged --base HEAD --quiet || exit 1
+
+# No public post links to a page that doesn't exist at all (a bare [[note]]
+# that was never published, a typo'd path). Links to drafts are fine: they
+# render as dead spans and come alive on publish. Working tree, ~0.3s.
+exec node scripts/meta/check-internal-links.mjs --gate

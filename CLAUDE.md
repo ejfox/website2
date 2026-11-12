@@ -440,7 +440,15 @@ Two separate link-health systems — don't confuse them:
   HTML-build time, so this state is baked into cached JSON — a link only restyles
   when its source post is reprocessed. The `data/internal-linkrot-report.json`
   audit, by contrast, always scans all source files and is always accurate.
-- **Report-only by design** — never blocks the build.
+- **The report never blocks the build, but one case blocks the commit**
+  (2026-11-12). `yarn blog:dead-links --gate` fails when a *public* post links
+  to something with no source file at all (a never-published `[[note]]`, a
+  typo'd path). It runs in `.githooks/pre-commit` (working tree, ~0.3s) and
+  `lint.yml`. A link to a *draft* doesn't block: it renders as a dead span and
+  comes alive when the draft publishes. Each report entry carries `blocking`.
+- **`lint.yml` stops at the first failing step.** ESLint runs first, so from
+  2026-11-05 to 11-12 eleven lint errors in `scripts/og-image/` kept CI from
+  ever reaching check-urls, the tests or this gate. Red Lint = no CI checks.
 
 ## Public URLs keep resolving (2026-10-22)
 

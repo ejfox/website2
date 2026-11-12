@@ -24,8 +24,6 @@ The rough shape of the project changes depending on a few factors:
 - Fast vs slow
 - Public vs private
 
-For more less-technical specifics around project management in general (not just code): [[how-to-run-a-project]]
-
 For design philosophy [[blog/2023/design-philosophy]] and work philosophy [[blog/2022/joy-driven-development]]
 
 My coding setup, including theme and plugins: [[blog/2022/my-vscode-setup]]
@@ -50,7 +48,7 @@ You can usually only accomplish a few of those goals, and knowing the bounds of 
 
 ### User stories
 
-User stories are essential to writing software that will be used by people. I talk more about user stories in [[how-to-run-a-project]]
+User stories are essential to writing software that will be used by people.
 
 #### tl;dr
 

@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-11-11T21:56:20.035Z",
+  "timestamp": "2026-11-12T17:36:55.048Z",
   "summary": {
     "filesScanned": 301,
-    "internalLinks": 73,
-    "dead": 30,
-    "affectedPosts": 16,
+    "internalLinks": 59,
+    "dead": 18,
+    "blocking": 0,
+    "affectedPosts": 11,
     "withSuggestion": 0
   },
   "dead": [
@@ -13,210 +14,144 @@
       "line": 49,
       "target": "blog/2022/the-studio",
       "href": "/blog/2022/the-studio",
-      "suggestion": null
-    },
-    {
-      "source": "2022/art-setup.md",
-      "line": 50,
-      "target": "drafts/garment-dying-experiments",
-      "href": "/blog/drafts/garment-dying-experiments",
-      "suggestion": null
-    },
-    {
-      "source": "2022/art-setup.md",
-      "line": 51,
-      "target": "woodworking-setup",
-      "href": "/tag/woodworking-setup",
-      "suggestion": null
-    },
-    {
-      "source": "2022/art-setup.md",
-      "line": 52,
-      "target": "drafts/soapmaking",
-      "href": "/blog/drafts/soapmaking",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/everyone-should-code-data-literacy.md",
       "line": 26,
       "target": "drafts/approach-to-learning",
       "href": "/blog/drafts/approach-to-learning",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/everyone-should-code-data-literacy.md",
       "line": 40,
       "target": "how-i-use-stable-diffusion",
       "href": "/tag/how-i-use-stable-diffusion",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/everyone-should-code-data-literacy.md",
       "line": 68,
       "target": "current-computer-setup",
       "href": "/tag/current-computer-setup",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/experiments-with-live-looping-performance.md",
       "line": 23,
       "target": "blog/2019/generative-music-iteration",
       "href": "/blog/2019/generative-music-iteration",
-      "suggestion": null
-    },
-    {
-      "source": "2022/food.md",
-      "line": 77,
-      "target": "drafts/_stale/cooking-ramen-experiments",
-      "href": "/blog/drafts/_stale/cooking-ramen-experiments",
-      "suggestion": null
-    },
-    {
-      "source": "2022/food.md",
-      "line": 82,
-      "target": "chocolate-chip-cookies",
-      "href": "/tag/chocolate-chip-cookies",
-      "suggestion": null
-    },
-    {
-      "source": "2022/food.md",
-      "line": 86,
-      "target": "cooking-kolaches",
-      "href": "/tag/cooking-kolaches",
-      "suggestion": null
-    },
-    {
-      "source": "2022/joy-driven-development.md",
-      "line": 15,
-      "target": "how-to-run-a-project",
-      "href": "/tag/how-to-run-a-project",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/motorcycle-camping.md",
       "line": 21,
       "target": "Collins-Zito-The%20Fundamentals%20of%20Motorcycle%20Camping.md",
       "href": "/tag/collins-zito-the-20fundamentals-20of-20motorcycle-20camping",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/motorcycle-camping.md",
       "line": 40,
       "target": "Pirsig-Zen%20and%20the%20Art%20of%20Motorcycle%20Maintenance.md",
       "href": "/tag/pirsig-zen-20and-20the-20art-20of-20motorcycle-20maintenance",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/motorcycle-camping.md",
       "line": 144,
       "target": "hudson-valley-motorcycle-rides",
       "href": "/tag/hudson-valley-motorcycle-rides",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/the-art-of-coding.md",
       "line": 27,
-      "target": "how-to-run-a-project",
-      "href": "/tag/how-to-run-a-project",
-      "suggestion": null
+      "target": "blog/2023/design-philosophy",
+      "href": "/blog/2023/design-philosophy",
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2022/the-art-of-coding.md",
       "line": 29,
-      "target": "blog/2023/design-philosophy",
-      "href": "/blog/2023/design-philosophy",
-      "suggestion": null
-    },
-    {
-      "source": "2022/the-art-of-coding.md",
-      "line": 31,
       "target": "blog/2022/my-vscode-setup",
       "href": "/blog/2022/my-vscode-setup",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2023/camera-setup.md",
       "line": 31,
       "target": "blog/2023/film-development",
       "href": "/blog/2023/film-development",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2023/capitalism-letting-people-die.md",
       "line": 20,
       "target": "Liu-Abolish%20Silicon%20Valley.md",
       "href": "/tag/liu-abolish-20silicon-20valley",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2023/capitalism-letting-people-die.md",
       "line": 47,
       "target": "Taibbi-Crabapple-The%20Divide.md",
       "href": "/tag/taibbi-crabapple-the-20divide",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2023/crypto-ai-colonization.md",
       "line": 23,
       "target": "blog/2023/hacker-culture",
       "href": "/blog/2023/hacker-culture",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2023/design-philosophy.md",
       "line": 18,
       "target": "how-to-run-a-project",
       "href": "/tag/how-to-run-a-project",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "2023/film-development.md",
       "line": 17,
       "target": "blog/2023/camera-setup",
       "href": "/blog/2023/camera-setup",
-      "suggestion": null
-    },
-    {
-      "source": "2025/mcp-meta-mapping.md",
-      "line": 21,
-      "target": "quantified-self-as-archaeology",
-      "href": "/tag/quantified-self-as-archaeology",
-      "suggestion": null
-    },
-    {
-      "source": "2025/owning-my-cloudinary-photos.md",
-      "line": 19,
-      "target": "building-tools-for-yourself",
-      "href": "/tag/building-tools-for-yourself",
-      "suggestion": null
-    },
-    {
-      "source": "2025/owning-my-cloudinary-photos.md",
-      "line": 46,
-      "target": "quantified-self-as-archaeology",
-      "href": "/tag/quantified-self-as-archaeology",
-      "suggestion": null
-    },
-    {
-      "source": "2025/personal-apis.md",
-      "line": 24,
-      "target": "quantified-self-as-archaeology",
-      "href": "/tag/quantified-self-as-archaeology",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "projects/flipper-zero-apps.md",
       "line": 16,
       "target": "/projects/flipper-generative-art",
       "href": "/projects/flipper-generative-art",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     },
     {
       "source": "projects/flipper-zero-apps.md",
       "line": 22,
       "target": "/projects/flipper-space-calculators",
       "href": "/projects/flipper-space-calculators",
-      "suggestion": null
+      "suggestion": null,
+      "blocking": false
     }
   ]
 }

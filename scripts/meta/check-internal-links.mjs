@@ -7,11 +7,16 @@
  *   real published routes — no network, no full content rebuild. Writes
  *   data/internal-linkrot-report.json and prints a summary.
  *   Rules live in scripts/utils/internal-links.mjs; `yarn blog:process` runs
- *   the same audit on every build. Report-only unless --strict.
+ *   the same audit on every build. Report-only unless --strict or --gate.
  *
  *   Usage:
  *     yarn blog:dead-links           # report only
  *     yarn blog:dead-links --strict  # exit 1 if any dead links
+ *     yarn blog:dead-links --gate    # exit 1 only if a PUBLIC post links to
+ *                                    # something that doesn't exist at all
+ *                                    # (not even as a draft). Prints just
+ *                                    # those, writes no report. This is what
+ *                                    # .githooks/pre-commit and lint.yml run.
  */
 
 import { promises as fs } from 'node:fs'
@@ -24,6 +29,7 @@ import {
 } from '../utils/internal-links.mjs'
 
 const STRICT = process.argv.includes('--strict')
+const GATE = process.argv.includes('--gate')
 const contentDir = config.dirs.content
 
 async function getMarkdownFiles(dir) {
@@ -50,6 +56,30 @@ async function main() {
   // Must run first: it fills the route set auditInternalLinks checks against.
   await buildValidRoutes(files, contentDir)
   const report = await auditInternalLinks(files, contentDir)
+
+  if (GATE) {
+    const blocking = report.dead.filter((d) => d.blocking)
+    if (!blocking.length) return
+    console.error(
+      chalk.red.bold(
+        `\n✗ ${blocking.length} link${blocking.length === 1 ? '' : 's'} in public posts point at pages that don't exist:\n`
+      )
+    )
+    for (const d of blocking) {
+      const fix = d.suggestion
+        ? chalk.green(`  did you mean ${d.suggestion}?`)
+        : ''
+      console.error(
+        `  ${chalk.cyan(`content/blog/${d.source}:${d.line}`)}  [[${d.target}]] → ${d.href}${fix}`
+      )
+    }
+    console.error(
+      chalk.gray(
+        `\n  Fix the target (a post needs its folder: [[blog/2023/name]]), publish\n  the note, or remove the link. A bare [[name]] only works if it is a tag.\n`
+      )
+    )
+    process.exit(1)
+  }
 
   const reportPath = path.join(
     process.cwd(),

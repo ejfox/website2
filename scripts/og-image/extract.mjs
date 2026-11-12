@@ -55,8 +55,12 @@ function dedupe(arr) {
 
 // Emoji and other pictographs in headings ("📸 Creative") would print as
 // tofu or, worse, as emoji; the cards are glyph-only by house rule.
+// The joiner and variation selector sit outside the class: inside one they
+// trip no-misleading-character-class, and as alternatives they trip
+// prefer-character-class. The two rules can't both be satisfied.
 const EMOJI_RE =
-  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}\u{2640}\u{2642}]/gu
+  // eslint-disable-next-line regexp/prefer-character-class
+  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]|\u{FE0F}|\u{200D}/gu
 
 function cleanText(s) {
   return s
@@ -166,7 +170,7 @@ function blocksFromMarkdown(content) {
       flushPara()
       continue
     }
-    const h = t.match(/^(#{1,6})\s+(.*)$/)
+    const h = t.match(/^(#{1,6})\s+(\S.*)$/)
     if (h) {
       flushPara()
       blocks.push({ type: `h${h[1].length}`, words: countWords(h[2]) })
@@ -176,9 +180,12 @@ function blocksFromMarkdown(content) {
     } else if (t.startsWith('>')) {
       flushPara()
       blocks.push({ type: 'quote', words: countWords(t.replace(/^>\s?/, '')) })
-    } else if (/^([-*]|\d+\.)\s/.test(t)) {
+    } else if (/^(?:[-*]|\d+\.)\s/.test(t)) {
       flushPara()
-      blocks.push({ type: 'li', words: countWords(t.replace(/^([-*]|\d+\.)\s/, '')) })
+      blocks.push({
+        type: 'li',
+        words: countWords(t.replace(/^(?:[-*]|\d+\.)\s/, '')),
+      })
     } else {
       para.push(t)
     }

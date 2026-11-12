@@ -136,6 +136,21 @@ describe('validity + audit over a temp content tree', () => {
     expect(hrefs).toContain('/tag/how-to-run-a-project') // bare, no such tag
     for (const d of fromArt) expect(d.line).toBeGreaterThan(0)
   })
+
+  it('marks blocking only when a public post links to nothing at all', async () => {
+    const report = await auditInternalLinks(await collect(dir), dir)
+    const by = Object.fromEntries(
+      report.dead
+        .filter((d) => d.source === '2022/art-setup.md')
+        .map((d) => [d.href, d.blocking])
+    )
+    expect(by['/blog/2022/the-studio']).toBe(false) // a draft: forward link
+    expect(by['/blog/2022/ghost-post']).toBe(true) // no such file
+    expect(by['/tag/how-to-run-a-project']).toBe(true) // never-published note
+    expect(report.summary.blocking).toBe(
+      report.dead.filter((d) => d.blocking).length
+    )
+  })
 })
 
 async function collect(dir) {
