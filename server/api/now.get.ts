@@ -2,7 +2,7 @@
  * @file now.get.ts
  * @description GET /api/now. The /now page as data: { generated, lines: [{ label,
  *   href, text, at }] }, one line per thing, one thing per route, newest first.
- *   Fans out to 18 sibling routes over HTTP ($fetch, 15s timeout each). Cached
+ *   Fans out to 22 sibling routes over HTTP ($fetch, 15s timeout each). Cached
  *   5 min with swr. Never throws: each source fails alone and a dead vendor
  *   just drops its line. Dev-only env NOW_DATA_ORIGIN points the fan-out at
  *   production data.
@@ -72,6 +72,10 @@ export default defineCachedEventHandler(
       get('/api/rescuetime'),
       get('/api/paperclip'),
       get('/api/apps'),
+      get('/api/on-this-day'),
+      get('/api/keymap'),
+      get('/api/calibration'),
+      get('/api/blogroll'),
     ])
     const [
       manifest,
@@ -91,6 +95,10 @@ export default defineCachedEventHandler(
       rescuetime,
       paperclip,
       apps,
+      onThisDay,
+      keymap,
+      calibration,
+      blogroll,
     ] = results.map(value)
 
     // ── Lines ────────────────────────────────────────────────
@@ -312,6 +320,55 @@ export default defineCachedEventHandler(
         href: '/apps',
         text: `${app.name} ${app.store.version}`,
         at: iso(app.store.updated),
+      }
+    )
+
+    // ── Corners: today in past years, keyboard, calibration, feeds ──
+    if (onThisDay) {
+      const bits = [
+        [onThisDay.total_tweets, 'tweets'],
+        [onThisDay.total_commits, 'commits'],
+        [onThisDay.total_posts, 'posts'],
+      ]
+        .filter(([n]) => n > 0)
+        .map(([n, what]) => `${n} ${what}`)
+      const day = new Date(
+        Date.UTC(2000, onThisDay.month - 1, onThisDay.day)
+      ).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'UTC',
+      })
+      add(
+        bits.length > 0 && {
+          label: '/on-this-day',
+          href: '/on-this-day',
+          text: `${day} in past years: ${bits.join(', ')}`,
+        }
+      )
+    }
+    add(
+      keymap?.title && {
+        label: '/keymap',
+        href: '/keymap',
+        text: `${keymap.title} on the ${keymap.geometry?.replace(/^./, (c: string) => c.toUpperCase())}`,
+        at: iso(keymap.updated),
+      }
+    )
+    const cal = calibration?.summary
+    add(
+      cal?.resolved > 0 && {
+        label: 'calibration',
+        href: '/predictions',
+        text: `${cal.correct} of ${cal.resolved} called right, Brier ${calibration.brier?.as_updated}`,
+        at: iso(calibration.generated_at),
+      }
+    )
+    add(
+      blogroll?.meta?.stats?.total && {
+        label: '/following',
+        href: '/following',
+        text: `${blogroll.meta.stats.total} feeds`,
       }
     )
 
