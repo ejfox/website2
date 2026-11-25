@@ -327,27 +327,6 @@ usePageSeo({
       </header>
 
       <section class="section">
-        <p class="section-label">How I work</p>
-        <div class="stack-24">
-          <p class="body">
-            If you hand me a dataset, I'll perform some lightweight
-            meta-analysis: how much, what type, top entities, any
-            graphs/hierarchies, any timelines or maps to be made. Then I'll
-            bring them to the group to figure out how and where to dive in
-            further, and turn it into a piece of narrative journalism with
-            dataviz-first thinking.
-          </p>
-          <p class="body">
-            By the end of the first day you'll have a map of what is in the
-            pile, a sort of survey of the land in terms of data and resources,
-            and probably a few custom built tools to let a non technical person
-            do deep analysis and joy-based exploration on their own, without
-            needing me to "be their hands".
-          </p>
-        </div>
-      </section>
-
-      <section class="section">
         <p class="section-label">Selected work</p>
         <div class="stack-32">
           <div class="stack-0">
@@ -359,8 +338,7 @@ usePageSeo({
             <p class="meta">Global Energy Monitor · 2025–2026</p>
             <p class="body mt-8">
               You can trace the full ownership chain behind a single project,
-              down to the stakes held by the likes of BlackRock and EDF. The
-              ownership chain is where a lot of the truth is.
+              down to the stakes held by the likes of BlackRock and EDF.
             </p>
           </div>
           <div class="stack-0">
@@ -371,7 +349,7 @@ usePageSeo({
             </p>
             <p class="meta">with Micah Lee · 2025</p>
             <p class="body mt-8">
-              We take a 200GB leak and turn it into something a reporter can
+              We took a 200GB leak and turned it into something a reporter can
               explore in the browser.
             </p>
           </div>
@@ -384,8 +362,8 @@ usePageSeo({
             <p class="meta">Gothamist · 2021</p>
             <p class="body mt-8">
               29,915 officer nodes, 159,671 relationships. When Gothamist
-              reporter George Joseph takes the names to the street and
-              interviews victims, the graph holds up.
+              reporter George Joseph took the names to the street and
+              interviewed victims, the graph held up.
             </p>
           </div>
           <p class="body">
