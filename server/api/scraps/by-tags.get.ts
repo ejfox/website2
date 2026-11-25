@@ -9,40 +9,12 @@
 import { defineEventHandler, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
-
-// AI summarizer sometimes overwrites the title field with a summary prefix
-const AI_TITLE_PREFIXES = [
-  'Main Thesis:',
-  'Breaking News:',
-  'Summary:',
-  'The article ',
-  '**Summary',
-  '• ',
-]
-
-function cleanTitle(title: string | null, url: string | null): string {
-  // Pinboard stores untitled bookmarks as the literal "[no title]"
-  if (!title || title.trim() === '[no title]') {
-    if (!url) return ''
-    try {
-      return new URL(url).hostname.replace(/^www\./, '')
-    } catch {
-      return ''
-    }
-  }
-
-  // If the title looks like an AI summary, fall back to hostname
-  const isAiTitle = AI_TITLE_PREFIXES.some((p) => title.startsWith(p))
-  if (isAiTitle && url) {
-    try {
-      return new URL(url).hostname.replace(/^www\./, '')
-    } catch {
-      /* */
-    }
-  }
-
-  return title
-}
+import {
+  isPublicScrap,
+  publicTags,
+  cleanTitle,
+  hostnameOf,
+} from '~/server/utils/scrap-schema'
 
 export default defineEventHandler(async (event) => {
   const { tags, limit = '8' } = getQuery(event) as {
@@ -68,7 +40,9 @@ export default defineEventHandler(async (event) => {
     // Supabase array operators can be inconsistent across column types
     const { data, error } = await supabase
       .from('scraps')
-      .select('title, url, tags, concept_tags, summary, created_at')
+      .select(
+        'scrap_id, source, shared, title, url, tags, concept_tags, summary, created_at'
+      )
       // Privacy gate: only scraps EJ marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
@@ -83,31 +57,21 @@ export default defineEventHandler(async (event) => {
     const maxResults = Number.parseInt(limit) || 8
     const matched = (data || [])
       .filter((s) => {
-        // Must have at least a title or URL to be displayable
-        if (!s.title && !s.url) return false
-        const sTags = s.tags || []
-        return sTags.some((t: string) => tagSet.has(t))
+        // Sentinels, !hide, unshared and url-less/untitled rows never show
+        if (!isPublicScrap(s)) return false
+        // Match on public tags only; !-tags are private control tags
+        return publicTags(s.tags).some((t) => tagSet.has(t))
       })
       .slice(0, maxResults)
 
-    return matched.map((s) => {
-      let hostname = ''
-      if (s.url) {
-        try {
-          hostname = new URL(s.url).hostname.replace(/^www\./, '')
-        } catch {
-          /* */
-        }
-      }
-      return {
-        title: cleanTitle(s.title, s.url),
-        url: s.url,
-        // !-prefixed tags are special meta tags (see server/routes/tags.json.ts).
-        tags: (s.tags || []).filter((t: string) => !t.startsWith('!')),
-        hostname,
-        created_at: s.created_at,
-      }
-    })
+    return matched.map((s) => ({
+      // Cleaned title, falling back to the hostname when nothing usable is left
+      title: cleanTitle(s.title) || hostnameOf(s.url),
+      url: s.url,
+      tags: publicTags(s.tags),
+      hostname: hostnameOf(s.url),
+      created_at: s.created_at,
+    }))
   } catch (err) {
     console.error('Scraps by-tags error:', err)
     return []

@@ -15,6 +15,12 @@ import matter from 'gray-matter'
 import { glob } from 'glob'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
+import {
+  isPublicScrap,
+  publicTags,
+  cleanTitle,
+  hostnameOf,
+} from '~/server/utils/scrap-schema'
 import { withKindleSync } from '~/server/utils/readingKindle'
 
 // ── Date window ────────────────────────────────────────────────
@@ -162,47 +168,26 @@ export default defineEventHandler(async (event) => {
 
       const { data: scraps } = await supabase
         .from('scraps')
-        .select('title, tags, url, created_at')
+        .select(
+          'scrap_id, source, shared, title, summary, tags, url, created_at'
+        )
         // Privacy gate: only scraps EJ marked shared are public.
         .eq('shared', true)
         .gte('created_at', windowStart)
         .lte('created_at', windowEnd)
         .order('created_at', { ascending: false })
-        .limit(5)
+        // over-fetch: sentinels/!hide rows are dropped below, then trimmed to 5
+        .limit(15)
 
       if (scraps?.length) {
         results.scraps = scraps
-          .filter((s) => s.title || s.url) // skip scraps with no title and no URL
-          .map((s) => {
-            // Clean AI-generated title prefixes
-            // Pinboard's literal "[no title]" counts as missing
-            let title = s.title === '[no title]' ? '' : s.title || ''
-            const aiPrefixes = [
-              'Main Thesis:',
-              'Breaking News:',
-              'Summary:',
-              'The article ',
-              '**Summary',
-              '• ',
-            ]
-            const isAiTitle = aiPrefixes.some((p) => title.startsWith(p))
-            if (!title || isAiTitle) {
-              try {
-                title = s.url
-                  ? new URL(s.url).hostname.replace(/^www\./, '')
-                  : 'Untitled'
-              } catch {
-                title = 'Untitled'
-              }
-            }
-            return {
-              title,
-              tags: (s.tags || [])
-                .filter((t: string) => !t.startsWith('!'))
-                .slice(0, 3),
-              url: s.url,
-            }
-          })
+          .filter(isPublicScrap)
+          .slice(0, 5)
+          .map((s) => ({
+            title: cleanTitle(s.title) || hostnameOf(s.url) || 'Untitled',
+            tags: publicTags(s.tags).slice(0, 3),
+            url: s.url,
+          }))
       }
     }
   } catch {
