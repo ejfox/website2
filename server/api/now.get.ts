@@ -2,7 +2,7 @@
  * @file now.get.ts
  * @description GET /api/now. The /now page as data: { generated, lines: [{ label,
  *   href, text, at }] }, one line per thing, one thing per route, newest first.
- *   Fans out to 15 sibling routes over HTTP ($fetch, 15s timeout each). Cached
+ *   Fans out to 18 sibling routes over HTTP ($fetch, 15s timeout each). Cached
  *   5 min with swr. Never throws: each source fails alone and a dead vendor
  *   just drops its line. Dev-only env NOW_DATA_ORIGIN points the fan-out at
  *   production data.
@@ -69,6 +69,9 @@ export default defineCachedEventHandler(
       get('/api/letterboxd'),
       get('/api/wiki'),
       get('/api/dispatch'),
+      get('/api/rescuetime'),
+      get('/api/paperclip'),
+      get('/api/apps'),
     ])
     const [
       manifest,
@@ -85,6 +88,9 @@ export default defineCachedEventHandler(
       letterboxd,
       wiki,
       dispatch,
+      rescuetime,
+      paperclip,
+      apps,
     ] = results.map(value)
 
     // ── Lines ────────────────────────────────────────────────
@@ -101,7 +107,13 @@ export default defineCachedEventHandler(
         posts.filter((p) => re.test(p.slug)),
         (p) => p.date || p.metadata?.date
       )
-    const essay = post(/^\d{4}\//)
+    // Dated journal notes (title "2026-01-25") have no real title to show.
+    const essay = newest(
+      posts.filter(
+        (p) => /^\d{4}\//.test(p.slug) && !/^\d{4}-\d{2}-\d{2}$/.test(p.title)
+      ),
+      (p) => p.date || p.metadata?.date
+    )
     add(
       essay && {
         label: '/blog',
@@ -272,6 +284,37 @@ export default defineCachedEventHandler(
       const p = feed?.posts?.[0]
       add(p && { label, href: p.url, text: p.text, at: iso(p.at) })
     }
+    // ── Time, status, apps ──
+    const top = rescuetime?.week?.categories?.[0]
+    add(
+      top && {
+        label: 'rescuetime',
+        href: '/stats',
+        text: `${top.time.formatted} ${top.name.replace(/^General /, '').toLowerCase()} this week`,
+        at: iso(rescuetime.lastUpdated),
+      }
+    )
+    add(
+      paperclip?.emoji && {
+        label: 'paperclip',
+        href: '/apps',
+        text: paperclip.emoji,
+        at: iso(paperclip.updated_at),
+      }
+    )
+    const app = newest(
+      (Array.isArray(apps) ? apps : []).filter((a) => a.store?.updated),
+      (a) => a.store.updated
+    )
+    add(
+      app && {
+        label: '/apps',
+        href: '/apps',
+        text: `${app.name} ${app.store.version}`,
+        at: iso(app.store.updated),
+      }
+    )
+
     const film = letterboxd?.films?.[0]
     add(
       film && {

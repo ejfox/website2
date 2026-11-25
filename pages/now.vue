@@ -15,7 +15,7 @@
 const { data: now, error } = await useFetch('/api/now')
 
 const TZ = 'America/New_York'
-// Lines older than this render dimmed (the footer copy says "90+ days").
+// Lines older than this render dimmed.
 const STALE_DAYS = 90
 
 const age = (iso) => {
@@ -38,6 +38,7 @@ const isExternal = (href) => /^https?:\/\//.test(href)
 
 // The rest of the site's corners; these used to sit in the global footer.
 const MORE_LINKS = [
+  { to: '/stats', label: '/stats' },
   { to: '/gists', label: '/gists' },
   { to: '/gear', label: '/gear' },
   { to: '/predictions', label: '/predictions' },
@@ -115,12 +116,7 @@ usePageSeo({
     </ol>
 
     <footer class="mt-8 text-zinc-500">
-      Assembled live. Dimmed lines are 90+ days old. The long view is
-      <NuxtLink to="/stats" class="underline">/stats</NuxtLink>
-      <br />
-      What's this?
-      <a href="https://nownownow.com/about" class="underline">A now page</a>
-      <nav class="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+      <nav class="flex flex-wrap gap-x-4 gap-y-1">
         <NuxtLink
           v-for="link in MORE_LINKS"
           :key="link.to"
@@ -133,6 +129,7 @@ usePageSeo({
         <a href="https://mastodon.social/@ejfox" rel="me" class="underline">
           mastodon
         </a>
+        <a href="https://nownownow.com/about" class="underline">nownownow</a>
       </nav>
     </footer>
   </div>
