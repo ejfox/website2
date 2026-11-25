@@ -1,6 +1,6 @@
 /**
  * @file gists.get.ts
- * @description GET /api/gists?per_page=64&page=1. EJ's PUBLIC gists from the GitHub
+ * @description GET /api/gists?per_page=64&page=1. My PUBLIC gists from the GitHub
  *   API (env GITHUB_TOKEN, runtimeConfig githubToken); single-file gists also
  *   carry their raw `content`. Used by pages/gists, gist-stats.get.ts and
  *   now.get.ts. No cache: each call is 1 list request plus one raw fetch per

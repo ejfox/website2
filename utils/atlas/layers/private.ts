@@ -1,6 +1,6 @@
 /**
  * @file private.ts
- * @description PRIVATE layers (EJ only, after unlocking the atlas): aircraft density and
+ * @description PRIVATE layers (only me, after unlocking the atlas): aircraft density and
  *   notable aircraft from skywatch, geolocated anomalywatch signals, and a
  *   coarse "where I've been" heat from travels. Everything comes from the
  *   /api/atlas/private/* routes, which 404 for anyone else and already strip

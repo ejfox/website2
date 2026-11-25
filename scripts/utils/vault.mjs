@@ -1,6 +1,6 @@
 /**
  * @file scripts/utils/vault.mjs
- * @description Where EJ's Obsidian vaults live, for the few scripts that read
+ * @description Where my Obsidian vaults live, for the few scripts that read
  *   (or, for gen-gear-annex, write) them: scripts/meta/vault-repo-merge.mjs,
  *   scripts/meta/frontmatter-sync-report.mjs, scripts/meta/gen-gear-annex.mjs,
  *   scripts/blog/import-sealed.mjs. Defaults are the iCloud Obsidian folder

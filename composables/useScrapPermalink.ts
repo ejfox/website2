@@ -72,7 +72,7 @@ export function useScrapSeo(scrap: ScrapPermalink) {
   const parts = scrapLabelParts(scrap.summary)
   usePageSeo({
     title: scrap.title || 'Scrap',
-    description: parts.why || parts.about || 'A scrap from EJ Fox’s scrapbook',
+    description: parts.why || parts.about || 'A scrap from my scrapbook',
     type: 'article',
     section: 'Scraps',
   })

@@ -1,6 +1,6 @@
 <!--
   @file live.vue
-  @description /live: "The Hour", EJ's weekly live show: next episode,
+  @description /live: "The Hour", my weekly live show: next episode,
     countdown, running order, upcoming list. Data: data/the-hour.json,
     bundled at build time, so schedule edits need a deploy. SSR.
     Hidden: noindex meta here plus an X-Robots-Tag routeRule in nuxt.config.ts.
@@ -11,7 +11,7 @@
 import { useIntervalFn } from '@vueuse/core'
 import show from '~/data/the-hour.json'
 
-// Hidden until EJ signs off: noindex, not in nav or sitemap
+// Hidden until I sign off: noindex, not in nav or sitemap
 useHead({
   title: 'The Hour',
   meta: [

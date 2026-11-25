@@ -19,7 +19,7 @@
  * --write rewrites markdown in content/blog/ in place (review the git diff).
  * Answers under 80% confidence go to data/alt-text-review.json instead;
  * --apply-review writes those and then deletes the review file.
- * EJ's own alt text beats AI alts (see unify-cloudinary-text.mjs rule 1).
+ * My own alt text beats AI alts (see unify-cloudinary-text.mjs rule 1).
  */
 
 import { promises as fs } from 'node:fs'

@@ -1,5 +1,5 @@
 /**
- * POST /api/ping: anyone can send EJ a short push notification (Pushcut).
+ * POST /api/ping: anyone can send me a short push notification (Pushcut).
  *
  * Body: { message, from?, website (honeypot), elapsed_ms }
  * The Pushcut webhook URL lives ONLY in the server env (PUSHCUT_PING_URL in the

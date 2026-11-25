@@ -3,14 +3,13 @@
   @description /projects: hand-ordered flagship rows, then an archive of
     thumbnail cards on a year spine (themes within dense years), plus a
     projects-per-year stem plot and a sidebar TOC. Data: /api/projects?slim=1
-    (server/api/projects.get.ts, projects/* posts from manifest-lite.json) and
-    /api/availability (data/availability.json, read per request).
+    (server/api/projects.get.ts, projects/* posts from manifest-lite.json).
   SSR per request, not prerendered (LIVE_LISTINGS in nuxt.config.ts).
   Gotchas:
     - Projects live in the blog pipeline under projects/, and
       /blog/projects/* 301s to /projects/* (server/middleware/
       blog-projects-redirect.ts); getBlogRoutes() skips them for that reason.
-    - Hero copy is EJ's verbatim line; CREDENTIALS must stay checkable. Don't
+    - Hero copy is my verbatim line; CREDENTIALS must stay checkable. Don't
       reword either.
     - Scroll position is restored by hand when returning from a project page
       (definePageMeta + useState at the bottom of setup).
@@ -171,37 +170,7 @@ const archiveGroups = computed(() => {
   })
 })
 
-// ── Availability + header stats ─────────────────────────────
-// Flip data/availability.json when a slot fills. Fails CLOSED: if we don't
-// know, render nothing rather than claiming an opening.
-// NOT awaited. Nothing here reads it synchronously — the template consumes it
-// through availabilityLine — and every `await` in <script setup> drops the
-// component instance for the code after it. Two awaits plus a reactive useHead
-// was enough to white-screen the page in dev with
-// `currentRenderingInstance.ce` null.
-const { data: availability } = useAsyncData('availability', () =>
-  $fetch('/api/availability').catch(() => ({ known: false }))
-)
-const availabilityLine = computed(() => {
-  const a = availability.value
-  if (!a?.known) return null
-  const asOf = a.asOf ? ` (as of ${a.asOf})` : ''
-  if (a.openSlots > 0) {
-    const slots =
-      a.openSlots === 1 ? '1 slot is open' : `${a.openSlots} slots are open`
-    return {
-      text: `I take on ${a.capacity} projects at a time, and ${slots}${asOf}`,
-      cta: '→ grab a slot',
-    }
-  }
-  return {
-    text: a.bookedUntil
-      ? `I take on ${a.capacity} projects at a time — full through ${a.bookedUntil}${asOf}`
-      : `I take on ${a.capacity} projects at a time, and I’m full right now${asOf}`,
-    cta: '→ say hi for the next one',
-  }
-})
-
+// ── Header stats ─────────────────────────────────────────────
 // Checkable facts — each is corroborated by a write-up in content/blog/projects.
 const CREDENTIALS = ['NBC News', 'Gothamist / WNYC', 'Global Energy Monitor']
 
@@ -339,7 +308,7 @@ const projectsSchema = computed(() => {
 usePageSeo({
   title: 'Projects · EJ Fox',
   description:
-    'Instruments, investigations, and the Vulpes system — data visualization, newsroom tooling, and hardware by EJ Fox and room302.studio',
+    'Instruments, investigations, and the Vulpes system — data visualization, newsroom tooling, and hardware I make, alone and with room302.studio',
   type: 'website',
   section: 'Projects',
   tags: [
@@ -413,27 +382,22 @@ onMounted(async () => {
         Selected Work
       </h1>
 
-      <!-- EJ's line, verbatim. Also the /consulting hero. Don't reword. -->
+      <!-- My line, verbatim. Also the /consulting hero. Don't reword. -->
       <p
         class="font-serif text-lg md:text-xl text-zinc-700 dark:text-zinc-300 max-w-2xl leading-snug mb-3"
       >
         I love making computers do things no one's seen before. For people I
         think are trying to make the world a better place. My freelance work
         pays for my journalism habit.
-        <template v-if="availabilityLine">
-          <span class="text-zinc-500 dark:text-zinc-400">
-            {{ availabilityLine.text }}
-          </span>
-          {{ ' ' }}
-          <NuxtLink
-            to="/calendar"
-            data-umami-event="consulting-book"
-            data-umami-event-location="projects"
-            class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
-          >
-            {{ availabilityLine.cta }}
-          </NuxtLink>
-        </template>
+        {{ ' ' }}
+        <NuxtLink
+          to="/calendar"
+          data-umami-event="consulting-book"
+          data-umami-event-location="projects"
+          class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
+        >
+          → book a call
+        </NuxtLink>
       </p>
 
       <!-- Real diff: most recently updated project, with anchor -->

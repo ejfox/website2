@@ -1,6 +1,6 @@
 <!--
   @file following.vue
-  @description /following: blogroll, the RSS feeds EJ reads, grouped by
+  @description /following: blogroll, the RSS feeds I read, grouped by
     category. Data: /api/blogroll (server/api/blogroll.get.ts), which parses
     the committed data/blogroll.urls snapshot (newsboat format) and falls back
     to ~/.newsboat/urls only when that file is missing. SSR.

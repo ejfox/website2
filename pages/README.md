@@ -44,7 +44,7 @@ saying the same things in more detail. See `docs/CODE-GUIDE.md`.
 | `/blog/2024/the-mystery-of-peter-todd` | `blog/2024/the-mystery-of-peter-todd.vue` | `/api/posts/2024/the-mystery-of-peter-todd` | prerendered; one-off special post, beats the catch-all |
 | `/blog/tag/<tag>` | `blog/tag/[...slug].vue` | `useProcessedMarkdown()`, `/api/scraps/by-tags` | SSR (not listed by `getBlogRoutes()`) |
 | `/blog/robots`, `/blog/robots/<slug>` | `blog/robots/` | `useProcessedMarkdown()` robot notes | SSR (robots/ is excluded from prerender) |
-| `/projects` | `projects/index.vue` | `/api/projects?slim=1`, `/api/availability` | live |
+| `/projects` | `projects/index.vue` | `/api/projects?slim=1` | live |
 | `/projects/<slug>` | `projects/[slug].vue` | `/api/posts/projects/<slug>`, `/api/apps` | SSR |
 | `/reading`, `/reading/<slug>` | `reading/` | `/api/reading`, `/api/reading/<slug>` | SSR |
 | `/dispatch`, `/dispatch/<slug>` | `dispatch/` | `/api/dispatch`, `/api/dispatch/<slug>` | SSR |
@@ -80,7 +80,7 @@ saying the same things in more detail. See `docs/CODE-GUIDE.md`.
 
 | route | file | data | render |
 |---|---|---|---|
-| `/consulting` | `consulting.vue` | `/api/availability`, `/api/cal/available-slots` (client), Cal.com embed | SSR |
+| `/consulting` | `consulting.vue` | `/api/cal/available-slots` (client), Cal.com embed | SSR |
 | `/process` | `process.vue` | none (inline copy) | SSR |
 | `/calendar` | `calendar.vue` | `/api/cal/available-slots` (client), Cal.com embed via utils/calEmbed.ts | live, `layout: false` |
 | `/tips` | `tips.vue` | none (PGP fingerprint inline) | SSR |

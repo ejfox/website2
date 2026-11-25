@@ -15,7 +15,7 @@ repo stays public. The plaintext never enters it.
 The handoff framed this as a trade: "plaintext never in the public repo" plus
 "push-to-deploy" seemed to force CI to hold a decryption key. It doesn't,
 because the plaintext is never required to make a deployable artifact. The
-renderer that produces the sealed envelope runs on EJ's laptop, where the
+renderer that produces the sealed envelope runs on my laptop, where the
 source already is; CI copies an opaque blob from one place to another.
 
 So the runner holds no key, sees no plaintext, and could not open a sealed post
@@ -36,7 +36,7 @@ The handoff offered two ways to square "capability link" with "VPS trusted":
 (a) client JS reads the fragment and POSTs it to an unlock endpoint, keeping
 server-side validation; (b) the browser decrypts locally.
 
-**(b).** EJ's answer that the VPS may hold plaintext was *permission*, not a
+**(b).** My answer that the VPS may hold plaintext was *permission*, not a
 requirement, and declining the permission is strictly stronger:
 
 - A 256-bit random key has no brute-force surface, so there is no rate limiter

@@ -1,8 +1,8 @@
 <!--
   @file index.vue
   @description / (homepage): renders the processed content/blog/index.md, then
-    an index of EJ's own projects by category, then a footer linking his
-    latest post. A Hire me button sits under the text. Data: useProcessedMarkdown() (manifest + index JSON) and /api/now
+    the 3 newest posts (last 6 months), then an index of my own projects by
+    category. A Hire me button sits under the text. Data: useProcessedMarkdown() (manifest + index JSON) and /api/now
     (client-only). SSR per request (LIVE_LISTINGS in nuxt.config.ts), not
     prerendered. Homepage redesigns have been rejected; change copy in
     index.md, not here.
@@ -30,17 +30,22 @@ const { data: indexContent } = await useAsyncData('index-content', () =>
   getPostBySlug('index')
 )
 
-// YYYY-MM-DD in Eastern time (en-CA formats as ISO dates). Post dates mix
-// offsets and Z, so compare calendar days, not string prefixes.
-const { data: latestPost } = await useAsyncData('latest-post', async () => {
-  // Dated journal notes have no real title to show here.
+// Notebook: the 3 newest posts from the last 6 months (fewer if it's been
+// quiet; the row hides when there are none). Posts come sorted newest first.
+// Dated journal notes have no real title to show here.
+const { data: recentPosts } = await useAsyncData('recent-posts', async () => {
+  const cutoff = new Date()
+  cutoff.setMonth(cutoff.getMonth() - 6)
   const posts = await getAllPosts()
-  const post = posts.find((p) => !/^\d{4}-\d{2}-\d{2}$/.test(p.title))
-  return post ? { slug: post.slug, title: post.title } : null
+  return posts
+    .filter((p) => !/^\d{4}-\d{2}-\d{2}$/.test(p.title))
+    .filter((p) => new Date(p.date) >= cutoff)
+    .slice(0, 3)
+    .map(({ slug, title }) => ({ slug, title }))
 })
 
-// The things EJ has made. assets/home-projects.txt is the list, trimmed by hand:
-// file order is page order, and anything not public is skipped.
+// The things I've made. assets/home-projects.txt picks them and their rows, by hand;
+// order within a row is featured, then newest. Anything not public is skipped.
 // Live things with no project page yet go here, and in that file by slug.
 const MADE_ELSEWHERE = [
   {
@@ -56,7 +61,12 @@ const { data: made } = await useAsyncData('home-made', async () => {
   const projects = await getProjectPostsLite()
   const known = new Map(
     [
-      ...projects.map(({ slug, title }) => ({ slug, title })),
+      ...projects.map(({ slug, title, date, metadata }) => ({
+        slug,
+        title,
+        date,
+        featured: !!metadata?.featured,
+      })),
       ...MADE_ELSEWHERE,
     ].map((p) => [p.slug, p])
   )
@@ -71,6 +81,14 @@ const { data: made } = await useAsyncData('home-made', async () => {
       const [title, url] = line.split(' | ')
       groups.at(-1)?.items.push({ slug: url, title, url })
     }
+  }
+  // Within a row: `featured: true` projects first, then newest first. Undated
+  // items (link-outs, MADE_ELSEWHERE) go last in file order (sort is stable).
+  const time = (item) => (item.date ? new Date(item.date).getTime() : -Infinity)
+  for (const group of groups) {
+    group.items.sort(
+      (a, b) => Number(!!b.featured) - Number(!!a.featured) || time(b) - time(a)
+    )
   }
   return groups.filter((group) => group.items.length)
 })
@@ -111,16 +129,6 @@ watch(previews, () => {
       img.src = src
     }
   }
-})
-
-// Beside the Hire me button. data/availability.json is hand-edited, so past 60
-// days the count is dropped rather than left to go quietly wrong.
-const { data: availability } = await useFetch('/api/availability')
-const slotsLine = computed(() => {
-  const a = availability.value
-  if (!a?.known || !a.asOf || a.openSlots <= 0) return ''
-  const days = (Date.now() - new Date(a.asOf).getTime()) / 86400000
-  return days > 60 ? '' : `${a.openSlots} of ${a.capacity} client slots open`
 })
 
 // Mount dynamic calendar component into placeholder rendered by v-html.
@@ -168,14 +176,24 @@ usePageSeo({
           >
             Hire me
           </NuxtLink>
-          <span v-if="slotsLine" class="mono-xs text-secondary">
-            {{ slotsLine }}
-          </span>
         </p>
       </template>
     </div>
 
     <section class="mt-16 mono-xs text-secondary" style="max-width: 40rem">
+      <div v-if="recentPosts?.length" class="ambient-line">
+        <span class="ambient-label">Notebook</span>
+        <span>
+          <NuxtLink
+            v-for="post in recentPosts"
+            :key="post.slug"
+            :to="`/blog/${post.slug}`"
+            class="made-link block"
+            data-umami-event="home-latest-post"
+            >{{ post.title }}</NuxtLink
+          >
+        </span>
+      </div>
       <div v-for="group in made" :key="group.category" class="ambient-line">
         <span class="ambient-label">{{ group.category }}</span>
         <span>
@@ -217,17 +235,6 @@ usePageSeo({
     <teleport v-if="calendarSlotMounted" to="#next-available-spot">
       <NextAvailableSlot />
     </teleport>
-
-    <footer v-if="latestPost" class="mt-12 mb-8 mono-xs text-secondary">
-      <NuxtLink
-        :to="`/blog/${latestPost.slug}`"
-        class="ambient-line hover:text-primary transition-colors"
-        data-umami-event="home-latest-post"
-      >
-        <span class="ambient-label">Notebook</span>
-        <span>{{ latestPost.title }}</span>
-      </NuxtLink>
-    </footer>
   </div>
 </template>
 

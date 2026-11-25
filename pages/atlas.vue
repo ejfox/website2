@@ -14,7 +14,7 @@
 // ── Setup ───────────────────────────────────────────────────
 // Valley Atlas v0 — one map of the Hudson Valley, layered from things already
 // built: terrain, the published rides, OSM water/shelter/emergency points, and
-// the repeater list. Hidden like /kitchen-sink until EJ signs off.
+// the repeater list. Hidden like /kitchen-sink until I sign off.
 import * as maplibregl from 'maplibre-gl'
 // MapLibre v6 finds its worker by a relative URL that bundlers don't emit,
 // so let Vite bundle the worker (with its shared chunk) and pass the URL in
@@ -55,7 +55,7 @@ const TERRAIN_URL =
 // so a rare non-Latin glyph renders blank rather than breaking the map.
 const ASSETS = 'https://pub-d198c0af42af471bb2e755ad4a268050.r2.dev/assets'
 
-// The vulpes palette (EJ's device/terminal identity), not the site tokens:
+// The vulpes palette (my device/terminal identity), not the site tokens:
 // the atlas is dark-only and styles itself in scoped CSS below.
 const VULPES = {
   ground: '#0c0a0d',

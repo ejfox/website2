@@ -23,11 +23,11 @@ Coach Artie is the AI assistant that lives in the Room 302 Studio Discord. He ca
 
 ## Version one: a studio assistant
 
-The [first Coach Artie](https://github.com/room302studio/coachartie) was a Discord bot with memory. Alongside each message, he gets the history of his past conversations with that person, the memories he's formed about them, and a random mix of other memories. That mix is what made him feel like a member of the studio rather than a search box. As I wrote in my 2024 year in review, he "developed into an AI assistant that helps all members of the studio." I purposely left out the ability to DM him, to encourage public conversation.
+The [first Coach Artie](https://github.com/room302studio/coachartie) is a Discord bot with memory. Alongside each message, he gets the history of his past conversations with that person, the memories he's formed about them, and a random mix of other memories. That mix is what makes him feel like a member of the studio rather than a search box. As I wrote in my 2024 year in review, he "developed into an AI assistant that helps all members of the studio." I purposely leave out the ability to DM him, to encourage public conversation.
 
 ## Version two: one brain, many doors
 
-[Coach Artie 2](https://github.com/room302studio/coachartie2) is a 2025 rebuild as a TypeScript monorepo. One capabilities service sits behind two doors today: Discord, and a web "brain" UI for looking inside his head. I also built Slack, SMS, IRC and email doors, then cut them because nobody used them. A Redis queue feeds the language model through OpenRouter, and his memory and state live in SQLite. Capabilities are grouped by what they do: research, memory, the web, development, media, productivity, finance and more.
+[Coach Artie 2](https://github.com/room302studio/coachartie2) is a 2025 rebuild as a TypeScript monorepo. One capabilities service sits behind two doors today: Discord, and a web "brain" UI for looking inside his head. I also build Slack, SMS, IRC and email doors, then cut them because nobody uses them. A Redis queue feeds the language model through OpenRouter, and his memory and state live in SQLite. Capabilities are grouped by what they do: research, memory, the web, development, media, productivity, finance and more.
 
 ## What he remembers
 

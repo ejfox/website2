@@ -63,7 +63,7 @@ const stamp = computed(() =>
 usePageSeo({
   title: 'Now · EJ Fox',
   description:
-    'One line from every corner of ejfox.com, newest first: what EJ Fox is reading, building, shipping, saving and listening to right now.',
+    "One line from every corner of ejfox.com, newest first: what I'm reading, building, shipping, saving and listening to right now.",
   type: 'website',
   section: 'Meta',
   tags: ['Now page', 'Reading', 'Live stats'],

@@ -1,7 +1,7 @@
 <!--
   @file AuthorLine.vue
-  @description Quiet "who wrote this" block at the end of long posts: EJ's name,
-  the first sentence of his own profile text (public/resume.json basics.summary,
+  @description Quiet "who wrote this" block at the end of long posts: my name,
+  the first sentence of my own profile text (public/resume.json basics.summary,
   verbatim; don't rewrite it here) and two links. Umami tracks the links via
   data-umami-event="author-line".
   Used by pages/blog/[...slug].vue (only on posts over 800 words) and the

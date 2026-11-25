@@ -15,7 +15,7 @@ tags:
 
 A brutalist Pomodoro timer for iPhone and Apple Watch — edge-trace progress around the screen and adaptive themes
 
-I wanted a Pomodoro that showed a unit chart and had a great visual look — something to include in YouTube videos and show my friends, like a designer watch. Elegant, Swiss-feeling, smooth advancing, with some social features like rings.
+I want a Pomodoro that shows a unit chart and has a great visual look — something to include in YouTube videos and show my friends, like a designer watch. Elegant, Swiss-feeling, smooth advancing, with some social features like rings.
 
 Next, I'd love to automatically ping a robot or my VPS when a Pomo session ends, or track it in my Grafana with a quantified-self vibe, or ping my Hue lights to do a little dance.
 

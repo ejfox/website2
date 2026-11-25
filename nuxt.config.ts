@@ -364,9 +364,9 @@ export default defineNuxtConfig({
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.
       '/ff': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
-      // The Hour (/live): hidden until EJ announces the show
+      // The Hour (/live): hidden until I announce the show
       '/live': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
-      // Valley Atlas (/atlas) — hidden v0 until EJ signs off. Client-only (MapLibre).
+      // Valley Atlas (/atlas) — hidden v0 until I sign off. Client-only (MapLibre).
       '/atlas': {
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },

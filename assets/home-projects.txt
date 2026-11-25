@@ -1,4 +1,5 @@
-# Homepage project index. Page order is file order. dd a line to drop it.
+# Homepage project index. Rows keep file order; inside a row, featured: true
+# projects come first, then newest first. dd a line to drop it.
 # "## Name" starts a row. "Title | https://..." links out directly, for things
 # with no project page. A projects/ line shows only once that project is
 # published; the page skips anything that isn't public.

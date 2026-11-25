@@ -392,16 +392,6 @@ export const apiCatalog: ApiRoute[] = [
     health: 'ok',
   },
   {
-    method: 'GET',
-    path: '/api/availability',
-    group: 'Site',
-    summary: 'Freelance capacity + open project slots, with an asOf date',
-    consumer: 'frontend',
-    consumedBy: 'pages/projects, pages/consulting, server/api/now',
-    deps: 'data/availability.json',
-    health: 'ok',
-  },
-  {
     method: 'POST',
     path: '/api/ping',
     group: 'Availability & infra',

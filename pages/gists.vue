@@ -1,6 +1,6 @@
 <!--
   @file gists.vue
-  @description /gists: EJ's GitHub Gists, 64 per page, with inline previews
+  @description /gists: my GitHub Gists, 64 per page, with inline previews
     for single-file gists. Data: /api/gists (server/api/gists.get.ts, which
     also fetches content for single-file gists). Prerendered at build
     (PRERENDERED_ROUTES in nuxt.config.ts), so page 1 is frozen at the last
@@ -135,7 +135,7 @@ usePageSeo({
   description: computed(
     () =>
       gistsDescription.value ||
-      'Code snippets, scripts, and experiments from EJ Fox’s GitHub Gists.'
+      'Code snippets, scripts, and experiments from my GitHub Gists.'
   ),
   type: 'website',
   section: 'Code',

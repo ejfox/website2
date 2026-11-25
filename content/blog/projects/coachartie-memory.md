@@ -17,11 +17,11 @@ tags:
 <!-- TODO (EJ): voice done. Abstract/structural charts only; no readable memory
      contents shown. -->
 
-What does an AI agent actually *remember*? Coach Artie has been accumulating memory for as long as he's been running, so I embedded all of it, clustered it, and drew the map.
+What does an AI agent actually *remember*? Coach Artie has been accumulating memory for as long as he's been running, so I embed all of it, cluster it, and draw the map.
 
-I expected noise. What came back was sorted — clean clusters, things filed where they belonged, distinctions I never asked him to make.
+I expect noise. What comes back is sorted — clean clusters, things filed where they belonged, distinctions I never ask him to make.
 
-Reading it was the strange part. The clusters kept surfacing episodes I'd completely forgotten about, sitting right there where he'd put them. He really was listening the whole time, and thinking about what was said.
+Reading it is the strange part. The clusters keep surfacing episodes I've completely forgotten about, sitting right there where he's put them. He really has been listening the whole time, and thinking about what was said.
 
 ![Cognitive topology — Coach Artie's memories embedded and laid out as a map](https://res.cloudinary.com/ejf/image/upload/projects/coachartie-memory/topology.png)
 

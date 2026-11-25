@@ -1,6 +1,6 @@
 /**
  * @file style-vulpes.mjs
- * @description House style 3, "Vulpes": EJ's terminal identity. OLED black,
+ * @description House style 3, "Vulpes": my terminal identity. OLED black,
  *   single-hue pink/magenta with ±7° hue drift, teal as the one second hue
  *   (one datum only), IBM Plex Mono. A flow field of glyph streams built
  *   from the post's own sentences runs through the frame; the title sits

@@ -24,7 +24,7 @@ A set of minimalist space- and physics calculators for the Flipper Zero — rela
 
 I think I like it because it's so useless but still utilitarian — cyberpunk and gestural. It's a tool for a time/space-traveler who doesn't exist — or maybe does — the kind of thing he'd find handy.
 
-It's also an experiment in pushing what small Flipper apps can do, and imagining utilities that would make sense within its capabilities — using the limits as a method of inspiration. This is what came from that.
+It's also an experiment in pushing what small Flipper apps can do, and imagining utilities that would make sense within its capabilities — using the limits as a method of inspiration. This is what comes from that.
 
 ![The orbital-mechanics constants and transfer math, in C on the Flipper Zero](https://res.cloudinary.com/ejf/image/upload/projects/flipper-space-calculators/code.png)
 
@@ -32,7 +32,7 @@ It's also an experiment in pushing what small Flipper apps can do, and imagining
 
 ## Generative Art
 
-I often just leave the Flipper on my desk below my monitor, and my feeling was: why not have it show me little evolving art pieces instead of just the time? What would that look and feel like? Is generative art even possible within the constraints of the Flipper's screen and processor? What does 1-bit generative art *feel* like? How can it evolve over the course of a day?
+I often just leave the Flipper on my desk below my monitor, and my feeling is: why not have it show me little evolving art pieces instead of just the time? What would that look and feel like? Is generative art even possible within the constraints of the Flipper's screen and processor? What does 1-bit generative art *feel* like? How can it evolve over the course of a day?
 
 This is the answer: a Flipper Zero app that generates animated patterns in real time on the device's **128×64 monochrome screen**. It runs sixteen generative patterns — including horizontal, vertical, radial and diagonal gradients, sine waves, interference, checkerboard, noise and spirals — and converts each to crisp 1-bit graphics with **Floyd–Steinberg dithering**, evolving the parameters every second at ~30fps.
 

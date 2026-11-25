@@ -9,4 +9,4 @@ Hello, my name is **EJ Fox**. I'm a hacker-journalist [available for contract wo
 
 My work focuses on design, data visualization, and storytelling. I believe the world is interconnected and editable.
 
-I founded [room302.studio](https://room302.studio), an innovation lab, to take on even larger projects and datasets. Take a look at [some of my work](/projects) or [my resume](https://ejfox.com/resume.pdf).
+I run [room302.studio](https://room302.studio), an innovation lab, for the thorniest problems and projects that require a team. Take a look at [some of my work](/projects) or [my resume](https://ejfox.com/resume.pdf).

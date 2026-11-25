@@ -13,7 +13,6 @@ These are the truth; nothing regenerates them. Edit by hand or re-export.
 
 | file | what | read by |
 |---|---|---|
-| `availability.json` | client slots, `asOf` date | `/api/availability` |
 | `gear.csv` | gear inventory (hand-edited) | `/api/gear-csv`, gear pages, `scripts/meta/lint-gear.mjs` |
 | `gear-schema.json` | schema `lint-gear` validates `gear.csv` against | `scripts/meta/lint-gear.mjs` |
 | `tweets.json` (15M) | Twitter archive — input to on-this-day | `scripts/build/processMarkdown.mjs` |

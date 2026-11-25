@@ -69,7 +69,7 @@ export default defineEventHandler(async (event) => {
     const { data, error } = await supabase
       .from('scraps')
       .select('title, url, tags, concept_tags, summary, created_at')
-      // Privacy gate: only scraps EJ marked shared are public.
+      // Privacy gate: only scraps I marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)

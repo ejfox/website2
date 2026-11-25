@@ -52,7 +52,8 @@ const linkClasses =
     <ParticleField />
     <div
       id="app-container"
-      :class="['w-full min-w-0', isStatsSimple ? '' : 'layout-grid']"
+      class="w-full min-w-0"
+      :class="{ 'layout-grid': !isStatsSimple }"
     >
       <a
         href="#main-content"
@@ -87,15 +88,10 @@ const linkClasses =
           <NuxtLink
             v-if="item.href !== '/'"
             :to="item.href"
-            :class="
-              item.cta
-                ? 'text-zinc-900 dark:text-zinc-100'
-                : 'text-zinc-500 dark:text-zinc-400'
-            "
+            class="text-zinc-500 dark:text-zinc-400"
+            :class="{ '!text-zinc-900 dark:!text-zinc-100': item.cta }"
             :data-umami-event="item.umamiEvent"
-            :data-umami-event-location="
-              item.umamiEvent ? 'mobile-nav' : undefined
-            "
+            data-umami-event-location="mobile-nav"
           >
             {{ item.label }}
           </NuxtLink>
@@ -133,12 +129,10 @@ const linkClasses =
               :to="item.href"
               :class="[
                 linkClasses,
-                item.cta && '!text-zinc-900 dark:!text-zinc-100',
+                { '!text-zinc-900 dark:!text-zinc-100': item.cta },
               ]"
               :data-umami-event="item.umamiEvent"
-              :data-umami-event-location="
-                item.umamiEvent ? 'sidebar-nav' : undefined
-              "
+              data-umami-event-location="sidebar-nav"
             >
               {{ item.label }}
             </NuxtLink>

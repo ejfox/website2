@@ -1,9 +1,9 @@
 /**
  * @file notes.ts
- * @description Notes: places from EJ's own writing, baked by scripts/build/atlas-notes.mjs.
- *   Roads he writes about riding, the towns New York City drowned for its
- *   reservoirs, and hidden-history sites from his Hudson Valley book notes.
- *   Quotes come only from his published posts on ejfox.com. pages/atlas.vue
+ * @description Notes: places from my own writing, baked by scripts/build/atlas-notes.mjs.
+ *   Roads I write about riding, the towns New York City drowned for its
+ *   reservoirs, and hidden-history sites from my Hudson Valley book notes.
+ *   Quotes come only from my published posts on ejfox.com. pages/atlas.vue
  *   applies each toggle's initial visibility
  *   Static data imported at build time; loaded by pages/atlas.vue.
  */

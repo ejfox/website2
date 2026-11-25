@@ -1,13 +1,13 @@
 <!--
   @file keymap.vue
-  @description /keymap: EJ's ZSA Voyager layout drawn as type, one board per
+  @description /keymap: my ZSA Voyager layout drawn as type, one board per
     layer plus a "strata" overview. Data: /api/keymap (server/api/keymap.get.ts
     → server/utils/oryx.ts). SSR, deliberately not prerendered (routeRule in
     nuxt.config.ts) so Oryx edits show without a deploy.
     Drawing lives in components/keymap/KeymapBoard.vue; this page only picks layers.
 -->
 <script setup lang="ts">
-// The keymap on EJ's ZSA Voyager, read live from Oryx via /api/keymap (cached
+// The keymap on my ZSA Voyager, read live from Oryx via /api/keymap (cached
 // an hour), so editing the layout in Oryx updates this page with no deploy.
 import type { Keymap } from '~/server/utils/oryx'
 

@@ -18,7 +18,7 @@ The mission, as I see it: hyperstitioning public transit into every American cit
 
 The game itself: a transit simulation (an Electron build) — design train types with realistic acceleration, capacity, and cost parameters, lay networks over real-world geography, and analyze the demand you create. It launched on Steam in July 2026. My corner of it: code contributions, Steam release infrastructure, and spin-offs like `subway-builder-mods` and a Pico-8 demake.
 
-It's also a success story for [Room 302 Studio](https://room302.studio) — Colin grew from a studio member to having the studio support his effort, and I wanna do that for more people and their dream apps and games.
+It's also a success story for [Room 302 Studio](https://room302.studio) — Colin grows from a studio member to having the studio support his effort, and I wanna do that for more people and their dream apps and games.
 
 ![Subway Builder construction mode — laying track in an isometric city](https://res.cloudinary.com/ejf/image/upload/v1780066321/projects/subway-builder/build.png)
 

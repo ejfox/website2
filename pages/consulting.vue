@@ -1,14 +1,13 @@
 <!-- eslint-disable max-len, vue/max-len -->
 <!--
   @file consulting.vue
-  @description /consulting: the hire-me page. EJ's words, client logos
+  @description /consulting: the hire-me page. My words, client logos
     (public/logos/), quotes and an inline Cal.com booking embed. Data:
-    /api/availability (SSR, reads data/availability.json) and
     /api/cal/available-slots (client-only lazy fetch). SSR, no special routeRule.
   @gotchas Sidebar status is teleported into #nav-toc-container, which lives in
     layouts/default.vue. Booking links carry first-touch UTM params
     (utils/firstTouch.ts); CTAs fire the `consulting-book` Umami event.
-    Copy comes from index.md and EJ's 2026-11-04 interview, not from robots:
+    Copy comes from index.md and my 2026-11-04 interview, not from robots:
     don't add lines, and don't cut quotes, credits or client names without asking.
 -->
 <script setup lang="ts">
@@ -18,27 +17,11 @@ import resume from '~/public/resume.json'
 
 const isDark = useDark()
 
-// ── Availability data ───────────────────────────────────────
-// data/availability.json, the one source for /projects, /now and this page.
-// Fails closed: a failed fetch or { known: false } renders no capacity claim.
-const { data: availability } = await useFetch('/api/availability')
-
 // Next available Cal.com slots for intro calls (lazy - not critical for SSR)
 const { data: calSlots } = useLazyFetch('/api/cal/available-slots', {
   query: { duration: '30min', days: 21 },
   default: () => ({ slots: [] }),
   server: false,
-})
-
-// Sidebar status: client capacity from the hand-edited JSON. Like the
-// homepage, it's dropped once asOf is over 60 days old, not left to go wrong.
-const availabilityLine = computed(() => {
-  const a = availability.value
-  if (!a?.known || !a.asOf) return ''
-  if ((Date.now() - new Date(a.asOf).getTime()) / 86400000 > 60) return ''
-  return a.openSlots > 0
-    ? `${a.openSlots} of ${a.capacity} client slots open`
-    : 'Fully booked'
 })
 
 // The soonest open slot, for the hero's booking button.
@@ -141,7 +124,7 @@ function updateCalTheme() {
 }
 
 // ── Work history ────────────────────────────────────────────
-// Every job in resume.json, newest first as the resume lists them, with EJ's
+// Every job in resume.json, newest first as the resume lists them, with my
 // own highlight lines. Same source as resume.pdf, so the two can't drift.
 const yearOf = (d) => String(d || '').slice(0, 4)
 const workRows = resume.work.map((w) => {
@@ -179,7 +162,7 @@ const resumeProjects = computed(() =>
     )
 )
 
-// The core skill rows plus Methods ("joy-driven development" matters to EJ);
+// The core skill rows plus Methods ("joy-driven development" matters to me);
 // Design & Motion stays on the resume PDF only.
 const pageSkills = resume.skills.filter((s) =>
   ['Code', 'Graphics', 'AI/ML', 'Methods'].includes(s.name)
@@ -250,8 +233,8 @@ const CLIENT_LOGOS = [
   },
 ]
 
-// Exact words and credits: don't edit, and don't cut one without asking EJ.
-// Quotes about EJ first; the Subway Builder review (about the game) goes last.
+// Exact words and credits: don't edit, and don't cut one without asking me.
+// Quotes about me first; the Subway Builder review (about the game) goes last.
 const QUOTES = [
   {
     text: 'Gets things done quickly with an astonishing level of detail',
@@ -295,8 +278,8 @@ usePageSeo({
 
 <template>
   <div class="bg-transparent">
-    <!-- Every line is EJ's: index.md (2019 homepage wording) or his 2026-11-04
-         interview. Don't add copy he didn't say. -->
+    <!-- Every line is mine: index.md (2019 homepage wording) or my 2026-11-04
+         interview. Don't add copy I didn't say. -->
     <div data-page-main class="container-main pt-8 max-w-2xl">
       <header class="intro">
         <h1 class="hero-title">
@@ -306,7 +289,7 @@ usePageSeo({
              booking link inline. The homepage's "(11am Monday?)" link in this
              same shape drew most booking clicks. The time is client-only. -->
         <div class="stack-24">
-          <!-- Who first (EJ, 2026-11-09). Both sentences are his, from the
+          <!-- Who first (my call, 2026-11-09). Both sentences are mine, from the
                Independent entry and its Select Clients line in resume.json. -->
           <p class="lead">
             I work between design and engineering, in whatever stack the client
@@ -388,7 +371,7 @@ usePageSeo({
             </p>
             <p class="meta">with Micah Lee · 2025</p>
             <p class="body mt-8">
-              We took a 200GB leak and turned it into something a reporter can
+              We take a 200GB leak and turn it into something a reporter can
               explore in the browser.
             </p>
           </div>
@@ -401,8 +384,8 @@ usePageSeo({
             <p class="meta">Gothamist · 2021</p>
             <p class="body mt-8">
               29,915 officer nodes, 159,671 relationships. When Gothamist
-              reporter George Joseph took the names to the street and
-              interviewed victims, the graph held up.
+              reporter George Joseph takes the names to the street and
+              interviews victims, the graph holds up.
             </p>
           </div>
           <p class="body">
@@ -532,7 +515,7 @@ usePageSeo({
       <figure class="section section-plain">
         <img
           src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
-          alt="EJ Fox presenting election visualization on NBC's Big Board"
+          alt="Me presenting election visualization on NBC's Big Board"
           class="w-full"
         />
         <figcaption class="meta mt-8">
@@ -554,9 +537,6 @@ usePageSeo({
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="sidebar-availability">
-          <p v-if="availabilityLine" class="sidebar-status-line">
-            {{ availabilityLine }}
-          </p>
           <p v-if="nextCallLine" class="sidebar-status-line">
             {{ nextCallLine }}
           </p>
@@ -579,7 +559,7 @@ usePageSeo({
 
 <style scoped>
 /* ============================================
-   TYPE SYSTEM (EJ, 2026-11-09: "really professional, well-thought-out info
+   TYPE SYSTEM (my call, 2026-11-09: "really professional, well-thought-out info
    hierarchy, the ENTIRE page, consistent and elegant").
    Two families: serif for prose, mono for metadata. Four sizes:
      display  h1                          serif 36/44

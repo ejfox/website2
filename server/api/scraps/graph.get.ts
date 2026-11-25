@@ -22,7 +22,7 @@ export default defineCachedEventHandler(
     const { data, error } = await supabase
       .from('scraps')
       .select('id, title, summary, content, tags, concept_tags, created_at')
-      // Privacy gate: only scraps EJ marked shared are public.
+      // Privacy gate: only scraps I marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)

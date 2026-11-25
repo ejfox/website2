@@ -1,7 +1,7 @@
 /**
  * @file atlas/ships.get.ts
  * @description GET /api/atlas/ships. Commercial and government vessels on the
- *   Hudson seen in the last 2h, from EJ's riverwatch AIS smallweb app:
+ *   Hudson seen in the last 2h, from my riverwatch AIS smallweb app:
  *   { ships: FeatureCollection, fetched, errors? }, deduped by MMSI.
  *   In-process cache 60s, one shared in-flight fetch. On failure serves the last
  *   good positions (or empty) plus `errors`; never throws.

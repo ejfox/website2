@@ -205,7 +205,7 @@ function blocksFromMarkdown(content) {
  */
 async function readMarkdownForSlug(slug) {
   // Search roots, in priority order. The vault root is included because
-  // `week-notes/` is a sibling of `blog/` in EJ's vault, not nested inside.
+  // `week-notes/` is a sibling of `blog/` in my vault, not nested inside.
   const roots = [BLOG_DIR]
   if (process.env.DISPATCH_VAULT_PATH) {
     roots.push(

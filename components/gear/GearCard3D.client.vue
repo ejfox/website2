@@ -177,7 +177,7 @@ const buyUrl = computed(() => {
     const url = new URL(raw)
     // Only Amazon links get the affiliate tag; other retailers pass through.
     if (url.hostname.includes('amazon.'))
-      // EJ's Amazon Associates tag (public by design, appears in every link).
+      // My Amazon Associates tag (public by design, appears in every link).
       url.searchParams.set('tag', 'ejfox0c-20')
     return url.toString()
   } catch {

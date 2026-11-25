@@ -1,7 +1,7 @@
 /**
  * @file atlas/private/travels.get.ts
  * @description GET /api/atlas/private/travels. PRIVATE Valley Atlas layer:
- *   "where I've been", a coarse heat of time spent on EJ's trips, from his
+ *   "where I've been", a coarse heat of time spent on my trips, from my
  *   travels smallweb app: { travels: FeatureCollection of { minutes } points,
  *   trips, excluded, fetched }. 404 unless the atlas is unlocked (see
  *   server/utils/atlasPrivate.ts). Upstream memoized in-process for 1h.

@@ -713,7 +713,7 @@ async function cmdTui({ pos, flags }) {
     H = flags.height || '800',
     F = flags.font || '18',
     wait = flags.wait || '3'
-  // "vulpes" = EJ's vulpes.nvim dark palette (VULPES/vulpes.nvim lua/vulpes/palette.lua)
+  // "vulpes" = my vulpes.nvim dark palette (VULPES/vulpes.nvim lua/vulpes/palette.lua)
   const VULPES_THEME = {
     name: 'vulpes',
     background: '#000000',

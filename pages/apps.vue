@@ -1,6 +1,6 @@
 <!--
   @file apps.vue
-  @description /apps: one row per app EJ has made, with store/source links.
+  @description /apps: one row per app I've made, with store/source links.
     Data: /api/apps (server/api/apps.get.ts) = data/apps.json plus live App
     Store version/icon, cached 6h server-side. SSR. Each row links to
     /projects/<slug>, so an app needs a matching project page.
@@ -29,7 +29,7 @@ const monthYear = (iso) =>
 usePageSeo({
   title: 'Apps · EJ Fox',
   description:
-    'Small, single-purpose apps EJ Fox has made for iPhone, Apple Watch and Android, with where to get each one.',
+    'Small, single-purpose apps I make for iPhone, Apple Watch and Android, and where to get each one.',
   type: 'website',
   section: 'Projects',
   tags: ['iOS', 'Apps', 'Android'],

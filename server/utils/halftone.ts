@@ -2,7 +2,7 @@
  * @file halftone.ts
  * @description 1-bit line-halftone images for the EPUBs (/archive.epub,
  *   /photos.epub). Every image in both books is embedded as a true 1-bit PNG
- *   screened with EJ's "halftone line 15deg p5" from his dither toolkit
+ *   screened with my "halftone line 15deg p5" from my dither toolkit
  *   (~/code/blender-math/dither/core.py, `_halftone` + `_screen` + `rank01`).
  *
  * ## Why halftone
@@ -10,7 +10,7 @@
  * Offline books need their images embedded, and full JPEGs made /photos.epub
  * 13 MB for 50 frames. A 1-bit line screen at 800 px is a few tens of KB per
  * image, renders identically on every e-ink panel (no greyscale ramp to get
- * wrong), and is the look EJ chose.
+ * wrong), and is the look I chose.
  *
  * ## The screen (a port of the Python, not a reinterpretation)
  *

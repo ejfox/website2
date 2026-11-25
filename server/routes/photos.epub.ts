@@ -4,7 +4,7 @@
  *   a plane. Always current — built from the same Cloudinary data /photos uses.
  * @endpoint GET /photos.epub
  *
- * Every frame is embedded as a 1-bit line halftone (halftone.ts — EJ's
+ * Every frame is embedded as a 1-bit line halftone (halftone.ts — my
  * "halftone line 15deg p5"), not a JPEG: 50 full JPEGs made this book 13 MB,
  * and a 1-bit screen renders the same on every e-ink panel. Cloudinary still
  * does the resizing, so the server never holds a full-resolution original.

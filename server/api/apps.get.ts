@@ -1,6 +1,6 @@
 /**
  * @file apps.get.ts
- * @description GET /api/apps. The apps EJ has made, from data/apps.json, each with
+ * @description GET /api/apps. The apps I've made, from data/apps.json, each with
  *   `store` = live App Store details ({ url, version, updated, icon }) or null.
  *   Used by pages/apps and pages/projects/[slug].
  *   Cached 6h with swr: the store changes slowly and Apple's iTunes lookup API is

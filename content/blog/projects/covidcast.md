@@ -16,14 +16,14 @@ tags:
   - health
 ---
 
-In summer 2020 I worked with Carnegie Mellon University's [Delphi research group](https://delphi.cmu.edu/about/team/) on [COVIDcast](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and interactions to help the public understand hospitalization, transmission and movement trends across the country.
+In summer 2020 I work with Carnegie Mellon University's [Delphi research group](https://delphi.cmu.edu/about/team/) on [COVIDcast](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and interactions to help the public understand hospitalization, transmission and movement trends across the country.
 
-COVIDcast launched in April 2020 with a then-unusual idea: no single signal could be trusted on its own, so it mapped many rough ones side by side. These included doctor and telemedicine visits, symptom searches on Google, flu-test statistics, and symptom surveys run through Facebook and Google. Where several signals agreed, you could believe them.
+COVIDcast launches in April 2020 with a then-unusual idea: no single signal can be trusted on its own, so it maps many rough ones side by side. These include doctor and telemedicine visits, symptom searches on Google, flu-test statistics, and symptom surveys run through Facebook and Google. Where several signals agree, you can believe them.
 
 ![Scrolling the COVIDcast dashboard as it runs today — indicator tiles, the county-level map, and the signals table](https://res.cloudinary.com/ejf/video/upload/projects/covidcast/dashboard-scroll.mp4)
 
 ![COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map](https://res.cloudinary.com/ejf/image/upload/v1666630395/project-images/cmu_covidcast.png)
 
-I kept playing with the data afterwards. Using Delphi's open Epidata API, I made time-lapses of doctor visits by county, where each circle is a county sized by the share of outpatient visits due to COVID-like symptoms. One was paired with a data sonification of the same numbers for all of New York State.
+I keep playing with the data afterwards. Using Delphi's open Epidata API, I make time-lapses of doctor visits by county, where each circle is a county sized by the share of outpatient visits due to COVID-like symptoms. One is paired with a data sonification of the same numbers for all of New York State.
 
 ![A county-level circle map of the United States, one circle per county](https://res.cloudinary.com/ejf/image/upload/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png)

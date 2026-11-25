@@ -7,7 +7,7 @@
 -->
 <script setup>
 /**
- * Hand-drawn unit chart (isotype). Tiles EJ's real notebook stipple dots into a
+ * Hand-drawn unit chart (isotype). Tiles my real notebook stipple dots into a
  * grid, duped + rotated + jittered so no two read the same, and fills the first
  * `value` of `total` in the accent color — the rest sit as faint ghosts.
  *

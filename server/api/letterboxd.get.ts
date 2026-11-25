@@ -1,6 +1,6 @@
 /**
  * @file letterboxd.get.ts
- * @description GET /api/letterboxd. EJ's film diary from the Letterboxd RSS feed:
+ * @description GET /api/letterboxd. My film diary from the Letterboxd RSS feed:
  *   { films: [{ title, year, slug, rating, liked, isRewatch, watchedDate,
  *   letterboxdUrl, tmdbId, posterUrl }], stats, lastUpdated, source }.
  *   Imported by stats and stats-lite; fetched by now.get.ts.

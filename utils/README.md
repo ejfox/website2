@@ -50,8 +50,8 @@ There is no `useDateFormat` composable any more: its helpers were folded into
 | `layers/coverage.ts` | repeater line-of-sight coverage rasters | public/atlas/coverage (baked) |
 | `layers/live.ts` | river gauges, tides, Hudson Line trains, refreshed every minute | /api/atlas/live |
 | `layers/news.ts` | two weeks of local headlines per town | /api/atlas/news |
-| `layers/notes.ts` | places from EJ's writing (roads, drowned towns, history) | data/atlas/notes-places.json (scripts/build/atlas-notes.mjs) |
-| `layers/private.ts` | EJ-only: air traffic, anomaly signals, travels | /api/atlas/private/* |
+| `layers/notes.ts` | places from my writing (roads, drowned towns, history) | data/atlas/notes-places.json (scripts/build/atlas-notes.mjs) |
+| `layers/private.ts` | only me: air traffic, anomaly signals, travels | /api/atlas/private/* |
 | `layers/records.ts` | FOIL agencies and facilities | data/atlas/records.json |
 | `layers/remediation.ts` | NYS DEC remediation sites | /api/atlas/remediation |
 | `layers/revolution.ts` | Revolutionary War battles, forts, routes | /api/atlas/history |

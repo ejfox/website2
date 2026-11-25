@@ -64,7 +64,6 @@ export default defineCachedEventHandler(
       get('/api/gists'),
       get('/api/gear'),
       get('/api/predictions'),
-      get('/api/availability'),
       get('/api/mastodon', true),
       get('/api/x', true),
       get('/api/letterboxd'),
@@ -81,7 +80,6 @@ export default defineCachedEventHandler(
       gists,
       gear,
       predictions,
-      availability,
       mastodon,
       x,
       letterboxd,
@@ -285,20 +283,6 @@ export default defineCachedEventHandler(
     )
 
     // ── Undated live numbers (sink to the bottom) ──
-    if (availability?.known) {
-      const slots =
-        availability.openSlots > 0
-          ? `${availability.openSlots} of ${availability.capacity} client slots open`
-          : 'Fully booked'
-      add({
-        label: '/consulting',
-        href: '/consulting',
-        text: availability.asOf
-          ? `${slots} (as of ${availability.asOf})`
-          : slots,
-        at: null,
-      })
-    }
     if (wiki?.edits30d) {
       const edits = wiki.capped ? `${wiki.edits30d}+` : wiki.edits30d
       add({

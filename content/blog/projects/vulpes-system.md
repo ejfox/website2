@@ -23,7 +23,7 @@ Vulpes is what that belief turns into when you follow it all the way down. One p
 
 ## The editor
 
-It started with [vulpes.nvim](/projects/vulpes-nvim): a cyberpunk neon colorscheme for Neovim — signature vulpes pink, teal comments, dark and light variants, and monthly color rotations. It ships matching themes for the rest of the terminal: wezterm, kitty, ghostty, alacritty, tmux, lazygit, bat, and fzf.
+It starts with [vulpes.nvim](/projects/vulpes-nvim): a cyberpunk neon colorscheme for Neovim — signature vulpes pink, teal comments, dark and light variants, and monthly color rotations. It ships matching themes for the rest of the terminal: wezterm, kitty, ghostty, alacritty, tmux, lazygit, bat, and fzf.
 
 ![The vulpes colorscheme rendering its own palette file in Neovim](https://res.cloudinary.com/ejf/image/upload/projects/vulpes-nvim/editor.png)
 

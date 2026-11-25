@@ -39,8 +39,8 @@
       "url": "https://www.lenfestinstitute.org/our-work/lenfest-ai-collaborative-and-fellowship-program/",
       "summary": "The Lenfest Institute’s AI Collaborative and Fellowship Program, hosted at ASU and supported by OpenAI and Microsoft",
       "highlights": [
-        "I built a tool that uses AI to lay out the ads and stories in small local print newspapers",
-        "I gave an Ignite talk about it at ASU’s National Journalism + AI Accelerator in January 2026"
+        "I build a tool that uses AI to lay out the ads and stories in small local print newspapers",
+        "I give an Ignite talk about it at ASU’s National Journalism + AI Accelerator in January 2026"
       ]
     },
     {
@@ -51,7 +51,7 @@
       "summary": "Select Clients: GitHub • NBC News • CBS News • Washington Post • New York Times • Carnegie Mellon • Stamen",
       "highlights": [
         "I take the tight-deadline projects that need short sprints and real user testing, especially things no one has built before",
-        "I helped CBS News prototype its broadcast touchscreen app, analyzed newspaper front pages for the New York Times, and made geographic visualizations with the geniuses at Stamen.",
+        "I help CBS News prototype its broadcast touchscreen app, analyze newspaper front pages for the New York Times, and make geographic visualizations with the geniuses at Stamen.",
         "I work between design and engineering, in whatever stack the client already has, from brand-new startups to big companies with their own process",
         "I work in public when I can. There are 50+ Observable notebooks, plus livestreams on YouTube and blog posts about what I'm making and how."
       ]
@@ -64,10 +64,10 @@
       "summary": "Select Clients: The Associated Press • Wildlife Conservation Society • Earth Genome",
       "highlights": [
         "My prototyping shop for new kinds of data visualization and analysis, usually on tight deadlines",
-        "I built the studio’s manager on top of an LLM. It’s our ‘AI team member’",
+        "I build the studio’s manager on top of an LLM. It’s our ‘AI team member’",
         "We turn rough ideas into demos good enough for a client to show their bosses or take to a funder",
-        "I worked with the Associated Press team on its 2024 election coverage, which was nominated for a Webby.",
-        "I helped the Wildlife Conservation Society map coral reefs that are holding up against climate change and tell their story"
+        "I work with the Associated Press team on its 2024 election coverage, which is nominated for a Webby.",
+        "I help the Wildlife Conservation Society map coral reefs that are holding up against climate change and tell their story"
       ]
     },
     {
@@ -77,7 +77,7 @@
       "endDate": "2022",
       "url": "https://stamen.com",
       "highlights": [
-        "I made geographic visualizations with the Stamen team"
+        "I make geographic visualizations with the Stamen team"
       ]
     },
     {
@@ -87,7 +87,7 @@
       "endDate": "2019",
       "url": "https://www.nbcnews.com",
       "highlights": [
-        "I was lead designer on the 2018 relaunch of the election-night Big Board and built it with Michael Small and the NBC News Digital teams. The New York Times called it “newly juiced-up.” It’s still in use today."
+        "I'm lead designer on the 2018 relaunch of the election-night Big Board and build it with Michael Small and the NBC News Digital teams. The New York Times calls it “newly juiced-up.” It’s still in use today."
       ]
     },
     {
@@ -96,9 +96,9 @@
       "startDate": "2014",
       "endDate": "2016",
       "highlights": [
-        "I automated enough of the desk to go from five graphics a month to five a day",
-        "I led the winning Knight Foundation grant pitch for Dataproofer, a tool that checks datasets for errors",
-        "I gave reporters a visualization platform they could use on their own, made the templates, and ran daily breaking-news graphics"
+        "I automate enough of the desk to go from five graphics a month to five a day",
+        "I lead the winning Knight Foundation grant pitch for Dataproofer, a tool that checks datasets for errors",
+        "I give reporters a visualization platform they can use on their own, make the templates, and run daily breaking-news graphics"
       ]
     },
     {
@@ -107,7 +107,7 @@
       "startDate": "2013",
       "endDate": "2013",
       "highlights": [
-        "I worked with the GitHub team on the “State of the Octoverse” site and its visualizations"
+        "I work with the GitHub team on the “State of the Octoverse” site and its visualizations"
       ]
     },
     {
@@ -116,7 +116,7 @@
       "startDate": "2011",
       "endDate": "2012",
       "highlights": [
-        "I was on the core team that built one of the first visualization-as-a-service platforms"
+        "I'm on the core team that builds one of the first visualization-as-a-service platforms"
       ]
     }
   ],
@@ -126,12 +126,12 @@
       "startDate": "2025",
       "endDate": "2026",
       "url": "https://store.steampowered.com/app/4039140/Subway_Builder/",
-      "description": "Colin Miller's subway-building game. He was in Room 302 Studio and brought me on as his first developer. One of the lead developers. I built the desktop version for the July 2026 Steam launch."
+      "description": "Colin Miller's subway-building game. He's in Room 302 Studio and brings me on as his first developer. One of the lead developers. I build the desktop version for the July 2026 Steam launch."
     },
     {
       "name": "Decision Desk HQ",
       "startDate": "2025",
-      "description": "I helped design and build the tools broadcasters use to show election results"
+      "description": "I help design and build the tools broadcasters use to show election results"
     },
     {
       "name": "Global Energy Ownership Tracker",
@@ -139,26 +139,26 @@
       "startDate": "2025",
       "endDate": "2026",
       "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker/",
-      "description": "I helped build an explorer of who owns the world's energy assets, with ownership trees, embeddable cards and a screener"
+      "description": "I help build an explorer of who owns the world's energy assets, with ownership trees, embeddable cards and a screener"
     },
     {
       "name": "Paramilitary Leaks",
       "startDate": "2025",
       "url": "https://micahflee.com/step-by-step-guide-to-reading-the-leaked-militia-chats-yourself/",
-      "description": "I built an explorer and visualizations for 200 GB of leaked militia chats. Micah Lee cited it in his reporting."
+      "description": "I build an explorer and visualizations for 200 GB of leaked militia chats. Micah Lee cites it in his reporting."
     },
     {
       "name": "NYPD misconduct network",
       "entity": "WNYC/Gothamist",
       "startDate": "2021",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-      "description": "I did the network analysis of civilian complaint records for an investigation into clusters of officers accused of misconduct again and again"
+      "description": "I do the network analysis of civilian complaint records for an investigation into clusters of officers accused of misconduct again and again"
     },
     {
       "name": "Climate TRACE",
       "entity": "Earthrise Media",
       "startDate": "2022",
-      "description": "I made maps and data exploration tools for emissions sources around the world"
+      "description": "I make maps and data exploration tools for emissions sources around the world"
     },
     {
       "name": "Ukraine grain",
@@ -171,20 +171,20 @@
       "entity": "Carnegie Mellon University Delphi",
       "startDate": "2020",
       "url": "https://delphi.cmu.edu/about/team/",
-      "description": "I prototyped visualizations for the public COVID-19 indicators, July to September 2020"
+      "description": "I prototype visualizations for the public COVID-19 indicators, July to September 2020"
     },
     {
       "name": "Election simulator",
       "entity": "Washington Post Opinions",
       "startDate": "2019",
-      "description": "I helped build an election simulator on top of David Byler’s model"
+      "description": "I help build an election simulator on top of David Byler’s model"
     },
     {
       "name": "Dark-money map",
       "entity": "Mother Jones",
       "startDate": "2012",
       "url": "https://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money/",
-      "description": "I co-authored an interactive map of the super PAC and dark-money universe"
+      "description": "I co-author an interactive map of the super PAC and dark-money universe"
     },
     {
       "name": "NBC News Specials",
@@ -292,7 +292,7 @@
       "type": "personal",
       "startDate": "2026",
       "url": "https://ejfox.com/projects/coachartie-memory",
-      "description": "What does an AI agent actually remember? I embedded all of it, clustered it, and drew the map."
+      "description": "What does an AI agent actually remember? I embed all of it, cluster it, and draw the map."
     },
     {
       "name": "OpenRouter Census",
@@ -320,7 +320,7 @@
       "type": "personal",
       "startDate": "2024",
       "url": "https://ejfox.com/projects/obsidian-analysis",
-      "description": "I embedded my entire Obsidian vault, around 2,000 notes, using local Nomic embeddings."
+      "description": "I embed my entire Obsidian vault, around 2,000 notes, using local Nomic embeddings."
     },
     {
       "name": "Hand-Tracking & Generative Art",
@@ -334,14 +334,14 @@
       "type": "personal",
       "startDate": "2023",
       "url": "https://ejfox.com/projects/coach-artie",
-      "description": "The AI assistant that lives in the Room 302 Studio Discord. He came online in March 2023."
+      "description": "The AI assistant that lives in the Room 302 Studio Discord. He comes online in March 2023."
     },
     {
       "name": "Twitter Artbot",
       "type": "personal",
       "startDate": "2017",
       "url": "https://ejfox.com/projects/twitter-artbot",
-      "description": "My first generative art bot. It ran hourly from June 2017 to late 2019, on its own."
+      "description": "My first generative art bot. It runs hourly from June 2017 to late 2019, on its own."
     }
   ],
   "skills": [

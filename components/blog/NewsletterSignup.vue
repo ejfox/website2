@@ -1,6 +1,6 @@
 <!--
   @file NewsletterSignup.vue
-  @description Email signup for EJ's self-hosted listmonk (list.tools.ejfox.com).
+  @description Email signup for my self-hosted listmonk (list.tools.ejfox.com).
   A plain HTML form, no JS: it POSTs straight to listmonk's public subscription
   endpoint, which shows its own (on-brand) confirmation page and sends a
   double-opt-in email. Nothing is stored on ejfox.com.

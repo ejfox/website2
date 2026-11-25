@@ -1,6 +1,6 @@
 /**
  * @file smallweb.ts
- * @description fetchSmallweb(app, path): fetch JSON from one of EJ's smallweb
+ * @description fetchSmallweb(app, path): fetch JSON from one of my smallweb
  *   OSINT apps (<app>.tools.ejfox.com). Used by the Valley Atlas layers in
  *   server/api/atlas/ (ships, news, cameras, history, private/*). Throws on
  *   non-2xx.

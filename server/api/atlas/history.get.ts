@@ -2,7 +2,7 @@
  * @file atlas/history.get.ts
  * @description GET /api/atlas/history. The Revolution in the valley, for the
  *   Valley Atlas: { battles, positions, routes, fields, fetched, errors? }, each a
- *   FeatureCollection, from EJ's hudsonmaps smallweb app. Used by
+ *   FeatureCollection, from my hudsonmaps smallweb app. Used by
  *   utils/atlas/layers/revolution.ts. Cached 30 min with swr, over a per-source
  *   6h in-process cache. Never throws.
  *

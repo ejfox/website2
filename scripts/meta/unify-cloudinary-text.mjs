@@ -20,7 +20,7 @@
  * and the repo cache had drifted (times like 8:45 mangled to 8).
  *
  * Rules, in order — the first that applies sets `alt`:
- *   1. EJ'S OWN WORDS WIN. Alt he wrote on a project page (or, failing that,
+ *   1. MY OWN WORDS WIN. Alt I wrote on a project page (or, failing that,
  *      any post that isn't a week note) is the image's description, even over
  *      an existing Cloudinary alt.
  *   2. BROKEN alt (a URL, a /Users/ path, or `=` eaten by the old sync script)
@@ -99,7 +99,7 @@ async function listAllImages() {
 
 /**
  * public_id -> { project: [alt], essay: [alt], any: [alt] } from every
- * markdown image. project + essay are EJ's own words: project pages first, then any other post that
+ * markdown image. project + essay are my own words: project pages first, then any other post that
  * isn't a week note (week notes carry the 2025 AI alt-text batch). Drafts
  * count — this is asset metadata, not publishing — but sealed posts don't.
  */

@@ -100,7 +100,7 @@ magick /tmp/app.png -gravity North -crop 1440x810+0+0 +repage /tmp/app_crop.png
 
 ## Finding screenshots you already took (embeddings index)
 
-The `~/code/screenshot-embeddings` project has ~1700 of EJ's real screenshots
+The `~/code/screenshot-embeddings` project has ~1700 of my real screenshots
 indexed. Three search angles, in order of reliability:
 
 1. **OCR content** — regex over `ocr_preview` in `data/points.json`. Most
@@ -118,6 +118,6 @@ look before wiring anything in — the tag is a hint, not ground truth.
 
 - Cloudinary public_id: `projects/<slug>/<name>` (e.g. `.../landing`, `.../map`).
 - New project pages start as `draft: true` with a `<!-- TODO (EJ) -->` stub —
-  EJ's written voice is sacred; never fabricate prose. Drafts are dev-only.
+  My written voice is sacred; never fabricate prose. Drafts are dev-only.
 - Image cap / sizing (50vh, natural aspect, no borders) is enforced in
   `components/projects/ProjectRow.vue`, not here.

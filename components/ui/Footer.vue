@@ -56,12 +56,6 @@ const buildTitle = computed(() => {
         <a class="hidden" href="https://mastodon.social/@ejfox" rel="me">
           mastodon
         </a>
-        <p
-          class="p-note mt-3 font-serif text-sm text-zinc-600 dark:text-zinc-400"
-        >
-          When someone hands me a mess, I take a kind of pathological joy in
-          untangling it.
-        </p>
       </div>
 
       <nav :class="navClasses">

@@ -1,7 +1,7 @@
 /**
  * @file revolution.ts
  * @description The Revolution in the valley: battles, forts and positions, troop and
- *   courier routes, and NPS battlefield study areas, from EJ's hudsonmaps app
+ *   courier routes, and NPS battlefield study areas, from my hudsonmaps app
  *   via /api/atlas/history. hudsonmaps has no georeferenced period maps to
  *   tile (its "historical" layers are modern basemaps), so this is vector only
  *   Loaded by pages/atlas.vue. One click handler for all four layers,

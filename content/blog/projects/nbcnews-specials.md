@@ -17,7 +17,7 @@ tags:
   - elections
 ---
 
-From 2016 to 2019 I was a senior interactive graphics specialist at NBC News, on the Foundry team. We built bespoke longform features, the [specials](https://www.nbcnews.com/specials), in collaboration with reporters across the newsroom. Every one was designed from scratch around its story, mixing video, data visualization and scrolling narrative.
+From 2016 to 2019 I was a senior interactive graphics specialist at NBC News, on the Foundry team. We build bespoke longform features, the [specials](https://www.nbcnews.com/specials), in collaboration with reporters across the newsroom. Every one is designed from scratch around its story, mixing video, data visualization and scrolling narrative.
 
 ![Scrolling Journey of a Bullet — the bullet-path diagram, documentary stills, and longform text as readers met it](https://res.cloudinary.com/ejf/video/upload/projects/nbcnews-specials/journey-scroll.mp4)
 

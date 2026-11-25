@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 // @file atlas-notes.mjs
 // Builds data/atlas/notes-places.json for the Valley Atlas notes layer: the
-// roads EJ writes about riding, the towns New York City drowned for its
-// reservoirs, and the hidden-history sites from his Hudson Valley book notes.
+// roads I write about riding, the towns New York City drowned for its
+// reservoirs, and the hidden-history sites from my Hudson Valley book notes.
 // Also validates data/atlas/story.json (story-mode chapters).
 //
 //   node scripts/build/atlas-notes.mjs            fetch missing roads, write, check
 //   node scripts/build/atlas-notes.mjs --refresh  re-fetch every road from Overpass
 //   node scripts/build/atlas-notes.mjs --check    validate the existing files only
 //
-// PRIVACY: this map is public. Quotes may only come from EJ's published writing
+// PRIVACY: this map is public. Quotes may only come from my published writing
 // (content/blog, not drafts/private/robots, not draft/unlisted).
 // His Obsidian vault and agent-vault are private: use them to find places, never
-// quote them. Never pin his home, neighborhood, storage, studio or mesh nodes.
+// quote them. Never pin my home, neighborhood, storage, studio or mesh nodes.
 // Drawn by utils/atlas/layers/notes.ts. Run by hand; no yarn script.
 import { existsSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'

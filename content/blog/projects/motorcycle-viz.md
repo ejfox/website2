@@ -15,9 +15,9 @@ tags:
   - video
 ---
 
-I started filming my rides in case something went wrong. A helmet cam is insurance — if an accident or something crazy happened, at least there'd be a tape. But over a few years the reason changed on me. I'd flip it on for the beautiful stuff instead: a good stretch of road, the light, whatever cool thing was happening. One time I caught a train and a helicopter lining up over the Hudson River exactly as I rode past.
+I start filming my rides in case something goes wrong. A helmet cam is insurance — if an accident or something crazy happens, at least there'll be a tape. But over a few years the reason changes on me. I flip it on for the beautiful stuff instead: a good stretch of road, the light, whatever cool thing was happening. One time I catch a train and a helicopter lining up over the Hudson River exactly as I ride past.
 
-By the end of those first few years I had gigabytes and gigabytes of it, and I got curious what all of it looked like at once — what years of riding might add up to. So I ran the whole corpus through a battery of meta-visualization techniques, pulling images out of the footage that no single frame holds.
+By the end of those first few years I have gigabytes and gigabytes of it, and I get curious what all of it looks like at once — what years of riding might add up to. So I run the whole corpus through a battery of meta-visualization techniques, pulling images out of the footage that no single frame holds.
 
 ![Scrolling the helmet-cam corpus explorer — 294 clips, the frame contact sheet, and GPS route maps](https://res.cloudinary.com/ejf/video/upload/projects/motorcycle-viz/corpus-scroll.mp4)
 
@@ -46,9 +46,9 @@ By the end of those first few years I had gigabytes and gigabytes of it, and I g
 
 ![Dusk anthology — a tall contact sheet of golden-hour frames](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/dusk-contact.png)
 
-So what did it all add up to? Honestly, not much you could point at. The specific moments I'd gone looking for — the train and the helicopter, the good light — washed out in the averaging. What was left was just the general shape and colors of the Hudson Valley and its roads. Unremarkable, but with a kind of haunting beauty to it. A consistency.
+So what does it all add up to? Honestly, not much you could point at. The specific moments I've gone looking for — the train and the helicopter, the good light — wash out in the averaging. What's left is just the general shape and colors of the Hudson Valley and its roads. Unremarkable, but with a kind of haunting beauty to it. A consistency.
 
-The blessing is in what *isn't* there. Across all of it — every gig of footage, every year — no accident, nothing terrible ever happened. The insurance I started rolling never had to pay out.
+The blessing is in what *isn't* there. Across all of it — every gig of footage, every year — no accident, nothing terrible ever happens. The insurance I start rolling never has to pay out.
 
 ## Mapping the rides
 

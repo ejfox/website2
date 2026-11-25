@@ -1,6 +1,6 @@
 <!--
   @file ChangedRoutesHud.client.vue
-  @description Dev-only right-rail HUD of changed content routes, from
+  @description Dev-only bottom-third HUD of changed content routes, from
     GET /api/_dev/changes (server/api/_dev/changes.get.ts). Mounted as
     <DevChangedRoutesHud v-if="isDev"> in layouts/default.vue (isDev =
     import.meta.dev). Base, open state and highlight toggle persist in
@@ -9,7 +9,7 @@
 -->
 <script setup>
 /**
- * Dev-only "what changed" HUD. Fixed right-side rail listing every changed
+ * Dev-only "what changed" HUD. Docked to the bottom third, listing every changed
  * content route (vs the working tree, or vs `main`), with status badges, line
  * counts, and an expandable diff preview. Click a row to jump to that route.
  *
@@ -27,6 +27,15 @@ const base = useStorage('dev-changes-base', 'session') // 'session' | 'branch'
 const open = useStorage('dev-changes-open', true)
 const highlight = useStorage('dev-changes-highlight', true)
 const expanded = ref(new Set())
+
+// Reserve the bottom third while open, so the panel sits under the page
+// instead of on top of it.
+watchEffect(() => {
+  document.documentElement.style.paddingBottom = open.value ? '33vh' : ''
+})
+onBeforeUnmount(() => {
+  document.documentElement.style.paddingBottom = ''
+})
 
 const files = ref([])
 const routableCount = ref(0)
@@ -245,9 +254,13 @@ function highlightCurrent() {
 <style scoped>
 /* ── Rail + tab ──────── */
 .dev-hud {
+  /* Docked to the bottom third, full width. The page gets matching bottom
+     padding (see the watchEffect in the script), so the panel never covers
+     content: it shrinks the viewport instead. */
   position: fixed;
-  top: 64px;
+  left: 0;
   right: 0;
+  bottom: 0;
   z-index: 9998;
   font-size: 11px;
   line-height: 1.4;
@@ -260,28 +273,32 @@ function highlightCurrent() {
 }
 .dev-hud__tab {
   position: absolute;
-  top: 0;
-  right: 100%;
+  bottom: 100%;
+  right: 12px;
   padding: 4px 6px;
   background: #18181b;
   border: 1px solid #3f3f46;
-  border-right: none;
+  border-bottom: none;
   color: #a1a1aa;
   cursor: pointer;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px 3px 0 0;
 }
 .dev-hud__tab:hover {
   color: #fafafa;
 }
 .dev-hud__panel {
-  width: 280px;
-  max-height: calc(100vh - 96px);
+  height: 33vh;
   overflow-y: auto;
-  background: #0a0a0acc;
-  backdrop-filter: blur(6px);
-  border: 1px solid #27272a;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
+  background: #000;
+  border-top: 1px solid #27272a;
+}
+/* Rows flow into columns so a third of the screen holds a lot of files. */
+.dev-hud__list {
+  columns: 280px;
+  column-gap: 16px;
+}
+.dev-hud__list li {
+  break-inside: avoid;
 }
 /* ── Panel header ──────── */
 .dev-hud__head {
