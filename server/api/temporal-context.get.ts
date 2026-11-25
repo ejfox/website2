@@ -16,7 +16,7 @@ import { glob } from 'glob'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
 import {
-  isPublicScrap,
+  isUsableScrap,
   publicTags,
   cleanTitle,
   hostnameOf,
@@ -181,7 +181,8 @@ export default defineEventHandler(async (event) => {
 
       if (scraps?.length) {
         results.scraps = scraps
-          .filter(isPublicScrap)
+          .filter(isUsableScrap)
+          .filter((s) => s.title || s.url) // nothing to show without a title or URL
           .slice(0, 5)
           .map((s) => ({
             title: cleanTitle(s.title) || hostnameOf(s.url) || 'Untitled',

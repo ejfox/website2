@@ -10,7 +10,7 @@
  */
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
-import { isPublicScrap, publicTags } from '~/server/utils/scrap-schema'
+import { isUsableScrap, publicTags } from '~/server/utils/scrap-schema'
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 
@@ -65,7 +65,7 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 502, message: 'Failed to fetch scrap' })
     }
     // Sentinels and !hide rows 404 like unshared ones
-    if (!data || !isPublicScrap(data)) {
+    if (!data || !isUsableScrap(data)) {
       throw createError({ statusCode: 404, message: 'No such scrap' })
     }
 

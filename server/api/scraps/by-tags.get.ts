@@ -10,7 +10,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
 import {
-  isPublicScrap,
+  isUsableScrap,
   publicTags,
   cleanTitle,
   hostnameOf,
@@ -57,8 +57,10 @@ export default defineEventHandler(async (event) => {
     const maxResults = Number.parseInt(limit) || 8
     const matched = (data || [])
       .filter((s) => {
-        // Sentinels, !hide, unshared and url-less/untitled rows never show
-        if (!isPublicScrap(s)) return false
+        // Sentinels and !hide rows never show (shared is enforced in the query)
+        if (!isUsableScrap(s)) return false
+        // Must have at least a title or URL to be displayable
+        if (!s.title && !s.url) return false
         // Match on public tags only; !-tags are private control tags
         return publicTags(s.tags).some((t) => tagSet.has(t))
       })

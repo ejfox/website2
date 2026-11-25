@@ -14,7 +14,7 @@
  */
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
-import { isPublicScrap, publicTags } from '~/server/utils/scrap-schema'
+import { isUsableScrap, publicTags } from '~/server/utils/scrap-schema'
 
 interface Scrap {
   id: string
@@ -98,7 +98,7 @@ export default defineCachedEventHandler(
     // Drop sentinels (__run_lock__), !hide rows and url-less/untitled rows, then
     // strip !-prefixed control tags from what is served.
     const rows = ((data || []) as unknown as Record<string, unknown>[]).filter(
-      isPublicScrap
+      isUsableScrap
     )
     const scraps: Scrap[] = rows.map((scrap) => ({
       id: String(scrap.id),

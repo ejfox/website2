@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   cleanTitle,
   isPublicScrap,
+  isUsableScrap,
   isSentinel,
   publicTags,
 } from '../scrap-schema'
@@ -28,8 +29,14 @@ describe('scrap visibility as the public endpoints apply it', () => {
     expect(isPublicScrap({ ...row, shared: false })).toBe(false)
   })
 
+  it('keeps text-only shared scraps eligible for list, graph and detail alike', () => {
+    expect(isUsableScrap({ ...row, url: null, title: 'A note' })).toBe(true)
+    expect(isUsableScrap({ ...row, tags: ['!hide'] })).toBe(false)
+  })
+
   it('cleans AI preambles and placeholders', () => {
     expect(cleanTitle('Summary: A good read')).toBe('A good read')
     expect(cleanTitle('[no title]')).toBe('')
+    expect(cleanTitle('-5°C forecast')).toBe('-5°C forecast')
   })
 })
