@@ -11,7 +11,7 @@
 usePageSeo({
   title: 'Case Study: NBC Big Board · EJ Fox',
   description:
-    'How we rebuild the election touchscreen Steve Kornacki uses on live TV. About 10 million people watching on NBC and MSNBC. Zero crashes. The full story.',
+    'How we rebuilt the election touchscreen Steve Kornacki uses on live TV. About 10 million people watching on NBC and MSNBC. Zero crashes',
 })
 </script>
 
@@ -29,10 +29,10 @@ usePageSeo({
         Building the Big Board
       </h1>
       <p class="font-serif text-xl text-zinc-600 dark:text-zinc-400 mb-6">
-        How we rebuild the election touchscreen Steve Kornacki uses on live TV.
-        I co-build it and lead the design, with Michael Small and NBC News
+        How we rebuilt the election touchscreen Steve Kornacki uses on live TV.
+        I co-built it and led the design, with Michael Small and NBC News
         Digital's product and tech teams. About 10 million people watching on
-        NBC and MSNBC. Zero crashes. This is the full story.
+        NBC and MSNBC. Zero crashes.
       </p>
 
       <div
@@ -71,14 +71,9 @@ usePageSeo({
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">The Problem</h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        NBC's existing election touchscreen is showing its age. The interface is
-        clunky. The maps can't zoom to county level smoothly. And Steve
-        Kornacki—the human phenomenon who turns election data into compelling
-        TV—is fighting the technology.
-      </p>
-      <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        The stakes are absurd. Election night is the Super Bowl of news:
-        millions of viewers, live TV, no second takes.
+        NBC's existing election touchscreen was showing its age. The interface
+        was clunky. The maps couldn't zoom to county level smoothly. And Steve
+        Kornacki was fighting the technology.
       </p>
       <div class="bg-raised rounded-lg p-4 my-6">
         <p class="font-mono text-sm text-zinc-600 dark:text-zinc-400">
@@ -96,11 +91,11 @@ usePageSeo({
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">The Approach</h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        I start with a working prototype that shows what is possible.
+        I started with a working prototype that showed what was possible.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        In January 2018, I demo it to Steve's producer. Then to Steve himself.
-        Then to the executives. Each demo adds momentum. By spring, we have
+        In January 2018, I demoed it to Steve's producer. Then to Steve himself.
+        Then to the executives. Each demo added momentum. By spring, we had
         budget and a team.
       </p>
 
@@ -113,7 +108,7 @@ usePageSeo({
           <span>
             <strong>D3.js + Vue:</strong>
             D3 for the maps and transitions, Vue for the UI state. This combo
-            lets us build complex interactions without fighting the framework.
+            let us build complex interactions without fighting the framework.
           </span>
         </li>
         <li class="flex gap-3">
@@ -128,15 +123,15 @@ usePageSeo({
           <span class="text-zinc-500 dark:text-zinc-400 shrink-0">—</span>
           <span>
             <strong>Pre-rendered base layers:</strong>
-            The map tiles are pre-rendered. Only the data overlays update in
-            real-time. This separation of concerns saves us.
+            The map tiles were pre-rendered. Only the data overlays updated in
+            real-time.
           </span>
         </li>
         <li class="flex gap-3">
           <span class="text-zinc-500 dark:text-zinc-400 shrink-0">—</span>
           <span>
             <strong>Graceful degradation:</strong>
-            Every feature has a fallback. If the live data feed dies, we can
+            Every feature had a fallback. If the live data feed died, we could
             switch to cached data.
           </span>
         </li>
@@ -147,21 +142,22 @@ usePageSeo({
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">What Almost Went Wrong</h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        Around 9 PM on election night, Steve taps Montana. Nothing happens. He
-        taps again. Still nothing. The map is frozen on live TV.
+        Around 9 PM on election night, Steve tapped Montana. Nothing happened.
+        He tapped again. Still nothing. The map was frozen on live TV.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        My heart stops. I'm watching from the control room, headset on,
+        My heart stopped. I was watching from the control room, headset on,
         listening to the chaos.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        But the app isn't frozen. The video feed from the app to the broadcast
-        system has hiccupped. His touch inputs are landing and the app is
-        processing them correctly—the output just isn't making it to the screen.
+        But the app wasn't frozen. The video feed from the app to the broadcast
+        system had hiccupped. His touch inputs were landing and the app was
+        processing them correctly—the output just wasn't making it to the
+        screen.
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
-        The control room re-routes the video feed. 15 seconds later, we're back.
-        Most viewers probably don't notice.
+        The control room re-routed the video feed. 15 seconds later, we were
+        back. Most viewers probably didn't notice.
       </p>
       <div
         class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 my-6"
@@ -170,7 +166,7 @@ usePageSeo({
           <strong>Lesson:</strong>
           Build systems where you control the failure modes. I can't control the
           broadcast infrastructure, but I can control how the app behaves. It
-          never actually crashes.
+          never actually crashed.
         </p>
       </div>
     </section>
@@ -227,18 +223,15 @@ usePageSeo({
       </blockquote>
 
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
-        Chuck Todd's producer says it's the first election night where Chuck
-        isn't frustrated with the app. That might be the compliment I'm proudest
-        of.
+        Chuck Todd's producer said it was the first election night where Chuck
+        wasn't frustrated with the app. That might be the compliment I'm
+        proudest of.
       </p>
     </section>
 
     <!-- The Pattern -->
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">The Pattern</h2>
-      <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-        This project taught me a pattern I've used ever since:
-      </p>
       <ol class="space-y-3 font-serif text-zinc-700 dark:text-zinc-300">
         <li class="flex gap-3">
           <span class="font-mono text-zinc-500 dark:text-zinc-400 shrink-0"
@@ -256,7 +249,7 @@ usePageSeo({
           <span>
             <strong>Understand the performer.</strong>
             Steve Kornacki has a specific way of thinking and moving. The app
-            has to feel like an extension of his hands.
+            had to feel like an extension of his hands.
           </span>
         </li>
         <li class="flex gap-3">
@@ -275,8 +268,8 @@ usePageSeo({
           >
           <span>
             <strong>Ship something real, then iterate.</strong>
-            The app that ships in November is very different from the January
-            prototype. But without that prototype, nothing would ship.
+            The app that shipped in November was very different from the January
+            prototype. But without that prototype, nothing would have shipped.
           </span>
         </li>
       </ol>
@@ -315,12 +308,6 @@ usePageSeo({
     <!-- CTA -->
     <section class="section-spacing">
       <div class="border border-zinc-900 dark:border-zinc-100 rounded-lg p-6">
-        <h2 class="font-serif text-xl text-zinc-900 dark:text-zinc-100 mb-3">
-          Have a high-stakes project?
-        </h2>
-        <p class="font-serif text-zinc-600 dark:text-zinc-400 mb-4">
-          I specialize in systems that can't fail when it matters most.
-        </p>
         <NuxtLink
           to="/consulting"
           data-umami-event="project-hire-cta"
