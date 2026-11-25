@@ -14,6 +14,7 @@
 import { useDark } from '@vueuse/core'
 import { calParams, readFirstTouch } from '~/utils/firstTouch'
 import resume from '~/public/resume.json'
+import { cldTile, cldPlaceholder } from '~/utils/cld'
 
 const isDark = useDark()
 
@@ -267,6 +268,16 @@ const QUOTES = [
   },
 ]
 
+// One screenshot per Selected work entry, from each project page's images
+// (/api/projects). Picked 2026-11-25 for showing the actual thing: the Sines
+// ownership graph, the leak explorer, the misconduct network itself.
+const CLD = 'https://res.cloudinary.com/ejf/image/upload/'
+const WORK_IMAGES = {
+  gem: CLD + 'projects/gem-viz/owners-live.png',
+  leaks: CLD + 'projects/paramilitary-leaks/explorer.png',
+  ccrb: CLD + 'v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg',
+}
+
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description: "I'm a hacker-journalist available for contract work.",
@@ -330,6 +341,19 @@ usePageSeo({
         <p class="section-label">Selected work</p>
         <div class="stack-32">
           <div class="stack-0">
+            <NuxtLink to="/projects/gem-viz" class="work-image" tabindex="-1">
+              <img
+                :src="cldTile(WORK_IMAGES.gem, 1344)"
+                :style="{
+                  backgroundImage: `url(${cldPlaceholder(WORK_IMAGES.gem)})`,
+                }"
+                alt="Global Energy Monitor ownership graph for the Sines power station"
+                width="1344"
+                height="896"
+                loading="lazy"
+                decoding="async"
+              />
+            </NuxtLink>
             <p class="item-title">
               <NuxtLink to="/projects/gem-viz" class="link"
                 >Global Energy Ownership Tracker</NuxtLink
@@ -342,6 +366,23 @@ usePageSeo({
             </p>
           </div>
           <div class="stack-0">
+            <NuxtLink
+              to="/projects/paramilitary-leaks"
+              class="work-image"
+              tabindex="-1"
+            >
+              <img
+                :src="cldTile(WORK_IMAGES.leaks, 1344)"
+                :style="{
+                  backgroundImage: `url(${cldPlaceholder(WORK_IMAGES.leaks)})`,
+                }"
+                alt="Paramilitary Leaks explorer showing a timeline of leaked messages"
+                width="1344"
+                height="896"
+                loading="lazy"
+                decoding="async"
+              />
+            </NuxtLink>
             <p class="item-title">
               <NuxtLink to="/projects/paramilitary-leaks" class="link"
                 >Paramilitary Leaks</NuxtLink
@@ -354,6 +395,23 @@ usePageSeo({
             </p>
           </div>
           <div class="stack-0">
+            <NuxtLink
+              to="/projects/ccrb-clusters"
+              class="work-image"
+              tabindex="-1"
+            >
+              <img
+                :src="cldTile(WORK_IMAGES.ccrb, 1344)"
+                :style="{
+                  backgroundImage: `url(${cldPlaceholder(WORK_IMAGES.ccrb)})`,
+                }"
+                alt="Network graph of NYPD officers linked by shared misconduct complaints"
+                width="1344"
+                height="896"
+                loading="lazy"
+                decoding="async"
+              />
+            </NuxtLink>
             <p class="item-title">
               <NuxtLink to="/projects/ccrb-clusters" class="link"
                 >Clusters of NYPD Misconduct</NuxtLink
@@ -536,6 +594,14 @@ usePageSeo({
 </template>
 
 <style scoped>
+/* Selected work screenshots: full column, 3:2, hairline, blurred placeholder */
+.work-image {
+  @apply block mb-8 border border-zinc-200 dark:border-zinc-800;
+}
+.work-image img {
+  @apply block w-full h-auto bg-cover bg-center;
+  aspect-ratio: 3 / 2;
+}
 /* ============================================
    TYPE SYSTEM (my call, 2026-11-09: "really professional, well-thought-out info
    hierarchy, the ENTIRE page, consistent and elegant").
