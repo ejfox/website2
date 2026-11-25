@@ -281,43 +281,39 @@ const WORK_IMAGES = {
 // "More work": a contact sheet of the most convincing shots across all 43
 // public projects (picked 2026-11-25 from a sheet of all 99: finished work,
 // no admin UIs, code or browser chrome). Range on purpose: journalism, maps,
-// art, toys. NBC is one tile, never the headline.
+// art, toys. NBC is one tile, never the headline. Journalism leads.
+// Recent AI-era experiments (hand-tracking, Amen Slicer, the Coach Artie
+// memory map) are out: EJ, 2026-11-25, "robot experiments, not lead-off
+// projects", and their screenshots read as AI-slop adjacent.
 const MORE_WORK = [
-  ['margin-maps', 'The Margin', 'v1666630398/project-images/margin_skagit.png'],
   [
     'nbcnews-specials',
     'Journey of a Bullet',
     'v1755100741/screenshot_2025-08-13_at_11.58.49_AM.png',
   ],
-  ['amen-slicer', 'Amen Slicer', 'projects/amen-slicer/gameboy.png'],
-  ['covidcast', 'COVIDcast', 'v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png'],
+  ['margin-maps', 'The Margin', 'v1666630398/project-images/margin_skagit.png'],
   [
-    'subway-builder',
-    'Subway Builder',
-    'v1780066321/projects/subway-builder/build.png',
+    'covidcast',
+    'COVIDcast',
+    'v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png',
   ],
   ['long-lead', 'Long Lead', 'v1666630397/project-images/ll_diver.png'],
-  ['websdr-vcv', 'WebSDR VCV', 'projects/websdr-vcv/rack.png'],
   [
     'nbcnews-specials',
     'NBC News Specials',
     'v1755100778/screenshot_2025-08-13_at_11.59.26_AM.png',
   ],
   [
-    'creative-interfaces',
-    'Hand-Tracking & Generative Art',
-    'projects/opencv-talk-typography/echo-1.png',
+    'subway-builder',
+    'Subway Builder',
+    'v1780066321/projects/subway-builder/build.png',
   ],
   [
     'nbc-big-board',
     'NBC News Big Board',
     'v1666630396/project-images/nbc_bigboard.png',
   ],
-  [
-    'coachartie-memory',
-    'Coach Artie memory map',
-    'projects/coachartie-memory/topology.png',
-  ],
+  ['websdr-vcv', 'WebSDR VCV', 'projects/websdr-vcv/rack.png'],
   ['twitter-artbot', 'Twitter Artbot', 'projects/twitter-artbot/piece-03.png'],
 ].map(([slug, title, path]) => ({ slug, title, src: CLD + path }))
 // A fixed tilt per image from a hash of its URL: hand-placed, stable across
@@ -500,7 +496,7 @@ usePageSeo({
         </div>
       </section>
 
-      <section class="section">
+      <section id="more-work" class="section scroll-mt-24">
         <p class="section-label">More work</p>
         <div class="contact-sheet">
           <NuxtLink
