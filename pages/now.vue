@@ -88,32 +88,41 @@ usePageSeo({
       The live feeds didn't answer. Try again in a minute.
     </p>
 
-    <ol v-else-if="now?.lines?.length">
-      <li v-for="(line, i) in now.lines" :key="`${line.label}-${i}`">
-        <a
-          v-if="isExternal(line.href)"
-          :href="line.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="row group"
-          :class="isStale(line.at) ? 'stale' : 'fresh'"
-        >
-          <span class="age">{{ age(line.at) }}</span>
-          <span class="where">{{ line.label }}</span>
-          <span class="what">{{ line.text }}</span>
-        </a>
-        <NuxtLink
-          v-else
-          :to="line.href"
-          class="row group"
-          :class="isStale(line.at) ? 'stale' : 'fresh'"
-        >
-          <span class="age">{{ age(line.at) }}</span>
-          <span class="where">{{ line.label }}</span>
-          <span class="what">{{ line.text }}</span>
-        </NuxtLink>
-      </li>
-    </ol>
+    <!-- Column heads: "latest" is what tells a reader each row is the newest
+         thing from that route. -->
+    <template v-else-if="now?.lines?.length">
+      <div class="row heads" aria-hidden="true">
+        <span class="age">when</span>
+        <span class="where">where</span>
+        <span>latest</span>
+      </div>
+      <ol>
+        <li v-for="(line, i) in now.lines" :key="`${line.label}-${i}`">
+          <a
+            v-if="isExternal(line.href)"
+            :href="line.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="row group"
+            :class="isStale(line.at) ? 'stale' : 'fresh'"
+          >
+            <span class="age">{{ age(line.at) }}</span>
+            <span class="where">{{ line.label }}</span>
+            <span class="what">{{ line.text }}</span>
+          </a>
+          <NuxtLink
+            v-else
+            :to="line.href"
+            class="row group"
+            :class="isStale(line.at) ? 'stale' : 'fresh'"
+          >
+            <span class="age">{{ age(line.at) }}</span>
+            <span class="where">{{ line.label }}</span>
+            <span class="what">{{ line.text }}</span>
+          </NuxtLink>
+        </li>
+      </ol>
+    </template>
 
     <footer class="mt-8 text-zinc-500">
       <nav class="flex flex-wrap gap-x-4 gap-y-1">
@@ -183,6 +192,10 @@ usePageSeo({
 
 .stale .what {
   @apply text-zinc-600 dark:text-zinc-400;
+}
+
+.heads {
+  @apply text-zinc-500 border-b border-zinc-200 dark:border-zinc-800;
 }
 
 .row:hover .what {
