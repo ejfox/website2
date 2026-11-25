@@ -10,11 +10,14 @@
  */
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { isUsableScrap, publicTags } from '~/server/utils/scrap-schema'
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 
 const COLUMNS = [
   'id',
+  'scrap_id',
+  'shared',
   'title',
   'summary',
   'url',
@@ -61,7 +64,8 @@ export default defineCachedEventHandler(
       console.error('❌ Supabase query error:', error)
       throw createError({ statusCode: 502, message: 'Failed to fetch scrap' })
     }
-    if (!data) {
+    // Sentinels and !hide rows 404 like unshared ones
+    if (!data || !isUsableScrap(data)) {
       throw createError({ statusCode: 404, message: 'No such scrap' })
     }
 
@@ -74,7 +78,7 @@ export default defineCachedEventHandler(
       url: (s.url as string) || null,
       created_at: s.created_at as string,
       published_at: (s.published_at as string) || null,
-      tags: Array.isArray(s.tags) ? (s.tags as string[]) : [],
+      tags: publicTags(s.tags),
       concept_tags: Array.isArray(s.concept_tags)
         ? (s.concept_tags as string[])
         : [],
