@@ -8,6 +8,43 @@
     numbers or quotes without checking with me.
 -->
 <script setup lang="ts">
+import { useWindowScroll, useWindowSize } from '@vueuse/core'
+
+// Sidebar contents + reading progress, same pieces a blog post uses
+// (PostTOC in #nav-toc-container, a 1px bar across the top).
+const SECTIONS = [
+  { slug: 'problem', text: 'The Problem' },
+  { slug: 'approach', text: 'The Approach' },
+  { slug: 'almost-wrong', text: 'What Almost Went Wrong' },
+  { slug: 'results', text: 'The Results' },
+  { slug: 'pattern', text: 'The Pattern' },
+  { slug: 'more', text: 'More Case Studies' },
+].map((s, i) => ({ ...s, number: String(i + 1) }))
+
+const tocTarget = ref<Element | null>(null)
+onMounted(() => {
+  tocTarget.value = document.querySelector('#nav-toc-container')
+})
+
+const { y } = useWindowScroll()
+const { height } = useWindowSize()
+const progress = computed(() => {
+  if (!import.meta.client) return 0
+  const max = document.documentElement.scrollHeight - height.value
+  return max > 0 ? Math.min((y.value / max) * 100, 100) : 0
+})
+// Active = the last section whose heading has scrolled past the top third.
+const activeSection = computed(() => {
+  if (!import.meta.client) return ''
+  void y.value
+  let active = ''
+  for (const { slug } of SECTIONS) {
+    const el = document.getElementById(slug)
+    if (el && el.getBoundingClientRect().top < height.value / 3) active = slug
+  }
+  return active
+})
+
 usePageSeo({
   title: 'Case Study: NBC Big Board · EJ Fox',
   description:
@@ -17,6 +54,15 @@ usePageSeo({
 
 <template>
   <div data-page-main class="container-main pt-8 max-w-2xl">
+    <div class="progress-bar print:hidden" aria-hidden="true">
+      <div class="progress-inner" :style="{ width: `${progress}%` }" />
+    </div>
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <BlogPostTOC :toc-children="SECTIONS" :active-section="activeSection" />
+      </Teleport>
+    </ClientOnly>
+
     <!-- Header -->
     <header class="section-spacing-lg">
       <p class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">
@@ -56,7 +102,7 @@ usePageSeo({
     </header>
 
     <!-- Hero Image -->
-    <section class="section-spacing">
+    <section class="mb-12">
       <img
         src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
         alt="Me with the Big Board at 30 Rock"
@@ -68,8 +114,8 @@ usePageSeo({
     </section>
 
     <!-- The Problem -->
-    <section class="section-spacing">
-      <h2 class="heading-2 mb-4">The Problem</h2>
+    <section class="mb-12">
+      <h2 id="problem" class="heading-2 mb-4 scroll-mt-24">The Problem</h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
         NBC's existing election touchscreen was showing its age. The interface
         was clunky. The maps couldn't zoom to county level smoothly. And Steve
@@ -88,8 +134,8 @@ usePageSeo({
     </section>
 
     <!-- The Approach -->
-    <section class="section-spacing">
-      <h2 class="heading-2 mb-4">The Approach</h2>
+    <section class="mb-12">
+      <h2 id="approach" class="heading-2 mb-4 scroll-mt-24">The Approach</h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
         I started with a working prototype that showed what was possible.
       </p>
@@ -139,8 +185,10 @@ usePageSeo({
     </section>
 
     <!-- What Almost Went Wrong -->
-    <section class="section-spacing">
-      <h2 class="heading-2 mb-4">What Almost Went Wrong</h2>
+    <section class="mb-12">
+      <h2 id="almost-wrong" class="heading-2 mb-4 scroll-mt-24">
+        What Almost Went Wrong
+      </h2>
       <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
         Around 9 PM on election night, Steve tapped Montana. Nothing happened.
         He tapped again. Still nothing. The map was frozen on live TV.
@@ -172,8 +220,8 @@ usePageSeo({
     </section>
 
     <!-- The Results -->
-    <section class="section-spacing">
-      <h2 class="heading-2 mb-4">The Results</h2>
+    <section class="mb-12">
+      <h2 id="results" class="heading-2 mb-4 scroll-mt-24">The Results</h2>
       <div class="grid grid-cols-2 gap-4 mb-6">
         <div class="bg-raised rounded-lg p-4">
           <p
@@ -220,8 +268,8 @@ usePageSeo({
     </section>
 
     <!-- The Pattern -->
-    <section class="section-spacing">
-      <h2 class="heading-2 mb-4">The Pattern</h2>
+    <section class="mb-12">
+      <h2 id="pattern" class="heading-2 mb-4 scroll-mt-24">The Pattern</h2>
       <ol class="space-y-3 font-serif text-zinc-700 dark:text-zinc-300">
         <li class="flex gap-3">
           <span class="font-mono text-zinc-500 dark:text-zinc-400 shrink-0"
@@ -266,8 +314,8 @@ usePageSeo({
     </section>
 
     <!-- More Case Studies -->
-    <section class="section-spacing">
-      <h2 class="heading-2 mb-4">More Case Studies</h2>
+    <section class="mb-12">
+      <h2 id="more" class="heading-2 mb-4 scroll-mt-24">More Case Studies</h2>
       <div class="space-y-4">
         <NuxtLink
           to="/blog/2021/nypd-ccrb-complaint-clusters"
@@ -296,7 +344,7 @@ usePageSeo({
     </section>
 
     <!-- CTA -->
-    <section class="section-spacing">
+    <section class="mb-12">
       <div class="border border-zinc-900 dark:border-zinc-100 rounded-lg p-6">
         <NuxtLink
           to="/consulting"
@@ -311,3 +359,14 @@ usePageSeo({
     </section>
   </div>
 </template>
+
+<style scoped>
+/* Same 1px reading bar as a blog post */
+.progress-bar {
+  @apply fixed top-0 left-0 right-0 h-px z-[101];
+}
+.progress-inner {
+  @apply h-full bg-zinc-900/60 dark:bg-white/60;
+  transition: width 75ms ease-out;
+}
+</style>
