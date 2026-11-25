@@ -11,11 +11,7 @@
   </p>
   <p>
     There is a pride, an inner warmth you gain when you sit by a
-    <a
-      href="/tag/preparation-as-practice"
-      class="internal-link text-blue-600 dark:text-blue-400"
-      >fire you've assembled yourself</a
-    >. Within that pride is gratitude to the tree that is itself burning, the
+    fire you've assembled yourself. Within that pride is gratitude to the tree that is itself burning, the
     nameless stewards of that tree throughout its lifetime, the person who cut
     it down, chopped it, and dumped it in your driveway, and gratitude to your
     parents for making that order in mid-July in preparation for the cold
@@ -27,19 +23,11 @@
     while on what my heart truly desires the compass often spins back to a
     central concept of
     <strong
-      ><a
-        href="/tag/preparation-as-practice"
-        class="internal-link text-blue-600 dark:text-blue-400"
-        >preparation</a
-      ></strong
+      >preparation</strong
     >.
     <em
       >The process of
-      <a
-        href="/tag/building-tools-for-yourself"
-        class="internal-link text-blue-600 dark:text-blue-400"
-        >assembling skills, knowledge, and tools</a
-      >
+      assembling skills, knowledge, and tools
       that may or may not be useful later.</em
     >
     This is a dangerous art that can quickly trap a person. You can easily
@@ -73,11 +61,7 @@
     is built around being loaded onto a bike and driven through rainstorms. This
     means everything needs to be in dry bags, carefully protected from the
     elements. The
-    <a
-      href="/tag/minimalism-as-technical-practice"
-      class="internal-link text-blue-600 dark:text-blue-400"
-      >motorcycle makes you really think through</a
-    >
+    motorcycle makes you really think through
     the things you want to carry; space is limited, and every object needs to be
     useful in at least two ways and used every day to justify the space it takes
     up. I've documented this more on my
@@ -110,11 +94,7 @@
   </figure>
   <p>
     I like this way of
-    <a
-      href="/tag/minimalism-as-technical-practice"
-      class="internal-link text-blue-600 dark:text-blue-400"
-      >minimalist thinking</a
-    >
+    minimalist thinking
     about the gear I keep on my person and my bike on two levels; a practical
     pragmatic level as well as a philosophical and ethical plane.
   </p>
@@ -122,11 +102,7 @@
   <p>
     I have been a fan, if not an adherent, of a minimalist design philosophy for
     my entire adult life. I was raised in a generation of designers who admired
-    Dieter Rams and Edward Tufte (<a
-      href="/tag/minimalism-as-technical-practice"
-      class="internal-link text-blue-600 dark:text-blue-400"
-      >more on how this applies to code</a
-    >); as a data visualization designer I was taught early about the concept of
+    Dieter Rams and Edward Tufte (more on how this applies to code); as a data visualization designer I was taught early about the concept of
     "data-ink ratio"; that is, the ink on the page needs to justify itself with
     information conveyed. In this view, elements on a page (or a screen) that do
     not serve a justifiable utilitarian purpose need be removed in order to
@@ -290,11 +266,7 @@
     We are living in a moment of remarkable instability and uncertainty,
     politically and technologically. The threatening wave of techno-fascism
     paired with paradigm changes promised by
-    <a
-      href="/tag/coachartie-multi-interface-ai"
-      class="internal-link text-blue-600 dark:text-blue-400"
-      >AI</a
-    >
+    AI
     mean the future will certainly be radically different. The ways in which it
     will be different are still within our control, to some degree, particularly
     in the small hidden local networks that exist all around us if we know where
@@ -345,11 +317,7 @@
     see God move through us, when we are kind to each other for no gain,
     something beautiful that lives in the hearts of almost everyone if you have
     faith. These are things worth protecting, worth
-    <a
-      href="/tag/preparation-as-practice"
-      class="internal-link text-blue-600 dark:text-blue-400"
-      >preparing to protect</a
-    >.
+    preparing to protect.
   </p>
   <svg class="mx-auto my-8 w-full max-w-prose" height="1">
     <line

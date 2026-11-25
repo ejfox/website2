@@ -47,6 +47,3 @@ TODO
 ### Getting Started
 
 - For more info on the studio as a whole and my overall goals: [[blog/2022/the-studio]]
-- For garment dying: [[drafts/garment-dying-experiments]]
-- For woodworking: [[woodworking-setup]]
-- For soapmaking [[drafts/soapmaking]]

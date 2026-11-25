@@ -668,7 +668,11 @@ useHead(() => ({
           scroll →
         </div>
         <div class="relative overflow-x-auto gear-table-scroll">
-          <table class="w-full text-4xs font-mono">
+          <!-- data-plain: keeps plugins/markdownTable.client.ts off this
+               Vue-built table. Its wrapper div moved the table out from under
+               Vue, so leaving /gear threw NotFoundError / insertBefore and
+               /gear/<slug> rendered blank (live in prod until 2026-11-24). -->
+          <table data-plain class="w-full text-4xs font-mono">
             <thead class="sticky top-0 bg-surface backdrop-blur-sm">
               <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
                 <th class="gear-th-left">Item</th>

@@ -9,6 +9,11 @@
  */
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
+import {
+  isUsableScrap,
+  publicTags,
+  cleanTitle,
+} from '~/server/utils/scrap-schema'
 
 const SUMMARY_CHARS = 120
 
@@ -21,7 +26,9 @@ export default defineCachedEventHandler(
     const supabase = createClient(supabaseUrl, supabaseKey)
     const { data, error } = await supabase
       .from('scraps')
-      .select('id, title, summary, content, tags, concept_tags, created_at')
+      .select(
+        'id, scrap_id, source, title, summary, content, tags, concept_tags, created_at'
+      )
       // Privacy gate: only scraps I marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
@@ -33,16 +40,21 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 502, message: 'Failed to fetch scraps' })
     }
 
-    return (data || []).map((s) => ({
-      id: String(s.id),
-      title: s.title || null,
-      summary: s.summary ? String(s.summary).slice(0, SUMMARY_CHARS) : null,
-      content:
-        s.title || s.summary ? null : String(s.content || '').slice(0, 80),
-      tags: Array.isArray(s.tags) ? s.tags : [],
-      concept_tags: Array.isArray(s.concept_tags) ? s.concept_tags : [],
-      created_at: s.created_at,
-    }))
+    // shared is already enforced in the query; drop sentinels and !hide rows
+    // shared is already enforced in the query; drop sentinels and !hide rows
+    return (data || []).filter(isUsableScrap).map((s) => {
+      const title = cleanTitle(s.title) || null
+      return {
+        id: String(s.id),
+        title,
+        summary: s.summary ? String(s.summary).slice(0, SUMMARY_CHARS) : null,
+        content:
+          title || s.summary ? null : String(s.content || '').slice(0, 80),
+        tags: publicTags(s.tags),
+        concept_tags: Array.isArray(s.concept_tags) ? s.concept_tags : [],
+        created_at: s.created_at,
+      }
+    })
   },
   { maxAge: 600 }
 )

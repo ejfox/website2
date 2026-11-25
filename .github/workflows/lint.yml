@@ -54,6 +54,11 @@ jobs:
         env:
           BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event.before }}
 
+      # A public post must not link to a page that doesn't exist at all (a
+      # bare [[note]] that was never published). Links to drafts are fine.
+      - name: No links to missing pages
+        run: node scripts/meta/check-internal-links.mjs --gate
+
       - name: Unit tests
         run: yarn test
 

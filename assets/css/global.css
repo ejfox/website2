@@ -852,6 +852,12 @@ blockquote a {
   font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
 }
 
+/* Captions are labels: the site mono (Monaspace), not the code stack above.
+   !important because the blanket Georgia rule outranks a plain selector. */
+.blog-post-content figcaption {
+  font-family: theme('fontFamily.mono') !important;
+}
+
 .prose h1,
 .prose h2,
 .prose h3,
@@ -971,7 +977,6 @@ blockquote a {
   .blog-post-content {
     overflow-wrap: break-word;
     word-wrap: break-word;
-    hyphens: auto;
     max-width: 100%;
   }
 
@@ -1393,7 +1398,7 @@ img[data-loading='lazy']::before {
    ============================================= */
 
 .blog-post-content {
-  --body-size: 1rem;
+  --body-size: 1.0625rem; /* 17px on phones; 18px from sm up */
   --body-line: 1.5rem;
   --body-margin: 1.5rem;
   --h1-size: 1.75rem;
@@ -1442,6 +1447,13 @@ img[data-loading='lazy']::before {
   font-size: var(--body-size);
   line-height: var(--body-line);
   margin-bottom: var(--body-margin);
+}
+
+/* Reading text sits one step back from full contrast; headings keep it.
+   :where() keeps this at zero specificity so any class on a <p> or <li>
+   inside a post (components in .vue bodies, blockquotes) still wins. */
+:where(.blog-post-content) :where(p, li) {
+  @apply text-zinc-700 dark:text-zinc-300;
 }
 
 /* Avoid widows/orphans in reading text (last line of a paragraph won't be a

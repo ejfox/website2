@@ -14,6 +14,7 @@
  */
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { isUsableScrap, publicTags } from '~/server/utils/scrap-schema'
 
 interface Scrap {
   id: string
@@ -42,6 +43,7 @@ interface Scrap {
 
 const COLUMNS = [
   'id',
+  'scrap_id',
   'title',
   'summary',
   'url',
@@ -93,7 +95,11 @@ export default defineCachedEventHandler(
     }
 
     // Map and clean the data
-    const rows = (data || []) as unknown as Record<string, unknown>[]
+    // Drop sentinels (__run_lock__), !hide rows and url-less/untitled rows, then
+    // strip !-prefixed control tags from what is served.
+    const rows = ((data || []) as unknown as Record<string, unknown>[]).filter(
+      isUsableScrap
+    )
     const scraps: Scrap[] = rows.map((scrap) => ({
       id: String(scrap.id),
       title: (scrap.title as string) || null,
@@ -103,7 +109,7 @@ export default defineCachedEventHandler(
       created_at: scrap.created_at as string,
       updated_at: (scrap.updated_at as string) || null,
       published_at: (scrap.published_at as string) || null,
-      tags: Array.isArray(scrap.tags) ? scrap.tags : null,
+      tags: publicTags(scrap.tags),
       concept_tags: Array.isArray(scrap.concept_tags)
         ? scrap.concept_tags
         : null,

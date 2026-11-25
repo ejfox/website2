@@ -89,6 +89,14 @@ export function buildInternalHref(target) {
 
 // Filled by buildValidRoutes(), read by classifyInternalHref(). See header.
 const validRoutes = new Set()
+// Every tag a public post carries, lowercased. pages/tag/[...slug].vue 404s a
+// tag nothing uses, so a bare [[note-name]] that isn't a real tag is a dead
+// link. (A tag only scraps use also resolves there, but scraps live in
+// Supabase and aren't known at build time: such a link reads as dead here.)
+const validTags = new Set()
+// Every source file's route, drafts included: tells "links to a draft" (a
+// forward link that comes alive on publish) from "links to nothing at all".
+const allRoutes = new Set()
 
 /** Canonical key for a route: drop hash/query, decode, lowercase, no trailing slash. */
 export function routeKey(href) {
@@ -144,6 +152,8 @@ export function isPublicSource(relNoExt, fm = {}) {
  */
 export async function buildValidRoutes(files, contentDir) {
   validRoutes.clear()
+  validTags.clear()
+  allRoutes.clear()
 
   // Listing / index pages that always resolve.
   for (const r of [
@@ -162,6 +172,7 @@ export async function buildValidRoutes(files, contentDir) {
     // Files outside the content dir (e.g. the excluded drafts dir) never ship.
     if (rel.startsWith('..')) continue
     const relNoExt = rel.replace(/\.md$/, '')
+    allRoutes.add(routeKey(fileToRoute(relNoExt)))
     if (!isPublicSource(relNoExt)) continue
 
     let fm
@@ -173,6 +184,9 @@ export async function buildValidRoutes(files, contentDir) {
     if (!isPublicSource(relNoExt, fm)) continue
 
     validRoutes.add(routeKey(fileToRoute(relNoExt)))
+    for (const tag of [fm.tags || []].flat()) {
+      validTags.add(String(tag).toLowerCase())
+    }
   }
 
   return validRoutes
@@ -181,14 +195,20 @@ export async function buildValidRoutes(files, contentDir) {
 /**
  * Classify an href as it appears in rendered content.
  * Returns { internal, valid }. We only judge the content namespaces we own and
- * fully enumerate (/blog, /reading, /projects). Tag pages and other site routes
- * are dynamic — assumed valid. External/relative links are not internal.
+ * fully enumerate (/blog, /reading, /projects) plus /tag/<name>, which is
+ * valid only when a public post carries that tag. Other site routes are
+ * dynamic — assumed valid. External/relative links are not internal.
  */
 export function classifyInternalHref(href) {
   if (!href || typeof href !== 'string') return { internal: false }
   if (!href.startsWith('/')) return { internal: false }
 
   const key = routeKey(href)
+  if (key.startsWith('/tag/')) {
+    // Unfilled (no buildValidRoutes yet, e.g. a preview): judge nothing dead.
+    const known = validTags.size === 0 || validTags.has(key.slice(5))
+    return { internal: true, valid: known }
+  }
   const owned =
     key.startsWith('/blog/') ||
     key.startsWith('/reading/') ||
@@ -333,8 +353,10 @@ export async function auditInternalLinks(files, contentDir) {
     }
     // Offset of the body within the raw file, so line numbers map to the
     // on-disk file (frontmatter included), not the stripped body.
-    const body = matter(raw).content
+    const parsed = matter(raw)
+    const body = parsed.content
     const bodyOffset = raw.length - body.length
+    const sourcePublic = isPublicSource(rel.replace(/\.md$/, ''), parsed.data)
     const sourceRoute = fileToRoute(rel.replace(/\.md$/, ''))
 
     const candidates = []
@@ -386,6 +408,9 @@ export async function auditInternalLinks(files, contentDir) {
         target: bareTarget(c.raw),
         href: c.href,
         suggestion: suggestRoute(c.href, sourceRoute),
+        // A reader can see this post, and the target isn't even a draft:
+        // nothing will ever be there. This is what `--gate` fails on.
+        blocking: sourcePublic && !allRoutes.has(routeKey(c.href)),
       })
     }
   }
@@ -398,6 +423,7 @@ export async function auditInternalLinks(files, contentDir) {
       filesScanned: files.length,
       internalLinks: totalInternal,
       dead: dead.length,
+      blocking: dead.filter((d) => d.blocking).length,
       affectedPosts: new Set(dead.map((d) => d.source)).size,
       withSuggestion: dead.filter((d) => d.suggestion).length,
     },

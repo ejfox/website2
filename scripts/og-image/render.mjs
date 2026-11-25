@@ -253,7 +253,7 @@ const cardRenderers = {
     ctx.fillText(card.text.slice(0, 70), cx + 4, cy + h / 2 + fontSize / 3)
   },
 
-  heading(ctx, card, cx, cy, w, h, proj, _depthAlpha) {
+  heading(ctx, card, cx, cy, w, h, proj) {
     const fontSize = Math.max(13, Math.round(26 * proj.scale))
     ctx.font = `700 ${fontSize}px IBM Plex Mono, Menlo, monospace`
     ctx.fillStyle = rgba([255, 255, 255], 0.92)
@@ -294,14 +294,14 @@ const cardRenderers = {
     ctx.restore()
   },
 
-  tag(ctx, card, cx, cy, w, h, proj, _depthAlpha) {
+  tag(ctx, card, cx, cy, w, h, proj) {
     const fontSize = Math.max(10, Math.round(14 * proj.scale))
     ctx.font = `${fontSize}px IBM Plex Mono, Menlo, monospace`
     ctx.fillStyle = rgba([255, 255, 255], 0.88)
     ctx.fillText(`#${card.text}`, cx + 3, cy + h / 2 + fontSize / 3)
   },
 
-  stats(ctx, card, cx, cy, w, h, proj, _depthAlpha) {
+  stats(ctx, card, cx, cy, w, h, proj) {
     const fontSize = Math.max(9, Math.round(12 * proj.scale))
     ctx.font = `${fontSize}px IBM Plex Mono, Menlo, monospace`
     ctx.fillStyle = rgba([255, 255, 255], 0.8)

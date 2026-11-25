@@ -7,6 +7,7 @@
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import { serverEnv } from '~/server/utils/serverEnv'
+import { isUsableScrap, publicTags } from '~/server/utils/scrap-schema'
 
 export default defineEventHandler(async (): Promise<string[]> => {
   try {
@@ -23,7 +24,7 @@ export default defineEventHandler(async (): Promise<string[]> => {
     // Privacy gate: only scraps I marked shared are public.
     const { data, error } = await supabase
       .from('scraps')
-      .select('tags')
+      .select('scrap_id, source, tags')
       .eq('shared', true)
 
     if (error) {
@@ -33,11 +34,10 @@ export default defineEventHandler(async (): Promise<string[]> => {
 
     // Extract and deduplicate tags
     const tagSet = new Set<string>()
-    data?.forEach((scrap) => {
-      if (scrap.tags && Array.isArray(scrap.tags)) {
-        scrap.tags.forEach((tag) => tagSet.add(tag))
-      }
-    })
+    // Sentinels and !hide rows contribute nothing; control tags never appear.
+    for (const scrap of (data || []).filter(isUsableScrap)) {
+      for (const tag of publicTags(scrap.tags)) tagSet.add(tag)
+    }
 
     const tags = Array.from(tagSet).sort()
 

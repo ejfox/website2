@@ -71,11 +71,12 @@ describe('validity + audit over a temp content tree', () => {
     await write('2022/the-studio.md', { title: 'Studio', draft: true }) // 404s in prod
     await write(
       '2022/art-setup.md',
-      { title: 'Art' },
+      { title: 'Art', tags: '[woodworking]' },
       [
         'See [[blog/2022/the-studio]] and [[blog/2022/ghost-post]].',
         'A real one: [[blog/2022/art-setup]].',
         'A bare topic: [[woodworking]].',
+        'A note that was never published: [[how-to-run-a-project]].',
         'Wrong folder: [[projects/connectology]].',
       ].join('\n\n')
     )
@@ -97,10 +98,15 @@ describe('validity + audit over a temp content tree', () => {
       valid: true,
     })
   })
-  it('treats tag + external links as not-flagged', () => {
+  it('treats a used tag + external links as not-flagged', () => {
     expect(classifyInternalHref('/tag/woodworking')).toEqual({
       internal: true,
       valid: true,
+    })
+    // pages/tag 404s a tag no post carries
+    expect(classifyInternalHref('/tag/how-to-run-a-project')).toEqual({
+      internal: true,
+      valid: false,
     })
     expect(classifyInternalHref('https://example.com')).toEqual({
       internal: false,
@@ -126,8 +132,24 @@ describe('validity + audit over a temp content tree', () => {
     expect(hrefs).toContain('/blog/2022/the-studio') // hidden
     expect(hrefs).toContain('/blog/2022/ghost-post') // missing
     expect(hrefs).not.toContain('/blog/2022/art-setup') // valid self-link
-    expect(hrefs).not.toContain('/tag/woodworking') // bare topic
+    expect(hrefs).not.toContain('/tag/woodworking') // bare topic, real tag
+    expect(hrefs).toContain('/tag/how-to-run-a-project') // bare, no such tag
     for (const d of fromArt) expect(d.line).toBeGreaterThan(0)
+  })
+
+  it('marks blocking only when a public post links to nothing at all', async () => {
+    const report = await auditInternalLinks(await collect(dir), dir)
+    const by = Object.fromEntries(
+      report.dead
+        .filter((d) => d.source === '2022/art-setup.md')
+        .map((d) => [d.href, d.blocking])
+    )
+    expect(by['/blog/2022/the-studio']).toBe(false) // a draft: forward link
+    expect(by['/blog/2022/ghost-post']).toBe(true) // no such file
+    expect(by['/tag/how-to-run-a-project']).toBe(true) // never-published note
+    expect(report.summary.blocking).toBe(
+      report.dead.filter((d) => d.blocking).length
+    )
   })
 })
 

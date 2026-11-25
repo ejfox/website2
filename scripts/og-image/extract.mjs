@@ -55,8 +55,12 @@ function dedupe(arr) {
 
 // Emoji and other pictographs in headings ("📸 Creative") would print as
 // tofu or, worse, as emoji; the cards are glyph-only by house rule.
+// The joiner and variation selector sit outside the class: inside one they
+// trip no-misleading-character-class, and as alternatives they trip
+// prefer-character-class. The two rules can't both be satisfied.
 const EMOJI_RE =
-  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/gu
+  // eslint-disable-next-line regexp/prefer-character-class
+  /[\u{1F000}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]|\u{FE0F}|\u{200D}/gu
 
 function cleanText(s) {
   return s
@@ -65,8 +69,6 @@ function cleanText(s) {
     .replace(/&quot;/g, '"')
     .replace(/&nbsp;/g, ' ')
     .replace(EMOJI_RE, '')
-    .replaceAll('\u{FE0F}', '') // variation selector, left behind by emoji
-    .replaceAll('\u{200D}', '') // zero-width joiner
     .replace(/\s+/g, ' ')
     .trim()
 }
@@ -168,10 +170,10 @@ function blocksFromMarkdown(content) {
       flushPara()
       continue
     }
-    const h = t.match(/^(#{1,6})\s+(\S.*)?$/)
+    const h = t.match(/^(#{1,6})\s+(\S.*)$/)
     if (h) {
       flushPara()
-      blocks.push({ type: `h${h[1].length}`, words: countWords(h[2] || '') })
+      blocks.push({ type: `h${h[1].length}`, words: countWords(h[2]) })
     } else if (t.startsWith('![')) {
       flushPara()
       blocks.push({ type: 'img', words: 0 })
@@ -205,7 +207,7 @@ function blocksFromMarkdown(content) {
  */
 async function readMarkdownForSlug(slug) {
   // Search roots, in priority order. The vault root is included because
-  // `week-notes/` is a sibling of `blog/` in my vault, not nested inside.
+  // `week-notes/` is a sibling of `blog/` in EJ's vault, not nested inside.
   const roots = [BLOG_DIR]
   if (process.env.DISPATCH_VAULT_PATH) {
     roots.push(

@@ -4,6 +4,8 @@
     article title. A later frontmatter modified date appears as a second cell.
     This intentionally duplicates the tiny chrome metadata: readers arriving
     on a deep link should not have to inspect site chrome to know its age.
+    `plain` renders it as one quiet line (blog posts); without it, a bordered
+    two-cell box (project pages).
 -->
 <script setup lang="ts">
 type DateInput = string | Date | null | undefined
@@ -15,11 +17,14 @@ const props = withDefaults(
     label?: string
     /** Add IndieWeb's dt-published class when rendered inside an h-entry. */
     microformat?: boolean
+    /** One plain line instead of the bordered box. */
+    plain?: boolean
   }>(),
   {
     modified: null,
     label: 'Published',
     microformat: false,
+    plain: false,
   }
 )
 
@@ -47,8 +52,24 @@ const formattedModified = computed(() => {
 </script>
 
 <template>
+  <p
+    v-if="formattedDate && plain"
+    class="post-date-stamp font-mono text-2xs tabular-nums text-zinc-500"
+  >
+    <time
+      :datetime="datetimeValue(date)"
+      :class="{ 'dt-published': microformat }"
+    >
+      {{ formattedDate }}
+    </time>
+    <template v-if="formattedModified">
+      · updated
+      <time :datetime="datetimeValue(modified)">{{ formattedModified }}</time>
+    </template>
+  </p>
+
   <div
-    v-if="formattedDate"
+    v-else-if="formattedDate"
     class="post-date-stamp inline-flex w-full flex-wrap items-stretch overflow-hidden rounded-md border border-zinc-300 bg-zinc-50 font-mono sm:w-auto dark:border-zinc-700 dark:bg-zinc-900/60"
     aria-label="Article dates"
   >
