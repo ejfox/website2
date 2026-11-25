@@ -278,6 +278,56 @@ const WORK_IMAGES = {
   ccrb: CLD + 'v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg',
 }
 
+// "More work": a contact sheet of the most convincing shots across all 43
+// public projects (picked 2026-11-25 from a sheet of all 99: finished work,
+// no admin UIs, code or browser chrome). Range on purpose: journalism, maps,
+// art, toys. NBC is one tile, never the headline.
+const MORE_WORK = [
+  ['margin-maps', 'The Margin', 'v1666630398/project-images/margin_skagit.png'],
+  [
+    'nbcnews-specials',
+    'Journey of a Bullet',
+    'v1755100741/screenshot_2025-08-13_at_11.58.49_AM.png',
+  ],
+  ['amen-slicer', 'Amen Slicer', 'projects/amen-slicer/gameboy.png'],
+  ['covidcast', 'COVIDcast', 'v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png'],
+  [
+    'subway-builder',
+    'Subway Builder',
+    'v1780066321/projects/subway-builder/build.png',
+  ],
+  ['long-lead', 'Long Lead', 'v1666630397/project-images/ll_diver.png'],
+  ['websdr-vcv', 'WebSDR VCV', 'projects/websdr-vcv/rack.png'],
+  [
+    'nbcnews-specials',
+    'NBC News Specials',
+    'v1755100778/screenshot_2025-08-13_at_11.59.26_AM.png',
+  ],
+  [
+    'creative-interfaces',
+    'Hand-Tracking & Generative Art',
+    'projects/opencv-talk-typography/echo-1.png',
+  ],
+  [
+    'nbc-big-board',
+    'NBC News Big Board',
+    'v1666630396/project-images/nbc_bigboard.png',
+  ],
+  [
+    'coachartie-memory',
+    'Coach Artie memory map',
+    'projects/coachartie-memory/topology.png',
+  ],
+  ['twitter-artbot', 'Twitter Artbot', 'projects/twitter-artbot/piece-03.png'],
+].map(([slug, title, path]) => ({ slug, title, src: CLD + path }))
+// A fixed tilt per image from a hash of its URL: hand-placed, stable across
+// reloads, never animated (rotation on scroll or hover reads as wrong).
+const tilt = (src) => {
+  let h = 0
+  for (const c of src) h = (h * 31 + c.charCodeAt(0)) | 0
+  return `${((Math.abs(h) % 300) / 100 - 1.5).toFixed(2)}deg`
+}
+
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description: "I'm a hacker-journalist available for contract work.",
@@ -450,6 +500,35 @@ usePageSeo({
         </div>
       </section>
 
+      <section class="section">
+        <p class="section-label">More work</p>
+        <div class="contact-sheet">
+          <NuxtLink
+            v-for="w in MORE_WORK"
+            :key="w.src"
+            :to="`/projects/${w.slug}`"
+            class="sheet-item"
+            :style="{ '--tilt': tilt(w.src) }"
+            data-umami-event="consulting-more-work"
+            :data-umami-event-project="w.slug"
+          >
+            <img
+              :src="cldTile(w.src, 640)"
+              :style="{ backgroundImage: `url(${cldPlaceholder(w.src)})` }"
+              :alt="w.title"
+              width="640"
+              height="427"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="sheet-caption">{{ w.title }}</span>
+          </NuxtLink>
+        </div>
+        <p class="meta mt-24">
+          <NuxtLink to="/projects" class="link">All projects</NuxtLink>
+        </p>
+      </section>
+
       <!-- Straight from public/resume.json: edit the resume, not this page -->
       <section class="section">
         <p class="section-label">Experience</p>
@@ -594,6 +673,33 @@ usePageSeo({
 </template>
 
 <style scoped>
+/* More work: contact sheet, static hash tilt, shadow-only hover */
+.contact-sheet {
+  @apply grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-6;
+}
+.sheet-item {
+  @apply block no-underline;
+}
+.sheet-item img {
+  @apply block w-full h-auto bg-cover bg-center;
+  aspect-ratio: 3 / 2;
+  transform: rotate(var(--tilt));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  transition: box-shadow 200ms ease-out; /* never transition transform */
+}
+.sheet-item:hover img {
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.45);
+}
+.sheet-caption {
+  @apply block mt-2 font-mono uppercase tracking-wider text-zinc-500 truncate;
+  /* text-4xs is an @layer token, unreachable from scoped @apply */
+  font-size: 9px;
+  line-height: 12px;
+}
+.sheet-item:hover .sheet-caption {
+  @apply text-zinc-900 dark:text-zinc-100;
+}
+
 /* Selected work screenshots: full column, 3:2, hairline, blurred placeholder */
 .work-image {
   @apply block mb-8 border border-zinc-200 dark:border-zinc-800;
