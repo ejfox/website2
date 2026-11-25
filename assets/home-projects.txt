@@ -4,6 +4,17 @@
 # with no project page. A projects/ line shows only once that project is
 # published; the page skips anything that isn't public.
 
+## Journalism
+projects/paramilitary-leaks
+projects/margin-maps
+projects/long-lead
+projects/ccrb-clusters
+projects/covidcast
+projects/nbc-big-board
+projects/nbcnews-specials
+projects/dataproofer
+election-helpers | https://ejfox.github.io/election-helpers/global.html
+
 ## Dataviz
 projects/connectology
 projects/obsidian-analysis
@@ -21,6 +32,61 @@ Criterion Embeddings | https://github.com/ejfox/criterion-embedding-viz
 # projects/nuxt-force-layout
 # projects/reddit-embeddings
 # projects/sstory
+
+## Hardware
+projects/flipper-zero-tools
+projects/pixel-canvas
+projects/amen-slicer
+projects/badusb-remote-desktop
+projects/vulpes-devices
+projects/websdr-vcv
+# projects/flipper-zero-apps
+# projects/groundwave
+# projects/ejfox-stations
+# projects/splats
+# projects/glasses-hud
+Hand MIDI Controller | https://github.com/ejfox/hand-midi-controller
+# projects/spectrum-synth
+# projects/opencv-midi-controller
+
+## Apps
+projects/towntuner
+projects/tempo
+projects/paperclip
+# projects/MorningRadio   (draft, no public link yet)
+# projects/vulpecula-loom
+# projects/know-hv
+
+## Art
+projects/motorcycle-viz
+projects/creative-interfaces
+projects/vulpes-system
+projects/tv-station
+projects/twitter-artbot
+# projects/scrapworld   (draft, no public link yet)
+# projects/hexagram-motion-graphics
+# projects/butt-math
+# projects/phone-stack
+# projects/moto-gpx
+# projects/opencv-talk-typography
+# projects/osm-builder
+# projects/torchslit-ios
+# projects/renttoejfox
+# projects/handtrack-websockets
+# projects/arena-cards
+four-seventeen | https://github.com/ejfox/four-seventeen
+# projects/close2home
+
+## Games
+projects/subway-builder
+art-art-art
+# projects/motorcycle-pico8
+# projects/steam-store-design-lab
+# projects/spacepunk-logi
+
+## Activism
+# projects/fixcentralhudson
+# projects/mapping-ice
 
 ## Tools
 projects/terminal-tools
@@ -79,70 +145,3 @@ Vulpes Theme Lab | https://ejfox.github.io/vulpes-theme-lab/
 # projects/smallweb-starter
 # projects/room302-template
 # projects/gpt-browser
-
-## Hardware
-projects/flipper-zero-tools
-projects/pixel-canvas
-projects/amen-slicer
-projects/badusb-remote-desktop
-projects/vulpes-devices
-projects/websdr-vcv
-# projects/flipper-zero-apps
-# projects/groundwave
-# projects/ejfox-stations
-# projects/splats
-# projects/glasses-hud
-Hand MIDI Controller | https://github.com/ejfox/hand-midi-controller
-# projects/spectrum-synth
-# projects/opencv-midi-controller
-
-## Apps
-projects/towntuner
-projects/tempo
-projects/paperclip
-# projects/MorningRadio   (draft, no public link yet)
-# projects/vulpecula-loom
-# projects/know-hv
-
-## Art
-projects/motorcycle-viz
-projects/creative-interfaces
-projects/vulpes-system
-projects/tv-station
-projects/twitter-artbot
-# projects/scrapworld   (draft, no public link yet)
-# projects/hexagram-motion-graphics
-# projects/butt-math
-# projects/phone-stack
-# projects/moto-gpx
-# projects/opencv-talk-typography
-# projects/osm-builder
-# projects/torchslit-ios
-# projects/renttoejfox
-# projects/handtrack-websockets
-# projects/arena-cards
-four-seventeen | https://github.com/ejfox/four-seventeen
-# projects/close2home
-
-## Games
-projects/subway-builder
-art-art-art
-# projects/motorcycle-pico8
-# projects/steam-store-design-lab
-# projects/spacepunk-logi
-
-## Journalism
-projects/paramilitary-leaks
-projects/margin-maps
-projects/long-lead
-projects/ccrb-clusters
-projects/covidcast
-projects/nbc-big-board
-projects/nbcnews-specials
-projects/dataproofer
-election-helpers | https://ejfox.github.io/election-helpers/global.html
-
-## Activism
-# projects/fixcentralhudson
-# projects/mapping-ice
-
