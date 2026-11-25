@@ -11,7 +11,7 @@
 usePageSeo({
   title: 'Case Study: NBC Big Board · EJ Fox',
   description:
-    'How we rebuilt the election touchscreen Steve Kornacki uses on live TV. About 10 million people watching on NBC and MSNBC. Zero crashes',
+    'How we rebuilt the election touchscreen Steve Kornacki uses on live TV. About 10 million people watching on NBC and MSNBC',
 })
 </script>
 
@@ -32,7 +32,7 @@ usePageSeo({
         How we rebuilt the election touchscreen Steve Kornacki uses on live TV.
         I co-built it and led the design, with Michael Small and NBC News
         Digital's product and tech teams. About 10 million people watching on
-        NBC and MSNBC. Zero crashes.
+        NBC and MSNBC.
       </p>
 
       <div
@@ -183,16 +183,6 @@ usePageSeo({
           </p>
           <p class="font-mono text-xs text-zinc-600 dark:text-zinc-500">
             watching on NBC and MSNBC
-          </p>
-        </div>
-        <div class="bg-raised rounded-lg p-4">
-          <p
-            class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold"
-          >
-            0
-          </p>
-          <p class="font-mono text-xs text-zinc-600 dark:text-zinc-500">
-            app crashes
           </p>
         </div>
       </div>
