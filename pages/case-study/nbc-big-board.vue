@@ -88,32 +88,6 @@ usePageSeo({
         had a fallback: if the live data feed died, we could switch to cached
         data.
       </p>
-
-      <hr />
-
-      <p>
-        Around 9 PM on election night, Steve tapped Montana. Nothing happened.
-        He tapped again. Still nothing. The map was frozen on live TV.
-      </p>
-      <p>
-        My heart stopped. I was watching from the control room, headset on,
-        listening to the chaos.
-      </p>
-      <p>
-        But the app wasn't frozen. The video feed from the app to the broadcast
-        system had hiccupped. His touch inputs were landing and the app was
-        processing them correctly—the output just wasn't making it to the
-        screen.
-      </p>
-      <p>
-        The control room re-routed the video feed. 15 seconds later, we were
-        back. Most viewers probably didn't notice.
-      </p>
-      <p>
-        I can't control the broadcast infrastructure, but I can control how the
-        app behaves. It never actually crashed.
-      </p>
-
       <hr />
 
       <aside class="pull">
@@ -141,6 +115,10 @@ usePageSeo({
       <hr />
 
       <p class="more">
+        <NuxtLink to="/blog/2022/election-night-2018"
+          >Election Night 2018</NuxtLink
+        >
+        ·
         <NuxtLink to="/blog/2021/nypd-ccrb-complaint-clusters"
           >NYPD Misconduct Network Analysis</NuxtLink
         >
