@@ -6,9 +6,9 @@
     funnel (location: case-study-nbc; see CLAUDE.md "Umami funnel events").
   Gotchas: Every claim here is my published copy; don't edit credits,
     numbers or quotes without checking with me.
-  Typography (2026-11-25, "simple, minimalist"): one serif, no section
-    titles, ⁂ between parts, press quotes (asides) floated left beside
-    the paragraph they answer, small caps for the dateline and credits.
+  Copy (2026-11-25): ad-length, about 70 words, facts only. EJ: "still so much
+    text… imagine you were a copywriter". One serif, small-caps dateline,
+    the NYT quote as a floated pull quote.
 -->
 <script setup lang="ts">
 import { useWindowScroll, useWindowSize } from '@vueuse/core'
@@ -37,43 +37,24 @@ usePageSeo({
 
     <article class="cs">
       <h1>Building the Big Board</h1>
-      <p class="dateline">NBC News / MSNBC · 2018 · 9 months</p>
-      <p class="lede">
-        How we rebuilt the election touchscreen Steve Kornacki uses on live TV.
-        I co-built it and led the design, with Michael Small and NBC News
-        Digital's product and tech teams. About 10 million people watching on
-        NBC and MSNBC.
-      </p>
+      <p class="dateline">NBC News / MSNBC · 2018</p>
 
       <figure>
         <img
           src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
           alt="Me with the Big Board at 30 Rock"
         />
-        <figcaption>
-          Me with the Big Board at 30 Rock, election night 2018
-        </figcaption>
       </figure>
 
-      <p>
-        NBC's existing election touchscreen was showing its age. The interface
-        was clunky. The maps couldn't zoom to county level smoothly. And Steve
-        Kornacki was fighting the technology.
+      <p class="lede">
+        Steve Kornacki's election-night touchscreen, rebuilt. I co-built it and
+        led the design, with Michael Small and NBC News Digital.
       </p>
       <p>
-        The constraint: build something that feels like magic on a 82-inch
-        touchscreen, handles real-time data from 3,000+ counties, and absolutely
-        cannot fail.
-      </p>
-
-      <hr />
-
-      <p>I started with a working prototype that showed what was possible.</p>
-      <p>
-        In January 2018, I demoed it to Steve's producer. Then to Steve himself.
-        Then to the executives. Each demo added momentum. By spring, we had
+        It started as a prototype I made in January and demoed until it had a
         budget and a team.
       </p>
+
       <aside class="pull">
         <p class="pull-quote">
           “A newly juiced-up model of the board that can zoom in on the most
@@ -81,35 +62,11 @@ usePageSeo({
         </p>
         <p class="pull-credit">The New York Times</p>
       </aside>
-      <p>
-        D3 for the maps and transitions, Vue for the UI state. TopoJSON turned a
-        50MB shapefile into 2MB, which kept zooming smooth. The map tiles were
-        pre-rendered; only the data overlays updated in real time. Every feature
-        had a fallback: if the live data feed died, we could switch to cached
-        data.
-      </p>
-      <hr />
 
-      <aside class="pull">
-        <p class="pull-quote">
-          “Kornacki, eli5-ing races with sleeves rolled up and an 82-inch
-          vertical touchscreen... looked amazing with the board, panning and
-          zooming”
-        </p>
-        <p class="pull-credit">Vulture</p>
-      </aside>
       <p>
-        Chuck Todd's producer said it was the first election night where Chuck
-        wasn't frustrated with the app. That might be the compliment I'm
-        proudest of.
-      </p>
-      <p>
-        Start with a working prototype, something people can touch and react to.
-        Understand the performer: Steve Kornacki has a specific way of thinking
-        and moving, and the app had to feel like an extension of his hands.
-        Design for the failure mode. Ship something real, then iterate: the app
-        that shipped in November was very different from the January prototype,
-        but without that prototype, nothing would have shipped.
+        About 10 million people watched it on NBC and MSNBC. Chuck Todd's
+        producer said it was the first election night Chuck wasn't frustrated
+        with the app.
       </p>
 
       <hr />
@@ -118,12 +75,6 @@ usePageSeo({
         <NuxtLink to="/blog/2022/election-night-2018"
           >Election Night 2018</NuxtLink
         >
-        ·
-        <NuxtLink to="/blog/2021/nypd-ccrb-complaint-clusters"
-          >NYPD Misconduct Network Analysis</NuxtLink
-        >
-        ·
-        <NuxtLink to="/projects/covidcast">CMU COVIDcast</NuxtLink>
         ·
         <NuxtLink
           to="/consulting"
