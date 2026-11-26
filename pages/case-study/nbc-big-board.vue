@@ -6,7 +6,7 @@
     funnel (location: case-study-nbc; see CLAUDE.md "Umami funnel events").
   Gotchas: Every claim here is my published copy; don't edit credits,
     numbers or quotes without checking with me.
-  Copy (2026-11-25): ad-length, about 70 words, facts only. EJ: "still so much
+  Copy (2026-11-25): ad-length, about 130 words, facts only (70 was too short). EJ: "still so much
     text… imagine you were a copywriter". One serif, small-caps dateline,
     the NYT quote as a floated pull quote.
 -->
@@ -51,10 +51,10 @@ usePageSeo({
         led the design, with Michael Small and NBC News Digital.
       </p>
       <p>
-        It started as a prototype I made in January and demoed until it had a
-        budget and a team.
+        It started as a prototype I made in January. I demoed it to Steve's
+        producer, then to Steve, then to the executives, until it had a budget
+        and a team.
       </p>
-
       <aside class="pull">
         <p class="pull-quote">
           “A newly juiced-up model of the board that can zoom in on the most
@@ -64,10 +64,24 @@ usePageSeo({
       </aside>
 
       <p>
+        D3 and Vue for the maps and interface. TopoJSON shrank a 50MB shapefile
+        to 2MB, so zooming to any county stayed smooth on an 82-inch screen.
+      </p>
+
+      <p>
         Over 10 million people have watched it on NBC and MSNBC. Chuck Todd's
         producer said it was the first election night Chuck wasn't frustrated
-        with the app.
+        with the app. It's still in use today.
       </p>
+
+      <aside class="pull pull-wide">
+        <p class="pull-quote">
+          “Kornacki, eli5-ing races with sleeves rolled up and an 82-inch
+          vertical touchscreen... looked amazing with the board, panning and
+          zooming”
+        </p>
+        <p class="pull-credit">Vulture</p>
+      </aside>
 
       <hr />
 
@@ -157,9 +171,16 @@ usePageSeo({
 .pull-credit {
   @apply mb-0;
 }
+/* The second quote breaks out full width: two floats in this little text
+   leave a dead column. */
+.pull-wide {
+  @apply my-8;
+  clear: both;
+}
 @media (min-width: 640px) {
-  .pull {
+  .pull:not(.pull-wide) {
     float: left;
+    clear: left; /* a tall quote never stacks beside the next one */
     width: 34%;
     margin: 0.4rem 1.5rem 0.5rem 0;
   }
