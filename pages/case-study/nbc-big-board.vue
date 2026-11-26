@@ -25,7 +25,7 @@ const progress = computed(() => {
 usePageSeo({
   title: 'Case Study: NBC Big Board · EJ Fox',
   description:
-    'How we rebuilt the election touchscreen Steve Kornacki uses on live TV. About 10 million people watching on NBC and MSNBC',
+    "Steve Kornacki's election-night touchscreen, rebuilt. Over 10 million people have watched it on NBC and MSNBC",
 })
 </script>
 
@@ -64,7 +64,7 @@ usePageSeo({
       </aside>
 
       <p>
-        About 10 million people watched it on NBC and MSNBC. Chuck Todd's
+        Over 10 million people have watched it on NBC and MSNBC. Chuck Todd's
         producer said it was the first election night Chuck wasn't frustrated
         with the app.
       </p>
