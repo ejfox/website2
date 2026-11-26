@@ -392,16 +392,6 @@ export const apiCatalog: ApiRoute[] = [
     health: 'ok',
   },
   {
-    method: 'GET',
-    path: '/api/availability',
-    group: 'Site',
-    summary: 'Freelance capacity + open project slots for the /projects blurb',
-    consumer: 'frontend',
-    consumedBy: 'pages/projects',
-    deps: 'data/availability.json',
-    health: 'ok',
-  },
-  {
     method: 'POST',
     path: '/api/ping',
     group: 'Availability & infra',
@@ -949,16 +939,6 @@ export const apiCatalog: ApiRoute[] = [
     deps: 'CAL_COM_API_KEY',
     health: 'ok',
     note: 'Superseded by available-slots',
-  },
-  {
-    method: 'GET',
-    path: '/api/consulting-availability',
-    group: 'Availability & infra',
-    summary: 'Hand-curated quarterly availability',
-    consumer: 'frontend',
-    consumedBy: 'pages/consulting',
-    deps: 'data/consulting-availability.json',
-    health: 'ok',
   },
   {
     method: 'POST',

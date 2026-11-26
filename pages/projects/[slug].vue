@@ -76,6 +76,11 @@ const projectTags = computed(
   () => project.value?.metadata?.tags || project.value?.metadata?.tech || []
 )
 
+// Optional deeper case study, set by `case-study:` in the project's frontmatter.
+const caseStudyPath = computed(
+  () => project.value?.metadata?.['case-study'] || ''
+)
+
 // Share cards should show the WORK, not the generic site og-image — these are
 // portfolio pages whose whole point is visuals. First image in the post wins.
 const firstProjectImage = computed(() => {
@@ -224,6 +229,15 @@ onMounted(() => {
         :modified="project.metadata?.modified || project.metadata?.lastUpdated"
         label="Project date"
       />
+      <NuxtLink
+        v-if="caseStudyPath"
+        :to="caseStudyPath"
+        class="project-case-study-link"
+        data-umami-event="project-case-study"
+        :data-umami-event-project="slug"
+      >
+        The case study →
+      </NuxtLink>
       <p v-if="thisApp?.store?.url" class="mb-8 -mt-2">
         <a
           :href="thisApp.store.url"
@@ -240,6 +254,18 @@ onMounted(() => {
         </span>
       </p>
       <BlogPostContent :content="project.html" class="project-content" />
+
+      <!-- Funnel: people land here after being impressed -->
+      <p class="mt-12">
+        <NuxtLink
+          to="/consulting"
+          class="cta-button"
+          data-umami-event="nav-hire-me"
+          data-umami-event-location="project-footer"
+        >
+          Hire me
+        </NuxtLink>
+      </p>
 
       <!-- Back link -->
       <div class="mt-12 pt-6">
@@ -405,5 +431,10 @@ onMounted(() => {
 
 .toc-number {
   @apply font-mono text-xs tabular-nums w-4 text-right flex-shrink-0;
+}
+
+/* Link to a project's case study, under the title: one plain line. */
+.project-case-study-link {
+  @apply inline-block mb-8 font-serif underline underline-offset-2;
 }
 </style>

@@ -52,7 +52,9 @@ export default defineEventHandler(async () => {
       headers: {
         Authorization: `Bearer ${calcomApiKey}`,
         'Content-Type': 'application/json',
-        'cal-api-version': '2024-09-04',
+        // 2024-09-04 now returns 404 for GET /v2/bookings. Cal.com's current
+        // bookings contract requires this version (verified 2026-11-07).
+        'cal-api-version': '2026-02-25',
       },
       query: {
         status: 'upcoming,past',

@@ -5,7 +5,7 @@
  * cached snapshot (/api/stats is an swr handler, ≤10 min old). While the tab
  * is visible this
  * quietly refetches, and when the aggregate's `generated` stamp is newer it
- * swaps the data in and flashes the sections whose numbers changed (EJ chose
+ * swaps the data in and flashes the sections whose numbers changed (I chose
  * a visible "updated" flash, 2026-10-20).
  */
 import type { Ref } from 'vue'

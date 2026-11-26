@@ -46,7 +46,7 @@ I begin by identifying two simple goals:
 1. Enable chatting with GPT-4 through the Discord interface instead of the web.
 2. Ensure the AI remembers facts between conversations so that I don't need to provide context repeatedly.
 
-With a clear vision, I create an `index.js` file, choose my toolkit (Node.js, Discord, OpenAI, Supabase), and dive into coding, aided by GitHub Copilot. The process is surprisingly smooth.
+I create an `index.js` file, choose my toolkit (Node.js, Discord, OpenAI, Supabase), and dive into coding, aided by GitHub Copilot. The process is surprisingly smooth.
 
 Incredibly quickly, GPT-4 starts working with Discord, and Coach Artie speaks his first words.
 
@@ -93,11 +93,11 @@ Then I asked Artie to write me a poem about my favorite things, and the results 
 
 ### Examples
 
-Coach Artie is quickly becoming an invaluable team member. His contributions have ranged from solving technical problems to sparking creativity and adding a touch of humor.
+Coach Artie is quickly becoming a useful team member. He has solved technical problems, sparked ideas and added humor.
 
-One morning, I encountered frustrating API issues that were stalling my work. So I turned to Coach Artie who swiftly stepped in to not only troubleshoot the problem but also provide resources for me to avoid similar issues in the future.
+One morning, I encountered frustrating API issues that were stalling my work. So I turned to Coach Artie, who troubleshot the problem and gave me resources to avoid similar issues in the future.
 
-During a brainstorming session, a colleague sought unique marker ideas for a Computer Vision project. Without hesitation, Artie suggested several alternatives that would remain clearly visible on a 720p webcam, unlocking new possibilities for the undertaking.
+During a brainstorming session, a colleague wanted marker ideas for a Computer Vision project. Artie suggested several alternatives that would stay visible on a 720p webcam.
 
 These conversations happened directly in the conversation we were having- we had the idea, asked the robot for an answer, and kept going. My friend Dan called it "multiplayer ChatGPT".
 
@@ -109,7 +109,7 @@ I really want to give Coach Artie the ability to access certain information abou
 
 ### Thoughts
 
-It's rare to encounter technology that consistently astonishes you. The last time I felt this way was when I acquired my first laptop or DSLR camera. Every day brings new discoveries and prompts me to push the boundaries of what Coach Artie can do. Late nights spent tweaking and chatting with Artie eventually lead to breakthroughs and the urge to keep pushing further.
+It's rare to encounter technology that consistently astonishes you. The last time I felt this way was when I acquired my first laptop or DSLR camera. Every day I discover something new and push what Coach Artie can do. Late nights tweaking and chatting with Artie eventually lead to breakthroughs and the urge to keep going.
 
 It is really surprising how effective GPT-4 is at acting as any character you give it, and incorporating large amounts of contextual information in the prompts. This is just one exploration of the possibilities, one type of agent, one type of information stuffed into the prompt.
 

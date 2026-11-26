@@ -146,7 +146,7 @@ const noteDescription = computed(() => {
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
-  return text.slice(0, 180) || 'Robot note from EJ Fox'
+  return text.slice(0, 180) || 'A robot note from my notebook'
 })
 
 const noteTags = computed(() => note.value?.metadata?.tags || [])

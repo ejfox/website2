@@ -54,7 +54,7 @@ export default defineEventHandler(async () => {
           //   committed file (predict-pro.mjs hashes a gray-matter re-serialization,
           //   which drifts). A hash nobody can reproduce isn't proof.
           // - `signed`: only a timestamp; no PGP signature exists anywhere.
-          // TODO: a reproducible hash recipe + real signatures (EJ's signing subkey).
+          // TODO: a reproducible hash recipe + real signatures (my signing subkey).
           gitCommit: data.gitCommit,
         }
       })

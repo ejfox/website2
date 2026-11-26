@@ -4,7 +4,7 @@
  * normalizes every key to display glyphs for /keymap.
  *
  * Privacy: macros can type arbitrary text, so their key sequences are NEVER
- * emitted. A macro shows its Oryx customLabel (which EJ writes as a label) or
+ * emitted. A macro shows its Oryx customLabel (which I write as a label) or
  * the word "macro". Only the layout itself is public on Oryx.
  *
  * Importers: server/api/keymap.get.ts (fetchOryxLayout); pages/keymap.vue and

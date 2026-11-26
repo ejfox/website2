@@ -1,6 +1,6 @@
 /**
  * @file gists-rss.xml.ts
- * @description GET /gists-rss.xml — EJ's 100 most recently pushed PUBLIC
+ * @description GET /gists-rss.xml — my 100 most recently pushed PUBLIC
  *   GitHub gists as RSS, with each file's source inlined (capped) as HTML.
  *   Live from the GitHub GraphQL API on every uncached request; needs the
  *   GitHub token (serverEnv, server/utils/serverEnv.ts).

@@ -44,7 +44,7 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 | `dispatch` | Dispatch pieces, newest first (dev also lists drafts) | `pages/dispatch`, `now` | `content/dispatch/*.md` |
 | `dispatch/[slug]` | One Dispatch piece, body rendered | `pages/dispatch/[slug]` | `content/dispatch/*.md` |
 | `now` | The /now page as dated lines | `pages/now` | fans out to 15 routes (5-min swr cache) |
-| `apps` | EJ's apps + live App Store details | `pages/apps`, `projects/[slug]` | `data/apps.json` + iTunes lookup (6h cache) |
+| `apps` | my apps + live App Store details | `pages/apps`, `projects/[slug]` | `data/apps.json` + iTunes lookup (6h cache) |
 | `mastodon` | Latest public top-level toots | `now` | mastodon.social public API (15-min cache) |
 | `x` | Latest original X posts | `now` | `X_BEARER_TOKEN` (dormant without it; 1h cache) |
 | `paperclip` | Presence emoji for SSR first paint | `PaperclipStatus.vue` | getpaperclipped.com (60s cache) |
@@ -65,7 +65,7 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 
 ## Valley Atlas & rides
 
-Atlas layers read EJ's smallweb apps (`<app>.tools.ejfox.com`, via
+Atlas layers read my smallweb apps (`<app>.tools.ejfox.com`, via
 `server/utils/smallweb.ts`) or public feeds, and pass on whitelisted fields only.
 Each source fails alone: last good copy (or empty) plus an `errors` entry.
 `atlas/private/*` 404 unless the browser holds the cookie set by `atlas/unlock`
@@ -81,7 +81,7 @@ handlers on purpose: a cached handler could answer without running the gate.
 | `atlas/cameras` | Public DOT traffic cameras | `pages/atlas` | camwatch (10 min) |
 | `atlas/ships` | Working vessels on the Hudson | `pages/atlas` | riverwatch AIS (60s) |
 | `atlas/remediation` | NYS DEC remediation sites | `pages/atlas` | data.ny.gov (24h) |
-| `atlas/unlock` | Set the private-mode cookie (`?key=`), 302 to /atlas | EJ, by hand (passes the orphan test only via a comment in `atlasPrivate.ts`) | `ATLAS_PRIVATE_TOKEN` |
+| `atlas/unlock` | Set the private-mode cookie (`?key=`), 302 to /atlas | me, by hand (passes the orphan test only via a comment in `atlasPrivate.ts`) | `ATLAS_PRIVATE_TOKEN` |
 | `atlas/lock` | Clear the cookie, 302 to /atlas | `pages/atlas` | — |
 | `atlas/private/status` | `{ private: boolean }` for this browser | `pages/atlas` | cookie |
 | `atlas/private/signals` | 7 days of anomalywatch signals, home area dropped | `utils/atlas/layers/private` | anomalywatch + `ATLAS_HOME_EXCLUDE`, `ATLAS_HOME_TERMS` (fails closed) |
@@ -140,8 +140,6 @@ have no URL caller but are very much alive.
 |---|---|---|---|
 | `cal/available-slots` | Next 3 booking slots | `pages/calendar`, `consulting`, `NextAvailableSlot` | `CAL_COM_API_KEY` |
 | `cal/availability` | Quarterly capacity (fails open: reports all slots free) | **none** — superseded, kept | `CAL_COM_API_KEY` |
-| `consulting-availability` | Hand-curated quarterly availability | `pages/consulting` | `data/consulting-availability.json` |
-| `availability` | Open client slots (fails closed → `{ known: false }`) | `pages/projects`, `now` | `data/availability.json` |
 | `webhooks/calcom` (POST) | Booking funnel events | external (Cal.com) | HMAC-verified; appends `data/calcom-events.jsonl` + `pm2 logs` |
 | `agent/meta` | API discovery for AI agents | external | hardcoded schema |
 | `agent/timeline` | Chronological feed for AI agents | external | manifest + predictions + reading |

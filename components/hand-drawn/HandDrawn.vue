@@ -1,6 +1,6 @@
 <!--
   @file HandDrawn.vue
-  @description One mark from EJ's scanned notebook sprite, as an inline SVG
+  @description One mark from my scanned notebook sprite, as an inline SVG
     that inks in currentColor. Asset list + viewBox math live in
     utils/handDrawn.ts; the sprite (public/hand-drawn/sprite.svg, <g id="hd-ink">)
     is injected once on the client by ensureHandDrawnSprite(). Unknown names

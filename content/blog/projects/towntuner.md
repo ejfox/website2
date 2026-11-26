@@ -16,9 +16,9 @@ tags:
 
 A single-purpose podcast app for exactly one podcast: Harmontown, all ~360 episodes
 
-For the past five or six years I've listened to Harmontown almost every single night. I went through it a few times on Spotify, then made my way through the archives on YouTube. And each night I kept getting annoyed: every podcast app I used was full of other podcasts I didn't care about, getting in the way of me listening to Harmontown. This was a problem that needed to be solved.
+For the past five or six years I've listened to Harmontown almost every single night. I go through it a few times on Spotify, then make my way through the archives on YouTube. And each night I keep getting annoyed: every podcast app I use is full of other podcasts I don't care about, getting in the way of me listening to Harmontown. This is a problem that needs to be solved.
 
-A few weeks later I had a vibe-coded iOS app that Apple somehow approved for TestFlight. It's a little piece of software made with love, mostly just for myself, but I figured if anyone else would find it useful it would be the Harmontown people — so I [posted it to r/Harmontown](https://www.reddit.com/r/Harmontown/comments/1q288e8/fan_app_towntuner_an_singlepurpose_podcast_app/) on New Year's Day.
+A few weeks later I have a vibe-coded iOS app that Apple somehow approves for TestFlight. It's a little piece of software made with love, mostly just for myself, but I figure if anyone else will find it useful it will be the Harmontown people — so I [post it to r/Harmontown](https://www.reddit.com/r/Harmontown/comments/1q288e8/fan_app_towntuner_an_singlepurpose_podcast_app/) on New Year's Day.
 
 ![towntuner — a Harmontown-only podcast player](https://res.cloudinary.com/ejf/image/upload/v1780065876/projects/towntuner/1.png)
 

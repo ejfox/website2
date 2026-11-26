@@ -27,9 +27,9 @@ interface ScrapItem {
 
 const MAX_ITEMS = 100
 
-// Shopping saves stay on /scraps but out of the feed (EJ, 2026-10-12): a
+// Shopping saves stay on /scraps but out of the feed (my call, 2026-10-12): a
 // subscriber wants the reading, not the cart. Airbnb is here too: a saved
-// listing says where EJ might be staying. Any `shop.` subdomain counts.
+// listing says where I might be staying. Any `shop.` subdomain counts.
 const FEED_SKIP_HOSTS = new Set([
   'aescripts.com',
   'airbnb.com',

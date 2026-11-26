@@ -15,7 +15,7 @@
 const { data: now, error } = await useFetch('/api/now')
 
 const TZ = 'America/New_York'
-// Lines older than this render dimmed (the footer copy says "90+ days").
+// Lines older than this render dimmed.
 const STALE_DAYS = 90
 
 const age = (iso) => {
@@ -36,6 +36,19 @@ const isStale = (iso) =>
 
 const isExternal = (href) => /^https?:\/\//.test(href)
 
+// The rest of the site's corners; these used to sit in the global footer.
+const MORE_LINKS = [
+  { to: '/stats', label: '/stats' },
+  { to: '/gists', label: '/gists' },
+  { to: '/gear', label: '/gear' },
+  { to: '/predictions', label: '/predictions' },
+  { to: '/on-this-day', label: '/on-this-day' },
+  { to: '/sitemap', label: '/sitemap' },
+  { to: '/threads', label: '/threads' },
+  { to: '/tips', label: 'tips' },
+  { to: '/verify', label: 'verify' },
+]
+
 const stamp = computed(() =>
   now.value?.generated
     ? new Date(now.value.generated).toLocaleString('en-US', {
@@ -51,7 +64,7 @@ const stamp = computed(() =>
 usePageSeo({
   title: 'Now · EJ Fox',
   description:
-    'One line from every corner of ejfox.com, newest first: what EJ Fox is reading, building, shipping, saving and listening to right now.',
+    "One line from every corner of ejfox.com, newest first: what I'm reading, building, shipping, saving and listening to right now.",
   type: 'website',
   section: 'Meta',
   tags: ['Now page', 'Reading', 'Live stats'],
@@ -63,52 +76,70 @@ usePageSeo({
 </script>
 
 <template>
-  <div data-page-main class="now px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-3xl">
+  <div data-page-main class="now px-4 md:px-8 xl:px-16 pt-8 pb-16 max-w-4xl">
     <header class="mb-6">
       <h1 class="text-zinc-900 dark:text-zinc-100">
         Now
         <span v-if="stamp" class="text-zinc-500">· {{ stamp }} ET</span>
       </h1>
-      <p class="text-zinc-500">One line per corner of the site</p>
     </header>
 
     <p v-if="error && !now" class="text-zinc-500">
       The live feeds didn't answer. Try again in a minute.
     </p>
 
-    <ol v-else-if="now?.lines?.length">
-      <li v-for="(line, i) in now.lines" :key="`${line.label}-${i}`">
-        <a
-          v-if="isExternal(line.href)"
-          :href="line.href"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="row group"
-          :class="isStale(line.at) ? 'stale' : 'fresh'"
-        >
-          <span class="age">{{ age(line.at) }}</span>
-          <span class="where">{{ line.label }}</span>
-          <span class="what">{{ line.text }}</span>
-        </a>
-        <NuxtLink
-          v-else
-          :to="line.href"
-          class="row group"
-          :class="isStale(line.at) ? 'stale' : 'fresh'"
-        >
-          <span class="age">{{ age(line.at) }}</span>
-          <span class="where">{{ line.label }}</span>
-          <span class="what">{{ line.text }}</span>
-        </NuxtLink>
-      </li>
-    </ol>
+    <!-- Column heads: "latest" is what tells a reader each row is the newest
+         thing from that route. -->
+    <template v-else-if="now?.lines?.length">
+      <div class="row heads" aria-hidden="true">
+        <span class="age">when</span>
+        <span class="where">where</span>
+        <span>latest</span>
+      </div>
+      <ol>
+        <li v-for="(line, i) in now.lines" :key="`${line.label}-${i}`">
+          <a
+            v-if="isExternal(line.href)"
+            :href="line.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="row group"
+            :class="isStale(line.at) ? 'stale' : 'fresh'"
+          >
+            <span class="age">{{ age(line.at) }}</span>
+            <span class="where">{{ line.label }}</span>
+            <span class="what">{{ line.text }}</span>
+          </a>
+          <NuxtLink
+            v-else
+            :to="line.href"
+            class="row group"
+            :class="isStale(line.at) ? 'stale' : 'fresh'"
+          >
+            <span class="age">{{ age(line.at) }}</span>
+            <span class="where">{{ line.label }}</span>
+            <span class="what">{{ line.text }}</span>
+          </NuxtLink>
+        </li>
+      </ol>
+    </template>
 
     <footer class="mt-8 text-zinc-500">
-      Assembled live. Dimmed lines are 90+ days old. The long view is
-      <NuxtLink to="/stats" class="underline">/stats</NuxtLink>
-      <br />
-      What's this?
-      <a href="https://nownownow.com/about" class="underline">A now page</a>
+      <nav class="flex flex-wrap gap-x-4 gap-y-1">
+        <NuxtLink
+          v-for="link in MORE_LINKS"
+          :key="link.to"
+          :to="link.to"
+          class="underline"
+        >
+          {{ link.label }}
+        </NuxtLink>
+        <a href="https://ejfox.com/archive.epub" class="underline">/epub</a>
+        <a href="https://mastodon.social/@ejfox" rel="me" class="underline">
+          mastodon
+        </a>
+        <a href="https://nownownow.com/about" class="underline">nownownow</a>
+      </nav>
     </footer>
   </div>
 </template>
@@ -124,17 +155,21 @@ usePageSeo({
   text-transform: none;
 }
 
-/* Rule 2: one line per thing. age | where | what. On a phone the value
-   column is too narrow for that ("14 repos tou…"), so there it wraps;
-   from sm up it stays a single truncated line. */
+/* Rule 2: one row per thing. age | where | what. The text wraps rather than
+   truncates: the tail of a line is usually the part worth reading. */
+.now li {
+  margin: 0;
+}
+
 .row {
-  @apply grid gap-x-1 py-1;
+  @apply grid gap-x-1 py-1.5;
   grid-template-columns: 2.5rem 5.5rem minmax(0, 1fr);
+  line-height: 1.4;
 }
 
 @media (min-width: 640px) {
   .row {
-    @apply gap-x-3 whitespace-nowrap;
+    @apply gap-x-3;
     grid-template-columns: 3rem 8.5rem minmax(0, 1fr);
   }
 }
@@ -147,17 +182,8 @@ usePageSeo({
   @apply text-zinc-500 truncate;
 }
 
-/* wraps on a phone, but a 14-repo list still stops at three lines */
 .what {
-  @apply line-clamp-3;
   overflow-wrap: anywhere;
-}
-
-@media (min-width: 640px) {
-  .what {
-    @apply truncate;
-    display: block;
-  }
 }
 
 .fresh .what {
@@ -165,7 +191,11 @@ usePageSeo({
 }
 
 .stale .what {
-  @apply text-zinc-500;
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+
+.heads {
+  @apply text-zinc-500 border-b border-zinc-200 dark:border-zinc-800;
 }
 
 .row:hover .what {

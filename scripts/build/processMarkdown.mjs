@@ -1586,7 +1586,7 @@ async function processAllFiles() {
       const outputFile = path.join(paths.outputDir, relativePath)
 
       // A sealed post's SOURCE is gitignored, so on CI (and on any clone that
-      // isn't EJ's laptop) it does not exist — but its committed envelope JSON
+      // isn't my laptop) it does not exist — but its committed envelope JSON
       // does. Without this exemption orphan cleanup would delete that envelope
       // on every CI run, the build would ship without it, and the post would
       // 404 forever. Checked by content as well as by the private/ path, so an

@@ -2568,7 +2568,7 @@
         "ecology",
         "machinelearning"
       ],
-      "words": 1396,
+      "words": 1207,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2669,7 +2669,7 @@
         "gpt3",
         "machinelearning"
       ],
-      "words": 1514,
+      "words": 1478,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -2819,7 +2819,7 @@
       "tags": [
         "data"
       ],
-      "words": 586,
+      "words": 488,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2920,7 +2920,7 @@
         "process",
         "markdown"
       ],
-      "words": 577,
+      "words": 464,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -3198,7 +3198,7 @@
         "hackers",
         "writing"
       ],
-      "words": 4315,
+      "words": 4254,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -3421,7 +3421,7 @@
       ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
-      "words": 784,
+      "words": 775,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -3470,8 +3470,8 @@
         "children": []
       },
       {
-        "text": "The Aftermath: A Digital Hymn",
-        "slug": "the-aftermath-a-digital-hymn",
+        "text": "The Aftermath",
+        "slug": "the-aftermath",
         "level": "h3",
         "children": []
       }
@@ -3487,7 +3487,7 @@
       ],
       "date": "2025-08-28T20:05:43.000Z",
       "modified": "2025-08-28T20:12:25.000Z",
-      "words": 609,
+      "words": 538,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3519,8 +3519,8 @@
           "children": []
         },
         {
-          "text": "The Aftermath: A Digital Hymn",
-          "slug": "the-aftermath-a-digital-hymn",
+          "text": "The Aftermath",
+          "slug": "the-aftermath",
           "level": "h3",
           "children": []
         }
@@ -3598,7 +3598,7 @@
         "journalism",
         "politics"
       ],
-      "words": 724,
+      "words": 717,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -3726,7 +3726,7 @@
         "programming",
         "personal"
       ],
-      "words": 913,
+      "words": 895,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3846,7 +3846,7 @@
       "gear": [
         "moletta-lionsteel-folding-black-knife"
       ],
-      "words": 1383,
+      "words": 1293,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3937,14 +3937,14 @@
       "tags": [
         "personal"
       ],
-      "words": 114,
+      "words": 74,
       "images": 0,
       "imageDetails": {
         "total": 0,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 7,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -4074,7 +4074,7 @@
         "journalism",
         "database"
       ],
-      "words": 394,
+      "words": 391,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -4131,7 +4131,7 @@
       "tags": [
         "tools"
       ],
-      "words": 250,
+      "words": 249,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -4306,7 +4306,7 @@
         "ai",
         "embeddings"
       ],
-      "words": 178,
+      "words": 179,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -4574,7 +4574,7 @@
         "osint",
         "design"
       ],
-      "words": 231,
+      "words": 203,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -4750,7 +4750,7 @@
         "energy",
         "climate"
       ],
-      "words": 354,
+      "words": 350,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -5048,7 +5048,7 @@
         "art",
         "video"
       ],
-      "words": 525,
+      "words": 512,
       "images": 11,
       "imageDetails": {
         "total": 11,
@@ -5101,13 +5101,14 @@
       "state": "deployed",
       "ai-involvement": "human-only",
       "context": "client",
+      "case-study": "/case-study/nbc-big-board",
       "tags": [
         "d3",
         "dataviz",
         "javascript",
         "elections"
       ],
-      "words": 412,
+      "words": 411,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -5306,7 +5307,7 @@
       "tags": [
         "tools"
       ],
-      "words": 248,
+      "words": 244,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5443,7 +5444,7 @@
       "tags": [
         "tools"
       ],
-      "words": 285,
+      "words": 261,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5490,7 +5491,7 @@
         "app",
         "social"
       ],
-      "words": 301,
+      "words": 286,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5537,7 +5538,7 @@
         "osint",
         "tools"
       ],
-      "words": 178,
+      "words": 176,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5638,7 +5639,7 @@
         "dataviz",
         "quantified-self"
       ],
-      "words": 530,
+      "words": 506,
       "images": 13,
       "imageDetails": {
         "total": 13,
@@ -5807,7 +5808,7 @@
         "terminal",
         "programming"
       ],
-      "words": 92,
+      "words": 91,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5859,7 +5860,7 @@
         "ai",
         "web"
       ],
-      "words": 198,
+      "words": 197,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -6343,7 +6344,7 @@
         "web",
         "experiment"
       ],
-      "words": 318,
+      "words": 294,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -6590,7 +6591,7 @@
         "tools",
         "hardware"
       ],
-      "words": 489,
+      "words": 485,
       "images": 7,
       "imageDetails": {
         "total": 7,
@@ -6655,7 +6656,7 @@
       "tags": [
         "tools"
       ],
-      "words": 387,
+      "words": 366,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -6699,7 +6700,7 @@
         "radio",
         "hardware"
       ],
-      "words": 118,
+      "words": 117,
       "images": 2,
       "imageDetails": {
         "total": 2,

@@ -1,6 +1,6 @@
 /**
  * @file blogroll.get.ts
- * @description GET /api/blogroll. EJ's RSS subscriptions for pages/following, in
+ * @description GET /api/blogroll. My RSS subscriptions for pages/following, in
  *   newsboat `urls` format: { meta: { stats }, feeds[], byCategory }.
  *   Reads data/blogroll.urls (the committed snapshot); falls back to
  *   ~/.newsboat/urls whenever that file is missing. No cache. Throws 500 if neither file can be read,

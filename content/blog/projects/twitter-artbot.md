@@ -12,9 +12,9 @@ tags:
   - generative
 ---
 
-My first generative art bot — [@417am1975](https://x.com/417am1975). It ran hourly from June 2017 to late 2019, on its own: pick a random art script, render a piece with node-canvas, tweet it.
+My first generative art bot — [@417am1975](https://x.com/417am1975). It runs hourly from June 2017 to late 2019, on its own: pick a random art script, render a piece with node-canvas, tweet it.
 
-This was my first generative art bot, and boy did he make some dope shit. It came from node-canvas tick-generations.
+This is my first generative art bot, and boy does he make some dope shit. It comes from node-canvas tick-generations.
 
 I like it as an artifact of how I was using the robots to make art before AI, and how that changes my perspective on things as a computer-aided artist.
 

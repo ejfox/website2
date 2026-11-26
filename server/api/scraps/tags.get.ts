@@ -21,7 +21,7 @@ export default defineEventHandler(async (): Promise<string[]> => {
 
     const supabase = createClient(supabaseUrl, supabaseKey)
 
-    // Privacy gate: only scraps EJ marked shared are public.
+    // Privacy gate: only scraps I marked shared are public.
     const { data, error } = await supabase
       .from('scraps')
       .select('scrap_id, source, tags')

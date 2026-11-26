@@ -116,6 +116,12 @@
 }
 
 @layer components {
+  /* The one primary button: every funnel step (Hire me, Book a Call) uses it. */
+  .cta-button {
+    @apply inline-block px-4 py-2 font-mono text-xs no-underline transition-opacity
+           bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black hover:opacity-80;
+  }
+
   /* ========================================
      TYPOGRAPHY
      ======================================== */

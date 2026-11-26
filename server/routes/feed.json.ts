@@ -77,7 +77,7 @@ export default defineEventHandler(async (event) => {
     feed_url: `${siteUrl}/feed.json`,
     icon: `${siteUrl}/icon.png`,
     description:
-      'Hacker-journalist using code and art to uncover hidden patterns.',
+      'When someone hands me a mess, I take a kind of pathological joy in untangling it.',
     authors: [
       {
         name: 'EJ Fox',

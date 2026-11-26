@@ -78,7 +78,7 @@ const affiliateUrl = (url: string) => {
   if (!url?.includes('amazon.com')) return url
   try {
     const u = new URL(url)
-    // EJ's Amazon Associates tag (public by design). Matches amazon.com
+    // My Amazon Associates tag (public by design). Matches amazon.com
     // only; GearCard3D.client.vue matches any amazon.* host.
     u.searchParams.set('tag', 'ejfox0c-20')
     return u.toString()

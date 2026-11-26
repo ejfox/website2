@@ -1,6 +1,6 @@
 /**
  * @file style-broadcast.mjs
- * @description House style 4, "Broadcast": EJ's stream/video graphics look.
+ * @description House style 4, "Broadcast": my stream/video graphics look.
  *   Black and white, Archivo Black title with a white halo (never a box),
  *   IBM Plex Mono lower-third with a hairline, kicker above. The field
  *   behind is a halftone: of the post's first Cloudinary image when there

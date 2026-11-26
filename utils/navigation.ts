@@ -10,6 +10,8 @@ export interface NavItem {
   external?: boolean
   icon?: string
   primary?: boolean
+  /** The funnel step: rendered brighter than the other nav links. */
+  cta?: boolean
   mobile?: boolean
   /** Umami event name, rendered as data-umami-event (see CLAUDE.md). */
   umamiEvent?: string
@@ -18,21 +20,15 @@ export interface NavItem {
 export const navigationItems: NavItem[] = [
   // Minimal sidebar navigation
   { label: 'Home', href: '/', primary: true },
-  { label: 'Blog', href: '/blog/', primary: true },
-  { label: 'Projects', href: '/projects', primary: true },
-  { label: 'Photos', href: '/photos', primary: true },
+  { label: 'Work', href: '/projects', primary: true },
+  { label: 'Notebook', href: '/blog/', primary: true },
   {
-    label: 'Hire Me',
+    label: 'Hire me',
     href: '/consulting',
     primary: true,
+    cta: true,
     umamiEvent: 'nav-hire-me',
   }, // 💰 Money maker
-  {
-    label: 'Book a call',
-    href: '/calendar',
-    primary: true,
-    umamiEvent: 'nav-calendar',
-  },
 ]
 
 // Filter helpers

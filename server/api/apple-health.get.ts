@@ -136,7 +136,7 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
     // The webhook returns `qty` (and `avg` for rate-style metrics). There is no
     // `value` field — reading it silently yielded 0 across every trend. One extractor.
     const val = (m: MetricRecord): number => m.value ?? m.qty ?? m.avg ?? 0
-    // Calendar days are EJ's local (ET) days, not UTC: a UTC split moved every
+    // Calendar days are my local (ET) days, not UTC: a UTC split moved every
     // evening after 8pm ET into "tomorrow", and "today" used to be a rolling 24h.
     const TZ = 'America/New_York'
     const etDate = (d: Date): string =>

@@ -10,7 +10,7 @@ tags:
   - tools
 ---
 
-clipgoblin came out of a real editing problem. I was buried in a corpus of long recorded talks and lectures — hours of it — that I needed to actually navigate for a research project, and scrubbing Final Cut timelines to find the one moment someone said the thing was breaking me. So I built a tool that reads the transcript and drops a marker at every concept-relevant moment straight into the Final Cut timeline. Now I move through hours of footage by hitting `Ctrl+'` instead of scrubbing.
+clipgoblin comes out of a real editing problem. I'm buried in a corpus of long recorded talks and lectures — hours of it — that I need to actually navigate for a research project, and scrubbing Final Cut timelines to find the one moment someone says the thing is breaking me. So I build a tool that reads the transcript and drops a marker at every concept-relevant moment straight into the Final Cut timeline. Now I move through hours of footage by hitting `Ctrl+'` instead of scrubbing.
 
 ![The CLI — generating concept-tagged FCPXML markers from a words.json transcript](https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/code2.png)
 

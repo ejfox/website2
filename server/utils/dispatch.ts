@@ -14,7 +14,7 @@
  * server/routes/dispatch-rss.xml.ts, server/routes/sitemap.xml.ts.
  *
  * Markdown is rendered with allowDangerousHtml: raw HTML in a piece passes
- * through unsanitised. Fine for EJ-authored files; never feed it other input.
+ * through unsanitised. Fine for my own files; never feed it other input.
  */
 import { promises as fs } from 'node:fs'
 import { join, resolve, sep } from 'node:path'

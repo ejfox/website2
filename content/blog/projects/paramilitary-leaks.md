@@ -14,11 +14,11 @@ tags:
   - tools
 ---
 
-I was perusing Mastodon, as one does, and noticed a post from journalist [Micah Lee](https://micahflee.com/exploring-the-paramilitary-leaks/) saying he was exploring a 200GB dump from [American paramilitary groups](https://www.propublica.org/article/ap3-oath-keepers-militia-mole) — a leak made possible through the incredible bravery of John Williams, who infiltrated these groups and exfiltrated the data. I hadn't heard of the dump before, and immediately sent Micah an email offering to help with any dataviz.
+I'm perusing Mastodon, as one does, and notice a post from journalist [Micah Lee](https://micahflee.com/exploring-the-paramilitary-leaks/) saying he's exploring a 200GB dump from [American paramilitary groups](https://www.propublica.org/article/ap3-oath-keepers-militia-mole) — a leak made possible through the incredible bravery of John Williams, who infiltrated these groups and exfiltrated the data. I haven't heard of the dump before, and immediately send Micah an email offering to help with any dataviz.
 
 ![The leak explorer — search + a dense visual index of the document set](https://res.cloudinary.com/ejf/image/upload/projects/paramilitary-leaks/explorer.png)
 
-The pipeline chops and screws the data from Telegram HTML exports into SQLite, then Parquet hosted on Cloudflare R2 — a columnar format that's super-fast in the browser. On top of that sits a Nuxt + [regl-scatterplot](https://github.com/flekschas/regl-scatterplot) frontend with full-text search, filters, and a dense visual index of the corpus. We took a 200GB leak and turned it into something a reporter can explore in the browser.
+The pipeline chops and screws the data from Telegram HTML exports into SQLite, then Parquet hosted on Cloudflare R2 — a columnar format that's super-fast in the browser. On top of that sits a Nuxt + [regl-scatterplot](https://github.com/flekschas/regl-scatterplot) frontend with full-text search, filters, and a dense visual index of the corpus. We take a 200GB leak and turn it into something a reporter can explore in the browser.
 
 ![Full-text search across the corpus](https://res.cloudinary.com/ejf/video/upload/v1741568702/text-search.mp4)
 

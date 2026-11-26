@@ -1,12 +1,12 @@
 <!--
   @file PaperclipStatus.vue
-  @description EJ's live Paperclip presence emoji in the site nav
+  @description My live Paperclip presence emoji in the site nav
     (layouts/default.vue). Data + SSE stream: composables/usePaperclipStatus.ts
     (backed by server/api/paperclip.get.ts). Dimmed after 24h without an update.
   @props showTime?: boolean (show "3h"-style age next to the emoji)
 -->
 <script setup lang="ts">
-// EJ's live Paperclip presence emoji, rendered as plain text in our own type
+// My live Paperclip presence emoji, rendered as plain text in our own type
 // (never Paperclip's badge image). Data + the shared SSE stream live in
 // usePaperclipStatus. The slot is always rendered at a fixed width so the
 // emoji arriving, changing or vanishing never shifts the layout.

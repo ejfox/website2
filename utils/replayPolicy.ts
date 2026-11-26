@@ -5,7 +5,7 @@
  *
  * Recording every visit cost real main-thread time: Lighthouse measured
  * recorder.js at 0.24s on /, 0.9s on /blog and 1.6s on /stats (mobile).
- * EJ watches replays of engaged readers and of the consulting funnel, and
+ * I watch replays of engaged readers and of the consulting funnel, and
  * rarely anything else (2026-10-20), so:
  *
  * - funnel pages record right away, as before;

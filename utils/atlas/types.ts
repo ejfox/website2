@@ -37,7 +37,7 @@ export interface AtlasContext {
 }
 
 export interface AtlasLayerModule {
-  /** Private layers only load when the atlas is unlocked for EJ, and must
+  /** Private layers only load when the atlas is unlocked for me, and must
    *  fetch from /api/atlas/private/* routes (which 404 otherwise) */
   private?: boolean
   toggles: AtlasToggle[]

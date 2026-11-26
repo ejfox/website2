@@ -29,7 +29,7 @@ export default defineCachedEventHandler(
       .select(
         'id, scrap_id, source, title, summary, content, tags, concept_tags, created_at'
       )
-      // Privacy gate: only scraps EJ marked shared are public.
+      // Privacy gate: only scraps I marked shared are public.
       .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)

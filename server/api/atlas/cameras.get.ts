@@ -1,7 +1,7 @@
 /**
  * @file atlas/cameras.get.ts
  * @description GET /api/atlas/cameras. Public NYSDOT / 511NY traffic cameras in
- *   the atlas bbox, from EJ's camwatch smallweb app (server/utils/smallweb.ts):
+ *   the atlas bbox, from my camwatch smallweb app (server/utils/smallweb.ts):
  *   { cameras: FeatureCollection, fetched, errors? }.
  *   In-process cache 10 min, with one shared in-flight fetch. On upstream failure
  *   serves the last good data (or empty) plus `errors`; never throws.

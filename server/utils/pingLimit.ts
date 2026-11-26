@@ -1,5 +1,5 @@
 /**
- * Rate limits for /api/ping (anyone can buzz EJ's phone, so this is the whole
+ * Rate limits for /api/ping (anyone can buzz my phone, so this is the whole
  * safety story). In-memory on purpose: website2 is one pm2 process, and a
  * restart forgetting the counters is fine. Pure, so it's unit-testable.
  *

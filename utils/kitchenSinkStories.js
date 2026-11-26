@@ -563,8 +563,8 @@ export const stories = {
     },
   ],
 
-  // Live: reads EJ's real Paperclip status (SSR + shared SSE stream), so the
-  // preview shows whatever he's set right now — or nothing if the API is down.
+  // Live: reads my real Paperclip status (SSR + shared SSE stream), so the
+  // preview shows whatever I've set right now — or nothing if the API is down.
   PaperclipStatus: [
     { name: 'inline (mobile nav)', props: {} },
     { name: 'with time (sidebar)', props: { showTime: true } },

@@ -1,7 +1,7 @@
 /**
  * @file atlas/private/signals.get.ts
  * @description GET /api/atlas/private/signals. PRIVATE Valley Atlas layer: the
- *   last 7 days of geolocated signals from EJ's anomalywatch smallweb app:
+ *   last 7 days of geolocated signals from my anomalywatch smallweb app:
  *   { signals: FeatureCollection, excluded, fetched }. 404 unless the atlas is
  *   unlocked (server/utils/atlasPrivate.ts). Upstream memoized in-process 5 min.
  *   Throws 502 if anomalywatch fails or ATLAS_HOME_EXCLUDE is unset.
@@ -12,7 +12,7 @@
  *
  * Home-area exclusion: any signal within HOME_RADIUS_KM of a point in the
  * ATLAS_HOME_EXCLUDE env var ("lat,lon;lat,lon"), or whose text mentions
- * EJ's neighborhood (env ATLAS_HOME_TERMS) / home / location tracking, is
+ * My neighborhood (env ATLAS_HOME_TERMS) / home / location tracking, is
  * dropped. The points live in env, not here, because this repo is public.
  * Without them the route fails closed and returns nothing.
  *

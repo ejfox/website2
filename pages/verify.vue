@@ -86,7 +86,7 @@ const ACCOUNTS = [
 usePageSeo({
   title: 'Verify · EJ Fox',
   description:
-    "EJ Fox's PGP fingerprint, identity proofs and real accounts, in one place.",
+    'My PGP fingerprint, identity proofs and real accounts, in one place.',
   type: 'article',
   section: 'Meta',
   tags: ['Verification', 'PGP', 'Identity'],

@@ -1,6 +1,6 @@
 /**
  * @file usePaperclipStatus.ts
- * @description EJ's live Paperclip presence emoji, rendered by
+ * @description My live Paperclip presence emoji, rendered by
  * components/PaperclipStatus.vue (twice in layouts/default.vue).
  *
  * SSR seeds the value from /api/paperclip (cached 60s server-side). In the

@@ -1,6 +1,6 @@
 /**
  * @file discogs.get.ts
- * @description GET /api/discogs. EJ's Discogs record collection (env DISCOGS_TOKEN,
+ * @description GET /api/discogs. My Discogs record collection (env DISCOGS_TOKEN,
  *   DISCOGS_USERNAME): { stats (count, total/median/highest value), topGenres,
  *   decadeBreakdown, topArtists, randomRecord, collection[], lastUpdated }.
  *   Imported by stats and stats-lite. No cache in this file: every call walks

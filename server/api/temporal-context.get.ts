@@ -171,7 +171,7 @@ export default defineEventHandler(async (event) => {
         .select(
           'scrap_id, source, shared, title, summary, tags, url, created_at'
         )
-        // Privacy gate: only scraps EJ marked shared are public.
+        // Privacy gate: only scraps I marked shared are public.
         .eq('shared', true)
         .gte('created_at', windowStart)
         .lte('created_at', windowEnd)

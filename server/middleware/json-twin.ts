@@ -158,7 +158,7 @@ async function resolveTwin(pagePath: string): Promise<Twin | null> {
         data: {
           title: 'EJ Fox',
           description:
-            'Hacker-journalist using code and art to uncover hidden patterns.',
+            'When someone hands me a mess, I take a kind of pathological joy in untangling it.',
           counts: { published: manifest.length },
           sections: [
             'blog',

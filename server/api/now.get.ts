@@ -2,13 +2,14 @@
  * @file now.get.ts
  * @description GET /api/now. The /now page as data: { generated, lines: [{ label,
  *   href, text, at }] }, one line per thing, one thing per route, newest first.
- *   Fans out to 15 sibling routes over HTTP ($fetch, 15s timeout each). Cached
+ *   Fans out to 22 sibling routes over HTTP ($fetch, 15s timeout each). Cached
  *   5 min with swr. Never throws: each source fails alone and a dead vendor
  *   just drops its line. Dev-only env NOW_DATA_ORIGIN points the fan-out at
  *   production data.
  *
  * The page renders this list as-is, so the rules live here:
- *  1. One line per thing. `text` is a single line; the page truncates, never wraps.
+ *  1. One line per thing. `text` is a single line; the page wraps it, never
+ *     truncates it.
  *  2. One thing per route. `label` is the route it links to (/blog, /rides…),
  *     or the service name for off-site sources (last.fm, mastodon…). The one
  *     exception: every open book on /reading gets its own line.
@@ -63,12 +64,18 @@ export default defineCachedEventHandler(
       get('/api/gists'),
       get('/api/gear'),
       get('/api/predictions'),
-      get('/api/availability'),
       get('/api/mastodon', true),
       get('/api/x', true),
       get('/api/letterboxd'),
       get('/api/wiki'),
       get('/api/dispatch'),
+      get('/api/rescuetime'),
+      get('/api/paperclip'),
+      get('/api/apps'),
+      get('/api/on-this-day'),
+      get('/api/keymap'),
+      get('/api/calibration'),
+      get('/api/blogroll'),
     ])
     const [
       manifest,
@@ -80,12 +87,18 @@ export default defineCachedEventHandler(
       gists,
       gear,
       predictions,
-      availability,
       mastodon,
       x,
       letterboxd,
       wiki,
       dispatch,
+      rescuetime,
+      paperclip,
+      apps,
+      onThisDay,
+      keymap,
+      calibration,
+      blogroll,
     ] = results.map(value)
 
     // ── Lines ────────────────────────────────────────────────
@@ -102,7 +115,13 @@ export default defineCachedEventHandler(
         posts.filter((p) => re.test(p.slug)),
         (p) => p.date || p.metadata?.date
       )
-    const essay = post(/^\d{4}\//)
+    // Dated journal notes (title "2026-01-25") have no real title to show.
+    const essay = newest(
+      posts.filter(
+        (p) => /^\d{4}\//.test(p.slug) && !/^\d{4}-\d{2}-\d{2}$/.test(p.title)
+      ),
+      (p) => p.date || p.metadata?.date
+    )
     add(
       essay && {
         label: '/blog',
@@ -273,6 +292,86 @@ export default defineCachedEventHandler(
       const p = feed?.posts?.[0]
       add(p && { label, href: p.url, text: p.text, at: iso(p.at) })
     }
+    // ── Time, status, apps ──
+    const top = rescuetime?.week?.categories?.[0]
+    add(
+      top && {
+        label: 'rescuetime',
+        href: '/stats',
+        text: `${top.time.formatted} ${top.name.replace(/^General /, '').toLowerCase()} this week`,
+        at: iso(rescuetime.lastUpdated),
+      }
+    )
+    add(
+      paperclip?.emoji && {
+        label: 'paperclip',
+        href: '/apps',
+        text: paperclip.emoji,
+        at: iso(paperclip.updated_at),
+      }
+    )
+    const app = newest(
+      (Array.isArray(apps) ? apps : []).filter((a) => a.store?.updated),
+      (a) => a.store.updated
+    )
+    add(
+      app && {
+        label: '/apps',
+        href: '/apps',
+        text: `${app.name} ${app.store.version}`,
+        at: iso(app.store.updated),
+      }
+    )
+
+    // ── Corners: today in past years, keyboard, calibration, feeds ──
+    if (onThisDay) {
+      const bits = [
+        [onThisDay.total_tweets, 'tweets'],
+        [onThisDay.total_commits, 'commits'],
+        [onThisDay.total_posts, 'posts'],
+      ]
+        .filter(([n]) => n > 0)
+        .map(([n, what]) => `${n} ${what}`)
+      const day = new Date(
+        Date.UTC(2000, onThisDay.month - 1, onThisDay.day)
+      ).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'UTC',
+      })
+      add(
+        bits.length > 0 && {
+          label: '/on-this-day',
+          href: '/on-this-day',
+          text: `${day} in past years: ${bits.join(', ')}`,
+        }
+      )
+    }
+    add(
+      keymap?.title && {
+        label: '/keymap',
+        href: '/keymap',
+        text: `${keymap.title} on the ${keymap.geometry?.replace(/^./, (c: string) => c.toUpperCase())}`,
+        at: iso(keymap.updated),
+      }
+    )
+    const cal = calibration?.summary
+    add(
+      cal?.resolved > 0 && {
+        label: 'calibration',
+        href: '/predictions',
+        text: `${cal.correct} of ${cal.resolved} called right, Brier ${calibration.brier?.as_updated}`,
+        at: iso(calibration.generated_at),
+      }
+    )
+    add(
+      blogroll?.meta?.stats?.total && {
+        label: '/following',
+        href: '/following',
+        text: `${blogroll.meta.stats.total} feeds`,
+      }
+    )
+
     const film = letterboxd?.films?.[0]
     add(
       film && {
@@ -284,17 +383,6 @@ export default defineCachedEventHandler(
     )
 
     // ── Undated live numbers (sink to the bottom) ──
-    if (availability?.known) {
-      add({
-        label: '/consulting',
-        href: '/consulting',
-        text:
-          availability.openSlots > 0
-            ? `${availability.openSlots} of ${availability.capacity} client slots open`
-            : 'Fully booked',
-        at: null,
-      })
-    }
     if (wiki?.edits30d) {
       const edits = wiki.capped ? `${wiki.edits30d}+` : wiki.edits30d
       add({

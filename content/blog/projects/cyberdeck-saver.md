@@ -13,7 +13,7 @@ tags:
   - design
 ---
 
-Most cyberpunk desktops are set dressing — fake terminals scrolling gibberish for the vibe. This one is real. cyberdeck-saver is a native macOS screensaver, written in Swift and Metal, that turns your idle screen into an actual command center: a 5×5 grid of 25 terminal panels, each typing itself out with live data and post-processed through a CRT shader chain in the vulpes palette.
+cyberdeck-saver is a native macOS screensaver, written in Swift and Metal: a 5×5 grid of 25 terminal panels, each typing itself out with live data and post-processed through a CRT shader chain in the vulpes palette.
 
 The rule behind it is one line from the README — *no fake data; every byte on screen comes from a real API or a system call.* So the panels are wired to things that are actually happening: aircraft crossing the airspace over the Hudson Valley on live ADS-B, earthquakes above magnitude 2.5 in the last day, the planetary K-index off NOAA's space-weather feed, the ISS's current distance from wherever you're sitting. Next to those runs your own telemetry — Apple Health, system thermals, GitHub commits, chess ratings, what's playing on Last.fm — and your scrapbook's extracted knowledge, down to the claim-triples and the entities trending across your last fifty saves.
 

@@ -1,6 +1,6 @@
 /**
  * @file atlasPrivate.ts
- * @description Private mode for the Valley Atlas: layers only EJ can load.
+ * @description Private mode for the Valley Atlas: layers only I can load.
  *   Used by server/api/atlas/unlock|lock.get.ts and every route under
  *   server/api/atlas/private/.
  *

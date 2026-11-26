@@ -25,7 +25,7 @@ import { clientIp, createRateLimiter } from '~/server/utils/rateLimit'
 // Each request can cost an OpenRouter call, so cap it per client.
 const withinRateLimit = createRateLimiter(20, 10 * 60 * 1000)
 
-// ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
+// ⚡ BLAZINGLY FAST cache for my enlightener! *WHOOSH*
 const cache = new NodeCache({
   stdTTL: 3600, // 1 hour cache - gotta be LIGHTNING fast! *zoom*
   checkperiod: 120, // Check every 2 minutes
@@ -91,7 +91,7 @@ function calculateSimilarity(inputText: string, blogPost: BlogPost): number {
   return score
 }
 
-// Load EJ's existing tags vocabulary *ZOOM*
+// Load my existing tags vocabulary *ZOOM*
 // Vocabulary: public/tags.json if it exists, else the live site's tags.json,
 // else the hardcoded list below.
 async function loadTagsVocabulary(): Promise<string[]> {
@@ -114,7 +114,7 @@ async function loadTagsVocabulary(): Promise<string[]> {
       cache.set(cacheKey, tags, 3600) // Cache for 1 hour *swoosh*
     } catch (error) {
       console.error('Failed to load tags vocabulary:', error)
-      // Fallback vocabulary based on EJ's interests
+      // Fallback vocabulary based on my interests
       tags = [
         'dataviz',
         'journalism',
@@ -155,7 +155,7 @@ async function loadTagsVocabulary(): Promise<string[]> {
   return tags || []
 }
 
-// Load EJ's blog posts for context *WHOOSH*
+// Load my blog posts for context *WHOOSH*
 async function loadBlogPosts(): Promise<BlogPost[]> {
   const cacheKey = 'blog_posts_context'
   let posts = cache.get<BlogPost[]>(cacheKey)
@@ -415,7 +415,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
   const query = getQuery(event)
   const { url, title, text, auth, description } = query
 
-  // Basic auth check - EJ's security! 🔒
+  // Basic auth check - my security! 🔒
   const config = useRuntimeConfig()
   const expectedAuth =
     config.scrapEnlightenerAuth || process.env.SCRAP_ENLIGHTENER_AUTH

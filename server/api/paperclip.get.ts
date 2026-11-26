@@ -1,6 +1,6 @@
 /**
  * @file paperclip.get.ts
- * @description GET /api/paperclip. EJ's current Paperclip presence emoji, for SSR.
+ * @description GET /api/paperclip. My current Paperclip presence emoji, for SSR.
  *   The browser upgrades it to a live SSE stream straight from Paperclip (see
  *   composables/usePaperclipStatus.ts); this route only seeds first paint.
  *   Returns { emoji, updated_at }, or null when Paperclip is down or the profile

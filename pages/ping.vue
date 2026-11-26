@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// /ping: anyone can buzz EJ's phone with a short note (server/api/ping.post.ts,
+// /ping: anyone can buzz my phone with a short note (server/api/ping.post.ts,
 // rate-limited in server/utils/pingLimit.ts).
 const MAX = 200
 const message = ref('')

@@ -110,7 +110,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // SSR markdown processing
-    // allowDangerousHtml: prediction files are EJ's own committed markdown.
+    // allowDangerousHtml: prediction files are my own committed markdown.
     const processor = unified()
       .use(remarkParse)
       .use(remarkGfm)

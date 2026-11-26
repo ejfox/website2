@@ -1,6 +1,6 @@
 <!--
   @file KeymapBoard.vue
-  @description SVG drawing of EJ's ZSA Voyager keymap for pages/keymap.vue.
+  @description SVG drawing of my ZSA Voyager keymap for pages/keymap.vue.
     Key data shape (t/h/d/L/x) is defined in server/utils/oryx.ts.
   @props layers: KeymapLayer[]; active?: layer index (default 0);
     mode?: 'specimen' | 'diff' | 'strata' (default specimen)

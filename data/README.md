@@ -19,7 +19,6 @@ These are the truth; nothing regenerates them. Edit by hand or re-export.
 | `lastfm-scrobbles.csv` (13M) | scrobble export — input to on-this-day / stats | `processMarkdown.mjs` |
 | `colophon.json` | site colophon | `pages/changelog.vue` |
 | `updates.json` | updates feed | `pages/updates.vue` |
-| `consulting-availability.json` | consulting slots | `/api/consulting-availability` |
 | `webmention-moderation.json` | webmention allow/block list | `/api/webmentions` |
 
 ## cache — regenerated from external APIs, committed for build resilience

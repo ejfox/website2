@@ -1,7 +1,7 @@
 /**
  * @file atlas/private/sky.get.ts
  * @description GET /api/atlas/private/sky. PRIVATE Valley Atlas layer: aircraft
- *   over the valley, from EJ's skywatch smallweb app: { density, notable,
+ *   over the valley, from my skywatch smallweb app: { density, notable,
  *   positions (count), fetched }. 404 unless the atlas is unlocked
  *   (server/utils/atlasPrivate.ts). Upstream memoized in-process 5 min.
  *   Throws 502 if skywatch positions or notable fail (archive is optional).
@@ -9,8 +9,8 @@
  * - notable: military / government / law-enforcement aircraft seen in the
  *   last 24h, one point per aircraft at its last known position
  *
- * Minimized on purpose. Skywatch also knows EJ's live location (OwnTracks)
- * and a list of watched POIs, one of which is his neighborhood; none of that
+ * Minimized on purpose. Skywatch also knows my live location (OwnTracks)
+ * and a list of watched POIs, one of which is my neighborhood; none of that
  * is read here, and the per-sighting `nearest_poi` and free-text `details`
  * (which can name a POI) are dropped. Only the whitelisted fields below
  * leave the server.

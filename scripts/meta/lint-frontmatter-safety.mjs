@@ -53,6 +53,7 @@ const VALID_FIELDS = new Set([
   'featured',
   'client',
   'github',
+  'case-study',
   'ai-involvement',
 ])
 

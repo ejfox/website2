@@ -75,7 +75,7 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
     state.isAnimating = true
     state.typedCount = 0
 
-    // EJ's typing profile from 247 monkeytype tests:
+    // My typing profile from 247 monkeytype tests:
     // Short bursts: 155-188 WPM, settles to ~150 WPM
     // Accuracy: 98% (2% errors), Consistency: ~80%
     // 155 WPM ≈ 77ms base delay
